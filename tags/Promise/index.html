@@ -1,0 +1,345 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><link href="//mydearest.cn" rel="dns-prefetch"><link href="//www.mydearest.cn" rel="dns-prefetch"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta name="description" content="陈宇的博客"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><meta name="keywords" content="Hexo, NexT"><link rel="alternate" href="/rss2.xml" title="cosyer's Blog" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><meta name="description" content="陈宇的博客"><meta name="keywords" content="个人博客,web前端,前端工程师,vue,react,webpack,css3,es6,html5,nodejs,php,java,hexo,next,electron,iview"><meta property="og:type" content="website"><meta property="og:title" content="cosyer&#39;s Blog"><meta property="og:url" content="http://mydearest.cn/tags/Promise/index.html"><meta property="og:site_name" content="cosyer&#39;s Blog"><meta property="og:description" content="陈宇的博客"><meta property="og:locale" content="zh-Hans"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="cosyer&#39;s Blog"><meta name="twitter:description" content="陈宇的博客"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",sidebar:{position:"left",display:"always",offset:12,offset_float:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:!0,duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://mydearest.cn/tags/Promise/"><title>标签: Promise | cosyer's Blog</title><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?653a4be35cb6c7b26817038a17c3f0d6";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><link href="https://static.mydearest.cn/blog/css/all-9097fb9016.css" rel="stylesheet" type="text/css"><style>// scrollbar滚动条样式优化 ::-webkit-scrollbar-corner{background-color:transparent}::-webkit-scrollbar-button{width:0;height:0;display:none}::-webkit-scrollbar-thumb{width:7px;background-color:#b4babf;border-radius:7px}::-webkit-scrollbar{width:7px;height:7px}::-webkit-scrollbar-track{width:15px}::-webkit-scrollbar:hover{background-color:transparent}*{cursor:url(http://p33v4b0bc.bkt.clouddn.com/miku1.png),auto!important}:active{cursor:url(http://p33v4b0bc.bkt.clouddn.com/miku2.png),auto!important}a:hover{cursor:url(http://p33v4b0bc.bkt.clouddn.com/miku2.png),auto!important}</style></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div id="loader"><div></div></div><div class="container sidebar-position-left"><div class="headband"></div> <a href="https://github.com/cosyer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"></path><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">cosyer's Blog</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">Blog</h1></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" class="faa-parent animated-hover" rel="section"><i class="menu-item-icon fa fa-fw fa-home faa-wrench"></i><br> 首页</a></li><li class="menu-item menu-item-links"><a href="/links/" class="faa-parent animated-hover" rel="section"><i class="menu-item-icon fa fa-fw fa-link faa-shake"></i><br> 友链</a></li><li class="menu-item menu-item-guestbook"><a href="/guestbook/" class="faa-parent animated-hover" rel="section"><i class="menu-item-icon fa fa-fw fa-comment-o faa-tada"></i><br> 留言板</a></li><li class="menu-item menu-item-archives"><a href="/archives/" class="faa-parent animated-hover" rel="section"><i class="menu-item-icon fa fa-fw fa-archive faa-float"></i><br> 归档</a></li><li class="menu-item menu-item-about"><a href="/about/" class="faa-parent animated-hover" rel="section"><i class="menu-item-icon fa fa-fw fa-user faa-horizontal"></i><br> 关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger faa-parent animated-hover"><i class="menu-item-icon fa fa-search faa-burst fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div class="collection-title-per"><h2> Promise <span>标签</span></h2></div><section id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-date" data-datetime="2018-06-07T01:35:00+08:00"><div class="post-time-text">6月</div><div class="post-time-count">07</div><div class="text-desc"><div class="date-text">更新于</div><div class="post-tiem">6月07</div><div class="post-year">2018</div></div></div><div class="post-badge"> <span class="post-category"><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span></span></div><div class="post-block"><link itemprop="mainEntityOfPage" href="http://mydearest.cn/createPromise.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="陈宇（cosyer）"><meta itemprop="description" content="不去做的话永远也做不到。"><meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="cosyer's Blog"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"> <a class="post-title-link" href="/createPromise.html" itemprop="url">Promise诞生记</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-05T01:34:09+08:00">2018-06-05</time></span> <span id="/createPromise.html" class="leancloud_visitors" data-flag-title="Promise诞生记"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">热度</span><span class="leancloud-visitors-count"></span> ℃</span><div class="post-wordcount"> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-pencil-square-o"></i></span> <span class="post-meta-item-text">字数统计：</span> <span title="字数统计：">1,436 (字)</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-clock-o"></i></span> <span class="post-meta-item-text">阅读时长：</span> <span title="阅读时长：">6 (分钟)</span></div></div></header><div class="post-body" itemprop="articleBody"> <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://p33v4b0bc.bkt.clouddn.com/promise.png" class="full-image" alt="Promise" title="Promise"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span><p>前端近年的兴起，有大部分是因为 <code>NodeJS</code> 的诞生，而 <code>NodeJS</code> 是个适用于 <strong>异步IO</strong> 密集型的语言，一些基于 <code>NodeJS</code> 的框架，比喻 <em>KOA2、Adonis</em> 就有大量的 <code>async</code> 和 <code>await</code> 语法，<code>async</code>的函数的返回值就是 <code>Promise</code> 对象，我们可以用 <code>async</code> 和 <code>await</code> 语法，写出优雅的异步代码，来替换难看且难维护的回调函数。</p><h2 id="Promise-概念"><a href="#Promise-概念" class="headerlink" title="Promise 概念"></a>Promise 概念</h2><p><code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。 生成实例时回执信作为参数的函数；<br> <code>resolve</code>函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去； <code>reject</code>函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p><hr><div class="post-button text-center"> <a class="btn" href="/createPromise.html#more" rel="contents">阅读全文 &raquo;</a></div></div><div></div><div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article></section></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><section class="site-overview sidebar-panel sidebar-panel-active"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="https://static.mydearest.cn/blog/images/avatar.jpg" alt="陈宇（cosyer）"><p class="site-author-name" itemprop="name">陈宇（cosyer）</p><p class="site-description motion-element" itemprop="description">不去做的话永远也做不到。</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">5</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">3</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">7</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/rss2.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a rel="external nofollow" href="https://github.com/cosyer" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://twitter.com/yzchenyu1995" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i> Twitter</a></span><span class="links-of-author-item"><a rel="external nofollow" href="mailto:yzchenyu1995@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://www.facebook.com/profile.php?id=100025666071215" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i> FB Page</a></span></div><div class="links-of-blogroll motion-element links-of-blogroll-inline"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-globe"></i> 推荐阅读</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a rel="external nofollow" href="http://callmesoul.cn" title="Callmesoul" target="_blank">Callmesoul</a></li><li class="links-of-blogroll-item"> <a rel="external nofollow" href="https://www.jstips.co/" title="JsTips" target="_blank">JsTips</a></li><li class="links-of-blogroll-item"> <a rel="external nofollow" href="http://dir.mydearest.cn/motion/" title="Personal Site" target="_blank">Personal Site</a></li></ul></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright"> &copy; <span itemprop="copyrightYear">2018</span><span class="with-love"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">陈宇（cosyer）</span></div><div><span class="alive"></span></div><div class="powered-by"><i class="fa fa-users fa-fw"></i> <span id="busuanzi_container_site_uv">终于等到你(UV):<span id="busuanzi_value_site_uv"></span></span> &nbsp;&nbsp;|&nbsp;&nbsp;<i class="fa fa-bar-chart-o fa-fw"></i> <span id="busuanzi_container_site_pv">欢迎再来(PV):<span id="busuanzi_value_site_pv"></span></span><div class="theme-info"><div class="powered-by"></div> <span class="post-count">Blog总字数: 5.5k字</span></div></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="https://cdn.lishaoy.net/js/index.js"></script><script src="https://cdn.lishaoy.net/js/av-min.js"></script><script src="https://cdn.lishaoy.net/js/%233479dsfjdseruijersdf3r.Valine.min.js"></script><script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        appId: 'SKflNaQWS70153r2kOqgcGge-gzGzoHsz',
+        appKey: 'gE9ySnRyOkS4UNzYJ7GOCa56',
+        placeholder: '想说点什么 ：）',
+        avatar: 'retro'
+    });
+  </script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script src="https://cdn.lishaoy.net/js/av-core-mini-0.6.4.js"></script><script>AV.initialize("SKflNaQWS70153r2kOqgcGge-gzGzoHsz","gE9ySnRyOkS4UNzYJ7GOCa56")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script><script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script><script type="text/javascript" src=""></script><div id="load" style=""></div><script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-c2647aaa4b.js"></script><script>!function(){function e(e,t,n){return e.getAttribute(t)||n}function t(e){return document.getElementsByTagName(e)}function n(){d=c.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,u=c.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight}function m(){s.clearRect(0,0,d,u);var t,n,i,o,a,c,l=[f].concat(y);y.forEach(function(e){for(e.x+=e.xa,e.y+=e.ya,e.xa*=e.x>d||e.x<0?-1:1,e.ya*=e.y>u||e.y<0?-1:1,s.fillRect(e.x-.5,e.y-.5,1,1),n=0;n<l.length;n++)e!==(t=l[n])&&null!==t.x&&null!==t.y&&(o=e.x-t.x,a=e.y-t.y,(c=o*o+a*a)<t.max&&(t===f&&c>=t.max/2&&(e.x-=.03*o,e.y-=.03*a),i=(t.max-c)/t.max,s.beginPath(),s.lineWidth=i/2,s.strokeStyle="rgba("+r.c+","+(i+.2)+")",s.moveTo(e.x,e.y),s.lineTo(t.x,t.y),s.stroke()));l.splice(l.indexOf(e),1)}),w(m)}var d,u,i,o,a,c=document.createElement("canvas"),r=(i=t("script"),o=i.length,a=i[o-1],{l:o,z:e(a,"zIndex",-1),o:e(a,"opacity",1),c:e(a,"color","255, 255, 255"),n:e(a,"count",99)}),l="c_n"+r.l,s=c.getContext("2d"),w=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(e){window.setTimeout(e,1e3/45)},x=Math.random,f={x:null,y:null,max:2e4};c.id=l,c.style.cssText="position:fixed;top:0;left:0;z-index:"+r.z+";opacity:"+r.o,t("body")[0].appendChild(c),n(),window.onresize=n,window.onmousemove=function(e){e=e||window.event,f.x=e.clientX,f.y=e.clientY},window.onmouseout=function(){f.x=null,f.y=null};for(var y=[],g=0;r.n>g;g++){var h=x()*d,v=x()*u,T=2*x()-1,p=2*x()-1;y.push({x:h,y:v,xa:T,ya:p,max:6e3})}setTimeout(function(){m()},100)}();var titleTime,OriginTitle=document.title;document.addEventListener("visibilitychange",function(){document.hidden?($('[rel="icon"]').attr("href","/img/TEP.ico"),document.title="╭(°A°`)╮ 页面崩溃啦 ~",clearTimeout(titleTime)):($('[rel="icon"]').attr("href","/favicon.ico"),document.title="(ฅ>ω<*ฅ) 噫又好了~"+OriginTitle,titleTime=setTimeout(function(){document.title=OriginTitle},2e3))});var aliveList=document.getElementsByClassName("alive");setInterval(function(){var e=new Date,t="博客存活了"+Math.floor((+new Date-15278688e5)/864e5)+"天 "+e.getHours()+"小时"+e.getMinutes()+"分"+e.getSeconds()+"秒";aliveList[0].innerHTML=t},1e3),window.onload=function(){var e=window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart;console.log("Page load time is "+e)}</script><script>$(function(){$("#loader").css("display","none")})</script><style>.comments.no-post{background:0 0}.no-post.v *{color:#ddd}.v .vlist p{margin:12px 0}.v .vbtn{background:#fbfbfb;padding:.3rem 1.2em;border:1px solid #dddddd75}.no-post.v .vbtn{background:#2222220a}.no-post.v .vbtn:active,.no-post.v .vbtn:hover{background-color:#fff}.no-post.v .vwrap{border:1px solid #f0f0f036}.no-post.v a{color:#ddd}.v ul{padding-left:25px}.v ul li{list-style:disc;padding:2px 15px 0 0}.v .vlist strong,.vinput.vpreview strong{color:#87daff;font-size:108%}.v .vlist .vcard .vhead .vsys{background:#87daff17;color:#aaa;border:1px solid #87daff1f;padding:1px 5px;font-size:12px;line-height:1.4}.no-post.v .vlist .vcard .vhead .vsys{background:#ededed1f;color:grey;padding:1px 5px;font-size:12px;line-height:1.4;border:none}.v .vlist .vcard .vcontent a{color:#86dbff;border-bottom-color:#86dbff99}.v .vlist .vcard .vcontent a:hover{color:#d7191a;border-bottom-color:#222}.no-post.v .vlist .vcard section{border-bottom:1px dashed #f5f5f55e}.v .vwrap .vheader .vinput{width:33.33%;border-bottom:1px dashed #dedede45}.no-post.v .vwrap .vheader .vinput::-webkit-input-placeholder{color:grey}.no-post.v .vwrap .vheader .vinput:-ms-input-placeholder{color:grey}.v .txt-right{display:none}.v .vlist .vcard .vcontent .code,.v .vlist .vcard .vcontent code,.v .vlist .vcard .vcontent pre,.vinput.vpreview code,.vinput.vpreview pre{color:#005098fc;background:#87daffb8;border-radius:4px;box-shadow:0 0 2px #87daff;font-size:90%;padding:2px 6px}.v .vlist .vcard .vcontent img{max-width:18px;display:inline-block}.v .vlist .vcard .vcontent img{max-width:18px;display:inline-block}.v .vwrap .vheader .vinput:focus{border-bottom:1px solid #87daff}.v .vlist .vcard .vcontent pre,.vinput.vpreview pre{background:#87daff21;border-radius:4px;box-shadow:0 0 2px #ffffff33}.v .vlist .vcard .vcontent pre code,.vinput.vpreview pre code{color:#87daff;background:#87daff00;border-radius:4px;box-shadow:0 0 2px #87daff05}.v .vlist .vcard .vcontent.expand:after{color:#ff0000de;font-size:110%;font-weight:700;background:#87daff38;border-bottom-right-radius:4px;border-bottom-left-radius:4px}.comments.no-post .vlist .vcard .vcontent.expand:after{color:#fff}@media screen and (max-width:414px){.v .vlist{padding-left:0}}.v .vlist .vcard .vcontent.expand:before{background:linear-gradient(180deg,hsla(0,0%,100%,0),hsla(199,100%,76%,.22));background:-webkit-gradient(linear,left top,left bottom,from(hsla(0,0%,100%,0)),to(hsla(199,100%,76%,.22));}</style></body></html>

@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="es6,this," />
 
 
 
@@ -132,17 +132,18 @@
 
 
 
-<meta name="description" content="陈宇的博客">
-<meta name="keywords" content="个人博客,web前端,前端工程师,vue,react,webpack,css3,es6,html5,nodejs,php,java,hexo,next,electron,iview">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cosyer&#39;s Blog">
-<meta property="og:url" content="http://mydearest.cn/archives/2018/index.html">
+<meta name="description" content="this 的指向this 是 js 中定义的关键字，它自动定义于每一个函数域内。在实际应用中，this的指向大致可以分为以下四种情况。">
+<meta name="keywords" content="es6,this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 中 this 的详解">
+<meta property="og:url" content="http://mydearest.cn/jsthis.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="陈宇的博客">
+<meta property="og:description" content="this 的指向this 是 js 中定义的关键字，它自动定义于每一个函数域内。在实际应用中，this的指向大致可以分为以下四种情况。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-09T05:52:50.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cosyer&#39;s Blog">
-<meta name="twitter:description" content="陈宇的博客">
+<meta name="twitter:title" content="JavaScript 中 this 的详解">
+<meta name="twitter:description" content="this 的指向this 是 js 中定义的关键字，它自动定义于每一个函数域内。在实际应用中，this的指向大致可以分为以下四种情况。">
 
 
 
@@ -171,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="http://mydearest.cn/archives/2018/"/>
+  <link rel="canonical" href="http://mydearest.cn/jsthis.html"/>
 
 
 
 
 
-  <title>归档 | cosyer's Blog</title>
+  <title>JavaScript 中 this 的详解 | cosyer's Blog</title>
   
 
 
@@ -261,7 +262,7 @@ a:hover {
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/cosyer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -400,480 +401,334 @@ a:hover {
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block per-tag">
 
-    <div id="posts" class="posts-expand">
-
-      <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 10 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Promise/" style="font-size: 14px; color: #f6f6f6">Promise</a> <a href="/tags/es6/" style="font-size: 25px; color: #87daff">es6</a> <a href="/tags/for/" style="font-size: 14px; color: #f6f6f6">for</a> <a href="/tags/markdown/" style="font-size: 14px; color: #f6f6f6">markdown</a> <a href="/tags/react/" style="font-size: 14px; color: #f6f6f6">react</a> <a href="/tags/this/" style="font-size: 14px; color: #f6f6f6">this</a> <a href="/tags/vultr/" style="font-size: 14px; color: #f6f6f6">vultr</a> <a href="/tags/性能优化/" style="font-size: 14px; color: #f6f6f6">性能优化</a> <a href="/tags/杂谈/" style="font-size: 14px; color: #f6f6f6">杂谈</a> <a href="/tags/面试/" style="font-size: 14px; color: #f6f6f6">面试</a>
-            </div>
-      </div>
-    </div>
-
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2018-06-09T13:52:50+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">09</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月09</div>
+      <div class="post-year">2018</div>
+		</div>
   </div>
   
   
   
 
-    <div class="post-block per-categories">
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/jsthis.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline"></h2>
+        
+        
+          <h2 class="post-title" itemprop="name headline">JavaScript 中 this 的详解</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-08T16:58:32+08:00">
+                2018-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
 
 
+          
+            
+          
 
-</header>
+          
+          
+             <span id="/jsthis.html" class="leancloud_visitors" data-flag-title="JavaScript 中 this 的详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
 
-      <div class="post-body">
-        <div class="category-all-page">
-                <div class="category-all-title">
-                    目前共计 3 个分类
-                </div>
-                <div class="category-all">
-                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">1</span></li></ul>
-                </div>
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,240 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  5 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
         </div>
-      </div>
-    </div>
+      </header>
+    
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse ">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
-        
-        
-        
-        
+      
+        <h2 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h2><p><code>this</code> 是 js 中定义的关键字，它自动定义于每一个函数域内。在实际应用中，<code>this</code>的指向大致可以分为以下四种情况。</p>
+<hr>
+<a id="more"></a>
+<h3 id="作为普通函数调用"><a href="#作为普通函数调用" class="headerlink" title="作为普通函数调用"></a>作为普通函数调用</h3><p>当函数作为一个普通函数被调用，<code>this</code>指向全局对象。在浏览器里，全局对象就是 window。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.name = <span class="string">'cosyer'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">getName();                   <span class="comment">// cosyer</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看出，此时<code>this</code>指向了全局对象 window。
+在ECMAScript5的严格模式下，这种情况<code>this</code>已经被规定不会指向全局对象了，而是undefined。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun();                      <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="作为对象的方法调用"><a href="#作为对象的方法调用" class="headerlink" title="作为对象的方法调用"></a>作为对象的方法调用</h3><p>当函数作为一个对象里的方法被调用，<code>this</code>指向该对象
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name : <span class="string">'cosyer'</span>,</span><br><span class="line">    getName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.getName();              <span class="comment">// cosyer</span></span><br></pre></td></tr></table></figure></p>
+<p>如果把对象的方法赋值给一个变量，再调用这个变量：
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    fun1 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fun2 = obj.fun1;</span><br><span class="line">fun2();                     <span class="comment">// window</span></span><br></pre></td></tr></table></figure></p>
+<p>此时调用 fun2 方法 输出了 window 对象，说明此时<code>this</code>指向了全局对象。给 fun2 赋值，其实是相当于：
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看出，此时的<code>this</code>已经跟 obj 没有任何关系了。这时 fun2 是作为普通函数调用。</p>
+<h3 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a>作为构造函数调用</h3><p>js中没有类，但是可以从构造器中创建对象，并提供了<code>new</code>运算符来进行调用该构造器。构造器的外表跟普通函数一样，大部分的函数都可以当做构造器使用。当构造函数被调用时，<code>this</code>指向了该构造函数实例化出来的对象。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'cosyer'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);      <span class="comment">// cosyer</span></span><br></pre></td></tr></table></figure></p>
+<p>如果构造函数显式的返回一个对象，那么<code>this</code>则会指向该对象。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'cosyer'</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        name : <span class="string">'chenyu'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);      <span class="comment">// chenyu</span></span><br></pre></td></tr></table></figure></p>
+<p>如果该函数不用<code>new</code>调用，当作普通函数执行，那么<code>this</code>依然指向全局对象。</p>
+<h3 id="call-或-apply-调用"><a href="#call-或-apply-调用" class="headerlink" title="call() 或 apply() 调用"></a>call() 或 apply() 调用</h3><p>通过调用函数的 call() 或 apply() 方法可动态的改变<code>this</code>的指向。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    name : <span class="string">'cosyer'</span>,</span><br><span class="line">    getName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    name : <span class="string">'chenyu'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj1.getName();             <span class="comment">// cosyer</span></span><br><span class="line">obj1.getName.call(obj2);    <span class="comment">// chenyu</span></span><br><span class="line">obj1.getName.apply(obj2);   <span class="comment">// chenyu</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><div class="note info"><p>箭头函数的引入有两个方面的作用：一是更简短的函数书写，二是对<code>this</code>的词法解析。
+在箭头函数出现之前，每个新定义的函数都有其自己的<code>this</code>值（例如，构造函数的<code>this</code>指向了一个新的对象；严格模式下的函数的<code>this</code>值为 undefined；如果函数是作为对象的方法被调用的，则其<code>this</code>指向了那个调用它的对象）。在面向对象风格的编程中，这会带来很多困扰。</p></div>
+<h3 id="ES6-的箭头函数-gt-，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境-当前定义时的对象-。"><a href="#ES6-的箭头函数-gt-，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境-当前定义时的对象-。" class="headerlink" title="ES6 的箭头函数 ()=&gt;，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境(当前定义时的对象)。"></a>ES6 的箭头函数 ()=&gt;，指向与一般function定义的函数不同，比较容易绕晕，箭头函数<code>this</code>的定义：箭头函数中的<code>this</code>是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的<code>this</code>，它的<code>this</code>是派生而来的。箭头函数会捕获其所在上下文的<code>this</code>值，作为自己的<code>this</code>值，即指向所在上下文的执行环境(当前定义时的对象)。</h3><h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 等价于: =&gt; &#123; return expression; &#125; </span></span><br><span class="line">(param1, param2, …, paramN) =&gt; &#123; statements &#125;</span><br><span class="line">(param1, param2, …, paramN) =&gt; expression</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果只有一个参数，圆括号是可选的:</span></span><br><span class="line">(singleParam) =&gt; &#123; statements &#125;</span><br><span class="line">singleParam =&gt; &#123; statements &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参数或者多参数的箭头函数需要使用圆括号或者下划线:</span></span><br><span class="line">() =&gt; &#123; statements &#125; _ =&gt; &#123; statements &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只返回一个对象字面量,没有其他语句时, 应当用圆括号将其包起来:</span></span><br><span class="line">params =&gt; (&#123;<span class="attr">foo</span>: bar&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持 Rest parameters 和 default parameters:</span></span><br><span class="line">(param1, param2, ...rest) =&gt; &#123; statements &#125;</span><br><span class="line">(param1 = defaultValue1, param2, …, paramN = defaultValueN) =&gt; &#123; statements &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持参数列表中的解构赋值</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function">(<span class="params">[a, b] = [<span class="number">1</span>, <span class="number">2</span>], = </span>) =&gt;</span> a + b + c;</span><br><span class="line">f(); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h3 id="箭头函数不可以使用arguments对象，"><a href="#箭头函数不可以使用arguments对象，" class="headerlink" title="箭头函数不可以使用arguments对象，"></a>箭头函数不可以使用arguments对象，</h3><p>arguments对象在函数体内不存在，如果要用的话，可以用rest参数代替</p>
+<h3 id="箭头函数没有原型"><a href="#箭头函数没有原型" class="headerlink" title="箭头函数没有原型"></a>箭头函数没有原型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="箭头函数无法构造函数"><a href="#箭头函数无法构造函数" class="headerlink" title="箭头函数无法构造函数"></a>箭头函数无法构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(); <span class="comment">// TypeError: Foo is not a constructor</span></span><br></pre></td></tr></table></figure>
+<h3 id="箭头函数无法使用yield"><a href="#箭头函数无法使用yield" class="headerlink" title="箭头函数无法使用yield"></a>箭头函数无法使用yield</h3><p>yield 关键字通常不能在箭头函数中使用（除非是嵌套在允许使用的函数内）。因此，箭头函数不能用作生成器。</p>
+<p>let index = 0;
+let arr = [];
+while (index &lt; 50000) {
+    arr.push(index);
+    index++;
+}</p>
+<p>console.time(‘one’);
+for (let i = 0; i &lt; arr.length; i++) {</p>
+<p>}
+console.timeEnd(‘one’);</p>
+<p>console.time(‘two’);
+for (let i = 0, len = arr.length; i &lt; len; i++) {</p>
+<p>}
+console.timeEnd(‘two’);</p>
+<p>console.time(‘three’);
+for (let i = 0, item; item = arr[i++];) {</p>
+<p>}
+console.timeEnd(‘three’);</p>
+<p>console.time(‘four’);
+for (let i of arr) {</p>
+<p>}
+console.timeEnd(‘four’);
+console.time(‘five’);
+for (let i in arr) {</p>
+<p>}
+console.timeEnd(‘five’);</p>
 
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div class="text-center line pages-end">
+				<span>本文结束<i class="fa fa-meh-o fa-fw"></i>感谢您的阅读</span>
+        </div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
         
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈宇（cosyer） WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="陈宇（cosyer） Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
+            <a href="/tags/es6/" rel="tag"><i class="fa fa-tag fa-fw"></i> es6</a>
+          
+            <a href="/tags/this/" rel="tag"><i class="fa fa-tag fa-fw"></i> this</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/reactInterview.html" rel="next" title="react面试题记录">
+                <i class="fa fa-chevron-left"></i> react面试题记录
+              </a>
+            
           </div>
-        
-        
 
-        
+          <span class="post-nav-divider"></span>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/forloop.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-09">从 for 循环入手优化性能</span>
-                
-                  <span id="/forloop.html" class="leancloud_visitors" data-flag-title="从 for 循环入手优化性能">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-08T20:32:57+08:00"
-              content="2018-06-08" >
-          06-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/es6function.html" rel="prev" title="es6函数新特性">
+                es6函数新特性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
-        
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/es6function.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-09">es6函数新特性</span>
-                
-                  <span id="/es6function.html" class="leancloud_visitors" data-flag-title="es6函数新特性">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-08T19:35:58+08:00"
-              content="2018-06-08" >
-          06-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/jsthis.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-09">JavaScript 中 this 的详解</span>
-                
-                  <span id="/jsthis.html" class="leancloud_visitors" data-flag-title="JavaScript 中 this 的详解">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-08T16:58:32+08:00"
-              content="2018-06-08" >
-          06-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/reactInterview.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-09">react面试题记录</span>
-                
-                  <span id="/reactInterview.html" class="leancloud_visitors" data-flag-title="react面试题记录">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-07T14:47:09+08:00"
-              content="2018-06-07" >
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/scienceInternet.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-09">搭建VPS科学上网</span>
-                
-                  <span id="/scienceInternet.html" class="leancloud_visitors" data-flag-title="搭建VPS科学上网">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-07T10:21:24+08:00"
-              content="2018-06-07" >
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/createPromise.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-09">Promise诞生记</span>
-                
-                  <span id="/createPromise.html" class="leancloud_visitors" data-flag-title="Promise诞生记">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-05T01:34:09+08:00"
-              content="2018-06-05" >
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/markdownGrammar.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-07">如何使用 markdown 语法写博客</span>
-                
-                  <span id="/markdownGrammar.html" class="leancloud_visitors" data-flag-title="如何使用 markdown 语法写博客">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-07T07:25:19+08:00"
-              content="2018-04-07" >
-          04-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/hello-world.html" itemprop="url">
-              
-                <span itemprop="name" class="archive-title" updated="2018-06-07">Hello World - 热爱编程的普通人，顺便以此为生。</span>
-                
-                  <span id="/hello-world.html" class="leancloud_visitors" data-flag-title="Hello World - 热爱编程的普通人，顺便以此为生。">
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon">
-                      <i class="fa fa-eye"></i>
-                    </span>
-                    
-                      <span class="post-meta-item-text">热度 </span>
-                    
-                      <span class="leancloud-visitors-count"></span> ℃
-                  </span>
-                
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-01T01:34:09+08:00"
-              content="2018-04-01" >
-          04-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-    </div>
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -882,6 +737,12 @@ a:hover {
 
           
             
+  <div class="comments" id="comments">
+    
+      <div class="comments v" id="comments"></div>
+    
+  </div>
+
 
           
         </div>
@@ -903,8 +764,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://static.mydearest.cn/blog/images/avatar.jpg"
@@ -1042,6 +912,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this-的指向"><span class="nav-number">1.</span> <span class="nav-text">this 的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为普通函数调用"><span class="nav-number">1.1.</span> <span class="nav-text">作为普通函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为对象的方法调用"><span class="nav-number">1.2.</span> <span class="nav-text">作为对象的方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为构造函数调用"><span class="nav-number">1.3.</span> <span class="nav-text">作为构造函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call-或-apply-调用"><span class="nav-number">1.4.</span> <span class="nav-text">call() 或 apply() 调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数"><span class="nav-number">2.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-的箭头函数-gt-，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境-当前定义时的对象-。"><span class="nav-number">2.1.</span> <span class="nav-text">ES6 的箭头函数 ()=&gt;，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境(当前定义时的对象)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础语法"><span class="nav-number">2.2.</span> <span class="nav-text">基础语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语法"><span class="nav-number">2.3.</span> <span class="nav-text">高级语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数不可以使用arguments对象，"><span class="nav-number">2.4.</span> <span class="nav-text">箭头函数不可以使用arguments对象，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数没有原型"><span class="nav-number">2.5.</span> <span class="nav-text">箭头函数没有原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数无法构造函数"><span class="nav-number">2.6.</span> <span class="nav-text">箭头函数无法构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数无法使用yield"><span class="nav-number">2.7.</span> <span class="nav-text">箭头函数无法使用yield</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1148,12 +1034,7 @@ a:hover {
 
   
   
-    <script type="text/javascript" id="motion.page.archive">
-    $(function(){
-      $('.archive-year').velocity('transition.slideLeftIn');
-    });
-    </script>
-  
+
 
 
   

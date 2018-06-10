@@ -1,1 +1,456 @@
-$(function(){var e=["/live2dw/assets/hijiki.model.json","/live2dw/assets/tororo.model.json"][Math.round(Math.random())],t=0,n=0,a=0,o=0;$(window).width()<=1024?(t=1,n=1.6,a=6,o=-116):(n=1.8,t=.8,a=0,o=-126),L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",model:{jsonPath:e},display:{superSample:n,position:"left",width:90,height:220,hOffset:a,vOffset:o},mobile:{show:!0,scale:.8},react:{opacityDefault:t,opacityOnHover:.2}});const i=(e,t)=>{for(var n=e.toString();n.length<t;)n="0"+n;return n};var s=function(e){try{var t=e.getTime(),n=(new Date).getTime()-t,a=e.getMonth()+1,o=(new Date).getMonth()+1-a;e.setMonth(a),e.setDate(0);var s=e.getDate(),r=Math.floor(n/864e5);if(0===r){var l=n%864e5,d=Math.floor(l/36e5);if(0===d){var c=l%36e5,h=Math.floor(c/6e4);if(0===h){var u=c%6e4;return{counts:Math.round(u/1e3),text:"秒前"}}return{counts:h,text:"分钟前"}}return{counts:d,text:"小时前"}}return r<0?{counts:"😜",text:"刚刚"}:r<=s?{counts:r,text:"天前"}:o<3?{counts:o,text:"月前"}:(e=>{var t=i(e.getDate(),2),n=i(e.getMonth()+1,2);i(e.getFullYear(),2);return{counts:t,text:n+"月"}})(e)}catch(e){console.log(e)}};function r(e,t,n){var a,o=new Date;return function(){var i=arguments,s=new Date;clearTimeout(a),s-o>=n?(e.apply(this,i),o=s):a=setTimeout(e,t)}}function l(){var e=$(document).height(),t=$(window).scrollTop(),n=$(window).height(),a=t/((e-n)/100);window.requestAnimationFrame(function(){$("#load").css("width",a+"%"),a>=99.5?$("#load").hide():$("#load").show(),t>57?$("#header").addClass("light-header").removeClass("dark"):$("#header").removeClass("light-header").addClass("dark")})}$(".post-date").each(function(){$(this).find(".post-time-text").text(s(new Date($(this).data("datetime"))).text),$(this).find(".post-time-count").text(s(new Date($(this).data("datetime"))).counts)}),$(".archive .posts-collapse .post-title a>span.archive-title").each(function(){$(this).append('<span class="archive-updated"></span>').find(".archive-updated").html('更新于：<time class="updated">'+$(this).attr("updated")+"</time")}),$(".category-all .category-list-item").on("click",function(){return window.location.href=$(this).find("a").attr("href"),!1}),$(".github-corner svg").css({width:"60px",height:"60px"}),POWERMODE.colorful=!0,POWERMODE.shake=!1,document.body.addEventListener("input",POWERMODE),$("#header").addClass("dark").addClass("animated"),$(".sidebar-toggle").on("click",function(){$("#header").toggleClass("header-has-sidebar")}),$(".popup-trigger.faa-parent.animated-hover").on("click",function(){$("#main").hide(),$(".sidebar-toggle").hide(),$(".back-to-top.back-to-top-on").hide(),$("#sidebar").hide(),$("#header").removeClass("slideInDown"),$(".local-search-popup .local-search-header").addClass("search-middle")}),$(".popup-btn-close").on("click",function(){$("#main").show(),$(".sidebar-toggle").show(),$("#sidebar").show(),$(".back-to-top.back-to-top-on").show()}),$("#local-search-input").on("change keydown",function(){$(".local-search-popup .local-search-header").removeClass("search-middle")});var d=0,c=0;$(document).on("scroll",function(e){r(l,1e3/60,100)(),d=$(this).scrollTop(),c<=d?($(window).scrollTop()>10&&($("#header").hasClass("slideOutUp")||$("#header").addClass("slideOutUp").removeClass("slideInDown"),$("#load").hasClass("header")&&$("#load").removeClass("header")),$(window).scrollTop()==$(document).height()-$(window).height()&&"function"==typeof showMessage&&showMessage("喵~ 页面到底了，点击右下角箭头 ⬆️ ，可回到顶部",3e3)):($("#load").hasClass("header")||$("#load").addClass("header"),$("#header").hasClass("slideOutUp")&&$("#header").removeClass("slideOutUp").addClass("slideInDown")),setTimeout(function(){c=d},0)}),$(window).resize(function(){r(l,1e3/60,100)(),$(window).width()<=990?$("#header").removeClass("header-has-sidebar"):$("#sidebar").width()>0&&$("#header").addClass("header-has-sidebar")});var h=null;function u(){0==$(h).text().indexOf("Safari")?$(h).prepend('<img class="Safari" src="/images/ua/Safari.svg">'):0==$(h).text().indexOf("Mac OS")||0==$(h).text().indexOf("iOS")?$(h).prepend('<img class="Apple" src="/images/ua/Apple.svg">'):0==$(h).text().indexOf("Chrome")?$(h).prepend('<img class="Chrome" src="/images/ua/Chrome.svg">'):0==$(h).text().indexOf("Firefox")?$(h).prepend('<img class="Firefox" src="/images/ua/Firefox.svg">'):0==$(h).text().indexOf("Windows 10")?$(h).prepend('<img class="Windows10" src="/images/ua/windows10.svg">'):0==$(h).text().indexOf("Windows")||0==$(h).text().indexOf("Windows 7")||0==$(h).text().indexOf("Windows 8")||0==$(h).text().indexOf("Windows 9")?$(h).prepend('<img class="Windows7" src="/images/ua/windows7.svg">'):0==$(h).text().indexOf("Android")?$(h).prepend('<img class="Android" src="/images/ua/Android.svg">'):0==$(h).text().indexOf("Ubuntu")?$(h).prepend('<img class="Ubuntu" src="/images/ua/ubuntu.svg">'):0==$(h).text().indexOf("Linux")?$(h).prepend('<img class="Linux" src="/images/ua/Linux.svg">'):0==$(h).text().indexOf("Microsoft Edge")||0==$(h).text().indexOf("MSIE")?$(h).prepend('<img class="IE" src="/images/ua/IE.png">'):0==$(h).text().indexOf("Sogou")&&$(h).prepend('<img class="sogou" src="/images/ua/sogou.svg">')}var m=setInterval(function(){var t;if(0==$("#live2d-widget .per-tips").length){if($("#live2d-widget").prepend('<div class="per-tips"></div >'),t="/live2dw/assets/hijiki.model.json"==e?'喵~ 我是 <span style="color:#fdb9b9">hijiki&nbsp;🐱</span>...</br>':'喵~ 我是 <span style="color:#fdb9b9">tororo&nbsp;🐱</span>...</br>',""!==document.referrer&&"http://mydearest.cn/"!==document.referrer){var n=document.createElement("a");n.href=document.referrer;var a=n.hostname.split(".")[1];"mydearest.cn"==n.hostname?t+='欢迎来到&nbsp;<span style="color:rgba(239, 47, 17, 0.8);">『'+document.title.split(" | ")[0]+"』</span>,感谢您继续参观本站 🙂":t+="baidu"==a?'来自 百度搜索 的朋友<br>你是搜索 <span style="color:rgba(239, 47, 17, 0.8);">'+n.search.split("&wd=")[1].split("&")[0]+"</span> 找到的我吗？":"so"==a?'来自 360搜索 的朋友<br>你是搜索 <span style="color:rgba(239, 47, 17, 0.8);">'+n.search.split("&q=")[1].split("&")[0]+"</span> 找到的我吗？":"google"==a?'来自 谷歌搜索 的朋友<br>欢迎阅读<span style="color:rgba(239, 47, 17, 0.8);">『'+document.title.split(" - ")[0]+"』</span>":'来自<span style="color:rgba(239, 47, 17, 0.8);">&nbsp;'+n.hostname+'&nbsp;</span>的朋友,欢迎来到<span style="color:rgba(239, 47, 17, 0.8);">『'+document.title.split(" | ")[0]+"』</span>&nbsp;玩耍 🙂"}else if(null!==localStorage.getItem("ValineCache")&&"http://mydearest.cn/"==window.location.href)t+='<span style="color:rgba(239, 47, 17, 0.8);"><strong>&nbsp;'+JSON.parse(localStorage.getItem("ValineCache")).nick+"&nbsp;</strong></span>欢迎回来！要继续看 👀 些什么吗";else if("http://mydearest.cn/"==window.location.href){var o=(new Date).getHours();t+=o>23||o<=5?"你是夜猫子呀？这么晚还不睡觉，明天起的来嘛":o>5&&o<=7?"早上好！一日之计在于晨，美好的一天就要开始了":o>7&&o<=11?"上午好！工作顺利嘛，不要久坐，多起来走动走动哦！":o>11&&o<=14?"中午了，工作了一个上午，现在是午餐时间！":o>14&&o<=17?"午后很容易犯困呢，今天的运动目标完成了吗？":o>17&&o<=19?"傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~":o>19&&o<=21?"晚上好，今天过得怎么样？":o>21&&o<=23?"已经这么晚了呀，早点休息吧，晚安~":"快来逗我玩吧！"}else t='欢迎阅读<span style="color:rgba(239, 47, 17, 0.8);">『'+document.title.split(" | ")[0]+"』</span>";showMessage(t,6e3)}else clearInterval(m)},100),p=setInterval(function(){0==$(".vhead:first .vsys>img").length?$(".vhead .vsys").each(function(){h=this,u()}):clearInterval(p)},100),f=setInterval(function(){0==$('.vhead .vname[href="http://mydearest.cn/"]~.bozhu').length?$('.vhead .vname[href="http://mydearest.cn/"]').after('<span class = "bozhu">博主</span>'):clearInterval(f)},100);$(".vsubmit.vbtn").on("click",function(){var e=setInterval(function(){0==$(".vhead:first .vsys>img").length?$(".vhead:first .vsys").each(function(){h=this,u()}):clearInterval(e)},1e3),t=setInterval(function(){0==$(".vhead").eq(0).find('.vname[href="http://mydearest.cn/"]~.bozhu').length?$(".vhead").eq(0).find('.vname[href="http://mydearest.cn/"]').after('<span class = "bozhu">博主</span>'):clearInterval(t)},1e3)}),$(document).on("click",".vmore.vbtn",function(){var e=setInterval(function(){0==$(".vhead:last .vsys>img").length?$(".vhead .vsys").each(function(){-1==$(this).html().indexOf("img")&&(h=this,u())}):clearInterval(e)},1e3),t=setInterval(function(){0==$('.vhead:last .vname[href="http://mydearest.cn/"]~.bozhu').length?$('.vhead .vname[href="http://mydearest.cn/"]').each(function(){0==$(this).siblings(".bozhu").length&&$(this).after('<span class = "bozhu">博主</span>')}):clearInterval(t)},1e3)});!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?653a4be35cb6c7b26817038a17c3f0d6";var t=document.getElementsByTagName("script").length,n=document.getElementsByTagName("script")[t-1];n.parentNode.insertBefore(e,n)}(),"serviceWorker"in navigator?navigator.serviceWorker.register("/sw.js").then(function(){navigator.serviceWorker.controller?console.log("Assets cached by the controlling service worker."):console.log("Please reload this page to allow the service worker to handle network operations.")}).catch(function(e){console.log("ERROR: "+e)}):console.log("Service workers are not supported in the current browser.")}),function(){function e(e,t,n){return e.getAttribute(t)||n}function t(e){return document.getElementsByTagName(e)}function n(){o=d.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,i=d.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight}function a(){u.clearRect(0,0,o,i);var e,t,n,s,r,l,d=[f].concat(g);g.forEach(function(a){for(a.x+=a.xa,a.y+=a.ya,a.xa*=a.x>o||a.x<0?-1:1,a.ya*=a.y>i||a.y<0?-1:1,u.fillRect(a.x-.5,a.y-.5,1,1),t=0;t<d.length;t++)a!==(e=d[t])&&null!==e.x&&null!==e.y&&(s=a.x-e.x,r=a.y-e.y,(l=s*s+r*r)<e.max&&(e===f&&l>=e.max/2&&(a.x-=.03*s,a.y-=.03*r),n=(e.max-l)/e.max,u.beginPath(),u.lineWidth=n/2,u.strokeStyle="rgba("+c.c+","+(n+.2)+")",u.moveTo(a.x,a.y),u.lineTo(e.x,e.y),u.stroke()));d.splice(d.indexOf(a),1)}),m(a)}var o,i,s,r,l,d=document.createElement("canvas"),c=(s=t("script"),r=s.length,l=s[r-1],{l:r,z:e(l,"zIndex",-1),o:e(l,"opacity",1),c:e(l,"color","255,255,255"),n:e(l,"count",99)}),h="c_n"+c.l,u=d.getContext("2d"),m=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(e){window.setTimeout(e,1e3/45)},p=Math.random,f={x:null,y:null,max:2e4};d.id=h,d.style.cssText="position:fixed;top:0;left:0;z-index:"+c.z+";opacity:"+c.o,t("body")[0].appendChild(d),n(),window.onresize=n,window.onmousemove=function(e){e=e||window.event,f.x=e.clientX,f.y=e.clientY},window.onmouseout=function(){f.x=null,f.y=null};for(var g=[],v=0;c.n>v;v++){var w=p()*o,$=p()*i,x=2*p()-1,b=2*p()-1;g.push({x:w,y:$,xa:x,ya:b,max:6e3})}setTimeout(function(){a()},100)}(),function(e){e.fn.snow=function(t){var n=e('<div id="flake" />').css({position:"absolute",top:"-50px"}).html("&#10052;"),a=e(document).height(),o=e(document).width();t=e.extend({},{minSize:10,maxSize:20,newOn:500,flakeColor:"#FFFFFF"},t),setInterval(function(){var i=Math.random()*o-100,s=.5+Math.random(),r=t.minSize+Math.random()*t.maxSize,l=a-40,d=i-100+200*Math.random(),c=10*a+5e3*Math.random();n.clone().appendTo("body").css({left:i,opacity:s,"font-size":r,color:t.flakeColor}).animate({top:l,left:d,opacity:.2},c,"linear",function(){e(this).remove()})},t.newOn)}}(jQuery),$.fn.snow({minSize:5,maxSize:50,newOn:1e3,flakeColor:"#00F"});var titleTime,OriginTitle=document.title;document.addEventListener("visibilitychange",function(){document.hidden?($('[rel="icon"]').attr("href","/img/TEP.ico"),document.title="╭(°A°`)╮ 页面崩溃啦 ~",clearTimeout(titleTime)):($('[rel="icon"]').attr("href","/favicon.ico"),document.title="(ฅ>ω<*ฅ) 噫又好了~"+OriginTitle,titleTime=setTimeout(function(){document.title=OriginTitle},2e3))});
+$(function () {
+
+  //新增看娘
+  var jsonPaths = ['/live2dw/assets/hijiki.model.json', '/live2dw/assets/tororo.model.json'];
+  var jsonPath = jsonPaths[Math.round(Math.random())];
+  var opacityDefault = 0;
+  var superSample = 0;
+  var hOffset = 0;
+  var vOffset = 0;
+  if ($(window).width() <= 1024) {
+    opacityDefault = 1;
+    superSample = 1.6;
+    hOffset = 6;
+    vOffset = -116;
+  } else {
+    superSample = 1.8;
+    opacityDefault = 0.8;
+    hOffset = 0;
+    vOffset = -126;
+  }
+  L2Dwidget.init({
+    "pluginRootPath": "live2dw/",
+    "pluginJsPath": "lib/",
+    "pluginModelPath": "assets/",
+    "model": {
+      "jsonPath": jsonPath,
+    },
+    "display": {
+      "superSample": superSample,
+      "position": "left",
+      "width": 90,
+      "height": 220,
+      "hOffset": hOffset,
+      "vOffset": vOffset
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.8
+    },
+    "react": {
+      "opacityDefault": opacityDefault,
+      "opacityOnHover": 0.2
+    }
+  });
+
+  // 将时间转为天数
+  const padWithZeros = (vNumber, width) => {
+    var numAsString = vNumber.toString();
+    while (numAsString.length < width) {
+      numAsString = '0' + numAsString;
+    }
+    return numAsString;
+  }
+const dateFormat = (date) => {
+  var vDay = padWithZeros(date.getDate(), 2);
+  var vMonth = padWithZeros(date.getMonth() + 1, 2);
+  var vYear = padWithZeros(date.getFullYear(), 2);
+  // var vHour = padWithZeros(date.getHours(), 2);
+  // var vMinute = padWithZeros(date.getMinutes(), 2);
+  // var vSecond = padWithZeros(date.getSeconds(), 2);
+  return {
+    "counts": vDay,
+    "text": vMonth + '月'
+  };
+}
+
+  var timeAgo = function(date) {
+    try {
+      var oldTime = date.getTime();
+      var currTime = new Date().getTime();
+      var diffValue = currTime - oldTime;
+      var selectedMonth = date.getMonth() + 1;
+      var currMonth = new Date().getMonth() + 1;
+      var months = currMonth - selectedMonth;
+      date.setMonth(selectedMonth);
+      date.setDate(0);
+      var dayMany = date.getDate();
+      var days = Math.floor(diffValue / (24 * 3600 * 1000));
+      if (days === 0) {
+        //计算相差小时数
+        var leave1 = diffValue % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
+        var hours = Math.floor(leave1 / (3600 * 1000));
+        if (hours === 0) {
+          //计算相差分钟数
+          var leave2 = leave1 % (3600 * 1000); //计算小时数后剩余的毫秒数
+          var minutes = Math.floor(leave2 / (60 * 1000));
+          if (minutes === 0) {
+            //计算相差秒数
+            var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数
+            var seconds = Math.round(leave3 / 1000);
+            return {
+              "counts": seconds,
+              "text": "秒前"
+            };
+          }
+          return {
+            "counts": minutes,
+            "text": "分钟前"
+          };
+        }
+        return {
+          "counts": hours,
+          "text": "小时前"
+        };
+      }
+      if (days < 0){
+        return {
+          "counts": '😜',
+          "text": "刚刚"
+        };
+      }
+      if (days <= dayMany) {
+        return {
+          "counts": days,
+          "text": "天前"
+        };
+      } else if (months<3) {
+        return {
+          "counts": months,
+          "text": "月前"
+        };
+      }else {
+        return dateFormat(date)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  $('.post-date').each(function(){
+    $(this).find('.post-time-text').text(timeAgo(new Date($(this).data('datetime'))).text);
+    $(this).find('.post-time-count').text(timeAgo(new Date($(this).data('datetime'))).counts);
+  });
+
+
+
+  //给归档加更新时间
+  $('.archive .posts-collapse .post-title a>span.archive-title').each(function () {
+    $(this).append('<span class="archive-updated"></span>').find('.archive-updated').html('更新于：<time class="updated">' + $(this).attr('updated') + '</time');
+  });
+
+  //给分类 li 加事件
+  $('.category-all .category-list-item').on('click', function () {
+    window.location.href = $(this).find('a').attr('href');
+    return false;
+  });
+  // 调整 github logo 大小
+  // $('.github-corner svg').width(60).height(60);
+  //优化 用一次加载样式，避免多次重排、重绘
+  $('.github-corner svg').css({"width":"60px","height":"60px"});
+
+  POWERMODE.colorful = true; // ture 为启用礼花特效
+  POWERMODE.shake = false; // false 为禁用震动特效
+  document.body.addEventListener('input', POWERMODE);
+
+  //让 header 适应 暗色 背景
+  $('#header').addClass('dark').addClass('animated');
+  $('.sidebar-toggle').on('click', function () {
+    $('#header').toggleClass('header-has-sidebar');
+  });
+
+  $('.popup-trigger.faa-parent.animated-hover').on('click', function () {
+    // $('.github-corner').hide();
+    $('#main').hide();
+    $('.sidebar-toggle').hide();
+    $('.back-to-top.back-to-top-on').hide();
+    $('#sidebar').hide();
+    $('#header').removeClass('slideInDown');
+    $('.local-search-popup .local-search-header').addClass('search-middle');
+  });
+  $('.popup-btn-close').on('click', function () {
+    // $('.github-corner').show();
+    $('#main').show();
+    $('.sidebar-toggle').show();
+    $('#sidebar').show();
+    $('.back-to-top.back-to-top-on').show();
+  })
+  $('#local-search-input').on('change keydown', function () {
+    $('.local-search-popup .local-search-header').removeClass('search-middle');
+  });
+
+  // 防抖动函数
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+      var context = this, args = arguments;
+      var later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+  // 简单的节流函数
+  function throttle(func, wait, mustRun) {
+    var timeout,
+      startTime = new Date();
+    return function () {
+      var context = this,
+        args = arguments,
+        curTime = new Date();
+      clearTimeout(timeout);
+      // 如果达到了规定的触发时间间隔，触发 handler
+      if (curTime - startTime >= mustRun) {
+        func.apply(context, args);
+        startTime = curTime;
+        // 没达到触发间隔，重新设定定时器
+      } else {
+        timeout = setTimeout(func, wait);
+      }
+    };
+  };
+  //给页面新增滚动进度条
+  function scroll_fn() {
+    var document_height = $(document).height();
+    var scroll_so_far = $(window).scrollTop();
+    var window_height = $(window).height();
+    var max_scroll = document_height - window_height;
+    var scroll_percentage = scroll_so_far / (max_scroll / 100);
+    window.requestAnimationFrame(function(){
+      $('#load').css('width', scroll_percentage + '%');
+      if (scroll_percentage >= 99.5) {
+        $('#load').hide();
+      } else {
+        $('#load').show();
+      }
+      if (scroll_so_far > 57) {
+        $('#header').addClass('light-header').removeClass('dark');
+      } else {
+        $('#header').removeClass('light-header').addClass('dark');
+      }
+    });
+  }
+  // 鼠标往下滚动 隐藏 header , 鼠标往上滚动 显示 header
+  var p = 0,
+    t = 0;
+  $(document).on("scroll", function (e) {
+    throttle(scroll_fn,1000 / 60,100)();
+    //用 window.requestAnimationFrame（）让读操作和写操作分离，把所有的写操作放到下一次重新渲染。
+    p = $(this).scrollTop();
+    if (t <= p) { //下滚
+      if ($(window).scrollTop() > 10) {
+        if (!$('#header').hasClass('slideOutUp')) $('#header').addClass('slideOutUp').removeClass('slideInDown');
+        if ($('#load').hasClass('header')) $('#load').removeClass('header');
+      }
+      if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        if (typeof showMessage == 'function') showMessage('喵~ 页面到底了，点击右下角箭头 ⬆️ ，可回到顶部', 3000);
+      }
+    } else { //上滚
+      if (!$('#load').hasClass('header')) $('#load').addClass('header');
+      if ($('#header').hasClass('slideOutUp')) $('#header').removeClass('slideOutUp').addClass('slideInDown');
+    }
+    setTimeout(function () {
+      t = p;
+    }, 0);
+  });
+  $(window).resize(function () {
+    //优化 添加 requestAnimationFrame
+    throttle(scroll_fn, 1000 / 60, 100)();
+    if ($(window).width() <= 990) {
+      $('#header').removeClass('header-has-sidebar');
+    } else if ($('#sidebar').width() > 0) {
+      $('#header').addClass('header-has-sidebar');
+    }
+  });
+
+  var _this = null;
+  function isUA(){
+    if ($(_this).text().indexOf('Safari') == 0) {
+      $(_this).prepend('<img class="Safari" src="/images/ua/Safari.svg">')
+    } else if ($(_this).text().indexOf('Mac OS') == 0 || $(_this).text().indexOf('iOS') == 0) {
+      $(_this).prepend('<img class="Apple" src="/images/ua/Apple.svg">')
+    } else if ($(_this).text().indexOf('Chrome') == 0) {
+      $(_this).prepend('<img class="Chrome" src="/images/ua/Chrome.svg">')
+    } else if ($(_this).text().indexOf('Firefox') == 0) {
+      $(_this).prepend('<img class="Firefox" src="/images/ua/Firefox.svg">')
+    } else if ($(_this).text().indexOf('Windows 10') == 0) {
+      $(_this).prepend('<img class="Windows10" src="/images/ua/windows10.svg">')
+    } else if ($(_this).text().indexOf('Windows') == 0 || $(_this).text().indexOf('Windows 7') == 0 || $(_this).text().indexOf('Windows 8') == 0 || $(_this).text().indexOf('Windows 9') == 0) {
+      $(_this).prepend('<img class="Windows7" src="/images/ua/windows7.svg">')
+    } else if ($(_this).text().indexOf('Android') == 0) {
+      $(_this).prepend('<img class="Android" src="/images/ua/Android.svg">')
+    } else if ($(_this).text().indexOf('Ubuntu') == 0) {
+      $(_this).prepend('<img class="Ubuntu" src="/images/ua/ubuntu.svg">')
+    } else if ($(_this).text().indexOf('Linux') == 0) {
+      $(_this).prepend('<img class="Linux" src="/images/ua/Linux.svg">')
+    } else if ($(_this).text().indexOf('Microsoft Edge') == 0 || $(_this).text().indexOf('MSIE') == 0) {
+      $(_this).prepend('<img class="IE" src="/images/ua/IE.png">')
+    } else if ($(_this).text().indexOf('Sogou') == 0) {
+      $(_this).prepend('<img class="sogou" src="/images/ua/sogou.svg">')
+
+    }
+
+  };
+  var addTipsTime = setInterval(function(){
+    var text;
+    if ($('#live2d-widget .per-tips').length == 0) {
+      $('#live2d-widget').prepend('<div class="per-tips"></div >');
+      if (jsonPath == '/live2dw/assets/hijiki.model.json')
+        text = '喵~ 我是 <span style="color:#fdb9b9">hijiki&nbsp;🐱</span>...</br>';
+      else
+        text = '喵~ 我是 <span style="color:#fdb9b9">tororo&nbsp;🐱</span>...</br>';
+      if (document.referrer !== '' && document.referrer !== 'http://mydearest.cn/') {
+        var referrer = document.createElement('a');
+        referrer.href = document.referrer;
+        var domain = referrer.hostname.split('.')[1];
+        if (referrer.hostname == 'mydearest.cn') {
+          text += '欢迎来到&nbsp;<span style="color:rgba(239, 47, 17, 0.8);">『' + document.title.split(' | ')[0] + '』</span>,感谢您继续参观本站 🙂';
+        } else if (domain == 'baidu') {
+          text += '来自 百度搜索 的朋友<br>你是搜索 <span style="color:rgba(239, 47, 17, 0.8);">' + referrer.search.split('&wd=')[1].split('&')[0] + '</span> 找到的我吗？';
+        } else if (domain == 'so') {
+          text += '来自 360搜索 的朋友<br>你是搜索 <span style="color:rgba(239, 47, 17, 0.8);">' + referrer.search.split('&q=')[1].split('&')[0] + '</span> 找到的我吗？';
+        } else if (domain == 'google') {
+          text += '来自 谷歌搜索 的朋友<br>欢迎阅读<span style="color:rgba(239, 47, 17, 0.8);">『' + document.title.split(' - ')[0] + '』</span>';
+        } else {
+          text += '来自<span style="color:rgba(239, 47, 17, 0.8);">&nbsp;' + referrer.hostname + '&nbsp;</span>的朋友,欢迎来到<span style="color:rgba(239, 47, 17, 0.8);">『' + document.title.split(' | ')[0] + '』</span>&nbsp;玩耍 🙂';
+        }
+      } else if (localStorage.getItem('ValineCache') !== ('' || null) && window.location.href == 'http://mydearest.cn/') {
+        text += '<span style="color:rgba(239, 47, 17, 0.8);"><strong>&nbsp;' + JSON.parse(localStorage.getItem('ValineCache')).nick + '&nbsp;</strong></span>欢迎回来！要继续看 👀 些什么吗';
+      } else {
+        if (window.location.href == 'http://mydearest.cn/') { //如果是主页
+          var now = (new Date()).getHours();
+          if (now > 23 || now <= 5) {
+            text += '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛';
+          } else if (now > 5 && now <= 7) {
+            text += '早上好！一日之计在于晨，美好的一天就要开始了';
+          } else if (now > 7 && now <= 11) {
+            text += '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！';
+          } else if (now > 11 && now <= 14) {
+            text += '中午了，工作了一个上午，现在是午餐时间！';
+          } else if (now > 14 && now <= 17) {
+            text += '午后很容易犯困呢，今天的运动目标完成了吗？';
+          } else if (now > 17 && now <= 19) {
+            text += '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~';
+          } else if (now > 19 && now <= 21) {
+            text += '晚上好，今天过得怎么样？';
+          } else if (now > 21 && now <= 23) {
+            text += '已经这么晚了呀，早点休息吧，晚安~';
+          } else {
+            text += '快来逗我玩吧！';
+          }
+        } else {
+          text = '欢迎阅读<span style="color:rgba(239, 47, 17, 0.8);">『' + document.title.split(' | ')[0] + '』</span>';
+        }
+      }
+      showMessage(text, 6000);
+    } else {
+      clearInterval(addTipsTime);
+    }
+  },100);
+
+    var addUVTime_g = setInterval(function () {
+      if ($('.vhead:first .vsys>img').length == 0) {
+        $('.vhead .vsys').each(function () {
+          _this = this;
+          isUA();
+        });
+      } else {
+        clearInterval(addUVTime_g);
+      }
+    }, 100);
+    var addUBZime_g = setInterval(function () {
+      if ($('.vhead .vname[href="http://mydearest.cn/"]~.bozhu').length == 0) {
+        $('.vhead .vname[href="http://mydearest.cn/"]').after('<span class = "bozhu">博主</span>');
+      } else {
+        clearInterval(addUBZime_g);
+      };
+    }, 100);
+
+  $('.vsubmit.vbtn').on('click', function () {
+    var addUVTime = setInterval(function () {
+      if ($('.vhead:first .vsys>img').length == 0) {
+        $('.vhead:first .vsys').each(function () {
+          _this = this;
+          isUA();
+        });
+      } else {
+        clearInterval(addUVTime);
+      }
+    }, 1000);
+    var addUBZime = setInterval(function () {
+      if ($('.vhead').eq(0).find('.vname[href="http://mydearest.cn/"]~.bozhu').length == 0) {
+        $('.vhead').eq(0).find('.vname[href="http://mydearest.cn/"]').after('<span class = "bozhu">博主</span>');
+      } else {
+        clearInterval(addUBZime);
+      };
+    }, 1000);
+  });
+  $(document).on('click','.vmore.vbtn',function(){
+    var addUVTime = setInterval(function () {
+      if ($('.vhead:last .vsys>img').length == 0) {
+        $('.vhead .vsys').each(function () {
+          if ($(this).html().indexOf('img') == -1){
+            _this = this;
+            isUA();
+          }
+        });
+      } else {
+        clearInterval(addUVTime);
+      }
+    }, 1000);
+    var addUBZime = setInterval(function () {
+      if ($('.vhead:last .vname[href="http://mydearest.cn/"]~.bozhu').length  == 0) {
+        $('.vhead .vname[href="http://mydearest.cn/"]').each(function(){
+          if ($(this).siblings('.bozhu').length == 0){
+            $(this).after('<span class = "bozhu">博主</span>');
+          }
+        });
+      } else {
+        clearInterval(addUBZime);
+      };
+    }, 1000);
+  })
+  //百度统计
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?653a4be35cb6c7b26817038a17c3f0d6";
+    var l = document.getElementsByTagName("script").length;
+    var s = document.getElementsByTagName("script")[l - 1];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  // service worker 缓存
+  "serviceWorker" in navigator ? navigator.serviceWorker.register('/sw.js').then(function () {
+    navigator.serviceWorker.controller ? console.log("Assets cached by the controlling service worker.") : console.log("Please reload this page to allow the service worker to handle network operations.")
+  }).catch(function (e) {
+    console.log("ERROR: " + e)
+  }) : console.log("Service workers are not supported in the current browser.")
+});
+
+// splotline
+!function(){function o(w,v,i){return w.getAttribute(v)||i}function j(i){return document.getElementsByTagName(i)}function l(){var i=j("script"),w=i.length,v=i[w-1];return{l:w,z:o(v,"zIndex",-1),o:o(v,"opacity",1),c:o(v,"color","255,255,255"),n:o(v,"count",99)}}function k(){r=u.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,n=u.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight}function b(){e.clearRect(0,0,r,n);var w=[f].concat(t);var x,v,A,B,z,y;t.forEach(function(i){i.x+=i.xa,i.y+=i.ya,i.xa*=i.x>r||i.x<0?-1:1,i.ya*=i.y>n||i.y<0?-1:1,e.fillRect(i.x-0.5,i.y-0.5,1,1);for(v=0;v<w.length;v++){x=w[v];if(i!==x&&null!==x.x&&null!==x.y){B=i.x-x.x,z=i.y-x.y,y=B*B+z*z;y<x.max&&(x===f&&y>=x.max/2&&(i.x-=0.03*B,i.y-=0.03*z),A=(x.max-y)/x.max,e.beginPath(),e.lineWidth=A/2,e.strokeStyle="rgba("+s.c+","+(A+0.2)+")",e.moveTo(i.x,i.y),e.lineTo(x.x,x.y),e.stroke())}}w.splice(w.indexOf(i),1)}),m(b)}var u=document.createElement("canvas"),s=l(),c="c_n"+s.l,e=u.getContext("2d"),r,n,m=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(i){window.setTimeout(i,1000/45)},a=Math.random,f={x:null,y:null,max:20000};u.id=c;u.style.cssText="position:fixed;top:0;left:0;z-index:"+s.z+";opacity:"+s.o;j("body")[0].appendChild(u);k(),window.onresize=k;window.onmousemove=function(i){i=i||window.event,f.x=i.clientX,f.y=i.clientY},window.onmouseout=function(){f.x=null,f.y=null};for(var t=[],p=0;s.n>p;p++){var h=a()*r,g=a()*n,q=2*a()-1,d=2*a()-1;t.push({x:h,y:g,xa:q,ya:d,max:6000})}setTimeout(function(){b()},100)}();
+// 下雪
+(function($){$.fn.snow=function(options){var $flake=$('<div id="flake" />').css({'position':'absolute','top':'-50px'}).html('&#10052;'),documentHeight=$(document).height(),documentWidth=$(document).width(),defaults={minSize:10,maxSize:20,newOn:500,flakeColor:"#FFFFFF"},options=$.extend({},defaults,options);var interval=setInterval(function(){var startPositionLeft=Math.random()*documentWidth-100,startOpacity=0.5+Math.random(),sizeFlake=options.minSize+Math.random()*options.maxSize,endPositionTop=documentHeight-40,endPositionLeft=startPositionLeft-100+Math.random()*200,durationFall=documentHeight*10+Math.random()*5000;$flake.clone().appendTo('body').css({left:startPositionLeft,opacity:startOpacity,'font-size':sizeFlake,color:options.flakeColor}).animate({top:endPositionTop,left:endPositionLeft,opacity:0.2},durationFall,'linear',function(){$(this).remove()});},options.newOn);};})(jQuery);
+$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#00F' });
+// 崩溃欺骗
+var OriginTitle = document.title;
+var titleTime;
+document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+        $('[rel="icon"]').attr('href', "/img/TEP.ico");
+        document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+        clearTimeout(titleTime);
+    }
+    else {
+        $('[rel="icon"]').attr('href', "/favicon.ico");
+        document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
+        titleTime = setTimeout(function () {
+            document.title = OriginTitle;
+        }, 2000);
+    }
+});
+

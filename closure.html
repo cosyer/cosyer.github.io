@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="闭包," />
 
 
 
@@ -132,17 +132,18 @@
 
 
 
-<meta name="description" content="陈宇的博客">
-<meta name="keywords" content="个人博客,web前端,前端工程师,vue,react,webpack,css3,es6,html5,nodejs,php,java,hexo,next,electron,iview">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cosyer&#39;s Blog">
-<meta property="og:url" content="http://mydearest.cn/tags/es6/index.html">
+<meta name="description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   什么是闭包?简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。 为什么需要闭包？局部变量无法共享和长久的保存，而全局变量可能造成变量污染，所以我们希望有一种机制既可以长久的保存变量又不会造成全局污染。 特点占用更多内存不容易被释放何时使用？变量既想反复使用，又想避免全局污">
+<meta name="keywords" content="闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何理解JS闭包">
+<meta property="og:url" content="http://mydearest.cn/closure.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="陈宇的博客">
+<meta property="og:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   什么是闭包?简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。 为什么需要闭包？局部变量无法共享和长久的保存，而全局变量可能造成变量污染，所以我们希望有一种机制既可以长久的保存变量又不会造成全局污染。 特点占用更多内存不容易被释放何时使用？变量既想反复使用，又想避免全局污">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-10T18:27:29.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cosyer&#39;s Blog">
-<meta name="twitter:description" content="陈宇的博客">
+<meta name="twitter:title" content="如何理解JS闭包">
+<meta name="twitter:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   什么是闭包?简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。 为什么需要闭包？局部变量无法共享和长久的保存，而全局变量可能造成变量污染，所以我们希望有一种机制既可以长久的保存变量又不会造成全局污染。 特点占用更多内存不容易被释放何时使用？变量既想反复使用，又想避免全局污">
 
 
 
@@ -171,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="http://mydearest.cn/tags/es6/"/>
+  <link rel="canonical" href="http://mydearest.cn/closure.html"/>
 
 
 
 
 
-  <title>标签: es6 | cosyer's Blog</title>
+  <title>如何理解JS闭包 | cosyer's Blog</title>
   
 
 
@@ -261,7 +262,7 @@ a:hover {
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/cosyer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -399,16 +400,9 @@ a:hover {
         <div class="content-wrap">
           <div id="content" class="content">
             
-      <div class="collection-title-per">
-        <h2>
-          es6
-          <span>标签</span>
-        </h2>
-      </div>
 
-      <section id="posts" class="posts-expand">
-        
-          
+  <div id="posts" class="posts-expand">
+    
 
   
 
@@ -420,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-06-09T13:52:43+08:00">
+  <div class="post-date" data-datetime="2018-06-11T02:27:29+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">09</div>
+    <div class="post-time-count">11</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月09</div>
+      <div class="post-tiem">6月11</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -454,7 +448,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/es6function.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/closure.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -471,9 +465,7 @@ a:hover {
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/es6function.html" itemprop="url">es6函数新特性</a></h2>
+          <h2 class="post-title" itemprop="name headline">如何理解JS闭包</h2>
         
 
         <div class="post-meta">
@@ -485,8 +477,8 @@ a:hover {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-08T19:35:58+08:00">
-                2018-06-08
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-11T02:24:51+08:00">
+                2018-06-11
               </time>
             
 
@@ -504,7 +496,7 @@ a:hover {
 
           
           
-             <span id="/es6function.html" class="leancloud_visitors" data-flag-title="es6函数新特性">
+             <span id="/closure.html" class="leancloud_visitors" data-flag-title="如何理解JS闭包">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -532,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  315 (字)
+                  251 (字)
                 </span>
               
 
@@ -569,21 +561,17 @@ a:hover {
       
 
       
-        
-          <ol>
-<li>设置函数默认值 </li>
-<li>结合解构赋值默认值使用</li>
-<li>利用rest(…变量名)传入任意参数</li>
+        <blockquote class="blockquote-center"><p>JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。</p>
+</blockquote> 
+<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h2><p>简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。</p>
+<h2 id="为什么需要闭包？"><a href="#为什么需要闭包？" class="headerlink" title="为什么需要闭包？"></a>为什么需要闭包？</h2><p>局部变量无法共享和长久的保存，而全局变量可能造成变量污染，所以我们希望有一种机制既可以长久的保存变量又不会造成全局污染。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>占用更多内存不容易被释放何时使用？变量既想反复使用，又想避免全局污染如何使用？</p>
+<ol>
+<li>定义外层函数，封装被保护的局部变量。 </li>
+<li>定义内层函数，执行对外部函数变量的操作。 </li>
+<li>外层函数返回内层函数的对象，并且外层函数被调用，结果保存在一个全局的变量中。</li>
 </ol>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/es6function.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+
       
     </div>
     
@@ -592,459 +580,118 @@ a:hover {
 
     <div>
       
-    </div>
-
-    <div>
-      
-    </div>
-
+        <div>
     
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-        
-          
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2018-06-11T02:03:12+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">11</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月11</div>
-      <div class="post-year">2018</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/jsthis.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/jsthis.html" itemprop="url">JavaScript 中 this 的详解</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-08T16:58:32+08:00">
-                2018-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/jsthis.html" class="leancloud_visitors" data-flag-title="JavaScript 中 this 的详解">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,491 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  6 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
+        <div class="text-center line pages-end">
+				<span>本文结束<i class="fa fa-meh-o fa-fw"></i>感谢您的阅读</span>
         </div>
-      </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h2><p><code>this</code> 是 js 中定义的关键字， 它的指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。在实际应用中，<code>this</code>的指向大致可以分为以下四种情况。</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/jsthis.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
+</div>
       
     </div>
 
     <div>
       
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
+  <p><span>本文标题:</span><a href="/closure.html">如何理解JS闭包</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
+  <p><span>发布时间:</span>2018年06月11日 - 02:06</p>
+  <p><span>最后更新:</span>2018年06月11日 - 02:06</p>
+  <p><span>原始链接:</span><a href="/closure.html" title="如何理解JS闭包">http://mydearest.cn/closure.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/closure.html"  aria-label=" 复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",     
+          text: '复制成功',   
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
     </div>
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈宇（cosyer） WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="陈宇（cosyer） Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-        
+        <div class="post-tags">
           
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2018-06-09T15:18:17+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">09</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月09</div>
-      <div class="post-year">2018</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/createPromise.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/createPromise.html" itemprop="url">Promise诞生记</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-05T01:34:09+08:00">
-                2018-06-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
+            <a href="/tags/闭包/" rel="tag"><i class="fa fa-tag fa-fw"></i> 闭包</a>
           
-
-
-          
-            
-          
-
-          
-          
-             <span id="/createPromise.html" class="leancloud_visitors" data-flag-title="Promise诞生记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,894 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  8 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://p33v4b0bc.bkt.clouddn.com/promise.png" class="full-image" alt="Promise" title="Promise"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<p>前端近年的兴起，有大部分是因为 <code>NodeJS</code> 的诞生，而 <code>NodeJS</code> 是个适用于 <strong>异步IO</strong> 密集型的语言，一些基于 <code>NodeJS</code> 的框架，比喻 <em>KOA2、Adonis</em> 就有大量的 <code>async</code> 和 <code>await</code> 语法，<code>async</code>的函数的返回值就是 <code>Promise</code> 对象，我们可以用 <code>async</code> 和 <code>await</code> 语法，写出优雅的异步代码，来替换难看且难维护的回调函数。</p>
-<h2 id="Promise-概念"><a href="#Promise-概念" class="headerlink" title="Promise 概念"></a>Promise 概念</h2><p><code>Promise</code>是一种对异步操作的封装，主流的规范是Promise/A+。
-<code>Promise</code>可以使得异步代码层次清晰，便于理解，且更加容易维护。
-<code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。
-生成实例时回执信作为参数的函数；<br> 
-<code>resolve</code>函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 fulfilled），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
-<code>reject</code>函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/createPromise.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/es7async.html" rel="next" title="使用 Async/Await 让你的代码更简洁">
+                <i class="fa fa-chevron-left"></i> 使用 Async/Await 让你的代码更简洁
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1054,19 +701,11 @@ a:hover {
   </article>
 
 
-        
-      </section>
 
-
-  
-  
-  
-
-
-  
-  
-  
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1075,6 +714,12 @@ a:hover {
 
           
             
+  <div class="comments" id="comments">
+    
+      <div class="comments v" id="comments"></div>
+    
+  </div>
+
 
           
         </div>
@@ -1096,8 +741,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://static.mydearest.cn/blog/images/avatar.jpg"
@@ -1235,6 +889,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是闭包"><span class="nav-number">1.</span> <span class="nav-text">什么是闭包?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要闭包？"><span class="nav-number">2.</span> <span class="nav-text">为什么需要闭包？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.</span> <span class="nav-text">特点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1340,9 +1010,9 @@ a:hover {
   
 
   
-    
-
   
+
+
 
   
 

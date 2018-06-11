@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递 什么是闭包?简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。 为什么需要闭包？使用闭包主要是为了设计私有的变量和方法。闭包的优点可以避免全局变量的污染，缺点是会常驻内存，增大内存的使用 量，使用不当会造成内存泄漏。 特点 定义外层函数，">
+<meta name="description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递">
 <meta name="keywords" content="闭包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何理解JS闭包">
 <meta property="og:url" content="http://mydearest.cn/closure.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递 什么是闭包?简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。 为什么需要闭包？使用闭包主要是为了设计私有的变量和方法。闭包的优点可以避免全局变量的污染，缺点是会常驻内存，增大内存的使用 量，使用不当会造成内存泄漏。 特点 定义外层函数，">
+<meta property="og:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T06:07:17.676Z">
+<meta property="og:updated_time" content="2018-06-11T09:15:30.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何理解JS闭包">
-<meta name="twitter:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递 什么是闭包?简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。 为什么需要闭包？使用闭包主要是为了设计私有的变量和方法。闭包的优点可以避免全局变量的污染，缺点是会常驻内存，增大内存的使用 量，使用不当会造成内存泄漏。 特点 定义外层函数，">
+<meta name="twitter:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递">
 
 
 
@@ -414,7 +414,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-06-11T14:07:17+08:00">
+  <div class="post-date" data-datetime="2018-06-11T17:15:30+08:00">
     <div class="post-time-text">6月</div>
     <div class="post-time-count">11</div>
     <div class="text-desc">
@@ -563,19 +563,21 @@ a:hover {
       
         <blockquote class="blockquote-center"><p>JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。</p>
 </blockquote> 
-<p>在JS中函数作为普通对象进行传递</p>
+<h2 id="在JS中函数作为普通对象进行传递"><a href="#在JS中函数作为普通对象进行传递" class="headerlink" title="在JS中函数作为普通对象进行传递"></a>在JS中函数作为普通对象进行传递</h2><a id="more"></a>
 <h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h2><p>简单来说，闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。</p>
 <h2 id="为什么需要闭包？"><a href="#为什么需要闭包？" class="headerlink" title="为什么需要闭包？"></a>为什么需要闭包？</h2><p>使用闭包主要是为了设计私有的变量和方法。闭包的优点可以避免全局变量的污染，缺点是会常驻内存，增大内存的使用
 量，使用不当会造成内存泄漏。</p>
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
 <li>定义外层函数，封装被保护的局部变量。 </li>
 <li>定义内层函数，执行对外部函数变量的操作。 </li>
-<li>外层函数返回内层函数的对象，并且外层函数被调用，结果保存在一个全局的变量中。<h2 id="特性※"><a href="#特性※" class="headerlink" title="特性※"></a>特性※</h2></li>
+<li>外层函数返回内层函数的对象，并且外层函数被调用，结果保存在一个全局的变量中。</li>
+</ol>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol>
 <li>函数嵌套函数。</li>
 <li>函数内部可以引用外部的参数和变量。</li>
-<li>参数和变量不会被垃圾回收机制回收。<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="keyword">return</span> counter += <span class="number">1</span>;&#125;</span><br><span class="line">&#125;)();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line"><span class="comment">// add()调用过后应当销毁其变量，但其内层函数被返回了，并且还保留着对变量的引用，所以没有销毁还保留在内存当中。</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>参数和变量不会被垃圾回收机制回收。</li>
 </ol>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="keyword">return</span> counter += <span class="number">1</span>;&#125;</span><br><span class="line">&#125;)();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line"><span class="comment">// add()调用过后应当销毁其变量，但其内层函数被返回了，并且还保留着对变量的引用，所以没有销毁还保留在内存当中。</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[i])</span><br><span class="line">&#125;,i*<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印3次3 执行setTimeout时for循环已经结束此时的i的值为3</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line"><span class="comment">// 匿名闭包</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[index])</span><br><span class="line">&#125;,index*<span class="number">1000</span>)</span><br><span class="line">&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>避免使用过多的闭包，可以用let关键词，每个闭包都绑定了块作用域的变量，这意味着不再需要额外的闭包。
@@ -611,7 +613,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/closure.html">如何理解JS闭包</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 02:06</p>
-  <p><span>最后更新:</span>2018年06月11日 - 14:06</p>
+  <p><span>最后更新:</span>2018年06月11日 - 17:06</p>
   <p><span>原始链接:</span><a href="/closure.html" title="如何理解JS闭包">http://mydearest.cn/closure.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/closure.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -696,6 +698,10 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/contextapi.html" rel="prev" title="React 16新特性context api">
+                React 16新特性context api <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -775,7 +781,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -797,7 +803,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -907,7 +913,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是闭包"><span class="nav-number">1.</span> <span class="nav-text">什么是闭包?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要闭包？"><span class="nav-number">2.</span> <span class="nav-text">为什么需要闭包？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性※"><span class="nav-number">4.</span> <span class="nav-text">特性※</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在JS中函数作为普通对象进行传递"><span class="nav-number">1.</span> <span class="nav-text">在JS中函数作为普通对象进行传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是闭包"><span class="nav-number">2.</span> <span class="nav-text">什么是闭包?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要闭包？"><span class="nav-number">3.</span> <span class="nav-text">为什么需要闭包？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">4.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">5.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">6.</span> <span class="nav-text">实例</span></a></li></ol></div>
             
 
           </div>
@@ -952,7 +958,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 9.4k字</span>
+    <span class="post-count">Blog总字数: 10.4k字</span>
   </div>
 </div>
 

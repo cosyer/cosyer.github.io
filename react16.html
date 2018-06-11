@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="杂谈," />
+  <meta name="keywords" content="react," />
 
 
 
@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="之前一直在博客园写博客，但随着技术的发展，博客园的样式和自定义内容远远不能达到我所期望。故此决定迁移博客，希望能总结归纳好自己的技术体系，拓宽拓深技术栈，重新开坑O(∩_∩)O哈哈~。 Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems w">
-<meta name="keywords" content="杂谈">
+<meta name="description" content="Error BoundaryError Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句） 1234567891011121">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World - 热爱编程的普通人，顺便以此为生。">
-<meta property="og:url" content="http://mydearest.cn/hello-world.html">
+<meta property="og:title" content="快速了解React 16新特性">
+<meta property="og:url" content="http://mydearest.cn/react16.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="之前一直在博客园写博客，但随着技术的发展，博客园的样式和自定义内容远远不能达到我所期望。故此决定迁移博客，希望能总结归纳好自己的技术体系，拓宽拓深技术栈，重新开坑O(∩_∩)O哈哈~。 Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems w">
+<meta property="og:description" content="Error BoundaryError Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句） 1234567891011121">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-07T07:00:52.711Z">
+<meta property="og:updated_time" content="2018-06-11T12:29:42.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World - 热爱编程的普通人，顺便以此为生。">
-<meta name="twitter:description" content="之前一直在博客园写博客，但随着技术的发展，博客园的样式和自定义内容远远不能达到我所期望。故此决定迁移博客，希望能总结归纳好自己的技术体系，拓宽拓深技术栈，重新开坑O(∩_∩)O哈哈~。 Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems w">
+<meta name="twitter:title" content="快速了解React 16新特性">
+<meta name="twitter:description" content="Error BoundaryError Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句） 1234567891011121">
 
 
 
@@ -172,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="http://mydearest.cn/hello-world.html"/>
+  <link rel="canonical" href="http://mydearest.cn/react16.html"/>
 
 
 
 
 
-  <title>Hello World - 热爱编程的普通人，顺便以此为生。 | cosyer's Blog</title>
+  <title>快速了解React 16新特性 | cosyer's Blog</title>
   
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-06-07T15:00:52+08:00">
+  <div class="post-date" data-datetime="2018-06-11T20:29:42+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">07</div>
+    <div class="post-time-count">11</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月07</div>
+      <div class="post-tiem">6月11</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -432,8 +432,8 @@ a:hover {
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
                   </a>
                 </span>
 
@@ -448,7 +448,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/hello-world.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/react16.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -465,7 +465,7 @@ a:hover {
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hello World - 热爱编程的普通人，顺便以此为生。</h2>
+          <h2 class="post-title" itemprop="name headline">快速了解React 16新特性</h2>
         
 
         <div class="post-meta">
@@ -477,8 +477,8 @@ a:hover {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-04-01T01:34:09+08:00">
-                2018-04-01
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-11T20:09:00+08:00">
+                2018-06-11
               </time>
             
 
@@ -496,7 +496,7 @@ a:hover {
 
           
           
-             <span id="/hello-world.html" class="leancloud_visitors" data-flag-title="Hello World - 热爱编程的普通人，顺便以此为生。">
+             <span id="/react16.html" class="leancloud_visitors" data-flag-title="快速了解React 16新特性">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  158 (字)
+                  690 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -561,19 +561,17 @@ a:hover {
       
 
       
-        <p>之前一直在博客园写博客，但随着技术的发展，博客园的样式和自定义内容远远不能达到我所期望。故此决定迁移博客，希望能总结归纳好自己的技术体系，拓宽拓深技术栈，重新开坑O(∩_∩)O哈哈~。</p>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<hr>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h2 id="Error-Boundary"><a href="#Error-Boundary" class="headerlink" title="Error Boundary"></a>Error Boundary</h2><p>Error Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句）
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//最佳实践：将ErrorBoundary抽象为一个公用的组件类</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorBoundary</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">hasError</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidCatch(err, info) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">hasError</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">    <span class="comment">//sendErrorReport(err,info)</span></span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.state.hasError)&#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;div&gt;Something went wrong!&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用方式 包裹容易出错的组件</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ErrorBoundary&gt;</span><br><span class="line">        &lt;Profile user=&#123;<span class="keyword">this</span>.state.user&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/ErrorBoundary&gt;</span></span><br><span class="line"><span class="regexp">      &lt;button onClick=&#123;this.onClick&#125;&gt;Update&lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="render方法新增返回类型"><a href="#render方法新增返回类型" class="headerlink" title="render方法新增返回类型"></a>render方法新增返回类型</h2><p>在React 16中，render方法支持直接返回string，number，boolean，null，portal，以及fragments(带有key属性的数组)，这可以在一定程度上减少页面的DOM层级。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello,world'</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//number</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//boolean</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> isTrue?<span class="literal">true</span>:<span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//null</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//fragments，未加key标识符，控制台会出现warning</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    &lt;div&gt;hello&lt;<span class="regexp">/div&gt;,</span></span><br><span class="line"><span class="regexp">    &lt;span&gt;world&lt;/</span>span&gt;,</span><br><span class="line">    &lt;p&gt;oh&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  ]</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>以上各种类型现在均可以直接在render中返回，不需要再在外层包裹一层容器元素，不过在返回的数组类型中，需要在每个元素上加一个唯一且不变的key值，否则控制台会报一个warning。</p>
+<h2 id="使用createPortal将组件渲染到当前组件树之外"><a href="#使用createPortal将组件渲染到当前组件树之外" class="headerlink" title="使用createPortal将组件渲染到当前组件树之外"></a>使用createPortal将组件渲染到当前组件树之外</h2><h2 id="支持自定义DOM属性"><a href="#支持自定义DOM属性" class="headerlink" title="支持自定义DOM属性"></a>支持自定义DOM属性</h2><p>在之前的版本中，React会忽略无法识别的HTML和SVG属性，自定义属性只能通过data-*形式添加，现在它会把这些属性直接传递给DOM（这个改动让React可以去掉属性白名单，从而减少了文件大小）。</p>
+<h2 id="setState传入null时不会再触发更新"><a href="#setState传入null时不会再触发更新" class="headerlink" title="setState传入null时不会再触发更新"></a>setState传入null时不会再触发更新</h2><h2 id="更好的服务器端渲染"><a href="#更好的服务器端渲染" class="headerlink" title="更好的服务器端渲染"></a>更好的服务器端渲染</h2><p>React 16的SSR被完全重写，新的实现非常快，接近3倍性能于React 15，现在提供一种流模式streaming，可以更快地把渲染的字节发送到客户端。</p>
+<h2 id="新的打包策略"><a href="#新的打包策略" class="headerlink" title="新的打包策略"></a>新的打包策略</h2><p>新的打包策略中去掉了process.env检查。
+React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸的减小一部分要归功于打包方法的改变。</p>
+<h2 id="React-16采用了新的核心架构React-Fiber。官方解释是“React-Fiber是对核心算法的一次重新实现”"><a href="#React-16采用了新的核心架构React-Fiber。官方解释是“React-Fiber是对核心算法的一次重新实现”" class="headerlink" title="React 16采用了新的核心架构React Fiber。官方解释是“React Fiber是对核心算法的一次重新实现”"></a>React 16采用了新的核心架构React Fiber。官方解释是“React Fiber是对核心算法的一次重新实现”</h2>
       
     </div>
     
@@ -595,6 +593,35 @@ a:hover {
     <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
+  <p><span>本文标题:</span><a href="/react16.html">快速了解React 16新特性</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
+  <p><span>发布时间:</span>2018年06月11日 - 20:06</p>
+  <p><span>最后更新:</span>2018年06月11日 - 20:06</p>
+  <p><span>原始链接:</span><a href="/react16.html" title="快速了解React 16新特性">http://mydearest.cn/react16.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/react16.html"  aria-label=" 复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",     
+          text: '复制成功',   
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
       
     </div>
 
@@ -637,7 +664,7 @@ a:hover {
       
         <div class="post-tags">
           
-            <a href="/tags/杂谈/" rel="tag"><i class="fa fa-tag fa-fw"></i> 杂谈</a>
+            <a href="/tags/react/" rel="tag"><i class="fa fa-tag fa-fw"></i> react</a>
           
         </div>
       
@@ -650,15 +677,15 @@ a:hover {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/contextapi.html" rel="next" title="React 16新特性context api">
+                <i class="fa fa-chevron-left"></i> React 16新特性context api
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/markdownGrammar.html" rel="prev" title="如何使用 markdown 语法写博客">
-                如何使用 markdown 语法写博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -871,7 +898,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Boundary"><span class="nav-number">1.</span> <span class="nav-text">Error Boundary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#render方法新增返回类型"><span class="nav-number">2.</span> <span class="nav-text">render方法新增返回类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用createPortal将组件渲染到当前组件树之外"><span class="nav-number">3.</span> <span class="nav-text">使用createPortal将组件渲染到当前组件树之外</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持自定义DOM属性"><span class="nav-number">4.</span> <span class="nav-text">支持自定义DOM属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setState传入null时不会再触发更新"><span class="nav-number">5.</span> <span class="nav-text">setState传入null时不会再触发更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更好的服务器端渲染"><span class="nav-number">6.</span> <span class="nav-text">更好的服务器端渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的打包策略"><span class="nav-number">7.</span> <span class="nav-text">新的打包策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-16采用了新的核心架构React-Fiber。官方解释是“React-Fiber是对核心算法的一次重新实现”"><span class="nav-number">8.</span> <span class="nav-text">React 16采用了新的核心架构React Fiber。官方解释是“React Fiber是对核心算法的一次重新实现”</span></a></li></ol></div>
             
 
           </div>

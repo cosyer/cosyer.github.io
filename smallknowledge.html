@@ -138,7 +138,7 @@
 <meta property="og:url" content="http://mydearest.cn/smallknowledge.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T12:53:59.094Z">
+<meta property="og:updated_time" content="2018-06-13T08:10:03.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你所不知道的前端冷门小知识(长期更新)">
 
@@ -411,12 +411,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-06-12T20:53:59+08:00">
+  <div class="post-date" data-datetime="2018-06-13T16:10:03+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">12</div>
+    <div class="post-time-count">13</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月12</div>
+      <div class="post-tiem">6月13</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -521,7 +521,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  548 (字)
+                  638 (字)
                 </span>
               
 
@@ -638,6 +638,10 @@ a:hover {
   return item === 2 // 如果item等于2就跳出循环
 })</p>
 <h2 id="fetch模拟post进行api测试"><a href="#fetch模拟post进行api测试" class="headerlink" title="fetch模拟post进行api测试"></a>fetch模拟post进行api测试</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch(apiUrl, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    body: <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">q</span>: <span class="number">1</span>&#125;)</span><br><span class="line">&#125;).then(<span class="keyword">async</span> res =&gt; <span class="built_in">console</span>.log(<span class="keyword">await</span> res.json()))</span><br></pre></td></tr></table></figure>
+<h2 id="实现var-a-add-2-3-4"><a href="#实现var-a-add-2-3-4" class="headerlink" title="实现var a = add(2)(3)(4)"></a>实现var a = add(2)(3)(4)</h2><p>js中console.log一个对象时，会对这个对象进行toString()操作，还有些情况会对对象进行valueOf()操作
+vauleOf优先于toString()被调用
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _add = <span class="function"><span class="keyword">function</span>(<span class="params">args</span>)</span>&#123;</span><br><span class="line">        num+=args;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">arguments</span>.callee; <span class="comment">//  return add(num+args);</span></span><br><span class="line">    &#125;</span><br><span class="line">    _add.toString = _add.valueOf = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _add;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>);<span class="comment">// function 9</span></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -668,7 +672,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/smallknowledge.html">你所不知道的前端冷门小知识(长期更新)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 21:06</p>
-  <p><span>最后更新:</span>2018年06月12日 - 20:06</p>
+  <p><span>最后更新:</span>2018年06月13日 - 16:06</p>
   <p><span>原始链接:</span><a href="/smallknowledge.html" title="你所不知道的前端冷门小知识(长期更新)">http://mydearest.cn/smallknowledge.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/smallknowledge.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -836,7 +840,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -858,7 +862,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -968,7 +972,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#void"><span class="nav-number">1.</span> <span class="nav-text">void</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-scrollIntoViewIfNeeded"><span class="nav-number">2.</span> <span class="nav-text">Element.scrollIntoViewIfNeeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS取整"><span class="nav-number">3.</span> <span class="nav-text">JS取整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全等判断"><span class="nav-number">4.</span> <span class="nav-text">全等判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch跳出forEach循环"><span class="nav-number">5.</span> <span class="nav-text">try-catch跳出forEach循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch模拟post进行api测试"><span class="nav-number">6.</span> <span class="nav-text">fetch模拟post进行api测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#void"><span class="nav-number">1.</span> <span class="nav-text">void</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-scrollIntoViewIfNeeded"><span class="nav-number">2.</span> <span class="nav-text">Element.scrollIntoViewIfNeeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS取整"><span class="nav-number">3.</span> <span class="nav-text">JS取整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全等判断"><span class="nav-number">4.</span> <span class="nav-text">全等判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch跳出forEach循环"><span class="nav-number">5.</span> <span class="nav-text">try-catch跳出forEach循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch模拟post进行api测试"><span class="nav-number">6.</span> <span class="nav-text">fetch模拟post进行api测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现var-a-add-2-3-4"><span class="nav-number">7.</span> <span class="nav-text">实现var a = add(2)(3)(4)</span></a></li></ol></div>
             
 
           </div>
@@ -1013,7 +1017,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 12.8k字</span>
+    <span class="post-count">Blog总字数: 14.0k字</span>
   </div>
 </div>
 

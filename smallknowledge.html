@@ -138,7 +138,7 @@
 <meta property="og:url" content="http://mydearest.cn/smallknowledge.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T08:32:16.496Z">
+<meta property="og:updated_time" content="2018-06-12T12:53:59.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你所不知道的前端冷门小知识(长期更新)">
 
@@ -411,7 +411,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-06-12T16:32:16+08:00">
+  <div class="post-date" data-datetime="2018-06-12T20:53:59+08:00">
     <div class="post-time-text">6月</div>
     <div class="post-time-count">12</div>
     <div class="text-desc">
@@ -521,7 +521,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  469 (字)
+                  548 (字)
                 </span>
               
 
@@ -537,7 +537,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -569,16 +569,53 @@ a:hover {
 <li>当元素已经在可视区域时，调用 Element.scrollIntoViewIfNeeded()，无论设置什么参数，均不发生滚动。</li>
 </ul>
 <h2 id="JS取整"><a href="#JS取整" class="headerlink" title="JS取整"></a>JS取整</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~~<span class="number">2.5</span> <span class="comment">// 2 按位取反 -2^31~2^31-1 -2147483648~2147483647</span></span><br><span class="line"><span class="number">0</span>|<span class="number">3.123</span>;<span class="comment">// 3 或运算</span></span><br><span class="line"><span class="number">4.3</span>|<span class="number">0</span>; <span class="comment">// 4</span></span><br><span class="line"><span class="number">4.3</span>&lt;&lt;<span class="number">0</span>; <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
-<p>与Math.floor()的对比
-|区别|Math.floor|~~|
-|:—|:—:|—:|
-|NaN|NaN|0|
-|+0|+0|0|
-|-0|-0|0|
-|+Infinity|+Infinity|0|
-|-Infinity|-Infinity|0|
-|1.2|1.2|1.2|
-|-1.2|-1|-1|</p>
+<p>与Math.floor()的对比</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">区别</th>
+<th style="text-align:center">Math.floor</th>
+<th style="text-align:right">~~</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">NaN</td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:left">+0</td>
+<td style="text-align:center">+0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:left">-0</td>
+<td style="text-align:center">-0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:left">+Infinity</td>
+<td style="text-align:center">+Infinity</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:left">-Infinity</td>
+<td style="text-align:center">-Infinity</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:left">1.2</td>
+<td style="text-align:center">1.2</td>
+<td style="text-align:right">1.2</td>
+</tr>
+<tr>
+<td style="text-align:left">-1.2</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:right">-1</td>
+</tr>
+</tbody>
+</table>
 <ol>
 <li><p>位运算：~ 的结果是 int32 的有符号整数，所以肯定不可能是 NaN 和无穷，因此 1、4、5 两者不同。x|0  x&lt;&lt;0</p>
 </li>
@@ -594,7 +631,13 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>/<span class="number">0</span> === <span class="number">1</span>/<span class="number">-0</span> <span class="comment">// false </span></span><br><span class="line">+<span class="number">0</span> === <span class="number">-0</span> <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(+<span class="number">0</span>,<span class="number">-0</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
 <p>区分NaN
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> !== <span class="literal">NaN</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span> <span class="comment">// false </span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>,<span class="literal">NaN</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="try-catch跳出forEach循环"><a href="#try-catch跳出forEach循环" class="headerlink" title="try-catch跳出forEach循环"></a>try-catch跳出forEach循环</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (v === <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'my err'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.message === <span class="string">'my err'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'breaked'</span>) </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> e</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="try-catch跳出forEach循环"><a href="#try-catch跳出forEach循环" class="headerlink" title="try-catch跳出forEach循环"></a>try-catch跳出forEach循环</h2><p>forEach遍历不能保证遍历的顺序，以及不能break;一般for循环的性能是forEach的20倍
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (v === <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'my err'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.message === <span class="string">'my err'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'breaked'</span>) </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> e</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用some也可以做到
+[1,2,3].some((item)=&gt;{
+  return item === 2 // 如果item等于2就跳出循环
+})</p>
+<h2 id="fetch模拟post进行api测试"><a href="#fetch模拟post进行api测试" class="headerlink" title="fetch模拟post进行api测试"></a>fetch模拟post进行api测试</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch(apiUrl, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    body: <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">q</span>: <span class="number">1</span>&#125;)</span><br><span class="line">&#125;).then(<span class="keyword">async</span> res =&gt; <span class="built_in">console</span>.log(<span class="keyword">await</span> res.json()))</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -625,7 +668,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/smallknowledge.html">你所不知道的前端冷门小知识(长期更新)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 21:06</p>
-  <p><span>最后更新:</span>2018年06月12日 - 16:06</p>
+  <p><span>最后更新:</span>2018年06月12日 - 20:06</p>
   <p><span>原始链接:</span><a href="/smallknowledge.html" title="你所不知道的前端冷门小知识(长期更新)">http://mydearest.cn/smallknowledge.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/smallknowledge.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -710,6 +753,10 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/prototype.html" rel="prev" title="JavaScript深入之从原型到原型链">
+                JavaScript深入之从原型到原型链 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -789,7 +836,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -811,7 +858,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -921,7 +968,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#void"><span class="nav-number">1.</span> <span class="nav-text">void</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-scrollIntoViewIfNeeded"><span class="nav-number">2.</span> <span class="nav-text">Element.scrollIntoViewIfNeeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS取整"><span class="nav-number">3.</span> <span class="nav-text">JS取整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全等判断"><span class="nav-number">4.</span> <span class="nav-text">全等判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch跳出forEach循环"><span class="nav-number">5.</span> <span class="nav-text">try-catch跳出forEach循环</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#void"><span class="nav-number">1.</span> <span class="nav-text">void</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-scrollIntoViewIfNeeded"><span class="nav-number">2.</span> <span class="nav-text">Element.scrollIntoViewIfNeeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS取整"><span class="nav-number">3.</span> <span class="nav-text">JS取整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全等判断"><span class="nav-number">4.</span> <span class="nav-text">全等判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch跳出forEach循环"><span class="nav-number">5.</span> <span class="nav-text">try-catch跳出forEach循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch模拟post进行api测试"><span class="nav-number">6.</span> <span class="nav-text">fetch模拟post进行api测试</span></a></li></ol></div>
             
 
           </div>
@@ -966,7 +1013,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 10.9k字</span>
+    <span class="post-count">Blog总字数: 12.8k字</span>
   </div>
 </div>
 

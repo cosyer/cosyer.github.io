@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="设置函数默认值  结合解构赋值默认值使用 利用rest(…变量名)传入任意参数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T06:07:54.000Z">
+<meta property="og:updated_time" content="2018-07-02T18:00:33.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6函数新特性">
 <meta name="twitter:description" content="设置函数默认值  结合解构赋值默认值使用 利用rest(…变量名)传入任意参数">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-06-12T14:07:54+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">12</div>
+  <div class="post-date" data-datetime="2018-07-03T02:00:33+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">03</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月12</div>
+      <div class="post-tiem">7月03</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  315 (字)
+                  863 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -580,6 +580,19 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr4 = arr1.push(...arr2)</span><br></pre></td></tr></table></figure></p>
 <h2 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a>name属性</h2><p>函数的name属性可以返回函数名
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function abc()&#123;</span><br><span class="line">    console.log(abc.name)</span><br><span class="line">&#125;</span><br><span class="line">abc() // &apos;abc&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数的静态变量和函数"><a href="#函数的静态变量和函数" class="headerlink" title="函数的静态变量和函数"></a>函数的静态变量和函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Box.num = <span class="number">12</span>;  <span class="comment">//静态变量</span></span><br><span class="line">Box.fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;  <span class="comment">//静态函数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Box.num);  <span class="comment">//12</span></span><br><span class="line"><span class="built_in">console</span>.log(Box.fn);  <span class="comment">//function()&#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Box.fn);  <span class="comment">//function</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> Box();</span><br><span class="line"><span class="built_in">console</span>.log(t.num);  <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(t.fn);  <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> t.fn);<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>静态变量和静态函数是Box对象的属性和方法，不属于实例。</p>
+<h2 id="函数的实例函数和变量"><a href="#函数的实例函数和变量" class="headerlink" title="函数的实例函数和变量"></a>函数的实例函数和变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.a = [];  <span class="comment">//实例变量</span></span><br><span class="line">  <span class="keyword">this</span>.fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;  <span class="comment">//实例方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Box.a);  <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(Box.fn);  <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Box.fn);  <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> Box();</span><br><span class="line"><span class="keyword">var</span> t2 = <span class="keyword">new</span> Box();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(t.a);  <span class="comment">//[]</span></span><br><span class="line"><span class="built_in">console</span>.log(t2.a);  <span class="comment">//[]</span></span><br><span class="line">t.a.push(<span class="number">1</span>);   <span class="comment">// t.a [1]</span></span><br><span class="line"><span class="built_in">console</span>.log(t2.a);  <span class="comment">//[]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> t.fn);</span><br></pre></td></tr></table></figure>
+<p>每个实例都有一套实例属性和实例方法，互不影响。</p>
+<p>原型上的属性和方法，是实例共用的。</p>
+<h2 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h2><h3 id="基本类型-基本类型的变量复制"><a href="#基本类型-基本类型的变量复制" class="headerlink" title="基本类型 (基本类型的变量复制)"></a>基本类型 (基本类型的变量复制)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">num</span>(<span class="params">num1</span>)</span>&#123;</span><br><span class="line">   num1 = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">return</span> num1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = num(count);</span><br><span class="line"><span class="built_in">console</span>.log(result);<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(count);<span class="comment">//10，并未变成1</span></span><br></pre></td></tr></table></figure>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person  = &#123;</span><br><span class="line">    name : <span class="string">"Tom"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">obj</span>(<span class="params">peo</span>)</span>&#123;</span><br><span class="line">    peo.name = <span class="string">"Jerry"</span>;</span><br><span class="line">    <span class="keyword">return</span> peo;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = obj(person);</span><br><span class="line"><span class="built_in">console</span>.log(result.name);<span class="comment">// Jerry</span></span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">// Jerry</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name : <span class="string">"Tom"</span></span><br><span class="line">&#125;; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">obj</span>(<span class="params">peo</span>)</span>&#123;</span><br><span class="line">    peo = &#123;</span><br><span class="line">       name : <span class="string">"Jerry"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> peo;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = obj(person);</span><br><span class="line"><span class="built_in">console</span>.log(result.name);<span class="comment">// Jerry</span></span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">// Tom</span></span><br></pre></td></tr></table></figure>
+<p>person传递给函数中的peo，但在函数内部peo又指向了一个新对象，所以result.name是新对象的值，person还是指向原对象，所以并没有改变。</p>
+<p>ECMAScript中所有函数的参数都是按值传递的。 ——《JS高程》</p>
+<p>我们可以把ECMAScript函数的参数想象成局部变量，在向参数传递基本类型的值时，被传递的值被复制给一个局部变量。</p>
+<p>在向函数传递引用类型时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。</p>
+<p>即使在函数内部修改了参数的值，但原始的引用仍然保持未变。</p>
 
       
     </div>
@@ -611,7 +624,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/es6function.html">es6函数新特性</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月08日 - 19:06</p>
-  <p><span>最后更新:</span>2018年06月12日 - 14:06</p>
+  <p><span>最后更新:</span>2018年07月03日 - 02:07</p>
   <p><span>原始链接:</span><a href="/es6function.html" title="es6函数新特性">http://mydearest.cn/es6function.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/es6function.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -779,7 +792,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -790,7 +803,7 @@ a:hover {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -801,7 +814,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -911,7 +924,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#…rest和扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">…rest和扩展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用扩展运算符（…数组）替代数组的apply方法"><span class="nav-number">2.</span> <span class="nav-text">利用扩展运算符（…数组）替代数组的apply方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name属性"><span class="nav-number">3.</span> <span class="nav-text">name属性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#…rest和扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">…rest和扩展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用扩展运算符（…数组）替代数组的apply方法"><span class="nav-number">2.</span> <span class="nav-text">利用扩展运算符（…数组）替代数组的apply方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name属性"><span class="nav-number">3.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的静态变量和函数"><span class="nav-number">4.</span> <span class="nav-text">函数的静态变量和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的实例函数和变量"><span class="nav-number">5.</span> <span class="nav-text">函数的实例函数和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数传参"><span class="nav-number">6.</span> <span class="nav-text">函数传参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型-基本类型的变量复制"><span class="nav-number">6.1.</span> <span class="nav-text">基本类型 (基本类型的变量复制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">6.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -956,7 +969,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 16.9k字</span>
+    <span class="post-count">Blog总字数: 29.5k字</span>
   </div>
 </div>
 
@@ -1053,7 +1066,7 @@ a:hover {
 
   <script src="https://cdn.lishaoy.net/js/av-min.js"></script>
   
-  <script src='https://cdn.lishaoy.net/js/%233479dsfjdseruijersdf3r.Valine.min.js'></script>
+  <script src='https://cdn.lishaoy.net/js/Valine.min-2d948fjf6gj4hf.js'></script>
 
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];

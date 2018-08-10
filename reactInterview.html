@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/reactInterview.jpeg ">
-<meta property="og:updated_time" content="2018-07-17T11:40:41.029Z">
+<meta property="og:updated_time" content="2018-08-02T03:45:48.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react面试题记录">
 <meta name="twitter:image" content="http://p33v4b0bc.bkt.clouddn.com/reactInterview.jpeg ">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-07-17T19:40:41+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">17</div>
+  <div class="post-date" data-datetime="2018-08-02T11:45:48+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月17</div>
+      <div class="post-tiem">8月02</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,217 (字)
+                  3,664 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  12 (分钟)
+                  13 (分钟)
                 </span>
               
             </div>
@@ -591,7 +591,7 @@ a:hover {
 </ul>
 <h4 id="应该在-React-组件的何处发起-Ajax-请求"><a href="#应该在-React-组件的何处发起-Ajax-请求" class="headerlink" title="应该在 React 组件的何处发起 Ajax 请求"></a>应该在 React 组件的何处发起 Ajax 请求</h4><p>在 React 组件中，应该在 <code>componentDidMount</code> 中发起网络请求。这个方法会在组件第一次“挂载”(被添加到 DOM)时执行，在组件的生命周期中仅会执行一次。更重要的是，你不能保证在组件挂载之前 Ajax 请求已经完成，如果是这样，也就意味着你将尝试在一个未挂载的组件上调用 setState，这将不起作用。在 <code>componentDidMount</code> 中发起网络请求将保证这有一个组件可以更新了。</p>
 <h4 id="何为受控组件-controlled-component"><a href="#何为受控组件-controlled-component" class="headerlink" title="何为受控组件(controlled component)"></a>何为受控组件(controlled component)</h4><p>在 HTML 中，类似 <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 这样的表单元素会维护自身的状态，并基于用户的输入来更新。当用户提交表单时，前面提到的元素的值将随表单一起被发送。但在 React 中会有些不同，包含表单元素的组件将会在 state 中追踪输入的值，并且每次调用回调函数时，如 <code>onChange</code> 会更新 state，重新渲染组件。一个输入表单元素，它的值通过 React 的这种方式来控制，这样的元素就被称为”受控元素”。</p>
-<h4 id="在-React-中，refs-的作用是什么"><a href="#在-React-中，refs-的作用是什么" class="headerlink" title="在 React 中，refs 的作用是什么"></a>在 React 中，refs 的作用是什么</h4><p>Refs 可以用于获取一个 DOM 节点或者 React 组件的引用。何时使用 refs 的好的示例有管理焦点/文本选择，触发命令动画，或者和第三方 DOM 库集成。你应该避免使用 String 类型的 Refs 和内联的 ref 回调。Refs 回调是 React 所推荐的。</p>
+<h4 id="在-React-中，refs-的作用是什么"><a href="#在-React-中，refs-的作用是什么" class="headerlink" title="在 React 中，refs 的作用是什么"></a>在 React 中，refs 的作用是什么</h4><p>Refs 可以用于获取一个 DOM 节点或者 React 组件(组件实例)的引用。何时使用 refs 的好的示例有管理焦点/文本选择，触发命令动画，或者和第三方 DOM 库集成。你应该避免使用 String 类型的 Refs 和内联的 ref 回调。Refs 回调是 React 所推荐的。</p>
 <h4 id="何为高阶组件-higher-order-component"><a href="#何为高阶组件-higher-order-component" class="headerlink" title="何为高阶组件(higher order component)"></a>何为高阶组件(higher order component)</h4><p>高阶组件是一个以组件为参数并返回一个新组件的函数。HOC 运行你重用代码、逻辑和引导抽象。最常见的可能是 Redux 的 <code>connect</code> 函数。除了简单分享工具库和简单的组合，HOC最好的方式是共享 React 组件之间的行为。如果你发现你在不同的地方写了大量代码来做同一件事时，就应该考虑将代码重构为可重用的 HOC。
 装饰器@decoration
 练习</p>
@@ -608,10 +608,10 @@ a:hover {
 <li>简单：箭头函数易于阅读和书写</li>
 <li>清晰：当一切都是一个箭头函数，任何常规函数都可以立即用于定义作用域。开发者总是可以查找 next-higher 函数语句，以查看 <code>this</code> 的值</li>
 </ul>
-<h4 id="为什么建议传递给-setState-的参数是一个-callback-而不是一个对象"><a href="#为什么建议传递给-setState-的参数是一个-callback-而不是一个对象" class="headerlink" title="为什么建议传递给 setState 的参数是一个 callback 而不是一个对象"></a>为什么建议传递给 setState 的参数是一个 callback 而不是一个对象</h4><p>因为 <code>this.props</code> 和 <code>this.state</code> 的更新可能是异步的，不能依赖它们的值去计算下一个 state。</p>
+<h4 id="为什么建议传递给-setState-的参数是一个-callback-而不是一个对象"><a href="#为什么建议传递给-setState-的参数是一个-callback-而不是一个对象" class="headerlink" title="为什么建议传递给 setState 的参数是一个 callback 而不是一个对象"></a>为什么建议传递给 setState 的参数是一个 callback 而不是一个对象</h4><p>因为 <code>this.props</code> 和 <code>this.state</code> 的更新可能是异步的，不能依赖它们的值去计算下一个 state。setState在生命周期里是异步的，第二个参数是组件重新渲染完成后的回调。</p>
 <h4 id="除了在构造函数中绑定-this，还有其它方式吗"><a href="#除了在构造函数中绑定-this，还有其它方式吗" class="headerlink" title="除了在构造函数中绑定 this，还有其它方式吗"></a>除了在构造函数中绑定 <code>this</code>，还有其它方式吗</h4><p>你可以使用属性初始值设定项(property initializers)来正确绑定回调，create-react-app 也是默认支持的。在回调中你可以使用箭头函数，但问题是每次组件渲染时都会创建一个新的回调。</p>
 <h4 id="怎么阻止组件的渲染"><a href="#怎么阻止组件的渲染" class="headerlink" title="怎么阻止组件的渲染"></a>怎么阻止组件的渲染</h4><p>在组件的 <code>render</code> 方法中返回 <code>null</code> 并不会影响触发组件的生命周期方法</p>
-<h4 id="当渲染一个列表时，何为-key？设置-key-的目的是什么"><a href="#当渲染一个列表时，何为-key？设置-key-的目的是什么" class="headerlink" title="当渲染一个列表时，何为 key？设置 key 的目的是什么"></a>当渲染一个列表时，何为 key？设置 key 的目的是什么</h4><p>Keys 会有助于 React 识别哪些 <code>items</code> 改变了，被添加了或者被移除了。Keys 应该被赋予数组内的元素以赋予(DOM)元素一个稳定的标识，选择一个 key 的最佳方法是使用一个字符串，该字符串能惟一地标识一个列表项。很多时候你会使用数据中的 IDs 作为 keys，当你没有稳定的 IDs 用于被渲染的 <code>items</code> 时，可以使用项目索引作为渲染项的 key，但这种方式并不推荐，如果 <code>items</code> 可以重新排序，就会导致 <code>re-render</code> 变慢。</p>
+<h4 id="当渲染一个列表时，何为-key？设置-key-的目的是什么"><a href="#当渲染一个列表时，何为-key？设置-key-的目的是什么" class="headerlink" title="当渲染一个列表时，何为 key？设置 key 的目的是什么"></a>当渲染一个列表时，何为 key？设置 key 的目的是什么</h4><p>Keys 会有助于 React 识别哪些 <code>items</code> 改变了，被添加了或者被移除了。Keys 应该被赋予数组内的元素以赋予(DOM)元素一个稳定的标识，选择一个 key 的最佳方法是使用一个字符串，该字符串能惟一地标识一个列表项。很多时候你会使用数据中的 IDs 作为 keys，当你没有稳定的 IDs 用于被渲染的 <code>items</code> 时，可以使用项目索引作为渲染项的 key，但这种方式并不推荐，如果 <code>items</code> 可以重新排序，就会导致 <code>re-render</code> 变慢。在map遍历是能唯一地标识元素item，时的处理列表更加高效。</p>
 <h4 id="在构造函数中-调用-super-props-的目的是什么"><a href="#在构造函数中-调用-super-props-的目的是什么" class="headerlink" title="(在构造函数中)调用 super(props) 的目的是什么"></a>(在构造函数中)调用 super(props) 的目的是什么</h4><p>在 <code>super()</code> 被调用之前，子类是不能使用 <code>this</code> 的，在 ES2015 中，子类必须在 <code>constructor</code> 中调用 <code>super()</code>。传递 <code>props</code> 给 <code>super()</code> 的原因则是便于(在子类中)能在 <code>constructor</code> 访问 <code>this.props</code>。</p>
 <h4 id="何为-JSX"><a href="#何为-JSX" class="headerlink" title="何为 JSX"></a>何为 JSX</h4><p>JSX 是 JavaScript 语法的一种语法扩展，并拥有 JavaScript 的全部功能。JSX 生产 React “元素”，你可以将任何的 JavaScript 表达式封装在花括号里，然后将其嵌入到 JSX 中。在编译完成之后，JSX 表达式就编程了常规的 JavaScript 对象，这意味着你可以在 <code>if</code> 语句和 <code>for</code> 循环内部使用 JSX，将它赋值给变量，接受它作为参数，并从函数中返回它。</p>
 <h4 id="怎么用-React-createElement-重写下面的代码"><a href="#怎么用-React-createElement-重写下面的代码" class="headerlink" title="怎么用 React.createElement 重写下面的代码"></a>怎么用 React.createElement 重写下面的代码</h4><p>Question：</p>
@@ -643,7 +643,17 @@ a:hover {
 <li><a href="https://github.com/andrewngu/sound-redux" target="_blank" rel="noopener">React Soundcloud</a></li>
 </ul>
 <h4 id="虚拟dom-普通的js对象"><a href="#虚拟dom-普通的js对象" class="headerlink" title="虚拟dom 普通的js对象"></a>虚拟dom 普通的js对象</h4><p>虚拟dom相当于在js和真实dom中间加了一个缓存，利用dom diff算法避免了没有必要的dom操作，从而提高性能。具体实现步骤如下：用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异把2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了。插入新组件有了key可以帮助react找到映射。</p>
-<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>每个setState重新渲染整个子树标记为dirty。 如果要压缩性能，请尽可能调用 setState，并使用shouldComponentUpdate 来防止重新渲染大型子树。把树形结构按照层级分解，只比较同级元素。给列表结构的每个单元添加唯一的key属性，方便比较。pureComponent+immutable</p>
+<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>每个setState重新渲染整个子树标记为dirty。 如果要压缩性能，请尽可能调用 setState，并使用shouldComponentUpdate 来防止重新渲染大型子树。把树形结构按照层级分解，只比较同级元素。给列表结构的每个单元添加唯一的key属性，方便比较。pureComponent(浅比较)+immutable 替换成preact</p>
+<h4 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a>diff算法</h4><p>把树形结构按照层级分解，只比较同级元素。</p>
+<p>给列表结构的每个单元添加唯一的key属性，方便比较。</p>
+<p>React 只会匹配相同 class 的 component（这里面的class指的是组件的名字）</p>
+<p>合并操作，调用 component 的 setState 方法的时候, React 将其标记为 dirty.到每一个事件循环结束, React 检查所有标记 dirty 的 component 重新绘制.</p>
+<p>选择性子树渲染。开发人员可以重写shouldComponentUpdate提高diff的性能。</p>
+<h4 id="setState的理解"><a href="#setState的理解" class="headerlink" title="setState的理解"></a>setState的理解</h4><ul>
+<li>setState 只在合成事件和钩子函数中是“异步”的，在原生事件和setTimeout 中都是同步的。</li>
+<li>setState 的“异步”并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形成了所谓的“异步”，当然可以通过第二个参数 setState(partialState, callback) 中的callback拿到更新后的结果。</li>
+<li>setState 的批量更新优化也是建立在“异步”（合成事件、钩子函数）之上的，在原生事件和setTimeout 中不会批量更新，在“异步”中如果对同一个值进行多次setState，setState的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时setState多个不同的值，在更新时会对其进行合并批量更新。</li>
+</ul>
 
       
     </div>
@@ -675,7 +685,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/reactInterview.html">react面试题记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月07日 - 14:06</p>
-  <p><span>最后更新:</span>2018年07月17日 - 19:07</p>
+  <p><span>最后更新:</span>2018年08月02日 - 11:08</p>
   <p><span>原始链接:</span><a href="/reactInterview.html" title="react面试题记录">http://mydearest.cn/reactInterview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/reactInterview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -845,7 +855,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -867,7 +877,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -981,7 +991,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React面试问题"><span class="nav-number">1.</span> <span class="nav-text">React面试问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#React-的工作原理"><span class="nav-number">1.0.1.</span> <span class="nav-text">React 的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-React-有何优点"><span class="nav-number">1.0.2.</span> <span class="nav-text">使用 React 有何优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#展示组件-Presentational-component-和容器组件-Container-component-之间有何不同"><span class="nav-number">1.0.3.</span> <span class="nav-text">展示组件(Presentational component)和容器组件(Container component)之间有何不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类组件-Class-component-和函数式组件-Functional-component-之间有何不同"><span class="nav-number">1.0.4.</span> <span class="nav-text">类组件(Class component)和函数式组件(Functional component)之间有何不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件的-状态-state-和属性-props-之间有何不同"><span class="nav-number">1.0.5.</span> <span class="nav-text">(组件的)状态(state)和属性(props)之间有何不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指出-组件-生命周期方法的不同"><span class="nav-number">1.0.6.</span> <span class="nav-text">指出(组件)生命周期方法的不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应该在-React-组件的何处发起-Ajax-请求"><span class="nav-number">1.0.7.</span> <span class="nav-text">应该在 React 组件的何处发起 Ajax 请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为受控组件-controlled-component"><span class="nav-number">1.0.8.</span> <span class="nav-text">何为受控组件(controlled component)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-React-中，refs-的作用是什么"><span class="nav-number">1.0.9.</span> <span class="nav-text">在 React 中，refs 的作用是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为高阶组件-higher-order-component"><span class="nav-number">1.0.10.</span> <span class="nav-text">何为高阶组件(higher order component)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用箭头函数-arrow-functions-的优点是什么"><span class="nav-number">1.0.11.</span> <span class="nav-text">使用箭头函数(arrow functions)的优点是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么建议传递给-setState-的参数是一个-callback-而不是一个对象"><span class="nav-number">1.0.12.</span> <span class="nav-text">为什么建议传递给 setState 的参数是一个 callback 而不是一个对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#除了在构造函数中绑定-this，还有其它方式吗"><span class="nav-number">1.0.13.</span> <span class="nav-text">除了在构造函数中绑定 this，还有其它方式吗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么阻止组件的渲染"><span class="nav-number">1.0.14.</span> <span class="nav-text">怎么阻止组件的渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当渲染一个列表时，何为-key？设置-key-的目的是什么"><span class="nav-number">1.0.15.</span> <span class="nav-text">当渲染一个列表时，何为 key？设置 key 的目的是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在构造函数中-调用-super-props-的目的是什么"><span class="nav-number">1.0.16.</span> <span class="nav-text">(在构造函数中)调用 super(props) 的目的是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-JSX"><span class="nav-number">1.0.17.</span> <span class="nav-text">何为 JSX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么用-React-createElement-重写下面的代码"><span class="nav-number">1.0.18.</span> <span class="nav-text">怎么用 React.createElement 重写下面的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-Children"><span class="nav-number">1.0.19.</span> <span class="nav-text">何为 Children</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-React-中，何为-state"><span class="nav-number">1.0.20.</span> <span class="nav-text">在 React 中，何为 state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你为何排斥-create-react-app"><span class="nav-number">1.0.21.</span> <span class="nav-text">你为何排斥 create-react-app</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-redux"><span class="nav-number">1.0.22.</span> <span class="nav-text">何为 redux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-Redux-中，何为-store"><span class="nav-number">1.0.23.</span> <span class="nav-text">在 Redux 中，何为 store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-action"><span class="nav-number">1.0.24.</span> <span class="nav-text">何为 action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-reducer"><span class="nav-number">1.0.25.</span> <span class="nav-text">何为 reducer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redux-Thunk-的作用是什么"><span class="nav-number">1.0.26.</span> <span class="nav-text">Redux Thunk 的作用是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为纯函数-pure-function"><span class="nav-number">1.0.27.</span> <span class="nav-text">何为纯函数(pure function)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redux有哪些中间件，作用？"><span class="nav-number">1.0.28.</span> <span class="nav-text">redux有哪些中间件，作用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例项目"><span class="nav-number">1.0.29.</span> <span class="nav-text">示例项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟dom-普通的js对象"><span class="nav-number">1.0.30.</span> <span class="nav-text">虚拟dom 普通的js对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托"><span class="nav-number">1.0.31.</span> <span class="nav-text">事件委托</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React面试问题"><span class="nav-number">1.</span> <span class="nav-text">React面试问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#React-的工作原理"><span class="nav-number">1.0.1.</span> <span class="nav-text">React 的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-React-有何优点"><span class="nav-number">1.0.2.</span> <span class="nav-text">使用 React 有何优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#展示组件-Presentational-component-和容器组件-Container-component-之间有何不同"><span class="nav-number">1.0.3.</span> <span class="nav-text">展示组件(Presentational component)和容器组件(Container component)之间有何不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类组件-Class-component-和函数式组件-Functional-component-之间有何不同"><span class="nav-number">1.0.4.</span> <span class="nav-text">类组件(Class component)和函数式组件(Functional component)之间有何不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件的-状态-state-和属性-props-之间有何不同"><span class="nav-number">1.0.5.</span> <span class="nav-text">(组件的)状态(state)和属性(props)之间有何不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指出-组件-生命周期方法的不同"><span class="nav-number">1.0.6.</span> <span class="nav-text">指出(组件)生命周期方法的不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应该在-React-组件的何处发起-Ajax-请求"><span class="nav-number">1.0.7.</span> <span class="nav-text">应该在 React 组件的何处发起 Ajax 请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为受控组件-controlled-component"><span class="nav-number">1.0.8.</span> <span class="nav-text">何为受控组件(controlled component)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-React-中，refs-的作用是什么"><span class="nav-number">1.0.9.</span> <span class="nav-text">在 React 中，refs 的作用是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为高阶组件-higher-order-component"><span class="nav-number">1.0.10.</span> <span class="nav-text">何为高阶组件(higher order component)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用箭头函数-arrow-functions-的优点是什么"><span class="nav-number">1.0.11.</span> <span class="nav-text">使用箭头函数(arrow functions)的优点是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么建议传递给-setState-的参数是一个-callback-而不是一个对象"><span class="nav-number">1.0.12.</span> <span class="nav-text">为什么建议传递给 setState 的参数是一个 callback 而不是一个对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#除了在构造函数中绑定-this，还有其它方式吗"><span class="nav-number">1.0.13.</span> <span class="nav-text">除了在构造函数中绑定 this，还有其它方式吗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么阻止组件的渲染"><span class="nav-number">1.0.14.</span> <span class="nav-text">怎么阻止组件的渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当渲染一个列表时，何为-key？设置-key-的目的是什么"><span class="nav-number">1.0.15.</span> <span class="nav-text">当渲染一个列表时，何为 key？设置 key 的目的是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在构造函数中-调用-super-props-的目的是什么"><span class="nav-number">1.0.16.</span> <span class="nav-text">(在构造函数中)调用 super(props) 的目的是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-JSX"><span class="nav-number">1.0.17.</span> <span class="nav-text">何为 JSX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么用-React-createElement-重写下面的代码"><span class="nav-number">1.0.18.</span> <span class="nav-text">怎么用 React.createElement 重写下面的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-Children"><span class="nav-number">1.0.19.</span> <span class="nav-text">何为 Children</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-React-中，何为-state"><span class="nav-number">1.0.20.</span> <span class="nav-text">在 React 中，何为 state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你为何排斥-create-react-app"><span class="nav-number">1.0.21.</span> <span class="nav-text">你为何排斥 create-react-app</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-redux"><span class="nav-number">1.0.22.</span> <span class="nav-text">何为 redux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-Redux-中，何为-store"><span class="nav-number">1.0.23.</span> <span class="nav-text">在 Redux 中，何为 store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-action"><span class="nav-number">1.0.24.</span> <span class="nav-text">何为 action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为-reducer"><span class="nav-number">1.0.25.</span> <span class="nav-text">何为 reducer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redux-Thunk-的作用是什么"><span class="nav-number">1.0.26.</span> <span class="nav-text">Redux Thunk 的作用是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#何为纯函数-pure-function"><span class="nav-number">1.0.27.</span> <span class="nav-text">何为纯函数(pure function)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redux有哪些中间件，作用？"><span class="nav-number">1.0.28.</span> <span class="nav-text">redux有哪些中间件，作用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例项目"><span class="nav-number">1.0.29.</span> <span class="nav-text">示例项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟dom-普通的js对象"><span class="nav-number">1.0.30.</span> <span class="nav-text">虚拟dom 普通的js对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托"><span class="nav-number">1.0.31.</span> <span class="nav-text">事件委托</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#diff算法"><span class="nav-number">1.0.32.</span> <span class="nav-text">diff算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setState的理解"><span class="nav-number">1.0.33.</span> <span class="nav-text">setState的理解</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1026,7 +1036,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 34.3k字</span>
+    <span class="post-count">Blog总字数: 45.7k字</span>
   </div>
 </div>
 

@@ -891,7 +891,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -913,7 +913,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1004,6 +1004,10 @@ a:hover {
                   <a rel="external nofollow" href="http://dir.mydearest.cn/motion/" title="Personal Site" target="_blank">Personal Site</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://resume.mydearest.cn/" title="Resume" target="_blank">Resume</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -1052,7 +1056,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 30.1k字</span>
+    <span class="post-count">Blog总字数: 34.3k字</span>
   </div>
 </div>
 
@@ -1244,7 +1248,7 @@ a:hover {
               keywords.push(searchText);
             }
             var resultItems = [];
-            if (searchText.length > 0) {
+            if (searchText.length > 0&&datas.length>0) {
               // perform local searching
               datas.forEach(function(data) {
                 var isMatch = false;
@@ -1252,8 +1256,8 @@ a:hover {
                 var searchTextCount = 0;
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
+                var content =  data.content&&data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content&&content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
                 var indexOfContent = [];
@@ -1267,10 +1271,10 @@ a:hover {
                       }
                       var startPosition = 0, position = [], index = [];
                       if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
+                        text = text&&text.toLowerCase();
+                        word = word&&word.toLowerCase();
                       }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                      while ((position = text&&text.indexOf(word, startPosition)) > -1) {
                         index.push({position: position, word: word});
                         startPosition = position + wordLen;
                       }
@@ -1491,7 +1495,6 @@ a:hover {
 
 
 
-
   
 
   
@@ -1654,7 +1657,7 @@ a:hover {
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-c2647aaa4b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

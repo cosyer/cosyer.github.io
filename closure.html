@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T15:25:46.946Z">
+<meta property="og:updated_time" content="2018-07-04T12:14:45.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何理解JS闭包">
 <meta name="twitter:description" content="JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。   在JS中函数作为普通对象进行传递">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-07-02T23:25:46+08:00">
+  <div class="post-date" data-datetime="2018-07-04T20:14:45+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">04</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月02</div>
+      <div class="post-tiem">7月04</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  571 (字)
+                  577 (字)
                 </span>
               
 
@@ -581,7 +581,7 @@ a:hover {
 </ol>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="keyword">return</span> counter += <span class="number">1</span>;&#125;</span><br><span class="line">&#125;)();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line"><span class="comment">// add()调用过后应当销毁其变量，但其内层函数被返回了，并且还保留着对变量的引用，所以没有销毁还保留在内存当中。</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;,i*<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印3次3 执行setTimeout时for循环已经结束此时的i的值为3</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line"><span class="comment">// 匿名闭包</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[index])</span><br><span class="line">&#125;,index*<span class="number">1000</span>)</span><br><span class="line">&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line"><span class="comment">// 匿名闭包 封闭每个变量</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[index])</span><br><span class="line">&#125;,index*<span class="number">1000</span>)</span><br><span class="line">&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>避免使用过多的闭包，可以用let关键词，每个闭包都绑定了块作用域的变量，这意味着不再需要额外的闭包。
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[i])</span><br><span class="line">&#125;,i*<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
@@ -615,7 +615,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/closure.html">如何理解JS闭包</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 02:06</p>
-  <p><span>最后更新:</span>2018年07月02日 - 23:07</p>
+  <p><span>最后更新:</span>2018年07月04日 - 20:07</p>
   <p><span>原始链接:</span><a href="/closure.html" title="如何理解JS闭包">http://mydearest.cn/closure.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/closure.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -783,7 +783,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -805,7 +805,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -896,6 +896,10 @@ a:hover {
                   <a rel="external nofollow" href="http://dir.mydearest.cn/motion/" title="Personal Site" target="_blank">Personal Site</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://resume.mydearest.cn/" title="Resume" target="_blank">Resume</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -960,7 +964,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 30.1k字</span>
+    <span class="post-count">Blog总字数: 34.3k字</span>
   </div>
 </div>
 
@@ -1152,7 +1156,7 @@ a:hover {
               keywords.push(searchText);
             }
             var resultItems = [];
-            if (searchText.length > 0) {
+            if (searchText.length > 0&&datas.length>0) {
               // perform local searching
               datas.forEach(function(data) {
                 var isMatch = false;
@@ -1160,8 +1164,8 @@ a:hover {
                 var searchTextCount = 0;
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
+                var content =  data.content&&data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content&&content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
                 var indexOfContent = [];
@@ -1175,10 +1179,10 @@ a:hover {
                       }
                       var startPosition = 0, position = [], index = [];
                       if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
+                        text = text&&text.toLowerCase();
+                        word = word&&word.toLowerCase();
                       }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                      while ((position = text&&text.indexOf(word, startPosition)) > -1) {
                         index.push({position: position, word: word});
                         startPosition = position + wordLen;
                       }
@@ -1399,7 +1403,6 @@ a:hover {
 
 
 
-
   
 
   
@@ -1562,7 +1565,7 @@ a:hover {
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-c2647aaa4b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

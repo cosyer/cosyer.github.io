@@ -420,7 +420,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-14T15:08:46+08:00">
+  <div class="post-date" data-datetime="2018-08-14T16:24:05+08:00">
     <div class="post-time-text">8月</div>
     <div class="post-time-count">14</div>
     <div class="text-desc">
@@ -570,23 +570,18 @@ a:hover {
 
       
         
-          
-            <ol>
-<li><p>正则(xxx?typeId=1)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>, <span class="string">'i'</span>);</span><br><span class="line">    <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">    <span class="keyword">if</span> (r != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// return unescape(r[2]); // 中文会乱码</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">decodeURI</span>(r[<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">getQueryString(<span class="string">"typeId"</span>) <span class="comment">// "2"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>split拆分</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryString</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url = location.search; <span class="comment">//获取url中"?"符后的字串</span></span><br><span class="line">    <span class="keyword">var</span> theRequest = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    <span class="keyword">if</span> (url.indexOf(<span class="string">"?"</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> str = url.substr(<span class="number">1</span>);</span><br><span class="line">        strs = str.split(<span class="string">"&amp;"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; strs.length; i ++) &#123;</span><br><span class="line">            theRequest[strs[i].split(<span class="string">"="</span>)[<span class="number">0</span>]] = <span class="built_in">unescape</span>(strs[i].split(<span class="string">"="</span>)[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> theRequest;</span><br><span class="line">&#125;</span><br><span class="line">getQueryString(<span class="string">"typeId"</span>) <span class="comment">// &#123;typeId:"2&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>正则获值 和1一样</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryString</span>(<span class="params">name</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^|&amp;)"</span> + name + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>, <span class="string">"i"</span>);  </span><br><span class="line">    <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);  <span class="comment">//获取url中"?"符后的字符串并正则匹配</span></span><br><span class="line">    <span class="keyword">var</span> context = <span class="string">""</span>;  </span><br><span class="line">    <span class="keyword">if</span> (r != <span class="literal">null</span>)  </span><br><span class="line">         context = r[<span class="number">2</span>];  </span><br><span class="line">    reg = <span class="literal">null</span>;  </span><br><span class="line">    r = <span class="literal">null</span>;  </span><br><span class="line">    <span class="keyword">return</span> context == <span class="literal">null</span> || context == <span class="string">""</span> || context == <span class="string">"undefined"</span> ? <span class="string">""</span> : context;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单参数获取(?1)获取？后面的数据</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url=<span class="built_in">window</span>.location.href</span><br><span class="line">url.substring(url.indexOf(<span class="string">'?'</span>) + <span class="number">1</span>)</span><br><span class="line"><span class="comment">// url.substr(url.indexOf('?') + 1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> url=<span class="built_in">window</span>.location.search</span><br><span class="line">url.substring(<span class="number">1</span>)</span><br><span class="line"><span class="comment">// url.substr(1)</span></span><br></pre></td></tr></table></figure>
+          <ol>
+<li>正则(xxx?typeId=1)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>, <span class="string">'i'</span>);</span><br><span class="line">    <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">    <span class="keyword">if</span> (r != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// return unescape(r[2]); // 中文会乱码</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">decodeURI</span>(r[<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">getQueryString(<span class="string">"typeId"</span>) <span class="comment">// "2"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-
-          
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/获取浏览器url参数方法总结.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2430,7 +2425,7 @@ CSSOM构建结束后，和DOM一起生成Render Tree</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2595,7 +2590,7 @@ CSSOM构建结束后，和DOM一起生成Render Tree</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 47.5k字</span>
+    <span class="post-count">Blog总字数: 47.8k字</span>
   </div>
 </div>
 

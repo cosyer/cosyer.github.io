@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-02T03:45:48.258Z">
+<meta property="og:updated_time" content="2018-08-17T06:24:10.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-02T11:45:48+08:00">
+  <div class="post-date" data-datetime="2018-08-17T14:24:10+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">17</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月02</div>
+      <div class="post-tiem">8月17</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  8,343 (字)
+                  8,647 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  31 (分钟)
+                  33 (分钟)
                 </span>
               
             </div>
@@ -947,6 +947,7 @@ IE只支持事件冒泡。</p>
 <li>margin负值法 relative -&gt; absolute -&gt; top:50% left:50% marin-top:height的一半 margin-left:width的一半或者transform：translateX(-50%)和transform：translateY(-50%)</li>
 <li>table-cell未脱离文档流 设置父元素的display:table-cell,并且vertical-align:middle，这样子元素可以实现垂直居中。</li>
 <li>flex布局</li>
+<li>text-align:center 块级元素</li>
 </ul>
 <ol start="46">
 <li>visibility=hidden, opacity=0，display:none</li>
@@ -1050,7 +1051,13 @@ rem单位基于html元素的字体大小。</p>
 <li>设置数组length=0</li>
 </ul>
 <ol start="55">
-<li>判断数组中出现次数最多的元素<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp=[];<span class="comment">//对象数组</span></span><br><span class="line">    <span class="keyword">var</span> i;</span><br><span class="line">    temp[<span class="number">0</span>]=&#123;<span class="attr">value</span>:arr[<span class="number">0</span>],<span class="attr">index</span>:<span class="number">1</span>&#125;;<span class="comment">//保存数组元素出现的次数和值</span></span><br><span class="line">    arr.sort();</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i]==arr[i<span class="number">-1</span>])&#123;</span><br><span class="line">            temp[temp.length<span class="number">-1</span>].index++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//不相同则新增一个对象元素</span></span><br><span class="line">            temp.push(&#123;<span class="attr">index</span>:<span class="number">1</span>,<span class="attr">value</span>:arr[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="comment">//按照出现次数从大到小排列</span></span><br><span class="line">        <span class="keyword">return</span> a.index&lt;b.index;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">var</span> max=temp[<span class="number">0</span>].index;</span><br><span class="line">    <span class="keyword">var</span> maxV=temp[<span class="number">0</span>].value;</span><br><span class="line">    <span class="keyword">var</span> second=temp[<span class="number">1</span>].index;</span><br><span class="line">    <span class="keyword">var</span> secondV=temp[<span class="number">1</span>].value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;max,maxV,second,secondV&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">100</span>,<span class="number">100</span>,,<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">100</span>,<span class="number">100</span>];</span><br><span class="line"><span class="keyword">var</span> &#123;max,maxV,second,secondV&#125;=f(arr);</span><br><span class="line"><span class="built_in">console</span>.log(max,maxV,second,secondV);</span><br></pre></td></tr></table></figure></li>
+<li>判断数组中出现次数最多的元素</li>
+<li><p>临时对象数组，原数组sort排序，判断前后位是否相等。临时对象数组排序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp=[];<span class="comment">//对象数组</span></span><br><span class="line">    <span class="keyword">var</span> i;</span><br><span class="line">    temp[<span class="number">0</span>]=&#123;<span class="attr">value</span>:arr[<span class="number">0</span>],<span class="attr">index</span>:<span class="number">1</span>&#125;;<span class="comment">//保存数组元素出现的次数和值</span></span><br><span class="line">    arr.sort();</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i]==arr[i<span class="number">-1</span>])&#123;</span><br><span class="line">            temp[temp.length<span class="number">-1</span>].index++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//不相同则新增一个对象元素</span></span><br><span class="line">            temp.push(&#123;<span class="attr">index</span>:<span class="number">1</span>,<span class="attr">value</span>:arr[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="comment">//按照出现次数从大到小排列</span></span><br><span class="line">        <span class="keyword">return</span> a.index&lt;b.index;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">var</span> max=temp[<span class="number">0</span>].index;</span><br><span class="line">    <span class="keyword">var</span> maxV=temp[<span class="number">0</span>].value;</span><br><span class="line">    <span class="keyword">var</span> second=temp[<span class="number">1</span>].index;</span><br><span class="line">    <span class="keyword">var</span> secondV=temp[<span class="number">1</span>].value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;max,maxV,second,secondV&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">100</span>,<span class="number">100</span>,,<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">100</span>,<span class="number">100</span>];</span><br><span class="line"><span class="keyword">var</span> &#123;max,maxV,second,secondV&#125;=f(arr);</span><br><span class="line"><span class="built_in">console</span>.log(max,maxV,second,secondV); <span class="comment">// 4 100 3 4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>临时对象 判断属性名存不存在 2次遍历</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!obj[arr[i]])&#123;</span><br><span class="line">            obj[arr[i]] = <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            obj[arr[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        此时的obj对象包含了所有元素出现次数的信息</span></span><br><span class="line"><span class="comment">        然后再遍历obj对象就可以查询出出现次数最多/最少的元素了</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> maxNum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> minNum = obj[arr[<span class="number">0</span>]];  <span class="comment">//先随意给最少的变量赋值（但保证是数组中的元素出现的次数）</span></span><br><span class="line">    <span class="keyword">var</span> maxEleArr = [],minEleArr = [];</span><br><span class="line">    <span class="comment">//第一次遍历找出出现次数最多和最少的值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] &gt; maxNum)&#123;</span><br><span class="line">            maxNum = obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] &lt; maxNum)&#123;</span><br><span class="line">            minNum = obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//第二次遍历找出所有出现次数最多和最少的元素</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] == maxNum)&#123;</span><br><span class="line">            maxEleArr.push(key);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] == minNum)&#123;</span><br><span class="line">            minEleArr.push(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(maxEleArr + <span class="string">":"</span> + maxNum );  <span class="comment">// 2:5</span></span><br><span class="line">    <span class="built_in">console</span>.log(minEleArr + <span class="string">":"</span> + minNum );  <span class="comment">// 1,4:2</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -1083,7 +1090,7 @@ rem单位基于html元素的字体大小。</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2018年08月02日 - 11:08</p>
+  <p><span>最后更新:</span>2018年08月17日 - 14:08</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1407,7 +1414,7 @@ rem单位基于html元素的字体大小。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 47.8k字</span>
+    <span class="post-count">Blog总字数: 48.1k字</span>
   </div>
 </div>
 

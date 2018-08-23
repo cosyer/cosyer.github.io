@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-19T15:13:57.817Z">
+<meta property="og:updated_time" content="2018-08-23T06:06:48.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-19T23:13:57+08:00">
+  <div class="post-date" data-datetime="2018-08-23T14:06:48+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">19</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月19</div>
+      <div class="post-tiem">8月23</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  8,647 (字)
+                  8,676 (字)
                 </span>
               
 
@@ -570,7 +570,7 @@ a:hover {
 </li>
 <li>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
 str | index</li>
-<li>repeat()：返回一个新字符串，表示将原字符串重复n次。参数如果是小数，会被取整(不四舍五入)。参数是负数或者Infinity，会报错。0/Nan返回空字符串,参数是字符串，则会先转换成数字。</li>
+<li>repeat()：返回一个新字符串，表示将原字符串重复n次。参数如果是小数，会被取整(不四舍五入)。参数是负数或者Infinity，会报错。0/Nan返回空字符串,参数是字符串，则会先转换成数字，不传则为空字符串。</li>
 <li>padStart()：头部补全。</li>
 <li>padEnd()：尾部补全<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&apos;x&apos;.padStart(5, &apos;ab&apos;) // &apos;ababx&apos;</span><br><span class="line">&apos;x&apos;.padStart(4, &apos;ab&apos;) // &apos;abax&apos;</span><br><span class="line"></span><br><span class="line">&apos;x&apos;.padEnd(5, &apos;ab&apos;) // &apos;xabab&apos;</span><br><span class="line">&apos;x&apos;.padEnd(4, &apos;ab&apos;) // &apos;xaba&apos;</span><br></pre></td></tr></table></figure>
 </li>
@@ -733,7 +733,7 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 </ol>
 <ul>
 <li>相同点：都是请求一个url</li>
-<li>不同点：ajax的核心是通过XMLHttpRequest获取内容</li>
+<li>不同点：ajax的核心是通过XMLHttpRequest获取内容，jsonp只能get请求</li>
 <li>jsonp的核心则是动态添加<code>&lt;script&gt;</code>标签来调用服务器提供的js脚本。</li>
 </ul>
 <ol start="20">
@@ -796,6 +796,7 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li><p>少用location.reload()：使用location.reload() 会刷新页面，刷新页面时页面所有资源 (css，js，img等) 会重新请求服务器。建议使用location.href=”当前页url” 代替location.reload() ，使用location.href 浏览器会读取本地缓存资源。</p>
 </li>
 </ul>
+<p>-图片懒加载 </p>
 <ol start="28">
 <li>commonjs?requirejs?AMD|CMD|UMD?</li>
 </ol>
@@ -828,7 +829,7 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 </ul>
 <ol start="30">
 <li><p>js原型、原型链，有什么特点？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">在JavaScript中,一共有两种类型的值,原始值和对象值.每个对象都有一个内部属性[[prototype]],我们通常称之为原型.原型的值可以是一个对象,也可以是<span class="literal">null</span>.如果它的值是一个对象,则这个对象也一定有自己的原型.这样就形成了一条线性的链,我们称之为原型链. </span><br><span class="line"></span><br><span class="line">访问一个对象的原型可以使用ES5中的<span class="built_in">Object</span>.getPrototypeOf方法,或者ES6中的__proto__属性. 原型链的作用是用来实现继承,比如我们新建一个数组,数组的方法就是从数组的原型上继承而来的。</span><br><span class="line"></span><br><span class="line">类的继承</span><br><span class="line">特点：基于原型链，既是父类的实例，也是子类的实例</span><br><span class="line">缺点：无法实现多继承</span><br><span class="line"></span><br><span class="line">构造继承、实例继承和拷贝继承...</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">在JavaScript中,一共有两种类型的值,原始值和对象值.每个对象都有一个内部属性[[prototype]],我们通常称之为原型.原型的值可以是一个对象,也可以是<span class="literal">null</span>.如果它的值是一个对象,则这个对象也一定有自己的原型.这样就形成了一条线性的链,我们称之为原型链. </span><br><span class="line"></span><br><span class="line">访问一个对象的原型可以使用ES5中的<span class="built_in">Object</span>.getPrototypeOf方法,或者ES6中的__proto__属性. 原型链的作用是用来实现继承,比如我们新建一个数组,数组的方法就是从数组的原型上继承而来的。</span><br><span class="line"></span><br><span class="line">类的继承</span><br><span class="line">特点：基于原型链，既是父类的实例，也是子类的实例</span><br><span class="line">缺点：无法实现多继承</span><br><span class="line"></span><br><span class="line">构造继承、组合继承、实例继承和拷贝继承...</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>eval是做什么的？</p>
 </li>
@@ -887,7 +888,7 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 <li>协议不同</li>
 <li>端口不同</li>
 <li>域名不同</li>
-<li>常用解决方案：jsonp、iframe、window.name、window.postMessage、服务器设置代理页面/header配置cors</li>
+<li>常用解决方案：jsonp、iframe、window.name、window.postMessage、服务器设置代理页面/响应header配置cors</li>
 </ul>
 <ol start="39">
 <li><p>解决异步回调地狱有哪些方案？
@@ -962,7 +963,7 @@ IE只支持事件冒泡。</p>
 </ol>
 <ul>
 <li>块元素：独占一行，并且有自动填满父元素，可以设置margin和padding以及高度和宽度。</li>
-<li>行元素：不会独占一行，width和height会失效，并且在垂直方向的padding和margin会失效。    </li>
+<li>行元素：不会独占一行，width和height会失效，并且在垂直方向的padding和margin会失效。  </li>
 </ul>
 <ol start="48">
 <li>深拷贝</li>
@@ -1005,8 +1006,8 @@ var deepCopy= function(source) {
 <li>优化</li>
 </ol>
 <ul>
-<li>按需加载路由</li>
-<li>代码拆分</li>
+<li>按需加载（懒加载）路由</li>
+<li>业务代码拆分</li>
 <li><p>第三方库提取vendor</p>
 </li>
 <li><p>压缩文件图片，合并文件 减少http请求</p>
@@ -1090,7 +1091,7 @@ rem单位基于html元素的字体大小。</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2018年08月19日 - 23:08</p>
+  <p><span>最后更新:</span>2018年08月23日 - 14:08</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>

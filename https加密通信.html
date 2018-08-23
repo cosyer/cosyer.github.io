@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T07:02:52.286Z">
+<meta property="og:updated_time" content="2018-08-22T08:22:31.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="https加密通信流程解析">
 <meta name="twitter:description" content="https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-14T15:02:52+08:00">
+  <div class="post-date" data-datetime="2018-08-22T16:22:31+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">14</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月14</div>
+      <div class="post-tiem">8月22</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -569,7 +569,7 @@ a:hover {
 <h3 id="服务端的配置"><a href="#服务端的配置" class="headerlink" title="服务端的配置"></a>服务端的配置</h3><p>采用HTTPS协议的服务器必须要有一套数字证书，可以自己制作，也可以向组织申请。区别就是自己颁发的证书需要客户端验证通过，才可以继续访问，而使用受信任的公司申请的证书则不会弹出提示页面(startssl就是个不错的选择，有1年的免费服务)。这套证书其实就是一对公钥和私钥。如果对公钥和私钥不太理解，可以想象成一把钥匙和一个锁头，只是全世界只有你一个人有这把钥匙，你可以把锁头给别人，别人可以用这个锁把重要的东西锁起来，然后发给你，因为只有你一个人有这把钥匙，所以只有你才能看到被这把锁锁起来的东西。</p>
 <h3 id="传送证书"><a href="#传送证书" class="headerlink" title="传送证书"></a>传送证书</h3><p>这个证书其实就是公钥，只是包含了很多信息，如证书的颁发机构，过期时间等等。</p>
 <h3 id="传送加密信息"><a href="#传送加密信息" class="headerlink" title="传送加密信息"></a>传送加密信息</h3><p>这部分工作是有客户端的TLS来完成的，首先会验证公钥是否有效，比如颁发机构，过期时间等等，如果发现异常，则会弹出一个警告框，提示证书存在问题。如果证书没有问题，那么就生成一个随机值。然后用证书对该随机值进行加密。就好像上面说的，把随机值用锁头锁起来，这样除非有钥匙，不然看不到被锁住的内容。</p>
-<h3 id="服务段解密信息"><a href="#服务段解密信息" class="headerlink" title="服务段解密信息"></a>服务段解密信息</h3><p>服务端用私钥解密后，得到了客户端传过来的随机值(私钥)，然后把内容通过该值进行对称加密。所谓对称加密就是，将信息和私钥通过某种算法混合在一起，这样除非知道私钥，不然无法获取内容，而正好客户端和服务端都知道这个私钥，所以只要加密算法够彪悍，私钥够复杂，数据就够安全。</p>
+<h3 id="服务端解密信息"><a href="#服务端解密信息" class="headerlink" title="服务端解密信息"></a>服务端解密信息</h3><p>服务端用私钥解密后，得到了客户端传过来的随机值(私钥)，然后把内容通过该值进行对称加密。所谓对称加密就是，将信息和私钥通过某种算法混合在一起，这样除非知道私钥，不然无法获取内容，而正好客户端和服务端都知道这个私钥，所以只要加密算法够彪悍，私钥够复杂，数据就够安全。</p>
 <h3 id="传输加密后的信息"><a href="#传输加密后的信息" class="headerlink" title="传输加密后的信息"></a>传输加密后的信息</h3><p>这部分信息是服务段用私钥加密后的信息，可以在客户端被还原。</p>
 <h3 id="客户端解密信息"><a href="#客户端解密信息" class="headerlink" title="客户端解密信息"></a>客户端解密信息</h3><p>客户端用之前生成的私钥解密服务段传过来的信息，于是获取了解密后的内容。整个过程第三方即使监听到了数据，也束手无策。</p>
 
@@ -603,7 +603,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/https加密通信.html">https加密通信流程解析</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月25日 - 22:07</p>
-  <p><span>最后更新:</span>2018年08月14日 - 15:08</p>
+  <p><span>最后更新:</span>2018年08月22日 - 16:08</p>
   <p><span>原始链接:</span><a href="/https加密通信.html" title="https加密通信流程解析">http://mydearest.cn/https加密通信.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/https加密通信.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -907,7 +907,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程解析"><span class="nav-number">1.</span> <span class="nav-text">流程解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端发起HTTPS请求"><span class="nav-number">1.1.</span> <span class="nav-text">客户端发起HTTPS请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端的配置"><span class="nav-number">1.2.</span> <span class="nav-text">服务端的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送证书"><span class="nav-number">1.3.</span> <span class="nav-text">传送证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送加密信息"><span class="nav-number">1.4.</span> <span class="nav-text">传送加密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务段解密信息"><span class="nav-number">1.5.</span> <span class="nav-text">服务段解密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输加密后的信息"><span class="nav-number">1.6.</span> <span class="nav-text">传输加密后的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端解密信息"><span class="nav-number">1.7.</span> <span class="nav-text">客户端解密信息</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程解析"><span class="nav-number">1.</span> <span class="nav-text">流程解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端发起HTTPS请求"><span class="nav-number">1.1.</span> <span class="nav-text">客户端发起HTTPS请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端的配置"><span class="nav-number">1.2.</span> <span class="nav-text">服务端的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送证书"><span class="nav-number">1.3.</span> <span class="nav-text">传送证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送加密信息"><span class="nav-number">1.4.</span> <span class="nav-text">传送加密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端解密信息"><span class="nav-number">1.5.</span> <span class="nav-text">服务端解密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输加密后的信息"><span class="nav-number">1.6.</span> <span class="nav-text">传输加密后的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端解密信息"><span class="nav-number">1.7.</span> <span class="nav-text">客户端解密信息</span></a></li></ol></li></ol></div>
             
 
           </div>

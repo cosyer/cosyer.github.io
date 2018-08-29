@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-23T06:40:00.393Z">
+<meta property="og:updated_time" content="2018-08-24T03:32:03.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript整理总结">
 <meta name="twitter:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-23T14:40:00+08:00">
+  <div class="post-date" data-datetime="2018-08-24T11:32:03+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">23</div>
+    <div class="post-time-count">24</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月23</div>
+      <div class="post-tiem">8月24</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  4,532 (字)
+                  4,542 (字)
                 </span>
               
 
@@ -625,7 +625,8 @@ var ok ; let 和 const 则不会存在变量提升</p>
 <li>浮点数字面量(Floating-point literals) 3.14</li>
 <li>整数(Intergers) 5 </li>
 <li>对象字面量(Object literals) {}</li>
-<li>RegExp literals 一个正则表达式是字符被斜线（译注：正斜杠“/”）围成的表达式 /a+b/ </li>
+<li>RegExp literals 一个正则表达式是字符被斜线（译注：正斜杠“/”）围成的表达式 /a+b/ 
+RegExp.test() RegExp.exec() string.match() </li>
 <li>字符串字面量(String literals) “1212” ‘1212’
 JavaScript会自动将字符串字面值转换为一个临时字符串对象，调用该方法，然后废弃掉那个临时的字符串对象。你也能用对字符串字面值使用类似</li>
 </ul>
@@ -682,7 +683,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 <h2 id="扩展语句"><a href="#扩展语句" class="headerlink" title="扩展语句"></a>扩展语句</h2><p>适用于对象，数组
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">f(...args);</span><br></pre></td></tr></table></figure></p>
 <h2 id="临时对象"><a href="#临时对象" class="headerlink" title="临时对象"></a>临时对象</h2><p>你可以在String字面值上使用String对象的任何方法—JavaScript自动把String字面值转换为一个临时的String对象, 然后调用其相应方法,最后丢弃销毁此临时对象.在String字面值上也可以使用String.length属性.
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="string">"2 + 2"</span>; <span class="comment">// Creates a string literal value</span></span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"2 + 2"</span>); <span class="comment">// Creates a String object</span></span><br><span class="line"><span class="built_in">eval</span>(s1); <span class="comment">// Returns the number 4</span></span><br><span class="line"><span class="built_in">eval</span>(s2); <span class="comment">// Returns the string "2 + 2"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="string">"2 + 2"</span>; <span class="comment">// Creates a string literal value</span></span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"2 + 2"</span>); <span class="comment">// Creates a String object</span></span><br><span class="line"><span class="built_in">eval</span>(s1); <span class="comment">// Returns the number 4</span></span><br><span class="line"><span class="built_in">eval</span>(s2); <span class="comment">// Returns the string "2 + 2"</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h2><h3 id="concat-连接两个数组并返回一个新的数组。"><a href="#concat-连接两个数组并返回一个新的数组。" class="headerlink" title="concat() 连接两个数组并返回一个新的数组。"></a>concat() 连接两个数组并返回一个新的数组。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>);</span><br><span class="line">myArray = myArray.concat(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>); </span><br><span class="line"><span class="comment">// myArray is now ["1", "2", "3", "a", "b", "c"]</span></span><br></pre></td></tr></table></figure>
 <h3 id="join-将数组的所有元素连接成一个字符串。"><a href="#join-将数组的所有元素连接成一个字符串。" class="headerlink" title="join() 将数组的所有元素连接成一个字符串。"></a>join() 将数组的所有元素连接成一个字符串。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Wind"</span>, <span class="string">"Rain"</span>, <span class="string">"Fire"</span>);</span><br><span class="line"><span class="keyword">var</span> list = myArray.join(<span class="string">" - "</span>); <span class="comment">// list is "Wind - Rain - Fire"</span></span><br></pre></td></tr></table></figure>
 <h3 id="push-在数组末尾添加一个或多个元素，并返回数组操作后的长度。"><a href="#push-在数组末尾添加一个或多个元素，并返回数组操作后的长度。" class="headerlink" title="push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。"></a>push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>, <span class="string">"2"</span>);</span><br><span class="line">myArray.push(<span class="string">"3"</span>); <span class="comment">// myArray is now ["1", "2", "3"]</span></span><br></pre></td></tr></table></figure>
@@ -919,7 +920,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1100,7 +1101,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 51.0k字</span>
+    <span class="post-count">Blog总字数: 52.9k字</span>
   </div>
 </div>
 

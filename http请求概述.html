@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="超文本传输协议（HTTP, HyperText Transfer Protocol）是一种无状态的协议，它位于OSI七层模型的传输层。HTTP客户端会根据需要构建合适的HTTP请求方法，而HTTP服务器会根据不同的HTTP请求方法做出不同的响应。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T07:02:57.395Z">
+<meta property="og:updated_time" content="2018-08-24T04:16:20.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http请求概述">
 <meta name="twitter:description" content="超文本传输协议（HTTP, HyperText Transfer Protocol）是一种无状态的协议，它位于OSI七层模型的传输层。HTTP客户端会根据需要构建合适的HTTP请求方法，而HTTP服务器会根据不同的HTTP请求方法做出不同的响应。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-14T15:02:57+08:00">
+  <div class="post-date" data-datetime="2018-08-24T12:16:20+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">14</div>
+    <div class="post-time-count">24</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月14</div>
+      <div class="post-tiem">8月24</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,331 (字)
+                  1,905 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  5 (分钟)
+                  7 (分钟)
                 </span>
               
             </div>
@@ -593,6 +593,32 @@ GET <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com<
 <h4 id="PATCH"><a href="#PATCH" class="headerlink" title="PATCH"></a>PATCH</h4><p>PATCH方法出现的较晚，它在2010年的RFC 5789标准中被定义。PATCH请求与PUT请求类似，同样用于资源的更新。二者有以下两点不同：
 1.PATCH一般用于资源的部分更新，而PUT一般用于资源的整体更新。
 2.当资源不存在时，PATCH会创建一个新的资源，而PUT只会对已在资源进行更新。</p>
+<h3 id="请求头和响应头"><a href="#请求头和响应头" class="headerlink" title="请求头和响应头"></a>请求头和响应头</h3><p>1)请求(客户端-&gt;服务端[request]) 
+    GET(请求的方式) /newcoder/hello.html(请求的目标资源) HTTP/1.1(请求采用的协议和版本号) 
+    Accept: <em>/</em>(客户端能接收的资源类型) 
+    Accept-Language: en-us(客户端接收的语言类型) 
+    Connection: Keep-Alive(维护客户端和服务端的连接关系) 
+    Host: localhost:8080(连接的目标主机和端口号) 
+    Referer: <a href="http://localhost/links.asp(告诉服务器我来自于哪里)" target="_blank" rel="noopener">http://localhost/links.asp(告诉服务器我来自于哪里)</a> 
+    User-Agent: Mozilla/4.0(客户端版本号的名字) 
+    Accept-Encoding: gzip, deflate(客户端能接收的压缩数据的类型) 
+    If-Modified-Since: Tue, 11 Jul 2000 18:23:51 GMT(缓存时间)<br>    Cookie(客户端暂存服务端的信息) 
+    Date: Tue, 11 Jul 2000 18:23:51 GMT(客户端请求服务端的时间)</p>
+<p>2)响应(服务端-&gt;客户端[response])
+    HTTP/1.1(响应采用的协议和版本号) 200(状态码) OK(描述信息)
+    Location: <a href="http://www.baidu.com(服务端需要客户端访问的页面路径)" target="_blank" rel="noopener">http://www.baidu.com(服务端需要客户端访问的页面路径)</a> 
+    Server:apache tomcat(服务端的Web服务端名)
+    Content-Encoding: gzip(服务端能够发送压缩编码类型) 
+    Content-Length: 80(服务端发送的压缩数据的长度) 
+    Content-Language: zh-cn(服务端发送的语言类型) 
+    Content-Type: text/html; charset=GB2312(服务端发送的类型及采用的编码方式)
+    Last-Modified: Tue, 11 Jul 2000 18:23:51 GMT(服务端对该资源最后修改的时间)
+    Refresh: 1;url=<a href="http://www.it315.org(服务端要求客户端1秒钟后，刷新，然后访问指定的页面路径)" target="_blank" rel="noopener">http://www.it315.org(服务端要求客户端1秒钟后，刷新，然后访问指定的页面路径)</a>
+    Content-Disposition: attachment; filename=aaa.zip(服务端要求客户端以下载文件的方式打开该文件)
+    Transfer-Encoding: chunked(分块传递数据到客户端）<br>    Set-Cookie:SS=Q0=5Lb_nQ; path=/search(服务端发送到客户端的暂存数据)
+    Expires: -1//3种(服务端禁止客户端缓存页面数据)
+    Cache-Control: no-cache(服务端禁止客户端缓存页面数据)<br>    Pragma: no-cache(服务端禁止客户端缓存页面数据)<br>    Connection: close(1.0)/(1.1)Keep-Alive(维护客户端和服务端的连接关系)<br>    Date: Tue, 11 Jul 2000 18:23:51 GMT(服务端响应客户端的时间)
+在服务器响应客户端的时候，带上Access-Control-Allow-Origin头信息，解决跨域的一种方法。</p>
 
       
     </div>
@@ -624,7 +650,7 @@ GET <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com<
   <p><span>本文标题:</span><a href="/http请求概述.html">Http请求概述</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年08月14日 - 14:08</p>
-  <p><span>最后更新:</span>2018年08月14日 - 15:08</p>
+  <p><span>最后更新:</span>2018年08月24日 - 12:08</p>
   <p><span>原始链接:</span><a href="/http请求概述.html" title="Http请求概述">http://mydearest.cn/http请求概述.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/http请求概述.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -792,7 +818,7 @@ GET <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com<
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -928,7 +954,7 @@ GET <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP版本"><span class="nav-number">1.</span> <span class="nav-text">HTTP版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求方法"><span class="nav-number">2.</span> <span class="nav-text">HTTP请求方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-1"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP/1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GET"><span class="nav-number">2.1.1.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HEAD"><span class="nav-number">2.1.2.</span> <span class="nav-text">HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST"><span class="nav-number">2.1.3.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PUT"><span class="nav-number">2.1.4.</span> <span class="nav-text">PUT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DELETE"><span class="nav-number">2.1.5.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CONNECT"><span class="nav-number">2.1.6.</span> <span class="nav-text">CONNECT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OPTIONS"><span class="nav-number">2.1.7.</span> <span class="nav-text">OPTIONS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TRACE"><span class="nav-number">2.1.8.</span> <span class="nav-text">TRACE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-1之后增加的方法"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP/1.1之后增加的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PATCH"><span class="nav-number">2.2.1.</span> <span class="nav-text">PATCH</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP版本"><span class="nav-number">1.</span> <span class="nav-text">HTTP版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求方法"><span class="nav-number">2.</span> <span class="nav-text">HTTP请求方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-1"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP/1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GET"><span class="nav-number">2.1.1.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HEAD"><span class="nav-number">2.1.2.</span> <span class="nav-text">HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST"><span class="nav-number">2.1.3.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PUT"><span class="nav-number">2.1.4.</span> <span class="nav-text">PUT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DELETE"><span class="nav-number">2.1.5.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CONNECT"><span class="nav-number">2.1.6.</span> <span class="nav-text">CONNECT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OPTIONS"><span class="nav-number">2.1.7.</span> <span class="nav-text">OPTIONS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TRACE"><span class="nav-number">2.1.8.</span> <span class="nav-text">TRACE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-1之后增加的方法"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP/1.1之后增加的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PATCH"><span class="nav-number">2.2.1.</span> <span class="nav-text">PATCH</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求头和响应头"><span class="nav-number">2.3.</span> <span class="nav-text">请求头和响应头</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -973,7 +999,7 @@ GET <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com<
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 51.0k字</span>
+    <span class="post-count">Blog总字数: 52.9k字</span>
   </div>
 </div>
 

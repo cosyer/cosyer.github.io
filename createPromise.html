@@ -141,7 +141,7 @@
 <meta property="og:description" content="前端近年的兴起，有大部分是因为 NodeJS 的诞生，而 NodeJS 是个适用于 异步IO 密集型的语言，一些基于 NodeJS 的框架，比如 KOA2、Adonis 就有大量的 async 和 await 语法，async的函数的返回值就是 Promise 对象，我们可以用 async 和 await 语法，写出优雅的异步代码，来替换难看且难维护的回调函数。 Promise 概念Promis">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/promise.png">
-<meta property="og:updated_time" content="2018-08-24T07:19:07.243Z">
+<meta property="og:updated_time" content="2018-08-29T16:02:46.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise诞生记">
 <meta name="twitter:description" content="前端近年的兴起，有大部分是因为 NodeJS 的诞生，而 NodeJS 是个适用于 异步IO 密集型的语言，一些基于 NodeJS 的框架，比如 KOA2、Adonis 就有大量的 async 和 await 语法，async的函数的返回值就是 Promise 对象，我们可以用 async 和 await 语法，写出优雅的异步代码，来替换难看且难维护的回调函数。 Promise 概念Promis">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-24T15:19:07+08:00">
+  <div class="post-date" data-datetime="2018-08-30T00:02:46+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">24</div>
+    <div class="post-time-count">30</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月24</div>
+      <div class="post-tiem">8月30</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,076 (字)
+                  2,085 (字)
                 </span>
               
 
@@ -573,7 +573,7 @@ a:hover {
 <code>reject</code>函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
 <hr>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 执行顺序</span></span><br><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>); <span class="comment">// 新建后立即执行</span></span><br><span class="line">  resolve();</span><br><span class="line">&#125;);</span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'resolved.'</span>); <span class="comment">// 同步任务执行完成后才会执行</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Hi!'</span>);</span><br><span class="line"><span class="comment">// Promise</span></span><br><span class="line"><span class="comment">// Hi!</span></span><br><span class="line"><span class="comment">// resolved</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 执行顺序</span></span><br><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>); <span class="comment">// 新建后立即执行</span></span><br><span class="line">  resolve();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">111</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;);</span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'resolved.'</span>); <span class="comment">// 同步任务执行完成后才会执行</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Hi!'</span>);</span><br><span class="line"><span class="comment">// Promise</span></span><br><span class="line"><span class="comment">// 111</span></span><br><span class="line"><span class="comment">// Hi!</span></span><br><span class="line"><span class="comment">// resolved</span></span><br></pre></td></tr></table></figure>
 <p>接下来我们就用<code>Promise</code>结合ajax来使用
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const getJSON = function(url) &#123;</span><br><span class="line">  const promise = new Promise(function(resolve, reject)&#123;</span><br><span class="line">    const handler = function() &#123;</span><br><span class="line">      if (this.readyState !== 4) &#123;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      if (this.status === 200) &#123;</span><br><span class="line">        resolve(this.response);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        reject(new Error(this.statusText));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    const client = new XMLHttpRequest();</span><br><span class="line">    client.open(&quot;GET&quot;, url);</span><br><span class="line">    client.onreadystatechange = handler;</span><br><span class="line">    client.responseType = &quot;json&quot;;</span><br><span class="line">    client.setRequestHeader(&quot;Accept&quot;, &quot;application/json&quot;);</span><br><span class="line">    client.send(params);</span><br><span class="line">  &#125;);</span><br><span class="line">  return promise;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">getJSON(&quot;/posts.json&quot;).then(function(json) &#123;</span><br><span class="line">  console.log(&apos;Contents: &apos; + json);</span><br><span class="line">&#125;, function(error) &#123;</span><br><span class="line">  console.error(&apos;出错了&apos;, error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>这里我们会渐进式的来创建一个 <code>Promise</code> 的实现，如果，你还不了解 <code>Promise</code> ，赶快移步 <a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="noopener">Promise</a> 了解学习，当然这个实现会符合 <a href="https://promisesaplus.com" target="_blank" rel="noopener">Promise/A+</a> 规范，<code>JavaScript</code> 中有很多第三方的 <code>Promise</code> 库，<a href="http://bluebirdjs.com/docs/getting-started.html" target="_blank" rel="noopener">bluebird</a> 就是一个第三方 <code>Promise</code> 类库，相比其它第三方类库或标准对象来说，其有以下优点：功能更齐全而不臃肿、浏览器兼容性更好,大家可以了解下。</p>
@@ -641,7 +641,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/createPromise.html">Promise诞生记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月05日 - 01:06</p>
-  <p><span>最后更新:</span>2018年08月24日 - 15:08</p>
+  <p><span>最后更新:</span>2018年08月30日 - 00:08</p>
   <p><span>原始链接:</span><a href="/createPromise.html" title="Promise诞生记">http://mydearest.cn/createPromise.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/createPromise.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -811,7 +811,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -992,7 +992,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 52.9k字</span>
+    <span class="post-count">Blog总字数: 54.0k字</span>
   </div>
 </div>
 

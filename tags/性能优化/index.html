@@ -420,7 +420,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-30T15:00:36+08:00">
+  <div class="post-date" data-datetime="2018-08-30T16:51:19+08:00">
     <div class="post-time-text">8月</div>
     <div class="post-time-count">30</div>
     <div class="text-desc">
@@ -532,7 +532,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,013 (字)
+                  1,020 (字)
                 </span>
               
 
@@ -570,24 +570,18 @@ a:hover {
 
       
         
-          
-            <h3 id="评估局部变量"><a href="#评估局部变量" class="headerlink" title="评估局部变量"></a>评估局部变量</h3><p>主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域</p>
-<p>层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变</p>
-<p>量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当</p>
-<p>前的作用域和防止查询，从而提高代码的速度。</p>
-<h3 id="除非必要，否则不要使用嵌套循环"><a href="#除非必要，否则不要使用嵌套循环" class="headerlink" title="除非必要，否则不要使用嵌套循环"></a>除非必要，否则不要使用嵌套循环</h3><p>减少不必要的循环，例如 for 和 while 循环，以保持 JavaScript 的线性，并避免需要遍历数千个对象。无用的循环可能会导致浏览器处理代码时更困难，从而减缓速度。</p>
-<h3 id="缓存对象以提高性能"><a href="#缓存对象以提高性能" class="headerlink" title="缓存对象以提高性能"></a>缓存对象以提高性能</h3><p>很多时候，会重复使用脚本来访问某个对象。 将重复访问的对象存储在用户定义的变量中，并且之后在引用该对象时使用此变量，可以立刻实现性能提升。</p>
-<h3 id="使用-js文件来缓存脚本"><a href="#使用-js文件来缓存脚本" class="headerlink" title="使用.js文件来缓存脚本"></a>使用.js文件来缓存脚本</h3><p>使用这种技术可以实现性能提升，因为它允许浏览器只加载脚本一次，当页面被重新加载或重新访问时只需要从缓存中调用脚本即可。</p>
-<h3 id="使用Gzip压缩文件"><a href="#使用Gzip压缩文件" class="headerlink" title="使用Gzip压缩文件"></a>使用Gzip压缩文件</h3><p>使用 GZip 可以明显地降低 JavaScript 文件的大小，节省带宽，并加快响应时间。 有时 JavaScript 文件非常大，如果没有经过压缩，它可能会造成网站瘫痪。较小的文件能提供更快、更令人满意的网页体验。</p>
-<h3 id="尽量减少对HTTP的请求"><a href="#尽量减少对HTTP的请求" class="headerlink" title="尽量减少对HTTP的请求"></a>尽量减少对HTTP的请求</h3><p>通过结合外部文件和直接在 XHTML 页面中嵌入 JavaScript 来尽量减少对 HTTP 返回页面的请求。 每一个特定的 HTTP 请求传输至服务器端都会导致大量的时延。</p>
-<h3 id="不要重复使用相同的脚本"><a href="#不要重复使用相同的脚本" class="headerlink" title="不要重复使用相同的脚本"></a>不要重复使用相同的脚本</h3><p>复的脚本对性能会造成显著的影响。重复的脚本会创建不需要的HTTP请求，尤其是在IE浏览器中。在HTML页面中使用脚本标签，可以帮助避免意外地生成重复的脚本。</p>
-<h3 id="缩短作用域链"><a href="#缩短作用域链" class="headerlink" title="缩短作用域链"></a>缩短作用域链</h3><p>全局作用域通常较慢，因为每次执行函数的时候，它会引发创建一个临时的调用作用域，JavaScript 会在作用域链中搜索第一个对象，如果找不到该变量，则会遍历链直到搜索到全局对象。</p>
-<h3 id="使用函数内联"><a href="#使用函数内联" class="headerlink" title="使用函数内联"></a>使用函数内联</h3><p>函数内联有助于减少函数调用的成本，并用被调用的函数体替换函数调用。 在 JavaScript 中执行函数调用是一个高成本的操作，因为需要执行几个准备步骤：为参数分配空间，复制参数以及解析函数名称。</p>
-<h3 id="尽量不要使用全局变量"><a href="#尽量不要使用全局变量" class="headerlink" title="尽量不要使用全局变量"></a>尽量不要使用全局变量</h3><p>由于脚本引擎需要搜索作用域，所以当从函数内部或其他作用域内引用全局变量时，如果局部作用域丢失，全局变量将被销毁。如果全局作用域中的变量并不一直存在于脚本的生命周期，则可以提升性能。</p>
-<h3 id="不要一直保留对其他文档的引用"><a href="#不要一直保留对其他文档的引用" class="headerlink" title="不要一直保留对其他文档的引用"></a>不要一直保留对其他文档的引用</h3><p>当脚本结束后不再保留对其他文档的引用可以实现更快的性能。因为对其他文档中的对象进行的任何引用不会被保存在整个 DOM 树中，并且脚本环境也不会一直保留在内存中。 因此文档本身不用再被加载。</p>
-<h3 id="不要误用-for-in-Object-hasOwnProperty"><a href="#不要误用-for-in-Object-hasOwnProperty" class="headerlink" title="不要误用 for-in Object.hasOwnProperty()"></a>不要误用 for-in Object.hasOwnProperty()</h3><p>由于“for-in”循环需要脚本引擎构建包含所有可枚举属性的列表，因此 for 循环内的代码是不会修改这个列表的。 在 for 循环内部，预先计算出列表的长度并赋给变量 len，然后进行迭代。</p>
-
-          
+          <h3 id="评估局部变量"><a href="#评估局部变量" class="headerlink" title="评估局部变量"></a>评估局部变量</h3><p>主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域
+层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变
+量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当
+前的作用域和防止查询，从而提高代码的速度。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/js性能优化.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -898,7 +892,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1063,7 +1057,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 54.0k字</span>
+    <span class="post-count">Blog总字数: 56.5k字</span>
   </div>
 </div>
 

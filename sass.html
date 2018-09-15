@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="简介Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。 导入12@import &quot;reset.css&quot;; // css@import &quot;index&quot;; // sass 变量1234567891011">
+<meta name="description" content="简介Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。">
 <meta name="keywords" content="Sass">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sass学习笔记">
 <meta property="og:url" content="http://mydearest.cn/sass.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="简介Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。 导入12@import &quot;reset.css&quot;; // css@import &quot;index&quot;; // sass 变量1234567891011">
+<meta property="og:description" content="简介Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-03T06:18:43.506Z">
+<meta property="og:updated_time" content="2018-09-03T06:35:38.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sass学习笔记">
-<meta name="twitter:description" content="简介Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。 导入12@import &quot;reset.css&quot;; // css@import &quot;index&quot;; // sass 变量1234567891011">
+<meta name="twitter:description" content="简介Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。">
 
 
 
@@ -414,7 +414,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-09-03T14:18:43+08:00">
+  <div class="post-date" data-datetime="2018-09-03T14:35:38+08:00">
     <div class="post-time-text">9月</div>
     <div class="post-time-count">03</div>
     <div class="text-desc">
@@ -562,6 +562,8 @@ a:hover {
 
       
         <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。</p>
+<hr>
+<a id="more"></a>
 <h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"reset.css"</span>; <span class="comment">// css</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"index"</span>; <span class="comment">// sass</span></span><br></pre></td></tr></table></figure>
 <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通变量</span></span><br><span class="line">$fontSize:<span class="number">16</span>px;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认变量</span></span><br><span class="line">$baseLineHeight: <span class="number">1.5</span> !<span class="keyword">default</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 覆盖默认变量，需要写在 !default 前面</span></span><br><span class="line">$baseLineHeight: <span class="number">1.7</span>;</span><br><span class="line">$baseLineHeight: <span class="number">1.5</span> !<span class="keyword">default</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一维 list</span></span><br><span class="line">$px: (<span class="number">5</span>px <span class="number">10</span>px <span class="number">20</span>px <span class="number">30</span>px);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维 list</span></span><br><span class="line">$px: (<span class="number">5</span>px <span class="number">10</span>px)</span><br><span class="line">     (<span class="number">20</span>px <span class="number">30</span>px);</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">$pxs: <span class="number">5</span>px <span class="number">10</span>px, <span class="number">20</span>px <span class="number">30</span>px;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Map 类似对象</span></span><br><span class="line">$heading: (</span><br><span class="line">    h1: <span class="number">2</span>em,</span><br><span class="line">    h2: <span class="number">1.5</span>em,</span><br><span class="line">    h3: <span class="number">1.2</span>em</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h3 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h3><p>插值使用 #{}
@@ -711,6 +713,10 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/实现网页顶部加载条loading.html" rel="prev" title="实现网页顶部加载条loading">
+                实现网页顶部加载条loading <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -790,7 +796,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -971,7 +977,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 57.7k字</span>
+    <span class="post-count">Blog总字数: 60.3k字</span>
   </div>
 </div>
 

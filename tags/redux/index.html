@@ -420,12 +420,452 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-24T12:33:46+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">24</div>
+  <div class="post-date" data-datetime="2018-10-15T23:54:05+08:00">
+    <div class="post-time-text">10月</div>
+    <div class="post-time-count">15</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月24</div>
+      <div class="post-tiem">10月15</div>
+      <div class="post-year">2018</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/正则总结.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/正则总结.html" itemprop="url">正则总结</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-14T22:42:18+08:00">
+                2018-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/正则总结.html" class="leancloud_visitors" data-flag-title="正则总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,459 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  9 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>创建正则表达式
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expression = <span class="regexp">/pattern/</span>flags ;</span><br></pre></td></tr></table></figure></p>
+<p>其中的模式（pattern）部分可以是任何简单或复杂的正则表达式，可以包含字符类、限定符、分组、 向前查找以及反向引用。每个正则表达式都可带有一或多个标志（flags），用以标明正则表达式的行为。 正则表达式的匹配模式支持下列 3 个标志。</p>
+<ul>
+<li>g：表示全局（global）模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即 停止；</li>
+<li>i：表示不区分大小写（case-insensitive）模式，即在确定匹配项时忽略模式与字符串的大小写；</li>
+<li>m：表示多行（multiline）模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">"aaa "</span>; </span><br><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/\s$/</span>; <span class="comment">//匹配字符串末尾的空格 </span></span><br><span class="line">pattern1.exec(text);</span><br></pre></td></tr></table></figure>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/正则总结.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+          
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2018-10-14T22:44:24+08:00">
+    <div class="post-time-text">10月</div>
+    <div class="post-time-count">14</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">10月14</div>
+      <div class="post-year">2018</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/动手实现redux.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/动手实现redux.html" itemprop="url">动手实现redux</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-03T19:24:18+08:00">
+                2018-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/动手实现redux.html" class="leancloud_visitors" data-flag-title="动手实现redux">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  395 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  2 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>概念：</p>
+<ul>
+<li>一个app有一个store，一个store管理着一个全局state</li>
+<li>createStore 传入reducer，返回getState, dispatch, subscribe</li>
+<li>action是一个至少有type这个键的对象，可以写一个creactActioner 函数去return生成action对象</li>
+<li>createStore.dispatch(action) 根据action这个对象去更新state</li>
+<li>dispatch是一个函数，内部有将执行reducer函数</li>
+<li>reducer也是一个函数，传入state,action, 输出一个新的state . (switch case return…)</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/动手实现redux.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+          
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2018-10-14T22:43:55+08:00">
+    <div class="post-time-text">10月</div>
+    <div class="post-time-count">14</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">10月14</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -532,7 +972,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10 (字)
+                  534 (字)
                 </span>
               
 
@@ -548,7 +988,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -571,7 +1011,72 @@ a:hover {
       
         
           
-            <p>要有内容不然搜索会挂</p>
+            <h2 id="Redux三大概念"><a href="#Redux三大概念" class="headerlink" title="Redux三大概念"></a>Redux三大概念</h2><blockquote>
+<p>Redux 是JavaScript状态容器，提供可预测化的状态管理</p>
+</blockquote>
+<blockquote>
+<p>action 普通的JS对象描述发生什么</p>
+</blockquote>
+<blockquote>
+<p>reducer 只是一个接收 state 和 action，并返回新的 state 的函数</p>
+</blockquote>
+<h3 id="三大原则"><a href="#三大原则" class="headerlink" title="三大原则"></a>三大原则</h3><ol>
+<li>单一数据源</li>
+</ol>
+<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的reducer,拆成多个reduce而不是多个store。</p>
+<ol start="2">
+<li>State 是只读的</li>
+</ol>
+<p>唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</p>
+<ol start="3">
+<li>使用纯函数来执行修改</li>
+</ol>
+<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。期望转呗要修改state了,传递数据.payload规范。</p>
+<p>当 state 变化时需要返回全新的对象，而不是修改传入的参数。</p>
+<h3 id="api"><a href="#api" class="headerlink" title="api"></a>api</h3><pre><code class="javascript"><span class="comment">// API 是 { subscribe, dispatch, getState }。</span>
+<span class="keyword">let</span> store = createStore(counter);
+
+<span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span>
+store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span>
+  <span class="built_in">console</span>.log(store.getState())
+);
+
+<span class="comment">// 改变内部 state 唯一方法是 dispatch 一个 action。</span>
+<span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span>
+store.dispatch({ <span class="attr">type</span>: <span class="string">'INCREMENT'</span> });
+<span class="comment">// 1</span>
+store.dispatch({ <span class="attr">type</span>: <span class="string">'INCREMENT'</span> });
+<span class="comment">// 2</span>
+store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT'</span> });
+<span class="comment">// 1</span>
+</code></pre>
+<p>不要再reducer里做以下操作保持纯净</p>
+<blockquote>
+<p>修改传入参数；</p>
+</blockquote>
+<blockquote>
+<p>执行有副作用的操作，如 API 请求和路由跳转；</p>
+</blockquote>
+<blockquote>
+<p>调用非纯函数，如 Date.now() 或 Math.random()。</p>
+</blockquote>
+<h4 id="维持应用的-state；"><a href="#维持应用的-state；" class="headerlink" title="维持应用的 state；"></a>维持应用的 state；</h4><ol>
+<li><p>提供 getState() 方法获取 state；</p>
+</li>
+<li><p>提供 dispatch(action) 方法更新 state；发送通知</p>
+</li>
+<li><p>通过 subscribe(listener) 注册监听器;</p>
+</li>
+<li><p>通过 unsubscribe() 返回的函数注销监听器。</p>
+</li>
+</ol>
+<p>纯函数是这样一种函数，即相同的输入，永远会得到相同的输出</p>
+<p>store.dispatch方法会触发 Reducer 的自动执行。为此，Store 需要知道 Reducer 函数，做法就是在生成 Store 的时候，将 Reducer 传入createStore方法</p>
+<p>使用 复杂性 数据交互 结构复杂繁琐 大型</p>
+<ul>
+<li>“如果你不知道是否需要 Redux，那就是不需要它。”</li>
+<li>“只有遇到 React 实在解决不了的问题，你才需要 Redux。”</li>
+</ul>
 
           
         
@@ -672,7 +1177,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -837,7 +1342,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 60.4k字</span>
+    <span class="post-count">Blog总字数: 63.9k字</span>
   </div>
 </div>
 

@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="要有内容不然搜索会挂">
+<meta name="description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  三大原则 单一数据源  整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的r">
 <meta name="keywords" content="react,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redux状态传播">
 <meta property="og:url" content="http://mydearest.cn/reduxstate.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="要有内容不然搜索会挂">
+<meta property="og:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  三大原则 单一数据源  整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的r">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T04:33:46.401Z">
+<meta property="og:updated_time" content="2018-10-14T14:43:55.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux状态传播">
-<meta name="twitter:description" content="要有内容不然搜索会挂">
+<meta name="twitter:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  三大原则 单一数据源  整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的r">
 
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-24T12:33:46+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">24</div>
+  <div class="post-date" data-datetime="2018-10-14T22:43:55+08:00">
+    <div class="post-time-text">10月</div>
+    <div class="post-time-count">14</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月24</div>
+      <div class="post-tiem">10月14</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10 (字)
+                  534 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -561,7 +561,72 @@ a:hover {
       
 
       
-        <p>要有内容不然搜索会挂</p>
+        <h2 id="Redux三大概念"><a href="#Redux三大概念" class="headerlink" title="Redux三大概念"></a>Redux三大概念</h2><blockquote>
+<p>Redux 是JavaScript状态容器，提供可预测化的状态管理</p>
+</blockquote>
+<blockquote>
+<p>action 普通的JS对象描述发生什么</p>
+</blockquote>
+<blockquote>
+<p>reducer 只是一个接收 state 和 action，并返回新的 state 的函数</p>
+</blockquote>
+<h3 id="三大原则"><a href="#三大原则" class="headerlink" title="三大原则"></a>三大原则</h3><ol>
+<li>单一数据源</li>
+</ol>
+<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的reducer,拆成多个reduce而不是多个store。</p>
+<ol start="2">
+<li>State 是只读的</li>
+</ol>
+<p>唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</p>
+<ol start="3">
+<li>使用纯函数来执行修改</li>
+</ol>
+<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。期望转呗要修改state了,传递数据.payload规范。</p>
+<p>当 state 变化时需要返回全新的对象，而不是修改传入的参数。</p>
+<h3 id="api"><a href="#api" class="headerlink" title="api"></a>api</h3><pre><code class="javascript"><span class="comment">// API 是 { subscribe, dispatch, getState }。</span>
+<span class="keyword">let</span> store = createStore(counter);
+
+<span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span>
+store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span>
+  <span class="built_in">console</span>.log(store.getState())
+);
+
+<span class="comment">// 改变内部 state 唯一方法是 dispatch 一个 action。</span>
+<span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span>
+store.dispatch({ <span class="attr">type</span>: <span class="string">'INCREMENT'</span> });
+<span class="comment">// 1</span>
+store.dispatch({ <span class="attr">type</span>: <span class="string">'INCREMENT'</span> });
+<span class="comment">// 2</span>
+store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT'</span> });
+<span class="comment">// 1</span>
+</code></pre>
+<p>不要再reducer里做以下操作保持纯净</p>
+<blockquote>
+<p>修改传入参数；</p>
+</blockquote>
+<blockquote>
+<p>执行有副作用的操作，如 API 请求和路由跳转；</p>
+</blockquote>
+<blockquote>
+<p>调用非纯函数，如 Date.now() 或 Math.random()。</p>
+</blockquote>
+<h4 id="维持应用的-state；"><a href="#维持应用的-state；" class="headerlink" title="维持应用的 state；"></a>维持应用的 state；</h4><ol>
+<li><p>提供 getState() 方法获取 state；</p>
+</li>
+<li><p>提供 dispatch(action) 方法更新 state；发送通知</p>
+</li>
+<li><p>通过 subscribe(listener) 注册监听器;</p>
+</li>
+<li><p>通过 unsubscribe() 返回的函数注销监听器。</p>
+</li>
+</ol>
+<p>纯函数是这样一种函数，即相同的输入，永远会得到相同的输出</p>
+<p>store.dispatch方法会触发 Reducer 的自动执行。为此，Store 需要知道 Reducer 函数，做法就是在生成 Store 的时候，将 Reducer 传入createStore方法</p>
+<p>使用 复杂性 数据交互 结构复杂繁琐 大型</p>
+<ul>
+<li>“如果你不知道是否需要 Redux，那就是不需要它。”</li>
+<li>“只有遇到 React 实在解决不了的问题，你才需要 Redux。”</li>
+</ul>
 
       
     </div>
@@ -584,6 +649,35 @@ a:hover {
     <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
+  <p><span>本文标题:</span><a href="/reduxstate.html">redux状态传播</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
+  <p><span>发布时间:</span>2018年06月21日 - 19:06</p>
+  <p><span>最后更新:</span>2018年10月14日 - 22:10</p>
+  <p><span>原始链接:</span><a href="/reduxstate.html" title="redux状态传播">http://mydearest.cn/reduxstate.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/reduxstate.html"  aria-label=" 复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",     
+          text: '复制成功',   
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
       
     </div>
 
@@ -709,8 +803,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://static.mydearest.cn/blog/images/avatar.jpg"
@@ -725,7 +828,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -852,6 +955,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux三大概念"><span class="nav-number">1.</span> <span class="nav-text">Redux三大概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三大原则"><span class="nav-number">1.1.</span> <span class="nav-text">三大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api"><span class="nav-number">1.2.</span> <span class="nav-text">api</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维持应用的-state；"><span class="nav-number">1.2.1.</span> <span class="nav-text">维持应用的 state；</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -890,7 +1009,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 60.4k字</span>
+    <span class="post-count">Blog总字数: 63.9k字</span>
   </div>
 </div>
 

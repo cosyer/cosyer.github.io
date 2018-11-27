@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="今天要说的是最简单的 for 循环，一个简单的 for 循环看似没有任何优化的意义，但实质上优化前后差距挺大的，那么该如何优化呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T06:07:54.002Z">
+<meta property="og:updated_time" content="2018-11-21T12:41:18.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从 for 循环入手优化性能">
 <meta name="twitter:description" content="今天要说的是最简单的 for 循环，一个简单的 for 循环看似没有任何优化的意义，但实质上优化前后差距挺大的，那么该如何优化呢？">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-06-12T14:07:54+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">12</div>
+  <div class="post-date" data-datetime="2018-11-21T20:41:18+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">21</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月12</div>
+      <div class="post-tiem">11月21</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -564,19 +564,19 @@ a:hover {
         <p>今天要说的是最简单的 for 循环，一个简单的 for 循环看似没有任何优化的意义，但实质上优化前后差距挺大的，那么该如何优化呢？</p>
 <hr>
 <a id="more"></a>
-<p>从最简单的遍历数组说起。
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个数组arr（假设是从后台返回的数据）</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">50</span>) &#123;</span><br><span class="line">    arr.push(i);</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果我们想从数组 arr 中取出数据，就必须要进行遍历，普遍的做法是：
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="comment">// arr[i]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从最简单的遍历数组说起。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个数组arr（假设是从后台返回的数据）</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">50</span>) &#123;</span><br><span class="line">    arr.push(i);</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果我们想从数组 arr 中取出数据，就必须要进行遍历，普遍的做法是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="comment">// arr[i]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但其实这样的写法遍历是最慢的，他要经过两次迭代，第一次是 i 的迭代，每次都要判断 i 是否小于 arr.length，第二次是 arr 的迭代，每次循环 arr 都会调用底层的迭代器，对长度进行计算，这样循环的效率非常低，时间空间复杂度为 O[n^2]。</p>
-<p>下面进行优化，看看两者到底有什么区别：
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="comment">// arr[i]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面进行优化，看看两者到底有什么区别：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="comment">// arr[i]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>区别就是，整个循环当中，我们预存了 len 来保存数组的长度，这样不需要每次循环都调用底层迭代器，调用一次即可，这样的时间空间复杂度为 O[n+1]。</p>
-<p>但是这并不是最完美的，因为会多了一次迭代操作，那么该如何进行优化呢？
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, item; item = arr[i++];) &#123;</span><br><span class="line">    <span class="comment">// item</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是这并不是最完美的，因为会多了一次迭代操作，那么该如何进行优化呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, item; item = arr[i++];) &#123;</span><br><span class="line">    <span class="comment">// item</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这次迭代的时间空间复杂度为 O[n] ，完美做到了每次一迭代没有通过长度进行判断，而是直接通过下标进行取值的方式映射到了循环体内部。</p>
-<p>最后用5万条数据进行测试各种方式的循环时间：
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个数组arr（假设是从后台返回的数据）</span></span><br><span class="line"><span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">while</span> (index &lt; <span class="number">50000</span>) &#123;</span><br><span class="line">    arr.push(index);</span><br><span class="line">    index++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'one'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'one'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'two'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'two'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'three'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, item; item = arr[i++];) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'three'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6的数组遍历</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'four'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> arr) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'four'</span>);</span><br><span class="line"><span class="comment">// 会访问可枚举属性和原型的遍历，数组不推荐使用</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'five'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'five'</span>);</span><br><span class="line"><span class="comment">// one: 0.711ms</span></span><br><span class="line"><span class="comment">// two: 4.508ms</span></span><br><span class="line"><span class="comment">// three: 0.006ms</span></span><br><span class="line"><span class="comment">// four: 3.255ms</span></span><br><span class="line"><span class="comment">// five: 11.144ms</span></span><br></pre></td></tr></table></figure></p>
+<p>最后用5万条数据进行测试各种方式的循环时间：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个数组arr（假设是从后台返回的数据）</span></span><br><span class="line"><span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">while</span> (index &lt; <span class="number">50000</span>) &#123;</span><br><span class="line">    arr.push(index);</span><br><span class="line">    index++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'one'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'one'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'two'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'two'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'three'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, item; item = arr[i++];) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'three'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6的数组遍历</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'four'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> arr) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'four'</span>);</span><br><span class="line"><span class="comment">// 会访问可枚举属性和原型的遍历，数组不推荐使用</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'five'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'five'</span>);</span><br><span class="line"><span class="comment">// one: 0.711ms</span></span><br><span class="line"><span class="comment">// two: 4.508ms</span></span><br><span class="line"><span class="comment">// three: 0.006ms</span></span><br><span class="line"><span class="comment">// four: 3.255ms</span></span><br><span class="line"><span class="comment">// five: 11.144ms</span></span><br></pre></td></tr></table></figure>
 <p>在数据量大的情况下，第三种循环方式效果显而易见。</p>
 
       
@@ -741,7 +741,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -763,7 +763,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -906,7 +906,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 63.9k字</span>
+    <span class="post-count">Blog总字数: 79.9k字</span>
   </div>
 </div>
 
@@ -1507,7 +1507,7 @@ a:hover {
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

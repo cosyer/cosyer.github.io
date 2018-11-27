@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-30T07:10:26.697Z">
+<meta property="og:updated_time" content="2018-11-23T13:55:14.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-30T15:10:26+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">30</div>
+  <div class="post-date" data-datetime="2018-11-23T21:55:14+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月30</div>
+      <div class="post-tiem">11月23</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  8,730 (字)
+                  8,923 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  33 (分钟)
+                  34 (分钟)
                 </span>
               
             </div>
@@ -597,7 +597,7 @@ String exd=filePath.subString(filePath.lastIndexOf(“.”)+1,filePath.length)</
 <p>(3) 变量or函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。
 同一个名称标识a，即有变量声明var a，又有函数声明function a() {}，不管二者声明的顺序，函数声明会覆盖变量声明，也就是说，此时a的值是声明的函数function a() {}。注意：如果在变量声明的同时初始化a，或是之后对a进行赋值，此时a的值变量的值。
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: <span class="keyword">var</span> a; <span class="keyword">var</span> c = <span class="number">1</span>; a = <span class="number">1</span>; <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="literal">true</span>; &#125; <span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure></p>
-<ol start="2">
+<ol>
 <li><p>如何判断数据类型？
 typeof返回的类型都是字符串形式，可以判断function的类型；在判断除Object类型的对象时比较方便。
 判断已知对象类型的方法： instanceof，后面一定要是对象类型，并且大小写不能错，该方法适合一些条件选择或分支。</p>
@@ -616,7 +616,7 @@ typeof返回的类型都是字符串形式，可以判断function的类型；在
 <li><p>方法4：Promises对象，是CommonJS工作组提出的一种规范，目的是为异步编程提供统一接口。简单说，它的思想是，每一个异步任务返回一个Promise对象，该对象有一个then方法，允许指定回调函数。</p>
 </li>
 </ul>
-<ol start="4">
+<ol>
 <li><p>事件流？事件捕获？事件冒泡？
  事件流：从页面中接收事件的顺序。也就是说当一个事件产生时，这个事件的传播过程，就是事件流。</p>
 <p> IE中的事件流叫事件冒泡；事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点（文档）。对于html来说，就是当一个元素产生了一个事件，它会把这个事件传递给它的父元素，父元素接收到了之后，还要继续传递给它的上一级元素，就这样一直传播到document对象（亲测现在的浏览器到window对象，只有IE8及以下不这样。</p>
@@ -637,7 +637,7 @@ typeof返回的类型都是字符串形式，可以判断function的类型；在
 <p>4)通过AJAX引擎发送异步请求 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.send()</span><br></pre></td></tr></table></figure></p>
 <p>5)服务器端接收请求并且处理请求，返回html或者xml内容<br>6)XML调用一个callback()处理响应回来的内容<br>7)使用JS和DOM实现局部刷新</p>
-<ol start="7">
+<ol>
 <li><p>自执行函数？用于什么场景？好处？<br> 1、声明一个匿名函数<br> 2、马上调用这个匿名函数。<br> 作用：创建一个独立的作用域。  </p>
 <p> 好处：防止变量弥散到全局，以免各种js库冲突。隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理。</p>
 <p> 场景：一般用于框架、插件等场景，设计私有变量和方法，封闭私有作用域。</p>
@@ -672,7 +672,7 @@ HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记�
 </li>
 </ol>
 <p><code>new 操作符新建了一个空对象，这个对象原型指向构造函数的prototype，执行构造函数后返回这个对象。</code></p>
-<ol start="13">
+<ol>
 <li>事件委托的好处都有啥？说对了都给它=3=</li>
 </ol>
 <ul>
@@ -681,7 +681,7 @@ HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记�
 <li><p>好处：新添加的元素还会有之前的事件；提高性能。</p>
 </li>
 </ul>
-<ol start="14">
+<ol>
 <li>节点类型?判断当前节点类型?</li>
 </ol>
 <ul>
@@ -692,7 +692,7 @@ HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记�
 <li>文档节点</li>
 </ul>
 <p>通过nodeObject.nodeType判断节点类型：其中，nodeObject 为DOM节点（节点对象）。该属性返回以数字表示的节点类型，例如，元素节点返回 1，属性节点返回 2 。</p>
-<ol start="15">
+<ol>
 <li><p>数组合并的方法？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 四种方法。</span></span><br><span class="line"><span class="keyword">var</span> arr1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">arr1 = arr1.concat(arr2);</span><br><span class="line"><span class="built_in">console</span>.log(arr1); </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1,arr2);</span><br><span class="line"><span class="built_in">console</span>.log(arr1);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; arr2.length; i++) &#123;</span><br><span class="line">arr1.push( arr2[i] );</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr1); </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"></span><br><span class="line">arr1.push(...arr2)</span><br></pre></td></tr></table></figure>
 </li>
@@ -708,7 +708,7 @@ HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记�
 jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容各种浏览器，缺点是代码量大，同时考虑兼容，性能也不够好。</p>
 </li>
 </ul>
-<ol start="17">
+<ol>
 <li>$(function(){})和window.onload 和 $(document).ready(function(){})</li>
 </ol>
 <ul>
@@ -717,7 +717,7 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li><p>$(document).ready(function(){})和$(function(){})都是用于当页面的标准DOM元素被解析成DOM树后就执行内部函数。这个函数是可以在js文件里多次编写的，对于多人共同编写的js就有很大的优势，因为所有行为函数都会执行到。而且$(document).ready()函数在HMTL结构加载完后就可以执行，不需要等大型文件加载或者不存在的连接等耗时工作完成才执行，效率高。</p>
 </li>
 </ul>
-<ol start="18">
+<ol>
 <li>简述下 this 和定义属性和方法的时候有什么区别?Prototype？</li>
 </ol>
 <ul>
@@ -728,7 +728,7 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li><p>在prototype上定义的属性方法为所有实例共享，所有实例皆引用到同一个对象，单一实例对原型上的属性进行修改，也会影响到所有其他实例。</p>
 </li>
 </ul>
-<ol start="19">
+<ol>
 <li>ajax和jsonp的区别？</li>
 </ol>
 <ul>
@@ -736,11 +736,11 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li>不同点：ajax的核心是通过XMLHttpRequest获取内容，jsonp只能get请求</li>
 <li>jsonp的核心则是动态添加<code>&lt;script&gt;</code>标签来调用服务器提供的js脚本。</li>
 </ul>
-<ol start="20">
+<ol>
 <li>常见的http协议状态码？</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">200</span>：请求成功</span><br><span class="line"><span class="number">201</span>：请求成功并且服务器创建了新的资源</span><br><span class="line"><span class="number">302</span>：服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来响应以后的请求。</span><br><span class="line"><span class="number">304</span>：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</span><br><span class="line"><span class="number">400</span>：服务器不理解请求的语法。</span><br><span class="line"><span class="number">404</span>：请求的资源（网页等）不存在</span><br><span class="line"><span class="number">403</span>：该状态表示服务器理解了本次请求但是拒绝执行该任务</span><br><span class="line"><span class="number">405</span>：方法不被允许</span><br><span class="line"><span class="number">500</span>：内部服务器错误</span><br></pre></td></tr></table></figure>
-<ol start="21">
+<ol>
 <li><p>sessionStorage和localstroage与cookie之间有什么关联, cookie最大存放多少字节？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">三者共同点：都是保存在浏览器端，且同源的。</span><br><span class="line"></span><br><span class="line">区别:</span><br><span class="line"><span class="number">1</span>、cookie在浏览器和服务器间来回传递。而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、存储大小限制也不同，cookie数据不能超过<span class="number">4</span>k，sessionStorage和localStorage 但比cookie大得多，可以达到<span class="number">5</span>M</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面(即数据不共享)；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的( 即数据共享 )。</span><br></pre></td></tr></table></figure>
 </li>
@@ -754,14 +754,14 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li>get的安全性可能没有post高，所以我们一般用get来获取数据，post一般用来修改数据。</li>
 <li>get就是将货品放在车顶，post放在车内</li>
 </ul>
-<ol start="23">
+<ol>
 <li>GC机制？为什么闭包不会被回收变量和函数？</li>
 </ol>
 <ul>
 <li>GC：垃圾回收机制;  </li>
 <li>外部变量没释放仍然保持着引用，所以指向的大函数内的小函数也释放不了。</li>
 </ul>
-<ol start="24">
+<ol>
 <li><p>面向对象？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">万物皆对象，把一个对象抽象成类，具体上就是把一个对象的静态特征和动态特征抽象成属性（属性名、属性值）和方法，也就是把一类事物的算法和数据结构封装在一个类之中，程序就是多个对象和互相之间的通信组成的。</span><br><span class="line"></span><br><span class="line">面向对象具有封装性，继承性，多态性。</span><br><span class="line">封装：隐蔽了对象内部不需要暴露的细节，使得内部细节的变动跟外界脱离，只依靠接口进行通信。封装性降低了编程的复杂性。通过继承，使得新建一个类变得容易，一个类从派生类那里获得其非私有的方法和公用属性的繁琐工作交给了编译器。而继承和实现接口和运行时的类型绑定机制所产生的多态，使得不同的类所产生的对象能够对相同的消息作出不同的反应，极大地提高了代码的通用性。</span><br><span class="line"></span><br><span class="line">总之，面向对象的特性提高了大型程序的重用性和可维护性。</span><br></pre></td></tr></table></figure>
 </li>
@@ -772,14 +772,14 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li>原理：使用script标签实现跨域访问，可在url中指定回调函数，获取JSON数据并在指定的回调函数中执行jquery实现jsop。</li>
 <li>缺点：只支持GET方式的jsonp实现，是一种脚本注入行为存在一定的安全隐患。如果返回的数据格式有问题或者返回失败了，并不会报错。</li>
 </ul>
-<ol start="26">
+<ol>
 <li>call和apply两者的区别和好处？</li>
 </ol>
 <ul>
 <li>call和apply都是改变this指向的方法，区别在于call可以写多个参数，而apply只能写两个参数，第二个参数是一个数组，用于存放要传的参数。</li>
 <li>用call和apply实现更好的继承和扩展，更安全。</li>
 </ul>
-<ol start="27">
+<ol>
 <li>压缩合并目的？http请求的优化方式？</li>
 </ol>
 <ul>
@@ -797,7 +797,7 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 </li>
 </ul>
 <p>-图片懒加载 </p>
-<ol start="28">
+<ol>
 <li>commonjs?requirejs?AMD|CMD|UMD?</li>
 </ol>
 <ul>
@@ -819,7 +819,7 @@ AMD 浏览器第一的原则发展 异步加载模块。
 CommonJS模块以服务器第一原则发展，选择同步加载，它的模块无需包装(unwrapped modules)。这迫使人们又想出另一个更通用的模式UMD ( Universal Module Definition ), 希望解决跨平台的解决方案。UMD先判断是否支持Node.js的模块( exports )是否存在，存在则使用Node.js模块模式。</p>
 </li>
 </ul>
-<ol start="29">
+<ol>
 <li>js的几种继承方式？</li>
 </ol>
 <ul>
@@ -827,7 +827,7 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 <li>call、apply改变函数上下文实现继承</li>
 <li>原型链方式实现继承</li>
 </ul>
-<ol start="30">
+<ol>
 <li><p>js原型、原型链，有什么特点？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">在JavaScript中,一共有两种类型的值,原始值和对象值.每个对象都有一个内部属性[[prototype]],我们通常称之为原型.原型的值可以是一个对象,也可以是<span class="literal">null</span>.如果它的值是一个对象,则这个对象也一定有自己的原型.这样就形成了一条线性的链,我们称之为原型链. </span><br><span class="line"></span><br><span class="line">访问一个对象的原型可以使用ES5中的<span class="built_in">Object</span>.getPrototypeOf方法,或者ES6中的__proto__属性. 原型链的作用是用来实现继承,比如我们新建一个数组,数组的方法就是从数组的原型上继承而来的。</span><br><span class="line"></span><br><span class="line">类的继承</span><br><span class="line">特点：基于原型链，既是父类的实例，也是子类的实例</span><br><span class="line">缺点：无法实现多继承</span><br><span class="line"></span><br><span class="line">构造继承、组合继承、实例继承和拷贝继承...</span><br></pre></td></tr></table></figure>
 </li>
@@ -837,20 +837,20 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 <ul>
 <li>将把对应的字符串解析成JS代码并运行； 应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。</li>
 </ul>
-<ol start="32">
+<ol>
 <li>null和undefined</li>
 </ol>
 <ul>
 <li>undefined表示变量声明未初始化的，null表示对象的空值（空对象指针）。</li>
 </ul>
-<ol start="33">
+<ol>
 <li>json的理解？</li>
 </ol>
 <ul>
 <li>JSON（轻量级的数据交换格式），基于JS的子集，数据格式简单，易于读写，占用带宽小。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse() <span class="comment">// 解析成JSON对象</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.strinify() <span class="comment">// 解析成JSON字符串</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="34">
+<ol>
 <li>js延时加载的方式？</li>
 </ol>
 <ul>
@@ -858,20 +858,20 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 <li>动态创建DOM</li>
 <li>按需异步加载JS</li>
 </ul>
-<ol start="35">
+<ol>
 <li>ajax（异步的js和xml）</li>
 </ol>
 <ul>
 <li>ajax是指一种创建交互式网页应用的网页开发技术。通过后台与服务器进行少量数据交换，AJAX可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</li>
 </ul>
-<ol start="36">
+<ol>
 <li>同异步的区别？</li>
 </ol>
 <ul>
 <li>同步(sync)：按顺序执行。</li>
 <li>异步(async)：不按顺序执行，可以跳过执行下面的代码。</li>
 </ul>
-<ol start="37">
+<ol>
 <li>ajax的缺点？</li>
 </ol>
 <ul>
@@ -881,7 +881,7 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 <li>破坏了程序的异常机制</li>
 <li>不容易调试</li>
 </ul>
-<ol start="38">
+<ol>
 <li>跨域问题？</li>
 </ol>
 <ul>
@@ -890,7 +890,7 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 <li>域名不同</li>
 <li>常用解决方案：jsonp、iframe、window.name、window.postMessage、document.domain、服务器设置代理页面/响应header配置cors access-control-allow-origin</li>
 </ul>
-<ol start="39">
+<ol>
 <li><p>解决异步回调地狱有哪些方案？
 promise、generator、async/await</p>
 </li>
@@ -902,7 +902,7 @@ promise、generator、async/await</p>
 <li>懒加载：懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。</li>
 </ul>
 <p>两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。 懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
-<ol start="41">
+<ol>
 <li>mouseover和mouseenter的区别？</li>
 </ol>
 <ul>
@@ -911,7 +911,7 @@ promise、generator、async/await</p>
 <li><p>mouseenter：当鼠标移除元素本身（不包含元素的子元素）会触发事件，也就是不会冒泡，对应的移除事件是mouseleave</p>
 </li>
 </ul>
-<ol start="42">
+<ol>
 <li>改变函数内部this指针的指向函数（bind，apply，call的区别）？</li>
 </ol>
 <ul>
@@ -920,7 +920,7 @@ promise、generator、async/await</p>
 <li><p>通过bind改变this作用域会返回一个新的函数，这个函数不会马上执行。</p>
 </li>
 </ul>
-<ol start="43">
+<ol>
 <li>说说前端中的事件流
 HTML中与javascript交互是通过事件驱动来实现的，例如鼠标点击事件onclick、页面的滚动事件onscroll等等，可以向文档或者文档中的元素添加事件侦听器来预订事件。想要知道这些事件是在什么时候进行调用的，就需要了解一下“事件流”的概念。
 什么是事件流：事件流描述的是从页面中接收事件的顺序,DOM2级事件流包括下面几个阶段。</li>
@@ -930,7 +930,7 @@ HTML中与javascript交互是通过事件驱动来实现的，例如鼠标点击
 事件冒泡阶段</p>
 <p>addEventListener：addEventListener 是DOM2 级事件新增的指定事件处理程序的操作，这个方法接收3个参数：要处理的事件名、作为事件处理程序的函数和一个布尔值。最后这个布尔值参数如果是true，表示在捕获阶段调用事件处理程序；如果是false，表示在冒泡阶段调用事件处理程序。
 IE只支持事件冒泡。</p>
-<ol start="44">
+<ol>
 <li><p>如何让事件先冒泡后执行？
 在DOM标准事件模型中，是先捕获后冒泡。但是如果要实现先冒泡后捕获的效果，对于同一个事件，监听捕获和冒泡，分别对应相应的处理函数，监听到捕获事件，先暂缓执行，直到冒泡事件被捕获后再执行捕获事件。</p>
 </li>
@@ -940,7 +940,7 @@ IE只支持事件冒泡。</p>
 </ol>
 <p>举例：最经典的就是ul和li标签的事件监听，比如我们在添加事件时候，采用事件委托机制，不会在li标签上直接添加，而是在ul父元素上添加。</p>
 <p>好处：比较合适动态元素的绑定，新添加的子元素也会有监听函数，也可以有事件触发机制。</p>
-<ol start="45">
+<ol>
 <li>垂直居中</li>
 </ol>
 <ul>
@@ -950,7 +950,7 @@ IE只支持事件冒泡。</p>
 <li>flex布局</li>
 <li>text-align:center 块级元素</li>
 </ul>
-<ol start="46">
+<ol>
 <li>visibility=hidden, opacity=0，display:none</li>
 </ol>
 <ul>
@@ -958,51 +958,26 @@ IE只支持事件冒泡。</p>
 <li>visibility=hidden，该元素隐藏起来了，但不会改变页面布局，但是不会触发该元素已经绑定的事件。</li>
 <li>display=none，把元素隐藏起来，并且会改变页面布局，可以理解成在页面中把该元素删除掉一样。</li>
 </ul>
-<ol start="47">
+<ol>
 <li>块元素和行内元素</li>
 </ol>
 <ul>
 <li>块元素：独占一行，并且有自动填满父元素，可以设置margin和padding以及高度和宽度。</li>
 <li>行元素：不会独占一行，width和height会失效，并且在垂直方向的padding和margin会失效。  </li>
 </ul>
-<ol start="48">
+<ol>
 <li>深拷贝</li>
 </ol>
 <ul>
-<li>深拷贝的方法 1-2适用于一般的对象和数组 4-5适用于数组 3通用
-let obj = {
-  a: 1,
-  arr: [1, 2]
-};
-let obj2 = deepCopy(obj);
-obj2.a = 2
-console.log(obj) // { a:1, arr: [1,2] };
-2.es6
-Object.assign()方法(深复制只有一层，之后为浅复制（除非再次使用Object.assign嵌套方式赋值）)
-let obj = {
-  a: 1,
-  arr: [1, 2]
-};
-let obj1 = Object.assign({}, obj);
-obj1.a = 2
-//不变
-console.log(obj) // { a:1, arr: [1,2] };
-3.immutable
-4.arr1=arr.slice(0) slice() 返回新数组
-5.arr1=arr.concat()
-var deepCopy= function(source) { 
-  var result={};
-  for (var key in source) {<pre><code>result[key] = typeof source[key]===&apos;object&apos;? deepCoypy(source[key]): source[key];
-</code></pre>   } 
- return result; 
-}</li>
+<li>深拷贝的方法 1-2适用于一般的对象和数组 4-5适用于数组 3通用</li>
 </ul>
-<ol start="49">
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    arr: [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = deepCopy(obj);</span><br><span class="line">obj2.a = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">// &#123; a:1, arr: [1,2] &#125;;</span></span><br><span class="line"><span class="number">2.</span>es6</span><br><span class="line"><span class="built_in">Object</span>.assign()方法(深复制只有一层，之后为浅复制（除非再次使用<span class="built_in">Object</span>.assign嵌套方式赋值）)</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    arr: [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj1 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">obj1.a = <span class="number">2</span></span><br><span class="line"><span class="comment">//不变</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">// &#123; a:1, arr: [1,2] &#125;;</span></span><br><span class="line"><span class="number">3.</span>immutable</span><br><span class="line"><span class="number">4.</span>arr1=arr.slice(<span class="number">0</span>) slice() 返回新数组</span><br><span class="line"><span class="number">5.</span>arr1=arr.concat()</span><br><span class="line"><span class="keyword">var</span> deepCopy= <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> result=&#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">        result[key] = <span class="keyword">typeof</span> source[key]===<span class="string">'object'</span>? deepCoypy(source[key]): source[key];</span><br><span class="line">     &#125; </span><br><span class="line">   <span class="keyword">return</span> result; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
 <li>判断一个变量是否是数组<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []; </span><br><span class="line"><span class="comment">// 1.基于instanceof </span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 2.基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 3.基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype; </span><br><span class="line"><span class="comment">// 5.基于Object.prototype.toString </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(a) === <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 6.Array.isArray</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>以上，除了Object.prototype.toString外，其它方法都不能正确判断变量的类型。</p>
-<ol start="49">
+<ol>
 <li>优化</li>
 </ol>
 <ul>
@@ -1015,7 +990,7 @@ var deepCopy= function(source) {
 <li>网络图、字体图标</li>
 <li>上cdn</li>
 </ul>
-<ol start="50">
+<ol>
 <li>行内、块级、空元素 </li>
 </ol>
 <ul>
@@ -1023,10 +998,10 @@ var deepCopy= function(source) {
 <li>块级元素：div、ul、li、dl、dt、dd、p、h1-h6、blockquote</li>
 <li>空元素：即没有内容的HTML元素，例如：br、meta、hr、link、input、img</li>
 </ul>
-<ol start="51">
+<ol>
 <li><p>px、em、rem的区别
 px和em都是长度单位,px的只是固定的,em的值是相对的继承父类元素的字体大小。浏览器的默认字体高位16px。1em=16px;
-rem单位基于html元素的字体大小。</p>
+rem单位基于html根元素的字体大小。</p>
 </li>
 <li><p>路由权限管理</p>
 </li>
@@ -1037,13 +1012,13 @@ rem单位基于html元素的字体大小。</p>
 <li>高阶组件</li>
 <li>dva监听url subscription</li>
 </ul>
-<ol start="53">
+<ol>
 <li>node中的事件循环是什么样子的?</li>
 </ol>
 <ul>
 <li>event loop其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列．执行中的叫IO events, setImmediate是在当前队列立即执行,setTimout/setInterval是把执行定时到下一个队列，process.nextTick是在当前执行完，下次遍历前执行．所以总体顺序是: IO events &gt;&gt; setImmediate &gt;&gt; setTimeout/setInterval &gt;&gt; process.nextTick</li>
 </ul>
-<ol start="54">
+<ol>
 <li>清空数组</li>
 </ol>
 <ul>
@@ -1051,11 +1026,12 @@ rem单位基于html元素的字体大小。</p>
 <li>splice(0,数组length)清空</li>
 <li>设置数组length=0</li>
 </ul>
-<ol start="55">
+<ol>
 <li>判断数组中出现次数最多的元素</li>
-<li><p>临时对象数组，原数组sort排序，判断前后位是否相等。临时对象数组排序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp=[];<span class="comment">//对象数组</span></span><br><span class="line">    <span class="keyword">var</span> i;</span><br><span class="line">    temp[<span class="number">0</span>]=&#123;<span class="attr">value</span>:arr[<span class="number">0</span>],<span class="attr">index</span>:<span class="number">1</span>&#125;;<span class="comment">//保存数组元素出现的次数和值</span></span><br><span class="line">    arr.sort();</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i]==arr[i<span class="number">-1</span>])&#123;</span><br><span class="line">            temp[temp.length<span class="number">-1</span>].index++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//不相同则新增一个对象元素</span></span><br><span class="line">            temp.push(&#123;<span class="attr">index</span>:<span class="number">1</span>,<span class="attr">value</span>:arr[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="comment">//按照出现次数从大到小排列</span></span><br><span class="line">        <span class="keyword">return</span> a.index&lt;b.index;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">var</span> max=temp[<span class="number">0</span>].index;</span><br><span class="line">    <span class="keyword">var</span> maxV=temp[<span class="number">0</span>].value;</span><br><span class="line">    <span class="keyword">var</span> second=temp[<span class="number">1</span>].index;</span><br><span class="line">    <span class="keyword">var</span> secondV=temp[<span class="number">1</span>].value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;max,maxV,second,secondV&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">100</span>,<span class="number">100</span>,,<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">100</span>,<span class="number">100</span>];</span><br><span class="line"><span class="keyword">var</span> &#123;max,maxV,second,secondV&#125;=f(arr);</span><br><span class="line"><span class="built_in">console</span>.log(max,maxV,second,secondV); <span class="comment">// 4 100 3 4</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>临时对象数组，原数组sort排序，判断前后位是否相等。临时对象数组排序</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp=[];<span class="comment">//对象数组</span></span><br><span class="line">    <span class="keyword">var</span> i;</span><br><span class="line">    temp[<span class="number">0</span>]=&#123;<span class="attr">value</span>:arr[<span class="number">0</span>],<span class="attr">index</span>:<span class="number">1</span>&#125;;<span class="comment">//保存数组元素出现的次数和值</span></span><br><span class="line">    arr.sort();</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i]==arr[i<span class="number">-1</span>])&#123;</span><br><span class="line">            temp[temp.length<span class="number">-1</span>].index++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//不相同则新增一个对象元素</span></span><br><span class="line">            temp.push(&#123;<span class="attr">index</span>:<span class="number">1</span>,<span class="attr">value</span>:arr[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="comment">//按照出现次数从大到小排列</span></span><br><span class="line">        <span class="keyword">return</span> b.index-a.index;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">var</span> max=temp[<span class="number">0</span>].index;</span><br><span class="line">    <span class="keyword">var</span> maxV=temp[<span class="number">0</span>].value;</span><br><span class="line">    <span class="keyword">var</span> second=temp[<span class="number">1</span>].index;</span><br><span class="line">    <span class="keyword">var</span> secondV=temp[<span class="number">1</span>].value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;max,maxV,second,secondV&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr=[<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">100</span>,<span class="number">100</span>,,<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">100</span>,<span class="number">100</span>];</span><br><span class="line"><span class="keyword">var</span> &#123;max,maxV,second,secondV&#125;=f(arr);</span><br><span class="line"><span class="built_in">console</span>.log(max,maxV,second,secondV); <span class="comment">// 4 100 3 4</span></span><br></pre></td></tr></table></figure>
+<ol>
 <li><p>临时对象 判断属性名存不存在 2次遍历</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!obj[arr[i]])&#123;</span><br><span class="line">            obj[arr[i]] = <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            obj[arr[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        此时的obj对象包含了所有元素出现次数的信息</span></span><br><span class="line"><span class="comment">        然后再遍历obj对象就可以查询出出现次数最多/最少的元素了</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> maxNum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> minNum = obj[arr[<span class="number">0</span>]];  <span class="comment">//先随意给最少的变量赋值（但保证是数组中的元素出现的次数）</span></span><br><span class="line">    <span class="keyword">var</span> maxEleArr = [],minEleArr = [];</span><br><span class="line">    <span class="comment">//第一次遍历找出出现次数最多和最少的值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] &gt; maxNum)&#123;</span><br><span class="line">            maxNum = obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] &lt; maxNum)&#123;</span><br><span class="line">            minNum = obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//第二次遍历找出所有出现次数最多和最少的元素</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] == maxNum)&#123;</span><br><span class="line">            maxEleArr.push(key);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(obj[key] == minNum)&#123;</span><br><span class="line">            minEleArr.push(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(maxEleArr + <span class="string">":"</span> + maxNum );  <span class="comment">// 2:5</span></span><br><span class="line">    <span class="built_in">console</span>.log(minEleArr + <span class="string">":"</span> + minNum );  <span class="comment">// 1,4:2</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -1064,6 +1040,17 @@ rem单位基于html元素的字体大小。</p>
 </li>
 <li><p>清除浮动</p>
 </li>
+<li><p>margin-top和padding-left根据height还是width？
+width</p>
+</li>
+<li><p>vue的非父子组件传递</p>
+</li>
+<li><p>vuex 2. 在同一个vue实例上调用$emit和$on</p>
+</li>
+<li><p>原生js实现拖拽</p>
+</li>
+<li><p>实现函数监听函数发布订阅模式 on emit off 方法 类似 iflux</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">event</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.on = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="keyword">new</span> Event(name)</span><br><span class="line">  <span class="keyword">this</span>.elem.addEventListener(name, fn.call(<span class="keyword">this</span>, <span class="keyword">this</span>.e, <span class="keyword">this</span>.e.type))</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.emit = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem.dispatchEvent(<span class="keyword">this</span>.e) <span class="comment">// 这里接受的参数必须是Event类型的，不然报错</span></span><br><span class="line">&#125;</span><br><span class="line">event.prototype.off = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ee = <span class="keyword">new</span> event()</span><br><span class="line">ee.on(<span class="string">'foo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="number">110</span>)&#125;)</span><br><span class="line">ee.emit(<span class="string">'foo'</span>) <span class="comment">// 110</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
@@ -1096,7 +1083,7 @@ rem单位基于html元素的字体大小。</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2018年08月30日 - 15:08</p>
+  <p><span>最后更新:</span>2018年11月23日 - 21:11</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1255,7 +1242,7 @@ rem单位基于html元素的字体大小。</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1277,7 +1264,7 @@ rem单位基于html元素的字体大小。</p>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1420,7 +1407,7 @@ rem单位基于html元素的字体大小。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 63.9k字</span>
+    <span class="post-count">Blog总字数: 79.9k字</span>
   </div>
 </div>
 
@@ -2021,7 +2008,7 @@ rem单位基于html元素的字体大小。</p>
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

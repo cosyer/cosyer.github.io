@@ -420,12 +420,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-07-17T19:40:41+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">17</div>
+  <div class="post-date" data-datetime="2018-11-21T20:41:18+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">21</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月17</div>
+      <div class="post-tiem">11月21</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -598,8 +598,8 @@ setter： 不能用来直接改变计算属性的值，但是它们可以用来�
 <li>reactions
 Reactions 和计算值很像，但它不是产生一个新的值，而是会产生一些副作用，比如打印到控制台、网络请求、递增地更新 React 组件树以修补DOM、等等。 简而言之，reactions 在 响应式编程和命令式编程之间建立沟通的桥梁。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// component</span><br><span class="line">import &#123;inject, observer&#125; from &quot;mobx-react&quot;;</span><br><span class="line"></span><br><span class="line">// 观察者 注入store添加到属性上</span><br><span class="line">@inject(&quot;store&quot;) @observer</span><br><span class="line"></span><br><span class="line">this.props.store.xxStore.num</span><br><span class="line">this.props.store.xxStore.plus() // num+=1</span><br><span class="line">this.props.store.xxStore.total</span><br><span class="line"></span><br><span class="line">// homeStore</span><br><span class="line"></span><br><span class="line">@observable num;</span><br><span class="line">construtor()&#123;</span><br><span class="line">    this.name=&apos;&apos;</span><br><span class="line">    this.items=[]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@computed get total() &#123;</span><br><span class="line">    return this.items.length;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">@action plus=()=&gt;&#123;</span><br><span class="line">    this.num+=1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">autorun((e)=&gt;&#123;&#125;)</span><br><span class="line"></span><br><span class="line">const homeStore =new HomeStore()</span><br><span class="line">export &#123;homeStore&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">switch</span><br><span class="line">router render=&#123;(props)=&gt;&lt;Item &#123;...props&#125;/&gt;&#125;</span><br><span class="line">router component=&#123;Index&#125;</span><br><span class="line">react-route-dom</span><br><span class="line">withRouter</span><br><span class="line">Linking</span><br><span class="line">// Provider 传递stores</span><br><span class="line">Privider store=&#123;stores&#125;</span><br><span class="line">create-react-app react-scripts</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// component</span></span><br><span class="line"><span class="keyword">import</span> &#123;inject, observer&#125; <span class="keyword">from</span> <span class="string">"mobx-react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 观察者 注入store添加到属性上</span></span><br><span class="line">@inject(<span class="string">"store"</span>) @observer</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.props.store.xxStore.num</span><br><span class="line"><span class="keyword">this</span>.props.store.xxStore.plus() <span class="comment">// num+=1</span></span><br><span class="line"><span class="keyword">this</span>.props.store.xxStore.total</span><br><span class="line"></span><br><span class="line"><span class="comment">// homeStore</span></span><br><span class="line"></span><br><span class="line">@observable num;</span><br><span class="line">construtor()&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=<span class="string">''</span></span><br><span class="line">    <span class="keyword">this</span>.items=[]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@computed get total() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.items.length;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">@action plus=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.num+=<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">autorun(<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> homeStore =<span class="keyword">new</span> HomeStore()</span><br><span class="line"><span class="keyword">export</span> &#123;homeStore&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span></span><br><span class="line">router render=&#123;(props)=&gt;&lt;Item &#123;...props&#125;/&gt;&#125;</span><br><span class="line">router component=&#123;Index&#125;</span><br><span class="line">react-route-dom</span><br><span class="line">withRouter</span><br><span class="line">Linking</span><br><span class="line">// Provider 传递stores</span><br><span class="line">Privider store=&#123;stores&#125;</span><br><span class="line">create-react-app react-scripts</span><br></pre></td></tr></table></figure>
 <p>基本就这两种方法:immutable/observable
 mobx: oop
 redux: 函数式</p>
@@ -705,7 +705,7 @@ redux: 函数式</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -727,7 +727,7 @@ redux: 函数式</p>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -870,7 +870,7 @@ redux: 函数式</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 63.9k字</span>
+    <span class="post-count">Blog总字数: 79.9k字</span>
   </div>
 </div>
 
@@ -1471,7 +1471,7 @@ redux: 函数式</p>
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

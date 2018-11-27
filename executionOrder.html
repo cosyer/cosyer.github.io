@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS 是按照代码块进行 编译、执行 的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T15:25:46.947Z">
+<meta property="og:updated_time" content="2018-11-20T14:55:29.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS执行顺序-函数声明提升、匿名函数、函数表达式">
 <meta name="twitter:description" content="JS 是按照代码块进行 编译、执行 的。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-07-02T23:25:46+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2018-11-20T22:55:29+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">20</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月02</div>
+      <div class="post-tiem">11月20</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  616 (字)
+                  649 (字)
                 </span>
               
 
@@ -585,7 +585,7 @@ a:hover {
 <li>编译期间：从上到下编译代码块。</li>
 </ul>
 <h3 id="函数声明提前且后来居上覆盖"><a href="#函数声明提前且后来居上覆盖" class="headerlink" title="函数声明提前且后来居上覆盖"></a>函数声明提前且后来居上覆盖</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getName(); <span class="comment">// 6</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">6</span>);&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">6</span>);&#125;</span><br><span class="line">getName(); <span class="comment">// 4 函数声明都被提升了，表达式会覆盖掉</span></span><br></pre></td></tr></table></figure>
-<h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">1</span>); &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">2</span>);&#125;;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">3</span>);&#125;;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//请写出以下输出结果：</span></span><br><span class="line">Foo.getName(); <span class="comment">// 2</span></span><br><span class="line">getName();  <span class="comment">// 4</span></span><br><span class="line">Foo().getName(); <span class="comment">// 1</span></span><br><span class="line">getName(); <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">new</span> Foo.getName(); <span class="comment">// 2</span></span><br><span class="line"><span class="keyword">new</span> Foo().getName(); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 全局变量</span></span><br><span class="line">    getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">1</span>); &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">2</span>);&#125;;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">3</span>);&#125;;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125; <span class="comment">// 函数提升 JavaScript永远不会有函数重载</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//请写出以下输出结果：</span></span><br><span class="line">Foo.getName(); <span class="comment">// 2</span></span><br><span class="line">getName();  <span class="comment">// 4</span></span><br><span class="line">Foo().getName(); <span class="comment">// 1 覆盖了函数表达式</span></span><br><span class="line">getName(); <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">new</span> Foo.getName(); <span class="comment">// 2 new (Foo.getName)()</span></span><br><span class="line"><span class="keyword">new</span> Foo().getName(); <span class="comment">// 3 (new Foo()).getName();</span></span><br></pre></td></tr></table></figure>
 <h2 id="ES6之前，JS没有变量作用域。只有-函数作用域-和-全局作用域。"><a href="#ES6之前，JS没有变量作用域。只有-函数作用域-和-全局作用域。" class="headerlink" title="ES6之前，JS没有变量作用域。只有 函数作用域 和 全局作用域。"></a>ES6之前，JS没有变量作用域。只有 函数作用域 和 全局作用域。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 3</span></span><br><span class="line">---</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
       
     </div>
@@ -617,7 +617,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/executionOrder.html">JS执行顺序-函数声明提升、匿名函数、函数表达式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月13日 - 17:06</p>
-  <p><span>最后更新:</span>2018年07月02日 - 23:07</p>
+  <p><span>最后更新:</span>2018年11月20日 - 22:11</p>
   <p><span>原始链接:</span><a href="/executionOrder.html" title="JS执行顺序-函数声明提升、匿名函数、函数表达式">http://mydearest.cn/executionOrder.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/executionOrder.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -785,7 +785,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -807,7 +807,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -966,7 +966,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 63.9k字</span>
+    <span class="post-count">Blog总字数: 79.9k字</span>
   </div>
 </div>
 
@@ -1567,7 +1567,7 @@ a:hover {
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

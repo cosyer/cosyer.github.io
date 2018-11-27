@@ -420,12 +420,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-10-15T23:54:05+08:00">
-    <div class="post-time-text">10月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2018-11-21T20:41:18+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">21</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">10月15</div>
+      <div class="post-tiem">11月21</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -532,7 +532,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,459 (字)
+                  2,463 (字)
                 </span>
               
 
@@ -570,11 +570,11 @@ a:hover {
 
       
         
-          <p>创建正则表达式
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expression = <span class="regexp">/pattern/</span>flags ;</span><br></pre></td></tr></table></figure></p>
+          <p>创建正则表达式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expression = <span class="regexp">/pattern/</span>flags ;</span><br></pre></td></tr></table></figure>
 <p>其中的模式（pattern）部分可以是任何简单或复杂的正则表达式，可以包含字符类、限定符、分组、 向前查找以及反向引用。每个正则表达式都可带有一或多个标志（flags），用以标明正则表达式的行为。 正则表达式的匹配模式支持下列 3 个标志。</p>
 <ul>
-<li>g：表示全局（global）模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即 停止；</li>
+<li>g：表示全局（global）模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止；</li>
 <li>i：表示不区分大小写（case-insensitive）模式，即在确定匹配项时忽略模式与字符串的大小写；</li>
 <li>m：表示多行（multiline）模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。</li>
 </ul>
@@ -860,12 +860,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-10-14T22:43:55+08:00">
-    <div class="post-time-text">10月</div>
-    <div class="post-time-count">14</div>
+  <div class="post-date" data-datetime="2018-11-21T20:41:18+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">21</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">10月14</div>
+      <div class="post-tiem">11月21</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -972,7 +972,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  534 (字)
+                  1,035 (字)
                 </span>
               
 
@@ -988,7 +988,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -1010,8 +1010,7 @@ a:hover {
 
       
         
-          
-            <h2 id="Redux三大概念"><a href="#Redux三大概念" class="headerlink" title="Redux三大概念"></a>Redux三大概念</h2><blockquote>
+          <h2 id="Redux三大概念"><a href="#Redux三大概念" class="headerlink" title="Redux三大概念"></a>Redux三大概念</h2><blockquote>
 <p>Redux 是JavaScript状态容器，提供可预测化的状态管理</p>
 </blockquote>
 <blockquote>
@@ -1020,65 +1019,33 @@ a:hover {
 <blockquote>
 <p>reducer 只是一个接收 state 和 action，并返回新的 state 的函数</p>
 </blockquote>
+<p>Store — 数据存储中心，同时连接着Actions和Views（React Components）。</p>
+<ol>
+<li>Store需要负责接收Views传来的Action</li>
+<li>然后，根据Action.type和Action.payload对Store里的数据进行修改</li>
+<li>最后，Store还需要通知Views，数据有改变，Views便去获取最新的Store数据，通过setState进行重新渲染组件（re-render）。</li>
+</ol>
 <h3 id="三大原则"><a href="#三大原则" class="headerlink" title="三大原则"></a>三大原则</h3><ol>
 <li>单一数据源</li>
 </ol>
-<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的reducer,拆成多个reduce而不是多个store。</p>
-<ol start="2">
+<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的reducer,拆成多个reducer而不是多个store。</p>
+<ol>
 <li>State 是只读的</li>
 </ol>
 <p>唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</p>
-<ol start="3">
+<ol>
 <li>使用纯函数来执行修改</li>
 </ol>
-<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。期望转呗要修改state了,传递数据.payload规范。</p>
+<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。传递数据 payload规范。</p>
 <p>当 state 变化时需要返回全新的对象，而不是修改传入的参数。</p>
-<h3 id="api"><a href="#api" class="headerlink" title="api"></a>api</h3><pre><code class="javascript"><span class="comment">// API 是 { subscribe, dispatch, getState }。</span>
-<span class="keyword">let</span> store = createStore(counter);
-
-<span class="comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span>
-store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span>
-  <span class="built_in">console</span>.log(store.getState())
-);
-
-<span class="comment">// 改变内部 state 唯一方法是 dispatch 一个 action。</span>
-<span class="comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span>
-store.dispatch({ <span class="attr">type</span>: <span class="string">'INCREMENT'</span> });
-<span class="comment">// 1</span>
-store.dispatch({ <span class="attr">type</span>: <span class="string">'INCREMENT'</span> });
-<span class="comment">// 2</span>
-store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT'</span> });
-<span class="comment">// 1</span>
-</code></pre>
-<p>不要再reducer里做以下操作保持纯净</p>
-<blockquote>
-<p>修改传入参数；</p>
-</blockquote>
-<blockquote>
-<p>执行有副作用的操作，如 API 请求和路由跳转；</p>
-</blockquote>
-<blockquote>
-<p>调用非纯函数，如 Date.now() 或 Math.random()。</p>
-</blockquote>
-<h4 id="维持应用的-state；"><a href="#维持应用的-state；" class="headerlink" title="维持应用的 state；"></a>维持应用的 state；</h4><ol>
-<li><p>提供 getState() 方法获取 state；</p>
-</li>
-<li><p>提供 dispatch(action) 方法更新 state；发送通知</p>
-</li>
-<li><p>通过 subscribe(listener) 注册监听器;</p>
-</li>
-<li><p>通过 unsubscribe() 返回的函数注销监听器。</p>
-</li>
-</ol>
-<p>纯函数是这样一种函数，即相同的输入，永远会得到相同的输出</p>
-<p>store.dispatch方法会触发 Reducer 的自动执行。为此，Store 需要知道 Reducer 函数，做法就是在生成 Store 的时候，将 Reducer 传入createStore方法</p>
-<p>使用 复杂性 数据交互 结构复杂繁琐 大型</p>
-<ul>
-<li>“如果你不知道是否需要 Redux，那就是不需要它。”</li>
-<li>“只有遇到 React 实在解决不了的问题，你才需要 Redux。”</li>
-</ul>
-
-          
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/reduxstate.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1177,7 +1144,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1199,7 +1166,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1342,7 +1309,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 63.9k字</span>
+    <span class="post-count">Blog总字数: 79.9k字</span>
   </div>
 </div>
 
@@ -1943,7 +1910,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

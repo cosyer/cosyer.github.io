@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="熟悉前端的不会对console和alert陌生，两者在调试的时候可谓是法宝级别的工具，但是关于console，其实远远不止于console.log这一个简单的命令，它能做的事情有很多，那么让我们来一起了解一下，它有哪些冷门功能吧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-30T09:48:37.581Z">
+<meta property="og:updated_time" content="2018-11-21T12:41:18.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="console控制台优化">
 <meta name="twitter:description" content="熟悉前端的不会对console和alert陌生，两者在调试的时候可谓是法宝级别的工具，但是关于console，其实远远不止于console.log这一个简单的命令，它能做的事情有很多，那么让我们来一起了解一下，它有哪些冷门功能吧。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-08-30T17:48:37+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">30</div>
+  <div class="post-date" data-datetime="2018-11-21T20:41:18+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">21</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月30</div>
+      <div class="post-tiem">11月21</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -565,17 +565,16 @@ a:hover {
 <hr>
 <a id="more"></a>
 <h3 id="显示信息的命令"><a href="#显示信息的命令" class="headerlink" title="显示信息的命令"></a>显示信息的命令</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">'信息'</span>);</span><br><span class="line"><span class="built_in">console</span>.error(<span class="string">'错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'警告'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><p>​ console上述的集中度支持printf的占位符格式，支持的占位符有：字符（%s）、整数（%d或%i）、浮点数（%f）和对象（%o）
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"%d年%d月%d日"</span>,<span class="number">2016</span>,<span class="number">11</span>,<span class="number">11</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><p>​ console上述的集中度支持printf的占位符格式，支持的占位符有：字符（%s）、整数（%d或%i）、浮点数（%f）和对象（%o）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"%d年%d月%d日"</span>,<span class="number">2016</span>,<span class="number">11</span>,<span class="number">11</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="信息分组"><a href="#信息分组" class="headerlink" title="信息分组"></a>信息分组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.group(<span class="string">"第一组信息"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第一组第一条:何问起(http://hovertree.com)"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第一组第二条:柯乐义(http://keleyi.com)"</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br><span class="line"><span class="built_in">console</span>.group(<span class="string">"第二组信息"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第二组第一条:HoverClock 一个jQuery时钟插件"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第二组第二条:欢迎使用"</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br></pre></td></tr></table></figure>
 <h3 id="对象信息"><a href="#对象信息" class="headerlink" title="对象信息"></a>对象信息</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    id:<span class="number">1</span>,</span><br><span class="line">    name:<span class="number">123</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.dir(obj)</span><br></pre></td></tr></table></figure>
 <h3 id="显示网页节点"><a href="#显示网页节点" class="headerlink" title="显示网页节点"></a>显示网页节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.dirxml()用来显示网页的某个节点（node）所包含的html/xml代码</span><br><span class="line"><span class="keyword">var</span> info = <span class="built_in">document</span>.getElementById(<span class="string">'info'</span>);</span><br><span class="line"><span class="built_in">console</span>.dirxml(info);</span><br></pre></td></tr></table></figure>
-<h3 id="判断变量是否为真"><a href="#判断变量是否为真" class="headerlink" title="判断变量是否为真"></a>判断变量是否为真</h3><p>​console.assert()用来判断一个表达式或变量是否为真。如果结果为否，则在控制台输出一条相应信息，并且抛出一个异常。
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.assert(<span class="number">1</span> == <span class="number">1</span>); </span><br><span class="line"><span class="built_in">console</span>.assert(<span class="number">1</span> == <span class="number">2</span>); <span class="comment">// Assertion failed: console.assert</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="判断变量是否为真"><a href="#判断变量是否为真" class="headerlink" title="判断变量是否为真"></a>判断变量是否为真</h3><p>​console.assert()用来判断一个表达式或变量是否为真。如果结果为否，则在控制台输出一条相应信息，并且抛出一个异常。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.assert(<span class="number">1</span> == <span class="number">1</span>); </span><br><span class="line"><span class="built_in">console</span>.assert(<span class="number">1</span> == <span class="number">2</span>); <span class="comment">// Assertion failed: console.assert</span></span><br></pre></td></tr></table></figure>
 <h3 id="追踪函数的调用踪迹"><a href="#追踪函数的调用踪迹" class="headerlink" title="追踪函数的调用踪迹"></a>追踪函数的调用踪迹</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.trace();</span><br><span class="line"><span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> x = add3(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add3</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> add2(a,b);&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> add1(a,b);&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add1</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> add(a,b);&#125;</span><br><span class="line"><span class="comment">// add add1 add2 add3</span></span><br></pre></td></tr></table></figure>
-<h3 id="计时功能"><a href="#计时功能" class="headerlink" title="计时功能"></a>计时功能</h3><p>console.time()和console.timeEnd()，用来显示代码的运行时间。
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">"控制台计时器一"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10000</span>;i++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"控制台计时器一"</span>);</span><br></pre></td></tr></table></figure></p>
-
+<h3 id="计时功能"><a href="#计时功能" class="headerlink" title="计时功能"></a>计时功能</h3><p>console.time()和console.timeEnd()，用来显示代码的运行时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">"控制台计时器一"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10000</span>;i++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"控制台计时器一"</span>);</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -606,7 +605,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/console命令详解.html">console控制台优化</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年08月30日 - 17:08</p>
-  <p><span>最后更新:</span>2018年08月30日 - 17:08</p>
+  <p><span>最后更新:</span>2018年11月21日 - 20:11</p>
   <p><span>原始链接:</span><a href="/console命令详解.html" title="console控制台优化">http://mydearest.cn/console命令详解.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/console命令详解.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -774,7 +773,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -796,7 +795,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -955,7 +954,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 63.9k字</span>
+    <span class="post-count">Blog总字数: 79.9k字</span>
   </div>
 </div>
 
@@ -1556,7 +1555,7 @@ a:hover {
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  三大原则 单一数据源  整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的r">
+<meta name="description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  Store — 数据存储中心，同时连接着Actions和Views（React Components）。  Store需要负责接收Views传来的Action 然后，根">
 <meta name="keywords" content="react,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redux状态传播">
 <meta property="og:url" content="http://mydearest.cn/reduxstate.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  三大原则 单一数据源  整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的r">
+<meta property="og:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  Store — 数据存储中心，同时连接着Actions和Views（React Components）。  Store需要负责接收Views传来的Action 然后，根">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T14:43:55.099Z">
+<meta property="og:updated_time" content="2018-11-21T12:41:18.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux状态传播">
-<meta name="twitter:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  三大原则 单一数据源  整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的r">
+<meta name="twitter:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  Store — 数据存储中心，同时连接着Actions和Views（React Components）。  Store需要负责接收Views传来的Action 然后，根">
 
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-10-14T22:43:55+08:00">
-    <div class="post-time-text">10月</div>
-    <div class="post-time-count">14</div>
+  <div class="post-date" data-datetime="2018-11-21T20:41:18+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">21</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">10月14</div>
+      <div class="post-tiem">11月21</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  534 (字)
+                  1,035 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -570,19 +570,27 @@ a:hover {
 <blockquote>
 <p>reducer 只是一个接收 state 和 action，并返回新的 state 的函数</p>
 </blockquote>
+<p>Store — 数据存储中心，同时连接着Actions和Views（React Components）。</p>
+<ol>
+<li>Store需要负责接收Views传来的Action</li>
+<li>然后，根据Action.type和Action.payload对Store里的数据进行修改</li>
+<li>最后，Store还需要通知Views，数据有改变，Views便去获取最新的Store数据，通过setState进行重新渲染组件（re-render）。</li>
+</ol>
 <h3 id="三大原则"><a href="#三大原则" class="headerlink" title="三大原则"></a>三大原则</h3><ol>
 <li>单一数据源</li>
 </ol>
-<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的reducer,拆成多个reduce而不是多个store。</p>
-<ol start="2">
+<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的reducer,拆成多个reducer而不是多个store。</p>
+<ol>
 <li>State 是只读的</li>
 </ol>
 <p>唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</p>
-<ol start="3">
+<ol>
 <li>使用纯函数来执行修改</li>
 </ol>
-<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。期望转呗要修改state了,传递数据.payload规范。</p>
+<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。传递数据 payload规范。</p>
 <p>当 state 变化时需要返回全新的对象，而不是修改传入的参数。</p>
+<hr>
+<a id="more"></a>
 <h3 id="api"><a href="#api" class="headerlink" title="api"></a>api</h3><pre><code class="javascript"><span class="comment">// API 是 { subscribe, dispatch, getState }。</span>
 <span class="keyword">let</span> store = createStore(counter);
 
@@ -610,20 +618,41 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
 <blockquote>
 <p>调用非纯函数，如 Date.now() 或 Math.random()。</p>
 </blockquote>
-<h4 id="维持应用的-state；"><a href="#维持应用的-state；" class="headerlink" title="维持应用的 state；"></a>维持应用的 state；</h4><ol>
-<li><p>提供 getState() 方法获取 state；</p>
-</li>
-<li><p>提供 dispatch(action) 方法更新 state；发送通知</p>
-</li>
-<li><p>通过 subscribe(listener) 注册监听器;</p>
-</li>
-<li><p>通过 unsubscribe() 返回的函数注销监听器。</p>
-</li>
+<p>通过reducer修改数据带来的好处</p>
+<ol>
+<li>数据拆解 =&gt; 通过定义多个reducerr对数据进行拆解访问或者修改，最终再通过combineReducers函数将零散的数据拼装回去。</li>
 </ol>
-<p>纯函数是这样一种函数，即相同的输入，永远会得到相同的输出</p>
-<p>store.dispatch方法会触发 Reducer 的自动执行。为此，Store 需要知道 Reducer 函数，做法就是在生成 Store 的时候，将 Reducer 传入createStore方法</p>
-<p>使用 复杂性 数据交互 结构复杂繁琐 大型</p>
-<ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 叶子reducer</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aReducer</span>(<span class="params">state = <span class="number">1</span>, action</span>) </span>&#123;<span class="comment">/*...*/</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cReducer</span>(<span class="params">state = true, action</span>) </span>&#123;<span class="comment">/*...*/</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eReducer</span>(<span class="params">state = [<span class="number">2</span>, <span class="number">3</span>], action</span>) </span>&#123;<span class="comment">/*...*/</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dReducer = combineReducers(&#123;</span><br><span class="line">  e: eReducer</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bReducer = combineReducers(&#123;</span><br><span class="line">  c: cReducer,</span><br><span class="line">  d: dReducer</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根reducer</span></span><br><span class="line"><span class="keyword">const</span> rootReducer = combineReducers(&#123;</span><br><span class="line">  a: aReducer,</span><br><span class="line">  b: bReducer</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>数据不可变
+组件的生命周期函数shouldComponentUpdate进行判断是否有必要进行对该组件进行更新（即，是否执行该组件render方法以及进行diff计算）</li>
+</ol>
+<h4 id="维持应用的-state"><a href="#维持应用的-state" class="headerlink" title="维持应用的 state"></a>维持应用的 state</h4><blockquote>
+<p>提供 getState() 方法获取 state；</p>
+</blockquote>
+<blockquote>
+<p>提供 dispatch(action) 方法更新 state；发送通知；</p>
+</blockquote>
+<blockquote>
+<p>通过 subscribe(listener) 注册监听器;</p>
+</blockquote>
+<blockquote>
+<p>通过 unsubscribe() 返回的函数注销监听器。</p>
+</blockquote>
+<p>纯函数是这样一种函数，即相同的输入，永远会得到相同的输出。
+store.dispatch方法会触发 Reducer 的自动执行。为此，Store 需要知道 Reducer 函数，做法就是在生成 Store 的时候，将 Reducer 传入createStore方法。</p>
+<p>中间件提供的是位于 action 被发起之后，到达 reducer 之前的扩展点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">import</span> thunk <span class="keyword">from</span> <span class="string">'redux-thunk'</span>;</span><br><span class="line"><span class="keyword">import</span> createLogger <span class="keyword">from</span> <span class="string">'redux-logger'</span>;</span><br><span class="line"><span class="keyword">import</span> rootReducer <span class="keyword">from</span> <span class="string">'../reducers'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store扩展</span></span><br><span class="line"><span class="keyword">const</span> enhancer = applyMiddleware(</span><br><span class="line">  thunk,</span><br><span class="line">  createLogger()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(rootReducer, initialState, enhancer);</span><br></pre></td></tr></table></figure>
+<h2 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h2><p>Redux 本身和React没有关系，只是数据处理中心，是React-Redux让它们联系在一起。</p>
+<p>React-Redux提供两个方法：connect和Provider。</p>
+<h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>connect连接React组件和Redux store。connect实际上是一个高阶函数，返回一个新的已与 Redux store 连接的组件类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> VisibleTodoList = connect(</span><br><span class="line">  mapStateToProps,</span><br><span class="line">  mapDispatchToProps</span><br><span class="line">)(TodoList)</span><br></pre></td></tr></table></figure>
+<p>TodoList是 UI 组件，VisibleTodoList就是由 react-redux 通过connect方法自动生成的容器组件。</p>
+<p>mapStateToProps：从Redux状态树中提取需要的部分作为props传递给当前的组件。
+mapDispatchToProps：将需要绑定的响应事件（action）作为props传递到组件上。</p>
+<h3 id="Provide"><a href="#Provide" class="headerlink" title="Provide"></a>Provide</h3><p>Provider实现store的全局访问，将store传给每个组件。
+原理：使用React的context，context可以实现跨组件之间的传递。</p>
+<h2 id="使用-复杂性-数据交互-结构复杂繁琐-大型"><a href="#使用-复杂性-数据交互-结构复杂繁琐-大型" class="headerlink" title="使用 复杂性 数据交互 结构复杂繁琐 大型"></a>使用 复杂性 数据交互 结构复杂繁琐 大型</h2><ul>
 <li>“如果你不知道是否需要 Redux，那就是不需要它。”</li>
 <li>“只有遇到 React 实在解决不了的问题，你才需要 Redux。”</li>
 </ul>
@@ -658,7 +687,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
   <p><span>本文标题:</span><a href="/reduxstate.html">redux状态传播</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月21日 - 19:06</p>
-  <p><span>最后更新:</span>2018年10月14日 - 22:10</p>
+  <p><span>最后更新:</span>2018年11月21日 - 20:11</p>
   <p><span>原始链接:</span><a href="/reduxstate.html" title="redux状态传播">http://mydearest.cn/reduxstate.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/reduxstate.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -828,7 +857,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -850,7 +879,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -964,7 +993,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux三大概念"><span class="nav-number">1.</span> <span class="nav-text">Redux三大概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三大原则"><span class="nav-number">1.1.</span> <span class="nav-text">三大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api"><span class="nav-number">1.2.</span> <span class="nav-text">api</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维持应用的-state；"><span class="nav-number">1.2.1.</span> <span class="nav-text">维持应用的 state；</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux三大概念"><span class="nav-number">1.</span> <span class="nav-text">Redux三大概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三大原则"><span class="nav-number">1.1.</span> <span class="nav-text">三大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api"><span class="nav-number">1.2.</span> <span class="nav-text">api</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维持应用的-state"><span class="nav-number">1.2.1.</span> <span class="nav-text">维持应用的 state</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-redux"><span class="nav-number">2.</span> <span class="nav-text">react-redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#connect"><span class="nav-number">2.1.</span> <span class="nav-text">connect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Provide"><span class="nav-number">2.2.</span> <span class="nav-text">Provide</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-复杂性-数据交互-结构复杂繁琐-大型"><span class="nav-number">3.</span> <span class="nav-text">使用 复杂性 数据交互 结构复杂繁琐 大型</span></a></li></ol></div>
             
 
           </div>
@@ -1009,7 +1038,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 63.9k字</span>
+    <span class="post-count">Blog总字数: 79.9k字</span>
   </div>
 </div>
 
@@ -1610,7 +1639,7 @@ store.dispatch({ <span class="attr">type</span>: <span class="string">'DECREMENT
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-9cad931c1b.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

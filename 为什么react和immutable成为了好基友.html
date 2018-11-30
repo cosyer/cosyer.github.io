@@ -573,7 +573,7 @@ a:hover {
 <p>当然了在首次渲染的时候和使用forceUpdate的时候，是不会经过shouldComponentUpdate判断。</p>
 <p>合理地编写shouldComponentUpdate函数，从而能避免不必要的一致化处理，使得性能可以极大提高。。我们可以通过</p>
 <p>继承React.PureComponent或者通过引入PureRenderMixin模块来达到目的。但是这也存在一个问题:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子组件继承PureComponent只会进行浅比较</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListOfWords</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;&#123;this.props.words.join(',')&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordAdder</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      words: [<span class="string">'marklar'</span>] <span class="comment">// 复杂类型</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    <span class="comment">// 当触发点击页面并没有进行重新渲染</span></span><br><span class="line">    <span class="keyword">const</span> words = <span class="keyword">this</span>.state.words;</span><br><span class="line">    words.push(<span class="string">'marklar'</span>);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">words</span>: words&#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="keyword">this</span>.handleClick&#125; /&gt;</span><br><span class="line">        &lt;ListOfWords words=&#123;<span class="keyword">this</span>.state.words&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子组件继承PureComponent只会进行浅比较</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListOfWords</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.props.words.join(',')&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordAdder</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      words: [<span class="string">'marklar'</span>] <span class="comment">// 复杂类型</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    <span class="comment">// 当触发点击页面并没有进行重新渲染</span></span><br><span class="line">    <span class="keyword">const</span> words = <span class="keyword">this</span>.state.words;</span><br><span class="line">    words.push(<span class="string">'marklar'</span>);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">words</span>: words&#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="keyword">this</span>.handleClick&#125; /&gt;</span><br><span class="line">        &lt;ListOfWords words=&#123;<span class="keyword">this</span>.state.words&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>共享的可变状态是万恶之源</p>
 </blockquote>
@@ -846,7 +846,7 @@ Immutable 中的 Map 和 List 虽对应原生 Object 和 Array，但操作非常
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -857,7 +857,7 @@ Immutable 中的 Map 和 List 虽对应原生 Object 和 Array，但操作非常
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -868,7 +868,7 @@ Immutable 中的 Map 和 List 虽对应原生 Object 和 Array，但操作非常
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1027,7 +1027,7 @@ Immutable 中的 Map 和 List 虽对应原生 Object 和 Array，但操作非常
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 79.9k字</span>
+    <span class="post-count">Blog总字数: 82.2k字</span>
   </div>
 </div>
 
@@ -1628,7 +1628,7 @@ Immutable 中的 Map 和 List 虽对应原生 Object 和 Array，但操作非常
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-d92a58c18b.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

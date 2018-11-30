@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+
+<!--
+                           _ooOoo_
+                          o8888888o
+                          88" . "88
+                          (| -_- |)
+                          O\  =  /O
+                       ____/`---'\____
+                     .'  \\|     |//  `.
+                    /  \\|||  :  |||//  \
+                   /  _||||| -:- |||||-  \
+                   |   | \\\  -  /// |   |
+                   | \_|  ''\---/''  |   |
+                   \  .-\__  `-`  ___/-. /
+                 ___`. .'  /--.--\  `. . __
+              ."" '<  `.___\_<|>_/___.'  >'"".
+             | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+             \  \ `-.   \_ __\ /__ _/   .-` /  /
+        ======`-.____`-.___\_____/___.-`____.-'======
+                           `=---='
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 佛祖保佑       永无BUG 
+-->
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<link href="//mydearest.cn" rel="dns-prefetch">
+<link href="//www.mydearest.cn" rel="dns-prefetch">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+	<meta name="description" content="陈宇的博客" />
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+  <meta name="keywords" content="PHP," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="cosyer's Blog" type="application/atom+xml" />
+
+
+
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+
+
+
+
+
+<meta name="description" content="1年以前我就浅学过PHP，用thinkPHP框架开发起来确实比较轻松快捷流水化。最近闲来无事，再次回顾学习下这个世界上最好的语言。 简介PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。 语法PHP 脚本在服务器上执行，然后将纯 HTML 结果发送回浏览器。 PHP 脚本可以放在文档中的任何位置。 PHP 脚本以 &amp;lt;?php 开始，以 ?&amp;gt; 结束。很多语言的语法都相类似。 1">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="helloPHP">
+<meta property="og:url" content="http://mydearest.cn/helloPHP.html">
+<meta property="og:site_name" content="cosyer&#39;s Blog">
+<meta property="og:description" content="1年以前我就浅学过PHP，用thinkPHP框架开发起来确实比较轻松快捷流水化。最近闲来无事，再次回顾学习下这个世界上最好的语言。 简介PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。 语法PHP 脚本在服务器上执行，然后将纯 HTML 结果发送回浏览器。 PHP 脚本可以放在文档中的任何位置。 PHP 脚本以 &amp;lt;?php 开始，以 ?&amp;gt; 结束。很多语言的语法都相类似。 1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-30T14:56:51.200Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="helloPHP">
+<meta name="twitter:description" content="1年以前我就浅学过PHP，用thinkPHP框架开发起来确实比较轻松快捷流水化。最近闲来无事，再次回顾学习下这个世界上最好的语言。 简介PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。 语法PHP 脚本在服务器上执行，然后将纯 HTML 结果发送回浏览器。 PHP 脚本可以放在文档中的任何位置。 PHP 脚本以 &amp;lt;?php 开始，以 ?&amp;gt; 结束。很多语言的语法都相类似。 1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mydearest.cn/helloPHP.html"/>
+
+
+
+
+
+  <title>helloPHP | cosyer's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?653a4be35cb6c7b26817038a17c3f0d6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<link href="https://static.mydearest.cn/blog/css/all-9097fb9016.css" rel="stylesheet" type="text/css">
+<style>
+// scrollbar滚动条样式优化
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 7px;
+  background-color: #b4babf;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  width: 15px;
+}
+
+::-webkit-scrollbar:hover {
+  background-color: transparent;
+}
+
+* {
+    cursor: url("http://p33v4b0bc.bkt.clouddn.com/miku1.png"),auto!important
+}
+:active {
+    cursor: url("http://p33v4b0bc.bkt.clouddn.com/miku2.png"),auto!important
+}
+a:hover {
+    cursor: url("http://p33v4b0bc.bkt.clouddn.com/miku2.png"),auto!important
+}
+</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <div id="loader">
+    <div></div>
+  </div>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/cosyer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cosyer's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home faa-wrench"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link faa-shake"></i> <br />
+            
+            友链
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment-o faa-tada"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive faa-float"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user faa-horizontal"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger faa-parent animated-hover">
+          
+            
+              <i class="menu-item-icon fa fa-search faa-burst fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2018-11-30T22:56:51+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">30</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">11月30</div>
+      <div class="post-year">2018</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/helloPHP.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">helloPHP</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-11-26T14:30:10+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/helloPHP.html" class="leancloud_visitors" data-flag-title="helloPHP">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,368 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  11 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1年以前我就浅学过PHP，用<code>thinkPHP</code>框架开发起来确实比较轻松快捷流水化。最近闲来无事，再次回顾学习下这个世界上最好的语言。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>PHP 脚本在服务器上执行，然后将纯 HTML 结果发送回浏览器。</p>
+<p>PHP 脚本可以放在文档中的任何位置。</p>
+<p>PHP 脚本以 &lt;?php 开始，以 ?&gt; 结束。很多语言的语法都相类似。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt; </span><br><span class="line">&lt;html&gt; </span><br><span class="line">&lt;body&gt; </span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Hello World!"</span>;</span><br><span class="line"><span class="comment">// 单行注释</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line">&lt;/body&gt; </span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<a id="more"></a>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li><p>变量以 $ 符号开始，后面跟着变量的名称</p>
+</li>
+<li><p>变量名必须以字母或者下划线字符开始</p>
+</li>
+<li><p>变量名只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）</p>
+</li>
+<li><p>变量名不能包含空格</p>
+</li>
+<li><p>变量名是区分大小写的（$y 和 $Y 是两个不同的变量）</p>
+</li>
+</ul>
+<blockquote>
+<p>同js一样PHP也是弱类型脚本语言不需要声明变量的数据类型</p>
+</blockquote>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ol>
+<li>local 局部</li>
+<li>global 全局</li>
+<li>static 静态</li>
+<li>parameter 参数</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$x=<span class="number">5</span>; <span class="comment">// 全局变量 </span></span><br><span class="line">$z=<span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    $y=<span class="number">10</span>; <span class="comment">// 局部变量 </span></span><br><span class="line">    <span class="keyword">global</span> $x,$z; <span class="comment">// 函数内部访问全局变量需要加global关键字</span></span><br><span class="line">    $z=$x+$z;</span><br><span class="line">    <span class="comment">// 一样的效果$GLOBALS['z']=$GLOBALS['x']+$GLOBALS['z'];</span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">myTest(); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;p&gt;测试函数外变量:&lt;p&gt;"</span>; </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 x 为: $x"</span>; </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 y 为: $y"</span>; </span><br><span class="line"><span class="keyword">echo</span> $z; <span class="comment">// 10</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当一个函数完成时，它的所有变量通常都会被删除。所以当需要时可以声明静态变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">($y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> $x=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">echo</span> $x,$y; <span class="comment">// 参数变量</span></span><br><span class="line">    $x++;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">myTest(<span class="number">1</span>);</span><br><span class="line">myTest(<span class="number">2</span>);</span><br><span class="line">myTest(<span class="number">3</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出echo和print"><a href="#输出echo和print" class="headerlink" title="输出echo和print"></a>输出echo和print</h3><p>echo 和 print 区别:</p>
+<ul>
+<li>echo - 可以输出一个或多个字符串</li>
+<li>print - 只允许输出一个字符串，返回值总为 1<blockquote>
+<p>echo 输出的速度比 print 快， echo 没有返回值，print有返回值1。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="语句加分号"><a href="#语句加分号" class="headerlink" title="语句加分号"></a>语句加分号</h3><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ol>
+<li>String（字符串）</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$txt1=<span class="string">"Hello"</span>; </span><br><span class="line">$txt2=<span class="string">"World"</span>; </span><br><span class="line"><span class="keyword">echo</span> $txt1 . <span class="string">" "</span> . $txt2;  <span class="comment">// "Hello world"</span></span><br><span class="line"><span class="keyword">echo</span> strlen(<span class="string">"Hello World!"</span>); <span class="comment">// 返回长度</span></span><br><span class="line"><span class="keyword">echo</span> strpos(<span class="string">"Hello World!"</span>,<span class="string">"World"</span>); <span class="comment">// 返回索引和js indexOf很像</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>Integer（整型）</li>
+<li>Float（浮点型）</li>
+<li>Boolean（布尔型）</li>
+<li>Array（数组）<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line"><span class="keyword">echo</span> count($cars);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// 数组遍历</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line">$arrlength=count($cars);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span>($x=<span class="number">0</span>;$x&lt;$arrlength;$x++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> $cars[$x];</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// 关联数组 object？</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$age=<span class="keyword">array</span>(<span class="string">"Peter"</span>=&gt;<span class="string">"35"</span>,<span class="string">"Ben"</span>=&gt;<span class="string">"37"</span>,<span class="string">"Joe"</span>=&gt;<span class="string">"43"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Peter is "</span> . $age[<span class="string">'Peter'</span>] . <span class="string">" years old."</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// 遍历关联数组</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$age=<span class="keyword">array</span>(<span class="string">"Peter"</span>=&gt;<span class="string">"35"</span>,<span class="string">"Ben"</span>=&gt;<span class="string">"37"</span>,<span class="string">"Joe"</span>=&gt;<span class="string">"43"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">foreach</span>($age <span class="keyword">as</span> $x=&gt;$x_value)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Key="</span> . $x . <span class="string">", Value="</span> . $x_value;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>数组排序函数</p>
+<ul>
+<li>sort() - 对数组进行升序排列</li>
+<li>rsort() - 对数组进行降序排列</li>
+<li>asort() - 根据关联数组的值，对数组进行升序排列</li>
+<li>ksort() - 根据关联数组的键，对数组进行升序排列</li>
+<li>arsort() - 根据关联数组的值，对数组进行降序排列</li>
+<li>krsort() - 根据关联数组的键，对数组进行降序排列</li>
+</ul>
+<ol>
+<li>Object（对象）
+使用class关键字声明类对象。类是可以包含属性和方法的结构。</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $color;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($color=<span class="string">"green"</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;color = $color;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">what_color</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;color;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>NULL（空值）<blockquote>
+<p>PHP var_dump() 函数返回变量的数据类型和值：</p>
+</blockquote>
+<h3 id="常量的声明"><a href="#常量的声明" class="headerlink" title="常量的声明"></a>常量的声明</h3>define()函数 <blockquote>
+<p>define(“slogan”, “hello”);
+该函数有三个参数:</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>name：必选参数，常量名称，即标志符。</li>
+<li>value：必选参数，常量的值。</li>
+<li>case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的。</li>
+</ul>
+<h3 id="if…elseif…-else-语句"><a href="#if…elseif…-else-语句" class="headerlink" title="if…elseif….else 语句"></a>if…elseif….else 语句</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$t=date(<span class="string">"H"</span>);</span><br><span class="line"><span class="keyword">if</span> ($t&lt;<span class="string">"10"</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Have a good morning!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">elseif</span> ($t&lt;<span class="string">"20"</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Have a good day!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Have a good night!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="超级全局变量"><a href="#超级全局变量" class="headerlink" title="超级全局变量"></a>超级全局变量</h3><ul>
+<li>$GLOBALS(超级全局变量组)</li>
+<li>$_SERVER(包含了诸如头信息(header)、路径(path)、以及脚本位置(script locations)等等信息的数组)</li>
+<li>$_REQUEST(用于收集HTML表单提交的数据)</li>
+<li>$_POST(用于收集HTML表单提交的数据,method设置为post)</li>
+<li>$_GET(用于收集HTML表单提交的数据,method设置为get,也可以收集URL中发送的数据)</li>
+<li>$_FILES</li>
+<li>$_ENV</li>
+<li>$_COOKIE</li>
+<li>$_SESSION</li>
+</ul>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><ul>
+<li>while - 只要指定的条件成立，则循环执行代码块</li>
+<li>do…while - 首先执行一次代码块，然后在指定的条件成立时重复这个循环</li>
+<li>for - 循环执行代码块指定的次数</li>
+<li>foreach - 根据数组中每个元素来循环代码块<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$x=<span class="keyword">array</span>(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line"><span class="keyword">foreach</span> ($x <span class="keyword">as</span> $value)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> $value . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="魔术常量-预定义常量"><a href="#魔术常量-预定义常量" class="headerlink" title="魔术常量(预定义常量)"></a>魔术常量(预定义常量)</h3><ul>
+<li><strong>LINE</strong>(当前行号)</li>
+<li><strong>FILE</strong>(文件的完整路径和文件名)</li>
+<li><strong>DIR</strong>(文件所在目录)</li>
+<li><strong>FUNCTION</strong>(函数内部返回函数名)</li>
+<li><strong>CLASS</strong>(类内部返回类名)</li>
+<li><strong>TRAIT</strong>(Trait 名包括其被声明的作用区域)
+从基类继承的成员被插入的 SayWorld Trait 中的 MyHelloWorld 方法所覆盖。
+其行为 MyHelloWorld 类中定义的方法一致。优先顺序是当前类中的方法会覆盖 trait 方法，而 trait 方法又覆盖了基类中的方法。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'Hello '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">trait</span> SayWorld &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::sayHello();</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'World!'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHelloWorld</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">SayWorld</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$o = <span class="keyword">new</span> MyHelloWorld();</span><br><span class="line">$o-&gt;sayHello(); <span class="comment">// Hello World</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>METHOD</strong>(返回方法定义时的名称)</li>
+<li><strong>NAMESPACE</strong>(当前的命名空间名称)</li>
+</ul>
+<ol>
+<li>用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。</li>
+<li>为很长的标识符名称(通常是为了缓解第一类问题而定义的)创建一个别名（或简短）的名称，提高源代码的可读性。</li>
+</ol>
+<h3 id="php获取下拉菜单的数据"><a href="#php获取下拉菜单的数据" class="headerlink" title="php获取下拉菜单的数据"></a>php获取下拉菜单的数据</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$q = <span class="keyword">isset</span>($_GET[<span class="string">'q'</span>])? htmlspecialchars($_GET[<span class="string">'q'</span>]) : <span class="string">''</span>;</span><br><span class="line"><span class="keyword">if</span>($q) &#123;</span><br><span class="line">        <span class="keyword">if</span>($q ==<span class="string">'BAIDU'</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">'百度&lt;br&gt;http://www.baidu.com'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>($q ==<span class="string">'GOOGLE'</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">'Google 搜索&lt;br&gt;http://www.google.com'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>($q ==<span class="string">'TAOBAO'</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">'淘宝&lt;br&gt;http://www.taobao.com'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"get"</span>&gt; </span><br><span class="line">    &lt;select name=<span class="string">"q"</span>&gt;</span><br><span class="line">    &lt;option value=<span class="string">""</span>&gt;选择一个站点:&lt;/option&gt;</span><br><span class="line">    &lt;option value=<span class="string">"BAIDU"</span>&gt;Runoob&lt;/option&gt;</span><br><span class="line">    &lt;option value=<span class="string">"GOOGLE"</span>&gt;Google&lt;/option&gt;</span><br><span class="line">    &lt;option value=<span class="string">"TAOBAO"</span>&gt;Taobao&lt;/option&gt;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//设置默认当前时区</span></span><br><span class="line">date_default_timezone_set(<span class="string">'PRC'</span>);</span><br><span class="line"><span class="keyword">echo</span> date(<span class="string">'Y-m-d H:i:s'</span>,time());</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件引入"><a href="#文件引入" class="headerlink" title="文件引入"></a>文件引入</h3><blockquote>
+<p>include 和 require 的区别</p>
+<ul>
+<li>require 一般放在 PHP 文件的最前面，程序在执行前就会先导入要引用的文件；</li>
+<li>include 一般放在程序的流程控制中，当程序执行时碰到才会引用，简化程序的执行流程。</li>
+<li>require 引入的文件有错误时，执行会中断，并返回一个致命错误；</li>
+<li>include 引入的文件有错误时，会继续执行，并返回一个警告。</li>
+</ul>
+</blockquote>
+<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$file = fopen(<span class="string">"test.txt"</span>,<span class="string">"r"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取文件每一行，直到文件结尾</span></span><br><span class="line"><span class="keyword">while</span>(!feof($file))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> fgets($file). <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    <span class="comment">//  逐个字符echo fgetc($file);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fclose($file);</span><br></pre></td></tr></table></figure>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"upload_file.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"file"</span>&gt;</span>文件名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"file"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-Type: text/html;charset=utf-8"</span>);</span><br><span class="line"><span class="comment">// 允许上传的图片后缀</span></span><br><span class="line">$allowedExts = <span class="keyword">array</span>(<span class="string">"gif"</span>, <span class="string">"jpeg"</span>, <span class="string">"jpg"</span>, <span class="string">"png"</span>, <span class="string">"PNG"</span>);</span><br><span class="line">$temp = explode(<span class="string">"."</span>, $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>]);</span><br><span class="line"><span class="keyword">echo</span> $_FILES[<span class="string">"file"</span>][<span class="string">"size"</span>];</span><br><span class="line">$extension = end($temp);     <span class="comment">// 获取文件后缀名</span></span><br><span class="line"><span class="keyword">if</span> ((($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"image/gif"</span>)</span><br><span class="line">|| ($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"image/jpeg"</span>)</span><br><span class="line">|| ($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"image/jpg"</span>)</span><br><span class="line">|| ($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"image/pjpeg"</span>)</span><br><span class="line">|| ($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"image/x-png"</span>)</span><br><span class="line">|| ($_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] == <span class="string">"image/png"</span>))</span><br><span class="line">&amp;&amp; ($_FILES[<span class="string">"file"</span>][<span class="string">"size"</span>] &lt; <span class="number">204800</span>)   <span class="comment">// 小于 200 kb</span></span><br><span class="line">&amp;&amp; in_array($extension, $allowedExts))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> ($_FILES[<span class="string">"file"</span>][<span class="string">"error"</span>] &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"错误：: "</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"error"</span>] . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"上传文件名: "</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>] . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"文件类型: "</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"type"</span>] . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"文件大小: "</span> . ($_FILES[<span class="string">"file"</span>][<span class="string">"size"</span>] / <span class="number">1024</span>) . <span class="string">" kB&lt;br&gt;"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"文件临时存储的位置: "</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"tmp_name"</span>] . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断当期目录下的 upload 目录是否存在该文件</span></span><br><span class="line">        <span class="comment">// 如果没有 upload 目录，你需要创建它，upload 目录权限为 777</span></span><br><span class="line">        <span class="keyword">if</span> (file_exists(<span class="string">"upload/"</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>]))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>] . <span class="string">" 文件已经存在。 "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 如果 upload 目录不存在该文件则将文件上传到 upload 目录下</span></span><br><span class="line">            move_uploaded_file($_FILES[<span class="string">"file"</span>][<span class="string">"tmp_name"</span>], <span class="string">"upload/"</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>]);</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"文件存储在: "</span> . <span class="string">"upload/"</span> . $_FILES[<span class="string">"file"</span>][<span class="string">"name"</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"非法的文件格式"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置cookie-必须写在html之前"><a href="#设置cookie-必须写在html之前" class="headerlink" title="设置cookie(必须写在html之前)"></a>设置cookie(必须写在html之前)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setcookie(<span class="string">"user"</span>, <span class="string">"cosyer"</span>, time()+<span class="number">3600</span>); <span class="comment">// 1小时后过期</span></span><br><span class="line"><span class="keyword">echo</span> $_COOKIE[<span class="string">"user"</span>]; <span class="comment">// (isset($_COOKIE["user"])判断是否设置了cookie</span></span><br><span class="line"><span class="comment">// 删除setcookie("user", "", time()-3600);设置成过去的时点</span></span><br></pre></td></tr></table></figure>
+<h3 id="存储session"><a href="#存储session" class="headerlink" title="存储session"></a>存储session</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">session_start();</span><br><span class="line"><span class="comment">// 存储 session 数据</span></span><br><span class="line">$_SESSION[<span class="string">'views'</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="comment">// 释放 session 数据</span></span><br><span class="line"><span class="comment">// unset($_SESSION['views']);</span></span><br><span class="line"><span class="comment">// 清空所有数据</span></span><br><span class="line"><span class="comment">// session_destroy();</span></span><br></pre></td></tr></table></figure>
+<h3 id="php发送email"><a href="#php发送email" class="headerlink" title="php发送email"></a>php发送email</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_REQUEST[<span class="string">'email'</span>])) &#123; <span class="comment">// 如果接收到邮箱参数则发送邮件</span></span><br><span class="line">    <span class="comment">// 发送邮件</span></span><br><span class="line">    $email = $_REQUEST[<span class="string">'email'</span>] ;</span><br><span class="line">    $subject = $_REQUEST[<span class="string">'subject'</span>] ;</span><br><span class="line">    $message = $_REQUEST[<span class="string">'message'</span>] ;</span><br><span class="line">    mail(<span class="string">"someone@example.com"</span>, $subject,</span><br><span class="line">    $message, <span class="string">"From:"</span> . $email);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"邮件发送成功"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 如果没有邮箱参数则显示表单</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;form method='post' action='mailform.php'&gt;</span></span><br><span class="line"><span class="string">    Email: &lt;input name='email' type='text'&gt;&lt;br&gt;</span></span><br><span class="line"><span class="string">    Subject: &lt;input name='subject' type='text'&gt;&lt;br&gt;</span></span><br><span class="line"><span class="string">    Message:&lt;br&gt;</span></span><br><span class="line"><span class="string">    &lt;textarea name='message' rows='15' cols='40'&gt;</span></span><br><span class="line"><span class="string">    &lt;/textarea&gt;&lt;br&gt;</span></span><br><span class="line"><span class="string">    &lt;input type='submit'&gt;</span></span><br><span class="line"><span class="string">    &lt;/form&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><blockquote>
+<p>die(“文件不存在”);</p>
+</blockquote>
+<h3 id="异常处理-同-try-catch-new-Exception"><a href="#异常处理-同-try-catch-new-Exception" class="headerlink" title="异常处理 同 try catch new Exception()"></a>异常处理 同 try catch new Exception()</h3>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div class="text-center line pages-end">
+				<span>本文结束<i class="fa fa-meh-o fa-fw"></i>感谢您的阅读</span>
+        </div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
+  <p><span>本文标题:</span><a href="/helloPHP.html">helloPHP</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
+  <p><span>发布时间:</span>2018年11月26日 - 14:11</p>
+  <p><span>最后更新:</span>2018年11月30日 - 22:11</p>
+  <p><span>原始链接:</span><a href="/helloPHP.html" title="helloPHP">http://mydearest.cn/helloPHP.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/helloPHP.html"  aria-label=" 复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",     
+          text: '复制成功',   
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈宇（cosyer） WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="陈宇（cosyer） Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag fa-fw"></i> PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/chrome插件扩展程序开发指南.html" rel="next" title="chrome插件扩展程序开发指南">
+                <i class="fa fa-chevron-left"></i> chrome插件扩展程序开发指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+            
+  <div class="comments" id="comments">
+    
+      <div class="comments v" id="comments"></div>
+    
+  </div>
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://static.mydearest.cn/blog/images/avatar.jpg"
+               alt="陈宇（cosyer）" />
+          <p class="site-author-name" itemprop="name">陈宇（cosyer）</p>
+           
+              <p class="site-description motion-element" itemprop="description">不去做的话永远也做不到。</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://github.com/cosyer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://twitter.com/yzchenyu1995" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="mailto:yzchenyu1995@gmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://www.facebook.com/profile.php?id=100025666071215" target="_blank" title="FB Page">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                    
+                      FB Page
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://callmesoul.cn" title="Callmesoul" target="_blank">Callmesoul</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="https://www.jstips.co/" title="JsTips" target="_blank">JsTips</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://dir.mydearest.cn/motion/" title="Personal Site" target="_blank">Personal Site</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://resume.mydearest.cn/" title="Resume" target="_blank">Resume</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出echo和print"><span class="nav-number">2.3.</span> <span class="nav-text">输出echo和print</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语句加分号"><span class="nav-number">2.4.</span> <span class="nav-text">语句加分号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.5.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量的声明"><span class="nav-number">2.6.</span> <span class="nav-text">常量的声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if…elseif…-else-语句"><span class="nav-number">2.7.</span> <span class="nav-text">if…elseif….else 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超级全局变量"><span class="nav-number">2.8.</span> <span class="nav-text">超级全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">2.9.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术常量-预定义常量"><span class="nav-number">2.10.</span> <span class="nav-text">魔术常量(预定义常量)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php获取下拉菜单的数据"><span class="nav-number">2.11.</span> <span class="nav-text">php获取下拉菜单的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前时间"><span class="nav-number">2.12.</span> <span class="nav-text">获取当前时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件引入"><span class="nav-number">2.13.</span> <span class="nav-text">文件引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件"><span class="nav-number">2.14.</span> <span class="nav-text">打开文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">2.15.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置cookie-必须写在html之前"><span class="nav-number">2.16.</span> <span class="nav-text">设置cookie(必须写在html之前)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储session"><span class="nav-number">2.17.</span> <span class="nav-text">存储session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php发送email"><span class="nav-number">2.18.</span> <span class="nav-text">php发送email</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">2.19.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理-同-try-catch-new-Exception"><span class="nav-number">2.20.</span> <span class="nav-text">异常处理 同 try catch new Exception()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈宇（cosyer）</span>
+</div>
+<div>
+ <span class="alive"></span>
+ </div>
+<div class="powered-by">
+  <i class="fa fa-users fa-fw"></i>
+  <span id="busuanzi_container_site_uv">
+    终于等到你(UV): <span id="busuanzi_value_site_uv"></span>
+  </span>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <i class="fa fa-bar-chart-o fa-fw"></i>
+  <span id="busuanzi_container_site_pv">
+    欢迎再来(PV): <span id="busuanzi_value_site_pv"></span>
+  </span>
+
+  <div class="theme-info">
+    <div class="powered-by"></div>
+    <span class="post-count">Blog总字数: 82.2k字</span>
+  </div>
+</div>
+
+<!--
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="https://cdn.lishaoy.net/js/index.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+  
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.lishaoy.net/js/av-min.js"></script>
+  
+  <script src='https://cdn.lishaoy.net/js/Valine.min-2d948fjf6gj4hf.js'></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        appId: 'SKflNaQWS70153r2kOqgcGge-gzGzoHsz',
+        appKey: 'gE9ySnRyOkS4UNzYJ7GOCa56',
+        placeholder: '想说点什么 ：）',
+        avatar: 'retro'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0&&datas.length>0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content =  data.content&&data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content&&content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text&&text.toLowerCase();
+                        word = word&&word.toLowerCase();
+                      }
+                      while ((position = text&&text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+
+  
+  <script src="https://cdn.lishaoy.net/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SKflNaQWS70153r2kOqgcGge-gzGzoHsz", "gE9ySnRyOkS4UNzYJ7GOCa56");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src=""></script>
+  
+
+
+  
+
+  
+
+
+  <div id="load" style=""></div>
+  <!-- 新增看娘
+  <script async src="/live2dw/js/perTips.js"></script>
+  <script src="/live2dw/lib/L2Dwidget.min.js"></script>
+  -->
+  <!-- 页面点击小红心
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  -->
+
+  <!-- 背景动画
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+  -->
+
+   <!-- 输入爆炸效果来自 http://xiaowiba.com （小尾巴） 如有侵权，请通知我撤销
+  <script type="text/javascript" src="/js/src/activate-power-mode.js"></script>
+  -->
+
+   <!-- UV、PV统计 不蒜子
+   <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  -->
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-d92a58c18b.js"></script>
+   <!-- 自己的脚本
+  <script type="text/javascript" src="/js/src/cosyer.js"></script>
+  -->
+  <script>
+// 下雪
+//(function($){$.fn.snow=function(options){var $flake=$('<div id="flake" />').css({'position':'absolute','top':'-50px'}).html('&#10052;'),documentHeight=$(document).height(),documentWidth=$(document).width(),defaults={minSize:10,maxSize:20,newOn:500,flakeColor:"#FFFFFF"},options=$.extend({},defaults,options);var interval=setInterval(function(){var startPositionLeft=Math.random()*documentWidth-100,startOpacity=0.5+Math.random(),sizeFlake=options.minSize+Math.random()*options.maxSize,endPositionTop=documentHeight-40,endPositionLeft=startPositionLeft-100+Math.random()*200,durationFall=documentHeight*10+Math.random()*5000;$flake.clone().appendTo('body').css({left:startPositionLeft,opacity:startOpacity,'font-size':sizeFlake,color:options.flakeColor}).animate({top:endPositionTop,left:endPositionLeft,opacity:0.2},durationFall,'linear',function(){$(this).remove()});},options.newOn);};})(jQuery);
+//$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#00F' });
+
+// 点线连接
+!function () { function o(w, v, i) { return w.getAttribute(v) || i } function j(i) { return document.getElementsByTagName(i) } function l() { var i = j("script"), w = i.length, v = i[w - 1]; return { l: w, z: o(v, "zIndex", -1), o: o(v, "opacity", 1), c: o(v, "color", "255, 255, 255"), n: o(v, "count", 99) } } function k() { r = u.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, n = u.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight } function b() { e.clearRect(0, 0, r, n); var w = [f].concat(t); var x, v, A, B, z, y; t.forEach(function (i) { i.x += i.xa, i.y += i.ya, i.xa *= i.x > r || i.x < 0 ? -1 : 1, i.ya *= i.y > n || i.y < 0 ? -1 : 1, e.fillRect(i.x - 0.5, i.y - 0.5, 1, 1); for (v = 0; v < w.length; v++) { x = w[v]; if (i !== x && null !== x.x && null !== x.y) { B = i.x - x.x, z = i.y - x.y, y = B * B + z * z; y < x.max && (x === f && y >= x.max / 2 && (i.x -= 0.03 * B, i.y -= 0.03 * z), A = (x.max - y) / x.max, e.beginPath(), e.lineWidth = A / 2, e.strokeStyle = "rgba(" + s.c + "," + (A + 0.2) + ")", e.moveTo(i.x, i.y), e.lineTo(x.x, x.y), e.stroke()) } } w.splice(w.indexOf(i), 1) }), m(b) } var u = document.createElement("canvas"), s = l(), c = "c_n" + s.l, e = u.getContext("2d"), r, n, m = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (i) { window.setTimeout(i, 1000 / 45) }, a = Math.random, f = { x: null, y: null, max: 20000 }; u.id = c; u.style.cssText = "position:fixed;top:0;left:0;z-index:" + s.z + ";opacity:" + s.o; j("body")[0].appendChild(u); k(), window.onresize = k; window.onmousemove = function (i) { i = i || window.event, f.x = i.clientX, f.y = i.clientY }, window.onmouseout = function () { f.x = null, f.y = null }; for (var t = [], p = 0; s.n > p; p++) { var h = a() * r, g = a() * n, q = 2 * a() - 1, d = 2 * a() - 1; t.push({ x: h, y: g, xa: q, ya: d, max: 6000 }) } setTimeout(function () { b() }, 100) }();
+
+// 崩溃欺骗
+var OriginTitle = document.title;
+var titleTime;
+document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+        $('[rel="icon"]').attr('href', "/img/TEP.ico");
+        document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+        clearTimeout(titleTime);
+    }
+    else {
+        $('[rel="icon"]').attr('href', "/favicon.ico");
+        document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
+        titleTime = setTimeout(function () {
+            document.title = OriginTitle;
+        }, 2000);
+    }
+});
+
+// 存活时间
+var aliveList=document.getElementsByClassName("alive")
+setInterval(function() { 
+var time = new Date(); 
+// 程序计时的月从0开始取值后+1 
+//根据自己博客的创建时间更改数值 
+var t = "博客存活了"+Math.floor((+new Date - 1527868800000) / (1000 * 60 * 60 * 24)) + "天 " + time.getHours() + "小时" 
++ time.getMinutes() + "分" + time.getSeconds() + "秒"; 
+aliveList[0].innerHTML = t; 
+}, 1000); 
+// 统计页面加载时间
+window.onload = function () {
+  var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart; 
+  console.log('Page load time is '+ loadTime);
+}
+</script>
+  <script> $(function(){ $('#loader').css('display','none');});</script>
+<style>
+    .comments.no-post {
+      background: transparent;
+    }
+    .no-post.v *{
+      color: #ddd;
+    }
+    .v .vlist p {
+      margin: 12px 0;
+    }
+    .v .vbtn {
+      background: #fbfbfb;
+      padding: .3rem 1.2em;
+      border: 1px solid #dddddd75;
+    }
+    .no-post.v .vbtn {
+      background: #2222220a;
+    }
+    .no-post.v .vbtn:active, .no-post.v .vbtn:hover {
+      background-color: #fff;
+    }
+    .no-post.v .vwrap {
+      border: 1px solid #f0f0f036;;
+    }
+    .no-post.v a {
+      color: #ddd;
+    }
+    .v ul {
+      padding-left: 25px;
+    }
+    .v ul li {
+      list-style: disc;
+      padding: 2px 15px 0 0;
+    }
+    .v .vlist strong , .vinput.vpreview strong {
+        color: #87daff;
+        font-size: 108%;
+    }
+    .v .vlist .vcard .vhead .vsys {
+        background: #87daff17;
+        color: #aaa;
+        border: 1px solid #87daff1f;
+        padding: 1px 5px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .no-post.v .vlist .vcard .vhead .vsys{
+      background: #ededed1f;
+      color: #808080;
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 1.4;
+      border: none;
+    }
+
+    .v .vlist .vcard .vcontent a {
+      color: #86dbff;
+      border-bottom-color: #86dbff99;
+    }
+
+    .v .vlist .vcard .vcontent a:hover {
+        color: #d7191a;
+        border-bottom-color: #222;
+    }
+
+    .no-post.v .vlist .vcard section {
+        border-bottom: 1px dashed #f5f5f55e;
+    }
+
+    .v .vwrap .vheader .vinput {
+        width: 33.33%;
+        border-bottom: 1px dashed #dedede45;
+    }
+    .no-post.v .vwrap .vheader .vinput::-webkit-input-placeholder {
+        color: #808080;
+    }
+    .no-post.v .vwrap .vheader .vinput:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+        color: #808080;
+    }
+    .v .txt-right {
+        display: none;
+    }
+
+    .v .vlist .vcard .vcontent .code, .v .vlist .vcard .vcontent code, .v .vlist .vcard .vcontent pre , .vinput.vpreview code , .vinput.vpreview pre {
+      color: #005098fc;
+      background: #87daffb8;
+      border-radius: 4px;
+      box-shadow: 0 0 2px #87daff;
+      font-size: 90%;
+      padding: 2px 6px;
+    }
+    .v .vlist .vcard .vcontent img {
+      max-width: 18px;
+      display: inline-block;
+    }
+
+    .v .vlist .vcard .vcontent img{
+      max-width:18px;
+      display:inline-block
+    }
+
+    .v .vwrap .vheader .vinput:focus {
+      border-bottom: 1px solid #87daff;
+    }
+    .v .vlist .vcard .vcontent pre , .vinput.vpreview pre {
+        background: #87daff21;
+        border-radius: 4px;
+        box-shadow: 0 0 2px #ffffff33;
+    }
+    .v .vlist .vcard .vcontent pre code ,.vinput.vpreview pre code {
+        color: #87daff;
+        background: #87daff00;
+        border-radius: 4px;
+        box-shadow: 0 0 2px #87daff05;
+    }
+    .v .vlist .vcard .vcontent.expand:after {
+      color: #ff0000de;
+      font-size: 110%;
+      font-weight: bold;
+      background: #87daff38;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .comments.no-post .vlist .vcard .vcontent.expand:after {
+      color: #fff;
+    }
+    @media screen and (max-width: 414px) {
+        .v .vlist {
+            padding-left: 0;
+        }
+    }
+    .v .vlist .vcard .vcontent.expand:before {
+        background: linear-gradient(180deg,hsla(0, 0%, 100%, 0),hsla(199, 100%, 76%, 0.22));
+        background: -webkit-gradient(linear,left top,left bottom,from(hsla(0,0%,100%,0)),to(hsla(199, 100%, 76%, 0.22));
+    }
+</style>
+
+</body>
+</html>

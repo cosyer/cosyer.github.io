@@ -586,7 +586,7 @@ a:hover {
 <li>服务端创建socket.io的实例</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'express'</span>)(); </span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>).Server(app); </span><br><span class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>)(http);<span class="comment">//创建实例 </span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123; res.sendfile(<span class="string">'index.html'</span>); &#125;);</span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a user connected'</span>); </span><br><span class="line">&#125;);<span class="comment">// 监听前端连接 </span></span><br><span class="line"></span><br><span class="line">http.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'listening on *:3000'</span>); &#125;);</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li>数据传输</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前端客户端向后端发送数据：</span></span><br><span class="line">socket.emit(<span class="string">'chat message'</span>, $(<span class="string">'#m'</span>).val()); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 后端接收数据：</span></span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123; socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'message: '</span> + msg); &#125;); </span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 后端向前端发送数据：</span></span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123; socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; </span><br><span class="line">    io.emit(<span class="string">'chat message'</span>, msg); &#125;); &#125;); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端接收数据：</span></span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; <span class="built_in">console</span>.log(msg); &#125;);</span><br></pre></td></tr></table></figure>
@@ -788,7 +788,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -799,7 +799,7 @@ a:hover {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -810,7 +810,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -969,7 +969,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 79.9k字</span>
+    <span class="post-count">Blog总字数: 82.2k字</span>
   </div>
 </div>
 
@@ -1570,7 +1570,7 @@ a:hover {
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-d92a58c18b.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

@@ -693,7 +693,7 @@ abc\b // 可以匹配 abc ，但是不能匹配 abcc；
 <p>和分组相关的概念还有一个捕获分组和非捕获分组，分组默认都是捕获的，在分组的(后面添加?:可以让分组变为非捕获分组，非捕获分组可以提高性能和简化逻辑</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'123'</span>.match(<span class="regexp">/(?:123)/</span>) <span class="comment">// 返回 ['123']</span></span><br><span class="line"><span class="string">'123'</span>.match(<span class="regexp">/(123)/</span>)  <span class="comment">// 返回 ['123', '123']</span></span><br><span class="line"><span class="comment">// 和分组相关的另一个概念是引用，比如在匹配html标签时，通常希望&lt;xxx&gt;&lt;/xxx&gt;后面的xxx能够和前面保持一致</span></span><br></pre></td></tr></table></figure>
 <p>引用的语法是\数字，数字代表引用前面第几个捕获分组，注意非捕获分组不能被引用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;([a-z]+)&gt;&lt;\/\1&gt; // 可以匹配 `&lt;span&gt;&lt;/span&gt;` 或 `&lt;div&gt;&lt;/div&gt;`等</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;([a-z]+)&gt;<span class="xml"><span class="tag">&lt;<span class="name">\</span>/\<span class="attr">1</span>&gt;</span> // 可以匹配 `<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>` 或 `<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>`等</span></span><br></pre></td></tr></table></figure>
 <h2 id="预搜索"><a href="#预搜索" class="headerlink" title="预搜索"></a>预搜索</h2><p>如果你想匹配xxx前不能是yyy，或者xxx后不能是yyy，那就要用到预搜索</p>
 <p>js只支持正向预搜索，也就是xxx后面必须是yyy，或者xxx后面不能是yyy</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>(?=<span class="number">2</span>) <span class="comment">// 可以匹配12，不能匹配22</span></span><br><span class="line"><span class="number">1</span>(?!<span class="number">2</span>) <span class="comment">// 可有匹配22，不能匹配12</span></span><br></pre></td></tr></table></figure>
@@ -940,7 +940,7 @@ abc\b // 可以匹配 abc ，但是不能匹配 abcc；
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -951,7 +951,7 @@ abc\b // 可以匹配 abc ，但是不能匹配 abcc；
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -962,7 +962,7 @@ abc\b // 可以匹配 abc ，但是不能匹配 abcc；
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1121,7 +1121,7 @@ abc\b // 可以匹配 abc ，但是不能匹配 abcc；
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 79.9k字</span>
+    <span class="post-count">Blog总字数: 82.2k字</span>
   </div>
 </div>
 
@@ -1722,7 +1722,7 @@ abc\b // 可以匹配 abc ，但是不能匹配 abcc；
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-d92a58c18b.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

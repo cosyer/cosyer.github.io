@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="什么是chrome extensionsChrome Extensions，中文名叫 “Chrome浏览器扩展程序”。引用官方文档的描述，翻译一下就是 “可以修改和增强浏览器功能的 H5 小程序”。 它的入口在浏览器窗口的右上角，地址栏的最右边 入门manifest.jsonmanifest.json 是整个插件扩展程序中最重要的一个描述文件，这个 json 格式的文件包含了你整个扩展程序的一些重">
+<meta name="description" content="什么是chrome extensionsChrome Extensions，中文名叫 “Chrome浏览器扩展程序”。引用官方文档的描述，翻译一下就是 “可以修改和增强浏览器功能的 H5 小程序”。 它的入口在浏览器窗口的右上角，地址栏的最右边">
 <meta name="keywords" content="整理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="chrome插件扩展程序开发指南">
 <meta property="og:url" content="http://mydearest.cn/chrome插件扩展程序开发指南.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="什么是chrome extensionsChrome Extensions，中文名叫 “Chrome浏览器扩展程序”。引用官方文档的描述，翻译一下就是 “可以修改和增强浏览器功能的 H5 小程序”。 它的入口在浏览器窗口的右上角，地址栏的最右边 入门manifest.jsonmanifest.json 是整个插件扩展程序中最重要的一个描述文件，这个 json 格式的文件包含了你整个扩展程序的一些重">
+<meta property="og:description" content="什么是chrome extensionsChrome Extensions，中文名叫 “Chrome浏览器扩展程序”。引用官方文档的描述，翻译一下就是 “可以修改和增强浏览器功能的 H5 小程序”。 它的入口在浏览器窗口的右上角，地址栏的最右边">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T13:52:14.419Z">
+<meta property="og:updated_time" content="2018-11-28T14:29:48.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chrome插件扩展程序开发指南">
-<meta name="twitter:description" content="什么是chrome extensionsChrome Extensions，中文名叫 “Chrome浏览器扩展程序”。引用官方文档的描述，翻译一下就是 “可以修改和增强浏览器功能的 H5 小程序”。 它的入口在浏览器窗口的右上角，地址栏的最右边 入门manifest.jsonmanifest.json 是整个插件扩展程序中最重要的一个描述文件，这个 json 格式的文件包含了你整个扩展程序的一些重">
+<meta name="twitter:description" content="什么是chrome extensionsChrome Extensions，中文名叫 “Chrome浏览器扩展程序”。引用官方文档的描述，翻译一下就是 “可以修改和增强浏览器功能的 H5 小程序”。 它的入口在浏览器窗口的右上角，地址栏的最右边">
 
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-11-27T21:52:14+08:00">
+  <div class="post-date" data-datetime="2018-11-28T22:29:48+08:00">
     <div class="post-time-text">11月</div>
-    <div class="post-time-count">27</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">11月27</div>
+      <div class="post-tiem">11月28</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,388 (字)
+                  1,406 (字)
                 </span>
               
 
@@ -563,6 +563,8 @@ a:hover {
       
         <h3 id="什么是chrome-extensions"><a href="#什么是chrome-extensions" class="headerlink" title="什么是chrome extensions"></a>什么是chrome extensions</h3><p>Chrome Extensions，中文名叫 “Chrome浏览器扩展程序”。引用官方文档的描述，翻译一下就是 “可以修改和增强浏览器功能的 H5 小程序”。
 它的入口在浏览器窗口的右上角，地址栏的最右边</p>
+<hr>
+<a id="more"></a>
 <h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3><h4 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h4><p>manifest.json 是整个插件扩展程序中最重要的一个描述文件，这个 json 格式的文件包含了你整个扩展程序的一些重要描述，比如 “扩展程序名称”、“扩展程序图标”、“权限申请” 等。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  // Required</span><br><span class="line">  "manifest_version": 2, // manifest 版本号，这里都写 2 就好了，从 Google Chrome 18 开始，就开始升级到 2 版本了</span><br><span class="line">  "name": "My Extension",</span><br><span class="line">  "version": "1.0.0", // 扩展程序版本，这个是自定义的，建议参考 semver 规范(http://semver.org/)</span><br><span class="line"></span><br><span class="line">  // Recommended</span><br><span class="line">  "default_locale": "zh", // 默认语言，具体可以看 i18n 文档(https://developer.chrome.com/extensions/i18n)</span><br><span class="line">  "description": "A plain text description", // 项目描述</span><br><span class="line">  "icons": &#123; // icon，不同的位置支持不同大小的 icon，具体看文档(https://developer.chrome.com/extensions/manifest/icons)</span><br><span class="line">    "128": "icons/icon_128.png",</span><br><span class="line">    "48": "icons/icon_48.png",</span><br><span class="line">    "16": "icons/icon_16.png"</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  // Pick one (or none)</span><br><span class="line">  "browser_action": &#123; // 多数都是使用这个，插件扩展程序针对的是浏览器行为（图标是在地址栏外面）</span><br><span class="line">    "default_icon": "icons/24.png", // 最佳大小为19*19，地址栏上的插件扩展程序的 icon（一般作为主入口）</span><br><span class="line">    "default_popup": "popup.html", // 点击插件扩展程序 icon 后弹出来的窗口的主页面 html</span><br><span class="line">    "default_title": "extentsions demo" // 当鼠标放到扩展程序图标上时显示的文字</span><br><span class="line">  &#125;,</span><br><span class="line">  "page_action": &#123; // 插件扩展程序针对的是页面行为（图标是在地址栏里面的）</span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  // Optional</span><br><span class="line">  "author": ...,</span><br><span class="line">  "automation": ...,</span><br><span class="line">  "background": &#123;</span><br><span class="line">    // Recommended</span><br><span class="line">    "persistent": false</span><br><span class="line">  &#125;,</span><br><span class="line">  "background": &#123;</span><br><span class="line">    "scripts": ["eventPage.js"],</span><br><span class="line">    "persistent": false</span><br><span class="line">  &#125;,</span><br><span class="line">  "chrome_settings_overrides": &#123;...&#125;,</span><br><span class="line">  "chrome_ui_overrides": &#123;</span><br><span class="line">    "bookmarks_ui": &#123;</span><br><span class="line">      "remove_bookmark_shortcut": true,</span><br><span class="line">      "remove_button": true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  "chrome_url_overrides": &#123;...&#125;,</span><br><span class="line">  "commands": &#123;...&#125;,</span><br><span class="line">  "content_capabilities": ...,</span><br><span class="line">  "content_scripts": [&#123;...&#125;],</span><br><span class="line">  "content_security_policy": "policyString",</span><br><span class="line">  "converted_from_user_script": ...,</span><br><span class="line">  "current_locale": ...,</span><br><span class="line">  "declarative_net_request": ...,</span><br><span class="line">  "devtools_page": "devtools.html",</span><br><span class="line">  "event_rules": [&#123;...&#125;],</span><br><span class="line">  "externally_connectable": &#123;</span><br><span class="line">    "matches": ["*://*.example.com/*"]</span><br><span class="line">  &#125;,</span><br><span class="line">  "file_browser_handlers": [...],</span><br><span class="line">  "file_system_provider_capabilities": &#123;</span><br><span class="line">    "configurable": true,</span><br><span class="line">    "multiple_mounts": true,</span><br><span class="line">    "source": "network"</span><br><span class="line">  &#125;,</span><br><span class="line">  "homepage_url": "http://path/to/homepage",</span><br><span class="line">  "import": [&#123;"id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"&#125;],</span><br><span class="line">  "incognito": "spanning, split, or not_allowed",</span><br><span class="line">  "input_components": ...,</span><br><span class="line">  "key": "publicKey",</span><br><span class="line">  "minimum_chrome_version": "versionString",</span><br><span class="line">  "nacl_modules": [...],</span><br><span class="line">  "oauth2": ...,</span><br><span class="line">  "offline_enabled": true,</span><br><span class="line">  "omnibox": &#123;</span><br><span class="line">    "keyword": "aString"</span><br><span class="line">  &#125;,</span><br><span class="line">  "optional_permissions": ["tabs"],</span><br><span class="line">  "options_page": "options.html",</span><br><span class="line">  "options_ui": &#123;</span><br><span class="line">    "chrome_style": true,</span><br><span class="line">    "page": "options.html"</span><br><span class="line">  &#125;,</span><br><span class="line">  "permissions": ["tabs"],</span><br><span class="line">  "platforms": ...,</span><br><span class="line">  "plugins": [...],</span><br><span class="line">  "requirements": &#123;...&#125;,</span><br><span class="line">  "sandbox": [...],</span><br><span class="line">  "short_name": "Short Name",</span><br><span class="line">  "signature": ...,</span><br><span class="line">  "spellcheck": ...,</span><br><span class="line">  "storage": &#123;</span><br><span class="line">    "managed_schema": "schema.json"</span><br><span class="line">  &#125;,</span><br><span class="line">  "system_indicator": ...,</span><br><span class="line">  "tts_engine": &#123;...&#125;,</span><br><span class="line">  "update_url": "http://path/to/updateInfo.xml",</span><br><span class="line">  "version_name": "aString",</span><br><span class="line">  "web_accessible_resources": [...]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="学做一个demo"><a href="#学做一个demo" class="headerlink" title="学做一个demo"></a>学做一个demo</h4><ol>
@@ -617,6 +619,7 @@ a:hover {
 找到 “个人资料路径”，该路径下的 extensions 文件夹就是 Chrome 插件扩展程序的安装路径了
 安装路径下的插件扩展程序，是以 ID 为目录区分的
 地址栏访问 chrome://extensions/，可以查看每个插件扩展程序的 ID</p>
+<h3 id="高级教程-学做一个书签管理插件"><a href="#高级教程-学做一个书签管理插件" class="headerlink" title="高级教程-学做一个书签管理插件"></a>高级教程-学做一个书签管理插件</h3><p><a href="">项目地址</a></p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://developer.chrome.com/extensions/overview" target="_blank" rel="noopener">官方文档</a></p>
 
       
@@ -649,7 +652,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/chrome插件扩展程序开发指南.html">chrome插件扩展程序开发指南</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年11月26日 - 14:11</p>
-  <p><span>最后更新:</span>2018年11月27日 - 21:11</p>
+  <p><span>最后更新:</span>2018年11月28日 - 22:11</p>
   <p><span>原始链接:</span><a href="/chrome插件扩展程序开发指南.html" title="chrome插件扩展程序开发指南">http://mydearest.cn/chrome插件扩展程序开发指南.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/chrome插件扩展程序开发指南.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -734,6 +737,10 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/helloPHP.html" rel="prev" title="helloPHP">
+                helloPHP <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -813,7 +820,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -824,7 +831,7 @@ a:hover {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -835,7 +842,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -949,7 +956,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是chrome-extensions"><span class="nav-number">1.</span> <span class="nav-text">什么是chrome extensions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#入门"><span class="nav-number">2.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#manifest-json"><span class="nav-number">2.1.</span> <span class="nav-text">manifest.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学做一个demo"><span class="nav-number">2.2.</span> <span class="nav-text">学做一个demo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用api"><span class="nav-number">3.</span> <span class="nav-text">常用api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序发布和分享"><span class="nav-number">4.</span> <span class="nav-text">程序发布和分享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布到chrome商店"><span class="nav-number">5.</span> <span class="nav-text">发布到chrome商店</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是chrome-extensions"><span class="nav-number">1.</span> <span class="nav-text">什么是chrome extensions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#入门"><span class="nav-number">2.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#manifest-json"><span class="nav-number">2.1.</span> <span class="nav-text">manifest.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学做一个demo"><span class="nav-number">2.2.</span> <span class="nav-text">学做一个demo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用api"><span class="nav-number">3.</span> <span class="nav-text">常用api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序发布和分享"><span class="nav-number">4.</span> <span class="nav-text">程序发布和分享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布到chrome商店"><span class="nav-number">5.</span> <span class="nav-text">发布到chrome商店</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级教程-学做一个书签管理插件"><span class="nav-number">7.</span> <span class="nav-text">高级教程-学做一个书签管理插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -994,7 +1001,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 79.9k字</span>
+    <span class="post-count">Blog总字数: 82.2k字</span>
   </div>
 </div>
 
@@ -1595,7 +1602,7 @@ a:hover {
    <!-- UV、PV统计 不蒜子
    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   -->
-  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-6da1d90143.js"></script>
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-d92a58c18b.js"></script>
    <!-- 自己的脚本
   <script type="text/javascript" src="/js/src/cosyer.js"></script>
   -->

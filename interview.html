@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T13:55:14.143Z">
+<meta property="og:updated_time" content="2018-12-08T06:34:32.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-11-23T21:55:14+08:00">
-    <div class="post-time-text">11月</div>
-    <div class="post-time-count">23</div>
+  <div class="post-date" data-datetime="2018-12-08T14:34:32+08:00">
+    <div class="post-time-text">12月</div>
+    <div class="post-time-count">08</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">11月23</div>
+      <div class="post-tiem">12月08</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  8,923 (字)
+                  9,512 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  34 (分钟)
+                  37 (分钟)
                 </span>
               
             </div>
@@ -642,6 +642,13 @@ typeof返回的类型都是字符串形式，可以判断function的类型；在
 <p> 好处：防止变量弥散到全局，以免各种js库冲突。隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理。</p>
 <p> 场景：一般用于框架、插件等场景，设计私有变量和方法，封闭私有作用域。</p>
 </li>
+</ol>
+<h3 id="立即执行函数表达式-IIFE"><a href="#立即执行函数表达式-IIFE" class="headerlink" title="立即执行函数表达式(IIFE)"></a>立即执行函数表达式(IIFE)</h3><h4 id="使用匿名函数表达式"><a href="#使用匿名函数表达式" class="headerlink" title="使用匿名函数表达式"></a>使用匿名函数表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a);<span class="comment">//3</span></span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<h4 id="当作函数调用并传递参数进去"><a href="#当作函数调用并传递参数进去" class="headerlink" title="当作函数调用并传递参数进去"></a>当作函数调用并传递参数进去</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params">global</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a);<span class="comment">//3</span></span><br><span class="line">	<span class="built_in">console</span>.log(global.a);<span class="comment">//2</span></span><br><span class="line">&#125;)(<span class="built_in">window</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<h4 id="解决undefined标识符默认值被错误覆盖"><a href="#解决undefined标识符默认值被错误覆盖" class="headerlink" title="解决undefined标识符默认值被错误覆盖"></a>解决undefined标识符默认值被错误覆盖</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> = <span class="literal">true</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a ;</span><br><span class="line">	<span class="keyword">if</span>(a === <span class="literal">undefined</span>)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'Undefined is safe here!'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h4 id="倒置代码运行顺序"><a href="#倒置代码运行顺序" class="headerlink" title="倒置代码运行顺序"></a>倒置代码运行顺序</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params">def</span>)</span>&#123;</span><br><span class="line">	def(<span class="built_in">window</span>);</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span> <span class="title">def</span>(<span class="params">global</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a);<span class="comment">//3</span></span><br><span class="line">	<span class="built_in">console</span>.log(global.a);<span class="comment">//2</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> IFun = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(i);</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		i++;</span><br><span class="line">		<span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">&#125;)();</span><br><span class="line">IFun();</span><br><span class="line">IFun();</span><br><span class="line">最终输出的结果为<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，很多会下意识的觉得结果会有<span class="number">4</span>个值，但是运用了<span class="keyword">return</span> 返回值以及自执行函数将函数返回给IFun变量，使得在第一次操作过程后，将返回函数直接赋给IFun。</span><br></pre></td></tr></table></figure>
+<ol>
 <li><p>回调函数？（传递地址，由非实现方调用）<br>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
 </li>
 <li><p>什么是闭包?堆栈溢出有什么区别？ 内存泄漏? 那些操作会造成内存泄漏？怎么样防止内存泄漏？impression<br> 闭包：就是能够读取其他函数内部变量的函数。一般是指内层函数。(子函数在外调用，子函数所在的父函数的作用域不会被释放。) </p>
@@ -888,9 +895,24 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 <li>协议不同</li>
 <li>端口不同</li>
 <li>域名不同</li>
-<li>常用解决方案：jsonp、iframe、window.name、window.postMessage、document.domain、服务器设置代理页面/响应header配置cors access-control-allow-origin</li>
+<li>常用解决方案：</li>
 </ul>
 <ol>
+<li>jsonp<blockquote>
+<script src="http://example.com/data.php?callback=do"></script></blockquote>
+</li>
+<li>iframe</li>
+<li>window.name
+在一个窗口中，窗口载入的所有页面共享一个window.name，每个页面都对window.name具有读写权限，可以在window.name中设置想要的数据。</li>
+<li><p>window.postMessage</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iframe.contentWindow.postMessage(msg);</span><br><span class="line"><span class="built_in">window</span>.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e = e || event;</span><br><span class="line">    alert(e.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>document.domain
+将两个页面的document.domain设置成相同域名即可，js中设置，形如：
+document.domain = “”;</p>
+</li>
+<li><p>服务器设置代理页面/响应header配置cors access-control-allow-origin</p>
+</li>
 <li><p>解决异步回调地狱有哪些方案？
 promise、generator、async/await</p>
 </li>
@@ -910,6 +932,14 @@ promise、generator、async/await</p>
 </li>
 <li><p>mouseenter：当鼠标移除元素本身（不包含元素的子元素）会触发事件，也就是不会冒泡，对应的移除事件是mouseleave</p>
 </li>
+<li><p>onmousedown 当元素上按下鼠标按钮时出发</p>
+</li>
+<li>onmousemove 当鼠标指针移动到元素上移动触发</li>
+<li>onmouseover 当鼠标指针移动元素上时触发</li>
+<li>onmouseout 当鼠标指针移出指定的对象时发生。</li>
+<li>onmouseup 当在元素上释放鼠标按钮时触发</li>
+<li>onmouseenter 事件在鼠标指针移动到元素上时触发。(不冒泡)</li>
+<li>onmouseleave 事件在鼠标移除元素时触发。(不冒泡)</li>
 </ul>
 <ol>
 <li>改变函数内部this指针的指向函数（bind，apply，call的区别）？</li>
@@ -1039,7 +1069,18 @@ rem单位基于html根元素的字体大小。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="string">'abcdaabc'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> info = arr</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .reduce(<span class="function">(<span class="params">p, k</span>) =&gt;</span> (p[k]++ || (p[k] = <span class="number">1</span>), p), &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(info); <span class="comment">//&#123; a: 3, b: 2, c: 2, d: 1 &#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>清除浮动</p>
+<blockquote>
+<p>浮动会引起高度塌陷和文字环绕。</p>
+</blockquote>
 </li>
+</ol>
+<ul>
+<li>使用空标签清除浮动clear: both （增加了无意义的标签）</li>
+<li>使用overflow: auto/hidden （使用zoom: 1兼容IE）</li>
+<li>使用after伪元素清除浮动（用于非IE浏览器）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clear</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">    <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clear</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'清除浮动'</span>,</span><br><span class="line">    height: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
 <li><p>margin-top和padding-left根据height还是width？
 width</p>
 </li>
@@ -1050,7 +1091,13 @@ width</p>
 <li><p>原生js实现拖拽</p>
 </li>
 <li><p>实现函数监听函数发布订阅模式 on emit off 方法 类似 iflux</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">event</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.on = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="keyword">new</span> Event(name)</span><br><span class="line">  <span class="keyword">this</span>.elem.addEventListener(name, fn.call(<span class="keyword">this</span>, <span class="keyword">this</span>.e, <span class="keyword">this</span>.e.type))</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.emit = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem.dispatchEvent(<span class="keyword">this</span>.e) <span class="comment">// 这里接受的参数必须是Event类型的，不然报错</span></span><br><span class="line">&#125;</span><br><span class="line">event.prototype.off = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ee = <span class="keyword">new</span> event()</span><br><span class="line">ee.on(<span class="string">'foo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="number">110</span>)&#125;)</span><br><span class="line">ee.emit(<span class="string">'foo'</span>) <span class="comment">// 110</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">event</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.on = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="keyword">new</span> Event(name)</span><br><span class="line">  <span class="keyword">this</span>.elem.addEventListener(name, fn.call(<span class="keyword">this</span>, <span class="keyword">this</span>.e, <span class="keyword">this</span>.e.type))</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.emit = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem.dispatchEvent(<span class="keyword">this</span>.e) <span class="comment">// 这里接受的参数必须是Event类型的，不然报错</span></span><br><span class="line">&#125;</span><br><span class="line">event.prototype.off = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ee = <span class="keyword">new</span> event()</span><br><span class="line">ee.on(<span class="string">'foo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="number">110</span>)&#125;)</span><br><span class="line">ee.emit(<span class="string">'foo'</span>) <span class="comment">// 110</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>左边固定，右边自适应布局</p>
+</li>
+<li>float</li>
+<li>flex布局</li>
+<li>通过position 父级relative</li>
 </ol>
 
       
@@ -1083,7 +1130,7 @@ width</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2018年11月23日 - 21:11</p>
+  <p><span>最后更新:</span>2018年12月08日 - 14:12</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1226,8 +1273,17 @@ width</p>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://static.mydearest.cn/blog/images/avatar.jpg"
@@ -1242,7 +1298,7 @@ width</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1369,6 +1425,22 @@ width</p>
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数表达式-IIFE"><span class="nav-number">1.</span> <span class="nav-text">立即执行函数表达式(IIFE)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用匿名函数表达式"><span class="nav-number">1.1.</span> <span class="nav-text">使用匿名函数表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当作函数调用并传递参数进去"><span class="nav-number">1.2.</span> <span class="nav-text">当作函数调用并传递参数进去</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决undefined标识符默认值被错误覆盖"><span class="nav-number">1.3.</span> <span class="nav-text">解决undefined标识符默认值被错误覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#倒置代码运行顺序"><span class="nav-number">1.4.</span> <span class="nav-text">倒置代码运行顺序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1407,7 +1479,7 @@ width</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 82.6k字</span>
+    <span class="post-count">Blog总字数: 84.1k字</span>
   </div>
 </div>
 

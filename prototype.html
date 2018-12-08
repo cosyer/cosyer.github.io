@@ -132,23 +132,23 @@
 
 
 
-<meta name="description" content="构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Person 就是一个构造函数，我们使用 new 创建了一个实例对象 person。">
+<meta name="description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Per">
 <meta name="keywords" content="原型链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入之从原型到原型链">
 <meta property="og:url" content="http://mydearest.cn/prototype.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Person 就是一个构造函数，我们使用 new 创建了一个实例对象 person。">
+<meta property="og:description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Per">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype1.png">
 <meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype2.png">
 <meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype3.png">
 <meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype4.png">
 <meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype5.png">
-<meta property="og:updated_time" content="2018-11-27T14:06:14.991Z">
+<meta property="og:updated_time" content="2018-12-08T06:41:04.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入之从原型到原型链">
-<meta name="twitter:description" content="构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Person 就是一个构造函数，我们使用 new 创建了一个实例对象 person。">
+<meta name="twitter:description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Per">
 <meta name="twitter:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype1.png">
 
 
@@ -420,12 +420,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-11-27T22:06:14+08:00">
-    <div class="post-time-text">11月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2018-12-08T14:41:04+08:00">
+    <div class="post-time-text">12月</div>
+    <div class="post-time-count">08</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">11月27</div>
+      <div class="post-tiem">12月08</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -530,7 +530,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,114 (字)
+                  2,165 (字)
                 </span>
               
 
@@ -567,7 +567,9 @@ a:hover {
       
 
       
-        <h2 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h2><p>我们先使用构造函数创建一个对象：</p>
+        <blockquote class="blockquote-center"><p>原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。</p>
+</blockquote>
+<h2 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h2><p>我们先使用构造函数创建一个对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line">person.name = <span class="string">"cosyer"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// cosyer</span></span><br></pre></td></tr></table></figure>
 <p>在这个例子中，Person 就是一个构造函数，我们使用 new 创建了一个实例对象 person。</p>
 <hr>
@@ -626,7 +628,7 @@ a:hover {
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    say() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"meow ~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(Cat.prototype, <span class="string">"say"</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">"meow ~"</span>); &#125;,</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6 class是没有静态属性的 只有静态方法</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line">cat.say(); <span class="comment">// meow~</span></span><br><span class="line">Cat.say(); <span class="comment">// error 加上static修饰正确  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注解</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isAnimal</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    target.isAnimal = <span class="literal">true</span>;</span><br><span class="line">  	<span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br><span class="line">@isAnimal</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">Cat=isAnimal(<span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Cat.isAnimal);    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Object</span>.create(o);</span><br><span class="line"><span class="comment">// p是一个继承自 o 的对象</span></span><br><span class="line">对象的原型链</span><br><span class="line">o===&gt;<span class="built_in">Object</span>.prototype===&gt;<span class="literal">null</span></span><br><span class="line">数组的原型链</span><br><span class="line">a===&gt;<span class="built_in">Array</span>.prototype===&gt;<span class="built_in">Object</span>.prototype===&gt;<span class="literal">null</span></span><br><span class="line">函数的原型链</span><br><span class="line">f===&gt;<span class="built_in">Function</span>.prototype===&gt;<span class="built_in">Object</span>.prototype===&gt;<span class="literal">null</span></span><br></pre></td></tr></table></figure>
-<h3 id="原型对象的添加属性"><a href="#原型对象的添加属性" class="headerlink" title="原型对象的添加属性"></a>原型对象的添加属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Persion</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Persion.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'darling'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Persion.prototype=&#123;</span></span><br><span class="line"><span class="comment">//   sayName:function()&#123;</span></span><br><span class="line"><span class="comment">//     console.log('darling')</span></span><br><span class="line"><span class="comment">//   &#125; </span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">let</span> persion =<span class="keyword">new</span> Persion()</span><br><span class="line">persion.sayName() <span class="comment">// darling</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Persion</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">let</span> persion=<span class="keyword">new</span> Persion()</span><br><span class="line"><span class="comment">// 这里重写了原型对象，实例对象和最初的原型对象断开了联系</span></span><br><span class="line">Persion.prototype=&#123;</span><br><span class="line">  sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'darling'</span>)</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">persion.sayName() <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+<h3 id="原型对象的添加属性"><a href="#原型对象的添加属性" class="headerlink" title="原型对象的添加属性"></a>原型对象的添加属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Persion</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Persion.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'darling'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Persion.prototype=&#123;</span></span><br><span class="line"><span class="comment">//   sayName:function()&#123;</span></span><br><span class="line"><span class="comment">//     console.log('darling')</span></span><br><span class="line"><span class="comment">//   &#125; </span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">let</span> persion =<span class="keyword">new</span> Persion()</span><br><span class="line">persion.sayName() <span class="comment">// darling</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Persion</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">let</span> persion=<span class="keyword">new</span> Persion()</span><br><span class="line"><span class="comment">// 这里重写了原型对象，实例对象和最初的原型对象断开了联系</span></span><br><span class="line"><span class="comment">// persion的proto指向一个空对象</span></span><br><span class="line">Persion.prototype=&#123;</span><br><span class="line">  sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'darling'</span>)</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">persion.sayName() <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
 <h3 id="new-操作符具体干了什么"><a href="#new-操作符具体干了什么" class="headerlink" title="new 操作符具体干了什么"></a>new 操作符具体干了什么</h3><ol>
 <li>创建空对象，并且this变量引用该对象同时继承该函数的原型</li>
 <li>属性和方法加入到this引用的对象中</li>
@@ -687,7 +689,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
   <p><span>本文标题:</span><a href="/prototype.html">JavaScript深入之从原型到原型链</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月12日 - 19:06</p>
-  <p><span>最后更新:</span>2018年11月27日 - 22:11</p>
+  <p><span>最后更新:</span>2018年12月08日 - 14:12</p>
   <p><span>原始链接:</span><a href="/prototype.html" title="JavaScript深入之从原型到原型链">http://mydearest.cn/prototype.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/prototype.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -855,7 +857,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1036,7 +1038,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 82.6k字</span>
+    <span class="post-count">Blog总字数: 84.1k字</span>
   </div>
 </div>
 

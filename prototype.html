@@ -140,16 +140,16 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Per">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype1.png">
-<meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype2.png">
-<meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype3.png">
-<meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype4.png">
-<meta property="og:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype5.png">
-<meta property="og:updated_time" content="2018-12-08T06:41:04.151Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype1.png">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype2.png">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype3.png">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype4.png">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype5.png">
+<meta property="og:updated_time" content="2018-12-15T09:09:06.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入之从原型到原型链">
 <meta name="twitter:description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  构造函数创建对象我们先使用构造函数创建一个对象： 1234function Person() &amp;#123;&amp;#125;var person = new Person();person.name = &quot;cosyer&quot;;console.log(person.name); // cosyer 在这个例子中，Per">
-<meta name="twitter:image" content="http://p33v4b0bc.bkt.clouddn.com/prototype1.png">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/prototype1.png">
 
 
 
@@ -212,7 +212,7 @@
 
 
   
-<link href="https://static.mydearest.cn/blog/css/all-9097fb9016.css" rel="stylesheet" type="text/css">
+<link href="https://mydearest.cn/css/all-9097fb9016.css" rel="stylesheet" type="text/css">
 <style>
 // scrollbar滚动条样式优化
 
@@ -246,13 +246,13 @@
 }
 
 * {
-    cursor: url("http://p33v4b0bc.bkt.clouddn.com/miku1.png"),auto!important
+    cursor: url("http://cdn.mydearest.cn/blog/images/miku1.png"),auto!important
 }
 :active {
-    cursor: url("http://p33v4b0bc.bkt.clouddn.com/miku2.png"),auto!important
+    cursor: url("http://cdn.mydearest.cn/blog/images/miku2.png"),auto!important
 }
 a:hover {
-    cursor: url("http://p33v4b0bc.bkt.clouddn.com/miku2.png"),auto!important
+    cursor: url("http://cdn.mydearest.cn/blog/images/miku2.png"),auto!important
 }
 </style>
 </head>
@@ -420,12 +420,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-08T14:41:04+08:00">
+  <div class="post-date" data-datetime="2018-12-15T17:09:06+08:00">
     <div class="post-time-text">12月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">15</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月08</div>
+      <div class="post-tiem">12月15</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -459,7 +459,7 @@ a:hover {
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
       <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="https://static.mydearest.cn/blog/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -581,19 +581,19 @@ a:hover {
 <p>其实，函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型，也就是这个例子中的 person1 和 person2 的原型。</p>
 <p>那什么是原型呢？你可以这样理解：每一个 JavaScript 对象(null 除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型”继承”属性。</p>
 <p>让我们用一张图表示构造函数和实例原型之间的关系：
-<img src="http://p33v4b0bc.bkt.clouddn.com/prototype1.png" alt="prototype"></p>
+<img src="http://cdn.mydearest.cn/blog/images/prototype1.png" alt="prototype"></p>
 <p>在这张图中我们用 Object.prototype 表示实例原型。</p>
 <p>那么我们该怎么表示实例与实例原型，也就是 person 和 Person.prototype 之间的关系呢，这时候我们就要讲到第二个属性：</p>
 <h3 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h3><p>为了证明这一点,我们可以在火狐或者谷歌中输入：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>于是我们更新下关系图：
-<img src="http://p33v4b0bc.bkt.clouddn.com/prototype2.png" alt="prototype"></p>
+<img src="http://cdn.mydearest.cn/blog/images/prototype2.png" alt="prototype"></p>
 <p>既然实例对象和构造函数都可以指向原型，那么原型是否有属性指向构造函数或者实例呢？</p>
 <h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>指向实例倒是没有，因为一个构造函数可以生成多个实例，但是原型指向构造函数倒是有的，这就要讲到第三个属性：constructor，每个原型都有一个 constructor 属性指向关联的构造函数。</p>
 <p>为了验证这一点，我们可以尝试：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Person === Person.prototype.constructor); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>所以再更新下关系图：
-<img src="http://p33v4b0bc.bkt.clouddn.com/prototype3.png" alt="prototype">
+<img src="http://cdn.mydearest.cn/blog/images/prototype3.png" alt="prototype">
 综上我们可以得出：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型 实例原型的constructor指向构造函数,构造函数的prototype指向实例原型,实例对象的__proto__指向实例原型,实例原型也是对象,它也有原型 最后的一个环节是null。访问实例对象的constructor时,也能从实例原型上去找,从而指向到构造函数。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <h2 id="实例与原型"><a href="#实例与原型" class="headerlink" title="实例与原型"></a>实例与原型</h2><p>当读取实例的属性时，如果找不到，就会查找与对象关联的原型中的属性，如果还查不到，就去找原型的原型，一直找到最顶层为止。</p>
@@ -605,7 +605,7 @@ a:hover {
 <h2 id="原型的原型"><a href="#原型的原型" class="headerlink" title="原型的原型"></a>原型的原型</h2><p>在前面，我们已经讲了原型也是一个对象，既然是对象，我们就可以用最原始的方式创建它，那就是：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">"cosyer"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// cosyer</span></span><br></pre></td></tr></table></figure>
 <p>其实原型对象就是通过 Object 构造函数生成的，结合之前所讲，实例的 <strong>proto</strong> 指向构造函数的 prototype ，所以我们再更新下关系图：
-<img src="http://p33v4b0bc.bkt.clouddn.com/prototype4.png" alt="prototype"></p>
+<img src="http://cdn.mydearest.cn/blog/images/prototype4.png" alt="prototype"></p>
 <h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>那 Object.prototype 的原型呢？</p>
 <p>null，我们可以打印：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
@@ -615,7 +615,7 @@ a:hover {
 <p>所以 Object.prototype.<strong>proto</strong> 的值为 null 跟 Object.prototype 没有原型，其实表达了一个意思。</p>
 <p>所以查找属性的时候查到 Object.prototype 就可以停止查找了。</p>
 <p>最后一张关系图也可以更新为：
-<img src="http://p33v4b0bc.bkt.clouddn.com/prototype5.png" alt="prototype"></p>
+<img src="http://cdn.mydearest.cn/blog/images/prototype5.png" alt="prototype"></p>
 <p>图中由相互关联的原型组成的链状结构就是原型链，也就是蓝色的这条线。</p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="constructor"><a href="#constructor" class="headerlink" title="constructor"></a>constructor</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.constructor === Person); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>当获取 person.constructor 时，其实 person 中并没有 constructor 属性,当不能读取到 constructor 属性时，会从 person 的原型也就是 Person.prototype 中读取，正好原型中有该属性，所以：</p>
@@ -689,7 +689,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
   <p><span>本文标题:</span><a href="/prototype.html">JavaScript深入之从原型到原型链</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月12日 - 19:06</p>
-  <p><span>最后更新:</span>2018年12月08日 - 14:12</p>
+  <p><span>最后更新:</span>2018年12月15日 - 17:12</p>
   <p><span>原始链接:</span><a href="/prototype.html" title="JavaScript深入之从原型到原型链">http://mydearest.cn/prototype.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/prototype.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -845,7 +845,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="https://static.mydearest.cn/blog/images/avatar.jpg"
+               src="/images/avatar.jpg"
                alt="陈宇（cosyer）" />
           <p class="site-author-name" itemprop="name">陈宇（cosyer）</p>
            
@@ -857,7 +857,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-count">77</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -879,7 +879,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1038,7 +1038,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 84.1k字</span>
+    <span class="post-count">Blog总字数: 84.7k字</span>
   </div>
 </div>
 

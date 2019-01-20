@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="设置函数默认值  结合解构赋值默认值使用 利用rest(…变量名)传入任意参数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.151Z">
+<meta property="og:updated_time" content="2018-12-27T15:51:40.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6函数新特性">
 <meta name="twitter:description" content="设置函数默认值  结合解构赋值默认值使用 利用rest(…变量名)传入任意参数">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
+  <div class="post-date" data-datetime="2018-12-27T23:51:40+08:00">
     <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+    <div class="post-time-count">27</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
+      <div class="post-tiem">12月27</div>
       <div class="post-year">2018</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  863 (字)
+                  1,512 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  4 (分钟)
+                  6 (分钟)
                 </span>
               
             </div>
@@ -593,7 +593,14 @@ a:hover {
 <p>我们可以把ECMAScript函数的参数想象成局部变量，在向参数传递基本类型的值时，被传递的值被复制给一个局部变量。</p>
 <p>在向函数传递引用类型时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。</p>
 <p>即使在函数内部修改了参数的值，但原始的引用仍然保持未变。</p>
-
+<h2 id="尾调用优化"><a href="#尾调用优化" class="headerlink" title="尾调用优化"></a>尾调用优化</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>尾调用指某个函数的最后一步是调用另一个函数。</p>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> y = g(x);</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line">&#125;<span class="comment">//不是尾调用，因为最后一步返回了y，不是调用函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> g(x) + <span class="number">1</span></span><br><span class="line">&#125;<span class="comment">//不是尾调用，因为最后一步是加一，不是调用函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    g(x)</span><br><span class="line">&#125;<span class="comment">//不是尾调用，因为函数的最后一步是一个默认的return undefined；</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> g(x)</span><br><span class="line">&#125;<span class="comment">//是尾调用</span></span><br></pre></td></tr></table></figure>
+<h3 id="为什么尾调用"><a href="#为什么尾调用" class="headerlink" title="为什么尾调用"></a>为什么尾调用</h3><p>函数调用会在内存形成一个“调用记录”，又称“调用帧”。每形成一个调用帧就会占用一定的内存，假如有一个函数A里面调用了函数B，函数B里面又调用了函数C，以此类推。</p>
+<p>在不是尾调用的情况下，因为js是单线程同步的，所以只有当函数B执行完毕才会执行函数A的return语句（函数没写return会有一个默认的return undefiend；），此时函数B的调用帧才会消失。但事实上，只有当函数B执行到return语句时才会执行完毕，而在函数B执行return之前会先调用函数C，所以当这种函数调用越来越多的时候，形成的调用帧也会越来越多占用的内存就会越来越大。俗话说精满自溢，内存也会有溢出的时候是吧，这就不行了！所以要用尾调用！</p>
+<p>尾调用由于是函数的最后一步操作，所以不需要保留外层函数的调用帧，只要直接用内层函数的调用帧，取代外层函数的调用帧就可以了。</p>
+<p>比如在执行递归的时候就可以利用尾调用达到优化内存的目的。函数调用自身，称为递归。如果尾调用自身，就称为尾递归。</p>
+<p>递归非常耗费内存，因为需要同时保存成千上百个调用帧，很容易发生“栈溢出”。但对于尾递归来说，由于只存在一个调用帧，所以永远不会发生“栈溢出”错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归 计算n的阶乘，最多需要保存n个调用记录，复杂度 O(n) </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">factorial(<span class="number">5</span>) <span class="comment">//120</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成尾递归，只保留一个调用记录，复杂度 O(1) </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n, total</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> total;</span><br><span class="line">    <span class="keyword">return</span> factorial(n - <span class="number">1</span>, n * total)</span><br><span class="line">&#125;</span><br><span class="line">factorial(<span class="number">5</span>, <span class="number">1</span>) <span class="comment">//120</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -624,7 +631,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/es6function.html">es6函数新特性</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月08日 - 19:06</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2018年12月27日 - 23:12</p>
   <p><span>原始链接:</span><a href="/es6function.html" title="es6函数新特性">http://mydearest.cn/es6function.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/es6function.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -792,7 +799,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">79</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -814,7 +821,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -928,7 +935,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#…rest和扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">…rest和扩展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用扩展运算符（…数组）替代数组的apply方法"><span class="nav-number">2.</span> <span class="nav-text">利用扩展运算符（…数组）替代数组的apply方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name属性"><span class="nav-number">3.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的静态变量和函数"><span class="nav-number">4.</span> <span class="nav-text">函数的静态变量和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的实例函数和变量"><span class="nav-number">5.</span> <span class="nav-text">函数的实例函数和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数传参"><span class="nav-number">6.</span> <span class="nav-text">函数传参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型-基本类型的变量复制"><span class="nav-number">6.1.</span> <span class="nav-text">基本类型 (基本类型的变量复制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">6.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#…rest和扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">…rest和扩展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用扩展运算符（…数组）替代数组的apply方法"><span class="nav-number">2.</span> <span class="nav-text">利用扩展运算符（…数组）替代数组的apply方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name属性"><span class="nav-number">3.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的静态变量和函数"><span class="nav-number">4.</span> <span class="nav-text">函数的静态变量和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的实例函数和变量"><span class="nav-number">5.</span> <span class="nav-text">函数的实例函数和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数传参"><span class="nav-number">6.</span> <span class="nav-text">函数传参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型-基本类型的变量复制"><span class="nav-number">6.1.</span> <span class="nav-text">基本类型 (基本类型的变量复制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">6.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尾调用优化"><span class="nav-number">7.</span> <span class="nav-text">尾调用优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">7.2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么尾调用"><span class="nav-number">7.3.</span> <span class="nav-text">为什么尾调用</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -951,7 +958,7 @@ a:hover {
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -973,7 +980,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 88.1k字</span>
+    <span class="post-count">Blog总字数: 90.4k字</span>
   </div>
 </div>
 

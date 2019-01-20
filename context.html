@@ -576,7 +576,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 <p>现在 JavaScript 遇到下面的这段代码了：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fun3'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fun3();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fun2();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun1();</span><br></pre></td></tr></table></figure>
 <p>当执行一个函数的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数执行完毕的时候，就会将函数的执行上下文从栈中弹出。知道了这样的工作原理，让我们来看看如何处理上面这段代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// fun1()</span></span><br><span class="line">ECStack.push(&lt;fun1&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// fun1中竟然调用了fun2，还要创建fun2的执行上下文</span><br><span class="line">ECStack.push(&lt;fun2&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// 擦，fun2还调用了fun3！</span><br><span class="line">ECStack.push(&lt;fun3&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// fun3执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun2执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun1执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// javascript接着执行下面的代码，但是ECStack底层永远有个globalContext</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// fun1()</span></span><br><span class="line">ECStack.push(<span class="xml"><span class="tag">&lt;<span class="name">fun1</span>&gt;</span> functionContext);</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">// fun1中竟然调用了fun2，还要创建fun2的执行上下文</span></span><br><span class="line">ECStack.push(&lt;fun2&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// 擦，fun2还调用了fun3！</span><br><span class="line">ECStack.push(&lt;fun3&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// fun3执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun2执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun1执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// javascript接着执行下面的代码，但是ECStack底层永远有个globalContext</span><br></pre></td></tr></table></figure>
 <h2 id="三大属性"><a href="#三大属性" class="headerlink" title="三大属性"></a>三大属性</h2><ul>
 <li>变量对象</li>
 <li>作用域链</li>
@@ -786,7 +786,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">79</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -808,7 +808,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -945,7 +945,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -967,7 +967,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 88.1k字</span>
+    <span class="post-count">Blog总字数: 90.4k字</span>
   </div>
 </div>
 

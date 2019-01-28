@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="设置函数默认值  结合解构赋值默认值使用 利用rest(…变量名)传入任意参数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-27T15:51:40.646Z">
+<meta property="og:updated_time" content="2019-01-20T09:07:29.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6函数新特性">
 <meta name="twitter:description" content="设置函数默认值  结合解构赋值默认值使用 利用rest(…变量名)传入任意参数">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-27T23:51:40+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2019-01-20T17:07:29+08:00">
+    <div class="post-time-text">1月</div>
+    <div class="post-time-count">20</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月27</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">1月20</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,512 (字)
+                  1,544 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  7 (分钟)
                 </span>
               
             </div>
@@ -601,6 +601,7 @@ a:hover {
 <p>比如在执行递归的时候就可以利用尾调用达到优化内存的目的。函数调用自身，称为递归。如果尾调用自身，就称为尾递归。</p>
 <p>递归非常耗费内存，因为需要同时保存成千上百个调用帧，很容易发生“栈溢出”。但对于尾递归来说，由于只存在一个调用帧，所以永远不会发生“栈溢出”错误。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归 计算n的阶乘，最多需要保存n个调用记录，复杂度 O(n) </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">factorial(<span class="number">5</span>) <span class="comment">//120</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成尾递归，只保留一个调用记录，复杂度 O(1) </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n, total</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> total;</span><br><span class="line">    <span class="keyword">return</span> factorial(n - <span class="number">1</span>, n * total)</span><br><span class="line">&#125;</span><br><span class="line">factorial(<span class="number">5</span>, <span class="number">1</span>) <span class="comment">//120</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数声明覆盖"><a href="#函数声明覆盖" class="headerlink" title="函数声明覆盖"></a>函数声明覆盖</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"foo"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 1 如果foo不赋值 则打印函数</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -631,7 +632,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/es6function.html">es6函数新特性</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月08日 - 19:06</p>
-  <p><span>最后更新:</span>2018年12月27日 - 23:12</p>
+  <p><span>最后更新:</span>2019年01月20日 - 17:01</p>
   <p><span>原始链接:</span><a href="/es6function.html" title="es6函数新特性">http://mydearest.cn/es6function.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/es6function.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -935,7 +936,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#…rest和扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">…rest和扩展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用扩展运算符（…数组）替代数组的apply方法"><span class="nav-number">2.</span> <span class="nav-text">利用扩展运算符（…数组）替代数组的apply方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name属性"><span class="nav-number">3.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的静态变量和函数"><span class="nav-number">4.</span> <span class="nav-text">函数的静态变量和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的实例函数和变量"><span class="nav-number">5.</span> <span class="nav-text">函数的实例函数和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数传参"><span class="nav-number">6.</span> <span class="nav-text">函数传参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型-基本类型的变量复制"><span class="nav-number">6.1.</span> <span class="nav-text">基本类型 (基本类型的变量复制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">6.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尾调用优化"><span class="nav-number">7.</span> <span class="nav-text">尾调用优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">7.2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么尾调用"><span class="nav-number">7.3.</span> <span class="nav-text">为什么尾调用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#…rest和扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">…rest和扩展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用扩展运算符（…数组）替代数组的apply方法"><span class="nav-number">2.</span> <span class="nav-text">利用扩展运算符（…数组）替代数组的apply方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name属性"><span class="nav-number">3.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的静态变量和函数"><span class="nav-number">4.</span> <span class="nav-text">函数的静态变量和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的实例函数和变量"><span class="nav-number">5.</span> <span class="nav-text">函数的实例函数和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数传参"><span class="nav-number">6.</span> <span class="nav-text">函数传参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型-基本类型的变量复制"><span class="nav-number">6.1.</span> <span class="nav-text">基本类型 (基本类型的变量复制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">6.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尾调用优化"><span class="nav-number">7.</span> <span class="nav-text">尾调用优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">7.2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么尾调用"><span class="nav-number">7.3.</span> <span class="nav-text">为什么尾调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明覆盖"><span class="nav-number">8.</span> <span class="nav-text">函数声明覆盖</span></a></li></ol></div>
             
 
           </div>
@@ -980,7 +981,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 90.4k字</span>
+    <span class="post-count">Blog总字数: 94.2k字</span>
   </div>
 </div>
 

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.169Z">
+<meta property="og:updated_time" content="2019-01-20T12:06:15.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-01-20T20:06:15+08:00">
+    <div class="post-time-text">1月</div>
+    <div class="post-time-count">20</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">1月20</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  9,512 (字)
+                  9,914 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  37 (分钟)
+                  39 (分钟)
                 </span>
               
             </div>
@@ -1097,7 +1097,30 @@ width</p>
 </li>
 <li>float</li>
 <li>flex布局</li>
-<li>通过position 父级relative</li>
+<li><p>通过position 父级relative</p>
+</li>
+<li><p>mysql 字符转换</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- date转字符串</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(<span class="keyword">now</span>(), <span class="string">'%Y-%m-%d'</span>); </span><br><span class="line"><span class="comment">--  date转时间戳</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">unix_timestamp</span>(<span class="keyword">now</span>())</span><br><span class="line"><span class="comment">--  字符串转时间</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">str_to_date</span>(<span class="string">"2019-01-15"</span>,<span class="string">'%Y-%m-%d %H'</span>)</span><br><span class="line"><span class="comment">-- 20190115</span></span><br><span class="line"><span class="comment">-- 时间戳转时间</span></span><br><span class="line"><span class="keyword">select</span> from_unixtime(<span class="number">1451997924</span>)</span><br><span class="line"><span class="comment">-- 时间戳转字符串</span></span><br><span class="line"><span class="keyword">select</span> from_unixtime(<span class="number">1451997924</span>,<span class="string">"%Y-%m-%d %H"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>empty()和html(“”)
+推荐使用empty html不会清除子组件的事件</p>
+</li>
+<li><p>react、vue多个class</p>
+<h2 id="react"><a href="#react" class="headerlink" title="react"></a>react</h2><p>方法一：ES6 模板字符串 <code></code></p>
+</li>
+</ol>
+<p>className={title ${index === this.state.active ? ‘active’ : ‘’}}
+　　</p>
+<p>方法二：join(“”)</p>
+<p>className={[“title”, index === this.state.active?”active”:null].join(‘ ‘)}</p>
+<p>方法三：classnames</p>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><p>方法一：
+:class=”[box,shadow]”
+方法二：
+:class=”{box:show1,shadow:show2}”</p>
+<ol>
+<li>vue组件通信<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父传子</span></span><br><span class="line"><span class="comment">// 父组件</span></span><br><span class="line">&lt;note-address :data=<span class="string">"msg"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">note-address</span>&gt;</span> </span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">// 子组件</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; data.partment &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">export default &#123;</span></span><br><span class="line"><span class="xml">  //props:['data']</span></span><br><span class="line"><span class="xml">  props: &#123;</span></span><br><span class="line"><span class="xml">    data: Object</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">// 子传父</span></span><br><span class="line"><span class="xml">// 父组件</span></span><br><span class="line">&lt;note-address @new="addNote"&gt;&lt;/note-address&gt; </span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">&lt;button type="small" class="confirm" @click="add"&gt;设为教案&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line"> add () &#123;</span><br><span class="line">  this.$emit('new', false)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 兄弟相传</span><br><span class="line">// 1.创建 公共bus.js</span><br><span class="line"></span><br><span class="line">//bus.js</span><br><span class="line">import Vue from 'vue'</span><br><span class="line">export default new Vue()</span><br><span class="line"></span><br><span class="line">// 2.父组件注册两个子组件</span><br><span class="line">components:&#123;</span><br><span class="line">    firstChild,</span><br><span class="line">    secondChild</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3.firstChild组件</span><br><span class="line"></span><br><span class="line">&lt;input type="button" value="点击触发" @click="elementByValue"&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 引入公共的bus，来做为中间传达的工具</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      methods: &#123;</span><br><span class="line">      elementByValue: function () &#123;</span><br><span class="line">        Bus.$emit('val', '兄弟，收到了吗？')</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// 4.secondChild组件</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      mounted()&#123;</span><br><span class="line">            let self = this;</span><br><span class="line">            Bus.$on('val', function (msg) &#123;</span><br><span class="line">                console.log(msg)</span><br><span class="line">                self.msg = msg</span><br><span class="line">            &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -1130,7 +1153,7 @@ width</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年01月20日 - 20:01</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1434,7 +1457,7 @@ width</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数表达式-IIFE"><span class="nav-number">1.</span> <span class="nav-text">立即执行函数表达式(IIFE)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用匿名函数表达式"><span class="nav-number">1.1.</span> <span class="nav-text">使用匿名函数表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当作函数调用并传递参数进去"><span class="nav-number">1.2.</span> <span class="nav-text">当作函数调用并传递参数进去</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决undefined标识符默认值被错误覆盖"><span class="nav-number">1.3.</span> <span class="nav-text">解决undefined标识符默认值被错误覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#倒置代码运行顺序"><span class="nav-number">1.4.</span> <span class="nav-text">倒置代码运行顺序</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数表达式-IIFE"><span class="nav-number">1.</span> <span class="nav-text">立即执行函数表达式(IIFE)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用匿名函数表达式"><span class="nav-number">1.1.</span> <span class="nav-text">使用匿名函数表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当作函数调用并传递参数进去"><span class="nav-number">1.2.</span> <span class="nav-text">当作函数调用并传递参数进去</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决undefined标识符默认值被错误覆盖"><span class="nav-number">1.3.</span> <span class="nav-text">解决undefined标识符默认值被错误覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#倒置代码运行顺序"><span class="nav-number">1.4.</span> <span class="nav-text">倒置代码运行顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react"><span class="nav-number"></span> <span class="nav-text">react</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue"><span class="nav-number"></span> <span class="nav-text">vue</span></a></div>
             
 
           </div>
@@ -1479,7 +1502,7 @@ width</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 90.4k字</span>
+    <span class="post-count">Blog总字数: 94.2k字</span>
   </div>
 </div>
 

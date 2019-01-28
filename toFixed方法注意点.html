@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="遇到的问题:js的浮点数运算不准确，(a + b).toFixed(2)能解决一部分问题，但并不完美。 123456780.1 + 0.2 //0.30000000000000004(0.1 + 0.2).toFixed(2) // 0.300.815 + 0.1 // 0.9149999999999999(0.815 + 0.1).toFixed(2) // 0.91，错误！期望0.92// t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.187Z">
+<meta property="og:updated_time" content="2019-01-20T08:33:41.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="toFixed方法注意点">
 <meta name="twitter:description" content="遇到的问题:js的浮点数运算不准确，(a + b).toFixed(2)能解决一部分问题，但并不完美。 123456780.1 + 0.2 //0.30000000000000004(0.1 + 0.2).toFixed(2) // 0.300.815 + 0.1 // 0.9149999999999999(0.815 + 0.1).toFixed(2) // 0.91，错误！期望0.92// t">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-01-20T16:33:41+08:00">
+    <div class="post-time-text">1月</div>
+    <div class="post-time-count">20</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">1月20</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -562,7 +562,7 @@ a:hover {
 
       
         <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题:"></a>遇到的问题:</h3><p>js的浮点数运算不准确，(a + b).toFixed(2)能解决一部分问题，但并不完美。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> <span class="comment">//0.30000000000000004</span></span><br><span class="line">(<span class="number">0.1</span> + <span class="number">0.2</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.30</span></span><br><span class="line"><span class="number">0.815</span> + <span class="number">0.1</span> <span class="comment">// 0.9149999999999999</span></span><br><span class="line">(<span class="number">0.815</span> + <span class="number">0.1</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.91，错误！期望0.92</span></span><br><span class="line"><span class="comment">// toFixed并不是我们通常理解的“四舍五入”，而是“四舍六入五留双”</span></span><br><span class="line"><span class="comment">// 简单来说就是：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。</span></span><br><span class="line">(<span class="number">0.225</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.23</span></span><br><span class="line">(<span class="number">0.235</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.23，错误！期望0.24</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> <span class="comment">//0.30000000000000004</span></span><br><span class="line">(<span class="number">0.1</span> + <span class="number">0.2</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.30</span></span><br><span class="line"><span class="number">0.815</span> + <span class="number">0.1</span> <span class="comment">// 0.9149999999999999</span></span><br><span class="line">(<span class="number">0.815</span> + <span class="number">0.1</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.91，错误！期望0.92</span></span><br><span class="line"><span class="comment">// toFixed并不是我们通常理解的“四舍五入”，而是“四舍六入五留双”</span></span><br><span class="line"><span class="comment">// 简单来说就是：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为奇应舍去，五前为偶要进一。</span></span><br><span class="line">(<span class="number">0.225</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.23</span></span><br><span class="line">(<span class="number">0.235</span>).toFixed(<span class="number">2</span>) <span class="comment">// 0.23，错误！期望0.24</span></span><br></pre></td></tr></table></figure>
 <hr>
 <a id="more"></a>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>网络上有很多种解决方案，可以修正toFixed方法，也可以重新定义四则运算。重新定义四则运算，最为规范，但使用麻烦，故我最终选择了修正toFixed。
@@ -598,7 +598,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/toFixed方法注意点.html">toFixed方法注意点</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年09月14日 - 20:09</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年01月20日 - 16:01</p>
   <p><span>原始链接:</span><a href="/toFixed方法注意点.html" title="toFixed方法注意点">http://mydearest.cn/toFixed方法注意点.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/toFixed方法注意点.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -673,8 +673,8 @@ a:hover {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/人一生必须去的3个地方.html" rel="next" title="人一生必须要去的3个地方">
-                <i class="fa fa-chevron-left"></i> 人一生必须要去的3个地方
+              <a href="/js判断浏览器类型和访问来源.html" rel="next" title="js判断浏览器类型和访问来源">
+                <i class="fa fa-chevron-left"></i> js判断浏览器类型和访问来源
               </a>
             
           </div>
@@ -683,8 +683,8 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/动手实现redux.html" rel="prev" title="动手实现redux">
-                动手实现redux <i class="fa fa-chevron-right"></i>
+              <a href="/人一生必须去的3个地方.html" rel="prev" title="人一生必须要去的3个地方">
+                人一生必须要去的3个地方 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -947,7 +947,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 90.4k字</span>
+    <span class="post-count">Blog总字数: 94.2k字</span>
   </div>
 </div>
 

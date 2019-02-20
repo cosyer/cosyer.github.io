@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="黑科技JS代码整理 是不是很void 666 一行代码实现评级1&quot;★★★★★☆☆☆☆☆&quot;.slice(5 - rate, 10 - rate);定义一个变量rate是1到5的值 SB、NB、Hello World12345(!(~+[])+&amp;#123;&amp;#125;)[--[~+&quot;&quot;][+[]]*[~+[]] + ~~!+[]]+(&amp;#123;&amp;#125;+[])[[~!+[]]*~+[]]([][">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.205Z">
+<meta property="og:updated_time" content="2019-02-06T02:33:35.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高逼格的JS代码">
 <meta name="twitter:description" content="黑科技JS代码整理 是不是很void 666 一行代码实现评级1&quot;★★★★★☆☆☆☆☆&quot;.slice(5 - rate, 10 - rate);定义一个变量rate是1到5的值 SB、NB、Hello World12345(!(~+[])+&amp;#123;&amp;#125;)[--[~+&quot;&quot;][+[]]*[~+[]] + ~~!+[]]+(&amp;#123;&amp;#125;+[])[[~!+[]]*~+[]]([][">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-02-06T10:33:35+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">06</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">2月06</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  695 (字)
+                  661 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  4 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -577,7 +577,6 @@ a:hover {
 <h3 id="交换两个数的值"><a href="#交换两个数的值" class="headerlink" title="交换两个数的值"></a>交换两个数的值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加减运算 缺点也很明显，整型数据溢出，对于32位字符最大表示数字是2147483647，如果是2147483645和2147483646交换就失败了。</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>,b=<span class="number">2</span>;</span><br><span class="line">a += b;</span><br><span class="line">b = a - b;</span><br><span class="line">a -= b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三个临时变量</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>,b=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> temp = a;</span><br><span class="line">a = b;</span><br><span class="line">b= temp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 位运算</span></span><br><span class="line"><span class="keyword">let</span> a=<span class="number">3</span>,b=<span class="number">4</span>;</span><br><span class="line">a^=b;</span><br><span class="line">b^=a;</span><br><span class="line">a^=b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[a, b] = [b, a];</span><br></pre></td></tr></table></figure>
 <h3 id="JSON数据的深拷贝"><a href="#JSON数据的深拷贝" class="headerlink" title="JSON数据的深拷贝"></a>JSON数据的深拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: &#123; <span class="attr">c</span>: <span class="number">1</span>, <span class="attr">d</span>: <span class="number">2</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b=<span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(a))</span><br><span class="line"><span class="comment">// Number parseInt parseFloat</span></span><br></pre></td></tr></table></figure>
 <h3 id="长度为6值为8的数组"><a href="#长度为6值为8的数组" class="headerlink" title="长度为6值为8的数组"></a>长度为6值为8的数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>(<span class="number">6</span>).fill(<span class="number">8</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="argument对象转换成数组对象"><a href="#argument对象转换成数组对象" class="headerlink" title="argument对象转换成数组对象"></a>argument对象转换成数组对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es5 </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(&#123;<span class="number">0</span>:<span class="number">1</span>,<span class="number">1</span>:<span class="number">3</span>,<span class="attr">length</span>:<span class="number">2</span>&#125;);</span><br><span class="line"><span class="comment">// es6</span></span><br><span class="line"><span class="built_in">Array</span>.from(&#123;<span class="number">0</span>:<span class="number">1</span>,<span class="number">1</span>:<span class="number">3</span>,<span class="attr">length</span>:<span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="脚本永不报错"><a href="#脚本永不报错" class="headerlink" title="脚本永不报错"></a>脚本永不报错</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">m, f, l</span>)</span>&#123; <span class="keyword">return</span> <span class="literal">true</span> &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -609,7 +608,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/高逼格的JS代码.html">高逼格的JS代码</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年10月30日 - 09:10</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年02月06日 - 10:02</p>
   <p><span>原始链接:</span><a href="/高逼格的JS代码.html" title="高逼格的JS代码">http://mydearest.cn/高逼格的JS代码.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/高逼格的JS代码.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -777,7 +776,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">81</span>
+                <span class="site-state-item-count">82</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -799,7 +798,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -913,7 +912,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一行代码实现评级"><span class="nav-number">1.</span> <span class="nav-text">一行代码实现评级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SB、NB、Hello-World"><span class="nav-number">2.</span> <span class="nav-text">SB、NB、Hello World</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理的正确方法"><span class="nav-number">3.</span> <span class="nav-text">错误处理的正确方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记区域的范围"><span class="nav-number">4.</span> <span class="nav-text">标记区域的范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取随机字符串"><span class="nav-number">5.</span> <span class="nav-text">获取随机字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这样的判断你能做对吗"><span class="nav-number">6.</span> <span class="nav-text">这样的判断你能做对吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数自执行方法"><span class="nav-number">7.</span> <span class="nav-text">匿名函数自执行方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#终于到-void-666"><span class="nav-number">8.</span> <span class="nav-text">终于到 void 666</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#金钱格式化"><span class="nav-number">9.</span> <span class="nav-text">金钱格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逗号运算符"><span class="nav-number">10.</span> <span class="nav-text">逗号运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换两个数的值"><span class="nav-number">11.</span> <span class="nav-text">交换两个数的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON数据的深拷贝"><span class="nav-number">12.</span> <span class="nav-text">JSON数据的深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长度为6值为8的数组"><span class="nav-number">13.</span> <span class="nav-text">长度为6值为8的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#argument对象转换成数组对象"><span class="nav-number">14.</span> <span class="nav-text">argument对象转换成数组对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本永不报错"><span class="nav-number">15.</span> <span class="nav-text">脚本永不报错</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一行代码实现评级"><span class="nav-number">1.</span> <span class="nav-text">一行代码实现评级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SB、NB、Hello-World"><span class="nav-number">2.</span> <span class="nav-text">SB、NB、Hello World</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理的正确方法"><span class="nav-number">3.</span> <span class="nav-text">错误处理的正确方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记区域的范围"><span class="nav-number">4.</span> <span class="nav-text">标记区域的范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取随机字符串"><span class="nav-number">5.</span> <span class="nav-text">获取随机字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这样的判断你能做对吗"><span class="nav-number">6.</span> <span class="nav-text">这样的判断你能做对吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数自执行方法"><span class="nav-number">7.</span> <span class="nav-text">匿名函数自执行方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#终于到-void-666"><span class="nav-number">8.</span> <span class="nav-text">终于到 void 666</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#金钱格式化"><span class="nav-number">9.</span> <span class="nav-text">金钱格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逗号运算符"><span class="nav-number">10.</span> <span class="nav-text">逗号运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换两个数的值"><span class="nav-number">11.</span> <span class="nav-text">交换两个数的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON数据的深拷贝"><span class="nav-number">12.</span> <span class="nav-text">JSON数据的深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长度为6值为8的数组"><span class="nav-number">13.</span> <span class="nav-text">长度为6值为8的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本永不报错"><span class="nav-number">14.</span> <span class="nav-text">脚本永不报错</span></a></li></ol></div>
             
 
           </div>
@@ -958,7 +957,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 94.2k字</span>
+    <span class="post-count">Blog总字数: 98.3k字</span>
   </div>
 </div>
 

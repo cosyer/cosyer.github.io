@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="函数柯里化定义函数柯里化（function currying）又称部分求值。一个currying的函数首先会接受一些参数，接受了这些参数后， 该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包里被保存起来。待到函数真正需要求值的时候，之前传入的参数都会被一次性用于求值。 把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.172Z">
+<meta property="og:updated_time" content="2019-01-30T15:56:05.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js函数柯里化">
 <meta name="twitter:description" content="函数柯里化定义函数柯里化（function currying）又称部分求值。一个currying的函数首先会接受一些参数，接受了这些参数后， 该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包里被保存起来。待到函数真正需要求值的时候，之前传入的参数都会被一次性用于求值。 把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-01-30T23:56:05+08:00">
+    <div class="post-time-text">1月</div>
+    <div class="post-time-count">30</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">1月30</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  902 (字)
+                  1,000 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  4 (分钟)
+                  5 (分钟)
                 </span>
               
             </div>
@@ -575,6 +575,7 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里需要传入长度</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn, length, ary</span>) </span>&#123;</span><br><span class="line">    length = length || fn.length;</span><br><span class="line">    ary = ary || [];<span class="comment">//记录所有传入的参数</span></span><br><span class="line">    <span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length &lt; length) &#123;</span><br><span class="line">            <span class="built_in">Array</span>.prototype.push.apply(ary, slice.call(<span class="built_in">arguments</span>));<span class="comment">//每次把参数合并到ary数组中</span></span><br><span class="line">            <span class="keyword">return</span> curry(fn, length - <span class="built_in">arguments</span>.length, ary)<span class="comment">//把还需传参的长度和已有参数数组传入curry，递归调用</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, ary.concat(slice.call(<span class="built_in">arguments</span>))); <span class="comment">//调用求职函数，记得把此次传入的参数合并到ary数组再计算</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> total = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> total = <span class="number">0</span>;</span><br><span class="line">        [].slice.call(<span class="built_in">arguments</span>).forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            total += item;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> total;</span><br><span class="line">    &#125;;</span><br><span class="line"> <span class="keyword">let</span> fn = curry(total, <span class="number">4</span>);</span><br><span class="line"> fn(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>);<span class="comment">//10</span></span><br><span class="line"> fn(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>);<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里是无参数时开始计算所有的cost</span></span><br><span class="line"><span class="keyword">var</span> currying = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> args = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, args);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            [].push.apply(args, <span class="built_in">arguments</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">arguments</span>.callee;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> cost = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> money = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, l = <span class="built_in">arguments</span>.length; i &lt; l; i++)&#123;</span><br><span class="line">            money += <span class="built_in">arguments</span>[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> money;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cost = currying(cost);<span class="comment">//转化为currying函数</span></span><br><span class="line"></span><br><span class="line">cost(<span class="number">100</span>);<span class="comment">//未真正求值</span></span><br><span class="line">cost(<span class="number">200</span>);<span class="comment">//未真正求值</span></span><br><span class="line">cost(<span class="number">300</span>);<span class="comment">//未真正求值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cost());<span class="comment">//求值并输出：600</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 和toString().valueOf()时计算和是一样的道理</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _add = <span class="function"><span class="keyword">function</span>(<span class="params">args</span>)</span>&#123;</span><br><span class="line">        num+=args;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">arguments</span>.callee;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// (function foo(args)&#123;num+=args return foo;&#125;)</span></span><br><span class="line">    <span class="keyword">var</span> _add =(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">args</span>)</span>&#123;num+=args; <span class="keyword">return</span> foo;&#125;)</span><br><span class="line">    _add.toString = _add.valueOf = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _add;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="为了减少函数传参，同时将一些固定参数私有化"><a href="#为了减少函数传参，同时将一些固定参数私有化" class="headerlink" title="为了减少函数传参，同时将一些固定参数私有化"></a>为了减少函数传参，同时将一些固定参数私有化</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> l = func.length;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">curried</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">if</span> (args.length &lt; <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> argtsInner = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> curried.apply(<span class="keyword">this</span>, arrs.concat(argtsInner))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">console</span>.log([a, b, c])</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> curried = curry(f);</span><br><span class="line">curried(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="函数柯里化的优点"><a href="#函数柯里化的优点" class="headerlink" title="函数柯里化的优点"></a>函数柯里化的优点</h3><ol>
 <li><p>延迟计算 
 可以传递需要的参数，等到何时想要结果，再一并计算。</p>
@@ -614,7 +615,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/js函数柯里化.html">js函数柯里化</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年11月22日 - 09:11</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年01月30日 - 23:01</p>
   <p><span>原始链接:</span><a href="/js函数柯里化.html" title="js函数柯里化">http://mydearest.cn/js函数柯里化.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/js函数柯里化.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -782,7 +783,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">81</span>
+                <span class="site-state-item-count">82</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -804,7 +805,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -918,7 +919,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化定义"><span class="nav-number">1.</span> <span class="nav-text">函数柯里化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化实践"><span class="nav-number">2.</span> <span class="nav-text">函数柯里化实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化的优点"><span class="nav-number">3.</span> <span class="nav-text">函数柯里化的优点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化定义"><span class="nav-number">1.</span> <span class="nav-text">函数柯里化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化实践"><span class="nav-number">2.</span> <span class="nav-text">函数柯里化实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为了减少函数传参，同时将一些固定参数私有化"><span class="nav-number">3.</span> <span class="nav-text">为了减少函数传参，同时将一些固定参数私有化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化的优点"><span class="nav-number">4.</span> <span class="nav-text">函数柯里化的优点</span></a></li></ol></div>
             
 
           </div>
@@ -963,7 +964,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 94.2k字</span>
+    <span class="post-count">Blog总字数: 98.3k字</span>
   </div>
 </div>
 

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-06T03:52:41.920Z">
+<meta property="og:updated_time" content="2019-02-25T13:13:04.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-02-06T11:52:41+08:00">
+  <div class="post-date" data-datetime="2019-02-25T21:13:04+08:00">
     <div class="post-time-text">2月</div>
-    <div class="post-time-count">06</div>
+    <div class="post-time-count">25</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月06</div>
+      <div class="post-tiem">2月25</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  9,914 (字)
+                  10,016 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  39 (分钟)
+                  40 (分钟)
                 </span>
               
             </div>
@@ -802,8 +802,9 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 </li>
 <li><p>少用location.reload()：使用location.reload() 会刷新页面，刷新页面时页面所有资源 (css，js，img等) 会重新请求服务器。建议使用location.href=”当前页url” 代替location.reload() ，使用location.href 浏览器会读取本地缓存资源。</p>
 </li>
+<li><p>图片懒加载 </p>
+</li>
 </ul>
-<p>-图片懒加载 </p>
 <ol>
 <li>commonjs?requirejs?AMD|CMD|UMD?</li>
 </ol>
@@ -1007,6 +1008,11 @@ IE只支持事件冒泡。</p>
 </li>
 </ol>
 <p>以上，除了Object.prototype.toString外，其它方法都不能正确判断变量的类型。</p>
+<ul>
+<li>由于每个iframe都有一套自己的执行环境，跨frame实例化的对象彼此是不共享原型链的，因此导致检测代码失效。</li>
+<li>最佳写法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [&#123; <span class="attr">abac</span> : <span class="number">1</span>, <span class="attr">abc</span> : <span class="number">2</span> &#125;];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArrayFn</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Array</span>.isArray === <span class="string">"function"</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">Array</span>.isArray(value);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">"[object Array]"</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isArrayFn(arr));<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isArrayFn(arr2));<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <ol>
 <li>优化</li>
 </ol>
@@ -1153,7 +1159,7 @@ width</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年02月06日 - 11:02</p>
+  <p><span>最后更新:</span>2019年02月25日 - 21:02</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1502,7 +1508,7 @@ width</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 98.3k字</span>
+    <span class="post-count">Blog总字数: 98.6k字</span>
   </div>
 </div>
 

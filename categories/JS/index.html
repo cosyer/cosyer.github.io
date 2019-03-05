@@ -420,12 +420,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-02-17T23:21:20+08:00">
+  <div class="post-date" data-datetime="2019-02-25T22:05:10+08:00">
     <div class="post-time-text">2月</div>
-    <div class="post-time-count">17</div>
+    <div class="post-time-count">25</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月17</div>
+      <div class="post-tiem">2月25</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -532,7 +532,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,201 (字)
+                  1,198 (字)
                 </span>
               
 
@@ -570,45 +570,20 @@ a:hover {
 
       
         
-          
-            <blockquote>
-<h2 id="什么是Ref"><a href="#什么是Ref" class="headerlink" title="什么是Ref"></a>什么是Ref</h2><p>React的官方介绍是这样的：</p>
-<blockquote>
+          <h2 id="什么是Ref"><a href="#什么是Ref" class="headerlink" title="什么是Ref"></a>什么是Ref</h2><p>React的官方介绍是这样的：</p>
 <p>In the typical React dataflow, props are the only way that parent components interact with their children. To modify a child, you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow. The child to be modified could be an instance of a React component, or it could be a DOM element. For both of these cases, React provides an escape hatch.</p>
-</blockquote>
 <p>其中提到了这几个概念：</p>
 <p>在典型的React数据流理念中，父组件跟子组件的交互都是通过传递属性(properties)实现的。如果父组件需要修改子组件，只需要将新的属性传递给子组件，由子组件来实现具体的绘制逻辑。</p>
 <p>在特殊的情况下，如果你需要命令式(imperatively)的修改子组件，React也提供了应急的处理办法–Ref。</p>
 <p>Ref 既支持修改DOM元素，也支持修改自定义的组件。</p>
-<h2 id="什么是声明式编程-Declarative-Programming"><a href="#什么是声明式编程-Declarative-Programming" class="headerlink" title="什么是声明式编程(Declarative Programming)"></a>什么是声明式编程(Declarative Programming)</h2><p>值得一提的是当中声明式编程(Declarative Programming)和命令式编程(Imperative Programming)的区别。声明式编程的特点是只描述要实现的结果，而不关心如何一步一步实现的，而命令式编程则相反，必须每个步骤都写清楚。我们可以根据语义直观的理解代码的功能是：针对数组的每一个元素，将它的值打印出来。不必关心实现其的细节。而命令式编程必须将每行代码读懂，然后再整合起来理解总体实现的功能。</p>
-<p>React有2个基石设计理念：一个是声明式编程，一个是函数式编程。函数式编程以后有机会再展开讲。声明式编程的特点体现在2方面：</p>
-<p>组件定义的时候，所有的实现逻辑都封装在组件的内部，通过state管理，对外只暴露属性。</p>
-<p>组件使用的时候，组件调用者通过传入不同属性的值来达到展现不同内容的效果。一切效果都是事先定义好的，至于效果是怎么实现的，组件调用者不需要关心。</p>
-<p>因此，在使用React的时候，一般很少需要用到Ref。那么，Ref的使用场景又是什么？</p>
-<h2 id="Ref使用场景"><a href="#Ref使用场景" class="headerlink" title="Ref使用场景"></a>Ref使用场景</h2><p>React官方文档是这么说的：</p>
-<blockquote>
-<p>There are a few good use cases for refs: Managing focus, text selection, or media playback.Triggering imperative animations.Integrating with third-party DOM libraries. Avoid using refs for anything that can be done declaratively.</p>
-</blockquote>
-<p>简单理解就是，控制一些DOM原生的效果，如输入框的聚焦效果和选中效果等；触发一些命令式的动画；集成第三方的DOM库。最后还补了一句：如果要实现的功能可以通过声明式的方式实现，就不要借助Ref。</p>
-<p>通常我们会利用 render 方法得到一个 App 组件的实例，然后就可以对它做一些操作。但在组件内，JSX 是不会返回一个组件的实例的，它只是一个ReactElement，只是告诉你，React被挂载的组件应该什么样：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> myApp = &lt;App /&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>refs就是由此而生，它是React组件中非常特殊的props， 可以附加到任何一个组件上，从字面意思上看，refs即reference，组件被调用时会创建一个该组件的实例，而refd就会指向这个实例。</p>
-<h2 id="Ref用法"><a href="#Ref用法" class="headerlink" title="Ref用法"></a>Ref用法</h2><p>如果作用在原生的DOM元素上，通过Ref获取的是DOM元素，可以直接操作DOM的API：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">CustomTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;  </span><br><span class="line">&gt;     <span class="keyword">constructor</span>(props) &#123;    </span><br><span class="line">&gt;         <span class="keyword">super</span>(props);        </span><br><span class="line">&gt;         <span class="keyword">this</span>.focusTextInput = <span class="keyword">this</span>.focusTextInput.bind(<span class="keyword">this</span>);  </span><br><span class="line">&gt;     &#125; </span><br><span class="line">&gt;     focusTextInput() &#123;    </span><br><span class="line">&gt;         <span class="keyword">if</span>(<span class="keyword">this</span>.myTextInput !== <span class="literal">null</span>) &#123;         </span><br><span class="line">&gt;             <span class="keyword">this</span>.textInput.current.focus();    </span><br><span class="line">&gt;         &#125;  </span><br><span class="line">&gt;     &#125;  </span><br><span class="line">&gt;     render() &#123;    </span><br><span class="line">&gt;         <span class="keyword">return</span> (      </span><br><span class="line">&gt;             &lt;div&gt;        </span><br><span class="line">&gt;                 &lt;input type="text" ref=&#123;(ref) =&gt; this.myTextInput = ref&#125; /&gt;        </span><br><span class="line">&gt;                 &lt;input type="button" value="Focus the text input" onClick=&#123;this.focusTextInput&#125;/&gt;      </span><br><span class="line">&gt;             &lt;/div&gt;    </span><br><span class="line">&gt; </span><br><span class="line">&gt;         );  </span><br><span class="line">&gt;     &#125; </span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>如果作用在自定义组件，Ref获取的是组件的实例，可以直接操作组件内的任意方法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">AutoFocusTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;  </span><br><span class="line">&gt;     <span class="keyword">constructor</span>(props) &#123;    </span><br><span class="line">&gt;         <span class="keyword">super</span>(props);    </span><br><span class="line">&gt;         <span class="keyword">this</span>.textInput = React.createRef();  </span><br><span class="line">&gt;     &#125;  </span><br><span class="line">&gt;     componentDidMount() &#123;    </span><br><span class="line">&gt;         <span class="keyword">this</span>.textInput.current.focusTextInput();  </span><br><span class="line">&gt;     &#125;  </span><br><span class="line">&gt;     render() &#123;    </span><br><span class="line">&gt;         <span class="keyword">return</span> (      </span><br><span class="line">&gt;             &lt;CustomTextInput ref=&#123;this.textInput&#125; /&gt;    </span><br><span class="line">&gt;         );  </span><br><span class="line">&gt;     &#125; </span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<h2 id="Ref总结"><a href="#Ref总结" class="headerlink" title="Ref总结"></a>Ref总结</h2><p>为了防止内存泄漏，当卸载一个组件时，组件里所有的refs就会变成null。</p>
-<p>值得注意的是，<code>findDOMNode</code> 和 <code>refs</code> 都无法用于无状态组件中。因为，无状态组件挂载时只是方法调用，并没有创建实例。</p>
-<p>对于 React 组件来讲，refs 会指向一个组件类实例，所以可以调用该类定义的任何方法。如果需要访问该组件的真实 DOM ，可以用 ReactDOM 。 findDOMNode来找到 DOM 节点，但并不推荐这样做，因为这大部分情况下都打破了封装性，而且通常都能用更清晰的方法在React中构建代码。</p>
-</blockquote>
-
-          
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/React Refs和DOM揭密.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1351,12 +1326,12 @@ cnpm install </p>
   
   
   
-  <div class="post-date" data-datetime="2019-01-21T00:40:18+08:00">
-    <div class="post-time-text">1月</div>
-    <div class="post-time-count">21</div>
+  <div class="post-date" data-datetime="2019-02-20T23:59:16+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">20</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">1月21</div>
+      <div class="post-tiem">2月20</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -2906,7 +2881,7 @@ ng2-admin
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 98.3k字</span>
+    <span class="post-count">Blog总字数: 98.6k字</span>
   </div>
 </div>
 

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="熟悉前端的不会对console和alert陌生，两者在调试的时候可谓是法宝级别的工具，但是关于console，其实远远不止于console.log这一个简单的命令，它能做的事情有很多，那么让我们来一起了解一下，它有哪些冷门功能吧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.141Z">
+<meta property="og:updated_time" content="2019-02-20T13:39:32.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="console控制台优化">
 <meta name="twitter:description" content="熟悉前端的不会对console和alert陌生，两者在调试的时候可谓是法宝级别的工具，但是关于console，其实远远不止于console.log这一个简单的命令，它能做的事情有很多，那么让我们来一起了解一下，它有哪些冷门功能吧。">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-02-20T21:39:32+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">20</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">2月20</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  489 (字)
+                  494 (字)
                 </span>
               
 
@@ -564,7 +564,7 @@ a:hover {
         <p>熟悉前端的不会对console和alert陌生，两者在调试的时候可谓是法宝级别的工具，但是关于console，其实远远不止于console.log这一个简单的命令，它能做的事情有很多，那么让我们来一起了解一下，它有哪些冷门功能吧。</p>
 <hr>
 <a id="more"></a>
-<h3 id="显示信息的命令"><a href="#显示信息的命令" class="headerlink" title="显示信息的命令"></a>显示信息的命令</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">'信息'</span>);</span><br><span class="line"><span class="built_in">console</span>.error(<span class="string">'错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'警告'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="显示信息的命令"><a href="#显示信息的命令" class="headerlink" title="显示信息的命令"></a>显示信息的命令</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">'信息'</span>);</span><br><span class="line"><span class="built_in">console</span>.debug(<span class="string">'调试'</span>);</span><br><span class="line"><span class="built_in">console</span>.error(<span class="string">'错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'警告'</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><p>​ console上述的集中度支持printf的占位符格式，支持的占位符有：字符（%s）、整数（%d或%i）、浮点数（%f）和对象（%o）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"%d年%d月%d日"</span>,<span class="number">2016</span>,<span class="number">11</span>,<span class="number">11</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="信息分组"><a href="#信息分组" class="headerlink" title="信息分组"></a>信息分组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.group(<span class="string">"第一组信息"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第一组第一条:何问起(http://hovertree.com)"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第一组第二条:柯乐义(http://keleyi.com)"</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br><span class="line"><span class="built_in">console</span>.group(<span class="string">"第二组信息"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第二组第一条:HoverClock 一个jQuery时钟插件"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"第二组第二条:欢迎使用"</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br></pre></td></tr></table></figure>
@@ -605,7 +605,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/console命令详解.html">console控制台优化</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年08月30日 - 17:08</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年02月20日 - 21:02</p>
   <p><span>原始链接:</span><a href="/console命令详解.html" title="console控制台优化">http://mydearest.cn/console命令详解.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/console命令详解.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -954,7 +954,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 98.3k字</span>
+    <span class="post-count">Blog总字数: 98.6k字</span>
   </div>
 </div>
 

@@ -420,6 +420,322 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2019-03-05T23:04:09+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">05</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">3月05</div>
+      <div class="post-year">2019</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/深入理解JS的类型、值和类型转换.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/深入理解JS的类型、值和类型转换.html" itemprop="url">深入理解JS的类型、值和类型转换</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-03-05T22:44:52+08:00">
+                2019-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/深入理解JS的类型、值和类型转换.html" class="leancloud_visitors" data-flag-title="深入理解JS的类型、值和类型转换">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,508 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  10 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、七种内置类型和常见引用类型"><a href="#一、七种内置类型和常见引用类型" class="headerlink" title="一、七种内置类型和常见引用类型"></a>一、七种内置类型和常见引用类型</h2><p><img src="https://user-images.githubusercontent.com/25027560/37508449-123fc606-292e-11e8-9cf8-9667338b9ac4.png" alt="精简"></p>
+<p><img src="https://user-images.githubusercontent.com/25027560/37508456-1c2c0648-292e-11e8-94d7-541f20942869.png" alt="复杂"></p>
+<h2 id="二、特殊的null"><a href="#二、特殊的null" class="headerlink" title="二、特殊的null"></a>二、特殊的<code>null</code></h2><p>用<code>typeof</code>来检查上述七种类型时，返回的是对应的类型字符串值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">'ogject'</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><code>null</code>是唯一一个用<code>typeof</code>检测会返回<code>object</code>的<strong>基本类型值</strong>（注意‘基本’两字）</p>
+<p>不同的对象在底层都表示为二进制
+在JavaScript中二进制前三位为0的话都会被判断为object类型
+null的二进制表示全是0，自然前三位也是0
+所以 typeof null === “object”</p>
+<h2 id="三、引用类型的子类型：typeof-引用类型-what"><a href="#三、引用类型的子类型：typeof-引用类型-what" class="headerlink" title="三、引用类型的子类型：typeof [引用类型] === what ?"></a>三、引用类型的子类型：typeof [引用类型] === what ?</h2><p>上面的图中虽然列出了七种引用类型，但是
+<code>typeof ‘引用类型’ === ‘object’</code>一定成立吗？</p>
+<p>不，还有一种情况：<code>typeof ‘某些引用类型’ === ‘function’</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="built_in">Function</span>; <span class="comment">// 'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Function</span>(); <span class="comment">// 'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;; <span class="comment">// 'function'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Array</span>; <span class="comment">// 'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Array</span>(); <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// 'object'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>; <span class="comment">// "function"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>(); <span class="comment">// "boolean"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>; <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>(); <span class="comment">// Math is not a function</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Math</span>(); <span class="comment">// Math is not a constructor</span></span><br></pre></td></tr></table></figure>
+<h3 id="1、引用类型中的函数"><a href="#1、引用类型中的函数" class="headerlink" title="1、引用类型中的函数"></a>1、引用类型中的函数</h3><p>先看前三句，原来typeof除了能判断<code>基本类型</code>和<code>object</code>之外，还能判断<code>function</code>类型，函数也属于对象</p>
+<h3 id="2、引用类型的子类型"><a href="#2、引用类型的子类型" class="headerlink" title="2、引用类型的子类型"></a>2、引用类型的子类型</h3><p>拿<code>Array</code>举例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="built_in">Array</span>; <span class="comment">// 'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Array</span>(); <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// 'object'</span></span><br></pre></td></tr></table></figure>
+<p><code>Array</code>是个构造函数，所以直接打印出function
+但构造出来的<code>Array()</code>却又是另一回事了，构造出来的结果是个数组，自然属于引用类型，所以也就打印出了<code>‘object’</code></p>
+<p>构造函数 Array(..) 不要求必须带 new 关键字。不带时，它会被自动补上。 因此 Array(1,2,3) 和 new Array(1,2,3) 的效果是一样的</p>
+<h3 id="3、引用类型中的基本包装类型"><a href="#3、引用类型中的基本包装类型" class="headerlink" title="3、引用类型中的基本包装类型"></a>3、引用类型中的基本包装类型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>; <span class="comment">// "function"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>(); <span class="comment">// "boolean"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(); <span class="comment">// "object"</span></span><br></pre></td></tr></table></figure>
+<p><code>Boolean</code>是个构造函数，第一句没问题
+<code>Boolean()</code>直接执行，得出了布尔值，所以得到了<code>‘boolean’</code></p>
+<p>而new出来的是个Boolean对象，具体来说就是：<code>通过构造函数创建出来的是封装了基本类型值的封装对象</code></p>
+<p>这里用<code>String</code>来举个例子吧，看到了吗，一个封装对象
+<img src="https://user-images.githubusercontent.com/25027560/37508489-350e6e80-292e-11e8-81f2-3124d28d219e.png" alt="封装对象"></p>
+<p>但是，不推荐使用这种封装对象，举个例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (!a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Oops'</span>); <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>a是个对象，对象永远是真。</p>
+<h3 id="4、Math到底是什么？"><a href="#4、Math到底是什么？" class="headerlink" title="4、Math到底是什么？"></a>4、Math到底是什么？</h3><p>Math和Global（浏览器中替代为window）都是内置的对象，并不是引用类型的一种</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>; <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>(); <span class="comment">// Math is not a function</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Math</span>(); <span class="comment">// Math is not a constructor</span></span><br></pre></td></tr></table></figure>
+<p>既不是函数，也不是构造器。</p>
+<h2 id="四、typeof的安全防范机制"><a href="#四、typeof的安全防范机制" class="headerlink" title="四、typeof的安全防范机制"></a>四、typeof的安全防范机制</h2><p>首先，我们需要知道<code>underfined</code>和<code>undeclared</code>的区别
+未定义与未声明</p>
+<p>但是，对于typeof来说，这两者都一样，返回的都是underfined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">typeof</span> a; <span class="comment">// 'underfined'</span></span><br><span class="line"><span class="keyword">typeof</span> b; <span class="comment">// 'underfined'</span></span><br></pre></td></tr></table></figure>
+<p>很明显，我们知道b就是undeclared（未声明的），但在typeof看来都是一样</p>
+<p>这个特性，可以拿来做些什么呢？</p>
+<p>举个简单的例子，在程序中使用全局变量 DEBUG 作为“调试模式”的开关。在输出调试信 息到控制台之前，我们会检查 DEBUG 变量是否已被声明。顶层的全局变量声明 var DEBUG = true 只在 debug.js 文件中才有，而该文件只在开发和测试时才被加载到浏览器，在生产环 境中不予加载。</p>
+<p>问题是如何在程序中检查全局变量 DEBUG 才不会出现 ReferenceError 错误。这时 typeof 的 安全防范机制就成了我们的好帮手:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这样会抛出错误</span></span><br><span class="line"><span class="keyword">if</span> (DEBUG) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Debugging is starting'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这样是安全的</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> DEBUG !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Debugging is starting'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这不仅对用户定义的变量(比如 DEBUG)有用，对内建的 API 也有帮助:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> atob === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">         atob = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">/*..*/</span> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、值"><a href="#五、值" class="headerlink" title="五、值"></a>五、值</h2><p>这一part引用自<a href="https://yangbo5207.github.io/wutongluo/ji-chu-jin-jie-xi-lie/yi-3001-nei-cun-kong-jian-xiang-jie.html" target="_blank" rel="noopener">一、内存空间详解 · Sample GitBook</a></p>
+<p>JS的执行上下文生成之后，会创建一个叫做变量对象的特殊对象（关于变量对象在我的其他文章中有讲到），JS的基础类型都保存在变量对象中</p>
+<p>严格意义上来说，变量对象也是存放于堆内存中，但是由于变量对象的特殊职能，我们在理解时仍然需要将其于堆内存区分开来。</p>
+<p>但引用数据类型的值是保存在堆内存中的对象。JavaScript不允许直接访问堆内存中的位置，因此我们不能直接操作对象的堆内存空间。
+在操作对象时，实际上是在操作对象的引用而不是实际的对象。因此，引用类型的值都是按引用访问的。
+这里的引用，我们可以理解为保存在变量对象中的一个地址，该地址与堆内存的实际值相关联。</p>
+<p><img src="https://user-images.githubusercontent.com/25027560/37508497-409cd7fa-292e-11e8-8bc4-a62effd0f3c8.png" alt="3719a7f3-3915-4719-93d8-7629fa5b47bb"></p>
+<h2 id="六、强制类型转换"><a href="#六、强制类型转换" class="headerlink" title="六、强制类型转换"></a>六、强制类型转换</h2><p>《you don’t know JS》中 第一部分第4章</p>
+<p>类型转换发生在静态类型语言的编译阶段，而强制类型转换则发生在动态类型语言的运行时(runtime)。</p>
+<p>然而在 JavaScript 中通常将它们统称为强制类型转换，我个人则倾向于用“隐式强制类型转换”(implicit coercion)和“显式强制类型转换”(explicit coercion)来区分。</p>
+<h3 id="1、抽象值操作"><a href="#1、抽象值操作" class="headerlink" title="1、抽象值操作"></a>1、抽象值操作</h3><p>介绍显式和隐式强制类型转换之前，我们需要先掌握字符串、数字和布尔值之间类型转换的基本规则</p>
+<p>1️⃣<strong>ToString</strong>
+toString() 可以被显式调用，或者在需要字符串化时自动调用</p>
+<p>null 转换为 “null”，undefined 转换为 “undefined”，true 转换为 “true”。
+数字的字符串化则遵循通用规则
+极小和极大的 数字使用指数形式:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.07 连续乘以七个 1000</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1.07</span> * <span class="number">1000</span> * <span class="number">1000</span> * <span class="number">1000</span> * <span class="number">1000</span> * <span class="number">1000</span> * <span class="number">1000</span> * <span class="number">1000</span>;</span><br><span class="line"><span class="comment">// 七个1000一共21位数字 </span></span><br><span class="line">a.toString(); <span class="comment">// "1.07e21"</span></span><br></pre></td></tr></table></figure>
+<p>数组的默认 toString() 方法经过了重新定义，将所有单元字符串化以后再用 “,” 连接起 来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"> a.toString(); <span class="comment">// "1,2,3"</span></span><br></pre></td></tr></table></figure>
+<p>2️⃣ <strong>ToNumber</strong>
+其中 true 转换为 1，false 转换为 0。undefined 转换为 NaN，null 转换为 0。
+处理失败 时返回 NaN(处理数字常量失败时会产生语法错误)</p>
+<p>3️⃣ <strong>ToBoolean</strong>
+先看什么是假值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">• undefined</span><br><span class="line">• null</span><br><span class="line">• false</span><br><span class="line">• +0、-0 和 NaN</span><br><span class="line">• &quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>假值的布尔强制类型转换结果为 false。
+从逻辑上说，假值列表以外的都应该是真值(truth)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d1 = <span class="built_in">Boolean</span>( a &amp;&amp; b &amp;&amp; c );</span><br><span class="line"><span class="keyword">var</span> d2 = a &amp;&amp; b &amp;&amp; c;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/25027560/37508500-49f02fd2-292e-11e8-929b-168ea4309baf.png" alt="63754230-e3da-4363-a04d-cccca7030a15"></p>
+<p>如果假值对象并非封装了假值的对象，那它究竟是什么?
+值得注意的是，虽然 JavaScript 代码中会出现假值对象，但它实际上并不属于 JavaScript 语言的范畴。
+浏览器在某些特定情况下，在常规 JavaScript 语法基础上自己创建了一些外来(exotic) 值，这些就是“假值对象”。
+假值对象看起来和普通对象并无二致(都有属性，等等)，但将它们强制类型转换为布尔 值时结果为 false。</p>
+<p><strong>真值就是假值列表之外的值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'false'</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'0'</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="string">"''"</span>;</span><br><span class="line"><span class="keyword">var</span> d1 = <span class="built_in">Boolean</span>(a &amp;&amp; b &amp;&amp; c);</span><br><span class="line"><span class="keyword">var</span> d2 = a &amp;&amp; b &amp;&amp; c</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/25027560/37508506-4e686bd8-292e-11e8-881b-81d56ac71281.png" alt="985c49a4-061f-42fe-978c-83f7724d8867"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"0"</span>;</span><br><span class="line"><span class="keyword">var</span> b = [];</span><br><span class="line"><span class="keyword">var</span> c = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> d = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">var</span> e = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> f = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> g;</span><br><span class="line"><span class="built_in">Boolean</span>( a ); <span class="comment">// true  特别注意这个，字符串0和空字符串不一样</span></span><br><span class="line"><span class="built_in">Boolean</span>( b ); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>( c ); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>( d ); <span class="comment">// false  和第一个比，空字符串是false</span></span><br><span class="line"><span class="built_in">Boolean</span>( e ); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>( f ); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>( g ); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、显式类型转换"><a href="#2、显式类型转换" class="headerlink" title="2、显式类型转换"></a>2、显式类型转换</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串转换</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">String</span>(a);</span><br><span class="line"><span class="comment">// 数字转换</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="string">'3.14'</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="built_in">Number</span>(c);</span><br><span class="line"><span class="comment">// 布尔值转换</span></span><br><span class="line"><span class="keyword">var</span> e = [];</span><br><span class="line"><span class="keyword">var</span> f = <span class="built_in">Boolean</span>(e)</span><br></pre></td></tr></table></figure>
+<h3 id="3、隐式强制类型转换"><a href="#3、隐式强制类型转换" class="headerlink" title="3、隐式强制类型转换"></a>3、隐式强制类型转换</h3><p>1️⃣字符串和数字之间的隐式转换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'42'</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'0'</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="number">0</span>;</span><br><span class="line">a + b; <span class="comment">// "420" 这个地方，注意一下</span></span><br><span class="line">c + d; <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log([] + &#123;&#125;); <span class="comment">// [object object]</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; + []); <span class="comment">// ?这会是多少呢？</span></span><br></pre></td></tr></table></figure>
+<p>《you don’t know JS 》中5.1.3章节是这样说的</p>
+<p>还有一个坑常被提到(涉及强制类型转换，参见第 4 章)
+[] + {}; // “[object Object]”
+{} + []; // 0
+表面上看 + 运算符根据第一个操作数([] 或 {})的不同会产生不同的结果，实则不然。 第一行代码中，{} 出现在 + 运算符表达式中，因此它被当作一个值(空对象)来处理。第
+4 章讲过 [] 会被强制类型转换为 “”，而 {} 会被强制类型转换为 “[object Object]”。
+但在第二行代码中，{} 被当作一个独立的空代码块(不执行任何操作)。代码块结尾不需 要分号，所以这里不存在语法上的问题。最后 + [] 将 [] 显式强制类型转换(参见第 4 章) 为 0。</p>
+<p>但目前的chrome浏览器控制台是这样的
+<img src="https://user-images.githubusercontent.com/25027560/37508514-5698c8fc-292e-11e8-9220-52136c53d5c4.png" alt="034d7fa4-b144-4028-a346-0a52a3ab7faa"></p>
+<p>{} 其实应该当成一个代码块，而不是一个 Object，当你在console.log使用的时候，{} 被当成了一个 Object
+<img src="https://user-images.githubusercontent.com/25027560/37509112-ef5b653e-2930-11e8-8456-824fd66271da.png" alt="8c597cc9-d2e2-4a51-ad8c-dd1a25ac27db"></p>
+<p>2️⃣ 隐式强制类型转换为布尔值
+下面的情况会发生 布尔值隐式强制类型转换。</p>
+<ul>
+<li>(1)if (..)语句中的条件判断表达式。</li>
+<li>(2)for ( .. ; .. ; .. )语句中的条件判断表达式(第二个)。</li>
+<li>(3) while (..) 和 do..while(..) 循环中的条件判断表达式。</li>
+<li>(4)? :中的条件判断表达式。</li>
+<li>(5) 逻辑运算符 ||(逻辑或)和 &amp;&amp;(逻辑与)左边的操作数(作为条件判断表达式)。</li>
+</ul>
+<p>3️⃣ || 与 &amp;&amp;
+就一句话，理解了就万岁，称之为“操作数选择器”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a || b;</span><br><span class="line"><span class="comment">// 大致相当于(roughly equivalent to): a ? a : b;</span></span><br><span class="line">a &amp;&amp; b;</span><br><span class="line"><span class="comment">// 大致相当于(roughly equivalent to): a ? b : a;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、-与"><a href="#4、-与" class="headerlink" title="4、== 与 ==="></a>4、== 与 ===</h3><ul>
+<li>常见的误区是“== 检查值是否相等，=== 检查值和类型是否相等”</li>
+<li>正确的解释是:“== 允许在相等比较中进行强制类型转换，而 === 不允许。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2019-02-25T22:05:10+08:00">
     <div class="post-time-text">2月</div>
     <div class="post-time-count">25</div>
@@ -2434,226 +2750,6 @@ ng2-admin
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/动手实现redux.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/动手实现redux.html" itemprop="url">动手实现redux</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-03T19:24:18+08:00">
-                2018-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/动手实现redux.html" class="leancloud_visitors" data-flag-title="动手实现redux">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  395 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  2 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>概念：</p>
-<ul>
-<li>一个app有一个store，一个store管理着一个全局state</li>
-<li>createStore 传入reducer，返回getState, dispatch, subscribe</li>
-<li>action是一个至少有type这个键的对象，可以写一个creactActioner 函数去return生成action对象</li>
-<li>createStore.dispatch(action) 根据action这个对象去更新state</li>
-<li>dispatch是一个函数，内部有将执行reducer函数</li>
-<li>reducer也是一个函数，传入state,action, 输出一个新的state . (switch case return…)</li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/动手实现redux.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2667,7 +2763,7 @@ ng2-admin
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/JS/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/categories/JS/page/4/">4</a><a class="extend next" rel="next" href="/categories/JS/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/categories/JS/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/categories/JS/page/5/">5</a><a class="extend next" rel="next" href="/categories/JS/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2716,7 +2812,7 @@ ng2-admin
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2738,7 +2834,7 @@ ng2-admin
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2881,7 +2977,7 @@ ng2-admin
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 98.6k字</span>
+    <span class="post-count">Blog总字数: 102.8k字</span>
   </div>
 </div>
 

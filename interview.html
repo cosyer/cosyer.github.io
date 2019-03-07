@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-25T13:13:04.684Z">
+<meta property="og:updated_time" content="2019-03-07T15:52:20.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-02-25T21:13:04+08:00">
-    <div class="post-time-text">2月</div>
-    <div class="post-time-count">25</div>
+  <div class="post-date" data-datetime="2019-03-07T23:52:20+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月25</div>
+      <div class="post-tiem">3月07</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10,016 (字)
+                  10,022 (字)
                 </span>
               
 
@@ -672,7 +672,7 @@ HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记�
 <p>与普通函数相比只能由new关键字调用，构造函数是类的标识。</p>
 </li>
 <li><p>通过new创建一个对象的时候，函数内部有哪些改变？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Person.prototype.friend = [];</span><br><span class="line">Person.prototype.age = <span class="number">18</span>;</span><br><span class="line"> <span class="keyword">var</span> a = <span class="keyword">new</span> Person();</span><br><span class="line"> a.friend[<span class="number">0</span>] = <span class="string">'王琦'</span>; <span class="comment">// a.friend=['123'] 指向新对象 b.friend // []</span></span><br><span class="line"> a.age = <span class="number">18</span>;</span><br><span class="line"> <span class="keyword">var</span> b = <span class="keyword">new</span> Person();</span><br><span class="line"> b.friend <span class="comment">// ['王琦'] </span></span><br><span class="line"> b.age   <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Person.prototype.friend = [];</span><br><span class="line">Person.prototype.age = <span class="number">18</span>;</span><br><span class="line"> <span class="keyword">var</span> a = <span class="keyword">new</span> Person();</span><br><span class="line"> a.friend[<span class="number">0</span>] = <span class="string">'方涛'</span>; <span class="comment">// a.friend=['123'] 指向新对象 b.friend // []</span></span><br><span class="line"> a.age = <span class="number">18</span>;</span><br><span class="line"> <span class="keyword">var</span> b = <span class="keyword">new</span> Person();</span><br><span class="line"> b.friend <span class="comment">// ['方涛'] </span></span><br><span class="line"> b.age   <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>1、创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。<br>2、属性和方法被加入到 this 引用的对象中。<br>3、新创建的对象由 this 所引用，并且最后隐式的返回 this 。</p>
 </blockquote>
@@ -912,7 +912,8 @@ CommonJS模块以服务器第一原则发展，选择同步加载，它的模块
 将两个页面的document.domain设置成相同域名即可，js中设置，形如：
 document.domain = “”;</p>
 </li>
-<li><p>服务器设置代理页面/响应header配置cors access-control-allow-origin</p>
+<li>服务器设置代理页面/响应header配置cors access-control-allow-origin</li>
+<li><p>nginx反向代理</p>
 </li>
 <li><p>解决异步回调地狱有哪些方案？
 promise、generator、async/await</p>
@@ -1159,7 +1160,7 @@ width</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年02月25日 - 21:02</p>
+  <p><span>最后更新:</span>2019年03月07日 - 23:03</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1327,7 +1328,7 @@ width</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">85</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1508,7 +1509,7 @@ width</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 102.9k字</span>
+    <span class="post-count">Blog总字数: 104.5k字</span>
   </div>
 </div>
 

@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="陈宇的博客">
+<meta name="description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不&amp;gt; 知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
 <meta name="keywords" content="NodeJS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJSHttp加载静态资源">
 <meta property="og:url" content="http://mydearest.cn/2019/NodeJSHttp加载静态资源.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="陈宇的博客">
+<meta property="og:description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不&amp;gt; 知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-11T16:37:05.153Z">
+<meta property="og:updated_time" content="2019-03-11T16:57:48.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJSHttp加载静态资源">
-<meta name="twitter:description" content="陈宇的博客">
+<meta name="twitter:description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不&amp;gt; 知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
 
 
 
@@ -414,7 +414,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-12T00:37:05+08:00">
+  <div class="post-date" data-datetime="2019-03-12T00:57:48+08:00">
     <div class="post-time-text">3月</div>
     <div class="post-time-count">12</div>
     <div class="text-desc">
@@ -432,8 +432,8 @@ a:hover {
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NodeJS/" itemprop="url" rel="index">
-                    <span itemprop="name">NodeJS</span>
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
                   </a>
                 </span>
 
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  0 (字)
+                  973 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  5 (分钟)
                 </span>
               
             </div>
@@ -561,7 +561,22 @@ a:hover {
       
 
       
-        
+        <blockquote>
+<p>问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不&gt; 知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h2 id="搭建简单的本地服务"><a href="#搭建简单的本地服务" class="headerlink" title="搭建简单的本地服务"></a>搭建简单的本地服务</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);<span class="comment">//引入http模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//开启服务，监听8888端口</span></span><br><span class="line"><span class="comment">//端口号最好为6000以上</span></span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        req用来接受客户端数据</span></span><br><span class="line"><span class="comment">        res用来向客户端发送服务器数据</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'有客户端连接'</span>);<span class="comment">//创建连接成功显示在后台</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//一参是http请求状态，200连接成功</span></span><br><span class="line">    <span class="comment">//连接成功后向客户端写入头信息</span></span><br><span class="line">    res.writeHeader(<span class="number">200</span>,&#123;</span><br><span class="line">        <span class="string">'content-type'</span> : <span class="string">'text/html;charset="utf-8"'</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    res.write(<span class="string">'这是正文部分'</span>);<span class="comment">//显示给客户端</span></span><br><span class="line">    res.end();</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'服务器开启成功'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="访问本地站点"><a href="#访问本地站点" class="headerlink" title="访问本地站点"></a>访问本地站点</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);<span class="comment">//引入文件读取模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> documentRoot = <span class="string">'E:/PhpProject/html5/websocket/www'</span>;</span><br><span class="line"><span class="comment">//需要访问的文件的存放目录</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server= http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> url = req.url; </span><br><span class="line">    <span class="comment">//客户端输入的url，例如如果输入localhost:8888/index.html</span></span><br><span class="line">    <span class="comment">//那么这里的url == /index.html </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> file = documentRoot + url;</span><br><span class="line">    <span class="built_in">console</span>.log(url);</span><br><span class="line">    <span class="comment">//E:/PhpProject/html5/websocket/www/index.html </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    fs.readFile( file , <span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        一参为文件路径</span></span><br><span class="line"><span class="comment">        二参为回调函数</span></span><br><span class="line"><span class="comment">            回调函数的一参为读取错误返回的信息，返回空就没有错误</span></span><br><span class="line"><span class="comment">            二参为读取成功返回的文本内容</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            res.writeHeader(<span class="number">404</span>,&#123;</span><br><span class="line">                <span class="string">'content-type'</span> : <span class="string">'text/html;charset="utf-8"'</span></span><br><span class="line">            &#125;);</span><br><span class="line">            res.write(<span class="string">'&lt;h1&gt;404错误&lt;/h1&gt;&lt;p&gt;你要找的页面不存在&lt;/p&gt;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            res.writeHeader(<span class="number">200</span>,&#123;</span><br><span class="line">                <span class="string">'content-type'</span> : <span class="string">'text/html;charset="utf-8"'</span></span><br><span class="line">            &#125;);</span><br><span class="line">            res.write(data);<span class="comment">//将index.html显示在客户端</span></span><br><span class="line">            res.end();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'服务器开启成功'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="无法加载静态文件"><a href="#无法加载静态文件" class="headerlink" title="无法加载静态文件"></a>无法加载静态文件</h2><h3 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h3><ul>
+<li>手动设置Content-Type<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);<span class="comment">//引入文件读取模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> documentRoot = <span class="string">'./dist'</span>;</span><br><span class="line"><span class="comment">//需要访问的文件的存放目录</span></span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> url = req.url; </span><br><span class="line">    <span class="comment">//客户端输入的url，例如如果输入localhost:8888/index.html</span></span><br><span class="line">    <span class="comment">//那么这里的url == /index.html </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> file = documentRoot + url;</span><br><span class="line">    <span class="built_in">console</span>.log(file);</span><br><span class="line"></span><br><span class="line">    fs.readFile(file , <span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        一参为文件路径</span></span><br><span class="line"><span class="comment">        二参为回调函数</span></span><br><span class="line"><span class="comment">            回调函数的一参为读取错误返回的信息，返回空就没有错误</span></span><br><span class="line"><span class="comment">            二参为读取成功返回的文本内容</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            res.writeHeader(<span class="number">404</span>,&#123;</span><br><span class="line">                <span class="string">'content-type'</span> : <span class="string">'text/html;charset="utf-8"'</span></span><br><span class="line">            &#125;);</span><br><span class="line">            res.write(<span class="string">'&lt;h1&gt;404错误&lt;/h1&gt;&lt;p&gt;你要找的页面不存在&lt;/p&gt;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> type = file.substr(file.lastIndexOf(<span class="string">"."</span>)+<span class="number">1</span>,file.length)</span><br><span class="line">            res.writeHeader(<span class="number">200</span>,&#123;<span class="string">'Content-type'</span>:<span class="string">"text/"</span>+type+<span class="string">';charset="utf-8"'</span>&#125;);	<span class="comment">//在这里设置文件类型，告诉浏览器解析方式</span></span><br><span class="line">            <span class="comment">// 根据后缀名判断文件类型不太准确 可以使用mime模块 mime.getType(filePath)</span></span><br><span class="line">            res.write(data);<span class="comment">//将index.html显示在客户端</span></span><br><span class="line">            res.end();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;).listen(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'服务器开启成功'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// // 手动设置content-type</span></span><br><span class="line"><span class="comment">// http.createServer(function(req,res)&#123;</span></span><br><span class="line"><span class="comment">// 	var path = req.url;	</span></span><br><span class="line"><span class="comment">// 	console.log("path: "+path)</span></span><br><span class="line"><span class="comment">// 	if(path == "/")&#123;</span></span><br><span class="line"><span class="comment">// 		path = "/index.html";</span></span><br><span class="line"><span class="comment">// 	&#125;</span></span><br><span class="line"><span class="comment">// 	sendFile(res,path);</span></span><br><span class="line"><span class="comment">// &#125;).listen(8888)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// function sendFile(res,path)&#123;</span></span><br><span class="line"><span class="comment">//   var path = process.cwd()+'/dist'+path;</span></span><br><span class="line"><span class="comment">// 	fs.readFile(path,function(err,stdout,stderr)&#123;</span></span><br><span class="line"><span class="comment">// 		if(!err)&#123;</span></span><br><span class="line"><span class="comment">// 			var data = stdout;</span></span><br><span class="line"><span class="comment">// 			var type = path.substr(path.lastIndexOf(".")+1,path.length)</span></span><br><span class="line"><span class="comment">// 			res.writeHead(200,&#123;'Content-type':"text/"+type+';charset="utf-8"'&#125;);	//在这里设置文件类型，告诉浏览器解析方式</span></span><br><span class="line"><span class="comment">// 			res.write(data);</span></span><br><span class="line"><span class="comment">// 		&#125;</span></span><br><span class="line"><span class="comment">// 		res.end();</span></span><br><span class="line"><span class="comment">//   &#125;)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h3><ul>
+<li>使用mime模块，npm install mime.</li>
+<li>mime.getType(filePath)</li>
+</ul>
+
       
     </div>
     
@@ -731,8 +746,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -874,6 +898,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建简单的本地服务"><span class="nav-number">1.</span> <span class="nav-text">搭建简单的本地服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问本地站点"><span class="nav-number">2.</span> <span class="nav-text">访问本地站点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无法加载静态文件"><span class="nav-number">3.</span> <span class="nav-text">无法加载静态文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案一"><span class="nav-number">3.1.</span> <span class="nav-text">解决方案一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案二"><span class="nav-number">3.2.</span> <span class="nav-text">解决方案二</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -912,7 +952,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 105.4k字</span>
+    <span class="post-count">Blog总字数: 106.4k字</span>
   </div>
 </div>
 

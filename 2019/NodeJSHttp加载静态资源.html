@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不 知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
+<meta name="description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
 <meta name="keywords" content="NodeJS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJSHttp加载静态资源">
 <meta property="og:url" content="http://mydearest.cn/2019/NodeJSHttp加载静态资源.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不 知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
+<meta property="og:description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-11T17:04:06.044Z">
+<meta property="og:updated_time" content="2019-03-11T17:07:03.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJSHttp加载静态资源">
-<meta name="twitter:description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不 知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
+<meta name="twitter:description" content="问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。">
 
 
 
@@ -414,7 +414,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-12T01:04:06+08:00">
+  <div class="post-date" data-datetime="2019-03-12T01:07:03+08:00">
     <div class="post-time-text">3月</div>
     <div class="post-time-count">12</div>
     <div class="text-desc">
@@ -561,8 +561,7 @@ a:hover {
       
 
       
-        <p>问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不</p>
-<p>知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。</p>
+        <p>问题场景：浏览器向后台发送请求后，后台返回一个html界面。但是在浏览器中没有加载js、css等静态资源，查找原因后发现是Content-Type的原因。浏览器不知道css、js等文件的文件格式，无法成功加载静态文件。所以，需要设置正确的文件格式。</p>
 <hr>
 <a id="more"></a>
 <h2 id="搭建简单的本地服务"><a href="#搭建简单的本地服务" class="headerlink" title="搭建简单的本地服务"></a>搭建简单的本地服务</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);<span class="comment">//引入http模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//开启服务，监听8888端口</span></span><br><span class="line"><span class="comment">//端口号最好为6000以上</span></span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        req用来接受客户端数据</span></span><br><span class="line"><span class="comment">        res用来向客户端发送服务器数据</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'有客户端连接'</span>);<span class="comment">//创建连接成功显示在后台</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//一参是http请求状态，200连接成功</span></span><br><span class="line">    <span class="comment">//连接成功后向客户端写入头信息</span></span><br><span class="line">    res.writeHeader(<span class="number">200</span>,&#123;</span><br><span class="line">        <span class="string">'content-type'</span> : <span class="string">'text/html;charset="utf-8"'</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    res.write(<span class="string">'这是正文部分'</span>);<span class="comment">//显示给客户端</span></span><br><span class="line">    res.end();</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'服务器开启成功'</span>);</span><br></pre></td></tr></table></figure>

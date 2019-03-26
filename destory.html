@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="食用方法 使用【上下左右键】来控制飞行器的运动 使用【空格键】来发射导弹  点击开始摧毁">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.149Z">
+<meta property="og:updated_time" content="2019-03-18T15:12:11.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有趣的摧毁页面">
 <meta name="twitter:description" content="食用方法 使用【上下左右键】来控制飞行器的运动 使用【空格键】来发射导弹  点击开始摧毁">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-03-18T23:12:11+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">18</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">3月18</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  114 (字)
+                  289 (字)
                 </span>
               
 
@@ -570,8 +570,12 @@ a:hover {
 <p>引入JS代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:var%20KICKASSVERSION='2.0'; </span></span><br><span class="line"><span class="string">var%20s%20=%20document.createElement('script'); </span></span><br><span class="line"><span class="string">s.type='text/javascript'; document.body.appendChild(s); </span></span><br><span class="line"><span class="string">s.src='//hi.kickassapp.com/kickass.js'; void(0);"</span>&gt; 点击开始摧毁 &lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
 <p>页面崩溃</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> total = <span class="string">""</span>; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123; </span><br><span class="line">    total = total + i.toString(); </span><br><span class="line">    history.pushState(<span class="number">0</span>, <span class="number">0</span>, total); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> total = <span class="string">""</span>; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123; </span><br><span class="line">    total = total + i.toString(); </span><br><span class="line">    history.pushState(<span class="number">0</span>, <span class="number">0</span>, total); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  fn();</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
 <p>转动吧，风扇！！！</p>
+<h2 id="localstorage撑爆电脑硬盘"><a href="#localstorage撑爆电脑硬盘" class="headerlink" title="localstorage撑爆电脑硬盘"></a>localstorage撑爆电脑硬盘</h2><p>html5的本地存储，相信大家都不陌生。将数据以二进制文件形式存储到本地，在当前应用得非常广泛。
+windows下的chrome，localStorage存储于C:\Users\xxx\AppData\Local\Google\Chrome\User Data\Default\Local Storage文件夹中。但如果任由网页无限写文件，对用户硬盘的伤害可想而知，因而浏览器对其做了大小限制。</p>
+<p>对于一个域名+端口，PC端的上限是5M-10M之间，移动端是则不大于2.5M。</p>
+<p>详情请见<a href="http://litten.me/2015/07/06/hack-in-localstorage/" target="_blank" rel="noopener">作为一个前端，可以如何机智地弄坏一台电脑？</a></p>
 
       
     </div>
@@ -603,7 +607,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/destory.html">有趣的摧毁页面</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月20日 - 01:06</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年03月18日 - 23:03</p>
   <p><span>原始链接:</span><a href="/destory.html" title="有趣的摧毁页面">http://mydearest.cn/destory.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/destory.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -746,8 +750,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -762,7 +775,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">88</span>
+                <span class="site-state-item-count">89</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -889,6 +902,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#localstorage撑爆电脑硬盘"><span class="nav-number">1.</span> <span class="nav-text">localstorage撑爆电脑硬盘</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -927,7 +956,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 106.4k字</span>
+    <span class="post-count">Blog总字数: 109.1k字</span>
   </div>
 </div>
 

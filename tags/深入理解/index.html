@@ -420,6 +420,268 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2019-03-27T00:30:12+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">27</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">3月27</div>
+      <div class="post-year">2019</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/JS函数基础.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/JS函数基础.html" itemprop="url">JS函数基础</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-03-27T00:27:46+08:00">
+                2019-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/JS函数基础.html" class="leancloud_visitors" data-flag-title="JS函数基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,576 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  6 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h2><p>函数其实就是一个封装一段代码段的<strong>对象</strong>，那函数名其实仅是用来引用函数对象的一个普通变量</p>
+<p>写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。</p>
+<p>一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。</p>
+<h2 id="函数的创建"><a href="#函数的创建" class="headerlink" title="函数的创建"></a>函数的创建</h2><p><strong>function 声明</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">参数列表</span>) </span>&#123;</span><br><span class="line">  函数体;</span><br><span class="line">  <span class="keyword">return</span> 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>直接量声明</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 函数名 = <span class="function"><span class="keyword">function</span>(<span class="params">参数列表</span>) </span>&#123;</span><br><span class="line">  函数体;</span><br><span class="line">  <span class="keyword">return</span> 返回值;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>用 new 创建</strong></p>
+<p>因为 Function 是内置类型，本身有一个 Function 的构造函数，是内置类型，所以是可以 <code>new</code> 的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 函数名 = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"参数名1"</span>,<span class="string">"参数名2"</span>,...,<span class="string">"函数体; return 返回值"</span>)</span><br></pre></td></tr></table></figure>
+<p>这里注意，参数和函数体都要用引号引起来，但是一般函数的创建都不会这样创建，以前面的两种为主，那其实前面两种的创建是存在一定的差别的，下面会提到</p>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><p>函数执行时必须的数据变量，它分为显示参数(Parameters)与隐式参数(Arguments)</p>
+<h3 id="显示参数"><a href="#显示参数" class="headerlink" title="显示参数"></a>显示参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">name, id</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种直接传进来的 name 和 id 就是显示参数，也就是你能看到的。其实函数传递的参数就相当于在函数体内又声明了一个局部变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  i++;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">fun(i);</span><br></pre></td></tr></table></figure>
+<p>上面的代码，就相当于下面的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="number">10</span>; <span class="comment">//这个值就是传进来的参数的值</span></span><br><span class="line">  i++;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">fun(i); <span class="comment">//在此处传入i</span></span><br></pre></td></tr></table></figure>
+<h3 id="隐式参数"><a href="#隐式参数" class="headerlink" title="隐式参数"></a>隐式参数</h3><p>每个 JavaScript 函数内部都有一个对象 <code>arguments</code> 对象,其实是一个类数组的对象,它会自动接受所有传入函数的参数值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">          </span>) </span>&#123;</span><br><span class="line">  <span class="comment">//arguments[          ]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>值得一说的是,<code>arguments</code> 有下标有长度，可以通过下标来获得传入的参数，比如 <code>arguments[0]</code> 就是第一个参数, <code>length</code> 就可以遍历这个类数组对象，但是，毕竟它不是数组，所以不能进行一些数组特有的操作，比如 <code>sort</code></p>
+<h2 id="声明提前"><a href="#声明提前" class="headerlink" title="声明提前"></a>声明提前</h2><p>在开始执行程序前,js 引擎会首先查找 <code>var</code> 声明的变量和 <code>function</code> 声明的函数，将其提前到当前作用域的顶部集中创建，而将赋值操作保留在原地,这里特别说一下,未用 <code>var</code> 声明的变量不会声明提前.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//a is not defined</span></span><br><span class="line">a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+<p>但是在它下面声明并赋值变量 <code>a</code>,因为声明提前,其实代码会变成下面这个样子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+<p>这样看，一切都变得很合理。。</p>
+<p>函数也是一样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun(); <span class="comment">//2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun(); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>控制台会输出两个 2,因为 function 声明的函数也会声明提前,代码其实是下面这个样子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun(); <span class="comment">//2</span></span><br><span class="line">fun(); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>第二次声明因为方法名字一样，后者覆盖了前者，所以再调用的时候就会调用最后这个</p>
+<p>但是声明提前会增加程序解读的难度，因此我们在写程序时，尽量避免声明提前所带来的危害</p>
+<h3 id="声明提前的解决方法"><a href="#声明提前的解决方法" class="headerlink" title="声明提前的解决方法"></a>声明提前的解决方法</h3><p>那我们既然知道会有声明提前这种操作，就在变量和函数的声明时都放在当前作用域的顶部。</p>
+<p>在 ES6 中 可以用 let 代替 var,不过要求在当前作用域中 let 变量之前不允许出现声明的变量</p>
+<p>也可以用直接量声明变量的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;;</span><br><span class="line">fun(); <span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line">fun(); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>这种当然也会声明提前，那我们看一下声明提前后的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun;</span><br><span class="line"><span class="keyword">var</span> fun;</span><br><span class="line">fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;;</span><br><span class="line">fun(); <span class="comment">//1</span></span><br><span class="line">fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line">fun(); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>声明提前但是赋值还是留在原地，所以虽然有声明提前，但是并不会改变我们原本想要的结果。也就解决了声明提前带来的危害。</p>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>函数创建时没有指定函数名</p>
+<p>匿名函数使用后自动释放,会节约内存,它会划分临时作用域，避免全局变量污染全局。</p>
+<h3 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h3><p><strong>callback</strong></p>
+<p>将一个函数作为参数传入另一个函数内，被其它函数调用</p>
+<p>举个栗子🌰</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(<span class="regexp">/reg/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">kw,$<span class="number">1</span>,$<span class="number">2</span>,...</span>)</span>&#123;<span class="keyword">return</span> 替换值&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="自调"><a href="#自调" class="headerlink" title="自调"></a>自调</h4><p>定义函数后自己调用自己，调用结束后，立刻释放，不占内存</p>
+<p>举个例子🌰</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">参数列表</span>) </span>&#123;</span><br><span class="line">  函数体;</span><br><span class="line">  <span class="keyword">return</span> 返回值;</span><br><span class="line">&#125;)(参数值列表);</span><br></pre></td></tr></table></figure>
+<p>会定义一个临时的作用域，减少使用全局变量，避免全局污染。</p>
+<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>相同函数名，不同参数列表的多个函数。在调用时，根据传入参数的不同，自动选择匹配的函数执行。</p>
+<p>这样可以减少 api 的数量，减轻调用者的负担。</p>
+<p>听起来很诱人，但是 js 语法不支持重载，原因是 js 不允许多个同名函数同时存在，后声明的函数会覆盖前面声明的。(哇。js 不支持你在这里说什么，神经病啊).</p>
+<p>既然说重载，那肯定是可以通过某些方法实现的。这个方法就是利用 <code>arguments</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">//不传值的操作</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">//传一个值进行的操作</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//....等等</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实也不是真正意义上的重载，因为并没有创建同名的多个函数，但是实现的效果是和重载差不多的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+          
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2019-03-10T21:06:11+08:00">
     <div class="post-time-text">3月</div>
     <div class="post-time-count">10</div>
@@ -1546,7 +1808,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">88</span>
+                <span class="site-state-item-count">89</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1711,7 +1973,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 106.4k字</span>
+    <span class="post-count">Blog总字数: 109.1k字</span>
   </div>
 </div>
 

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T15:52:20.769Z">
+<meta property="og:updated_time" content="2019-03-25T15:36:15.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-07T23:52:20+08:00">
+  <div class="post-date" data-datetime="2019-03-25T23:36:15+08:00">
     <div class="post-time-text">3月</div>
-    <div class="post-time-count">07</div>
+    <div class="post-time-count">25</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月07</div>
+      <div class="post-tiem">3月25</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10,022 (字)
+                  10,798 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  40 (分钟)
+                  42 (分钟)
                 </span>
               
             </div>
@@ -1036,12 +1036,33 @@ IE只支持事件冒泡。</p>
 <li>空元素：即没有内容的HTML元素，例如：br、meta、hr、link、input、img</li>
 </ul>
 <ol>
-<li><p>px、em、rem的区别
+<li>px、em、rem的区别
 px和em都是长度单位,px的只是固定的,em的值是相对的继承父类元素的字体大小。浏览器的默认字体高位16px。1em=16px;
-rem单位基于html根元素的字体大小。</p>
-</li>
-<li><p>路由权限管理</p>
-</li>
+rem单位基于html根元素的字体大小。</li>
+</ol>
+<ul>
+<li>vw/vh(css3) vmin(vw和vh的较小值)/vmax(vw和vh的较大值)和百分比的区别</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">单位</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">%</td>
+<td style="text-align:left">大部分相对于祖先元素，也有相对于自身的情况比如（border-radius、translate等)</td>
+</tr>
+<tr>
+<td style="text-align:left">vm/vh</td>
+<td style="text-align:left">相对于视窗的尺寸</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>路由权限管理</li>
 </ol>
 <ul>
 <li>route render方法里进行判断 redirect or return null</li>
@@ -1126,9 +1147,35 @@ width</p>
 方法二：
 :class=”{box:show1,shadow:show2}”</p>
 <ol>
-<li>vue组件通信<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父传子</span></span><br><span class="line"><span class="comment">// 父组件</span></span><br><span class="line">&lt;note-address :data=<span class="string">"msg"</span>&gt;&lt;/note-address&gt; </span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line"></span><br><span class="line">&lt;div&gt;&#123;&#123; data.partment &#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  //props:['data']</span><br><span class="line">  props: &#123;</span><br><span class="line">    data: Object</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 子传父</span><br><span class="line">// 父组件</span><br><span class="line">&lt;note-address @new="addNote"&gt;&lt;/note-address&gt; </span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">&lt;button type="small" class="confirm" @click="add"&gt;设为教案&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line"> add () &#123;</span><br><span class="line">  this.$emit('new', false)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 兄弟相传</span><br><span class="line">// 1.创建 公共bus.js</span><br><span class="line"></span><br><span class="line">//bus.js</span><br><span class="line">import Vue from 'vue'</span><br><span class="line">export default new Vue()</span><br><span class="line"></span><br><span class="line">// 2.父组件注册两个子组件</span><br><span class="line">components:&#123;</span><br><span class="line">    firstChild,</span><br><span class="line">    secondChild</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3.firstChild组件</span><br><span class="line"></span><br><span class="line">&lt;input type="button" value="点击触发" @click="elementByValue"&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 引入公共的bus，来做为中间传达的工具</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      methods: &#123;</span><br><span class="line">      elementByValue: function () &#123;</span><br><span class="line">        Bus.$emit('val', '兄弟，收到了吗？')</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// 4.secondChild组件</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      mounted()&#123;</span><br><span class="line">            let self = this;</span><br><span class="line">            Bus.$on('val', function (msg) &#123;</span><br><span class="line">                console.log(msg)</span><br><span class="line">                self.msg = msg</span><br><span class="line">            &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<li><p>vue组件通信</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父传子</span></span><br><span class="line"><span class="comment">// 父组件</span></span><br><span class="line">&lt;note-address :data=<span class="string">"msg"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">note-address</span>&gt;</span> </span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">// 子组件</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; data.partment &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">export default &#123;</span></span><br><span class="line"><span class="xml">  //props:['data']</span></span><br><span class="line"><span class="xml">  props: &#123;</span></span><br><span class="line"><span class="xml">    data: Object</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">// 子传父</span></span><br><span class="line"><span class="xml">// 父组件</span></span><br><span class="line">&lt;note-address @new="addNote"&gt;&lt;/note-address&gt; </span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">&lt;button type="small" class="confirm" @click="add"&gt;设为教案&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line"> add () &#123;</span><br><span class="line">  this.$emit('new', false)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 兄弟相传</span><br><span class="line">// 1.创建 公共bus.js</span><br><span class="line"></span><br><span class="line">//bus.js</span><br><span class="line">import Vue from 'vue'</span><br><span class="line">export default new Vue()</span><br><span class="line"></span><br><span class="line">// 2.父组件注册两个子组件</span><br><span class="line">components:&#123;</span><br><span class="line">    firstChild,</span><br><span class="line">    secondChild</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3.firstChild组件</span><br><span class="line"></span><br><span class="line">&lt;input type="button" value="点击触发" @click="elementByValue"&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 引入公共的bus，来做为中间传达的工具</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      methods: &#123;</span><br><span class="line">      elementByValue: function () &#123;</span><br><span class="line">        Bus.$emit('val', '兄弟，收到了吗？')</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// 4.secondChild组件</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      mounted()&#123;</span><br><span class="line">            let self = this;</span><br><span class="line">            Bus.$on('val', function (msg) &#123;</span><br><span class="line">                console.log(msg)</span><br><span class="line">                self.msg = msg</span><br><span class="line">            &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网络七层协议</p>
 </li>
 </ol>
+<ul>
+<li>应用层</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+<li>表示层</li>
+<li>应用层（HTTP，FTP，NFS，SMTP）
+与其它计算机进行通讯的一个应用，它是对应应用程序的通信服务的。例如，一个没有通信功能的字处理程序就不能执行通信的代码，从事字处理工作的程序员也不关心OSI的第7层。但是，如果添加了一个传输文件的选项，那么字处理器的程序员就需要实现OSI的第7层。示例：TELNET，HTTP，FTP，NFS，SMTP等。</li>
+</ul>
+<p>表示层
+这一层的主要功能是定义数据格式及加密。例如，FTP允许你选择以二进制或ASCII格式传输。如果选择二进制，那么发送方和接收方不改变文件的内容。如果选择ASCII格式，发送方将把文本从发送方的字符集转换成标准的ASCII后发送数据。在接收方将标准的ASCII转换成接收方计算机的字符集。示例：加密，ASCII等。</p>
+<p>传输层（TCP，UDP，SPX）
+这层的功能包括是否选择差错恢复协议还是无差错恢复协议，及在同一主机上对不同应用的数据流的输入进行复用，还包括对收到的顺序不对的数据包的重新排序功能。示例：TCP，UDP，SPX。</p>
+<p>会话层（RPC，SQL）
+它定义了如何开始、控制和结束一个会话，包括对多个双向消息的控制和管理，以便在只完成连续消息的一部分时可以通知应用，从而使表示层看到的数据是连续的，在某些情况下，如果表示层收到了所有的数据，则用数据代表表示层。示例：RPC，SQL等</p>
+<p>网络层（IP，IPX）
+这层对端到端的包传输进行定义，它定义了能够标识所有结点的逻辑地址，还定义了路由实现的方式和学习的方式。为了适应最大传输单元长度小于包长度的传输介质，网络层还定义了如何将一个包分解成更小的包的分段方法。示例：IP，IPX等。</p>
+<p>数据链路层（IP，IPX）
+它定义了在单个链路上如何传输数据。这些协议与被讨论的各种介质有关。示例：ATM，FDDI等。</p>
+<p>物理层（Rj45，802.3）
+OSI的物理层规范是有关传输介质的特这些规范通常也参考了其他组织制定的标准。连接头、帧、帧的使用、电流、编码及光调制等都属于各种物理层规范中的内容。物理层常用多个规范完成对所有细节的定义。示例：Rj45，802.3等。</p>
 
       
     </div>
@@ -1160,7 +1207,7 @@ width</p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年03月07日 - 23:03</p>
+  <p><span>最后更新:</span>2019年03月25日 - 23:03</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1328,7 +1375,7 @@ width</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">88</span>
+                <span class="site-state-item-count">89</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1509,7 +1556,7 @@ width</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 106.4k字</span>
+    <span class="post-count">Blog总字数: 109.1k字</span>
   </div>
 </div>
 

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T15:36:15.925Z">
+<meta property="og:updated_time" content="2019-03-31T03:41:47.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-25T23:36:15+08:00">
+  <div class="post-date" data-datetime="2019-03-31T11:41:47+08:00">
     <div class="post-time-text">3月</div>
-    <div class="post-time-count">25</div>
+    <div class="post-time-count">31</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月25</div>
+      <div class="post-tiem">3月31</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10,798 (字)
+                  10,955 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  42 (分钟)
+                  43 (分钟)
                 </span>
               
             </div>
@@ -1008,9 +1008,13 @@ IE只支持事件冒泡。</p>
 <li>判断一个变量是否是数组<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []; </span><br><span class="line"><span class="comment">// 1.基于instanceof </span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 2.基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 3.基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype; </span><br><span class="line"><span class="comment">// 5.基于Object.prototype.toString </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(a) === <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 6.Array.isArray</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>以上，除了Object.prototype.toString外，其它方法都不能正确判断变量的类型。</p>
+<p>以上，除了Object.prototype.toString外，其它方法都不能正确判断变量的类型。虽然Array继承自Object，也会有 toString方法，但是这个方法有可能会被改写而达不到我们的要求，而Object.prototype则是老虎的屁股，很少有人敢去碰它的，所以能一定程度保证其“纯洁性”：)😝</p>
 <ul>
 <li>由于每个iframe都有一套自己的执行环境，跨frame实例化的对象彼此是不共享原型链的，因此导致检测代码失效。</li>
+</ul>
+<p>举个🌰
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>); <span class="comment">//创建iframe</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(iframe); <span class="comment">//添加到body中</span></span><br><span class="line">xArray = <span class="built_in">window</span>.frames[<span class="built_in">window</span>.frames.length<span class="number">-1</span>].Array;</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> xArray(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 声明数组[1,2,3]</span></span><br><span class="line">alert(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br><span class="line">alert(arr.constructor === <span class="built_in">Array</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<ul>
 <li>最佳写法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [&#123; <span class="attr">abac</span> : <span class="number">1</span>, <span class="attr">abc</span> : <span class="number">2</span> &#125;];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArrayFn</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Array</span>.isArray === <span class="string">"function"</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">Array</span>.isArray(value);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">"[object Array]"</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isArrayFn(arr));<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isArrayFn(arr2));<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -1176,6 +1180,9 @@ width</p>
 它定义了在单个链路上如何传输数据。这些协议与被讨论的各种介质有关。示例：ATM，FDDI等。</p>
 <p>物理层（Rj45，802.3）
 OSI的物理层规范是有关传输介质的特这些规范通常也参考了其他组织制定的标准。连接头、帧、帧的使用、电流、编码及光调制等都属于各种物理层规范中的内容。物理层常用多个规范完成对所有细节的定义。示例：Rj45，802.3等。</p>
+<ol>
+<li>call使用<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a+b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a-b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add.call(sub,<span class="number">3</span>,<span class="number">1</span>) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -1207,7 +1214,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年03月25日 - 23:03</p>
+  <p><span>最后更新:</span>2019年03月31日 - 11:03</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1375,7 +1382,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">89</span>
+                <span class="site-state-item-count">90</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1556,7 +1563,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 109.1k字</span>
+    <span class="post-count">Blog总字数: 110.9k字</span>
   </div>
 </div>
 

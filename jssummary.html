@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T15:51:35.605Z">
+<meta property="og:updated_time" content="2019-03-31T16:31:00.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript整理总结">
 <meta name="twitter:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-07T23:51:35+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">07</div>
+  <div class="post-date" data-datetime="2019-04-01T00:31:00+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">01</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月07</div>
+      <div class="post-tiem">4月01</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  7,493 (字)
+                  7,499 (字)
                 </span>
               
 
@@ -756,7 +756,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 <li>Object.keys() 不包括原型的属性名数组</li>
 <li>Object.getOwnPropertyNames()</li>
 </ol>
-<h2 id="Symbol-原始数据类型-不可枚举的-符号类型"><a href="#Symbol-原始数据类型-不可枚举的-符号类型" class="headerlink" title="Symbol(原始数据类型) 不可枚举的 符号类型"></a>Symbol(原始数据类型) 不可枚举的 符号类型</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  myPrivateMethod  = <span class="built_in">Symbol</span>(); <span class="comment">// 不能使用new Symbol()创建，它是一个不完整的类</span></span><br><span class="line"><span class="keyword">this</span>[myPrivateMethod] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Symbol-原始数据类型-不可枚举的-符号类型"><a href="#Symbol-原始数据类型-不可枚举的-符号类型" class="headerlink" title="Symbol(原始数据类型) 不可枚举的 符号类型"></a>Symbol(原始数据类型) 不可枚举的 符号类型</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  myPrivateMethod  = <span class="built_in">Symbol</span>(); <span class="comment">// 不能使用new Symbol()创建，它是一个不完整的类属于基本类型</span></span><br><span class="line"><span class="keyword">this</span>[myPrivateMethod] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;;</span><br></pre></td></tr></table></figure>
 <p>for in 和 Object.getOwnPropertyNames()访问不到，只能通过myPrivateMethod或者Object.getOwnPropertySymbols()来访问</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Symbol</span>(<span class="string">"foo"</span>) !== <span class="built_in">Symbol</span>(<span class="string">"foo"</span>) <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">const</span> bar = <span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">typeof</span> foo === <span class="string">"symbol"</span> <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> bar === <span class="string">"symbol"</span> <span class="comment">// true</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">obj[foo] = <span class="string">"foo"</span></span><br><span class="line">obj[bar] = <span class="string">"bar"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj) <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// []</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj) <span class="comment">// []</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertySymbols(obj) <span class="comment">// [ foo, bar ]</span></span><br></pre></td></tr></table></figure>
 <h2 id="Proxy-代理"><a href="#Proxy-代理" class="headerlink" title="Proxy 代理"></a>Proxy 代理</h2><p><code>let p= new Proxy(target,handler)</code></p>
@@ -992,7 +992,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">89</span>
+                <span class="site-state-item-count">90</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1173,7 +1173,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 109.1k字</span>
+    <span class="post-count">Blog总字数: 110.9k字</span>
   </div>
 </div>
 

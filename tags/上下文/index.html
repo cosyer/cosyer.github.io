@@ -420,13 +420,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-04-01T00:32:26+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">01</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">4月01</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -532,7 +532,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  918 (字)
+                  939 (字)
                 </span>
               
 
@@ -570,7 +570,7 @@ a:hover {
 
       
         
-          <h2 id="变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边"><a href="#变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边" class="headerlink" title="变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)"></a>变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>)&#123; <span class="comment">// false</span></span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+          <h2 id="变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边"><a href="#变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边" class="headerlink" title="变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)"></a>变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!(<span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>))&#123; <span class="comment">// false</span></span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// if(o.x)&#123;&#125; // 不能判断属性存不存在 假值undefine,null,false," ",0或NaN</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo1'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();  <span class="comment">// foo2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// foo2</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line">getName(); <span class="comment">// 4</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">6</span>);&#125;</span><br><span class="line">getName(); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
 <p>函数表达式执行的优先级==!主要原因是函数声明都被提前了，所以函数表达式在最后会覆盖。</p>
 <p>JavaScript 引擎并非一行一行地分析和执行程序，而是一段一段地分析执行。插槽slot
@@ -682,7 +682,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">89</span>
+                <span class="site-state-item-count">90</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -847,7 +847,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 109.1k字</span>
+    <span class="post-count">Blog总字数: 110.9k字</span>
   </div>
 </div>
 

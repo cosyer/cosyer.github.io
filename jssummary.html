@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T16:31:00.365Z">
+<meta property="og:updated_time" content="2019-04-02T15:35:11.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript整理总结">
 <meta name="twitter:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-04-01T00:31:00+08:00">
+  <div class="post-date" data-datetime="2019-04-02T23:35:11+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">01</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月01</div>
+      <div class="post-tiem">4月02</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  7,499 (字)
+                  7,666 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  34 (分钟)
+                  35 (分钟)
                 </span>
               
             </div>
@@ -613,9 +613,14 @@ var ok ; let 和 const 则不会存在变量提升</p>
 <li>null</li>
 <li>undefined</li>
 <li>String </li>
-<li>Number 标识范围 -2^53~2^53-1 数字均为双精度浮点类型</li>
-<li>Symbol(它的实例是唯一且不可改变)<h3 id="对象Object"><a href="#对象Object" class="headerlink" title="对象Object"></a>对象Object</h3>对象被定义为“无序属性的集合，其属性可以包含基本值，对象或者函数”。</li>
+<li>Number 标识范围 -2^53~2^53 数字均为双精度浮点类型</li>
+<li>Symbol(它的实例是唯一且不可改变)</li>
 </ul>
+<p>为什么 x=0.1 能得到 0.1？
+恭喜你到了看山不是山的境界。因为 mantissa 固定长度是 52 位，再加上省略的一位，最多可以表示的数是 2^53=9007199254740992，对应科学计数尾数是 </p>
+<p>9.007199254740992，这也是 JS 最多能表示的精度。它的长度是 16，所以可以使用 toPrecision(16) 来做精度运算，超过的精度会自动做凑整处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.10000000000000000555</span>.toPrecision(<span class="number">16</span>)</span><br><span class="line"><span class="comment">// 返回 0.1000000000000000，去掉末尾的零后正好为 0.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但你看到的 `0.1` 实际上并不是 `0.1`。不信你可用更高的精度试试：</span></span><br><span class="line"><span class="number">0.1</span>.toPrecision(<span class="number">21</span>) = <span class="number">0.100000000000000005551</span></span><br></pre></td></tr></table></figure>
+<h3 id="对象Object"><a href="#对象Object" class="headerlink" title="对象Object"></a>对象Object</h3><p>对象被定义为“无序属性的集合，其属性可以包含基本值，对象或者函数”。</p>
 <p>只有null和undefined无法拥有方法</p>
 <p>Function Array Number Boolean String Date Math RegExp类</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">'object'</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// false </span></span><br><span class="line"><span class="literal">null</span> <span class="keyword">instanceof</span> <span class="literal">null</span> <span class="comment">// error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不同的对象在底层都表示为二进制</span></span><br><span class="line"><span class="comment">// 在JavaScript中二进制前三位为0的话都会被判断为object类型</span></span><br><span class="line"><span class="comment">// null的二进制表示全是0，自然前三位也是0</span></span><br><span class="line"><span class="comment">// 所以 typeof null === “object”</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Function</span>; <span class="comment">// 'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Function</span>(); <span class="comment">// 'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;; <span class="comment">// 'function'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Array</span>; <span class="comment">// 'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Array</span>(); <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// 'object'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>; <span class="comment">// "function"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>(); <span class="comment">// "boolean"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>; <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>(); <span class="comment">// Math is not a function</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Math</span>(); <span class="comment">// Math is not a constructor</span></span><br><span class="line"></span><br><span class="line">[]+[] <span class="comment">// ""</span></span><br><span class="line">[]+&#123;&#125; <span class="comment">// "[object Object]"</span></span><br><span class="line">&#123;&#125;+[] <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">!+[]+[]+![] <span class="comment">// "truefalse"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.max() <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.min() <span class="comment">// Infinity</span></span><br></pre></td></tr></table></figure>
@@ -1173,7 +1178,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 110.9k字</span>
+    <span class="post-count">Blog总字数: 111.1k字</span>
   </div>
 </div>
 

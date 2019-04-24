@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="今天10月31日，万圣节前夜。希望ff的病早点好，身体健康。 创建对象123456789var obj = &amp;#123;&amp;#125; // 字面量 var obj = new Object()var obj = Object.create(null) // 以xx为原型创建对象var obj = Object.assign(&amp;#123;&amp;#125;)   // 复制到目标对象// Object.a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T16:03:00.690Z">
+<meta property="og:updated_time" content="2019-04-13T16:31:43.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js创建对象实现继承">
 <meta name="twitter:description" content="今天10月31日，万圣节前夜。希望ff的病早点好，身体健康。 创建对象123456789var obj = &amp;#123;&amp;#125; // 字面量 var obj = new Object()var obj = Object.create(null) // 以xx为原型创建对象var obj = Object.assign(&amp;#123;&amp;#125;)   // 复制到目标对象// Object.a">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-08T00:03:00+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">08</div>
+  <div class="post-date" data-datetime="2019-04-14T00:31:43+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">14</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月08</div>
+      <div class="post-tiem">4月14</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,529 (字)
+                  1,795 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  7 (分钟)
+                  8 (分钟)
                 </span>
               
             </div>
@@ -599,6 +599,20 @@ a:hover {
 <h2 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>]; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123; <span class="comment">//继承了 SuperType </span></span><br><span class="line">    SuperType.call(<span class="keyword">this</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType(); </span><br><span class="line">instance1.colors.push(<span class="string">"black"</span>); </span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors); <span class="comment">//"red,blue,green,black"</span></span><br><span class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType(); </span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors); <span class="comment">//"red,blue,green"</span></span><br></pre></td></tr></table></figure>
 <h2 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType();</span><br><span class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType(); </span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors); <span class="comment">//["red", "blue", "green"]</span></span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors);<span class="comment">//["red", "blue", "green"]</span></span><br><span class="line"></span><br><span class="line">instance1.colors.push(<span class="string">"black"</span>); </span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors);<span class="comment">//["red", "blue", "green", "black"]</span></span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors);<span class="comment">//["red", "blue", "green", "black"]</span></span><br></pre></td></tr></table></figure>
 <h2 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;  <span class="comment">//父类（构造函数）</span></span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//父类的原型添加一个方法</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>)</span>&#123;  <span class="comment">//借用构造函数来实现对实例属性的继承 </span></span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);    <span class="comment">//继承实例属性 这边继承this.name = name;</span></span><br><span class="line">    <span class="keyword">this</span>.age = age;     <span class="comment">//自己的属性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();    <span class="comment">//使用原型链实现对原型属性和方法的继承  这边是继承</span></span><br><span class="line">SubType.prototype.constructor = SubType;</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    alert(<span class="keyword">this</span>.age); </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType(<span class="string">"cosyer"</span>, <span class="number">23</span>);</span><br><span class="line"><span class="built_in">console</span>.log(instance1.age)   <span class="comment">//23</span></span><br><span class="line"><span class="built_in">console</span>.log(instance1.name)  <span class="comment">//cosyer</span></span><br><span class="line">instance1.sayName(); <span class="comment">//cosyer</span></span><br><span class="line">instance1.sayAge(); <span class="comment">//23</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对象字面量vs构造函数创建对象对比</li>
+</ul>
+<p>字面量的优势：</p>
+<ol>
+<li><p>代码量更少，更易读；</p>
+</li>
+<li><p>可以强调对象就是一个简单的可变的散列表，而不必一定派生自某个类；</p>
+</li>
+<li><p>对象字面量运行速度更快，因为它们可以在解析的时候被优化：它们不需要作用域解析(scope resolution)；因为存在我们创建了一个同名的构造函数Object()的可能，当我们调用Object()的时候，解析器需要顺着作用域链从当前作用域开始查找，如果在当前作用域找到了名为Object()的函数就执行，如果没找到，就继续顺着作用域链往上照，直到找到全局Object()构造函数为止；</p>
+</li>
+<li><p>Object()构造函数可以接收参数，通过这个参数可以把对象实例的创建过程委托给另一个内置构造函数，并返回另外一个对象实例，而这往往不是你想要的。</p>
+</li>
+</ol>
 <p><code>Happy Halloween!</code></p>
 
       
@@ -631,7 +645,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/js创建对象实现继承.html">js创建对象实现继承</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年10月31日 - 10:10</p>
-  <p><span>最后更新:</span>2019年03月08日 - 00:03</p>
+  <p><span>最后更新:</span>2019年04月14日 - 00:04</p>
   <p><span>原始链接:</span><a href="/js创建对象实现继承.html" title="js创建对象实现继承">http://mydearest.cn/js创建对象实现继承.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/js创建对象实现继承.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -799,7 +813,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">91</span>
+                <span class="site-state-item-count">92</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -980,7 +994,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 111.4k字</span>
+    <span class="post-count">Blog总字数: 114.4k字</span>
   </div>
 </div>
 

@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+
+<!--
+                           _ooOoo_
+                          o8888888o
+                          88" . "88
+                          (| -_- |)
+                          O\  =  /O
+                       ____/`---'\____
+                     .'  \\|     |//  `.
+                    /  \\|||  :  |||//  \
+                   /  _||||| -:- |||||-  \
+                   |   | \\\  -  /// |   |
+                   | \_|  ''\---/''  |   |
+                   \  .-\__  `-`  ___/-. /
+                 ___`. .'  /--.--\  `. . __
+              ."" '<  `.___\_<|>_/___.'  >'"".
+             | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+             \  \ `-.   \_ __\ /__ _/   .-` /  /
+        ======`-.____`-.___\_____/___.-`____.-'======
+                           `=---='
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 佛祖保佑       永无BUG 
+-->
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<link href="//mydearest.cn" rel="dns-prefetch">
+<link href="//www.mydearest.cn" rel="dns-prefetch">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+	<meta name="description" content="陈宇的博客" />
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+  <meta name="keywords" content="知识," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="cosyer's Blog" type="application/atom+xml" />
+
+
+
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+
+
+
+
+
+<meta name="description" content="vuex数据驱动模板（管理共享状态） 核心store仓库（响应式的状态存储） 提交mutation才能修改内部状态 记录每次改变保存状态快照 12345678910111213141516const store = new Vuex.Store(&amp;#123;    state:&amp;#123;        count:0    &amp;#125;,    mutations: &amp;#123;">
+<meta name="keywords" content="知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuex学习笔记">
+<meta property="og:url" content="http://mydearest.cn/2019/vuex学习笔记.html">
+<meta property="og:site_name" content="cosyer&#39;s Blog">
+<meta property="og:description" content="vuex数据驱动模板（管理共享状态） 核心store仓库（响应式的状态存储） 提交mutation才能修改内部状态 记录每次改变保存状态快照 12345678910111213141516const store = new Vuex.Store(&amp;#123;    state:&amp;#123;        count:0    &amp;#125;,    mutations: &amp;#123;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-18T16:26:13.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuex学习笔记">
+<meta name="twitter:description" content="vuex数据驱动模板（管理共享状态） 核心store仓库（响应式的状态存储） 提交mutation才能修改内部状态 记录每次改变保存状态快照 12345678910111213141516const store = new Vuex.Store(&amp;#123;    state:&amp;#123;        count:0    &amp;#125;,    mutations: &amp;#123;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mydearest.cn/2019/vuex学习笔记.html"/>
+
+
+
+
+
+  <title>vuex学习笔记 | cosyer's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?653a4be35cb6c7b26817038a17c3f0d6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<link href="https://mydearest.cn/css/all-9097fb9016.css" rel="stylesheet" type="text/css">
+<style>
+// scrollbar滚动条样式优化
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 7px;
+  background-color: #b4babf;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  width: 15px;
+}
+
+::-webkit-scrollbar:hover {
+  background-color: transparent;
+}
+
+* {
+    cursor: url("http://cdn.mydearest.cn/blog/images/miku1.png"),auto!important
+}
+:active {
+    cursor: url("http://cdn.mydearest.cn/blog/images/miku2.png"),auto!important
+}
+a:hover {
+    cursor: url("http://cdn.mydearest.cn/blog/images/miku2.png"),auto!important
+}
+</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <div id="loader">
+    <div></div>
+  </div>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/cosyer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cosyer's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home faa-wrench"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link faa-shake"></i> <br />
+            
+            友链
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment-o faa-tada"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive faa-float"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" class="faa-parent animated-hover" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user faa-horizontal"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger faa-parent animated-hover">
+          
+            
+              <i class="menu-item-icon fa fa-search faa-burst fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2019-04-19T00:26:13+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">19</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">4月19</div>
+      <div class="post-year">2019</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/vuex学习笔记.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">vuex学习笔记</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-04-19T00:25:20+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/vuex学习笔记.html" class="leancloud_visitors" data-flag-title="vuex学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,420 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  12 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p>数据驱动模板（管理共享状态）
+核心store仓库（响应式的状态存储）
+提交mutation才能修改内部状态 记录每次改变保存状态快照</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        count:<span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        increase(state)&#123;</span><br><span class="line">            state.count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 开启严格模式</span></span><br><span class="line">    strict: process.env.NODE_ENV !== <span class="string">'production'</span></span><br><span class="line">    <span class="comment">// 在严格模式下，无论何时发生了状态变更且不是由 mutation 函数引起的，将会抛出错误。这能保证所有的状态变更都能被调试工具跟踪到。</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.commit(<span class="string">'increase'</span>);</span><br><span class="line">store.state.count;</span><br></pre></td></tr></table></figure>
+<p>不要在发布环境下启用严格模式！严格模式会深度监测状态树来检测不合规的状态变更——请确保在发布环境下关闭严格模式，以避免性能损失。</p>
+<hr>
+<a id="more"></a>
+<h3 id="state（单一状态树）"><a href="#state（单一状态树）" class="headerlink" title="state（单一状态树）"></a>state（单一状态树）</h3><p>用一个对象包含所有的应用层级状态</p>
+<ul>
+<li><p>从store实例中读取状态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算属性</span></span><br><span class="line"><span class="keyword">const</span> Counter = &#123;</span><br><span class="line">  template: <span class="string">`&lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;`</span>,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    count () &#123;</span><br><span class="line">      <span class="keyword">return</span> store.state.count</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从根组件注入实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  <span class="comment">// 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件</span></span><br><span class="line">  store,</span><br><span class="line">  components: &#123; Counter &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div class="app"&gt;</span></span><br><span class="line"><span class="string">      &lt;counter&gt;&lt;/counter&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 读取</span></span><br><span class="line"><span class="keyword">this</span>.$store.state.count</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多个属性使用mapState()辅助函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">computed: mapState(&#123;</span><br><span class="line">    count: <span class="function"><span class="params">state</span> =&gt;</span> state.count,</span><br><span class="line">    name: <span class="function"><span class="params">state</span>=&gt;</span> state.name</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 如果属性与state子节点名称相同 传入字符串数组</span></span><br><span class="line"><span class="comment">// 映射 this.count 为 store.state.count</span></span><br><span class="line">mapState([<span class="string">'count'</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="getter对state数据的派生操作（共享数据的共享函数）"><a href="#getter对state数据的派生操作（共享数据的共享函数）" class="headerlink" title="getter对state数据的派生操作（共享数据的共享函数）"></a>getter对state数据的派生操作（共享数据的共享函数）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        todos: [</span><br><span class="line">            &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">'...'</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">'...'</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123;</span><br><span class="line">        doneTodos: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> state.todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.done)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 接收getter参数</span></span><br><span class="line">        doneTodosCount: <span class="function">(<span class="params">state, getters</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> getters.doneTodos.length</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 方法</span></span><br><span class="line">        getTodoById: <span class="function">(<span class="params">state</span>) =&gt;</span> (id) =&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> state.todos.find(<span class="function"><span class="params">todo</span> =&gt;</span> todo.id === id)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 访问</span></span><br><span class="line">store.getters.doneTodos <span class="comment">// -&gt; [&#123; id: 1, text: '...', done: true &#125;]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>mapGetters()辅助函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    <span class="comment">// 使用对象展开运算符将 getter 混入 computed 对象中</span></span><br><span class="line">    ...mapGetters([</span><br><span class="line">        <span class="string">'doneTodosCount'</span>,</span><br><span class="line">        <span class="string">'anotherGetter'</span>,</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    ])</span><br><span class="line">&#125;</span><br><span class="line">mapGetters(&#123;</span><br><span class="line">    <span class="comment">// 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`</span></span><br><span class="line">    doneCount: <span class="string">'doneTodosCount'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="mutation"><a href="#mutation" class="headerlink" title="mutation"></a>mutation</h3><p>提交mutation
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">store.commit(<span class="string">"increase"</span>)</span><br><span class="line"><span class="comment">// 传参</span></span><br><span class="line">store.commit(<span class="string">'increase'</span>, <span class="number">10</span>)</span><br><span class="line"><span class="comment">// 最好还是规范传payload对象</span></span><br><span class="line">store.commit(<span class="string">'increase'</span>, &#123;</span><br><span class="line">    amount:<span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 对象风格提交</span></span><br><span class="line">store.commit(&#123;</span><br><span class="line">  type: <span class="string">'increase'</span>,</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>1.最好提前在你的 store 中初始化好所有所需属性。</p>
+<p>2.当需要在对象上添加新属性时，你应该</p>
+<p>•使用 Vue.set(obj, ‘newProp’, 123), 或者</p>
+<p>•以新对象替换老对象。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">state.obj = &#123; ...state.obj, <span class="attr">newProp</span>: <span class="number">123</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>常量替代事件类型<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mutation-types.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> SOME_MUTATION = <span class="string">'SOME_MUTATION'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store.js</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">import</span> &#123; SOME_MUTATION &#125; <span class="keyword">from</span> <span class="string">'./mutation-types'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    <span class="comment">// 我们可以使用 ES2015 风格的计算属性命名功能来使用一个常量作为函数名</span></span><br><span class="line">    [SOME_MUTATION] (state) &#123;</span><br><span class="line">      <span class="comment">// mutate state</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>mutation必须是同步函数</strong>
+一条 mutation 被记录，devtools 都需要捕捉到前一状态和后一状态的快照。devtools 不知道什么时候回调函数实际上被调用——实质上任何在回调函数中进行的状态的改变都是不可追踪的。</p>
+<h4 id="组件中提交mutation"><a href="#组件中提交mutation" class="headerlink" title="组件中提交mutation"></a>组件中提交mutation</h4><ol>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store.commit(<span class="string">'xxx'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mapMutations 辅助函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    ...mapMutations([</span><br><span class="line">      <span class="string">'increase'</span>, <span class="comment">// 将 `this.increase()` 映射为 `this.$store.commit('increase')`</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// `mapMutations` 也支持载荷：</span></span><br><span class="line">      <span class="string">'increaseBy'</span> <span class="comment">// 将 `this.increaseBy(amount)` 映射为 `this.$store.commit('increaseBy', amount)`</span></span><br><span class="line">    ]),</span><br><span class="line">    ...mapMutations(&#123;</span><br><span class="line">      add: <span class="string">'increase'</span> <span class="comment">// 将 `this.add()` 映射为 `this.$store.commit('increase')`</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">store.commit(<span class="string">'increment'</span>)</span><br><span class="line"><span class="comment">// 任何由 "increment" 导致的状态变更都应该在此刻完成。</span></span><br></pre></td></tr></table></figure>
+<p>Action 类似于 mutation，不同在于：
+•Action 提交的是 mutation，而不是直接变更状态。
+•Action 可以包含任意异步操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increase (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    increase (context) &#123;</span><br><span class="line">      context.commit(<span class="string">'increase'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    increaseOr(&#123;commit&#125;) &#123;</span><br><span class="line">      commit(<span class="string">'increase'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    increaseAsync (&#123; commit &#125;) &#123;</span><br><span class="line">        <span class="comment">// 支持异步操作</span></span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        commit(<span class="string">'increment'</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 getters。</p>
+<ul>
+<li><p>触发action</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">store.dispatch(<span class="string">'increase'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>支持同样的载荷方式和对象方式分发</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以载荷形式分发</span></span><br><span class="line">store.dispatch(<span class="string">'increaseAsync'</span>, &#123;</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以对象形式分发</span></span><br><span class="line">store.dispatch(&#123;</span><br><span class="line">  type: <span class="string">'increaseAsync'</span>,</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 购物车操作实例</span></span><br><span class="line">actions: &#123;</span><br><span class="line">  checkout (&#123; commit, state &#125;, products) &#123;</span><br><span class="line">    <span class="comment">// 把当前购物车的物品备份起来</span></span><br><span class="line">    <span class="keyword">const</span> savedCartItems = [...state.cart.added]</span><br><span class="line">    <span class="comment">// 发出结账请求，然后乐观地清空购物车</span></span><br><span class="line">    commit(types.CHECKOUT_REQUEST)</span><br><span class="line">    <span class="comment">// 购物 API 接受一个成功回调和一个失败回调</span></span><br><span class="line">    shop.buyProducts(</span><br><span class="line">      products,</span><br><span class="line">      <span class="comment">// 成功操作</span></span><br><span class="line">      () =&gt; commit(types.CHECKOUT_SUCCESS),</span><br><span class="line">      <span class="comment">// 失败操作</span></span><br><span class="line">      () =&gt; commit(types.CHECKOUT_FAILURE, savedCartItems)</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="组件中分发action"><a href="#组件中分发action" class="headerlink" title="组件中分发action"></a>组件中分发action</h4><p>在组件中使用 this.$store.dispatch(‘xxx’) 分发 action，或者使用 mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用（需要先在根节点注入 store）
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    ...mapActions([</span><br><span class="line">      <span class="string">'increase'</span>, <span class="comment">// 将 `this.increase()` 映射为 `this.$store.dispatch('increase')`</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// `mapActions` 也支持载荷：</span></span><br><span class="line">      <span class="string">'increaseBy'</span> <span class="comment">// 将 `this.increaseBy(amount)` 映射为 `this.$store.dispatch('increaseBy', amount)`</span></span><br><span class="line">    ]),</span><br><span class="line">    ...mapActions(&#123;</span><br><span class="line">      add: <span class="string">'increase'</span> <span class="comment">// 将 `this.add()` 映射为 `this.$store.dispatch('increase')`</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="action组合嵌套"><a href="#action组合嵌套" class="headerlink" title="action组合嵌套"></a>action组合嵌套</h4><p>store.dispatch 可以处理被触发的 action 的处理函数返回的 Promise，并且 store.dispatch 仍旧返回 Promise
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">  actionA (&#123; commit &#125;) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        commit(<span class="string">'someMutation'</span>)</span><br><span class="line">        resolve()</span><br><span class="line">      &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">   actionB (&#123; dispatch, commit &#125;) &#123;</span><br><span class="line">    <span class="keyword">return</span> dispatch(<span class="string">'actionA'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      commit(<span class="string">'someOtherMutation'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">store.dispatch(<span class="string">'actionA'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>采用async await</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getData() 和 getOtherData() 返回的是 Promise</span></span><br><span class="line">actions: &#123;</span><br><span class="line">  <span class="keyword">async</span> actionA (&#123; commit &#125;) &#123;</span><br><span class="line">    commit(<span class="string">'gotData'</span>, <span class="keyword">await</span> getData())</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">async</span> actionB (&#123; dispatch, commit &#125;) &#123;</span><br><span class="line">    <span class="keyword">await</span> dispatch(<span class="string">'actionA'</span>) <span class="comment">// 等待 actionA 完成</span></span><br><span class="line">    commit(<span class="string">'gotOtherData'</span>, <span class="keyword">await</span> getOtherData())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="module切分模块"><a href="#module切分模块" class="headerlink" title="module切分模块"></a>module切分模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;,</span><br><span class="line">  getters: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleB = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,</span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.state.a <span class="comment">// -&gt; moduleA 的状态</span></span><br><span class="line">store.state.b <span class="comment">// -&gt; moduleB 的状态</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>模块内部的action</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  actions: &#123;</span><br><span class="line">    incrementIfOddOnRootSum (&#123; state, commit, rootState &#125;) &#123;</span><br><span class="line">      <span class="keyword">if</span> ((state.count + rootState.count) % <span class="number">2</span> === <span class="number">1</span>) &#123;</span><br><span class="line">        commit(<span class="string">'increment'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">   getters: &#123;</span><br><span class="line">    sumWithRootCount (state, getters, rootState) &#123;</span><br><span class="line">      <span class="keyword">return</span> state.count + rootState.count</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命名空间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    account: &#123;</span><br><span class="line">      namespaced: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 模块内容（module assets）</span></span><br><span class="line">      state: &#123; ... &#125;, <span class="comment">// 模块内的状态已经是嵌套的了，使用 `namespaced` 属性不会对其产生影响</span></span><br><span class="line">      getters: &#123;</span><br><span class="line">        isAdmin () &#123; ... &#125; <span class="comment">// -&gt; getters['account/isAdmin']</span></span><br><span class="line">      &#125;,</span><br><span class="line">      actions: &#123;</span><br><span class="line">        login () &#123; ... &#125; <span class="comment">// -&gt; dispatch('account/login')</span></span><br><span class="line">      &#125;,</span><br><span class="line">      mutations: &#123;</span><br><span class="line">        login () &#123; ... &#125; <span class="comment">// -&gt; commit('account/login')</span></span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 嵌套模块</span></span><br><span class="line">      modules: &#123;</span><br><span class="line">        <span class="comment">// 继承父模块的命名空间</span></span><br><span class="line">        myPage: &#123;</span><br><span class="line">          state: &#123; ... &#125;,</span><br><span class="line">          getters: &#123;</span><br><span class="line">            profile () &#123; ... &#125; <span class="comment">// -&gt; getters['account/profile']</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 进一步嵌套命名空间</span></span><br><span class="line">        posts: &#123;</span><br><span class="line">          namespaced: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">          state: &#123; ... &#125;,</span><br><span class="line">          getters: &#123;</span><br><span class="line">            popular () &#123; ... &#125; <span class="comment">// -&gt; getters['account/posts/popular']</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在带命名空间的模块内访问全局内容（Global Assets）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">modules: &#123;</span><br><span class="line">  foo: &#123;</span><br><span class="line">    namespaced: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">    getters: &#123;</span><br><span class="line">      <span class="comment">// 在这个模块的 getter 中，`getters` 被局部化了</span></span><br><span class="line">      <span class="comment">// 你可以使用 getter 的第四个参数来调用 `rootGetters`</span></span><br><span class="line">      someGetter (state, getters, rootState, rootGetters) &#123;</span><br><span class="line">        getters.someOtherGetter <span class="comment">// -&gt; 'foo/someOtherGetter'</span></span><br><span class="line">        rootGetters.someOtherGetter <span class="comment">// -&gt; 'someOtherGetter'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      someOtherGetter: <span class="function"><span class="params">state</span> =&gt;</span> &#123; ... &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    actions: &#123;</span><br><span class="line">      <span class="comment">// 在这个模块中， dispatch 和 commit 也被局部化了</span></span><br><span class="line">      <span class="comment">// 他们可以接受 `root` 属性以访问根 dispatch 或 commit</span></span><br><span class="line">      someAction (&#123; dispatch, commit, getters, rootGetters &#125;) &#123;</span><br><span class="line">        getters.someGetter <span class="comment">// -&gt; 'foo/someGetter'</span></span><br><span class="line">        rootGetters.someGetter <span class="comment">// -&gt; 'someGetter'</span></span><br><span class="line"></span><br><span class="line">        dispatch(<span class="string">'someOtherAction'</span>) <span class="comment">// -&gt; 'foo/someOtherAction'</span></span><br><span class="line">        dispatch(<span class="string">'someOtherAction'</span>, <span class="literal">null</span>, &#123; <span class="attr">root</span>: <span class="literal">true</span> &#125;) <span class="comment">// -&gt; 'someOtherAction'</span></span><br><span class="line"></span><br><span class="line">        commit(<span class="string">'someMutation'</span>) <span class="comment">// -&gt; 'foo/someMutation'</span></span><br><span class="line">        commit(<span class="string">'someMutation'</span>, <span class="literal">null</span>, &#123; <span class="attr">root</span>: <span class="literal">true</span> &#125;) <span class="comment">// -&gt; 'someMutation'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      someOtherAction (ctx, payload) &#123; ... &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在带命名空间的模块注册全局 action
+若需要在带命名空间的模块注册全局 action，可添加 root: true，并将这个 action 的定义放在函数 handler 中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  actions: &#123;</span><br><span class="line">    someOtherAction (&#123;dispatch&#125;) &#123;</span><br><span class="line">      dispatch(<span class="string">'someAction'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;</span><br><span class="line">    foo: &#123;</span><br><span class="line">      namespaced: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">      actions: &#123;</span><br><span class="line">        someAction: &#123;</span><br><span class="line">          root: <span class="literal">true</span>,</span><br><span class="line">          handler (namespacedContext, payload) &#123; ... &#125; <span class="comment">// -&gt; 'someAction'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>带命名空间的绑定函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  ...mapState(&#123;</span><br><span class="line">    a: <span class="function"><span class="params">state</span> =&gt;</span> state.some.nested.module.a,</span><br><span class="line">    b: <span class="function"><span class="params">state</span> =&gt;</span> state.some.nested.module.b</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  ...mapActions([</span><br><span class="line">    <span class="string">'some/nested/module/foo'</span>, <span class="comment">// -&gt; this['some/nested/module/foo']()</span></span><br><span class="line">    <span class="string">'some/nested/module/bar'</span> <span class="comment">// -&gt; this['some/nested/module/bar']()</span></span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>简化
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  ...mapState(<span class="string">'some/nested/module'</span>, &#123;</span><br><span class="line">    a: <span class="function"><span class="params">state</span> =&gt;</span> state.a,</span><br><span class="line">    b: <span class="function"><span class="params">state</span> =&gt;</span> state.b</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  ...mapActions(<span class="string">'some/nested/module'</span>, [</span><br><span class="line">    <span class="string">'foo'</span>, <span class="comment">// -&gt; this.foo()</span></span><br><span class="line">    <span class="string">'bar'</span> <span class="comment">// -&gt; this.bar()</span></span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可以通过使用 createNamespacedHelpers 创建基于某个命名空间辅助函数。它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createNamespacedHelpers &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; mapState, mapActions &#125; = createNamespacedHelpers(<span class="string">'some/nested/module'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="comment">// 在 `some/nested/module` 中查找</span></span><br><span class="line">    ...mapState(&#123;</span><br><span class="line">      a: <span class="function"><span class="params">state</span> =&gt;</span> state.a,</span><br><span class="line">      b: <span class="function"><span class="params">state</span> =&gt;</span> state.b</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="comment">// 在 `some/nested/module` 中查找</span></span><br><span class="line">    ...mapActions([</span><br><span class="line">      <span class="string">'foo'</span>,</span><br><span class="line">      <span class="string">'bar'</span></span><br><span class="line">    ])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="定义插件"><a href="#定义插件" class="headerlink" title="定义插件"></a>定义插件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myPlugin = <span class="function"><span class="params">store</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 传入store初始化时调用</span></span><br><span class="line">    store.subscribe(<span class="function">(<span class="params">mutation, state</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// 每次mutation之后调用</span></span><br><span class="line">        <span class="comment">// mutation 的格式为 &#123;type, payload&#125;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h2><p>因为提交mutation才能修改状态，所以v-model不适合绑定vuex里的state，不符合vuex的思想。
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"obj.message"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>假设这里的 obj 是在计算属性中返回的一个属于 Vuex store 的对象，在用户输入时，v-model 会试图直接修改 obj.message。在严格模式中，由于这个修改不是在 mutation 函数中执行的, 这里会抛出一个错误。</p>
+<ol>
+<li>不采用v-model
+所以需要input绑定value，然后调用input或者change提交mutation修改状态<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">:value</span>=<span class="string">"message"</span> @<span class="attr">input</span>=<span class="string">"updateMessage"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    ...mapState(&#123;</span><br><span class="line">        message: <span class="function"><span class="params">state</span> =&gt;</span> state.obj.message</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">method: &#123;</span><br><span class="line">    updateMessage(e)&#123;</span><br><span class="line">        <span class="keyword">this</span>.$store.commit(<span class="string">"updateMessage"</span>, e.target.value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>采用v-model<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  message: &#123;</span><br><span class="line">    get () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.obj.message</span><br><span class="line">    &#125;,</span><br><span class="line">    set (value) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'updateMessage'</span>, value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div class="text-center line pages-end">
+				<span>本文结束<i class="fa fa-meh-o fa-fw"></i>感谢您的阅读</span>
+        </div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
+  <p><span>本文标题:</span><a href="/2019/vuex学习笔记.html">vuex学习笔记</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
+  <p><span>发布时间:</span>2019年04月19日 - 00:04</p>
+  <p><span>最后更新:</span>2019年04月19日 - 00:04</p>
+  <p><span>原始链接:</span><a href="/2019/vuex学习笔记.html" title="vuex学习笔记">http://mydearest.cn/2019/vuex学习笔记.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/vuex学习笔记.html"  aria-label=" 复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",     
+          text: '复制成功',   
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈宇（cosyer） WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="陈宇（cosyer） Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/知识/" rel="tag"><i class="fa fa-tag fa-fw"></i> 知识</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/macvscode更新失败：Permissiondenied解决办法.html" rel="next" title="macvscode更新失败：Permissiondenied解决办法">
+                <i class="fa fa-chevron-left"></i> macvscode更新失败：Permissiondenied解决办法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+            
+  <div class="comments" id="comments">
+    
+      <div class="comments v" id="comments"></div>
+    
+  </div>
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="陈宇（cosyer）" />
+          <p class="site-author-name" itemprop="name">陈宇（cosyer）</p>
+           
+              <p class="site-description motion-element" itemprop="description">不去做的话永远也做不到。</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://github.com/cosyer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://twitter.com/yzchenyu1995" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="mailto:yzchenyu1995@gmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://www.facebook.com/profile.php?id=100025666071215" target="_blank" title="FB Page">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                    
+                      FB Page
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://callmesoul.cn" title="Callmesoul" target="_blank">Callmesoul</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="https://www.jstips.co/" title="JsTips" target="_blank">JsTips</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://dir.mydearest.cn/motion/" title="Personal Site" target="_blank">Personal Site</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a rel="external nofollow" href="http://resume.mydearest.cn/" title="Resume" target="_blank">Resume</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vuex"><span class="nav-number">1.</span> <span class="nav-text">vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#state（单一状态树）"><span class="nav-number">1.1.</span> <span class="nav-text">state（单一状态树）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getter对state数据的派生操作（共享数据的共享函数）"><span class="nav-number">1.2.</span> <span class="nav-text">getter对state数据的派生操作（共享数据的共享函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mutation"><span class="nav-number">1.3.</span> <span class="nav-text">mutation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件中提交mutation"><span class="nav-number">1.3.1.</span> <span class="nav-text">组件中提交mutation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#action"><span class="nav-number">1.4.</span> <span class="nav-text">action</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件中分发action"><span class="nav-number">1.4.1.</span> <span class="nav-text">组件中分发action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#action组合嵌套"><span class="nav-number">1.4.2.</span> <span class="nav-text">action组合嵌套</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module切分模块"><span class="nav-number">1.5.</span> <span class="nav-text">module切分模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义插件"><span class="nav-number">2.</span> <span class="nav-text">定义插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单处理"><span class="nav-number">3.</span> <span class="nav-text">表单处理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈宇（cosyer）</span>
+</div>
+<div>
+ <span class="alive"></span>
+ </div>
+<div class="powered-by">
+  <i class="fa fa-users fa-fw"></i>
+  <span id="busuanzi_container_site_uv">
+    终于等到你(UV): <span id="busuanzi_value_site_uv"></span>
+  </span>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <i class="fa fa-bar-chart-o fa-fw"></i>
+  <span id="busuanzi_container_site_pv">
+    欢迎再来(PV): <span id="busuanzi_value_site_pv"></span>
+  </span>
+
+  <div class="theme-info">
+    <div class="powered-by"></div>
+    <span class="post-count">Blog总字数: 114.4k字</span>
+  </div>
+</div>
+
+<!--
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="https://cdn.lishaoy.net/js/index.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+  
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.lishaoy.net/js/av-min.js"></script>
+  
+  <script src='https://cdn.lishaoy.net/js/Valine.min-2d948fjf6gj4hf.js'></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        appId: 'SKflNaQWS70153r2kOqgcGge-gzGzoHsz',
+        appKey: 'gE9ySnRyOkS4UNzYJ7GOCa56',
+        placeholder: '想说点什么 ：）',
+        avatar: 'retro'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0&&datas.length>0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content =  data.content&&data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content&&content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text&&text.toLowerCase();
+                        word = word&&word.toLowerCase();
+                      }
+                      while ((position = text&&text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+
+  
+  <script src="https://cdn.lishaoy.net/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SKflNaQWS70153r2kOqgcGge-gzGzoHsz", "gE9ySnRyOkS4UNzYJ7GOCa56");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src=""></script>
+  
+
+
+  
+
+  
+
+
+  <div id="load" style=""></div>
+  <!-- 新增看娘
+  <script async src="/live2dw/js/perTips.js"></script>
+  <script src="/live2dw/lib/L2Dwidget.min.js"></script>
+  -->
+  <!-- 页面点击小红心
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  -->
+
+  <!-- 背景动画
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+  -->
+
+   <!-- 输入爆炸效果来自 http://xiaowiba.com （小尾巴） 如有侵权，请通知我撤销
+  <script type="text/javascript" src="/js/src/activate-power-mode.js"></script>
+  -->
+
+   <!-- UV、PV统计 不蒜子
+   <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  -->
+  <script type="text/javascript" src="https://cdn.lishaoy.net/js/all-min-d92a58c18b.js"></script>
+   <!-- 自己的脚本
+  <script type="text/javascript" src="/js/src/cosyer.js"></script>
+  -->
+  <script>
+// 下雪
+//(function($){$.fn.snow=function(options){var $flake=$('<div id="flake" />').css({'position':'absolute','top':'-50px'}).html('&#10052;'),documentHeight=$(document).height(),documentWidth=$(document).width(),defaults={minSize:10,maxSize:20,newOn:500,flakeColor:"#FFFFFF"},options=$.extend({},defaults,options);var interval=setInterval(function(){var startPositionLeft=Math.random()*documentWidth-100,startOpacity=0.5+Math.random(),sizeFlake=options.minSize+Math.random()*options.maxSize,endPositionTop=documentHeight-40,endPositionLeft=startPositionLeft-100+Math.random()*200,durationFall=documentHeight*10+Math.random()*5000;$flake.clone().appendTo('body').css({left:startPositionLeft,opacity:startOpacity,'font-size':sizeFlake,color:options.flakeColor}).animate({top:endPositionTop,left:endPositionLeft,opacity:0.2},durationFall,'linear',function(){$(this).remove()});},options.newOn);};})(jQuery);
+//$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#00F' });
+
+// 点线连接
+!function () { function o(w, v, i) { return w.getAttribute(v) || i } function j(i) { return document.getElementsByTagName(i) } function l() { var i = j("script"), w = i.length, v = i[w - 1]; return { l: w, z: o(v, "zIndex", -1), o: o(v, "opacity", 1), c: o(v, "color", "255, 255, 255"), n: o(v, "count", 99) } } function k() { r = u.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, n = u.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight } function b() { e.clearRect(0, 0, r, n); var w = [f].concat(t); var x, v, A, B, z, y; t.forEach(function (i) { i.x += i.xa, i.y += i.ya, i.xa *= i.x > r || i.x < 0 ? -1 : 1, i.ya *= i.y > n || i.y < 0 ? -1 : 1, e.fillRect(i.x - 0.5, i.y - 0.5, 1, 1); for (v = 0; v < w.length; v++) { x = w[v]; if (i !== x && null !== x.x && null !== x.y) { B = i.x - x.x, z = i.y - x.y, y = B * B + z * z; y < x.max && (x === f && y >= x.max / 2 && (i.x -= 0.03 * B, i.y -= 0.03 * z), A = (x.max - y) / x.max, e.beginPath(), e.lineWidth = A / 2, e.strokeStyle = "rgba(" + s.c + "," + (A + 0.2) + ")", e.moveTo(i.x, i.y), e.lineTo(x.x, x.y), e.stroke()) } } w.splice(w.indexOf(i), 1) }), m(b) } var u = document.createElement("canvas"), s = l(), c = "c_n" + s.l, e = u.getContext("2d"), r, n, m = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (i) { window.setTimeout(i, 1000 / 45) }, a = Math.random, f = { x: null, y: null, max: 20000 }; u.id = c; u.style.cssText = "position:fixed;top:0;left:0;z-index:" + s.z + ";opacity:" + s.o; j("body")[0].appendChild(u); k(), window.onresize = k; window.onmousemove = function (i) { i = i || window.event, f.x = i.clientX, f.y = i.clientY }, window.onmouseout = function () { f.x = null, f.y = null }; for (var t = [], p = 0; s.n > p; p++) { var h = a() * r, g = a() * n, q = 2 * a() - 1, d = 2 * a() - 1; t.push({ x: h, y: g, xa: q, ya: d, max: 6000 }) } setTimeout(function () { b() }, 100) }();
+
+// 崩溃欺骗
+var OriginTitle = document.title;
+var titleTime;
+document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+        $('[rel="icon"]').attr('href', "/img/TEP.ico");
+        document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+        clearTimeout(titleTime);
+    }
+    else {
+        $('[rel="icon"]').attr('href', "/favicon.ico");
+        document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
+        titleTime = setTimeout(function () {
+            document.title = OriginTitle;
+        }, 2000);
+    }
+});
+
+// 存活时间
+var aliveList=document.getElementsByClassName("alive")
+setInterval(function() { 
+var time = new Date(); 
+// 程序计时的月从0开始取值后+1 
+//根据自己博客的创建时间更改数值 
+var t = "博客存活了"+Math.floor((+new Date - 1527868800000) / (1000 * 60 * 60 * 24)) + "天 " + time.getHours() + "小时" 
++ time.getMinutes() + "分" + time.getSeconds() + "秒"; 
+aliveList[0].innerHTML = t; 
+}, 1000); 
+// 统计页面加载时间
+window.onload = function () {
+  var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart; 
+  console.log('Page load time is '+ loadTime);
+}
+</script>
+  <script> $(function(){ $('#loader').css('display','none');});</script>
+<style>
+    .comments.no-post {
+      background: transparent;
+    }
+    .no-post.v *{
+      color: #ddd;
+    }
+    .v .vlist p {
+      margin: 12px 0;
+    }
+    .v .vbtn {
+      background: #fbfbfb;
+      padding: .3rem 1.2em;
+      border: 1px solid #dddddd75;
+    }
+    .no-post.v .vbtn {
+      background: #2222220a;
+    }
+    .no-post.v .vbtn:active, .no-post.v .vbtn:hover {
+      background-color: #fff;
+    }
+    .no-post.v .vwrap {
+      border: 1px solid #f0f0f036;;
+    }
+    .no-post.v a {
+      color: #ddd;
+    }
+    .v ul {
+      padding-left: 25px;
+    }
+    .v ul li {
+      list-style: disc;
+      padding: 2px 15px 0 0;
+    }
+    .v .vlist strong , .vinput.vpreview strong {
+        color: #87daff;
+        font-size: 108%;
+    }
+    .v .vlist .vcard .vhead .vsys {
+        background: #87daff17;
+        color: #aaa;
+        border: 1px solid #87daff1f;
+        padding: 1px 5px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .no-post.v .vlist .vcard .vhead .vsys{
+      background: #ededed1f;
+      color: #808080;
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 1.4;
+      border: none;
+    }
+
+    .v .vlist .vcard .vcontent a {
+      color: #86dbff;
+      border-bottom-color: #86dbff99;
+    }
+
+    .v .vlist .vcard .vcontent a:hover {
+        color: #d7191a;
+        border-bottom-color: #222;
+    }
+
+    .no-post.v .vlist .vcard section {
+        border-bottom: 1px dashed #f5f5f55e;
+    }
+
+    .v .vwrap .vheader .vinput {
+        width: 33.33%;
+        border-bottom: 1px dashed #dedede45;
+    }
+    .no-post.v .vwrap .vheader .vinput::-webkit-input-placeholder {
+        color: #808080;
+    }
+    .no-post.v .vwrap .vheader .vinput:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+        color: #808080;
+    }
+    .v .txt-right {
+        display: none;
+    }
+
+    .v .vlist .vcard .vcontent .code, .v .vlist .vcard .vcontent code, .v .vlist .vcard .vcontent pre , .vinput.vpreview code , .vinput.vpreview pre {
+      color: #005098fc;
+      background: #87daffb8;
+      border-radius: 4px;
+      box-shadow: 0 0 2px #87daff;
+      font-size: 90%;
+      padding: 2px 6px;
+    }
+    .v .vlist .vcard .vcontent img {
+      max-width: 18px;
+      display: inline-block;
+    }
+
+    .v .vlist .vcard .vcontent img{
+      max-width:18px;
+      display:inline-block
+    }
+
+    .v .vwrap .vheader .vinput:focus {
+      border-bottom: 1px solid #87daff;
+    }
+    .v .vlist .vcard .vcontent pre , .vinput.vpreview pre {
+        background: #87daff21;
+        border-radius: 4px;
+        box-shadow: 0 0 2px #ffffff33;
+    }
+    .v .vlist .vcard .vcontent pre code ,.vinput.vpreview pre code {
+        color: #87daff;
+        background: #87daff00;
+        border-radius: 4px;
+        box-shadow: 0 0 2px #87daff05;
+    }
+    .v .vlist .vcard .vcontent.expand:after {
+      color: #ff0000de;
+      font-size: 110%;
+      font-weight: bold;
+      background: #87daff38;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .comments.no-post .vlist .vcard .vcontent.expand:after {
+      color: #fff;
+    }
+    @media screen and (max-width: 414px) {
+        .v .vlist {
+            padding-left: 0;
+        }
+    }
+    .v .vlist .vcard .vcontent.expand:before {
+        background: linear-gradient(180deg,hsla(0, 0%, 100%, 0),hsla(199, 100%, 76%, 0.22));
+        background: -webkit-gradient(linear,left top,left bottom,from(hsla(0,0%,100%,0)),to(hsla(199, 100%, 76%, 0.22));
+    }
+</style>
+
+</body>
+</html>

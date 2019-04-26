@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="函数的定义函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。">
+<meta name="description" content="函数的定义函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。 在JavaScript中函数就是对象。函数不同于其他对象的决定性特点是，函数存在一个被称为[[Call]">
 <meta name="keywords" content="深入理解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS函数基础">
 <meta property="og:url" content="http://mydearest.cn/2019/JS函数基础.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="函数的定义函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。">
+<meta property="og:description" content="函数的定义函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。 在JavaScript中函数就是对象。函数不同于其他对象的决定性特点是，函数存在一个被称为[[Call]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-26T16:33:58.711Z">
+<meta property="og:updated_time" content="2019-04-25T15:55:41.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS函数基础">
-<meta name="twitter:description" content="函数的定义函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。">
+<meta name="twitter:description" content="函数的定义函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。 在JavaScript中函数就是对象。函数不同于其他对象的决定性特点是，函数存在一个被称为[[Call]">
 
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-27T00:33:58+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2019-04-25T23:55:41+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">25</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月27</div>
+      <div class="post-tiem">4月25</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,576 (字)
+                  1,839 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  7 (分钟)
                 </span>
               
             </div>
@@ -564,6 +564,10 @@ a:hover {
         <h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h2><p>函数其实就是一个封装一段代码段的<strong>对象</strong>，那函数名其实仅是用来引用函数对象的一个普通变量</p>
 <p>写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。</p>
 <p>一段代码，可能被反复使用，可以定义为函数，然后调用函数来使用这段代码。</p>
+<p>在JavaScript中函数就是对象。函数不同于其他对象的决定性特点是，函数存在一个被称为[[Call]]的内部属性。内部属性无法通过代码访问而是</p>
+<p>定义了代码执行时的行为。ECMAScript为JavaScript的对象定义了多种内部属性，这些内部属性都用双重中括号来标注。</p>
+<p>[[Call]]属性是函数独有的，表明该对象可以被执行。由于仅函数拥有该属性，ECMAScript定义了typeof操作符对任何具有[[Call]]属性的对</p>
+<p>象返回 <code>[object Function]</code></p>
 <hr>
 <a id="more"></a>
 <h2 id="函数的创建"><a href="#函数的创建" class="headerlink" title="函数的创建"></a>函数的创建</h2><p><strong>function 声明</strong></p>
@@ -583,6 +587,9 @@ a:hover {
 <h3 id="隐式参数"><a href="#隐式参数" class="headerlink" title="隐式参数"></a>隐式参数</h3><p>每个 JavaScript 函数内部都有一个对象 <code>arguments</code> 对象,其实是一个类数组的对象,它会自动接受所有传入函数的参数值。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">          </span>) </span>&#123;</span><br><span class="line">  <span class="comment">//arguments[          ]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>值得一说的是,<code>arguments</code> 有下标有长度，可以通过下标来获得传入的参数，比如 <code>arguments[0]</code> 就是第一个参数, <code>length</code> 就可以遍历这个类数组对象，但是，毕竟它不是数组，所以不能进行一些数组特有的操作，比如 <code>sort</code></p>
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>强类型语言对重载的定义：函数名相同，参数不同，或者是参数类型不同都可以叫做函数的重载。</p>
+<p>但在js中因为 arguments 的存在，JavaScript的函数根本就不存在所谓的签名，所以重载在JavaScript中实际是不存在的。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟函数重载</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length ===<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//A</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>.length ===<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="comment">//B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abc(<span class="number">11</span>);</span><br><span class="line">abc(<span class="number">11</span>,<span class="number">22</span>);</span><br></pre></td></tr></table></figure></p>
 <h2 id="声明提前"><a href="#声明提前" class="headerlink" title="声明提前"></a>声明提前</h2><p>在开始执行程序前,js 引擎会首先查找 <code>var</code> 声明的变量和 <code>function</code> 声明的函数，将其提前到当前作用域的顶部集中创建，而将赋值操作保留在原地,这里特别说一下,未用 <code>var</code> 声明的变量不会声明提前.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//a is not defined</span></span><br><span class="line">a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
@@ -650,7 +657,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/JS函数基础.html">JS函数基础</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年03月27日 - 00:03</p>
-  <p><span>最后更新:</span>2019年03月27日 - 00:03</p>
+  <p><span>最后更新:</span>2019年04月25日 - 23:04</p>
   <p><span>原始链接:</span><a href="/2019/JS函数基础.html" title="JS函数基础">http://mydearest.cn/2019/JS函数基础.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/JS函数基础.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -954,7 +961,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的定义"><span class="nav-number">1.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的创建"><span class="nav-number">2.</span> <span class="nav-text">函数的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的参数"><span class="nav-number">3.</span> <span class="nav-text">函数的参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示参数"><span class="nav-number">3.1.</span> <span class="nav-text">显示参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式参数"><span class="nav-number">3.2.</span> <span class="nav-text">隐式参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明提前"><span class="nav-number">4.</span> <span class="nav-text">声明提前</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明提前的解决方法"><span class="nav-number">4.1.</span> <span class="nav-text">声明提前的解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数"><span class="nav-number">5.</span> <span class="nav-text">匿名函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用处"><span class="nav-number">5.1.</span> <span class="nav-text">用处</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自调"><span class="nav-number">5.1.1.</span> <span class="nav-text">自调</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载"><span class="nav-number">6.</span> <span class="nav-text">重载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的定义"><span class="nav-number">1.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的创建"><span class="nav-number">2.</span> <span class="nav-text">函数的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的参数"><span class="nav-number">3.</span> <span class="nav-text">函数的参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示参数"><span class="nav-number">3.1.</span> <span class="nav-text">显示参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式参数"><span class="nav-number">3.2.</span> <span class="nav-text">隐式参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数重载"><span class="nav-number">3.3.</span> <span class="nav-text">函数重载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明提前"><span class="nav-number">4.</span> <span class="nav-text">声明提前</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明提前的解决方法"><span class="nav-number">4.1.</span> <span class="nav-text">声明提前的解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数"><span class="nav-number">5.</span> <span class="nav-text">匿名函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用处"><span class="nav-number">5.1.</span> <span class="nav-text">用处</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自调"><span class="nav-number">5.1.1.</span> <span class="nav-text">自调</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载"><span class="nav-number">6.</span> <span class="nav-text">重载</span></a></li></ol></div>
             
 
           </div>
@@ -999,7 +1006,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 116.4k字</span>
+    <span class="post-count">Blog总字数: 117.1k字</span>
   </div>
 </div>
 

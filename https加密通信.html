@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.167Z">
+<meta property="og:updated_time" content="2019-04-28T16:45:15.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="https加密通信流程解析">
 <meta name="twitter:description" content="https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-04-29T00:45:15+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">4月29</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  786 (字)
+                  878 (字)
                 </span>
               
 
@@ -572,6 +572,17 @@ a:hover {
 <h3 id="服务端解密信息"><a href="#服务端解密信息" class="headerlink" title="服务端解密信息"></a>服务端解密信息</h3><p>服务端用私钥解密后，得到了客户端传过来的随机值(私钥)，然后把内容通过该值进行对称加密。所谓对称加密就是，将信息和私钥通过某种算法混合在一起，这样除非知道私钥，不然无法获取内容，而正好客户端和服务端都知道这个私钥，所以只要加密算法够彪悍，私钥够复杂，数据就够安全。</p>
 <h3 id="传输加密后的信息"><a href="#传输加密后的信息" class="headerlink" title="传输加密后的信息"></a>传输加密后的信息</h3><p>这部分信息是服务段用私钥加密后的信息，可以在客户端被还原。</p>
 <h3 id="客户端解密信息"><a href="#客户端解密信息" class="headerlink" title="客户端解密信息"></a>客户端解密信息</h3><p>客户端用之前生成的私钥解密服务段传过来的信息，于是获取了解密后的内容。整个过程第三方即使监听到了数据，也束手无策。</p>
+<ul>
+<li><p>GET / HEAD / OPTIONS方法<br>只从服务端获取资源 并不对服务器进行修改 因此相对安全。
+对于客户端来说是不安全的 请求参数会显示在URL中。 </p>
+</li>
+<li><p>TRACE方法（两端安全）
+用于诊断诊断服务器 仅记录路径信息 是安全的。</p>
+</li>
+<li><p>POST方法
+会影响服务器端的资源。</p>
+</li>
+</ul>
 
       
     </div>
@@ -603,7 +614,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/https加密通信.html">https加密通信流程解析</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月25日 - 22:07</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年04月29日 - 00:04</p>
   <p><span>原始链接:</span><a href="/https加密通信.html" title="https加密通信流程解析">http://mydearest.cn/https加密通信.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/https加密通信.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -771,7 +782,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-count">95</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -793,7 +804,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -952,7 +963,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 117.1k字</span>
+    <span class="post-count">Blog总字数: 120.7k字</span>
   </div>
 </div>
 

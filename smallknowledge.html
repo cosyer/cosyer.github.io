@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="voidvoid其实是javascript中的一个函数，接受一个参数，返回值永远是undefined void expression 1234567void 0  void() // 报错void (0)  void &quot;hello&quot;  void (new Date())  // all will return undefined  context === void 666">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-18T15:28:27.804Z">
+<meta property="og:updated_time" content="2019-04-27T17:12:15.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你所不知道的前端冷门小知识(长期更新)">
 <meta name="twitter:description" content="voidvoid其实是javascript中的一个函数，接受一个参数，返回值永远是undefined void expression 1234567void 0  void() // 报错void (0)  void &quot;hello&quot;  void (new Date())  // all will return undefined  context === void 666">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-04-18T23:28:27+08:00">
+  <div class="post-date" data-datetime="2019-04-28T01:12:15+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">18</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月18</div>
+      <div class="post-tiem">4月28</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  11,886 (字)
+                  11,891 (字)
                 </span>
               
 
@@ -916,7 +916,7 @@ vauleOf优先于toString()被调用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> arr = date.toLocaleDateString().split(<span class="string">'/'</span>)</span><br><span class="line">arr = arr.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">parseInt</span>(item) &lt; <span class="number">10</span> ? <span class="string">'0'</span> + item : item</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">let</span> dateStr = arr.join(<span class="string">'-'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="求数值的n次幂"><a href="#求数值的n次幂" class="headerlink" title="求数值的n次幂"></a>求数值的n次幂</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">10</span>); <span class="comment">//1024</span></span><br><span class="line"><span class="number">2</span>**<span class="number">10</span> <span class="comment">// 1024</span></span><br></pre></td></tr></table></figure>
+<h2 id="求数值的n次幂"><a href="#求数值的n次幂" class="headerlink" title="求数值的n次幂"></a>求数值的n次幂</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">10</span>); <span class="comment">//1024</span></span><br><span class="line"><span class="number">2</span>**<span class="number">10</span> <span class="comment">// 1024 es7</span></span><br><span class="line"><span class="number">2</span>&lt;&lt;<span class="number">9</span> <span class="comment">//1024</span></span><br></pre></td></tr></table></figure>
 <h2 id="分号的重要性"><a href="#分号的重要性" class="headerlink" title="分号的重要性"></a>分号的重要性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> luke = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> leia = &#123;&#125;</span><br><span class="line">[luke, leia].forEach(<span class="function"><span class="params">jedi</span> =&gt;</span> jedi.father = <span class="string">'vader'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">    <span class="string">'search your feelings, you know it to be foo'</span></span><br><span class="line">&#125; <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 <h2 id="前端h5-download属性下载文件-appendChild兼容firefox"><a href="#前端h5-download属性下载文件-appendChild兼容firefox" class="headerlink" title="前端h5 download属性下载文件(appendChild兼容firefox)"></a>前端h5 download属性下载文件(appendChild兼容firefox)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downFile</span>(<span class="params">content, filename</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 创建隐藏的可下载链接</span></span><br><span class="line">    <span class="keyword">var</span> eleLink = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    eleLink.download = filename;</span><br><span class="line">    eleLink.style.display = <span class="string">'none'</span>;</span><br><span class="line">    <span class="comment">// 字符内容转变成blob地址</span></span><br><span class="line">    <span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([content]);</span><br><span class="line">    eleLink.href = URL.createObjectURL(blob);</span><br><span class="line">    <span class="comment">// 触发点击</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(eleLink);</span><br><span class="line">    eleLink.click();</span><br><span class="line">    <span class="comment">// 然后移除</span></span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(eleLink);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="禁止滚动条滚动"><a href="#禁止滚动条滚动" class="headerlink" title="禁止滚动条滚动"></a>禁止滚动条滚动</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> keys = [<span class="number">37</span>, <span class="number">38</span>, <span class="number">39</span>, <span class="number">40</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preventDefault</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e = e || <span class="built_in">window</span>.event;</span><br><span class="line">  <span class="keyword">if</span> (e.preventDefault)</span><br><span class="line">      e.preventDefault();</span><br><span class="line">  e.returnValue = <span class="literal">false</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keydown</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = keys.length; i--;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e.keyCode === keys[i]) &#123;</span><br><span class="line">            preventDefault(e);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wheel</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  preventDefault(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">disable_scroll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</span><br><span class="line">      <span class="built_in">window</span>.addEventListener(<span class="string">'DOMMouseScroll'</span>, wheel, <span class="literal">false</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.onmousewheel = <span class="built_in">document</span>.onmousewheel = wheel;</span><br><span class="line">  <span class="built_in">document</span>.onkeydown = keydown;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enable_scroll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.removeEventListener) &#123;</span><br><span class="line">        <span class="built_in">window</span>.removeEventListener(<span class="string">'DOMMouseScroll'</span>, wheel, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.onmousewheel = <span class="built_in">document</span>.onmousewheel = <span class="built_in">document</span>.onkeydown = <span class="literal">null</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -950,7 +950,7 @@ vauleOf优先于toString()被调用</p>
   <p><span>本文标题:</span><a href="/smallknowledge.html">你所不知道的前端冷门小知识(长期更新)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 21:06</p>
-  <p><span>最后更新:</span>2019年04月18日 - 23:04</p>
+  <p><span>最后更新:</span>2019年04月28日 - 01:04</p>
   <p><span>原始链接:</span><a href="/smallknowledge.html" title="你所不知道的前端冷门小知识(长期更新)">http://mydearest.cn/smallknowledge.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/smallknowledge.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1118,7 +1118,7 @@ vauleOf优先于toString()被调用</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-count">95</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1140,7 +1140,7 @@ vauleOf优先于toString()被调用</p>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1299,7 +1299,7 @@ vauleOf优先于toString()被调用</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 117.1k字</span>
+    <span class="post-count">Blog总字数: 120.7k字</span>
   </div>
 </div>
 

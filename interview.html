@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T03:41:47.529Z">
+<meta property="og:updated_time" content="2019-05-01T15:46:12.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-31T11:41:47+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">31</div>
+  <div class="post-date" data-datetime="2019-05-01T23:46:12+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">01</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月31</div>
+      <div class="post-tiem">5月01</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10,955 (字)
+                  11,147 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  43 (分钟)
+                  44 (分钟)
                 </span>
               
             </div>
@@ -621,6 +621,8 @@ typeof返回的类型都是字符串形式，可以判断function的类型；在
  事件流：从页面中接收事件的顺序。也就是说当一个事件产生时，这个事件的传播过程，就是事件流。</p>
 <p> IE中的事件流叫事件冒泡；事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点（文档）。对于html来说，就是当一个元素产生了一个事件，它会把这个事件传递给它的父元素，父元素接收到了之后，还要继续传递给它的上一级元素，就这样一直传播到document对象（亲测现在的浏览器到window对象，只有IE8及以下不这样。</p>
 <p> 事件捕获是不太具体的元素应该更早接受到事件，而最具体的节点应该最后接收到事件。他们的用意是在事件到达目标之前就捕获它；也就是跟冒泡的过程正好相反，以html的click事件为例，document对象（DOM级规范要求从document开始传播，但是现在的浏览器是从window对象开始的）最先接收到click事件的然后事件沿着DOM树依次向下传播，一直传播到事件的实际目标；</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">id</span>=<span class="string">"root_b"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"first_b"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"second_b"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"target_b"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>冒泡<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">id</span>=<span class="string">"root_c"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"first_c"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"second_c"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"target_c"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>捕获<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* listen</span></span><br><span class="line"><span class="comment">* @param &#123;string[]&#125; ids </span></span><br><span class="line"><span class="comment">* @param &#123;boolean&#125; isCatch </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> listen = <span class="function">(<span class="params">ids, isCatch</span>) =&gt;</span> ids.forEach(<span class="function"><span class="params">id</span> =&gt;</span> <span class="built_in">document</span>.getElementById(id).addEventListener(<span class="string">'click'</span>, () =&gt; alert(id), isCatch))</span><br><span class="line"></span><br><span class="line"><span class="comment">// BubbleEvent</span></span><br><span class="line">listen([<span class="string">'root_b'</span>, <span class="string">'first_b'</span>, <span class="string">'second_b'</span>, <span class="string">'target_b'</span>], <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// CatchEvent</span></span><br><span class="line">listen([<span class="string">'root_c'</span>, <span class="string">'first_c'</span>, <span class="string">'second_c'</span>, <span class="string">'target_c'</span>], <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如何添加一个dom对象到body中?innerHTML和innerText区别?
  body.appendChild(dom元素)；<br> innerHTML:从对象的起始位置到终止位置的全部内容,包括Html标签。
@@ -966,12 +968,14 @@ IE只支持事件冒泡。</p>
 <li><p>如何让事件先冒泡后执行？
 在DOM标准事件模型中，是先捕获后冒泡。但是如果要实现先冒泡后捕获的效果，对于同一个事件，监听捕获和冒泡，分别对应相应的处理函数，监听到捕获事件，先暂缓执行，直到冒泡事件被捕获后再执行捕获事件。</p>
 </li>
-<li><p>什么是事件委托？
+<li><p>什么是事件委托？（事件代理）
 简介：事件委托指的是，不在事件的发生地（直接dom）上设置监听函数，而是在其父元素上设置监听函数，通过事件冒泡，父元素可以监听到子元素上事件的触发，通过判断事件发生元素DOM的类型，来做出不同的响应。</p>
 </li>
 </ol>
 <p>举例：最经典的就是ul和li标签的事件监听，比如我们在添加事件时候，采用事件委托机制，不会在li标签上直接添加，而是在ul父元素上添加。</p>
 <p>好处：比较合适动态元素的绑定，新添加的子元素也会有监听函数，也可以有事件触发机制。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"proxy"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> proxy = <span class="built_in">document</span>.getElementById(<span class="string">'proxy'</span>)</span><br><span class="line"></span><br><span class="line">  proxy.addEventListener(<span class="string">'click'</span>, event =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> currentTarget = event.target</span><br><span class="line">    <span class="keyword">const</span> id = currentTarget.id</span><br><span class="line">    <span class="keyword">switch</span> (id) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'1'</span>:</span><br><span class="line">        alert(<span class="string">`proxy: <span class="subst">$&#123;<span class="number">1</span>&#125;</span>`</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'2'</span>:</span><br><span class="line">        alert(<span class="string">`proxy: <span class="subst">$&#123;<span class="number">2</span>&#125;</span>`</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'3'</span>:</span><br><span class="line">        alert(<span class="string">`proxy: <span class="subst">$&#123;<span class="number">3</span>&#125;</span>`</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>垂直居中</li>
 </ol>
@@ -1214,7 +1218,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年03月31日 - 11:03</p>
+  <p><span>最后更新:</span>2019年05月01日 - 23:05</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1563,7 +1567,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 120.7k字</span>
+    <span class="post-count">Blog总字数: 121.1k字</span>
   </div>
 </div>
 

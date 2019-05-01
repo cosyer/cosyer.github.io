@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="主流的双向绑定方法 1.发布-订阅模式 通过使用 get 和 set 的方式获取数据然后更新数据，其原理就是监听页面中某个具体元素的事件，然后将其最新的值手动 set 到 数据中，同时订阅 model 层的改变，然后触发页面的渲染更新 2.脏检测 通过对比数据是否有变更，来决定是否更新视图。最简单的可以通过定时轮询去检测数据的变动。Angular 只有在指定事件触发时进入脏检测：  DOM事件，比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.200Z">
+<meta property="og:updated_time" content="2019-05-01T17:03:34.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现双向绑定">
 <meta name="twitter:description" content="主流的双向绑定方法 1.发布-订阅模式 通过使用 get 和 set 的方式获取数据然后更新数据，其原理就是监听页面中某个具体元素的事件，然后将其最新的值手动 set 到 数据中，同时订阅 model 层的改变，然后触发页面的渲染更新 2.脏检测 通过对比数据是否有变更，来决定是否更新视图。最简单的可以通过定时轮询去检测数据的变动。Angular 只有在指定事件触发时进入脏检测：  DOM事件，比">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-05-02T01:03:34+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">5月02</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  765 (字)
+                  926 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -593,7 +593,8 @@ a:hover {
 <li>没有在版本库的master【默认分支】上提交</li>
 </ul>
 <p><a href="https://github.com/SunShinewyf/issue-blog/issues/46" target="_blank" rel="noopener">解读</a></p>
-
+<h2 id="defineProperty实现"><a href="#defineProperty实现" class="headerlink" title="defineProperty实现"></a>defineProperty实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * bind</span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; target </span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; dom </span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; map </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="keyword">const</span> bind = <span class="function">(<span class="params">target, dom, map</span>) =&gt;</span></span><br><span class="line">  <span class="built_in">Object</span>.keys(map || target).forEach(<span class="function"><span class="params">key</span> =&gt;</span></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(target, key, &#123;</span><br><span class="line">      set(value) &#123;</span><br><span class="line">        <span class="keyword">const</span> domKey = map ? map[key] : key</span><br><span class="line">        dom[domKey] = value</span><br><span class="line">      &#125;,</span><br><span class="line">      get() &#123;</span><br><span class="line">        <span class="keyword">const</span> domKey = map ? map[key] : key</span><br><span class="line">        <span class="keyword">return</span> dom[domKey]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;))</span><br><span class="line"><span class="built_in">window</span>._alternate = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>)</span><br><span class="line"></span><br><span class="line">bind(_alternate, p, &#123;</span><br><span class="line">  <span class="string">'value'</span>: <span class="string">'innerHTML'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="proxy实现"><a href="#proxy实现" class="headerlink" title="proxy实现"></a>proxy实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * bind</span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; model </span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; map </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="keyword">const</span> bind = <span class="function">(<span class="params">model, map</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(map || model, &#123;</span><br><span class="line">  get(_, key) &#123;</span><br><span class="line">    <span class="keyword">const</span> mkey = map ? map[key] : key</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(model, mkey)</span><br><span class="line">  &#125;,</span><br><span class="line">  set(_, key, value) &#123;</span><br><span class="line">    <span class="keyword">const</span> mkey = map ? map[key] : key</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(model, mkey, value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.__alternate = bind(<span class="built_in">document</span>.getElementById(<span class="string">'p'</span>), &#123;</span><br><span class="line">  <span class="string">'value'</span>: <span class="string">'innerHTML'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -624,7 +625,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/实现双向绑定.html">实现双向绑定</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年11月07日 - 17:11</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年05月02日 - 01:05</p>
   <p><span>原始链接:</span><a href="/实现双向绑定.html" title="实现双向绑定">http://mydearest.cn/实现双向绑定.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/实现双向绑定.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -767,8 +768,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -910,6 +920,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#defineProperty实现"><span class="nav-number">1.</span> <span class="nav-text">defineProperty实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy实现"><span class="nav-number">2.</span> <span class="nav-text">proxy实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -948,7 +974,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 120.7k字</span>
+    <span class="post-count">Blog总字数: 121.1k字</span>
   </div>
 </div>
 

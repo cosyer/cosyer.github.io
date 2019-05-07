@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="react," />
+  <meta name="keywords" content="深入理解," />
 
 
 
@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="Error BoundaryError Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句）">
-<meta name="keywords" content="react">
+<meta name="description" content="介绍Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。 Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装harmony-reflect; Reflect不是构造函数， 要使用的时候直接通过Ref">
+<meta name="keywords" content="深入理解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速了解React 16新特性">
-<meta property="og:url" content="http://mydearest.cn/react16.html">
+<meta property="og:title" content="ES6Relect对象">
+<meta property="og:url" content="http://mydearest.cn/2019/ES6Reflect对象.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="Error BoundaryError Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句）">
+<meta property="og:description" content="介绍Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。 Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装harmony-reflect; Reflect不是构造函数， 要使用的时候直接通过Ref">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.176Z">
+<meta property="og:updated_time" content="2019-05-07T15:59:07.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快速了解React 16新特性">
-<meta name="twitter:description" content="Error BoundaryError Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句）">
+<meta name="twitter:title" content="ES6Relect对象">
+<meta name="twitter:description" content="介绍Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。 Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装harmony-reflect; Reflect不是构造函数， 要使用的时候直接通过Ref">
 
 
 
@@ -172,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="http://mydearest.cn/react16.html"/>
+  <link rel="canonical" href="http://mydearest.cn/2019/ES6Reflect对象.html"/>
 
 
 
 
 
-  <title>快速了解React 16新特性 | cosyer's Blog</title>
+  <title>ES6Relect对象 | cosyer's Blog</title>
   
 
 
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-05-07T23:59:07+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">5月07</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -448,7 +448,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/react16.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/ES6Reflect对象.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -465,7 +465,7 @@ a:hover {
 
         
         
-          <h2 class="post-title" itemprop="name headline">快速了解React 16新特性</h2>
+          <h2 class="post-title" itemprop="name headline">ES6Relect对象</h2>
         
 
         <div class="post-meta">
@@ -477,8 +477,8 @@ a:hover {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-11T20:09:00+08:00">
-                2018-06-11
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-05-02T02:31:52+08:00">
+                2019-05-02
               </time>
             
 
@@ -496,7 +496,7 @@ a:hover {
 
           
           
-             <span id="/react16.html" class="leancloud_visitors" data-flag-title="快速了解React 16新特性">
+             <span id="/2019/ES6Reflect对象.html" class="leancloud_visitors" data-flag-title="ES6Relect对象">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  690 (字)
+                  1,392 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  6 (分钟)
                 </span>
               
             </div>
@@ -561,19 +561,63 @@ a:hover {
       
 
       
-        <h2 id="Error-Boundary"><a href="#Error-Boundary" class="headerlink" title="Error Boundary"></a>Error Boundary</h2><p>Error Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句）</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。</p>
+<p>Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装<a href="https://github.com/tvcutsem/harmony-reflect/" target="_blank" rel="noopener">harmony-reflect</a>;</p>
+<p>Reflect不是构造函数， 要使用的时候直接通过Reflect.method()调用， Reflect有的方法和Proxy差不多， 而且多数Reflect方法原生的Object已经重新实现了。</p>
+<p>与大多数全局对象不同，Reflect没有构造函数。你不能将其与一个new运算符一起使用，或者将Reflect对象作为一个函数来调用。Reflect的所有属性和方法都是静态的（就像Math对象）。</p>
 <hr>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//最佳实践：将ErrorBoundary抽象为一个公用的组件类</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorBoundary</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">hasError</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidCatch(err, info) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">hasError</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">    <span class="comment">//sendErrorReport(err,info)</span></span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.state.hasError)&#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;div&gt;Something went wrong!&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用方式 包裹容易出错的组件</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ErrorBoundary&gt;</span><br><span class="line">        &lt;Profile user=&#123;<span class="keyword">this</span>.state.user&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/ErrorBoundary&gt;</span></span><br><span class="line"><span class="regexp">      &lt;button onClick=&#123;this.onClick&#125;&gt;Update&lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="render方法新增返回类型"><a href="#render方法新增返回类型" class="headerlink" title="render方法新增返回类型"></a>render方法新增返回类型</h2><p>在React 16中，render方法支持直接返回string，number，boolean，null，portal，以及fragments(带有key属性的数组)，这可以在一定程度上减少页面的DOM层级。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello,world'</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//number</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//boolean</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> isTrue?<span class="literal">true</span>:<span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//null</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//fragments，未加key标识符，控制台会出现warning</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    &lt;div&gt;hello&lt;<span class="regexp">/div&gt;,</span></span><br><span class="line"><span class="regexp">    &lt;span&gt;world&lt;/</span>span&gt;,</span><br><span class="line">    &lt;p&gt;oh&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  ]</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>以上各种类型现在均可以直接在render中返回，不需要再在外层包裹一层容器元素，不过在返回的数组类型中，需要在每个元素上加一个唯一且不变的key值，否则控制台会报一个warning。</p>
-<h2 id="使用createPortal将组件渲染到当前组件树之外"><a href="#使用createPortal将组件渲染到当前组件树之外" class="headerlink" title="使用createPortal将组件渲染到当前组件树之外"></a>使用createPortal将组件渲染到当前组件树之外</h2><h2 id="支持自定义DOM属性"><a href="#支持自定义DOM属性" class="headerlink" title="支持自定义DOM属性"></a>支持自定义DOM属性</h2><p>在之前的版本中，React会忽略无法识别的HTML和SVG属性，自定义属性只能通过data-*形式添加，现在它会把这些属性直接传递给DOM（这个改动让React可以去掉属性白名单，从而减少了文件大小）。</p>
-<h2 id="setState传入null时不会再触发更新"><a href="#setState传入null时不会再触发更新" class="headerlink" title="setState传入null时不会再触发更新"></a>setState传入null时不会再触发更新</h2><h2 id="更好的服务器端渲染"><a href="#更好的服务器端渲染" class="headerlink" title="更好的服务器端渲染"></a>更好的服务器端渲染</h2><p>React 16的SSR被完全重写，新的实现非常快，接近3倍性能于React 15，现在提供一种流模式streaming，可以更快地把渲染的字节发送到客户端。</p>
-<h2 id="新的打包策略"><a href="#新的打包策略" class="headerlink" title="新的打包策略"></a>新的打包策略</h2><p>新的打包策略中去掉了process.env检查。
-React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸的减小一部分要归功于打包方法的改变。</p>
-<h2 id="React-16采用了新的核心架构React-Fiber。官方解释是“React-Fiber是对核心算法的一次重新实现”"><a href="#React-16采用了新的核心架构React-Fiber。官方解释是“React-Fiber是对核心算法的一次重新实现”" class="headerlink" title="React 16采用了新的核心架构React Fiber。官方解释是“React Fiber是对核心算法的一次重新实现”"></a>React 16采用了新的核心架构React Fiber。官方解释是“React Fiber是对核心算法的一次重新实现”</h2>
+<h2 id="为什么使用"><a href="#为什么使用" class="headerlink" title="为什么使用"></a>为什么使用</h2><ul>
+<li>更加有用的返回值</li>
+</ul>
+<p>Reflect有一些方法和ES5中Object方法一样样的， 比如： Reflect.getOwnPropertyDescriptor和Reflect.defineProperty,  不过, Object.defineProperty(obj, name, desc)执行成功会返回obj， 以及其它原因导致的错误， Reflect.defineProperty只会返回false或者true来表示对象的属性是否设置上了，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, name, desc);</span><br><span class="line">  <span class="comment">// property defined successfully</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// possible failure (and might accidentally catch the wrong exception)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以重构成
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Reflect</span>.defineProperty(obj, name, desc)) &#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>函数操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name <span class="keyword">in</span> obj <span class="comment">// Reflect.has(obj, name)</span></span><br><span class="line"><span class="keyword">delete</span> obj[name] <span class="comment">// Reflect.deleteProperty(obj, name)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更加可靠的函数式执行方式： 在ES中， 要执行一个函数f，并给它传一组参数args， 还要绑定this的话， 要这么写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f.apply(obj, args) <span class="comment">// apply有可能被篡改</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.apply.call(f, obj, args) <span class="comment">// Reflect.apply(f, obj, args)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可变参数形式的构造函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> F(...args)</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Reflect</span>.construct(F, args)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>控制访问器或者读取器的this</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.name</span><br><span class="line">obj[<span class="string">'name'</span>]</span><br><span class="line"><span class="built_in">Reflect</span>.get(obj, name, wrapper)</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj, name, value, wrapper)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>访问器中不想使用自己的方法，而是想要重定向this到wrapper：
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  obj = &#123;</span><br><span class="line">    set foo(value)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.bar();</span><br><span class="line">    &#125;</span><br><span class="line">    bar()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wrapper = &#123;</span><br><span class="line">    bar()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj, <span class="string">"foo"</span>, <span class="string">"value"</span>, wrapper)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>避免直接访问<strong>proto</strong></li>
+</ul>
+<h3 id="Reflect-apply"><a href="#Reflect-apply" class="headerlink" title="Reflect.apply"></a>Reflect.apply</h3><p>Reflect.apply其实就是ES5中的 Function.prototype.apply() 替身， 执行Reflect.apply需要三个参数</p>
+<p>第一个参数为： 需要执行的函数；
+第二个参数为： 需要执行函数的上下文this；
+第三个参数为： 是一个数组或者伪数组， 会作为执行函数的参数；</p>
+<h3 id="Reflect-construct"><a href="#Reflect-construct" class="headerlink" title="Reflect.construct"></a>Reflect.construct</h3><p>Reflect.construct其实就是实例化构造函数，通过传参形式的实现， 执行的方式不同， 效果其实一样， construct的第一个参数为构造函数， 第二个参数由参数组成的数组或者伪数组， 第三个参数为一个超类， 新元素会继承这个超类；
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Fn = <span class="function"><span class="keyword">function</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.args = [arg]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log( <span class="keyword">new</span> Fn(<span class="number">1</span>), <span class="built_in">Reflect</span>.construct(Fn,[<span class="number">1</span>]) ); <span class="comment">// 输出是一样的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = <span class="built_in">Reflect</span>.construct(<span class="built_in">Date</span>, [<span class="number">2019</span>, <span class="number">5</span>, <span class="number">2</span>]);</span><br><span class="line">d <span class="keyword">instanceof</span> <span class="built_in">Date</span>; <span class="comment">// true</span></span><br><span class="line">d.getFullYear(); <span class="comment">// 2019</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Reflect-defineProperty"><a href="#Reflect-defineProperty" class="headerlink" title="Reflect.defineProperty"></a>Reflect.defineProperty</h3><p>Reflect.defineProperty返回的是一个布尔值， 通过直接赋值的方式把属性和属性值添加给对象返回的是一整个对象， 如果添加失败会抛错；
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">if</span>( <span class="built_in">Reflect</span>.defineProperty(obj, <span class="string">"x"</span>, &#123;<span class="attr">value</span> : <span class="number">7</span> &#125;) ) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"added success"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"添加失败"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Reflect-deleteProperty"><a href="#Reflect-deleteProperty" class="headerlink" title="Reflect.deleteProperty"></a>Reflect.deleteProperty</h3><p>Reflect.deleteProperty和Reflect.defineProperty的使用方法差不多， Reflect.deleteProperty和 delete obj.xx的操作结果是一样， 区别是使用形式不同：一个是操作符，一个是函数调用；
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.deleteProperty(<span class="built_in">Object</span>.freeze(&#123;<span class="attr">foo</span>: <span class="number">1</span>&#125;), <span class="string">"foo"</span>); <span class="comment">// false</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">Object</span>.freeze(&#123;<span class="attr">foo</span>: <span class="number">1</span>&#125;).foo; <span class="comment">//输出：false；</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Reflect-get"><a href="#Reflect-get" class="headerlink" title="Reflect.get"></a>Reflect.get</h3><p>这个方法的有两个必须的参数： 第一个为obj目标对象， 第二个为属性名对象， 第三个是可选的，是作为读取器的上下文(this);
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.foo = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log( obj.foo ); <span class="comment">//输出：1;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Reflect</span>.get(obj, <span class="string">"foo"</span>) ) <span class="comment">//输出：1;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Reflect-getOwnPropertyDescritptor"><a href="#Reflect-getOwnPropertyDescritptor" class="headerlink" title="Reflect.getOwnPropertyDescritptor"></a>Reflect.getOwnPropertyDescritptor</h3><p>获取属性描述
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.getOwnPropertyDescriptor(&#123;<span class="attr">x</span>: <span class="string">"hello"</span>&#125;, <span class="string">"x"</span>);</span><br><span class="line"><span class="comment">//也可以这样获取：</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;<span class="attr">x</span>:<span class="string">"1"</span>&#125;,<span class="string">"x"</span>);</span><br><span class="line"><span class="comment">//这两个的区别是一个会包装对象， 一个不会：</span></span><br><span class="line"><span class="built_in">Reflect</span>.getOwnPropertyDescriptor(<span class="string">"hello"</span>,<span class="number">0</span>); <span class="comment">//抛出异常</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="string">"hello"</span>,<span class="number">0</span>); <span class="comment">//输出： &#123;value: "h", writable: false, enumerable: true, configurable: false&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Reflect-getPrototypeOf"><a href="#Reflect-getPrototypeOf" class="headerlink" title="Reflect.getPrototypeOf"></a>Reflect.getPrototypeOf</h3><p>同Object.getPrototypeOf</p>
+<h3 id="Reflect-has"><a href="#Reflect-has" class="headerlink" title="Reflect.has"></a>Reflect.has</h3><p>同 in
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.has(&#123;<span class="attr">x</span>:<span class="number">0</span>&#125;, <span class="string">"x"</span>) <span class="comment">//输出： true；</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Reflect-isExtensible"><a href="#Reflect-isExtensible" class="headerlink" title="Reflect.isExtensible"></a>Reflect.isExtensible</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 现在这个元素是可以扩展的；</span></span><br><span class="line"><span class="keyword">var</span> empty = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(empty); <span class="comment">// === true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用preventExtensions方法， 让这个对象无法扩展新属性；</span></span><br><span class="line"><span class="built_in">Reflect</span>.preventExtensions(empty);</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(empty); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个对象无法扩展新属性， 可写的属性依然可以改动</span></span><br><span class="line"><span class="keyword">var</span> sealed = <span class="built_in">Object</span>.seal(&#123;&#125;);</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(sealed); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个对象完全被冻结了</span></span><br><span class="line"><span class="keyword">var</span> frozen = <span class="built_in">Object</span>.freeze(&#123;&#125;);</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(frozen); <span class="comment">// === false</span></span><br></pre></td></tr></table></figure>
+<h3 id="Reflect-ownKeys"><a href="#Reflect-ownKeys" class="headerlink" title="Reflect.ownKeys"></a>Reflect.ownKeys</h3><p>返回对象的keys
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys(&#123;<span class="string">"a"</span>:<span class="number">0</span>,<span class="string">"b"</span>:<span class="number">1</span>,<span class="string">"c"</span>:<span class="number">2</span>,<span class="string">"d"</span>:<span class="number">3</span>&#125;)); <span class="comment">//输出 ：["a", "b", "c", "d"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys([])); <span class="comment">// ["length"]</span></span><br></pre></td></tr></table></figure></p>
+<p>reflect.ownKeys的排序是根据: 先显示数字， 数字根据大小排序，然后是 字符串根据插入的顺序排序， 最后是symbol类型的key也根据插入插入顺序排序;</p>
+<h3 id="Reflect-set"><a href="#Reflect-set" class="headerlink" title="Reflect.set"></a>Reflect.set</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj, <span class="string">"prop"</span>, <span class="string">"value"</span>); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log( obj.prop ); <span class="comment">// 输出："value"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="comment">// 相当于 Reflect.set(obj, undefined, undefined);</span></span><br></pre></td></tr></table></figure>
+<h3 id="Reflect-setPrototypeOf"><a href="#Reflect-setPrototypeOf" class="headerlink" title="Reflect.setPrototypeOf"></a>Reflect.setPrototypeOf</h3><p>修改对象的__proto__属性
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="built_in">Object</span>.prototype); <span class="comment">// 输出true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给该对象数组[[Prototype]] 为null.</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="literal">null</span>); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 此时的obj.__proto__为undefine</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把对象冻结以后重新设置[[prototype]]</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(<span class="built_in">Object</span>.freeze(&#123;&#125;), <span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果原型链循环依赖的话就会返回false.</span></span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> proto = <span class="built_in">Object</span>.create(target);</span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(target, proto); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -601,12 +645,12 @@ React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸�
   <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
-  <p><span>本文标题:</span><a href="/react16.html">快速了解React 16新特性</a></p>
+  <p><span>本文标题:</span><a href="/2019/ES6Reflect对象.html">ES6Relect对象</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
-  <p><span>发布时间:</span>2018年06月11日 - 20:06</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
-  <p><span>原始链接:</span><a href="/react16.html" title="快速了解React 16新特性">http://mydearest.cn/react16.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/react16.html"  aria-label=" 复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年05月02日 - 02:05</p>
+  <p><span>最后更新:</span>2019年05月07日 - 23:05</p>
+  <p><span>原始链接:</span><a href="/2019/ES6Reflect对象.html" title="ES6Relect对象">http://mydearest.cn/2019/ES6Reflect对象.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/ES6Reflect对象.html"  aria-label=" 复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -666,7 +710,7 @@ React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸�
       
         <div class="post-tags">
           
-            <a href="/tags/react/" rel="tag"><i class="fa fa-tag fa-fw"></i> react</a>
+            <a href="/tags/深入理解/" rel="tag"><i class="fa fa-tag fa-fw"></i> 深入理解</a>
           
         </div>
       
@@ -679,8 +723,8 @@ React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/contextapi.html" rel="next" title="React 16新特性context api">
-                <i class="fa fa-chevron-left"></i> React 16新特性context api
+              <a href="/2019/深入了解HTTP.html" rel="next" title="深入了解HTTP">
+                <i class="fa fa-chevron-left"></i> 深入了解HTTP
               </a>
             
           </div>
@@ -688,10 +732,6 @@ React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/smallknowledge.html" rel="prev" title="你所不知道的前端冷门小知识(长期更新)">
-                你所不知道的前端冷门小知识(长期更新) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -908,7 +948,7 @@ React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Boundary"><span class="nav-number">1.</span> <span class="nav-text">Error Boundary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#render方法新增返回类型"><span class="nav-number">2.</span> <span class="nav-text">render方法新增返回类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用createPortal将组件渲染到当前组件树之外"><span class="nav-number">3.</span> <span class="nav-text">使用createPortal将组件渲染到当前组件树之外</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持自定义DOM属性"><span class="nav-number">4.</span> <span class="nav-text">支持自定义DOM属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setState传入null时不会再触发更新"><span class="nav-number">5.</span> <span class="nav-text">setState传入null时不会再触发更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更好的服务器端渲染"><span class="nav-number">6.</span> <span class="nav-text">更好的服务器端渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的打包策略"><span class="nav-number">7.</span> <span class="nav-text">新的打包策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-16采用了新的核心架构React-Fiber。官方解释是“React-Fiber是对核心算法的一次重新实现”"><span class="nav-number">8.</span> <span class="nav-text">React 16采用了新的核心架构React Fiber。官方解释是“React Fiber是对核心算法的一次重新实现”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用"><span class="nav-number">2.</span> <span class="nav-text">为什么使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-apply"><span class="nav-number">2.1.</span> <span class="nav-text">Reflect.apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-construct"><span class="nav-number">2.2.</span> <span class="nav-text">Reflect.construct</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-defineProperty"><span class="nav-number">2.3.</span> <span class="nav-text">Reflect.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-deleteProperty"><span class="nav-number">2.4.</span> <span class="nav-text">Reflect.deleteProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-get"><span class="nav-number">2.5.</span> <span class="nav-text">Reflect.get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-getOwnPropertyDescritptor"><span class="nav-number">2.6.</span> <span class="nav-text">Reflect.getOwnPropertyDescritptor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-getPrototypeOf"><span class="nav-number">2.7.</span> <span class="nav-text">Reflect.getPrototypeOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-has"><span class="nav-number">2.8.</span> <span class="nav-text">Reflect.has</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-isExtensible"><span class="nav-number">2.9.</span> <span class="nav-text">Reflect.isExtensible</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-ownKeys"><span class="nav-number">2.10.</span> <span class="nav-text">Reflect.ownKeys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-set"><span class="nav-number">2.11.</span> <span class="nav-text">Reflect.set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-setPrototypeOf"><span class="nav-number">2.12.</span> <span class="nav-text">Reflect.setPrototypeOf</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -1292,12 +1292,12 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
   
   
   
-  <div class="post-date" data-datetime="2019-05-02T01:03:34+08:00">
+  <div class="post-date" data-datetime="2019-05-08T00:00:53+08:00">
     <div class="post-time-text">5月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">08</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月02</div>
+      <div class="post-tiem">5月08</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -1404,7 +1404,7 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  926 (字)
+                  1,234 (字)
                 </span>
               
 
@@ -1420,7 +1420,7 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  4 (分钟)
+                  5 (分钟)
                 </span>
               
             </div>
@@ -1442,8 +1442,7 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
 
       
         
-          
-            <p>主流的双向绑定方法
+          <p>主流的双向绑定方法
 1.发布-订阅模式
 通过使用 get 和 set 的方式获取数据然后更新数据，其原理就是监听页面中某个具体元素的事件，然后将其最新的值手动 set 到 数据中，同时订阅 model 层的改变，然后触发页面的渲染更新</p>
 <p>2.脏检测
@@ -1475,9 +1474,14 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
 <li>没有在版本库的master【默认分支】上提交</li>
 </ul>
 <p><a href="https://github.com/SunShinewyf/issue-blog/issues/46" target="_blank" rel="noopener">解读</a></p>
-<h2 id="defineProperty实现"><a href="#defineProperty实现" class="headerlink" title="defineProperty实现"></a>defineProperty实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * bind</span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; target </span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; dom </span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; map </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="keyword">const</span> bind = <span class="function">(<span class="params">target, dom, map</span>) =&gt;</span></span><br><span class="line">  <span class="built_in">Object</span>.keys(map || target).forEach(<span class="function"><span class="params">key</span> =&gt;</span></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(target, key, &#123;</span><br><span class="line">      set(value) &#123;</span><br><span class="line">        <span class="keyword">const</span> domKey = map ? map[key] : key</span><br><span class="line">        dom[domKey] = value</span><br><span class="line">      &#125;,</span><br><span class="line">      get() &#123;</span><br><span class="line">        <span class="keyword">const</span> domKey = map ? map[key] : key</span><br><span class="line">        <span class="keyword">return</span> dom[domKey]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;))</span><br><span class="line"><span class="built_in">window</span>._alternate = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>)</span><br><span class="line"></span><br><span class="line">bind(_alternate, p, &#123;</span><br><span class="line">  <span class="string">'value'</span>: <span class="string">'innerHTML'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="proxy实现"><a href="#proxy实现" class="headerlink" title="proxy实现"></a>proxy实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * bind</span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; model </span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; map </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="keyword">const</span> bind = <span class="function">(<span class="params">model, map</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(map || model, &#123;</span><br><span class="line">  get(_, key) &#123;</span><br><span class="line">    <span class="keyword">const</span> mkey = map ? map[key] : key</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(model, mkey)</span><br><span class="line">  &#125;,</span><br><span class="line">  set(_, key, value) &#123;</span><br><span class="line">    <span class="keyword">const</span> mkey = map ? map[key] : key</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(model, mkey, value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.__alternate = bind(<span class="built_in">document</span>.getElementById(<span class="string">'p'</span>), &#123;</span><br><span class="line">  <span class="string">'value'</span>: <span class="string">'innerHTML'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-          
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/实现双向绑定.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2661,7 +2665,7 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2826,7 +2830,7 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 121.1k字</span>
+    <span class="post-count">Blog总字数: 122.8k字</span>
   </div>
 </div>
 

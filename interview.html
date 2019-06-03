@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-01T15:46:12.033Z">
+<meta property="og:updated_time" content="2019-06-03T16:22:47.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-05-01T23:46:12+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">01</div>
+  <div class="post-date" data-datetime="2019-06-04T00:22:47+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">04</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月01</div>
+      <div class="post-tiem">6月04</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  11,147 (字)
+                  11,244 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  44 (分钟)
+                  45 (分钟)
                 </span>
               
             </div>
@@ -768,7 +768,8 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 </ol>
 <ul>
 <li>GC：垃圾回收机制;  </li>
-<li>外部变量没释放仍然保持着引用，所以指向的大函数内的小函数也释放不了。</li>
+<li>外部变量没释放仍然保持着引用，所以指向的大函数内的小函数也释放不了。
+引用类型是在没有引用之后, 通过 v8 的 GC 自动回收, 值类型如果是处于闭包的情况下, 要等闭包没有引用才会被 GC 回收, 非闭包的情况下等待 v8 的新生代 (new space) 切换的时候回收。</li>
 </ul>
 <ol>
 <li><p>面向对象？</p>
@@ -829,6 +830,7 @@ AMD 浏览器第一的原则发展 异步加载模块。
 CommonJS模块以服务器第一原则发展，选择同步加载，它的模块无需包装(unwrapped modules)。这迫使人们又想出另一个更通用的模式UMD ( Universal Module Definition ), 希望解决跨平台的解决方案。UMD先判断是否支持Node.js的模块( exports )是否存在，存在则使用Node.js模块模式。</p>
 </li>
 </ul>
+<p>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。</p>
 <ol>
 <li>js的几种继承方式？</li>
 </ol>
@@ -1009,7 +1011,7 @@ IE只支持事件冒泡。</p>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    arr: [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = deepCopy(obj);</span><br><span class="line">obj2.a = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">// &#123; a:1, arr: [1,2] &#125;;</span></span><br><span class="line"><span class="number">2.</span>es6</span><br><span class="line"><span class="built_in">Object</span>.assign()方法(深复制只有一层，之后为浅复制（除非再次使用<span class="built_in">Object</span>.assign嵌套方式赋值）)</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    arr: [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> obj1 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">obj1.a = <span class="number">2</span></span><br><span class="line"><span class="comment">//不变</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">// &#123; a:1, arr: [1,2] &#125;;</span></span><br><span class="line"><span class="number">3.</span>immutable</span><br><span class="line"><span class="number">4.</span>arr1=arr.slice(<span class="number">0</span>) slice() 返回新数组</span><br><span class="line"><span class="number">5.</span>arr1=arr.concat()</span><br><span class="line"><span class="keyword">var</span> deepCopy= <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> result=&#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">        result[key] = <span class="keyword">typeof</span> source[key]===<span class="string">'object'</span>? deepCoypy(source[key]): source[key];</span><br><span class="line">     &#125; </span><br><span class="line">   <span class="keyword">return</span> result; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
-<li>判断一个变量是否是数组<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []; </span><br><span class="line"><span class="comment">// 1.基于instanceof </span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 2.基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 3.基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype; </span><br><span class="line"><span class="comment">// 5.基于Object.prototype.toString </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(a) === <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 6.Array.isArray</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<li>判断一个变量是否是数组<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []; </span><br><span class="line"><span class="comment">// 1.基于instanceof </span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 2.基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 3.基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype; </span><br><span class="line"><span class="comment">// 5.基于Object.prototype.toString </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(a) === <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 6.Array.isArray</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(a); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>以上，除了Object.prototype.toString外，其它方法都不能正确判断变量的类型。虽然Array继承自Object，也会有 toString方法，但是这个方法有可能会被改写而达不到我们的要求，而Object.prototype则是老虎的屁股，很少有人敢去碰它的，所以能一定程度保证其“纯洁性”：)😝</p>
@@ -1218,7 +1220,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年05月01日 - 23:05</p>
+  <p><span>最后更新:</span>2019年06月04日 - 00:06</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1408,7 +1410,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1567,7 +1569,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 125.2k字</span>
+    <span class="post-count">Blog总字数: 126.8k字</span>
   </div>
 </div>
 

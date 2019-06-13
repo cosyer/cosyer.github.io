@@ -148,7 +148,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/25027560/37508506-4e686bd8-292e-11e8-881b-81d56ac71281.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25027560/37508514-5698c8fc-292e-11e8-9220-52136c53d5c4.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25027560/37509112-ef5b653e-2930-11e8-8456-824fd66271da.png">
-<meta property="og:updated_time" content="2019-03-07T16:37:52.148Z">
+<meta property="og:updated_time" content="2019-06-11T15:21:01.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JS的类型、值和类型转换">
 <meta name="twitter:description" content="一、七种内置类型和常见引用类型">
@@ -423,12 +423,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-03-08T00:37:52+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">08</div>
+  <div class="post-date" data-datetime="2019-06-11T23:21:01+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">11</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月08</div>
+      <div class="post-tiem">6月11</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -533,7 +533,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,508 (字)
+                  2,585 (字)
                 </span>
               
 
@@ -615,12 +615,19 @@ null的二进制表示全是0，自然前三位也是0
 <p>这不仅对用户定义的变量(比如 DEBUG)有用，对内建的 API 也有帮助:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> atob === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">         atob = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">/*..*/</span> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="五、值"><a href="#五、值" class="headerlink" title="五、值"></a>五、值</h2><p>这一part引用自<a href="https://yangbo5207.github.io/wutongluo/ji-chu-jin-jie-xi-lie/yi-3001-nei-cun-kong-jian-xiang-jie.html" target="_blank" rel="noopener">一、内存空间详解 · Sample GitBook</a></p>
-<p>JS的执行上下文生成之后，会创建一个叫做变量对象的特殊对象（关于变量对象在我的其他文章中有讲到），JS的基础类型都保存在变量对象中</p>
+<p>JS的执行上下文生成之后，会创建一个叫做变量对象的特殊对象，JS的基础类型都保存在变量对象中</p>
 <p>严格意义上来说，变量对象也是存放于堆内存中，但是由于变量对象的特殊职能，我们在理解时仍然需要将其于堆内存区分开来。</p>
-<p>但引用数据类型的值是保存在堆内存中的对象。JavaScript不允许直接访问堆内存中的位置，因此我们不能直接操作对象的堆内存空间。
-在操作对象时，实际上是在操作对象的引用而不是实际的对象。因此，引用类型的值都是按引用访问的。
-这里的引用，我们可以理解为保存在变量对象中的一个地址，该地址与堆内存的实际值相关联。</p>
+<p>但引用数据类型的值是保存在堆内存中的对象。JavaScript不允许直接访问堆内存中的位置，因此我们不能直接操作对象的堆内存空间。</p>
+<p>在操作对象时，实际上是在操作对象的引用而不是实际的对象。因此，引用类型的值都是按引用访问的。</p>
+<p>这里的引用，我们可以理解为保存在变量对象中的一个地址，该地址与堆内存的实际值相关联。</p>
 <p><img src="https://user-images.githubusercontent.com/25027560/37508497-409cd7fa-292e-11e8-8bc4-a62effd0f3c8.png" alt="3719a7f3-3915-4719-93d8-7629fa5b47bb"></p>
+<p>而为什么基础数据类型存在栈中，而引用数据类型存在堆中呢?</p>
+<ul>
+<li>堆比栈大，栈比堆速度快。</li>
+<li>基础数据类型比较稳定，而且相对来说占用的内存小。</li>
+<li>引用数据类型大小是动态的，而且是无限的。</li>
+<li>堆内存是无序存储，可以根据引用直接获取。</li>
+</ul>
 <h2 id="六、强制类型转换"><a href="#六、强制类型转换" class="headerlink" title="六、强制类型转换"></a>六、强制类型转换</h2><p>《you don’t know JS》中 第一部分第4章</p>
 <p>类型转换发生在静态类型语言的编译阶段，而强制类型转换则发生在动态类型语言的运行时(runtime)。</p>
 <p>然而在 JavaScript 中通常将它们统称为强制类型转换，我个人则倾向于用“隐式强制类型转换”(implicit coercion)和“显式强制类型转换”(explicit coercion)来区分。</p>
@@ -713,7 +720,7 @@ toString() 可以被显式调用，或者在需要字符串化时自动调用</p
   <p><span>本文标题:</span><a href="/2019/深入理解JS的类型、值和类型转换.html">深入理解JS的类型、值和类型转换</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年03月05日 - 22:03</p>
-  <p><span>最后更新:</span>2019年03月08日 - 00:03</p>
+  <p><span>最后更新:</span>2019年06月11日 - 23:06</p>
   <p><span>原始链接:</span><a href="/2019/深入理解JS的类型、值和类型转换.html" title="深入理解JS的类型、值和类型转换">http://mydearest.cn/2019/深入理解JS的类型、值和类型转换.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/深入理解JS的类型、值和类型转换.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -881,7 +888,7 @@ toString() 可以被显式调用，或者在需要字符串化时自动调用</p
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">98</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -903,7 +910,7 @@ toString() 可以被显式调用，或者在需要字符串化时自动调用</p
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1062,7 +1069,7 @@ toString() 可以被显式调用，或者在需要字符串化时自动调用</p
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 126.8k字</span>
+    <span class="post-count">Blog总字数: 129.4k字</span>
   </div>
 </div>
 

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="voidvoid其实是javascript中的一个函数，接受一个参数，返回值永远是undefined void expression 1234567void 0  void() // 报错void (0)  void &quot;hello&quot;  void (new Date())  // all will return undefined  context === void 666">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-18T15:52:32.049Z">
+<meta property="og:updated_time" content="2019-06-23T02:07:42.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你所不知道的前端冷门小知识(长期更新)">
 <meta name="twitter:description" content="voidvoid其实是javascript中的一个函数，接受一个参数，返回值永远是undefined void expression 1234567void 0  void() // 报错void (0)  void &quot;hello&quot;  void (new Date())  // all will return undefined  context === void 666">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-06-18T23:52:32+08:00">
+  <div class="post-date" data-datetime="2019-06-23T10:07:42+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">18</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月18</div>
+      <div class="post-tiem">6月23</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  12,079 (字)
+                  12,074 (字)
                 </span>
               
 
@@ -715,7 +715,7 @@ vauleOf优先于toString()被调用</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getScrollPos = <span class="function">(<span class="params">el = <span class="built_in">window</span></span>) =&gt;</span></span><br><span class="line"></span><br><span class="line">(&#123;<span class="attr">x</span>: (el.pageXOffset !== <span class="literal">undefined</span>) ? el.pageXOffset : el.scrollLeft,</span><br><span class="line"></span><br><span class="line">​ y: (el.pageYOffset !== <span class="literal">undefined</span>) ? el.pageYOffset : el.scrollTop&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// getScrollPos() -&gt; &#123;x: 0, y: 200&#125;</span></span><br></pre></td></tr></table></figure>
 <h2 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gcd = <span class="function">(<span class="params">x, y</span>) =&gt;</span> !y ? x : gcd(y, x % y);</span><br><span class="line"></span><br><span class="line"><span class="comment">// gcd (8, 36) -&gt; 4</span></span><br><span class="line"><span class="number">1e3</span> <span class="comment">// 1000</span></span><br><span class="line"><span class="number">1E3</span> <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
 <h2 id="UUID生成器"><a href="#UUID生成器" class="headerlink" title="UUID生成器"></a>UUID生成器</h2><p>使用crypto API生成符合RFC4122版本4的UUID。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> uuid = <span class="function"><span class="params">_</span> =&gt;</span></span><br><span class="line"></span><br><span class="line">([<span class="number">1e7</span>] + <span class="number">-1e3</span> + <span class="number">-4e3</span> + <span class="number">-8e3</span> + <span class="number">-1e11</span>).replace(<span class="regexp">/[018]/g</span>, c =&gt;</span><br><span class="line"></span><br><span class="line">​ (c ^ crypto.getRandomValues(<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(<span class="number">1</span>))[<span class="number">0</span>] &amp; <span class="number">15</span> &gt;&gt; c / <span class="number">4</span>).toString(<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// uuid() -&gt; '7982fcfe-5721-4632-bede-6000885be57d'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> uuid = <span class="function"><span class="params">_</span> =&gt;</span></span><br><span class="line">([<span class="number">1e7</span>] + <span class="number">-1e3</span> + <span class="number">-4e3</span> + <span class="number">-8e3</span> + <span class="number">-1e11</span>).replace(<span class="regexp">/[018]/g</span>, c =&gt; (c ^ crypto.getRandomValues(<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(<span class="number">1</span>))[<span class="number">0</span>] &amp; <span class="number">15</span> &gt;&gt; c / <span class="number">4</span>).toString(<span class="number">16</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// uuid() -&gt; '7982fcfe-5721-4632-bede-6000885be57d'</span></span><br></pre></td></tr></table></figure>
 <h2 id="检查变量是否声明"><a href="#检查变量是否声明" class="headerlink" title="检查变量是否声明"></a>检查变量是否声明</h2><p>如果读取一个不存在的键，会返回undefined，而不是报错。可以利用这一点，来检查一个全局变量是否被声明。
 前二种写法有漏洞，如果a属性是一个空字符串（或其他对应的布尔值为false的情况），则无法起到检查变量是否声明的作用。
 最好的方法是使用in</p>
@@ -954,7 +954,7 @@ vauleOf优先于toString()被调用</p>
   <p><span>本文标题:</span><a href="/smallknowledge.html">你所不知道的前端冷门小知识(长期更新)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 21:06</p>
-  <p><span>最后更新:</span>2019年06月18日 - 23:06</p>
+  <p><span>最后更新:</span>2019年06月23日 - 10:06</p>
   <p><span>原始链接:</span><a href="/smallknowledge.html" title="你所不知道的前端冷门小知识(长期更新)">http://mydearest.cn/smallknowledge.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/smallknowledge.html"  aria-label=" 复制成功！"></i></span>
   </p>

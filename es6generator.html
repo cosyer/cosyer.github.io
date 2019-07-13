@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="生成器（ generator）是能返回一个迭代器的函数。生成器函数也是一种函数，最直观的表现就是比普通的function多了个星号*，在其函数体内可以使用yield关键字，有意思的是函数会在每个yield后暂停。 这里生活中有一个比较形象的例子。咱们到银行办理业务时候都得向大厅的机器取一张排队号。你拿到你的排队号，机器并不会自动为你再出下一张票。也就是说取票机“暂停”住了，直到下一个人再次唤起才会">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.152Z">
+<meta property="og:updated_time" content="2019-07-13T16:58:58.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="generator生成器">
 <meta name="twitter:description" content="生成器（ generator）是能返回一个迭代器的函数。生成器函数也是一种函数，最直观的表现就是比普通的function多了个星号*，在其函数体内可以使用yield关键字，有意思的是函数会在每个yield后暂停。 这里生活中有一个比较形象的例子。咱们到银行办理业务时候都得向大厅的机器取一张排队号。你拿到你的排队号，机器并不会自动为你再出下一张票。也就是说取票机“暂停”住了，直到下一个人再次唤起才会">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2019-07-14T00:58:58+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">14</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">7月14</div>
+      <div class="post-year">2019</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  862 (字)
+                  923 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -566,7 +566,12 @@ a:hover {
 <hr>
 <a id="more"></a>
 <p>OK。说说迭代器。当你调用一个generator时，它将返回一个迭代器对象。这个迭代器对象拥有一个叫做next的方法来帮助你重启generator函数并得到下一个值。next方法不仅返回值，它返回的对象具有两个属性：done和value。value是你获得的值，done用来表明你的generator是否已经停止提供值。继续用刚刚取票的例子，每张排队号就是这里的value，打印票的纸是否用完就这是这里的done。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">createGenerator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 迭代器</span></span><br><span class="line"><span class="keyword">let</span> iterator=createGenerator()</span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>function 关键字与函数名之间有一个星号；</li>
+<li>函数体内部使用 yield表达式，定义不同的内部状态；</li>
+<li>next 指针移向下一个状态</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成器 最大的特点是可以交出函数的执行权</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">createGenerator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 迭代器</span></span><br><span class="line"><span class="keyword">let</span> iterator=createGenerator()</span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
 <p>那生成器和迭代器又有什么用处呢？</p>
 <p>围绕着生成器的许多兴奋点都与异步编程直接相关。异步调用对于我们来说是很困难的事，我们的函数并不会等待异步调用完再执行，你可能会想到用回调函数，（当然还有其他方案比如Promise比如Async/await）。</p>
 <p>生成器可以让我们的代码进行等待。就不用嵌套的回调函数。使用generator可以确保当异步调用在我们的generator函数运行一下行代码之前完成时暂停函数的执行。</p>
@@ -615,7 +620,7 @@ async函数对 Generator 函数的改进，体现在以下四点：</p>
   <p><span>本文标题:</span><a href="/es6generator.html">generator生成器</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年08月21日 - 11:08</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2019年07月14日 - 00:07</p>
   <p><span>原始链接:</span><a href="/es6generator.html" title="generator生成器">http://mydearest.cn/es6generator.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/es6generator.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -939,7 +944,7 @@ async函数对 Generator 函数的改进，体现在以下四点：</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 134.0k字</span>
+    <span class="post-count">Blog总字数: 134.2k字</span>
   </div>
 </div>
 

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-16T05:36:39.336Z">
+<meta property="og:updated_time" content="2019-07-14T03:36:03.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-06-16T13:36:39+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">16</div>
+  <div class="post-date" data-datetime="2019-07-14T11:36:03+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">14</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月16</div>
+      <div class="post-tiem">7月14</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -1170,22 +1170,30 @@ width</p>
 <li>网络层</li>
 <li>数据链路层</li>
 <li>物理层</li>
-<li>表示层</li>
-<li>应用层（HTTP，FTP，NFS，SMTP）
-与其它计算机进行通讯的一个应用，它是对应应用程序的通信服务的。例如，一个没有通信功能的字处理程序就不能执行通信的代码，从事字处理工作的程序员也不关心OSI的第7层。但是，如果添加了一个传输文件的选项，那么字处理器的程序员就需要实现OSI的第7层。示例：TELNET，HTTP，FTP，NFS，SMTP等。</li>
-</ul>
-<p>表示层
+<li><p>表示层</p>
+</li>
+<li><p>应用层（HTTP，FTP，NFS，SMTP）
+与其它计算机进行通讯的一个应用，它是对应应用程序的通信服务的。例如，一个没有通信功能的字处理程序就不能执行通信的代码，从事字处理工作的程序员也不关心OSI的第7层。但是，如果添加了一个传输文件的选项，那么字处理器的程序员就需要实现OSI的第7层。示例：TELNET，HTTP，FTP，NFS，SMTP等。</p>
+</li>
+<li><p>表示层
 这一层的主要功能是定义数据格式及加密。例如，FTP允许你选择以二进制或ASCII格式传输。如果选择二进制，那么发送方和接收方不改变文件的内容。如果选择ASCII格式，发送方将把文本从发送方的字符集转换成标准的ASCII后发送数据。在接收方将标准的ASCII转换成接收方计算机的字符集。示例：加密，ASCII等。</p>
-<p>传输层（TCP，UDP，SPX）
+</li>
+<li><p>传输层（TCP，UDP，SPX）
 这层的功能包括是否选择差错恢复协议还是无差错恢复协议，及在同一主机上对不同应用的数据流的输入进行复用，还包括对收到的顺序不对的数据包的重新排序功能。示例：TCP，UDP，SPX。</p>
-<p>会话层（RPC，SQL）
+</li>
+<li><p>会话层（RPC，SQL）
 它定义了如何开始、控制和结束一个会话，包括对多个双向消息的控制和管理，以便在只完成连续消息的一部分时可以通知应用，从而使表示层看到的数据是连续的，在某些情况下，如果表示层收到了所有的数据，则用数据代表表示层。示例：RPC，SQL等</p>
-<p>网络层（IP，IPX）
+</li>
+<li><p>网络层（IP，IPX）
 这层对端到端的包传输进行定义，它定义了能够标识所有结点的逻辑地址，还定义了路由实现的方式和学习的方式。为了适应最大传输单元长度小于包长度的传输介质，网络层还定义了如何将一个包分解成更小的包的分段方法。示例：IP，IPX等。</p>
-<p>数据链路层（IP，IPX）
+</li>
+<li><p>数据链路层（IP，IPX）
 它定义了在单个链路上如何传输数据。这些协议与被讨论的各种介质有关。示例：ATM，FDDI等。</p>
-<p>物理层（Rj45，802.3）
+</li>
+<li><p>物理层（Rj45，802.3）
 OSI的物理层规范是有关传输介质的特这些规范通常也参考了其他组织制定的标准。连接头、帧、帧的使用、电流、编码及光调制等都属于各种物理层规范中的内容。物理层常用多个规范完成对所有细节的定义。示例：Rj45，802.3等。</p>
+</li>
+</ul>
 <ol>
 <li><p>call使用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a+b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a-b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add.call(sub,<span class="number">3</span>,<span class="number">1</span>) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
@@ -1238,7 +1246,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年06月16日 - 13:06</p>
+  <p><span>最后更新:</span>2019年07月14日 - 11:07</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1406,7 +1414,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">102</span>
+                <span class="site-state-item-count">103</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1428,7 +1436,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1587,7 +1595,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 134.2k字</span>
+    <span class="post-count">Blog总字数: 134.8k字</span>
   </div>
 </div>
 

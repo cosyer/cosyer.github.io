@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-14T03:36:03.366Z">
+<meta property="og:updated_time" content="2019-07-29T15:51:07.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-07-14T11:36:03+08:00">
+  <div class="post-date" data-datetime="2019-07-29T23:51:07+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">14</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月14</div>
+      <div class="post-tiem">7月29</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  11,458 (字)
+                  12,455 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  46 (分钟)
+                  49 (分钟)
                 </span>
               
             </div>
@@ -655,12 +655,22 @@ typeof返回的类型都是字符串形式，可以判断function的类型；在
 </li>
 <li><p>什么是闭包?堆栈溢出有什么区别？ 内存泄漏? 那些操作会造成内存泄漏？怎么样防止内存泄漏？impression<br> 闭包：就是能够读取其他函数内部变量的函数。一般是指内层函数。(子函数在外调用，子函数所在的父函数的作用域不会被释放。) </p>
 <p> 堆栈溢出：就是不顾堆栈中分配的局部数据块大小，向该数据块写入了过多的数据，导致数据越界，结果覆盖了别的数据。经常会在递归中发生。</p>
-<p> 内存泄露是指：用动态存储分配函数内存空间，在使用完毕后未释放，导致一直占据该内存单元。直到程序结束。指任何对象在您不再拥有或需要它之后仍然存在。</p>
+<p> 内存泄漏是指：用动态存储分配函数内存空间，在使用完毕后未释放，导致一直占据该内存单元。直到程序结束。指任何对象在您不再拥有或需要它之后仍然存在。</p>
 <p> 造成内存泄漏：
  setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
  闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）</p>
-<p> 防止内存泄露：<br> 1、不要动态绑定事件；<br> 2、不要在动态添加，或者会被动态移除的dom上绑事件，用事件冒泡在父容器监听事件；<br> 3、如果要违反上面的原则，必须提供destroy方法，保证移除dom后事件也被移除，这点可以参考Backbone的源代码，做的比较好；<br> 4、单例化，少创建dom，少绑事件。  </p>
+<p> 防止内存泄露：<br> 1、不要动态绑定事件；<br> 2、不要在动态添加，或者会被动态移除的dom上绑事件，用事件冒泡在父容器监听事件；<br> 3、如果要违反上面的原则，必须提供destroy方法，保证移除dom后事件也被移除，这点可以参考Backbone的源代码，做的比较好；<br> 4、单例化，少创建dom，少绑事件。</p>
 </li>
+</ol>
+<p>原因：</p>
+<ul>
+<li>全局变量</li>
+<li>闭包</li>
+<li>dom清空，事件未清除</li>
+<li>子元素存在引用</li>
+<li>计时器未删除</li>
+</ul>
+<ol>
 <li><p>html和xhtml有什么区别?
 HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记语言。</p>
 <p>1.XHTML 元素必须被正确地嵌套。</p>
@@ -1215,6 +1225,33 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
 <li><p>watch，命令式地监听数据变化进行操作</p>
 </li>
 </ul>
+<ol>
+<li>简单介绍es6</li>
+</ol>
+<p>ES6在变量的声明和定义方面增加了let、const声明变量，有局部变量的概念，赋值中有比较吸引人的结构赋值，同时ES6对字符串、 数组、正则、对象、函数等拓展了一些方法，如字符串方面的模板字符串、函数方面的默认参数、对象方面属性的简洁表达方式，ES6也 引入了新的数据类型symbol，新的数据结构set和map,symbol可以通过typeof检测出来，为解决异步回调问题，引入了promise和 generator，还有最为吸引人了实现Class和模块，通过Class可以更好的面向对象编程，使用模块加载方便模块化编程，当然考虑到 浏览器兼容性，我们在实际开发中需要使用babel进行编译。</p>
+<ol>
+<li><p>js模块化
+在ES6出现之前，js没有标准的模块化概念，这也就造成了js多人写作开发容易造成全局污染的情况，以前我们可能会采用立即执行 函数、对象等方式来尽量减少变量这种情况，后面社区为了解决这个问题陆续提出了AMD规范和CMD规范，这里不同于Node.js的 CommonJS的原因在于服务端所有的模块都是存在于硬盘中的，加载和读取几乎是不需要时间的，而浏览器端因为加载速度取决于网速， 因此需要采用异步加载，AMD规范中使用define来定义一个模块，使用require方法来加载一个模块，现在ES6也推出了标准的模块 加载方案，通过export和import来导出和导入模块。</p>
+</li>
+<li><p>图片加载成功或者失败
+onload/onerror</p>
+</li>
+<li><p>递归和迭代的区别
+程序调用自身称为递归，利用变量的原值推出新值称为迭代，递归的优点 大问题转化为小问题，可以减少代码量，同时应为代码精简，可读性好， 缺点就是，递归调用浪费了空间，而且递归太深容易造成堆栈的溢出。迭代的好处 就是代码运行效率好，因为时间只因循环次数增加而增加，而且没有额外的空间开销， 缺点就是代码不如递归简洁</p>
+</li>
+<li><p>原生JS操作DOM的方法有哪些？
+获取节点的方法getElementById、getElementsByClassName、getElementsByTagName、 getElementsByName、querySelector、querySelectorAll,对元素属性进行操作的 getAttribute、 setAttribute、removeAttribute方法，对节点进行增删改的appendChild、insertBefore、replaceChild、removeChild、 createElement等</p>
+</li>
+<li><p>setTimeout和setInterval的区别，包含内存方面的分析？
+setTimeout表示间隔一段时间之后执行一次调用，而setInterval则是每间隔一段时间循环调用，直至clearInterval结束。 内存方面，setTimeout只需要进入一次队列，不会造成内存溢出，setInterval因为不计算代码执行时间，有可能同时执行多次代码， 导致内存溢出。</p>
+</li>
+<li><p>addEventListener有哪些参数？
+有三个参数，第一个是事件的类型，第二个是事件的回调函数，第三个是一个表示事件是冒泡阶段还是捕获阶段捕获的布尔值，true表示捕获，false表示冒泡</p>
+</li>
+<li><p>将静态资源放在其他域名的目的是什么？
+这样做的主要目的是在请求这些静态资源的时候不会发送cookie，节省了流量，需要注意的是cookie是会发送给子域名的（二级域名），所以这些静态资源是不会放在子域名下的， 而是单独放在一个单独的主域名下。同时还有一个原因就是浏览器对于一个域名会有请求数的限制，这种方法可以方便做CDN。</p>
+</li>
+</ol>
 
       
     </div>
@@ -1246,7 +1283,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年07月14日 - 11:07</p>
+  <p><span>最后更新:</span>2019年07月29日 - 23:07</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1595,7 +1632,7 @@ OSI的物理层规范是有关传输介质的特这些规范通常也参考了�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 134.8k字</span>
+    <span class="post-count">Blog总字数: 135.8k字</span>
   </div>
 </div>
 

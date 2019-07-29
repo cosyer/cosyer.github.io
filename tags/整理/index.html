@@ -1535,12 +1535,12 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
   
   
   
-  <div class="post-date" data-datetime="2019-02-27T23:57:32+08:00">
-    <div class="post-time-text">2月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2019-07-29T22:34:34+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月27</div>
+      <div class="post-tiem">7月29</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -1686,7 +1686,7 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
       
         
           
-            <h2 id="深浅拷贝概念"><a href="#深浅拷贝概念" class="headerlink" title="深浅拷贝概念"></a>深浅拷贝概念</h2><p>深拷贝和浅拷贝只针对像 Object, Array 这样的复杂对象（引用类型）的。</p>
+            <h2 id="深浅拷贝概念"><a href="#深浅拷贝概念" class="headerlink" title="深浅拷贝概念"></a>深浅拷贝概念</h2><p>深拷贝和浅拷贝只针对象 Object, Array 这样的复杂对象（引用类型）的。</p>
 <p>复制引用（引用类型）的拷贝方法称之为浅拷贝，也因为直接复制引用类型，导致新旧对象共用一块内存地址，会互相影响。</p>
 <p>深拷贝就是指完全的拷贝一个对象，将原对象的各个属性递归复制下来。这样即使嵌套了对象，两者也相互分离。</p>
 <h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> shallowCopy = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span>;      <span class="comment">// 只拷贝对象</span></span><br><span class="line">    <span class="keyword">var</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;     <span class="comment">// 根据obj的类型判断是新建一个数组还是对象</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;      <span class="comment">// 遍历obj，并且判断是obj的属性才拷贝</span></span><br><span class="line">        <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">            newObj[key] = obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowCopy2</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (source === <span class="literal">null</span> || <span class="keyword">typeof</span> source !== <span class="string">'object'</span>) <span class="keyword">return</span> source;</span><br><span class="line">  <span class="keyword">const</span> copy = <span class="built_in">Array</span>.isArray(source) ? [] : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Object</span>.keys(source).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    copy[key] = source[key];</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>:<span class="number">1</span>, <span class="attr">arr</span>: [<span class="number">2</span>,<span class="number">3</span>] &#125;;</span><br><span class="line"><span class="keyword">var</span> shallowObj = shallowCopy(obj);</span><br><span class="line">shallowObj.arr[<span class="number">1</span>] = <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.arr[<span class="number">1</span>])  <span class="comment">// 5 互相影响 指向了同一块内存地址</span></span><br><span class="line">shallowObj.a = <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
@@ -2830,7 +2830,7 @@ history: 兼容性差，直接访问汇报400，需要服务器做处理。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 134.8k字</span>
+    <span class="post-count">Blog总字数: 135.8k字</span>
   </div>
 </div>
 

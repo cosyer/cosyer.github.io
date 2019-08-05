@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-22T16:38:12.465Z">
+<meta property="og:updated_time" content="2019-08-01T17:24:00.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript整理总结">
 <meta name="twitter:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-07-23T00:38:12+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">23</div>
+  <div class="post-date" data-datetime="2019-08-02T01:24:00+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月23</div>
+      <div class="post-tiem">8月02</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  8,066 (字)
+                  8,144 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  36 (分钟)
+                  37 (分钟)
                 </span>
               
             </div>
@@ -836,7 +836,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].filter(<span class="function">(<span class="params">element,index,array</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> array.indexOf(element) === index;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Map</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> set =<span class="keyword">new</span> <span class="built_in">Set</span>()</span><br><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].filter(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> !set.has(item)&amp;&amp;set.add(item)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 一个道理</span></span><br><span class="line"><span class="keyword">var</span> map =<span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].filter(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> !map.has(item)&amp;&amp;map.set(item,index)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> set =<span class="keyword">new</span> <span class="built_in">Set</span>()</span><br><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].filter(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> !set.has(item)&amp;&amp;set.add(item)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 一个道理</span></span><br><span class="line"><span class="keyword">var</span> map =<span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].filter(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> !map.has(item)&amp;&amp;map.set(item,index)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 基础</span><br><span class="line"><span class="comment">// 不使用es6,考虑到（ie6-8）indexOf兼容性问题</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ret = []</span><br><span class="line">  <span class="keyword">var</span> hash = &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> item = arr[i]</span><br><span class="line">    <span class="comment">// typeof 区分 1 与 ‘1’</span></span><br><span class="line">    <span class="keyword">var</span> key = <span class="keyword">typeof</span>(item) + item</span><br><span class="line">    <span class="keyword">if</span> (hash[key] !== <span class="number">1</span>) &#123;</span><br><span class="line">      ret.push(item)</span><br><span class="line">      hash[key] = <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="2对象"><a href="#2对象" class="headerlink" title="2对象"></a>2对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">2</span>).toString() <span class="comment">// '2'</span></span><br><span class="line"><span class="number">2</span> .toString() <span class="comment">// '2'</span></span><br><span class="line">[(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)] <span class="comment">// [3]</span></span><br></pre></td></tr></table></figure>
@@ -1009,7 +1009,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">105</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1190,7 +1190,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 137.3k字</span>
+    <span class="post-count">Blog总字数: 138.5k字</span>
   </div>
 </div>
 

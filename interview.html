@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-01T17:10:33.994Z">
+<meta property="og:updated_time" content="2019-08-11T14:46:25.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-08-02T01:10:33+08:00">
+  <div class="post-date" data-datetime="2019-08-11T22:46:25+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">11</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月02</div>
+      <div class="post-tiem">8月11</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  12,716 (字)
+                  13,095 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  50 (分钟)
+                  52 (分钟)
                 </span>
               
             </div>
@@ -1262,6 +1262,33 @@ setTimeout表示间隔一段时间之后执行一次调用，而setInterval则�
 <li>302 redirect: 302 代表暂时性转移(Temporarily Moved )</li>
 </ul>
 <p>详细来说，301和302状态码都表示重定向，就是说浏览器在拿到服务器返回的这个状态码后会自动跳转到一个新的URL地址，这个地址可以从响应的Location首部中获取（用户看到的效果就是他输入的地址A瞬间变成了另一个地址B）——这是它们的共同点。他们的不同在于。301表示旧地址A的资源已经被永久地移除了（这个资源不可访问了），搜索引擎在抓取新内容的同时也将旧的网址交换为重定向之后的网址；302表示旧地址A的资源还在（仍然可以访问），这个重定向只是临时地从旧地址A跳转到地址B，搜索引擎会抓取新的内容而保存旧的网址。</p>
+<ol>
+<li>在什么情况下a === a-1 ?</li>
+</ol>
+<ul>
+<li>Infinity/-Infinity</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="literal">Infinity</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === a - <span class="number">1</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = -<span class="literal">Infinity</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b === b - <span class="number">1</span>);  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">Infinity</span> + <span class="literal">Infinity</span>); <span class="comment">// Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">Infinity</span> - <span class="literal">Infinity</span>); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">Infinity</span> * <span class="literal">Infinity</span>); <span class="comment">// Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">Infinity</span> / <span class="literal">Infinity</span>); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">Infinity</span> * <span class="number">0</span>); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>安全数(-2 <strong> 53 + 1到2 </strong> 53 - 1) 即Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER 处理特殊情况</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="built_in">Number</span>.MIN_SAFE_INTEGER - <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a === a - <span class="number">1</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>a == a -1</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> a = &#123; x, <span class="attr">valueOf</span>: <span class="function"><span class="params">()</span> =&gt;</span> a.x &#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, <span class="string">'x'</span>, &#123; get() &#123; <span class="keyword">return</span> --x &#125; &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> set = <span class="number">1</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">"a"</span>, &#123;</span><br><span class="line">  get : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> set++</span><br><span class="line">  &#125;,</span><br><span class="line">  enumerable : <span class="literal">true</span>,</span><br><span class="line">  configurable : <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line"> times: <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line"> valueOf() &#123;</span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">this</span>.times &amp; <span class="number">1</span>) &#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">this</span>.times += <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"> &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>placeholder样式设置</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::-webkit-input-placeholder</span>&#123;&#125;    <span class="comment">/* 使用webkit内核的浏览器 */</span></span><br><span class="line"><span class="selector-pseudo">:-moz-placeholder</span>&#123;&#125;                  <span class="comment">/* Firefox版本4-18 */</span></span><br><span class="line"><span class="selector-pseudo">::-moz-placeholder</span>&#123;&#125;                  <span class="comment">/* Firefox版本19+ */</span></span><br><span class="line"><span class="selector-pseudo">:-ms-input-placeholder</span>&#123;&#125;           <span class="comment">/* IE浏览器 */</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>巧用currentColor自定义checkbox样式<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 无法自定义checkbox样式 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="attribute">border</span>: solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">color</span>: inherit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span><span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span><span class="selector-pseudo">:checked</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'x'</span>;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">' '</span>;</span><br><span class="line">  <span class="comment">/* 表示将背景色设置为当前的文字颜色值。 */</span></span><br><span class="line">  <span class="attribute">background-color</span>: currentColor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>增补字符不适用String.prototype.charCodeAt和String.fromCharCode<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'🀄'</span>.length <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">'🀄'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.codePointAt(<span class="number">0</span>)); <span class="comment">// 126980</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>.fromCodePoint(<span class="number">126980</span>)); <span class="comment">// 🀄</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([...<span class="string">"👨‍👩‍👧‍👦"</span>])</span><br><span class="line"><span class="comment">// ["👨", "‍", "👩", "‍", "👦", "‍", "👦"]</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -1293,7 +1320,7 @@ setTimeout表示间隔一段时间之后执行一次调用，而setInterval则�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年08月02日 - 01:08</p>
+  <p><span>最后更新:</span>2019年08月11日 - 22:08</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1642,7 +1669,7 @@ setTimeout表示间隔一段时间之后执行一次调用，而setInterval则�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 138.5k字</span>
+    <span class="post-count">Blog总字数: 139.0k字</span>
   </div>
 </div>
 

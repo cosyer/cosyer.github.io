@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-01T17:24:00.623Z">
+<meta property="og:updated_time" content="2019-08-12T15:56:15.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript整理总结">
 <meta name="twitter:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-08-02T01:24:00+08:00">
+  <div class="post-date" data-datetime="2019-08-12T23:56:15+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">12</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月02</div>
+      <div class="post-tiem">8月12</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  8,144 (字)
+                  8,386 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  37 (分钟)
+                  38 (分钟)
                 </span>
               
             </div>
@@ -627,6 +627,16 @@ var ok ; let 和 const 则不会存在变量提升</p>
 <p>任何原始类型都有字面量形式，可以不被变量所存储。</p>
 <p>JavaScript语言有”垃圾回收”功能，所以在使用引用类型的时候无需担心内存分配。但是为了防止”内存泄露”还是应该在不实用对象的时候将该对</p>
 <p>象的引用赋值为null。让”垃圾回收”器在特定的时间对那一块内存进行回收。</p>
+<p>64位浮点数：1位符号位 + 52位整数位 + 11位小数位，如果符号位为1，其他各位均为0，那么这个数值会被表示成”-0”。同理还可以表示”+0”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二进制构造-0</span></span><br><span class="line"><span class="comment">// 首先创建一个8位的ArrayBuffer</span></span><br><span class="line"><span class="keyword">const</span> buffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">8</span>);</span><br><span class="line"><span class="comment">// 创建DataView对象操作buffer</span></span><br><span class="line"><span class="keyword">const</span> dataView = <span class="keyword">new</span> <span class="built_in">DataView</span>(buffer);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将第1个字节设置为0x80，即最高位为1</span></span><br><span class="line">dataView.setUint8(<span class="number">0</span>, <span class="number">0x80</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将buffer内容当做Float64类型返回</span></span><br><span class="line"><span class="built_in">console</span>.log(dataView.getFloat64(<span class="number">0</span>)); <span class="comment">// -0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>判断+-0</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> === <span class="number">-0</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// Object.is(-0, 0)返回false，Object.is(NaN, NaN)返回true</span></span><br><span class="line"><span class="comment">// 早期es利用1/-0为-Infinity的特点来判断</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNegativeZero</span>(<span class="params">num</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> num === <span class="number">0</span> &amp;&amp; (<span class="number">1</span> / num &lt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Object.is()方法的polyfill</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Object</span>.is) &#123;</span><br><span class="line">  <span class="built_in">Object</span>.is = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// SameValue algorithm</span></span><br><span class="line">    <span class="keyword">if</span> (x === y) &#123; <span class="comment">// Steps 1-5, 7-10</span></span><br><span class="line">      <span class="comment">// Steps 6.b-6.e: +0 != -0</span></span><br><span class="line">      <span class="keyword">return</span> x !== <span class="number">0</span> || <span class="number">1</span> / x === <span class="number">1</span> / y;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Step 6.a: NaN == NaN</span></span><br><span class="line">      <span class="keyword">return</span> x !== x &amp;&amp; y !== y;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h3 id="原始封装类型"><a href="#原始封装类型" class="headerlink" title="原始封装类型"></a>原始封装类型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="string">'qwer'</span>;</span><br><span class="line"><span class="keyword">var</span> firstChar = a.chatAt(<span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(firstChar);<span class="comment">// q</span></span><br></pre></td></tr></table></figure>
 <p>在js引擎中发生了
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="string">'qwer'</span>;</span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(a);</span><br><span class="line"><span class="keyword">var</span> firstChar = temp.chatAt(<span class="number">0</span>);</span><br><span class="line">temp =<span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(firstChar);<span class="comment">// q</span></span><br></pre></td></tr></table></figure></p>
@@ -1190,7 +1200,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 139.0k字</span>
+    <span class="post-count">Blog总字数: 139.2k字</span>
   </div>
 </div>
 

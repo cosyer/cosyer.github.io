@@ -140,10 +140,12 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-17T05:18:04.901Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
+<meta property="og:updated_time" content="2019-08-18T06:13:00.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
 
 
 
@@ -414,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-08-17T13:18:04+08:00">
+  <div class="post-date" data-datetime="2019-08-18T14:13:00+08:00">
     <div class="post-time-text">8月</div>
-    <div class="post-time-count">17</div>
+    <div class="post-time-count">18</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月17</div>
+      <div class="post-tiem">8月18</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -1170,7 +1172,8 @@ width</p>
 <li><p>vue组件通信</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父传子</span></span><br><span class="line"><span class="comment">// 父组件</span></span><br><span class="line">&lt;note-address :data=<span class="string">"msg"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">note-address</span>&gt;</span> </span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">// 子组件</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; data.partment &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">export default &#123;</span></span><br><span class="line"><span class="xml">  //props:['data']</span></span><br><span class="line"><span class="xml">  props: &#123;</span></span><br><span class="line"><span class="xml">    data: Object</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">// 子传父</span></span><br><span class="line"><span class="xml">// 父组件</span></span><br><span class="line">&lt;note-address @new="addNote"&gt;&lt;/note-address&gt; </span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">&lt;button type="small" class="confirm" @click="add"&gt;设为教案&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line"> add () &#123;</span><br><span class="line">  this.$emit('new', false)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 兄弟相传</span><br><span class="line">// 1.创建 公共bus.js</span><br><span class="line"></span><br><span class="line">//bus.js</span><br><span class="line">import Vue from 'vue'</span><br><span class="line">export default new Vue()</span><br><span class="line"></span><br><span class="line">// 2.父组件注册两个子组件</span><br><span class="line">components:&#123;</span><br><span class="line">    firstChild,</span><br><span class="line">    secondChild</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3.firstChild组件</span><br><span class="line"></span><br><span class="line">&lt;input type="button" value="点击触发" @click="elementByValue"&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 引入公共的bus，来做为中间传达的工具</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      methods: &#123;</span><br><span class="line">      elementByValue: function () &#123;</span><br><span class="line">        Bus.$emit('val', '兄弟，收到了吗？')</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// 4.secondChild组件</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Bus from './bus.js'</span><br><span class="line">  export default &#123;</span><br><span class="line">      mounted()&#123;</span><br><span class="line">            let self = this;</span><br><span class="line">            Bus.$on('val', function (msg) &#123;</span><br><span class="line">                console.log(msg)</span><br><span class="line">                self.msg = msg</span><br><span class="line">            &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>网络七层协议</p>
+<li><p>网络七层协议
+<img src="http://cdn.mydearest.cn/blog/images/tcp.png" alt="tcp"></p>
 </li>
 </ol>
 <ul>
@@ -1345,7 +1348,7 @@ setTimeout表示间隔一段时间之后执行一次调用，而setInterval则�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年08月17日 - 13:08</p>
+  <p><span>最后更新:</span>2019年08月18日 - 14:08</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1513,7 +1516,7 @@ setTimeout表示间隔一段时间之后执行一次调用，而setInterval则�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-count">109</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1535,7 +1538,7 @@ setTimeout表示间隔一段时间之后执行一次调用，而setInterval则�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1694,7 +1697,7 @@ setTimeout表示间隔一段时间之后执行一次调用，而setInterval则�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 145.8k字</span>
+    <span class="post-count">Blog总字数: 147.1k字</span>
   </div>
 </div>
 

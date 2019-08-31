@@ -141,7 +141,7 @@
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
-<meta property="og:updated_time" content="2019-08-27T17:33:26.209Z">
+<meta property="og:updated_time" content="2019-08-31T18:06:39.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-08-28T01:33:26+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">28</div>
+  <div class="post-date" data-datetime="2019-09-01T02:06:39+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">01</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月28</div>
+      <div class="post-tiem">9月01</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  15,489 (字)
+                  16,260 (字)
                 </span>
               
 
@@ -542,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  61 (分钟)
+                  65 (分钟)
                 </span>
               
             </div>
@@ -994,10 +994,17 @@ IE只支持事件冒泡。</p>
 <li>垂直居中</li>
 </ol>
 <ul>
-<li>margin:auto法 relative -&gt; absolute -&gt; marin:0 auto</li>
-<li>margin负值法 relative -&gt; absolute -&gt; top:50% left:50% marin-top:height的一半 margin-left:width的一半或者transform：translateX(-50%)和transform：translateY(-50%)</li>
-<li>table-cell未脱离文档流 设置父元素的display:table-cell,并且vertical-align:middle，这样子元素可以实现垂直居中。</li>
-<li>flex布局</li>
+<li><p>margin:auto法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 绝对定位居中 */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;    <span class="comment">/* 方便看效果 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>margin负值法 relative -&gt; absolute </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;        <span class="comment">/* 相对定位或绝对定位均可 */</span></span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: -<span class="number">150px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">250px</span>;         <span class="comment">/* 外边距为自身宽高的一半 */</span></span><br><span class="line">    <span class="comment">/* transform: translate(-50%, -50%); */</span></span><br><span class="line">    <span class="attribute">background-color</span>: pink;         <span class="comment">/* 方便看效果 */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>flex布局</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;         <span class="comment">/* 垂直居中 */</span></span><br><span class="line">    <span class="attribute">justify-content</span>: center;    <span class="comment">/* 水平居中 */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;        <span class="comment">/* 方便看效果 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>table-cell未脱离文档流 设置父元素的display:table-cell,并且vertical-align:middle，这样子元素可以实现垂直居中。</p>
+</li>
 <li>text-align:center 块级元素</li>
 </ul>
 <ol>
@@ -1457,7 +1464,55 @@ p:nth-child(2)    选择属于其父元素的第二个子元素的每个 </p><p>
 ::before            在元素之后添加内容
 :enabled<br>:disabled         控制表单控件的禁用状态。
 :checked        单选框或复选框被选中。</p>
-
+<ol>
+<li><p>display有哪些值？
+block           块类型。默认宽度为父元素宽度，可设置宽高，换行显示。
+none            元素不显示，并从文档流中移除。
+inline          行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。
+inline-block    默认宽度为内容宽度，可以设置宽高，同行显示。
+list-item       象块类型元素一样显示，并添加样式列表标记。
+table           此元素会作为块级表格来显示。
+inherit         规定应该从父元素继承 display 属性的值。</p>
+</li>
+<li><p>position有哪些值？
+absolute
+生成绝对定位的元素，相对于值不为 static 的第一个父元素进行定位。
+fixed （老IE不支持）
+生成绝对定位的元素，相对于浏览器窗口进行定位。
+relative
+生成相对定位的元素，相对于其正常位置进行定位。
+static
+默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right z-index 声明）。
+inherit
+规定从父元素继承 position 属性的值。</p>
+</li>
+<li><p>CSS3有哪些新特性？
+新增各种CSS选择器    （: not(.input)：所有 class 不是“input”的节点）
+圆角            （border-radius:8px）
+多列布局        （multi-column layout）
+阴影和反射    （Shadow\Reflect）
+文字特效        （text-shadow、）
+文字渲染        （Text-decoration）
+线性渐变        （gradient）
+旋转             （transform）
+缩放,定位,倾斜,动画,多背景
+例如:transform:\scale(0.85,0.90)\ translate(0px,-30px)\ skew(-9deg,0deg)\Animation: </p>
+</li>
+<li><p>BFC规范(块级格式化上下文：block formatting context)的理解？</p>
+</li>
+</ol>
+<p>（W3C CSS 2.1 规范中的一个概念,它是一个独立容器，决定了元素如何对其内容进行定位,以及与其他元素的关系和相互作用。）
+一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型。</p>
+<p>不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的</p>
+<p>元素和外部的元素不会互相影响。</p>
+<ol>
+<li>css权重<blockquote>
+<p>标签的权重为1，class的权重为10，id的权重为100，以下例子是演示各种定义的权重值
+如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*权重为1*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*权重为10*/</span></span><br><span class="line"><span class="selector-class">.class1</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*权重为100*/</span></span><br><span class="line"><span class="selector-id">#id1</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*权重为100+1=101*/</span></span><br><span class="line"><span class="selector-id">#id1</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*权重为10+1=11*/</span></span><br><span class="line"><span class="selector-class">.class1</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*权重为10+10+1=21*/</span></span><br><span class="line"><span class="selector-class">.class1</span> <span class="selector-class">.class2</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -1488,7 +1543,7 @@ p:nth-child(2)    选择属于其父元素的第二个子元素的每个 </p><p>
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年08月28日 - 01:08</p>
+  <p><span>最后更新:</span>2019年09月01日 - 02:09</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1656,7 +1711,7 @@ p:nth-child(2)    选择属于其父元素的第二个子元素的每个 </p><p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">110</span>
+                <span class="site-state-item-count">111</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1678,7 +1733,7 @@ p:nth-child(2)    选择属于其父元素的第二个子元素的每个 </p><p>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1837,7 +1892,7 @@ p:nth-child(2)    选择属于其父元素的第二个子元素的每个 </p><p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 153.6k字</span>
+    <span class="post-count">Blog总字数: 155.2k字</span>
   </div>
 </div>
 

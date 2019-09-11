@@ -141,7 +141,7 @@
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
-<meta property="og:updated_time" content="2019-09-09T17:24:37.232Z">
+<meta property="og:updated_time" content="2019-09-11T17:05:19.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-09-10T01:24:37+08:00">
+  <div class="post-date" data-datetime="2019-09-12T01:05:19+08:00">
     <div class="post-time-text">9月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">12</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月10</div>
+      <div class="post-tiem">9月12</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  17,390 (字)
+                  17,540 (字)
                 </span>
               
 
@@ -542,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  69 (分钟)
+                  70 (分钟)
                 </span>
               
             </div>
@@ -569,9 +569,11 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a[<span class="number">4</span>]=<span class="number">5</span> <span class="comment">// [1, 2, 3, undefined × 1, 5] empty</span></span><br><span class="line"><span class="comment">// a[3]=undefined [1, 2, 3, undefined, 5] </span></span><br><span class="line"></span><br><span class="line">a.indexOf(<span class="literal">undefined</span>) <span class="comment">// -1</span></span><br><span class="line">a.includes(<span class="literal">undefined</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// polyfill</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">String</span>.prototype.startsWith) &#123;</span><br><span class="line">  <span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span> (<span class="params">search, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.substr((!index || index &lt; <span class="number">0</span>) ? <span class="number">0</span> : index, search.length) === search;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
-str | index</li>
+<li><p>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+str | index</p>
+</li>
 <li>repeat()：返回一个新字符串，表示将原字符串重复n次。参数如果是小数，会被取整(不四舍五入)。参数是负数或者Infinity，会报错。0/Nan返回空字符串,参数是字符串，则会先转换成数字，不传则为空字符串。</li>
 <li>padStart()：头部补全。</li>
 <li>padEnd()：尾部补全<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&apos;x&apos;.padStart(5, &apos;ab&apos;) // &apos;ababx&apos;</span><br><span class="line">&apos;x&apos;.padStart(4, &apos;ab&apos;) // &apos;abax&apos;</span><br><span class="line"></span><br><span class="line">&apos;x&apos;.padEnd(5, &apos;ab&apos;) // &apos;xabab&apos;</span><br><span class="line">&apos;x&apos;.padEnd(4, &apos;ab&apos;) // &apos;xaba&apos;</span><br></pre></td></tr></table></figure>
@@ -1581,10 +1583,18 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
 <p>jquery.extend扩展，需要通过jquery类来调用，而jquery.fn.extend扩展，所有jquery实例都可以直接调用。</p>
 </blockquote>
 <ol>
-<li>jquery一个对象绑定多个事件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多个事件同一个函数</span></span><br><span class="line">$(<span class="string">"div"</span>).on(<span class="string">"click mouseover"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个事件不同函数</span></span><br><span class="line">$(<span class="string">"div"</span>).on(&#123;</span><br><span class="line">click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">mouseover: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<li><p>jquery一个对象绑定多个事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多个事件同一个函数</span></span><br><span class="line">$(<span class="string">"div"</span>).on(<span class="string">"click mouseover"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个事件不同函数</span></span><br><span class="line">$(<span class="string">"div"</span>).on(&#123;</span><br><span class="line">click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">mouseover: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.from(<span class="built_in">Array</span>(<span class="number">100</span>).keys())</span><br><span class="line"></span><br><span class="line">[...Array(<span class="number">100</span>).keys()]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-
+<p>接着乱序排序
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.sort( <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() &gt; <span class="number">.5</span> ? <span class="number">-1</span> : <span class="number">1</span> )</span><br></pre></td></tr></table></figure></p>
+<p>前十个数相加
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> [a, b, c, d, e, f, g, h, i, j, ...last] = arr3;</span><br><span class="line"><span class="keyword">var</span> total = a + b + c + d + e + f + g + h + i + j;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function">(<span class="params">(x, f = (y = x</span>) =&gt;</span> x + y) =&gt; &#123;</span><br><span class="line">      <span class="keyword">let</span> y = f();</span><br><span class="line">      x = y++;</span><br><span class="line">      <span class="keyword">return</span> [x, y, f(y)]</span><br><span class="line">    &#125;)(<span class="number">2</span>)</span><br><span class="line"><span class="comment">// foo = [4,5,9]</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -1615,7 +1625,7 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年09月10日 - 01:09</p>
+  <p><span>最后更新:</span>2019年09月12日 - 01:09</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1964,7 +1974,7 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 156.8k字</span>
+    <span class="post-count">Blog总字数: 157.1k字</span>
   </div>
 </div>
 

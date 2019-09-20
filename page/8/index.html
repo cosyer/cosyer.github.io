@@ -415,6 +415,230 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2018-12-25T00:39:32+08:00">
+    <div class="post-time-text">12月</div>
+    <div class="post-time-count">25</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">12月25</div>
+      <div class="post-year">2018</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/如何用js实现JSON.parse().html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/如何用js实现JSON.parse().html" itemprop="url">如何用js实现JSON.parse()</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-12-22T23:50:52+08:00">
+                2018-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/如何用js实现JSON.parse().html" class="leancloud_visitors" data-flag-title="如何用js实现JSON.parse()">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  328 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  2 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">'&#123;"a":"1", "b":2&#125;'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">eval</span>(<span class="string">"("</span> + json + <span class="string">")"</span>);  <span class="comment">// obj 就是 json 反序列化之后得到的对象</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>为什么要加括号呢？
+因为js中{}通常是表示一个语句块，eval只会计算语句块内的值进行返回。加上括号就变成一个整体的表达式。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="built_in">eval</span>(<span class="string">'&#123;&#125;'</span>) );      <span class="comment">// undefind</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">eval</span>(<span class="string">'(&#123;&#125;)'</span>) );    <span class="comment">// Object &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>eval作用域问题
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">eval</span>(<span class="string">'var s=2'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(s);</span><br><span class="line">&#125;</span><br><span class="line">a();                <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(s);     <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>在局部环境使用eval便会创建局部变量。可以显示指定eval调用者来改变上下文环境。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'global'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">eval</span>(<span class="string">'var s = "local"'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(s);                 <span class="comment">// local</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">eval</span>(<span class="string">'s'</span>));         <span class="comment">// local</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>.eval(<span class="string">'s'</span>));  <span class="comment">// global</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对参数json进行校验防止xss漏洞"><a href="#对参数json进行校验防止xss漏洞" class="headerlink" title="对参数json进行校验防止xss漏洞"></a>对参数json进行校验防止xss漏洞</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rx_one = <span class="regexp">/^[\],:&#123;&#125;\s]*$/</span>;</span><br><span class="line"><span class="keyword">var</span> rx_two = <span class="regexp">/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]&#123;4&#125;)/g</span>;</span><br><span class="line"><span class="keyword">var</span> rx_three = <span class="regexp">/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g</span>;</span><br><span class="line"><span class="keyword">var</span> rx_four = <span class="regexp">/(?:^|:|,)(?:\s*\[)+/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (</span><br><span class="line">    rx_one.test(</span><br><span class="line">        json</span><br><span class="line">            .replace(rx_two, <span class="string">"@"</span>)</span><br><span class="line">            .replace(rx_three, <span class="string">"]"</span>)</span><br><span class="line">            .replace(rx_four, <span class="string">""</span>)</span><br><span class="line">    )</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="built_in">eval</span>(<span class="string">"("</span> +json + <span class="string">")"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="递归手动扫描每个字符"><a href="#递归手动扫描每个字符" class="headerlink" title="递归手动扫描每个字符"></a>递归手动扫描每个字符</h2><h2 id="new-Function-函数声明的传参形式"><a href="#new-Function-函数声明的传参形式" class="headerlink" title="new Function 函数声明的传参形式"></a>new Function 函数声明的传参形式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'a, b'</span>, <span class="string">'return a+b;'</span>);</span><br><span class="line"><span class="built_in">console</span>.log( add(<span class="number">2</span>, <span class="number">3</span>) );    <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonStr = <span class="string">'&#123; "age": 20, "name": "jack" &#125;'</span>,</span><br><span class="line">    json = (<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return '</span> + jsonStr))();</span><br></pre></td></tr></table></figure>
+<h2 id="插入script"><a href="#插入script" class="headerlink" title="插入script"></a>插入script</h2><blockquote>
+<p>模拟jsonP的方式拼接字符串然后以callBack的方式返回。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2018-12-20T02:01:07+08:00">
     <div class="post-time-text">12月</div>
     <div class="post-time-count">20</div>
@@ -2343,218 +2567,6 @@ string.trim()</li>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识/" itemprop="url" rel="index">
-                    <span itemprop="name">知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/埋点技术.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/埋点技术.html" itemprop="url">网页埋点相关知识</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-07-25T14:04:09+08:00">
-                2018-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/埋点技术.html" class="leancloud_visitors" data-flag-title="网页埋点相关知识">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  984 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>埋点的需求：一个网站上线,开发者除了保证网站功能正常,体验优好之外,还有一项重要的工作是数据收集,通过收集用户的行为数据可以帮助了解网站的功能是否满足用户的需求,导流方式是否有效,新功能上线后是否效果是否达到设计初衷,根据数据指引有效优化产品体验以及发现新的产品方向是产品经理的必备技能,而如何采集准确并且足够的网站数据则应该是开发者的责任.在大数据处理能力越来越强下,以及机器学习等依赖数据哺育的工具进化下,采集足够多的数据往往是网站向着良性方向进化的必备条件</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/埋点技术.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2607,7 +2619,7 @@ string.trim()</li>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">112</span>
+                <span class="site-state-item-count">113</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2629,7 +2641,7 @@ string.trim()</li>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2772,7 +2784,7 @@ string.trim()</li>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 160.0k字</span>
+    <span class="post-count">Blog总字数: 163.5k字</span>
   </div>
 </div>
 

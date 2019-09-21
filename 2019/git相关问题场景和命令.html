@@ -141,9 +141,9 @@
 <meta property="og:description" content="一、必备知识点">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git.png">
-<meta property="og:image" content="https://camo.githubusercontent.com/f6db68ac4243ba30448431ae10edec1c935cc3d7/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f61373465656439346a773164766e687972713872686a2e6a7067">
-<meta property="og:image" content="https://camo.githubusercontent.com/3ae4d2c20191d0b40d9050800295a2050b9ec2c4/687474703a2f2f7777322e73696e61696d672e636e2f6c617267652f61373465353562346a773164766e696a72323736686a2e6a7067">
-<meta property="og:updated_time" content="2019-09-20T17:39:10.963Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git-chain1.png">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git-chain2.png">
+<meta property="og:updated_time" content="2019-09-21T16:42:37.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关问题场景和命令">
 <meta name="twitter:description" content="一、必备知识点">
@@ -418,12 +418,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-09-21T01:39:10+08:00">
+  <div class="post-date" data-datetime="2019-09-22T00:42:37+08:00">
     <div class="post-time-text">9月</div>
-    <div class="post-time-count">21</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月21</div>
+      <div class="post-tiem">9月22</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -576,7 +576,7 @@ a:hover {
 </ol>
 <h3 id="二、git-add-提交到暂存区，出错怎么办"><a href="#二、git-add-提交到暂存区，出错怎么办" class="headerlink" title="二、git add 提交到暂存区，出错怎么办"></a>二、git add 提交到暂存区，出错怎么办</h3><p>一般代码提交流程为：<strong>工作区</strong> -<code>git status</code> 查看状态 -<code>git add .</code> 将所有修改加入<strong>暂存区</strong>-<code>git commit -m &quot;提交描述&quot;</code> 将代码提交到 <strong>本地仓库</strong> -<code>git push</code> 将本地仓库代码更新到 <strong>远程仓库</strong></p>
 <h4 id="场景1：工作区"><a href="#场景1：工作区" class="headerlink" title="场景1：工作区"></a>场景1：工作区</h4><p>当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 丢弃工作区的修改</span></span><br><span class="line">git checkout -- &lt;文件名&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 丢弃工作区的修改</span></span><br><span class="line">git checkout -- <span class="xml"><span class="tag">&lt;<span class="name">文件名</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <h4 id="场景2：暂存区"><a href="#场景2：暂存区" class="headerlink" title="场景2：暂存区"></a>场景2：暂存区</h4><p>当你不但改乱了工作区某个文件的内容，还 <code>git add</code> 添加到了暂存区时，想丢弃修改，分两步，第一步用命令 <code>git reset HEAD file</code>，就回到了场景1，第二步按场景1操作。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;文件名<span class="comment">// 把暂存区的修改撤销掉（unstage），重新放回工作区。</span></span><br></pre></td></tr></table></figure>
 <h3 id="三、git-commit-提交到本地仓库，出错怎么办？"><a href="#三、git-commit-提交到本地仓库，出错怎么办？" class="headerlink" title="三、git commit 提交到本地仓库，出错怎么办？"></a>三、git commit 提交到本地仓库，出错怎么办？</h3><h4 id="1-提交信息出错"><a href="#1-提交信息出错" class="headerlink" title="1. 提交信息出错"></a>1. 提交信息出错</h4><p>更改 commit 信息</p>
@@ -651,12 +651,12 @@ git pull –rebase = git fetch + git rebase</p>
 <h4 id="2-合代码-merge-–no-ff"><a href="#2-合代码-merge-–no-ff" class="headerlink" title="2. 合代码 merge –no-ff"></a>2. 合代码 merge –no-ff</h4><p>上述的 <code>git pull --rebase</code> 策略目的是修整提交线图，使其形成一条直线，而即将要用到的 <code>git merge --no-ff &lt;branch-name&gt;</code> 策略偏偏是反行其道，刻意地弄出提交线图分叉出来。</p>
 <p>假设你在本地准备合并两个分支，而刚好这两个分支是 fast-forwarded 的，那么直接合并后你得到一个直线的提交线图，当然这样没什么坏处，但如果你想更清晰地告诉你同伴：<strong>这一系列的提交都是为了实现同一个目的</strong>，那么你可以刻意地将这次提交内容弄成一次提交线图分叉。</p>
 <p>执行 <code>git merge --no-ff &lt;branch-name&gt;</code> 的结果大概会是这样的：</p>
-<p><img src="https://camo.githubusercontent.com/f6db68ac4243ba30448431ae10edec1c935cc3d7/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f61373465656439346a773164766e687972713872686a2e6a7067" alt="git merge --no-ff"></p>
+<p><img src="http://cdn.mydearest.cn/blog/images/git-chain1.png" alt="git merge --no-ff"></p>
 <p>中间的分叉线路图很清晰的显示这些提交都是为了实现 <strong>complete adjusting user domains and tags</strong></p>
 <h5 id="更进一步"><a href="#更进一步" class="headerlink" title="更进一步"></a>更进一步</h5><p>往往我的习惯是，在合并分支之前（假设要在本地将 feature 分支合并到 dev 分支），会先检查 feature 分支是否『部分落后』于<strong>远程 dev 分支</strong>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev</span><br><span class="line">git pull # 更新 dev 分支</span><br><span class="line">git log feature..dev</span><br></pre></td></tr></table></figure>
 <p>如果没有输出任何提交信息的话，即表示 feature 对于 dev 分支是 up-to-date 的。如果有输出的话而马上执行了 <code>git merge --no-ff</code> 的话，提交线图会变成这样：</p>
-<p><img src="https://camo.githubusercontent.com/3ae4d2c20191d0b40d9050800295a2050b9ec2c4/687474703a2f2f7777322e73696e61696d672e636e2f6c617267652f61373465353562346a773164766e696a72323736686a2e6a7067" alt="git-merge"></p>
+<p><img src="http://cdn.mydearest.cn/blog/images/git-chain2.png" alt="git-merge"></p>
 <p>所以这时在合并前，通常我会先执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature</span><br><span class="line">git rebase dev</span><br></pre></td></tr></table></figure>
 <p>这样就可以将 feature 重新拼接到更新了的 dev 之后，然后就可以合并了，最终得到一个干净舒服的提交线图。</p>
@@ -681,7 +681,7 @@ git pull –rebase = git fetch + git rebase</p>
 <h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line"></span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="十、-gitignore-更新后生效："><a href="#十、-gitignore-更新后生效：" class="headerlink" title="十、.gitignore 更新后生效："></a>十、.gitignore 更新后生效：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;.gitignore is now working”</span><br></pre></td></tr></table></figure>
 <h3 id="十一、同步Github-fork-出来的分支"><a href="#十一、同步Github-fork-出来的分支" class="headerlink" title="十一、同步Github fork 出来的分支"></a>十一、同步Github fork 出来的分支</h3><p>1、配置remote，指向原始仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream https://github.com/InterviewMap/InterviewMap.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream https://github.com/cosyer/jelly.git</span><br></pre></td></tr></table></figure>
 <p>2、上游仓库获取到分支，及相关的提交信息，它们将被保存在本地的 upstream/master 分支</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git fetch upstream</span><br><span class="line"># remote: Counting objects: 75, done.</span><br><span class="line"># remote: Compressing objects: 100% (53/53), done.</span><br><span class="line"># remote: Total 62 (delta 27), reused 44 (delta 9)</span><br><span class="line"># Unpacking objects: 100% (62/62), done.</span><br><span class="line"># From https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY</span><br><span class="line"># * [new branch] master -upstream/master</span><br></pre></td></tr></table></figure>
 <p>3、切换到本地的 master 分支</p>
@@ -722,7 +722,7 @@ git pull –rebase = git fetch + git rebase</p>
   <p><span>本文标题:</span><a href="/2019/git相关问题场景和命令.html">git相关问题场景和命令</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年09月21日 - 00:09</p>
-  <p><span>最后更新:</span>2019年09月21日 - 01:09</p>
+  <p><span>最后更新:</span>2019年09月22日 - 00:09</p>
   <p><span>原始链接:</span><a href="/2019/git相关问题场景和命令.html" title="git相关问题场景和命令">http://mydearest.cn/2019/git相关问题场景和命令.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/git相关问题场景和命令.html"  aria-label=" 复制成功！"></i></span>
   </p>

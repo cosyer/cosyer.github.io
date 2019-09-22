@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="this 的指向this 是 js 中定义的关键字， 它的指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。在实际应用中，this的指向大致可以分为以下四种情况。  this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-25T16:00:08.973Z">
+<meta property="og:updated_time" content="2019-09-21T17:09:13.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 中 this 的详解">
 <meta name="twitter:description" content="this 的指向this 是 js 中定义的关键字， 它的指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。在实际应用中，this的指向大致可以分为以下四种情况。  this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象;">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-04-26T00:00:08+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">26</div>
+  <div class="post-date" data-datetime="2019-09-22T01:09:13+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月26</div>
+      <div class="post-tiem">9月22</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,821 (字)
+                  1,824 (字)
                 </span>
               
 
@@ -581,7 +581,7 @@ a:hover {
 <p>可以看出，此时的<code>this</code>已经跟 obj 没有任何关系了。这时 fun2 是作为普通函数调用。</p>
 <h3 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a>作为构造函数调用</h3><p>js中没有类，但是可以从构造器中创建对象，并提供了<code>new</code>运算符来进行调用该构造器。构造器的外表跟普通函数一样，大部分的函数都可以当做构造器使用。当构造函数被调用时，<code>this</code>指向了该构造函数实例化出来的对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'cosyer'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);      <span class="comment">// cosyer</span></span><br></pre></td></tr></table></figure>
-<p>如果构造函数显式的返回一个对象，那么<code>this</code>则会指向该对象。</p>
+<p>如果构造函数显式的返回一个对象(function或者object)，那么<code>this</code>则会指向该对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'cosyer'</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        name : <span class="string">'chenyu'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);      <span class="comment">// chenyu</span></span><br></pre></td></tr></table></figure>
 <p>如果该函数不用<code>new</code>调用，当作普通函数执行，那么<code>this</code>依然指向全局对象。</p>
 <h3 id="call-或-apply-调用-Function-prototype-bind-将当前函数绑定到指定对象绑定返回新函数之后再进行调用"><a href="#call-或-apply-调用-Function-prototype-bind-将当前函数绑定到指定对象绑定返回新函数之后再进行调用" class="headerlink" title="call() 或 apply() 调用 Function.prototype.bind()将当前函数绑定到指定对象绑定返回新函数之后再进行调用"></a>call() 或 apply() 调用 Function.prototype.bind()将当前函数绑定到指定对象绑定返回新函数之后再进行调用</h3><p>通过调用函数的 call() 或 apply() 方法可动态的改变<code>this</code>的指向。</p>
@@ -784,7 +784,7 @@ new绑定就是通过new操作符时将this绑定到当前新创建的对象中�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">113</span>
+                <span class="site-state-item-count">114</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -965,7 +965,7 @@ new绑定就是通过new操作符时将this绑定到当前新创建的对象中�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 163.5k字</span>
+    <span class="post-count">Blog总字数: 165.1k字</span>
   </div>
 </div>
 

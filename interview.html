@@ -141,7 +141,7 @@
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
-<meta property="og:updated_time" content="2019-09-23T16:55:23.022Z">
+<meta property="og:updated_time" content="2019-10-06T16:08:52.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-09-24T00:55:23+08:00">
-    <div class="post-time-text">9月</div>
-    <div class="post-time-count">24</div>
+  <div class="post-date" data-datetime="2019-10-07T00:08:52+08:00">
+    <div class="post-time-text">10月</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月24</div>
+      <div class="post-tiem">10月07</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  17,685 (字)
+                  19,087 (字)
                 </span>
               
 
@@ -542,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  70 (分钟)
+                  75 (分钟)
                 </span>
               
             </div>
@@ -810,8 +810,21 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <ul>
 <li><p>Web性能优化最佳实践中最重要的一条是减少HTTP请求。而减少HTTP请求的最主要的方式就是，合并并压缩JavaScript和CSS文件。 </p>
 </li>
-<li><p>CSS Sprites（CSS精灵）：把全站的图标都放在一个图像文件中，然后用CSS的background-image和background-position属性定位来显示其中的一小部分。 </p>
+<li><p>CSS Sprites（雪碧图、CSS精灵）：把全站的图标都放在一个图像文件中，然后用CSS的background-image和background-position属性定位来显示其中的一小部分。</p>
 </li>
+</ul>
+<p>优点：</p>
+<ol>
+<li>减少 HTTP 请求数，极大地提高页面加载速度</li>
+<li>增加图片信息重复度，提高压缩比，减少图片大小</li>
+<li>更换风格方便，只需在一张或几张图片上修改颜色或样式即可实现</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>图片合并麻烦</li>
+<li>维护麻烦，修改一个图片可能需要重新布局整个图片，样式</li>
+</ol>
+<ul>
 <li><p>合并脚本和样式表; 图片地图：利用image map标签定义一个客户端图像映射，（图像映射指带有可点击区域的一幅图像）具体看：<a href="http://club.topsage.com/thread-2527479-1-1.html" target="_blank" rel="noopener">http://club.topsage.com/thread-2527479-1-1.html</a> </p>
 </li>
 <li><p>图片js/css等静态资源放在静态服务器或CDN服时，尽量采用不用的域名，这样能防止cookie不会互相污染，减少每次请求的往返数据。 </p>
@@ -1521,8 +1534,26 @@ inherit
 一个页面是由很多个 Box 组成的,元素的类型和 display 属性,决定了这个 Box 的类型。</p>
 <p>不同类型的 Box,会参与不同的 Formatting Context（决定如何渲染文档的容器）,因此Box内的元素会以不同的方式渲染,也就是说BFC内部的</p>
 <p>元素和外部的元素不会互相影响。</p>
+<ul>
+<li>创建规则：</li>
+</ul>
 <ol>
-<li>css权重<blockquote>
+<li>根元素</li>
+<li>浮动元素（float不是none）</li>
+<li>绝对定位元素（position取值为absolute或fixed）</li>
+<li>display取值为inline-block,table-cell, table-caption,flex, inline-flex之一的元素</li>
+<li>overflow不是visible的元素</li>
+</ol>
+<ul>
+<li>作用：</li>
+</ul>
+<ol>
+<li>可以包含浮动元素</li>
+<li>不被浮动元素覆盖</li>
+<li><p>阻止父子元素的 margin 折叠</p>
+</li>
+<li><p>css权重</p>
+<blockquote>
 <p>标签的权重为1，class的权重为10，id的权重为100，以下例子是演示各种定义的权重值
 如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现</p>
 </blockquote>
@@ -1598,6 +1629,112 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
 <p>前十个数相加
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> [a, b, c, d, e, f, g, h, i, j, ...last] = arr3;</span><br><span class="line"><span class="keyword">var</span> total = a + b + c + d + e + f + g + h + i + j;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function">(<span class="params">(x, f = (y = x</span>) =&gt;</span> x + y) =&gt; &#123;</span><br><span class="line">      <span class="keyword">let</span> y = f();</span><br><span class="line">      x = y++;</span><br><span class="line">      <span class="keyword">return</span> [x, y, f(y)]</span><br><span class="line">    &#125;)(<span class="number">2</span>)</span><br><span class="line"><span class="comment">// foo = [4,5,9]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>link与@import的区别</li>
+</ol>
+<ul>
+<li><p>link 是 html 方式，@import是css方式</p>
+</li>
+<li><p>link最大限度支持并行下载，@import过多嵌套导致串行下载</p>
+</li>
+<li><p>link可以通过rel=”alternate stylesheet”指定候选样式</p>
+</li>
+<li><p>浏览器对link支持早于@import，可以使用@import对老浏览器隐藏样式</p>
+</li>
+<li><p>@import必须在样式规则之前，可以在 css 文件中引用其他文件</p>
+</li>
+<li><p>总体来说：link 优于@import</p>
+</li>
+</ul>
+<ol>
+<li>PNG,GIF,JPG 的区别</li>
+</ol>
+<ul>
+<li>GIF:</li>
+</ul>
+<p>8 位像素，256 色
+无损压缩
+支持简单动画
+支持 boolean 透明
+适合简单动画</p>
+<ul>
+<li>JPEG：</li>
+</ul>
+<p>颜色限于 256
+有损压缩
+可控制压缩质量
+不支持透明
+适合照片</p>
+<ul>
+<li>PNG：</li>
+</ul>
+<p>有 PNG8 和 truecolor PNG
+PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无动画
+适合图标、背景、按钮</p>
+<ol>
+<li>什么是 FOUC?如何避免</li>
+</ol>
+<p>Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。解决方法：把样式表放到文档的head</p>
+<ol>
+<li>focus/blur 与 focusin/focusout的区别和联系</li>
+<li>focus/blur 不冒泡，focusin/focusout 冒泡</li>
+<li>focus/blur 兼容性好，focusin/focusout 在除 FireFox 外的浏览器下都保持良好兼容性，如需使用事件托管，可考虑在 FireFox 下使用事件捕获 elem.addEventListener(‘focus’, handler, true)</li>
+<li>可获得焦点的元素：</li>
+</ol>
+<ul>
+<li>window</li>
+<li>链接被点击或键盘操作</li>
+<li>表单空间被点击或键盘操作</li>
+<li>设置tabindex属性的元素被点击或键盘操作</li>
+</ul>
+<ol>
+<li>== 和 === 判断相等的流程</li>
+</ol>
+<ul>
+<li><p>== 
+如果两个值类型相同，按照===比较方法进行比较
+如果类型不同，使用如下规则进行比较
+如果其中一个值是 null，另一个是 undefined，它们相等
+如果一个值是数字另一个是字符串，将字符串转换为数字进行比较
+如果有布尔类型，将true 转换为 1，false 转换为 0，然后用==规则继续比较
+如果一个值是对象，另一个是数字或字符串，将对象转换为原始值然后用==规则继续比较
+其他所有情况都认为不相等</p>
+</li>
+<li><p>===
+如果两个值不是相同类型，它们不相等
+如果两个值都是 null 或者都是 undefined，它们相等
+如果两个值都是布尔类型 true 或者都是 false，它们相等
+如果其中有一个是NaN，它们不相等
+如果都是数值型并且数值相等，他们相等， -0 等于 0
+如果他们都是字符串并且在相同位置包含相同的 16 位值，他它们相等；如果在长度或者内容上不等，它们不相等；两个字符串显示结果相同但是编码不同==和===都认为他们不相等
+如果他们指向相同对象、数组、函数，它们相等；如果指向不同对象，他们不相等</p>
+</li>
+</ul>
+<ol>
+<li><p>对象到字符串的转换
+如果对象有 toString()方法，javascript 调用它。如果返回一个原始值（primitive value 如：string number boolean）,将这个值转换为字符串作为结果
+如果对象没有 toString()方法或者返回值不是原始值，javascript 寻找对象的 valueOf()方法，如果存在就调用它，返回结果是原始值则转为字符串作为结果
+否则，javascript 不能从 toString()或者 valueOf()获得一个原始值，此时 throws a TypeError</p>
+</li>
+<li><p>对象到数字的转换
+如果对象有valueOf()方法并且返回元素值，javascript将返回值转换为数字作为结果
+否则，如果对象有toString()并且返回原始值，javascript将返回结果转换为数字作为结果
+否则，throws a TypeError</p>
+</li>
+<li><p>&lt;,&gt;,&lt;=,&gt;=的比较规则
+所有比较运算符都支持任意类型，但是比较只支持数字和字符串，所以需要执行必要的转换然后进行比较，转换规则如下:</p>
+</li>
+</ol>
+<p>如果操作数是对象，转换为原始值：如果 valueOf 方法返回原始值，则使用这个值，否则使用 toString 方法的结果，如果转换失败则报错
+经过必要的对象到原始值的转换后，如果两个操作数都是字符串，按照字母顺序进行比较（他们的 16 位 unicode 值的大小）
+否则，如果有一个操作数不是字符串，将两个操作数转换为数字进行比较</p>
+<ol>
+<li>+运算符工作流程
+如果有操作数是对象，转换为原始值
+此时如果有一个操作数是字符串，其他的操作数都转换为字符串并执行连接
+否则：所有操作数都转换为数字并执行加法</li>
+</ol>
+
       
     </div>
     
@@ -1628,7 +1765,7 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年09月24日 - 00:09</p>
+  <p><span>最后更新:</span>2019年10月07日 - 00:10</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1977,7 +2114,7 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 166.1k字</span>
+    <span class="post-count">Blog总字数: 167.9k字</span>
   </div>
 </div>
 

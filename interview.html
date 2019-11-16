@@ -141,7 +141,7 @@
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
-<meta property="og:updated_time" content="2019-10-06T16:08:52.504Z">
+<meta property="og:updated_time" content="2019-11-16T15:49:14.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-10-07T00:08:52+08:00">
-    <div class="post-time-text">10月</div>
-    <div class="post-time-count">07</div>
+  <div class="post-date" data-datetime="2019-11-16T23:49:14+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">16</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">10月07</div>
+      <div class="post-tiem">11月16</div>
       <div class="post-year">2019</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  19,087 (字)
+                  19,141 (字)
                 </span>
               
 
@@ -542,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  75 (分钟)
+                  76 (分钟)
                 </span>
               
             </div>
@@ -1143,6 +1143,9 @@ rem单位基于html根元素的字体大小。</li>
 </li>
 <li><p>reduce简写</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="string">'abcdaabc'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> info = arr</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .reduce(<span class="function">(<span class="params">p, k</span>) =&gt;</span> (p[k]++ || (p[k] = <span class="number">1</span>), p), &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(info); <span class="comment">//&#123; a: 3, b: 2, c: 2, d: 1 &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>临时对象简便</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line">str.split(<span class="string">''</span>).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  map[key] = -~map[key]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map)</span><br><span class="line"><span class="comment">// &#123;" ": 1, d: 1, e: 1, h: 1, l: 3, o: 2, r: 1, w: 1&#125;</span></span><br><span class="line"><span class="comment">// ~i = -(i + 1)，~undefined = -1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>清除浮动
 清除浮动是为了清除浮动元素产生的影响。浮动元素的高度会发生坍塌，使页面后面的布局不能正常显示。
@@ -1765,7 +1768,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2019年10月07日 - 00:10</p>
+  <p><span>最后更新:</span>2019年11月16日 - 23:11</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -2114,7 +2117,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 167.9k字</span>
+    <span class="post-count">Blog总字数: 168.2k字</span>
   </div>
 </div>
 

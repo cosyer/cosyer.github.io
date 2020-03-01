@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="作为常用的跨域解决方案，怎么能不用原生实现一下呢！ jsonp跨域其实也是JavaScript设计模式中的一种代理模式。 在html页面中通过相应的标签从不同域名下加载静态资源文件是被浏览器允许的，所以我们可以通过这个“犯罪漏洞”来进行跨域。 一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。 123456789// 实现目标JSONP(url, &amp;#123;  dat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.196Z">
+<meta property="og:updated_time" content="2020-03-01T14:59:49.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现jsonp">
 <meta name="twitter:description" content="作为常用的跨域解决方案，怎么能不用原生实现一下呢！ jsonp跨域其实也是JavaScript设计模式中的一种代理模式。 在html页面中通过相应的标签从不同域名下加载静态资源文件是被浏览器允许的，所以我们可以通过这个“犯罪漏洞”来进行跨域。 一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。 123456789// 实现目标JSONP(url, &amp;#123;  dat">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2020-03-01T22:59:49+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">01</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">3月01</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  264 (字)
+                  402 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -569,6 +569,10 @@ a:hover {
 <hr>
 <a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> JSONP = <span class="function">(<span class="params">url, jsonpObj</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 属性名 </span></span><br><span class="line">  <span class="keyword">let</span> cbName = <span class="string">"cb"</span> + JSONP.count++</span><br><span class="line">  <span class="comment">// 回调函数 </span></span><br><span class="line">  <span class="keyword">let</span> cbQuery = <span class="string">"JSONP."</span> + cbName</span><br><span class="line">  <span class="keyword">let</span> paramsToQuery = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> query = <span class="string">'?'</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(k)) &#123;</span><br><span class="line">        query += <span class="string">`<span class="subst">$&#123;k&#125;</span>=<span class="subst">$&#123;obj[k]&#125;</span>&amp;`</span></span><br><span class="line">      &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> query</span><br><span class="line">  &#125;</span><br><span class="line">  JSONP[cbName] = <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      jsonpObj.callback(data)</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="keyword">delete</span> JSONP[cbName]</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(script)</span><br><span class="line">    &#125;   </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> queryStr = paramsToQuery(jsonpObj.data) + <span class="string">'callback='</span> + cbQuery</span><br><span class="line">  <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">  script.src = url + <span class="built_in">encodeURIComponent</span>(queryStr)</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line">JSONP.count = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>简单的不传参数的jsonp实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonp = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(&#123;resolve, reject&#125; =&gt; &#123;</span><br><span class="line">    <span class="comment">// 创建标签</span></span><br><span class="line">    <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    <span class="comment">// 设置回调名</span></span><br><span class="line">    <span class="keyword">const</span> callbackId = <span class="string">`jsonp_<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span>`</span></span><br><span class="line">    <span class="comment">// 拼接url</span></span><br><span class="line">    script.src = url.includes(<span class="string">'?'</span>) ? <span class="string">`<span class="subst">$&#123;url&#125;</span>&amp;callback=<span class="subst">$&#123;callbackId&#125;</span>`</span> : <span class="string">`<span class="subst">$&#123;url&#125;</span>?callback=<span class="subst">$&#123;callbackId&#125;</span>`</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置读取返回结果的回调函数, 必须设置在window上</span></span><br><span class="line">    <span class="built_in">window</span>[callbackId] = <span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 释放内存</span></span><br><span class="line">      <span class="keyword">delete</span> <span class="built_in">window</span>[callbackId]</span><br><span class="line">      <span class="comment">// 移除标签</span></span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(script)</span><br><span class="line">      <span class="comment">// 结果</span></span><br><span class="line">      result ? resolve(result) : reject(<span class="string">'404'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    script.addEventListener(<span class="string">'error'</span>, () =&gt; reject(<span class="string">'script create fail'</span>))</span><br><span class="line">    <span class="comment">// 发出请求</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jsonp(<span class="string">''</span>).then(<span class="built_in">console</span>.log)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
     
@@ -599,7 +603,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/实现jsonp.html">实现jsonp</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年10月30日 - 14:10</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2020年03月01日 - 22:03</p>
   <p><span>原始链接:</span><a href="/实现jsonp.html" title="实现jsonp">http://mydearest.cn/实现jsonp.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/实现jsonp.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -923,7 +927,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 172.2k字</span>
+    <span class="post-count">Blog总字数: 172.4k字</span>
   </div>
 
   <div class="theme-info">

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="黑科技JS代码整理 是不是很void 666 一行代码实现评级1&quot;★★★★★☆☆☆☆☆&quot;.slice(5 - rate, 10 - rate);定义一个变量rate是1到5的值 SB、NB、Hello World12345(!(~+[])+&amp;#123;&amp;#125;)[--[~+&quot;&quot;][+[]]*[~+[]] + ~~!+[]]+(&amp;#123;&amp;#125;+[])[[~!+[]]*~+[]]([][">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-23T15:29:09.776Z">
+<meta property="og:updated_time" content="2020-03-07T12:20:07.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高逼格的JS代码">
 <meta name="twitter:description" content="黑科技JS代码整理 是不是很void 666 一行代码实现评级1&quot;★★★★★☆☆☆☆☆&quot;.slice(5 - rate, 10 - rate);定义一个变量rate是1到5的值 SB、NB、Hello World12345(!(~+[])+&amp;#123;&amp;#125;)[--[~+&quot;&quot;][+[]]*[~+[]] + ~~!+[]]+(&amp;#123;&amp;#125;+[])[[~!+[]]*~+[]]([][">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-08-23T23:29:09+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">23</div>
+  <div class="post-date" data-datetime="2020-03-07T20:20:07+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月23</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">3月07</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,384 (字)
+                  1,386 (字)
                 </span>
               
 
@@ -568,7 +568,7 @@ a:hover {
 <hr>
 <a id="more"></a>
 <h3 id="标记区域的范围"><a href="#标记区域的范围" class="headerlink" title="标记区域的范围"></a>标记区域的范围</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[].forEach.call($$(<span class="string">"*"</span>),<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    a.style.outline=<span class="string">"1px solid #"</span>+(~~(<span class="built_in">Math</span>.random()*(<span class="number">1</span>&lt;&lt;<span class="number">24</span>))).toString(<span class="number">16</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">'*'</span>), </span><br><span class="line">dom =&gt; dom.style.outline = <span class="string">`1px solid #<span class="subst">$&#123;<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * </span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">24</span>)).toString(<span class="number">16</span>)&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="获取随机字符串"><a href="#获取随机字符串" class="headerlink" title="获取随机字符串"></a>获取随机字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substring(<span class="number">2</span>) </span><br><span class="line"><span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substring(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="获取随机字符串"><a href="#获取随机字符串" class="headerlink" title="获取随机字符串"></a>获取随机字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substring(<span class="number">2</span>)  <span class="comment">// 0e7a48ca4bec3</span></span><br><span class="line"><span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substring(<span class="number">2</span>)  <span class="comment">// s2ue8xvgu7a</span></span><br></pre></td></tr></table></figure>
 <h3 id="这样的判断你能做对吗"><a href="#这样的判断你能做对吗" class="headerlink" title="这样的判断你能做对吗"></a>这样的判断你能做对吗</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10</span>)[<span class="string">"toString"</span>]() === <span class="string">"10"</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10.</span>.toString());<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10.</span>toString());<span class="comment">//SyntaxError: Unexpected token ILLEGAL</span></span><br><span class="line"><span class="comment">// 在JavaScript中，数字后面的"."操作符是的意义是不确定。因为它既可能是一个浮点数的标志，又可能是取一个对象的属性的运算符。但是JavaScript的解释器把他当做了浮点数的标志</span></span><br><span class="line"><span class="comment">// 等价于 </span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">10.</span>).toString());</span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">10.</span>)toString())</span><br></pre></td></tr></table></figure>
 <h3 id="匿名函数自执行方法"><a href="#匿名函数自执行方法" class="headerlink" title="匿名函数自执行方法"></a>匿名函数自执行方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;() );</span><br><span class="line">( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125; )();</span><br><span class="line">[ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;() ];</span><br><span class="line"></span><br><span class="line">~ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line">! <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line">+ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line">- <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"><span class="keyword">void</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"><span class="number">1</span> ^ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br><span class="line"><span class="number">1</span> &gt; <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br></pre></td></tr></table></figure>
 <h3 id="终于到-void-666"><a href="#终于到-void-666" class="headerlink" title="终于到 void 666"></a>终于到 void 666</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下都是undefined</span></span><br><span class="line"><span class="keyword">var</span> a; </span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">undefined</span> </span><br><span class="line"><span class="keyword">void</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">void</span> <span class="number">666</span></span><br><span class="line"><span class="keyword">void</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">void</span> (<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
@@ -635,7 +635,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/高逼格的JS代码.html">高逼格的JS代码</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年10月30日 - 09:10</p>
-  <p><span>最后更新:</span>2019年08月23日 - 23:08</p>
+  <p><span>最后更新:</span>2020年03月07日 - 20:03</p>
   <p><span>原始链接:</span><a href="/高逼格的JS代码.html" title="高逼格的JS代码">http://mydearest.cn/高逼格的JS代码.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/高逼格的JS代码.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -984,7 +984,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 172.5k字</span>
+    <span class="post-count">Blog总字数: 172.6k字</span>
   </div>
 
   <div class="theme-info">

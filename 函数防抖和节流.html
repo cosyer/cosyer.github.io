@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="场景：事件频繁被触发，频繁执行DOM操作、资源加载等重复行为，导致UI停顿甚至浏览器崩溃。如 input 实时搜索、scrollview 滚动更新。 函数防抖和节流用于限制函数的执行。是优化高频率执行js代码的一种手段。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-22T04:32:43.430Z">
+<meta property="og:updated_time" content="2020-03-14T16:16:40.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数的防抖和节流">
 <meta name="twitter:description" content="场景：事件频繁被触发，频繁执行DOM操作、资源加载等重复行为，导致UI停顿甚至浏览器崩溃。如 input 实时搜索、scrollview 滚动更新。 函数防抖和节流用于限制函数的执行。是优化高频率执行js代码的一种手段。">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-09-22T12:32:43+08:00">
-    <div class="post-time-text">9月</div>
-    <div class="post-time-count">22</div>
+  <div class="post-date" data-datetime="2020-03-15T00:16:40+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">15</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月22</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">3月15</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  789 (字)
+                  793 (字)
                 </span>
               
 
@@ -566,7 +566,7 @@ a:hover {
 <hr>
 <a id="more"></a>
 <h2 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h2><p>函数防抖就是让某个函数在上一次执行后，满足等待某个时间内不再触发此函数后再执行，而在这个等待时间内再次触发此函数，等待时间会重新计算。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> debounce = <span class="function"><span class="keyword">function</span>(<span class="params">idle,action</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> last;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ctx = <span class="keyword">this</span>,</span><br><span class="line">        args = <span class="built_in">arguments</span>;</span><br><span class="line">    clearTimeout(last);</span><br><span class="line">    last = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      action.apply(ctx,args);</span><br><span class="line">    &#125;,idle);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回函数连续调用时，空闲时间必须大于或等于idle，action才会执行。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> debounce = <span class="function"><span class="keyword">function</span>(<span class="params">idle,action</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> last;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ctx = <span class="keyword">this</span>,</span><br><span class="line">        args = <span class="built_in">arguments</span>; <span class="comment">// 存储参数</span></span><br><span class="line">    clearTimeout(last);</span><br><span class="line">    last = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      action.apply(ctx,args);</span><br><span class="line">    &#125;,idle);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回函数连续调用时，空闲时间必须大于或等于idle，action才会执行。</span></span><br></pre></td></tr></table></figure>
 <h3 id="实际例子"><a href="#实际例子" class="headerlink" title="实际例子"></a>实际例子</h3><p>当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。如下图，持续触发scroll事件时，并不执行handle函数，当1000毫秒内没有触发scroll事件时，才会延时触发scroll事件。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timeout = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(timeout !== <span class="literal">null</span>) </span><br><span class="line">                clearTimeout(timeout);</span><br><span class="line">        timeout = setTimeout(fn, wait);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.random()); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 滚动事件</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, debounce(handle, <span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
 <p>当持续触发scroll事件时，事件处理函数handle只在停止滚动1000毫秒之后才会调用一次，也就是说在持续触发scroll事件的过程中，事件处理函数handle一直没有执行。</p>
@@ -609,7 +609,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/函数防抖和节流.html">函数的防抖和节流</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月03日 - 22:07</p>
-  <p><span>最后更新:</span>2019年09月22日 - 12:09</p>
+  <p><span>最后更新:</span>2020年03月15日 - 00:03</p>
   <p><span>原始链接:</span><a href="/函数防抖和节流.html" title="函数的防抖和节流">http://mydearest.cn/函数防抖和节流.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/函数防抖和节流.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -958,7 +958,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 172.7k字</span>
+    <span class="post-count">Blog总字数: 172.8k字</span>
   </div>
 
   <div class="theme-info">

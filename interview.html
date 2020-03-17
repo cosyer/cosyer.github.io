@@ -141,7 +141,7 @@
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
-<meta property="og:updated_time" content="2020-03-08T07:36:04.095Z">
+<meta property="og:updated_time" content="2020-03-17T17:02:45.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-08T15:36:04+08:00">
+  <div class="post-date" data-datetime="2020-03-18T01:02:45+08:00">
     <div class="post-time-text">3月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">18</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月08</div>
+      <div class="post-tiem">3月18</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  19,212 (字)
+                  19,303 (字)
                 </span>
               
 
@@ -542,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  76 (分钟)
+                  77 (分钟)
                 </span>
               
             </div>
@@ -636,13 +636,15 @@ typeof返回的类型都是字符串形式，可以判断function的类型；在
  window.clearTimeout()</p>
 </li>
 <li><p>简述ajax流程<br>1)客户端产生触发js的事件<br>2)创建XMLHttpRequest对象  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> client=<span class="literal">null</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">       client = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        client = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> client=<span class="literal">null</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">      client = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      client = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>3)对XMLHttpRequest进行配置 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">client.open(<span class="string">"GET"</span>, url);</span><br><span class="line">client.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (request.readyState !== <span class="number">4</span>) &#123; <span class="comment">// client状态</span></span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123; <span class="comment">// HTTP状态码</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'success'</span>, request.responseText);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.warn(<span class="string">'error'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;; <span class="comment">// 指定回调函数</span></span><br><span class="line">client.responseType = <span class="string">"json"</span>;</span><br><span class="line">client.setRequestHeader(<span class="string">"Accept"</span>, <span class="string">"application/json;"</span>);</span><br><span class="line">client.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/json;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">client.open(<span class="string">"GET"</span>, url);</span><br><span class="line">client.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (client.readyState !== <span class="number">4</span>) &#123; <span class="comment">// client状态</span></span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (client.status === <span class="number">200</span>) &#123; <span class="comment">// HTTP状态码</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'success'</span>, client.responseText);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.warn(<span class="string">'error'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;; <span class="comment">// 指定回调函数</span></span><br><span class="line">client.responseType = <span class="string">"json"</span>;</span><br><span class="line">client.setRequestHeader(<span class="string">"Accept"</span>, <span class="string">"application/json;"</span>);</span><br><span class="line">client.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/json;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>4)通过AJAX引擎发送异步请求 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.send()</span><br></pre></td></tr></table></figure></p>
+<p><code>promise 封装</code>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @param &#123;string&#125; url</span></span><br><span class="line"><span class="comment">  * @param &#123;string&#125; method</span></span><br><span class="line"><span class="comment">  * @param &#123;object&#125; params</span></span><br><span class="line"><span class="comment">  * @returns</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">url, method = <span class="string">'GET'</span>, params = null</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">    xhr.open(method, url)</span><br><span class="line">    xhr.addEventListener(<span class="string">'readystatechange'</span>, () =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">          resolve(xhr.responseText)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          reject(&#123;</span><br><span class="line">            code: xhr.status,</span><br><span class="line">            response: xhr.response</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="string">'timeout:1000'</span>), <span class="number">1000</span>)</span><br><span class="line">    xhr.send(<span class="built_in">JSON</span>.stringify(params))</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>5)服务器端接收请求并且处理请求，返回html或者xml内容<br>6)XML调用一个callback()处理响应回来的内容<br>7)使用JS和DOM实现局部刷新</p>
 <ol>
 <li><p>自执行函数？用于什么场景？好处？<br> 1、声明一个匿名函数<br> 2、马上调用这个匿名函数。<br> 作用：创建一个独立的作用域。  </p>
@@ -1779,7 +1781,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2020年03月08日 - 15:03</p>
+  <p><span>最后更新:</span>2020年03月18日 - 01:03</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -2128,7 +2130,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 173.5k字</span>
+    <span class="post-count">Blog总字数: 173.6k字</span>
   </div>
 
   <div class="theme-info">

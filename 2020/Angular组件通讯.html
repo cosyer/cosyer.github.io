@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="组件通讯，意在不同的指令和组件之间共享信息。 父-&amp;gt;子 input12345// parent.html&amp;lt;child [content]=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/child&amp;gt;// child.ts@Input() content:string; 子=&amp;gt;父 output1234567// parent.html&amp;lt;child (changeNumber">
+<meta name="description" content="组件通讯，意在不同的指令和组件之间共享信息。 父-&amp;gt;子 input12345// parent.html&amp;lt;child [content]=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/child&amp;gt;// child.ts@Input() content:string; 子-&amp;gt;父 output1234567// parent.html&amp;lt;child (changeNumber">
 <meta name="keywords" content="angular">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular组件通讯">
 <meta property="og:url" content="http://mydearest.cn/2020/Angular组件通讯.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="组件通讯，意在不同的指令和组件之间共享信息。 父-&amp;gt;子 input12345// parent.html&amp;lt;child [content]=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/child&amp;gt;// child.ts@Input() content:string; 子=&amp;gt;父 output1234567// parent.html&amp;lt;child (changeNumber">
+<meta property="og:description" content="组件通讯，意在不同的指令和组件之间共享信息。 父-&amp;gt;子 input12345// parent.html&amp;lt;child [content]=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/child&amp;gt;// child.ts@Input() content:string; 子-&amp;gt;父 output1234567// parent.html&amp;lt;child (changeNumber">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-15T15:30:07.534Z">
+<meta property="og:updated_time" content="2020-03-17T13:57:54.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular组件通讯">
-<meta name="twitter:description" content="组件通讯，意在不同的指令和组件之间共享信息。 父-&amp;gt;子 input12345// parent.html&amp;lt;child [content]=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/child&amp;gt;// child.ts@Input() content:string; 子=&amp;gt;父 output1234567// parent.html&amp;lt;child (changeNumber">
+<meta name="twitter:description" content="组件通讯，意在不同的指令和组件之间共享信息。 父-&amp;gt;子 input12345// parent.html&amp;lt;child [content]=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/child&amp;gt;// child.ts@Input() content:string; 子-&amp;gt;父 output1234567// parent.html&amp;lt;child (changeNumber">
 
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-15T23:30:07+08:00">
+  <div class="post-date" data-datetime="2020-03-17T21:57:54+08:00">
     <div class="post-time-text">3月</div>
-    <div class="post-time-count">15</div>
+    <div class="post-time-count">17</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月15</div>
+      <div class="post-tiem">3月17</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -563,7 +563,7 @@ a:hover {
       
         <p>组件通讯，意在不同的指令和组件之间共享信息。</p>
 <h2 id="父-gt-子-input"><a href="#父-gt-子-input" class="headerlink" title="父-&gt;子 input"></a>父-&gt;子 input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// parent.html</span><br><span class="line">&lt;child [content]=&quot;i&quot;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">// child.ts</span><br><span class="line">@Input() content:string;</span><br></pre></td></tr></table></figure>
-<h2 id="子-gt-父-output"><a href="#子-gt-父-output" class="headerlink" title="子=&gt;父 output"></a>子=&gt;父 output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// parent.html</span><br><span class="line">&lt;child (changeNumber)=&quot;changeNumber($event)&quot;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">// child.ts</span><br><span class="line">@Output() changeNumber: EventEmitter&lt;number&gt; = new EventEmitter();</span><br><span class="line"></span><br><span class="line">this.changeNumber(1);</span><br></pre></td></tr></table></figure>
+<h2 id="子-gt-父-output"><a href="#子-gt-父-output" class="headerlink" title="子-&gt;父 output"></a>子-&gt;父 output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// parent.html</span><br><span class="line">&lt;child (changeNumber)=&quot;changeNumber($event)&quot;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">// child.ts</span><br><span class="line">@Output() changeNumber: EventEmitter&lt;number&gt; = new EventEmitter();</span><br><span class="line"></span><br><span class="line">this.changeNumber(1);</span><br></pre></td></tr></table></figure>
 <hr>
 <a id="more"></a>
 <h2 id="子获取父实例"><a href="#子获取父实例" class="headerlink" title="子获取父实例"></a>子获取父实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// child.ts</span><br><span class="line">import &#123; Component, Input, EventEmitter, Output,Host,Inject,forwardRef &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line">constructor( @Host() @Inject(forwardRef(() =&gt; ParentPage)) app: ParentPage) &#123;</span><br><span class="line">    app.content // 获取父实例的参数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -636,7 +636,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/Angular组件通讯.html">Angular组件通讯</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年03月15日 - 22:03</p>
-  <p><span>最后更新:</span>2020年03月15日 - 23:03</p>
+  <p><span>最后更新:</span>2020年03月17日 - 21:03</p>
   <p><span>原始链接:</span><a href="/2020/Angular组件通讯.html" title="Angular组件通讯">http://mydearest.cn/2020/Angular组件通讯.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/Angular组件通讯.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -936,7 +936,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#父-gt-子-input"><span class="nav-number">1.</span> <span class="nav-text">父-&gt;子 input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子-gt-父-output"><span class="nav-number">2.</span> <span class="nav-text">子=&gt;父 output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子获取父实例"><span class="nav-number">3.</span> <span class="nav-text">子获取父实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父获取子实例"><span class="nav-number">4.</span> <span class="nav-text">父获取子实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#service-公共的"><span class="nav-number">5.</span> <span class="nav-text">service 公共的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventEmitter-eventbus"><span class="nav-number">6.</span> <span class="nav-text">EventEmitter(eventbus)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#订阅"><span class="nav-number">7.</span> <span class="nav-text">订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#糟糕的解决方案"><span class="nav-number">8.</span> <span class="nav-text">糟糕的解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#父-gt-子-input"><span class="nav-number">1.</span> <span class="nav-text">父-&gt;子 input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子-gt-父-output"><span class="nav-number">2.</span> <span class="nav-text">子-&gt;父 output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子获取父实例"><span class="nav-number">3.</span> <span class="nav-text">子获取父实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父获取子实例"><span class="nav-number">4.</span> <span class="nav-text">父获取子实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#service-公共的"><span class="nav-number">5.</span> <span class="nav-text">service 公共的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventEmitter-eventbus"><span class="nav-number">6.</span> <span class="nav-text">EventEmitter(eventbus)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#订阅"><span class="nav-number">7.</span> <span class="nav-text">订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#糟糕的解决方案"><span class="nav-number">8.</span> <span class="nav-text">糟糕的解决方案</span></a></li></ol></div>
             
 
           </div>
@@ -981,7 +981,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 173.5k字</span>
+    <span class="post-count">Blog总字数: 173.6k字</span>
   </div>
 
   <div class="theme-info">

@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git-chain1.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git-chain2.png">
-<meta property="og:updated_time" content="2019-09-21T16:42:37.914Z">
+<meta property="og:updated_time" content="2020-03-21T16:53:29.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关问题场景和命令">
 <meta name="twitter:description" content="一、必备知识点">
@@ -418,13 +418,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-09-22T00:42:37+08:00">
-    <div class="post-time-text">9月</div>
+  <div class="post-date" data-datetime="2020-03-22T00:53:29+08:00">
+    <div class="post-time-text">3月</div>
     <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月22</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">3月22</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -528,7 +528,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,218 (字)
+                  3,471 (字)
                 </span>
               
 
@@ -544,7 +544,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  13 (分钟)
+                  14 (分钟)
                 </span>
               
             </div>
@@ -690,6 +690,30 @@ git pull –rebase = git fetch + git rebase</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git merge upstream/master</span><br><span class="line"># Updating a422352..5fdff0f</span><br><span class="line"># Fast-forward</span><br><span class="line"># README | 9 -------</span><br><span class="line"># README.md | 7 ++++++</span><br><span class="line"># 2 files changed, 7 insertions(+), 9 deletions(-)</span><br><span class="line"># delete mode 100644 README</span><br><span class="line"># create mode 100644 README.md</span><br></pre></td></tr></table></figure>
 <p>5、上传到自己的远程仓库中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h3 id="git合并多个commit"><a href="#git合并多个commit" class="headerlink" title="git合并多个commit"></a>git合并多个commit</h3><p>过去总是使用<code>git reset --soft</code>回退到之前的状态，再 commit 后 push orgin master -f 强推到远程库，能够覆盖掉之前的 commit 。</p>
+<p>但在团队协作时，每次 commit 前还需要 rebase upstream，这会自动将一些其他人做的修改也自动merge到本地的源码中。如果此时希望覆盖前一次 commit ，reset 到之前的状态后，再次 commit 的内容就包含了其他人的修改，这不是我们希望看到的。因此，我们需要使用 git rebase -i 。</p>
+<h4 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h4><ul>
+<li><ol>
+<li>git log查看所有commit的情况，找到自己想要合并的commit之前的那个commit的ssh码；</li>
+</ol>
+</li>
+<li><ol>
+<li>git rebase -i 43jk2l3ba343，这样会弹出一个文本编辑器；</li>
+</ol>
+</li>
+<li><ol>
+<li>修改pick为squash会将这个commit合并到前一个commit中，保存退出；</li>
+</ol>
+</li>
+<li><ol>
+<li>提示写下新的commit message，之前的message可以用#注释掉，保存退出；</li>
+</ol>
+</li>
+<li><ol>
+<li>此时再git log就会发现，两个commit被合并到一个commit中。</li>
+</ol>
+</li>
+</ul>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>本文参考了 <a href="http://hungyuhei.github.io/2012/08/07/better-git-commit-graph-using-pull---rebase-and-merge---no-ff.html" target="_blank" rel="noopener">洁癖者用 Git：pull –rebase 和 merge –no-ff</a></p>
 
       
@@ -722,7 +746,7 @@ git pull –rebase = git fetch + git rebase</p>
   <p><span>本文标题:</span><a href="/2019/git相关问题场景和命令.html">git相关问题场景和命令</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年09月21日 - 00:09</p>
-  <p><span>最后更新:</span>2019年09月22日 - 00:09</p>
+  <p><span>最后更新:</span>2020年03月22日 - 00:03</p>
   <p><span>原始链接:</span><a href="/2019/git相关问题场景和命令.html" title="git相关问题场景和命令">http://mydearest.cn/2019/git相关问题场景和命令.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/git相关问题场景和命令.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1026,7 +1050,7 @@ git pull –rebase = git fetch + git rebase</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、必备知识点"><span class="nav-number">1.</span> <span class="nav-text">一、必备知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库"><span class="nav-number">1.1.</span> <span class="nav-text">仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、git-add-提交到暂存区，出错怎么办"><span class="nav-number">2.</span> <span class="nav-text">二、git add 提交到暂存区，出错怎么办</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景1：工作区"><span class="nav-number">2.1.</span> <span class="nav-text">场景1：工作区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#场景2：暂存区"><span class="nav-number">2.2.</span> <span class="nav-text">场景2：暂存区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、git-commit-提交到本地仓库，出错怎么办？"><span class="nav-number">3.</span> <span class="nav-text">三、git commit 提交到本地仓库，出错怎么办？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-提交信息出错"><span class="nav-number">3.1.</span> <span class="nav-text">1. 提交信息出错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-漏提交"><span class="nav-number">3.2.</span> <span class="nav-text">2. 漏提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-提交错误文件，回退到上一个-commit-版本，再-commit"><span class="nav-number">3.3.</span> <span class="nav-text">3. 提交错误文件，回退到上一个 commit 版本，再 commit</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#git-reset"><span class="nav-number">3.3.1.</span> <span class="nav-text">git reset</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-revert"><span class="nav-number">3.3.2.</span> <span class="nav-text">git revert</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-revert-和-git-reset-的区别"><span class="nav-number">3.3.3.</span> <span class="nav-text">git revert 和 git reset 的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、常用命令"><span class="nav-number">4.</span> <span class="nav-text">四、常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-初始开发-git-操作流程"><span class="nav-number">4.1.</span> <span class="nav-text">1. 初始开发 git 操作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-git-fetch"><span class="nav-number">4.2.</span> <span class="nav-text">2. git fetch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-git-pull"><span class="nav-number">4.3.</span> <span class="nav-text">3. git pull</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-git-push"><span class="nav-number">4.4.</span> <span class="nav-text">4. git push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-分支操作"><span class="nav-number">4.5.</span> <span class="nav-text">5. 分支操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、优化操作"><span class="nav-number">5.</span> <span class="nav-text">五、优化操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-拉取代码-pull-–rebase"><span class="nav-number">5.1.</span> <span class="nav-text">1. 拉取代码 pull –rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#小结"><span class="nav-number">5.1.1.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-合代码-merge-–no-ff"><span class="nav-number">5.2.</span> <span class="nav-text">2. 合代码 merge –no-ff</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#更进一步"><span class="nav-number">5.2.1.</span> <span class="nav-text">更进一步</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">5.2.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、SSH"><span class="nav-number">6.</span> <span class="nav-text">六、SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看是否生成了-SSH-公钥"><span class="nav-number">6.1.</span> <span class="nav-text">1. 查看是否生成了 SSH 公钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-如果没有那就开始生成，设置全局的user-name与user-email"><span class="nav-number">6.2.</span> <span class="nav-text">2. 如果没有那就开始生成，设置全局的user.name与user.email</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-输入-ssh-keygen-即可（或ssh-keygen-t-rsa-C-quot-email-quot-）"><span class="nav-number">6.3.</span> <span class="nav-text">3. 输入 ssh-keygen 即可（或ssh-keygen -t rsa -C &quot;email&quot;）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-生成之后获取公钥内容，输入-cat-ssh-id-rsa-pub-即可，-复制-ssh-rsa-一直到-local这一整段内容"><span class="nav-number">6.4.</span> <span class="nav-text">4. 生成之后获取公钥内容，输入 cat ~/.ssh/id_rsa.pub 即可， 复制 ssh-rsa 一直到 .local这一整段内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-打开-GitLab-或者-GitHub，点击头像，找到设置页"><span class="nav-number">6.5.</span> <span class="nav-text">5. 打开 GitLab 或者 GitHub，点击头像，找到设置页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-左侧找到-SSH-keys-按钮并点击，输入刚刚复制的公钥即可"><span class="nav-number">6.6.</span> <span class="nav-text">6. 左侧找到 SSH keys 按钮并点击，输入刚刚复制的公钥即可</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、暂存"><span class="nav-number">7.</span> <span class="nav-text">七、暂存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、文件名过长错误"><span class="nav-number">8.</span> <span class="nav-text">八、文件名过长错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、邮箱和用户名"><span class="nav-number">9.</span> <span class="nav-text">九、邮箱和用户名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看"><span class="nav-number">9.1.</span> <span class="nav-text">查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改"><span class="nav-number">9.2.</span> <span class="nav-text">修改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、-gitignore-更新后生效："><span class="nav-number">10.</span> <span class="nav-text">十、.gitignore 更新后生效：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、同步Github-fork-出来的分支"><span class="nav-number">11.</span> <span class="nav-text">十一、同步Github fork 出来的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">12.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、必备知识点"><span class="nav-number">1.</span> <span class="nav-text">一、必备知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库"><span class="nav-number">1.1.</span> <span class="nav-text">仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、git-add-提交到暂存区，出错怎么办"><span class="nav-number">2.</span> <span class="nav-text">二、git add 提交到暂存区，出错怎么办</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景1：工作区"><span class="nav-number">2.1.</span> <span class="nav-text">场景1：工作区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#场景2：暂存区"><span class="nav-number">2.2.</span> <span class="nav-text">场景2：暂存区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、git-commit-提交到本地仓库，出错怎么办？"><span class="nav-number">3.</span> <span class="nav-text">三、git commit 提交到本地仓库，出错怎么办？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-提交信息出错"><span class="nav-number">3.1.</span> <span class="nav-text">1. 提交信息出错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-漏提交"><span class="nav-number">3.2.</span> <span class="nav-text">2. 漏提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-提交错误文件，回退到上一个-commit-版本，再-commit"><span class="nav-number">3.3.</span> <span class="nav-text">3. 提交错误文件，回退到上一个 commit 版本，再 commit</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#git-reset"><span class="nav-number">3.3.1.</span> <span class="nav-text">git reset</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-revert"><span class="nav-number">3.3.2.</span> <span class="nav-text">git revert</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-revert-和-git-reset-的区别"><span class="nav-number">3.3.3.</span> <span class="nav-text">git revert 和 git reset 的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、常用命令"><span class="nav-number">4.</span> <span class="nav-text">四、常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-初始开发-git-操作流程"><span class="nav-number">4.1.</span> <span class="nav-text">1. 初始开发 git 操作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-git-fetch"><span class="nav-number">4.2.</span> <span class="nav-text">2. git fetch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-git-pull"><span class="nav-number">4.3.</span> <span class="nav-text">3. git pull</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-git-push"><span class="nav-number">4.4.</span> <span class="nav-text">4. git push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-分支操作"><span class="nav-number">4.5.</span> <span class="nav-text">5. 分支操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、优化操作"><span class="nav-number">5.</span> <span class="nav-text">五、优化操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-拉取代码-pull-–rebase"><span class="nav-number">5.1.</span> <span class="nav-text">1. 拉取代码 pull –rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#小结"><span class="nav-number">5.1.1.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-合代码-merge-–no-ff"><span class="nav-number">5.2.</span> <span class="nav-text">2. 合代码 merge –no-ff</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#更进一步"><span class="nav-number">5.2.1.</span> <span class="nav-text">更进一步</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">5.2.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、SSH"><span class="nav-number">6.</span> <span class="nav-text">六、SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看是否生成了-SSH-公钥"><span class="nav-number">6.1.</span> <span class="nav-text">1. 查看是否生成了 SSH 公钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-如果没有那就开始生成，设置全局的user-name与user-email"><span class="nav-number">6.2.</span> <span class="nav-text">2. 如果没有那就开始生成，设置全局的user.name与user.email</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-输入-ssh-keygen-即可（或ssh-keygen-t-rsa-C-quot-email-quot-）"><span class="nav-number">6.3.</span> <span class="nav-text">3. 输入 ssh-keygen 即可（或ssh-keygen -t rsa -C &quot;email&quot;）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-生成之后获取公钥内容，输入-cat-ssh-id-rsa-pub-即可，-复制-ssh-rsa-一直到-local这一整段内容"><span class="nav-number">6.4.</span> <span class="nav-text">4. 生成之后获取公钥内容，输入 cat ~/.ssh/id_rsa.pub 即可， 复制 ssh-rsa 一直到 .local这一整段内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-打开-GitLab-或者-GitHub，点击头像，找到设置页"><span class="nav-number">6.5.</span> <span class="nav-text">5. 打开 GitLab 或者 GitHub，点击头像，找到设置页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-左侧找到-SSH-keys-按钮并点击，输入刚刚复制的公钥即可"><span class="nav-number">6.6.</span> <span class="nav-text">6. 左侧找到 SSH keys 按钮并点击，输入刚刚复制的公钥即可</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、暂存"><span class="nav-number">7.</span> <span class="nav-text">七、暂存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、文件名过长错误"><span class="nav-number">8.</span> <span class="nav-text">八、文件名过长错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、邮箱和用户名"><span class="nav-number">9.</span> <span class="nav-text">九、邮箱和用户名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看"><span class="nav-number">9.1.</span> <span class="nav-text">查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改"><span class="nav-number">9.2.</span> <span class="nav-text">修改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、-gitignore-更新后生效："><span class="nav-number">10.</span> <span class="nav-text">十、.gitignore 更新后生效：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、同步Github-fork-出来的分支"><span class="nav-number">11.</span> <span class="nav-text">十一、同步Github fork 出来的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git合并多个commit"><span class="nav-number">12.</span> <span class="nav-text">git合并多个commit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本步骤"><span class="nav-number">12.1.</span> <span class="nav-text">基本步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">13.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1071,7 +1095,7 @@ git pull –rebase = git fetch + git rebase</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 173.8k字</span>
+    <span class="post-count">Blog总字数: 174.2k字</span>
   </div>
 
   <div class="theme-info">

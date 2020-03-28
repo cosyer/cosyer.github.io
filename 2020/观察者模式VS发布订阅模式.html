@@ -140,13 +140,13 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="从图中可以看出：  观察者与目标（被观察者）是直接进行交互的，包括订阅和触发。 发布订阅模式是透过一个中间者当调度中心，相关的订阅与发布都由调度中心来进行协调。  两者的优缺点：  观察者模式：优点就是一一对应，比较直观明了，占用内存资源容易进行回收。缺点就是两者耦合。 发布订阅模式：优点就是一方面实现了发布者与订阅者之间的解耦，中间者可在两者操作之间进行更细粒度的控制。如：条件过滤发布，权限控">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/observer.jpeg">
 <meta property="og:image" content="http://cdn.mydearest.cn/subscribe.png">
-<meta property="og:updated_time" content="2020-03-28T06:23:03.878Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/observer.jpeg">
+<meta property="og:updated_time" content="2020-03-28T06:38:00.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="观察者模式VS发布订阅模式">
 <meta name="twitter:description" content="从图中可以看出：  观察者与目标（被观察者）是直接进行交互的，包括订阅和触发。 发布订阅模式是透过一个中间者当调度中心，相关的订阅与发布都由调度中心来进行协调。  两者的优缺点：  观察者模式：优点就是一一对应，比较直观明了，占用内存资源容易进行回收。缺点就是两者耦合。 发布订阅模式：优点就是一方面实现了发布者与订阅者之间的解耦，中间者可在两者操作之间进行更细粒度的控制。如：条件过滤发布，权限控">
-<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/observer.jpeg">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/subscribe.png">
 
 
 
@@ -417,7 +417,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-28T14:23:03+08:00">
+  <div class="post-date" data-datetime="2020-03-28T14:38:00+08:00">
     <div class="post-time-text">3月</div>
     <div class="post-time-count">28</div>
     <div class="text-desc">
@@ -564,7 +564,7 @@ a:hover {
       
 
       
-        <p><img src="http://cdn.mydearest.cn/blog/images/observer.jpeg" alt="observer"></p>
+        <p><img src="http://cdn.mydearest.cn/subscribe.png" alt="subscribe"></p>
 <p>从图中可以看出：</p>
 <ul>
 <li>观察者与目标（被观察者）是直接进行交互的，包括订阅和触发。</li>
@@ -584,7 +584,7 @@ a:hover {
 </ul>
 <hr>
 <a id="more"></a>
-<h2 id="观察者模式实现"><a href="#观察者模式实现" class="headerlink" title="观察者模式实现"></a>观察者模式实现</h2><p><img src="http://cdn.mydearest.cn/subscribe.png" alt="subscribe"></p>
+<h2 id="观察者模式实现"><a href="#观察者模式实现" class="headerlink" title="观察者模式实现"></a>观察者模式实现</h2><p><img src="http://cdn.mydearest.cn/blog/images/observer.jpeg" alt="observer"></p>
 <p>首先目标对象（被观察者）称为<code>Subject</code>，有若干个观察者<code>Observer</code>进行观察。当<code>Subject</code>被某些对应事件驱动了，则通知相对应的观察者，调用其回调操作。</p>
 <p>代码实现如下：
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 被观察者</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> () &#123;</span><br><span class="line">        <span class="keyword">this</span>.obs = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 添加观察者</span></span><br><span class="line">    addObserver (ob) &#123;</span><br><span class="line">        <span class="keyword">this</span>.obs.push(ob);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 通知所有观察者</span></span><br><span class="line">    notify () &#123;</span><br><span class="line">        <span class="keyword">this</span>.obs.forEach(<span class="function"><span class="params">ob</span> =&gt;</span> &#123;</span><br><span class="line">            ob.update();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 观察者</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">  update()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'update'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> subject = <span class="keyword">new</span> Subject();</span><br><span class="line"><span class="keyword">let</span> ob = <span class="keyword">new</span> Observer();</span><br><span class="line"><span class="comment">// 目标添加观察者了</span></span><br><span class="line">subject.addObserver(ob);</span><br><span class="line"><span class="comment">// 目标发布消息调用观察者的更新方法了</span></span><br><span class="line">subject.notify();   <span class="comment">//update</span></span><br></pre></td></tr></table></figure></p>
@@ -972,7 +972,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 183.5k字</span>
+    <span class="post-count">Blog总字数: 185.1k字</span>
   </div>
 
   <div class="theme-info">

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="Async/Await是一种允许我们像构建没有回调函数的普通函数一样构建Promise的新语法。以往的异步方法无外乎回调函数和Promise。但是Async/Await建立于Promise之上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.153Z">
+<meta property="og:updated_time" content="2020-03-28T17:52:20.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Async&#x2F;Await 让你的代码更简洁">
 <meta name="twitter:description" content="Async/Await是一种允许我们像构建没有回调函数的普通函数一样构建Promise的新语法。以往的异步方法无外乎回调函数和Promise。但是Async/Await建立于Promise之上。">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2020-03-29T01:52:20+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">3月29</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  526 (字)
+                  804 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -573,6 +573,16 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(<span class="string">'http://no-such-url'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// f()变成了一个rejected的promise</span></span><br><span class="line">f().catch(alert) <span class="comment">// TypeError: failed to fetch</span></span><br></pre></td></tr></table></figure>
 <h3 id="结合Promise-all"><a href="#结合Promise-all" class="headerlink" title="结合Promise.all"></a>结合Promise.all</h3><p>async/await能够与Promise.all友好的协作，当我们需要等待多个promise时，我们可以将他们包装在Promise.all中然后使用await：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直到数组全部返回结果</span></span><br><span class="line"><span class="keyword">let</span> results = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([</span><br><span class="line">   fetch(url1),</span><br><span class="line">   fetch(url2),</span><br><span class="line">   ...</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<h2 id="Promises-组合：Promise-all，Promise-allSettled，-Promise-any"><a href="#Promises-组合：Promise-all，Promise-allSettled，-Promise-any" class="headerlink" title="Promises 组合：Promise.all，Promise.allSettled， Promise.any"></a>Promises 组合：Promise.all，Promise.allSettled， Promise.any</h2><ul>
+<li><p>Promise API 提供了许多将Promise组合在一起的方法。 其中最有用的是Promise.all，它接受一个Promises数组并返回一个Promise。 如果参数中 promise 有一个失败（rejected），此实例回调失败（reject），失败原因的是第一个失败 promise 的结果。</p>
+</li>
+<li><p>Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。</p>
+</li>
+<li><p>较新版本的V8也将实现两个新的组合：Promise.allSettled和Promise.any。 Promise.any仍然处于提案的早期阶段：在撰写本文时，仍然没有浏览器支持它。</p>
+</li>
+</ul>
+<p>Promise.any可以表明任何Promise是否fullfilled。 与 Promise.race的区别在于Promise.any不会拒绝即使其中一个Promise被拒绝。</p>
+<p>无论如何，两者中最有趣的是 Promise.allSettled，它也是 Promise 数组，但如果其中一个Promise拒绝，它不会短路。 当你想要检查Promise数组是否全部已解决时，它是有用的，无论最终是否拒绝，可以把它想象成Promise.all 的反对者。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>随着单页JavaScript web程序的兴起和对NodeJS的广泛采用，如何优雅的处理并发对于JavaScript开发人员来说比任何以往的时候都显得更为重要。Async/Await缓解了许多因为控制流问题而导致bug遍地的这个困扰着JavaScript代码库数十年的问题，并且几乎可以保证让任何异步代码块变的更精炼，更简单，更自信。</p>
 
       
@@ -605,7 +615,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/es7async.html">使用 Async/Await 让你的代码更简洁</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 01:06</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2020年03月29日 - 01:03</p>
   <p><span>原始链接:</span><a href="/es7async.html" title="使用 Async/Await 让你的代码更简洁">http://mydearest.cn/es7async.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/es7async.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -911,7 +921,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-Await语法"><span class="nav-number">1.</span> <span class="nav-text">Async/Await语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#async关键字-放置在一个函数前面-。"><span class="nav-number">1.1.</span> <span class="nav-text">async关键字(放置在一个函数前面)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#await关键字-只能在async函数内部使用"><span class="nav-number">1.2.</span> <span class="nav-text">await关键字(只能在async函数内部使用)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理-使用try-catch捕获"><span class="nav-number">1.3.</span> <span class="nav-text">错误处理(使用try-catch捕获)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结合Promise-all"><span class="nav-number">1.4.</span> <span class="nav-text">结合Promise.all</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-Await语法"><span class="nav-number">1.</span> <span class="nav-text">Async/Await语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#async关键字-放置在一个函数前面-。"><span class="nav-number">1.1.</span> <span class="nav-text">async关键字(放置在一个函数前面)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#await关键字-只能在async函数内部使用"><span class="nav-number">1.2.</span> <span class="nav-text">await关键字(只能在async函数内部使用)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理-使用try-catch捕获"><span class="nav-number">1.3.</span> <span class="nav-text">错误处理(使用try-catch捕获)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结合Promise-all"><span class="nav-number">1.4.</span> <span class="nav-text">结合Promise.all</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promises-组合：Promise-all，Promise-allSettled，-Promise-any"><span class="nav-number">2.</span> <span class="nav-text">Promises 组合：Promise.all，Promise.allSettled， Promise.any</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -956,7 +966,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 183.5k字</span>
+    <span class="post-count">Blog总字数: 185.1k字</span>
   </div>
 
   <div class="theme-info">

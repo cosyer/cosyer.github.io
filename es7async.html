@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="Async/Await是一种允许我们像构建没有回调函数的普通函数一样构建Promise的新语法。以往的异步方法无外乎回调函数和Promise。但是Async/Await建立于Promise之上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-28T17:52:20.062Z">
+<meta property="og:updated_time" content="2020-03-29T11:25:18.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Async&#x2F;Await 让你的代码更简洁">
 <meta name="twitter:description" content="Async/Await是一种允许我们像构建没有回调函数的普通函数一样构建Promise的新语法。以往的异步方法无外乎回调函数和Promise。但是Async/Await建立于Promise之上。">
@@ -414,7 +414,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-29T01:52:20+08:00">
+  <div class="post-date" data-datetime="2020-03-29T19:25:18+08:00">
     <div class="post-time-text">3月</div>
     <div class="post-time-count">29</div>
     <div class="text-desc">
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  804 (字)
+                  962 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -571,6 +571,9 @@ a:hover {
 <h3 id="错误处理-使用try-catch捕获"><a href="#错误处理-使用try-catch捕获" class="headerlink" title="错误处理(使用try-catch捕获)"></a>错误处理(使用try-catch捕获)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(<span class="string">'http://no-such-url'</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        alet(err) <span class="comment">// TypeError: failed to fetch 也能捕获多行语句 类似链式Promise最后的单个catch函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
 <p>如果我们不使用try-catch，然后async函数f()的调用产生的promise变成reject状态的话，我们可以添加.catch去处理它：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(<span class="string">'http://no-such-url'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// f()变成了一个rejected的promise</span></span><br><span class="line">f().catch(alert) <span class="comment">// TypeError: failed to fetch</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">"Catch me if you can"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">getData()</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"I will run no matter what!"</span>))</span><br><span class="line">  .catch(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"Catching err"</span>));</span><br></pre></td></tr></table></figure>
+<p>throw 抛出的错误永远不会触发<strong>getData()</strong>的catch方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="string">"Catch me if you can"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="结合Promise-all"><a href="#结合Promise-all" class="headerlink" title="结合Promise.all"></a>结合Promise.all</h3><p>async/await能够与Promise.all友好的协作，当我们需要等待多个promise时，我们可以将他们包装在Promise.all中然后使用await：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直到数组全部返回结果</span></span><br><span class="line"><span class="keyword">let</span> results = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([</span><br><span class="line">   fetch(url1),</span><br><span class="line">   fetch(url2),</span><br><span class="line">   ...</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
 <h2 id="Promises-组合：Promise-all，Promise-allSettled，-Promise-any"><a href="#Promises-组合：Promise-all，Promise-allSettled，-Promise-any" class="headerlink" title="Promises 组合：Promise.all，Promise.allSettled， Promise.any"></a>Promises 组合：Promise.all，Promise.allSettled， Promise.any</h2><ul>
@@ -583,7 +586,9 @@ a:hover {
 </ul>
 <p>Promise.any可以表明任何Promise是否fullfilled。 与 Promise.race的区别在于Promise.any不会拒绝即使其中一个Promise被拒绝。</p>
 <p>无论如何，两者中最有趣的是 Promise.allSettled，它也是 Promise 数组，但如果其中一个Promise拒绝，它不会短路。 当你想要检查Promise数组是否全部已解决时，它是有用的，无论最终是否拒绝，可以把它想象成Promise.all 的反对者。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>随着单页JavaScript web程序的兴起和对NodeJS的广泛采用，如何优雅的处理并发对于JavaScript开发人员来说比任何以往的时候都显得更为重要。Async/Await缓解了许多因为控制流问题而导致bug遍地的这个困扰着JavaScript代码库数十年的问题，并且几乎可以保证让任何异步代码块变的更精炼，更简单，更自信。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>随着单页JavaScript web程序的兴起和对NodeJS的广泛采用，如何优雅的处理并发对于JavaScript开发人员来说比任何以往的时候都显得更为重要。</p>
+<p>JS引擎是单线程的，这意味着运行函数只有一个调用堆栈。这一限制是JS异步本质的基础:所有需要时间的操作都必须由外部实体(例如浏览器)或回调函数负责。</p>
+<p><code>Async/Await</code>缓解了许多因为控制流问题而导致bug遍地的这个困扰着JavaScript代码库数十年的问题，并且几乎可以保证让任何异步代码块变的更精炼，更简单，更自信。</p>
 
       
     </div>
@@ -615,7 +620,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/es7async.html">使用 Async/Await 让你的代码更简洁</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 01:06</p>
-  <p><span>最后更新:</span>2020年03月29日 - 01:03</p>
+  <p><span>最后更新:</span>2020年03月29日 - 19:03</p>
   <p><span>原始链接:</span><a href="/es7async.html" title="使用 Async/Await 让你的代码更简洁">http://mydearest.cn/es7async.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/es7async.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -966,7 +971,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 185.1k字</span>
+    <span class="post-count">Blog总字数: 185.7k字</span>
   </div>
 
   <div class="theme-info">

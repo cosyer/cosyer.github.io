@@ -141,7 +141,9 @@
 <meta property="og:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
-<meta property="og:updated_time" content="2020-03-20T16:57:12.896Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/w3c-box.jpg">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ie-box.jpg">
+<meta property="og:updated_time" content="2020-03-29T17:44:55.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -416,12 +418,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-21T00:57:12+08:00">
+  <div class="post-date" data-datetime="2020-03-30T01:44:55+08:00">
     <div class="post-time-text">3月</div>
-    <div class="post-time-count">21</div>
+    <div class="post-time-count">30</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月21</div>
+      <div class="post-tiem">3月30</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -526,7 +528,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  19,363 (字)
+                  19,577 (字)
                 </span>
               
 
@@ -542,7 +544,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  77 (分钟)
+                  78 (分钟)
                 </span>
               
             </div>
@@ -698,6 +700,14 @@ HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记�
 </li>
 </ol>
 <p><code>new 操作符新建了一个空对象，这个对象原型指向构造函数的prototype，执行构造函数后返回这个对象。</code></p>
+<ul>
+<li><p>创建一个空对象：var obj = {}</p>
+</li>
+<li><p>将空对象的<strong>proto</strong>指向构造函数的 prototype：obj.<strong>proto</strong> = Person().prototype</p>
+</li>
+<li><p>使用空对象作为上下文调用构造函数： Person.call(obj)</p>
+</li>
+</ul>
 <ol>
 <li>事件委托的好处都有啥？说对了都给它=3=</li>
 </ol>
@@ -1460,13 +1470,23 @@ WebSocket、SharedWorker；
 我们通过监听事件，控制它的值来进行页面信息通信；
 注意quirks：Safari 在无痕模式下设置localstorge值时会抛出 QuotaExceededError 的异常；</p>
 <ol>
-<li><p>CSS的盒子模型 border-sizing (border-box)
+<li>CSS的盒子模型 border-sizing (border-box)
 （1）有两种， IE 盒子模型、W3C 盒子模型；
 （2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)；
-（3）区  别： IE的content部分把 border 和 padding计算了进去;</p>
+（3）区  别： IE的content部分把 border 和 padding计算了进去;</li>
+</ol>
+<ul>
+<li><p>W3C 标准盒模型(content-box)：
+<img src="http://cdn.mydearest.cn/blog/images/w3c-box.jpg" alt="w3c"></p>
 </li>
-<li><p>CSS选择符有哪些？哪些属性可以继承？</p>
+<li><p>IE 盒模型(border-box)：
+<img src="http://cdn.mydearest.cn/blog/images/ie-box.jpg" alt="ie"></p>
 </li>
+</ul>
+<p>在 IE 盒模型中，盒子宽高不仅包含了元素的宽高，而且包含了元素的边框以及内边距。</p>
+<p>所以在同样的设置下，IE 下的元素会看起来相对于标准盒子来的小。</p>
+<ol>
+<li>CSS选择符有哪些？哪些属性可以继承？</li>
 </ol>
 <ul>
 <li><p>1.id选择器（ # myid）
@@ -1757,6 +1777,14 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 <li>Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。
 属性将会对值四舍五入取整。如果需要小数值</li>
 </ul>
+<ol>
+<li><p>什么是构造函数调用？
+使用new关键字，被称为“构造函数调用”</p>
+</li>
+<li><p>什么是构造函数？
+构造函数 ，是一种特殊的方法。主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中。</p>
+</li>
+</ol>
 
       
     </div>
@@ -1788,7 +1816,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2020年03月21日 - 00:03</p>
+  <p><span>最后更新:</span>2020年03月30日 - 01:03</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -2137,7 +2165,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 185.1k字</span>
+    <span class="post-count">Blog总字数: 185.7k字</span>
   </div>
 
   <div class="theme-info">

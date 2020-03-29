@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/w3c-box.jpg">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ie-box.jpg">
-<meta property="og:updated_time" content="2020-03-29T17:44:55.794Z">
+<meta property="og:updated_time" content="2020-03-29T18:19:31.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -418,7 +418,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-30T01:44:55+08:00">
+  <div class="post-date" data-datetime="2020-03-30T02:19:31+08:00">
     <div class="post-time-text">3月</div>
     <div class="post-time-count">30</div>
     <div class="text-desc">
@@ -528,7 +528,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  19,577 (字)
+                  20,078 (字)
                 </span>
               
 
@@ -544,7 +544,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  78 (分钟)
+                  80 (分钟)
                 </span>
               
             </div>
@@ -607,7 +607,7 @@ String exd=filePath.subString(filePath.lastIndexOf(“.”)+1,filePath.length)</
 <li><p>如何判断数据类型？
 typeof返回的类型都是字符串形式，可以判断function的类型；在判断除Object类型的对象时比较方便。
 判断已知对象类型的方法： instanceof，后面一定要是对象类型，并且大小写不能错，该方法适合一些条件选择或分支。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// object null instanceof Object // false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// object null instanceof Object // false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;     </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str++);         <span class="comment">//number NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> (<span class="string">'abc'</span> + <span class="number">1</span>));   <span class="comment">//string 'abc1'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>());    <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Date</span>());        <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Date</span>);          <span class="comment">//function</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>异步编程？</p>
 </li>
@@ -1784,7 +1784,41 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 <li><p>什么是构造函数？
 构造函数 ，是一种特殊的方法。主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中。</p>
 </li>
+<li><p>querySelectorAll 与 getElementsBy 系列的区别</p>
+</li>
+<li><p>querySelectorAll 属于 W3C 中 Selectors API 规范， 而 getElementsBy 系列则属于 W3C DOM 规范。</p>
+</li>
+<li><p>querySelectorAll 方法接受参数是 CSS 选择符，当传入的是不符合 CSS 选择符规范时会抛出异常，而 getElementsBy 系列则接受的参数是单一的 className，tagName 等等。</p>
+</li>
+<li><p>从返回值角度来看，querySelectorAll 返回的是不变的结点列表，而 getElementsBy 系列返回的是动态的结点列表。</p>
+</li>
 </ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Demo 1</span></span><br><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelectorAll(<span class="string">'ul'</span>)[<span class="number">0</span>],</span><br><span class="line">  lis = ul.querySelectorAll(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; lis.length ; i++)&#123;</span><br><span class="line">  ul.appendChild(<span class="built_in">document</span>.createElement(<span class="string">"li"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Demo 2</span></span><br><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'ul'</span>)[<span class="number">0</span>], </span><br><span class="line">  lis = ul.getElementsByTagName(<span class="string">"li"</span>); </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; lis.length ; i++)&#123;</span><br><span class="line">  ul.appendChild(<span class="built_in">document</span>.createElement(<span class="string">"li"</span>)); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为 Demo 2 中的 lis 是一个动态的结点列表， 每一次调用 lis 都会重新对文档进行查询，导致无限循环的问题。</p>
+<p>而 Demo 1 中的 lis 是一个静态的结点列表，是一个 li 集合的快照，对文档的任何操作都不会对其产生影响。</p>
+<ul>
+<li><p>普遍认为：getElementsBy 系列性能比 querySelectorAll 好</p>
+</li>
+<li><p>querySelectorAll 返回值为一个 NodeList，而 getElementsBy 系列返回值为一个 HTMLCollection</p>
+</li>
+</ul>
+<p>NodeList 与 HTMLCollection 区别?</p>
+<ol>
+<li><p>HTMLCollection 是元素集合而 NodeList 是节点集合(即可以包含元素，文本节点，以及注释等等)。</p>
+</li>
+<li><p>node.childNodes，querySelectorAll(虽然是静态的) 返回的是 NodeList，而 node.children 和 node.getElementsByXXX 返回 HTMLCollection。</p>
+</li>
+<li><p>如何判断函数是 new 调用还是普通调用?</p>
+</li>
+</ol>
+<ul>
+<li><p>instanceof</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span> <span class="keyword">instanceof</span> <span class="built_in">arguments</span>.callee) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'new 调用'</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'普通调用'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> Person(); <span class="comment">// new 调用</span></span><br><span class="line"><span class="keyword">let</span> p2 = Person(); <span class="comment">// 函数调用</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过 constructor</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.constructor === <span class="built_in">arguments</span>.callee) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'new 调用'</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'普通调用'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> Person(); <span class="comment">// new 调用</span></span><br><span class="line"><span class="keyword">let</span> p2 = Person(); <span class="comment">// 函数调用</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -1816,7 +1850,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2020年03月30日 - 01:03</p>
+  <p><span>最后更新:</span>2020年03月30日 - 02:03</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1984,7 +2018,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">118</span>
+                <span class="site-state-item-count">119</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2165,7 +2199,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 185.7k字</span>
+    <span class="post-count">Blog总字数: 188.6k字</span>
   </div>
 
   <div class="theme-info">

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="this 的指向this 是 js 中定义的关键字， 它的指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。在实际应用中，this的指向大致可以分为以下四种情况。  this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-28T17:19:12.846Z">
+<meta property="og:updated_time" content="2020-03-30T15:52:42.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 中 this 的详解">
 <meta name="twitter:description" content="this 的指向this 是 js 中定义的关键字， 它的指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。在实际应用中，this的指向大致可以分为以下四种情况。  this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象;">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-29T01:19:12+08:00">
+  <div class="post-date" data-datetime="2020-03-30T23:52:42+08:00">
     <div class="post-time-text">3月</div>
-    <div class="post-time-count">29</div>
+    <div class="post-time-count">30</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月29</div>
+      <div class="post-tiem">3月30</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,828 (字)
+                  1,849 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  7 (分钟)
+                  8 (分钟)
                 </span>
               
             </div>
@@ -606,7 +606,8 @@ new绑定就是通过new操作符时将this绑定到当前新创建的对象中�
 </ol>
 <h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><div class="note info"><p>箭头函数的引入有两个方面的作用：一是更简短的函数书写，二是对<code>this</code>的词法解析。
 在箭头函数出现之前，每个新定义的函数都有其自己的<code>this</code>值（例如，构造函数的<code>this</code>指向了一个新的对象；严格模式下的函数的<code>this</code>值为 undefined；如果函数是作为对象的方法被调用的，则其<code>this</code>指向了那个调用它的对象）。在面向对象风格的编程中，这会带来很多困扰。</p></div>
-<h3 id="ES6-的箭头函数-gt-，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境-直接外层函数-。"><a href="#ES6-的箭头函数-gt-，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境-直接外层函数-。" class="headerlink" title="ES6 的箭头函数 ()=&gt;，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境(直接外层函数)。"></a>ES6 的箭头函数 ()=&gt;，指向与一般function定义的函数不同，比较容易绕晕，箭头函数<code>this</code>的定义：箭头函数中的<code>this</code>是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的<code>this</code>，它的<code>this</code>是派生而来的。箭头函数会捕获其所在上下文的<code>this</code>值，作为自己的<code>this</code>值，即指向所在上下文的执行环境(直接外层函数)。</h3><h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 等价于: =&gt; &#123; return expression; &#125; </span></span><br><span class="line">(param1, param2, …, paramN) =&gt; &#123; statements &#125;</span><br><span class="line">(param1, param2, …, paramN) =&gt; expression</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果只有一个参数，圆括号是可选的:</span></span><br><span class="line">(singleParam) =&gt; &#123; statements &#125;</span><br><span class="line">singleParam =&gt; &#123; statements &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参数或者多参数的箭头函数需要使用圆括号或者下划线:</span></span><br><span class="line">() =&gt; &#123; statements &#125; _ =&gt; &#123; statements &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ES6-的箭头函数-gt-，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境-直接外层函数-。"><a href="#ES6-的箭头函数-gt-，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境-直接外层函数-。" class="headerlink" title="ES6 的箭头函数 ()=&gt;，指向与一般function定义的函数不同，比较容易绕晕，箭头函数this的定义：箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的this，它的this是派生而来的。箭头函数会捕获其所在上下文的this值，作为自己的this值，即指向所在上下文的执行环境(直接外层函数)。"></a>ES6 的箭头函数 ()=&gt;，指向与一般function定义的函数不同，比较容易绕晕，箭头函数<code>this</code>的定义：箭头函数中的<code>this</code>是在定义函数的时候绑定，而不是在执行函数的时候绑定。本质来说箭头函数没有自己的<code>this</code>，它的<code>this</code>是派生而来的。箭头函数会捕获其所在上下文的<code>this</code>值，作为自己的<code>this</code>值，即指向所在上下文的执行环境(直接外层函数)。</h3><p>箭头函数将this指向其封闭的环境(也称“词法作用域”)。</p>
+<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 等价于: =&gt; &#123; return expression; &#125; </span></span><br><span class="line">(param1, param2, …, paramN) =&gt; &#123; statements &#125;</span><br><span class="line">(param1, param2, …, paramN) =&gt; expression</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果只有一个参数，圆括号是可选的:</span></span><br><span class="line">(singleParam) =&gt; &#123; statements &#125;</span><br><span class="line">singleParam =&gt; &#123; statements &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参数或者多参数的箭头函数需要使用圆括号或者下划线:</span></span><br><span class="line">() =&gt; &#123; statements &#125; _ =&gt; &#123; statements &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只返回一个对象字面量,没有其他语句时, 应当用圆括号将其包起来:</span></span><br><span class="line">params =&gt; (&#123;<span class="attr">foo</span>: bar&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持 Rest parameters 和 default parameters:</span></span><br><span class="line">(param1, param2, ...rest) =&gt; &#123; statements &#125;</span><br><span class="line">(param1 = defaultValue1, param2, …, paramN = defaultValueN) =&gt; &#123; statements &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持参数列表中的解构赋值</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function">(<span class="params">[a, b] = [<span class="number">1</span>, <span class="number">2</span>], c=<span class="number">3</span> </span>) =&gt;</span> a + b + c;</span><br><span class="line">f(); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
 <h3 id="箭头函数不可以使用arguments对象，"><a href="#箭头函数不可以使用arguments对象，" class="headerlink" title="箭头函数不可以使用arguments对象，"></a>箭头函数不可以使用arguments对象，</h3><p>arguments对象在函数体内不存在，如果要用的话，可以用rest参数代替</p>
 <h3 id="箭头函数没有原型"><a href="#箭头函数没有原型" class="headerlink" title="箭头函数没有原型"></a>箭头函数没有原型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
@@ -784,7 +785,7 @@ new绑定就是通过new操作符时将this绑定到当前新创建的对象中�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">119</span>
+                <span class="site-state-item-count">120</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -965,7 +966,7 @@ new绑定就是通过new操作符时将this绑定到当前新创建的对象中�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 188.6k字</span>
+    <span class="post-count">Blog总字数: 190.0k字</span>
   </div>
 
   <div class="theme-info">

@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="HTTP 特性 基于TCP-IP协议 应用层协议 默认端口号80 无连接无状态  什么是无状态 状态】的含义就是：客户端和服务器在某次会话中产生的数据 那么对应的【无状态】就意味着：这些数据不会被保留 通过增加cookie和session机制，现在的网络请求其实是有状态的 在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-11T17:05:03.656Z">
+<meta property="og:updated_time" content="2020-04-04T13:20:49.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入了解HTTP">
 <meta name="twitter:description" content="HTTP 特性 基于TCP-IP协议 应用层协议 默认端口号80 无连接无状态  什么是无状态 状态】的含义就是：客户端和服务器在某次会话中产生的数据 那么对应的【无状态】就意味着：这些数据不会被保留 通过增加cookie和session机制，现在的网络请求其实是有状态的 在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-09-12T01:05:03+08:00">
-    <div class="post-time-text">9月</div>
-    <div class="post-time-count">12</div>
+  <div class="post-date" data-datetime="2020-04-04T21:20:49+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">04</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月12</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">4月04</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,440 (字)
+                  2,428 (字)
                 </span>
               
 
@@ -598,29 +598,6 @@ a:hover {
 </ul>
 <p>GET 请求 304获取缓存
 第一次请求时，服务器端返回请求数据，之后的请求，服务器根据请求中的 If-Modified-Since 字段判断响应文件没有更新，如果没有更新，服务器返回一个 304 Not Modified响应，告诉浏览器请求的资源在浏览器上没有更新，可以使用已缓存的上次获取的文件。</p>
-<p>/<em>
-    </em>通过RandomSource.getRandomValues() 方法获取符合密码学要求的安全的随机值
-    <em>/
-this.getRandomNumbers = function (min, max) {
-    var minValue = min || ‘’;
-    var maxValue = max || ‘’;
-    var cryptoObj = window.crypto || window.msCrypto;
-    /</em>eslint-disable<em>/
-    var array = new Uint32Array(1);
-    /</em>eslint-enable*/
-    cryptoObj &amp;&amp; cryptoObj.getRandomValues(array);
-    var result = 0;
-    if (minValue || maxValue) {
-        if (!maxValue) {
-            minValue = 0;
-            maxValue = min;
-        }
-        result = parseInt(minValue, 10) + (array[0] % (parseInt(maxValue, 10) - parseInt(minValue, 10)));
-    } else {
-        result = array[0];
-    }
-    return result;
-};</p>
 <h3 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h3><p>在 HTTP 1.0 版本中，并没有官方的标准来规定 Keep-Alive 如何工作，因此实际上它是被附加到 HTTP 1.0协议上，如果客户端浏览器支持 Keep-Alive ，那么就在HTTP请求头中添加一个字段 Connection: Keep-Alive，当服务器收到附带有 Connection: Keep-Alive 的请求时，它也会在响应头中添加一个同样的字段来使用 Keep-Alive 。这样一来，客户端和服务器之间的HTTP连接就会被保持，不会断开（超过 Keep-Alive 规定的时间，意外断电等情况除外），当客户端发送另外一个请求时，就使用这条已经建立的连接。</p>
 <p>在 HTTP 1.1 版本中，默认情况下所有连接都被保持，如果加入 “Connection: close” 才关闭。目前大部分浏览器都使用 HTTP 1.1 协议，也就是说默认都会发起 Keep-Alive 的连接请求了。</p>
 <ul>
@@ -662,19 +639,26 @@ this.getRandomNumbers = function (min, max) {
 </ol>
 <h4 id="XSS（Cross-Site-Scripting，跨站脚本攻击）"><a href="#XSS（Cross-Site-Scripting，跨站脚本攻击）" class="headerlink" title="XSS（Cross Site Scripting，跨站脚本攻击）"></a>XSS（Cross Site Scripting，跨站脚本攻击）</h4><p>XSS 全称“跨站脚本”，是注入攻击的一种。其特点是不对服务器端造成任何伤害，而是通过一些正常的站内交互途径，例如发布评论，提交含有 JavaScript 的内容文本。这时服务器端如果没有过滤或转义掉这些脚本，作为内容发布到了页面上，其他用户访问这个页面的时候就会运行这些脚本。</p>
 <p>XSS 是实现 CSRF 的诸多途径中的一条，但绝对不是唯一的一条。一般习惯上把通过 XSS 来实现的 CSRF 称为 XSRF。</p>
-<h3 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h3><ul>
+<h3 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h3><blockquote>
+<p>强缓存是不经过服务器的, 协商缓存是经过服务器的</p>
+</blockquote>
+<ul>
 <li>强缓存（from cache）强制浏览器使用本地缓存<ul>
-<li>cache-control</li>
-<li>Expires</li>
+<li>cache-control(响应头)</li>
+<li>Expires(响应头)</li>
 <li>Pragma</li>
 </ul>
 </li>
 <li>协商缓存（304还是要和服务器通信一次）<ul>
-<li>last-modified</li>
-<li>Etag</li>
+<li>last-modified(响应头)</li>
+<li>Etag(响应头)</li>
+<li>If-None-Match(请求头)</li>
+<li>If-Modified-Since(请求头)</li>
 </ul>
 </li>
 </ul>
+<p>HTTP 缓存机制流程图:
+(缓存机制流程图)[<a href="http://cdn.mydearest.cn/blog/images/http-cache.jpeg]" target="_blank" rel="noopener">http://cdn.mydearest.cn/blog/images/http-cache.jpeg]</a></p>
 <h2 id="HTTPS基本过程"><a href="#HTTPS基本过程" class="headerlink" title="HTTPS基本过程"></a>HTTPS基本过程</h2><p>HTTPS即 HTTP over TLS，是一种在加密信道进行HTTP内容传输的协议</p>
 <blockquote>
 <p>TLS 的早期版本叫做 SSL。SSL 的 1.0, 2.0, 3.0 版本均已经被废弃，出于安全问题考虑广大浏览器也不再对老旧的 SSL 版本进行支持了，因此这里我们就统一使用 TLS 名称了。</p>
@@ -710,7 +694,7 @@ this.getRandomNumbers = function (min, max) {
   <p><span>本文标题:</span><a href="/2019/深入了解HTTP.html">深入了解HTTP</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年04月30日 - 00:04</p>
-  <p><span>最后更新:</span>2019年09月12日 - 01:09</p>
+  <p><span>最后更新:</span>2020年04月04日 - 21:04</p>
   <p><span>原始链接:</span><a href="/2019/深入了解HTTP.html" title="深入了解HTTP">http://mydearest.cn/2019/深入了解HTTP.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/深入了解HTTP.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1059,7 +1043,7 @@ this.getRandomNumbers = function (min, max) {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 190.0k字</span>
+    <span class="post-count">Blog总字数: 190.6k字</span>
   </div>
 
   <div class="theme-info">

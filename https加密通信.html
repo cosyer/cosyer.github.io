@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-12T18:28:28.505Z">
+<meta property="og:updated_time" content="2020-04-04T13:23:38.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="https加密通信流程解析">
 <meta name="twitter:description" content="https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-08-13T02:28:28+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">13</div>
+  <div class="post-date" data-datetime="2020-04-04T21:23:38+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">04</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月13</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">4月04</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  878 (字)
+                  1,267 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -583,6 +583,37 @@ a:hover {
 会影响服务器端的资源。</p>
 </li>
 </ul>
+<h2 id="说一下http和https"><a href="#说一下http和https" class="headerlink" title="说一下http和https"></a>说一下http和https</h2><blockquote>
+<p>https的ssl加密是在传输层实现的。</p>
+</blockquote>
+<ol>
+<li><p>http 超文本传输协议，是一个客户端和服务端请求应答的标准。用于从www服务器传输超文本到本地浏览器的传输协议。它可以使浏览器更加高效，使网络传输减少。</p>
+</li>
+<li><p>以安全为目标的http通道，简单讲就是http的安全版。即在http下加入ssl层，https的安全基础就是ssl，因此加密的详细内容就需要ssl。</p>
+</li>
+</ol>
+<h3 id="http和https的区别？"><a href="#http和https的区别？" class="headerlink" title="http和https的区别？"></a>http和https的区别？</h3><ol>
+<li><p>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</p>
+</li>
+<li><p>链接方式不同，对应的默认端口也不同，http 80，http 443端口。</p>
+</li>
+<li><p>http无状态，https协议是由ssl+http协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+</li>
+</ol>
+<h3 id="https协议的工作原理-双向加密建立"><a href="#https协议的工作原理-双向加密建立" class="headerlink" title="https协议的工作原理(双向加密建立)"></a>https协议的工作原理(双向加密建立)</h3><p>客户端和服务端都有公钥和私钥。</p>
+<ol>
+<li><p>客户端使用https url访问服务器，则要求web服务器建立ssl链接</p>
+</li>
+<li><p>服务端发送公钥</p>
+</li>
+<li><p>客户端发送’验证串+服务端公钥’ &amp;&amp; 客户端公钥</p>
+</li>
+<li><p>服务端使用私钥取得验证串与客户端公钥一起发送给客户端</p>
+</li>
+<li><p>客户端使用客户端私钥来获取验证串是否匹配</p>
+</li>
+</ol>
+<h3 id="协议解析"><a href="#协议解析" class="headerlink" title="协议解析"></a>协议解析</h3><p>多了一个 upgrade-insecure-requests 的字段。该字段让页面打开后的请求自动变为 https。</p>
 
       
     </div>
@@ -614,7 +645,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/https加密通信.html">https加密通信流程解析</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月25日 - 22:07</p>
-  <p><span>最后更新:</span>2019年08月13日 - 02:08</p>
+  <p><span>最后更新:</span>2020年04月04日 - 21:04</p>
   <p><span>原始链接:</span><a href="/https加密通信.html" title="https加密通信流程解析">http://mydearest.cn/https加密通信.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/https加密通信.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -918,7 +949,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程解析"><span class="nav-number">1.</span> <span class="nav-text">流程解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端发起HTTPS请求"><span class="nav-number">1.1.</span> <span class="nav-text">客户端发起HTTPS请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端的配置"><span class="nav-number">1.2.</span> <span class="nav-text">服务端的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送证书"><span class="nav-number">1.3.</span> <span class="nav-text">传送证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送加密信息"><span class="nav-number">1.4.</span> <span class="nav-text">传送加密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端解密信息"><span class="nav-number">1.5.</span> <span class="nav-text">服务端解密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输加密后的信息"><span class="nav-number">1.6.</span> <span class="nav-text">传输加密后的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端解密信息"><span class="nav-number">1.7.</span> <span class="nav-text">客户端解密信息</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程解析"><span class="nav-number">1.</span> <span class="nav-text">流程解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端发起HTTPS请求"><span class="nav-number">1.1.</span> <span class="nav-text">客户端发起HTTPS请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端的配置"><span class="nav-number">1.2.</span> <span class="nav-text">服务端的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送证书"><span class="nav-number">1.3.</span> <span class="nav-text">传送证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送加密信息"><span class="nav-number">1.4.</span> <span class="nav-text">传送加密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端解密信息"><span class="nav-number">1.5.</span> <span class="nav-text">服务端解密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输加密后的信息"><span class="nav-number">1.6.</span> <span class="nav-text">传输加密后的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端解密信息"><span class="nav-number">1.7.</span> <span class="nav-text">客户端解密信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下http和https"><span class="nav-number">2.</span> <span class="nav-text">说一下http和https</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http和https的区别？"><span class="nav-number">2.1.</span> <span class="nav-text">http和https的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https协议的工作原理-双向加密建立"><span class="nav-number">2.2.</span> <span class="nav-text">https协议的工作原理(双向加密建立)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议解析"><span class="nav-number">2.3.</span> <span class="nav-text">协议解析</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -963,7 +994,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 190.0k字</span>
+    <span class="post-count">Blog总字数: 190.6k字</span>
   </div>
 
   <div class="theme-info">

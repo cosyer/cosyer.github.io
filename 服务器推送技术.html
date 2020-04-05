@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="在做前端页面渲染时，经常会遇到有的组件需要跟随数据的变化而实时的变化，例如：一个线上报名系统，总人数有一定限制，所以要实时的展现已经报名的人数，应该怎么实现呢？最基本有如下3种方案：  Ajax轮询 Ajax长轮询(comet) websocket长连接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-08T16:46:43.623Z">
+<meta property="og:updated_time" content="2020-04-05T16:05:04.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器推送技术">
 <meta name="twitter:description" content="在做前端页面渲染时，经常会遇到有的组件需要跟随数据的变化而实时的变化，例如：一个线上报名系统，总人数有一定限制，所以要实时的展现已经报名的人数，应该怎么实现呢？最基本有如下3种方案：  Ajax轮询 Ajax长轮询(comet) websocket长连接">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-04-09T00:46:43+08:00">
+  <div class="post-date" data-datetime="2020-04-06T00:05:04+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">09</div>
+    <div class="post-time-count">06</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月09</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">4月06</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  971 (字)
+                  1,075 (字)
                 </span>
               
 
@@ -575,8 +575,11 @@ a:hover {
 <h2 id="Ajax长轮询-comet"><a href="#Ajax长轮询-comet" class="headerlink" title="Ajax长轮询(comet)"></a>Ajax长轮询(comet)</h2><p>在Ajax轮询的基础上做的一点改进，在后端数据没有更新的时候不再返回空响应，而且后端一直保存连接，直到后端有数据变化，则相应请求并且关闭连接，前端收到数据，马上再次向后端发起请求，并处理刚刚收到的数据。</p>
 <p>通常的做法是，在服务器的程序中加入一个死循环，在循环中监测数据的变动。当发现新数据时，立即将其输出给浏览器并断开连接，浏览器在收到数据后，再次发起请求以进入下一个周期。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">async</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: <span class="string">'http://api.3g.qq.com'</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">async</span>();</span><br><span class="line">            <span class="comment">//success code</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="websocket长连接"><a href="#websocket长连接" class="headerlink" title="websocket长连接"></a>websocket长连接</h2><p>WebSocket是html5出来的东西(协议)，也就是说和http协议没关系，但http是不支持长链接的，WebSocket其实是一个新协议，跟http协议基本没有关系，只是为了兼容现有浏览器的握手规范而已。</p>
+<h2 id="websocket长连接"><a href="#websocket长连接" class="headerlink" title="websocket长连接"></a>websocket长连接</h2><p>WebSocket是html5中的协议，支持持久连接。http协议不支持持久连接，http1.0和http1.x都不支持持久性连接，http1.1中的keep-alive将多个http请求合并为1个。</p>
 <p>WebSocket通信协议包含两个部分，一是开放性HTTP握手连接协商连接参数，二是二进制消息分帧机制（接收消息的文本和二进制数据传输）。它是一个独立完善的协议，也可以在浏览器之外实现。</p>
+<p>HTTP的生命周期通过Request来界定，也就是Request一个response，那么在http1.0协议中这次请求就结束了；在http1.1中进行了改进，是有一个connection：keep-alive，也就是说在一个http连接里可以发送多个request，接收多个response。</p>
+<p>Websocket是基于http协议的，或者说借用了http协议来完成部分握手，在握手阶段和http是相同的，请求头中多了两个属性：upgrade，connection
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Upgrade: websocket</span><br><span class="line">Connection: Upgrade</span><br></pre></td></tr></table></figure></p>
 <h3 id="HTTP升级协商"><a href="#HTTP升级协商" class="headerlink" title="HTTP升级协商"></a>HTTP升级协商</h3><p>WebSocket协议提供了很多强大的特性：基于消息的通信、自定义的二进制分帧层、子协议协商、可选的协议扩展，等等。即在交换数据之前，客户端必须与服务器协商适当的参数以建立连接。</p>
 <p>利用HTTP完成握手有几个好处。首先，让WebSockets与现有HTTP基础设施兼容：WebSocket服务器可以运行在80和443 端口上，这通常是对客户端唯一开放的端口。其次，让我们可以重用并扩展HTTP的Upgrade流，为其添加自定义的WebSocket首部，以完成协商。</p>
 <h3 id="请求头信息"><a href="#请求头信息" class="headerlink" title="请求头信息"></a>请求头信息</h3><p>Connection:Upgrade Sec-WebSocket-Key:eDCPPyPQZq7PiwRcx8SPog== Sec-WebSocket-Version:13 Upgrade:websocket </p>
@@ -620,7 +623,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/服务器推送技术.html">服务器推送技术</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月05日 - 20:07</p>
-  <p><span>最后更新:</span>2019年04月09日 - 00:04</p>
+  <p><span>最后更新:</span>2020年04月06日 - 00:04</p>
   <p><span>原始链接:</span><a href="/服务器推送技术.html" title="服务器推送技术">http://mydearest.cn/服务器推送技术.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/服务器推送技术.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -969,7 +972,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 190.6k字</span>
+    <span class="post-count">Blog总字数: 191.3k字</span>
   </div>
 
   <div class="theme-info">

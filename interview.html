@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/w3c-box.jpg">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ie-box.jpg">
-<meta property="og:updated_time" content="2020-04-05T16:56:11.246Z">
+<meta property="og:updated_time" content="2020-04-06T16:09:26.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法  includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.i">
@@ -418,12 +418,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-06T00:56:11+08:00">
+  <div class="post-date" data-datetime="2020-04-07T00:09:26+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">06</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月06</div>
+      <div class="post-tiem">4月07</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -528,7 +528,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  20,277 (字)
+                  21,195 (字)
                 </span>
               
 
@@ -544,7 +544,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  81 (分钟)
+                  84 (分钟)
                 </span>
               
             </div>
@@ -790,6 +790,8 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li>get的安全性可能没有post高，所以我们一般用get来获取数据，post一般用来修改数据。</li>
 <li>get请求, 倒退按钮是无害的, post会重新发起请求</li>
 <li>get会主动缓存, post不会</li>
+<li>get请求只能进行url编码，而post请求支持多种编码</li>
+<li>get产生一个TCP数据包，POST产生两个TCP数据包</li>
 </ul>
 <p>get就是将货品放在车顶，post放在车内。</p>
 <ol>
@@ -1083,10 +1085,12 @@ IE只支持事件冒泡。</p>
 <li>业务代码拆分</li>
 <li><p>第三方库提取vendor</p>
 </li>
-<li><p>压缩文件图片，合并文件 减少http请求</p>
+<li><p>降低请求量：压缩文件图片，合并文件 减少http请求、minify/gzip压缩，webP，lazyload</p>
 </li>
-<li>网络图、字体图标</li>
-<li>上cdn</li>
+<li>网络图、字体图标(雪碧图)</li>
+<li>缓存：HTTP协议缓存请求，离线缓存manifest</li>
+<li>加快请求速度：预解析DNS，减少域名数，并行加载，上cdn分发</li>
+<li>渲染：js、css优化，加载顺序，服务端渲染，pipeline</li>
 </ul>
 <ol>
 <li>行内、块级、空元素 </li>
@@ -1392,6 +1396,8 @@ src 的内容，是页面必不可少的一部分，是引入。href 的内容�
 </li>
 <li><p>标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。</p>
 </li>
+<li><p>有两种模式： 严格模式：以该浏览器支持的最高标准运行 混杂模式：向后兼容，模拟老浏览器，防止浏览器无法兼容页面。</p>
+</li>
 <li><p>HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;？</p>
 </li>
 </ol>
@@ -1444,7 +1450,8 @@ IE8/IE7/IE6支持通过document.createElement方法产生的标签，
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[<span class="keyword">if</span> lt IE <span class="number">9</span>]&gt;</span><br><span class="line">&lt;script&gt; src=<span class="string">"http://html5shim.googlecode.com/svn/trunk/html5.js"</span>&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>如何区分HTML5： DOCTYPE声明新增的结构元素功能元素</li>
+<li>如何区分HTML5： DOCTYPE声明新增的结构元素功能元素
+语义化标签：header,footer,nav,aside,section 增强表单：为input增加了color,email,data,range等类型 存储：sessionStorage，localStorage，离线存储 多媒体：audio，vedio canvas 拖放 地理定位 webworker websocket</li>
 </ul>
 <ol>
 <li><p>对HTML语义化的理解？
@@ -1828,7 +1835,98 @@ fetch发送post请求时总是发送两次，第一次状态码是204，第二�
 <li><p>webworker
 在html页面中，如果在执行脚本时，页面的状态是不可响应的，直到脚本执行完成后页面才变为可响应。web worker是运行在后台的js，独立于其他脚本，不会影响页面。并且通过postMessage将结果回转至主线程。</p>
 </li>
+<li><p>一句话概括RESTFUL
+用url定位资源，用http描述操作</p>
+</li>
+<li><p>设备像素比（DPR device pixel redio）
+1DPR = 物理像素/分辨率 也就是物理像素在屏幕上最佳的逻辑像素大小</p>
+</li>
 </ol>
+<p>在不缩放的情况下，一个逻辑像素就等于一个DPR，即1逻辑像素 = 物理像素/分辨率</p>
+<ul>
+<li><p>自适应</p>
+<ul>
+<li>媒体查询</li>
+<li>百分比</li>
+<li>rem(都只相对于浏览器的根元素HTML 默认情况下html元素的font-size为16px，所以1rem=16px的font-size)
+为了计算方便<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">62.5%</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>这个意思是默认字体尺寸的62.5%，也就是 16*62.5%=10px，此时我们就有1rem = 10px。</p>
+<ol>
+<li>click在ios上有300ms的延迟，原因和解决办法
+苹果上有一个双击缩放网页的功能，当第一次click时候浏览器会等待300ms判定用户是否要双击，所以点击一次后会延迟300ms才发生click事件。</li>
+</ol>
+<p>解决办法：</p>
+<ol>
+<li><p>禁用缩放：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width;user-scalable=no;"</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用fastClick：
+检测到touchend事件时立即发出模拟click事件，并且把浏览器300ms后发出的点击事件给阻断掉。</p>
+</li>
+<li><p>浏览器缓存的四种实现方法</p>
+</li>
+</ol>
+<ul>
+<li>Service Worker</li>
+<li>Memory Cache</li>
+<li>Disk Cache</li>
+<li>Push Cache</li>
+</ul>
+<ol>
+<li>在地址栏里输入一个url到页面呈现出来，中间发生了什么？</li>
+</ol>
+<ul>
+<li>输入url，查询对应ip（dns解析）<ul>
+<li>先查找缓存：浏览器缓存-&gt;系统缓存-&gt;路由器缓存</li>
+<li>没有查到则查找系统的hosts文件中是否有记录，</li>
+<li>没有则查询DNS服务器</li>
+</ul>
+</li>
+<li>建立tcp连接</li>
+<li>根据ip和端口号构建一个http请求，封装为tcp包，请求传输：应用层-&gt;传输层-&gt;网络层-&gt;数据链路层-&gt;物理层</li>
+<li>到达服务器，服务器解析请求作出响应</li>
+<li>浏览器接收到html构建DOM树（中途如果遇到js就会停止构建而去执行会下载脚本）</li>
+<li>构建CSSOM树</li>
+<li>合并两树为渲染树（排除了非视觉结点）</li>
+<li>布局（确定个元素的尺寸和位置）</li>
+<li>渲染页面</li>
+</ul>
+<ol>
+<li>cache-control的值有哪些
+cache-control是一个通用消息头字段，被用于HTTP请求和响应中。通过指定指令来实现缓存机制，这个缓存指令是单向的，常见的取值有：</li>
+</ol>
+<ul>
+<li>private(默认)</li>
+<li>no-cache</li>
+<li>max-age</li>
+<li>must-revalidate</li>
+</ul>
+<ol>
+<li>如何画0.5px的线</li>
+</ol>
+<ul>
+<li><p>采用视口控制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width;initial-scale=0.5;user-scalable=no;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>border-image
+需要自己制作一个0.5px的线条图片</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-image</span>: <span class="built_in">url</span>(xxx.png) <span class="number">2</span> <span class="number">0</span> round;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>transform</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(0.5);</span><br><span class="line">    <span class="attribute">transform-origin</span>: <span class="number">50%</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>transition和animation的区别</li>
+</ol>
+<ul>
+<li>animation：动画，不需要触发任何事件就可以改变属性值 </li>
+<li>transition：过渡，需要触发某事件才能改变属性</li>
+</ul>
 
       
     </div>
@@ -1860,7 +1958,7 @@ fetch发送post请求时总是发送两次，第一次状态码是204，第二�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2020年04月06日 - 00:04</p>
+  <p><span>最后更新:</span>2020年04月07日 - 00:04</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -2209,7 +2307,7 @@ fetch发送post请求时总是发送两次，第一次状态码是204，第二�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 191.3k字</span>
+    <span class="post-count">Blog总字数: 192.3k字</span>
   </div>
 
   <div class="theme-info">

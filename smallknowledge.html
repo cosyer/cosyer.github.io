@@ -144,7 +144,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/empty.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/equality.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/grayFilter.png">
-<meta property="og:updated_time" content="2020-04-04T15:57:30.192Z">
+<meta property="og:updated_time" content="2020-04-07T15:54:41.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你所不知道的前端冷门小知识(长期更新)">
 <meta name="twitter:description" content="javascript-puzzlers voidvoid其实是javascript中的一个函数，接受一个参数，返回值永远是undefined void expression 1234567void 0  void() // 报错void (0)  void &quot;hello&quot;  void (new Date())  // all will return undefined  context === v">
@@ -419,12 +419,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-04T23:57:30+08:00">
+  <div class="post-date" data-datetime="2020-04-07T23:54:41+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">04</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月04</div>
+      <div class="post-tiem">4月07</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1015,6 +1015,7 @@ endings，默认值为”transparent”，用于指定包含行结束符\n的字
 <p><a href="http://busuanzi.ibruce.info" target="_blank" rel="noopener">不蒜子访问统计</a></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span></span><br><span class="line">    总访问次数:<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span></span><br><span class="line">  访问次数:<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="i18n语料替换"><a href="#i18n语料替换" class="headerlink" title="i18n语料替换"></a>i18n语料替换</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">i18nReplace</span>(<span class="params">s, o</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!s || !o) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s.replace</span><br><span class="line">    ? s.replace(<span class="regexp">/\&#123;\s*([^\|\&#125;]+?)\s*(?:\|([^\&#125;]*))?\s*\&#125;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">        match,</span></span></span><br><span class="line"><span class="function"><span class="params">        key</span></span></span><br><span class="line"><span class="function"><span class="params">      </span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> o[key] !== <span class="literal">undefined</span> ? o[key] : match;</span><br><span class="line">      &#125;)</span><br><span class="line">    : s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">i18nReplace(<span class="string">'123&#123;0&#125;开始了'</span>,&#123;<span class="number">0</span>:<span class="string">'奇怪'</span>&#125;)</span><br><span class="line"><span class="comment">// "123奇怪开始了"</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -1045,7 +1046,7 @@ endings，默认值为”transparent”，用于指定包含行结束符\n的字
   <p><span>本文标题:</span><a href="/smallknowledge.html">你所不知道的前端冷门小知识(长期更新)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 21:06</p>
-  <p><span>最后更新:</span>2020年04月04日 - 23:04</p>
+  <p><span>最后更新:</span>2020年04月07日 - 23:04</p>
   <p><span>原始链接:</span><a href="/smallknowledge.html" title="你所不知道的前端冷门小知识(长期更新)">http://mydearest.cn/smallknowledge.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/smallknowledge.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1213,7 +1214,7 @@ endings，默认值为”transparent”，用于指定包含行结束符\n的字
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">120</span>
+                <span class="site-state-item-count">121</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1235,7 +1236,7 @@ endings，默认值为”transparent”，用于指定包含行结束符\n的字
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1394,7 +1395,7 @@ endings，默认值为”transparent”，用于指定包含行结束符\n的字
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 192.3k字</span>
+    <span class="post-count">Blog总字数: 193.1k字</span>
   </div>
 
   <div class="theme-info">

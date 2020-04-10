@@ -415,6 +415,235 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-03-28T14:38:00+08:00">
+    <div class="post-time-text">3月</div>
+    <div class="post-time-count">28</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">3月28</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/观察者模式VS发布订阅模式.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/观察者模式VS发布订阅模式.html" itemprop="url">观察者模式VS发布订阅模式</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-03-28T00:08:14+08:00">
+                2020-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/观察者模式VS发布订阅模式.html" class="leancloud_visitors" data-flag-title="观察者模式VS发布订阅模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  770 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://cdn.mydearest.cn/subscribe.png" alt="subscribe"></p>
+<p>从图中可以看出：</p>
+<ul>
+<li>观察者与目标（被观察者）是直接进行交互的，包括订阅和触发。</li>
+<li>发布订阅模式是透过一个中间者当调度中心，相关的订阅与发布都由调度中心来进行协调。</li>
+</ul>
+<p>两者的优缺点：</p>
+<ul>
+<li>观察者模式：优点就是一一对应，比较直观明了，占用内存资源容易进行回收。缺点就是两者耦合。</li>
+<li>发布订阅模式：优点就是一方面实现了发布者与订阅者之间的解耦，中间者可在两者操作之间进行更细粒度的控制。如：条件过滤发布，权限控制等等。缺点就是整一个中间调度会越来越庞大，需要手动清除里面的发布回调。</li>
+</ul>
+<p>举个栗子：</p>
+<ul>
+<li><p>观察者模式：彩票中心里，管理员充当目标对象（被观察者），彩民充当观察者，当管理员说公布一等奖号码时，即给各个观察者发布了消息，然后彩民（观察者）就收到发布消息，进行自己的后续操作（兑奖）。</p>
+</li>
+<li><p>发布订阅模式：每家每户向牛奶订购中心订购了牛奶，但是各家的牛奶品牌不一样，有燕塘、蒙牛等等。当燕塘牛奶来货了，订阅中心就给订购燕塘的各家各户派发燕塘牛奶。同理，当蒙牛到货时，订阅中心发布蒙牛的牛奶。</p>
+</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/观察者模式VS发布订阅模式.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-03-25T01:42:22+08:00">
     <div class="post-time-text">3月</div>
     <div class="post-time-count">25</div>
@@ -2445,215 +2674,6 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2019-11-25T23:52:29+08:00">
-    <div class="post-time-text">11月</div>
-    <div class="post-time-count">25</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">11月25</div>
-      <div class="post-year">2019</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/发布订阅模式.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/发布订阅模式.html" itemprop="url">事件机制</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-11-24T22:26:18+08:00">
-                2019-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/发布订阅模式.html" class="leancloud_visitors" data-flag-title="事件机制">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  507 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  3 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>事件机制的核心就是发布-订阅模式。维护一个对象，对象的 key 存的是事件 type，对应的 value 为触发相应 type 的回调函数，即 listeners，然后 trigger 时遍历通知，即 forEach 进行回调执行。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventTarget</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">this</span>.listener = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听事件</span></span><br><span class="line">    on(type, callback) &#123;</span><br><span class="line">        <span class="comment">// 如果是第一次监听该事件，则初始化数组</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[type]) <span class="keyword">this</span>.listeners[type] = [];</span><br><span class="line">        <span class="keyword">this</span>.listeners[type].push(callback);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 只监听一次</span></span><br><span class="line">    once(type, callback) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[type]) <span class="keyword">this</span>.listeners[type] = [];</span><br><span class="line">        <span class="comment">// once 只触发一次，触发后 off 即可 回调函数加上标识</span></span><br><span class="line">        callback._once = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.listeners[type].push(callback); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 取消监听</span></span><br><span class="line">    off(type, callback) &#123;</span><br><span class="line">        <span class="keyword">const</span> listeners = <span class="keyword">this</span>.listeners[type];</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(listeners)) &#123;</span><br><span class="line">            <span class="comment">// filter 返回新的数组，会每次对 this.listeners[type] 分配新的空间</span></span><br><span class="line">            <span class="comment">// this.listeners[type] = listeners.filter(l =&gt; l !== callback);</span></span><br><span class="line">            <span class="comment">// 根据 type 取消对应的回调</span></span><br><span class="line">            <span class="keyword">const</span> index = listeners.indexOf(callback);</span><br><span class="line">            <span class="comment">// 用 splice 要好些，直接操作原数组</span></span><br><span class="line">            <span class="keyword">this</span>.listeners[type].splice(index, <span class="number">1</span>);</span><br><span class="line">            <span class="comment">// 如果回调为空，删除对该事件的监听</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.listeners[type].length === <span class="number">0</span>) <span class="keyword">delete</span> <span class="keyword">this</span>.listeners[type];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行 扳机社</span></span><br><span class="line">    trigger(event) &#123;</span><br><span class="line">        <span class="comment">// type 为必传属性</span></span><br><span class="line">        <span class="keyword">const</span> &#123; type &#125; = event;</span><br><span class="line">        <span class="keyword">if</span> (!type) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'没有要触发的事件！'</span>);</span><br><span class="line">        <span class="comment">// 判断是否之前对该事件进行监听了</span></span><br><span class="line">        <span class="keyword">const</span> listeners = <span class="keyword">this</span>.listeners[type];</span><br><span class="line">        <span class="keyword">if</span> (!listeners) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`没有对象监听 <span class="subst">$&#123;type&#125;</span> 事件！`</span>);</span><br><span class="line">        <span class="keyword">if</span> (!event.target) event.target = <span class="keyword">this</span>;</span><br><span class="line">        listeners.forEach(<span class="function"><span class="params">l</span> =&gt;</span> &#123;</span><br><span class="line">            l(event);</span><br><span class="line">            <span class="comment">// 如果通过 once 监听，执行一次后取消</span></span><br><span class="line">            <span class="keyword">if</span> (l._once) <span class="keyword">this</span>.off(type, l);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleMessage</span>(<span class="params">event</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">`message received: <span class="subst">$&#123; event.message &#125;</span>`</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleMessage2</span>(<span class="params">event</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">`message2 received: <span class="subst">$&#123; event.message &#125;</span>`</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> target = <span class="keyword">new</span> EventTarget();</span><br><span class="line"></span><br><span class="line">target.on(<span class="string">'message'</span>, handleMessage);</span><br><span class="line">target.on(<span class="string">'message'</span>, handleMessage2);</span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'message'</span>, <span class="attr">message</span>: <span class="string">'hello custom event'</span> &#125;); <span class="comment">// 打印 message，message2</span></span><br><span class="line"></span><br><span class="line">target.off(<span class="string">'message'</span>, handleMessage);</span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'message'</span>, <span class="attr">message</span>: <span class="string">'off the event'</span> &#125;); <span class="comment">// 只打印 message2</span></span><br><span class="line"></span><br><span class="line">target.once(<span class="string">'words'</span>, handleMessage);</span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'words'</span>, <span class="attr">message</span>: <span class="string">'hello2 once event'</span> &#125;); <span class="comment">// 打印 words</span></span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'words'</span>, <span class="attr">message</span>: <span class="string">'hello2 once event'</span> &#125;); <span class="comment">// 报错：没有对象监听 words 事件！</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2871,7 +2891,7 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 193.0k字</span>
+    <span class="post-count">Blog总字数: 193.4k字</span>
   </div>
 
   <div class="theme-info">

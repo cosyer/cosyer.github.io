@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了异步队列的出现 主进程同步执行任务，异步操作将添加到异步队列中 等候主进程执行完毕后再执行异步队列中的操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-17T15:25:55.236Z">
+<meta property="og:updated_time" content="2020-04-10T15:37:35.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventLoop">
 <meta name="twitter:description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了异步队列的出现 主进程同步执行任务，异步操作将添加到异步队列中 等候主进程执行完毕后再执行异步队列中的操作">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-06-17T23:25:55+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">17</div>
+  <div class="post-date" data-datetime="2020-04-10T23:37:35+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">10</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月17</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">4月10</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  313 (字)
+                  514 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -568,7 +568,12 @@ a:hover {
 </ul>
 <hr>
 <a id="more"></a>
-<h2 id="什么是宏任务什么是微任务？"><a href="#什么是宏任务什么是微任务？" class="headerlink" title="什么是宏任务什么是微任务？"></a>什么是宏任务什么是微任务？</h2><ul>
+<h2 id="什么是宏任务什么是微任务？"><a href="#什么是宏任务什么是微任务？" class="headerlink" title="什么是宏任务什么是微任务？"></a>什么是宏任务什么是微任务？</h2><p>script(宏任务) - 清空微任务队列 - 执行一个宏任务 - 清空微任务队列 - 执行一个宏任务， 如此往复。
+1.先执行script里的同步代码（此时是宏任务）。碰到异步任务，放到任务队列。
+2.查找任务队列有没有微任务，有就把此时的微任务全部按顺序执行 （这就是为什么promise会比setTimeout先执行，因为先执行的宏任务是同步代码，setTimeout被放进任务队列了，setTimeout又是宏任务，在它之前先得执行微任务(就比如promise)）。
+3.执行一个宏任务（先进到队列中的那个宏任务），再把这次宏任务里的宏任务和微任务放到任务队列。
+4.一直重复2、3步骤</p>
+<ul>
 <li>异步队列中有宏任务微任务之分</li>
 <li>一次事件循环：先运行宏任务队列中的一个，然后运行微任务队列中的所有任务。接着开始下一次循环</li>
 </ul>
@@ -617,7 +622,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/EventLoop.html">EventLoop</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年06月16日 - 12:06</p>
-  <p><span>最后更新:</span>2019年06月17日 - 23:06</p>
+  <p><span>最后更新:</span>2020年04月10日 - 23:04</p>
   <p><span>原始链接:</span><a href="/2019/EventLoop.html" title="EventLoop">http://mydearest.cn/2019/EventLoop.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/EventLoop.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -966,7 +971,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 193.0k字</span>
+    <span class="post-count">Blog总字数: 193.4k字</span>
   </div>
 
   <div class="theme-info">

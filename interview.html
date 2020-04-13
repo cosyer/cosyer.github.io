@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/w3c-box.jpg">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ie-box.jpg">
-<meta property="og:updated_time" content="2020-04-10T15:36:31.893Z">
+<meta property="og:updated_time" content="2020-04-13T17:22:23.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法 includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.in">
@@ -418,12 +418,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-10T23:36:31+08:00">
+  <div class="post-date" data-datetime="2020-04-14T01:22:23+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">14</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月10</div>
+      <div class="post-tiem">4月14</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -528,7 +528,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  21,202 (字)
+                  21,204 (字)
                 </span>
               
 
@@ -935,7 +935,7 @@ IE只支持事件冒泡。</p>
 <h2 id="判断一个变量是否是数组"><a href="#判断一个变量是否是数组" class="headerlink" title="判断一个变量是否是数组"></a>判断一个变量是否是数组</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []; </span><br><span class="line"><span class="comment">// 1.基于instanceof </span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 2.基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 3.基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype; </span><br><span class="line"><span class="comment">// 5.基于Object.prototype.toString </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(a) === <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 6.Array.isArray</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(a); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>以上，除了Object.prototype.toString外，其它方法都不能正确判断变量的类型。虽然Array继承自Object，也会有 toString方法，但是这个方法有可能会被改写而达不到我们的要求，而Object.prototype则是老虎的屁股，很少有人敢去碰它的，所以能一定程度保证其“纯洁性”：)😝</p>
 <ul>
-<li>由于每个iframe都有一套自己的执行环境，跨frame实例化的对象彼此是不共享原型链的，因此导致检测代码失效。</li>
+<li>由于每个iframe都有一套自己的执行环境，跨iframe实例化的对象彼此是不共享原型链的，因此导致检测代码失效。</li>
 </ul>
 <p>举个🌰
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>); <span class="comment">//创建iframe</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(iframe); <span class="comment">//添加到body中</span></span><br><span class="line">xArray = <span class="built_in">window</span>.frames[<span class="built_in">window</span>.frames.length<span class="number">-1</span>].Array;</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> xArray(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 声明数组[1,2,3]</span></span><br><span class="line">alert(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br><span class="line">alert(arr.constructor === <span class="built_in">Array</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
@@ -1037,7 +1037,8 @@ Zoom属性是IE浏览器的专有属性，它可以设置或检索对象的缩�
 <h2 id="vue的非父子组件传递"><a href="#vue的非父子组件传递" class="headerlink" title="vue的非父子组件传递"></a>vue的非父子组件传递</h2><ol>
 <li>vuex 2. 在同一个vue实例上调用$emit和$on</li>
 </ol>
-<h2 id="原生js实现拖拽"><a href="#原生js实现拖拽" class="headerlink" title="原生js实现拖拽"></a>原生js实现拖拽</h2><h2 id="实现函数监听函数发布订阅模式-on-emit-off-方法-类似-iflux"><a href="#实现函数监听函数发布订阅模式-on-emit-off-方法-类似-iflux" class="headerlink" title="实现函数监听函数发布订阅模式 on emit off 方法 类似 iflux"></a>实现函数监听函数发布订阅模式 on emit off 方法 类似 iflux</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">event</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.on = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="keyword">new</span> Event(name)</span><br><span class="line">  <span class="keyword">this</span>.elem.addEventListener(name, fn.call(<span class="keyword">this</span>, <span class="keyword">this</span>.e, <span class="keyword">this</span>.e.type))</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.emit = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem.dispatchEvent(<span class="keyword">this</span>.e) <span class="comment">// 这里接受的参数必须是Event类型的，不然报错</span></span><br><span class="line">&#125;</span><br><span class="line">event.prototype.off = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ee = <span class="keyword">new</span> event()</span><br><span class="line">ee.on(<span class="string">'foo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="number">110</span>)&#125;)</span><br><span class="line">ee.emit(<span class="string">'foo'</span>) <span class="comment">// 110</span></span><br></pre></td></tr></table></figure>
+<h2 id="原生js实现拖拽"><a href="#原生js实现拖拽" class="headerlink" title="原生js实现拖拽"></a>原生js实现拖拽</h2><p><a href="https://cosyer.github.io/jelly/drag/" target="_blank" rel="noopener">拖拽</a></p>
+<h2 id="实现函数监听函数发布订阅模式-on-emit-off-方法-类似-iflux"><a href="#实现函数监听函数发布订阅模式-on-emit-off-方法-类似-iflux" class="headerlink" title="实现函数监听函数发布订阅模式 on emit off 方法 类似 iflux"></a>实现函数监听函数发布订阅模式 on emit off 方法 类似 iflux</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">event</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.on = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="keyword">new</span> Event(name)</span><br><span class="line">  <span class="keyword">this</span>.elem.addEventListener(name, fn.call(<span class="keyword">this</span>, <span class="keyword">this</span>.e, <span class="keyword">this</span>.e.type))</span><br><span class="line">&#125;</span><br><span class="line">event.prototype.emit = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.elem.dispatchEvent(<span class="keyword">this</span>.e) <span class="comment">// 这里接受的参数必须是Event类型的，不然报错</span></span><br><span class="line">&#125;</span><br><span class="line">event.prototype.off = <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.e = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ee = <span class="keyword">new</span> event()</span><br><span class="line">ee.on(<span class="string">'foo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="number">110</span>)&#125;)</span><br><span class="line">ee.emit(<span class="string">'foo'</span>) <span class="comment">// 110</span></span><br></pre></td></tr></table></figure>
 <h2 id="左边固定，右边自适应布局"><a href="#左边固定，右边自适应布局" class="headerlink" title="左边固定，右边自适应布局"></a>左边固定，右边自适应布局</h2><ol>
 <li>float</li>
 <li>flex布局</li>
@@ -1294,7 +1295,7 @@ inherit         规定应该从父元素继承 display 属性的值。</p>
 圆角            （border-radius:8px）
 多列布局        （multi-column layout）
 阴影和反射    （Shadow\Reflect）
-文字特效        （text-shadow、）
+文字特效        （text-shadow）
 文字渲染        （Text-decoration）
 线性渐变        （gradient）
 旋转             （transform）
@@ -1600,7 +1601,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2020年04月10日 - 23:04</p>
+  <p><span>最后更新:</span>2020年04月14日 - 01:04</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1949,7 +1950,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 193.4k字</span>
+    <span class="post-count">Blog总字数: 193.6k字</span>
   </div>
 
   <div class="theme-info">

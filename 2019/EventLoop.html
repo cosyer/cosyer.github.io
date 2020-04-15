@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了异步队列的出现 主进程同步执行任务，异步操作将添加到异步队列中 等候主进程执行完毕后再执行异步队列中的操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-10T15:37:35.094Z">
+<meta property="og:updated_time" content="2020-04-15T17:39:40.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventLoop">
 <meta name="twitter:description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了异步队列的出现 主进程同步执行任务，异步操作将添加到异步队列中 等候主进程执行完毕后再执行异步队列中的操作">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-10T23:37:35+08:00">
+  <div class="post-date" data-datetime="2020-04-16T01:39:40+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">16</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月10</div>
+      <div class="post-tiem">4月16</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  514 (字)
+                  590 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -577,7 +577,8 @@ a:hover {
 <li>异步队列中有宏任务微任务之分</li>
 <li>一次事件循环：先运行宏任务队列中的一个，然后运行微任务队列中的所有任务。接着开始下一次循环</li>
 </ul>
-<h2 id="哪些是宏任务哪些是微任务？"><a href="#哪些是宏任务哪些是微任务？" class="headerlink" title="哪些是宏任务哪些是微任务？"></a>哪些是宏任务哪些是微任务？</h2><h3 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h3><ul>
+<h2 id="哪些是宏任务哪些是微任务？"><a href="#哪些是宏任务哪些是微任务？" class="headerlink" title="哪些是宏任务哪些是微任务？"></a>哪些是宏任务哪些是微任务？</h2><h3 id="宏任务-优先级由高到低"><a href="#宏任务-优先级由高到低" class="headerlink" title="宏任务(优先级由高到低)"></a>宏任务(优先级由高到低)</h3><ul>
+<li>主线程同步代码</li>
 <li>setTimeout</li>
 <li>setImmediate</li>
 <li>setIntarval</li>
@@ -585,13 +586,13 @@ a:hover {
 <li>I/O</li>
 <li>UI rendering</li>
 </ul>
-<h3 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h3><ul>
+<h3 id="微任务-优先级由高到低"><a href="#微任务-优先级由高到低" class="headerlink" title="微任务(优先级由高到低)"></a>微任务(优先级由高到低)</h3><ul>
 <li>process.nextTick</li>
 <li>Promise.then</li>
 <li>Object.observe</li>
 <li>MutationObserver</li>
 </ul>
-<h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line"><span class="comment">// 13542</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> intervalId = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">11</span>)</span><br><span class="line">        resolve()</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">12</span>)</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">13</span>)</span><br><span class="line">        clearInterval(intervalId)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">7</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">8</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">9</span>)</span><br><span class="line"><span class="comment">// 1 9 7 8 2 3 10 11 12 13</span></span><br></pre></td></tr></table></figure>
+<h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line"><span class="comment">// 13542</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> intervalId = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">11</span>)</span><br><span class="line">        resolve()</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">12</span>)</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">13</span>)</span><br><span class="line">        clearInterval(intervalId)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">7</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">8</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">9</span>)</span><br><span class="line"><span class="comment">// 1 9 7 8 2 3 10 11 12 13</span></span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">process.nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>);</span><br><span class="line"><span class="comment">// 2 6 5 3 4 1</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -622,7 +623,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/EventLoop.html">EventLoop</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年06月16日 - 12:06</p>
-  <p><span>最后更新:</span>2020年04月10日 - 23:04</p>
+  <p><span>最后更新:</span>2020年04月16日 - 01:04</p>
   <p><span>原始链接:</span><a href="/2019/EventLoop.html" title="EventLoop">http://mydearest.cn/2019/EventLoop.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/EventLoop.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -926,7 +927,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述事件队列的过程？"><span class="nav-number">1.</span> <span class="nav-text">描述事件队列的过程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是宏任务什么是微任务？"><span class="nav-number">2.</span> <span class="nav-text">什么是宏任务什么是微任务？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哪些是宏任务哪些是微任务？"><span class="nav-number">3.</span> <span class="nav-text">哪些是宏任务哪些是微任务？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#宏任务"><span class="nav-number">3.1.</span> <span class="nav-text">宏任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微任务"><span class="nav-number">3.2.</span> <span class="nav-text">微任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习题"><span class="nav-number">3.3.</span> <span class="nav-text">练习题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述事件队列的过程？"><span class="nav-number">1.</span> <span class="nav-text">描述事件队列的过程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是宏任务什么是微任务？"><span class="nav-number">2.</span> <span class="nav-text">什么是宏任务什么是微任务？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哪些是宏任务哪些是微任务？"><span class="nav-number">3.</span> <span class="nav-text">哪些是宏任务哪些是微任务？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#宏任务-优先级由高到低"><span class="nav-number">3.1.</span> <span class="nav-text">宏任务(优先级由高到低)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微任务-优先级由高到低"><span class="nav-number">3.2.</span> <span class="nav-text">微任务(优先级由高到低)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习题"><span class="nav-number">3.3.</span> <span class="nav-text">练习题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -971,7 +972,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 196.2k字</span>
+    <span class="post-count">Blog总字数: 198.1k字</span>
   </div>
 
   <div class="theme-info">

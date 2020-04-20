@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="正则(xxx?typeId=1)12345678910function getQueryString(name) &amp;#123;    var reg = new RegExp(&apos;(^|&amp;amp;)&apos; + name + &apos;=([^&amp;amp;]*)(&amp;amp;|$)&apos;, &apos;i&apos;);    var r = window.location.search.substr(1).match(reg);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-17T15:57:27.631Z">
+<meta property="og:updated_time" content="2020-04-20T16:16:45.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取浏览器url参数方法总结">
 <meta name="twitter:description" content="正则(xxx?typeId=1)12345678910function getQueryString(name) &amp;#123;    var reg = new RegExp(&apos;(^|&amp;amp;)&apos; + name + &apos;=([^&amp;amp;]*)(&amp;amp;|$)&apos;, &apos;i&apos;);    var r = window.location.search.substr(1).match(reg);">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-06-17T23:57:27+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">17</div>
+  <div class="post-date" data-datetime="2020-04-21T00:16:45+08:00">
+    <div class="post-time-text">4月</div>
+    <div class="post-time-count">21</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月17</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">4月21</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  280 (字)
+                  404 (字)
                 </span>
               
 
@@ -578,7 +578,12 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url=<span class="built_in">window</span>.location.href</span><br><span class="line">url.substring(url.indexOf(<span class="string">'?'</span>) + <span class="number">1</span>)</span><br><span class="line"><span class="comment">// url.substr(url.indexOf('?') + 1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> url=<span class="built_in">window</span>.location.search</span><br><span class="line">url.substring(<span class="number">1</span>)</span><br><span class="line"><span class="comment">// url.substr(1)</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>获取所有参数的对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryStringObject</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="regexp">/([^?&amp;=]+)=([^&amp;]+)/g</span>;</span><br><span class="line">    <span class="keyword">var</span> q = &#123;&#125;;</span><br><span class="line">    location.search.replace(reg, (m, k, v) =&gt; q[k] = v);</span><br><span class="line">    <span class="keyword">return</span> q;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryStringObject</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="regexp">/([^?&amp;=]+)=([^&amp;]+)/g</span>;</span><br><span class="line">    <span class="keyword">var</span> q = &#123;&#125;;</span><br><span class="line">    location.search.replace(reg, (m, k, v) =&gt; q[k] = v);</span><br><span class="line">    <span class="keyword">return</span> q;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>URL对象-URLSearchParams
+URLSearchParams 构造函数不会解析完整 URL，但是如果字符串起始位置有 ? 的话会被去除。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> paramsString1 = <span class="string">"http://example.com/search?query=%40"</span>;</span><br><span class="line"><span class="keyword">var</span> searchParams1 = <span class="keyword">new</span> URLSearchParams(paramsString1);</span><br><span class="line"></span><br><span class="line">searchParams1.has(<span class="string">"query"</span>); <span class="comment">// false </span></span><br><span class="line">searchParams1.has(<span class="string">"http://example.com/search?query"</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">searchParams1.get(<span class="string">"query"</span>); <span class="comment">// null</span></span><br><span class="line">searchParams1.get(<span class="string">"http://example.com/search?query"</span>); <span class="comment">// "@" (equivalent to decodeURIComponent('%40'))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> paramsString2 = <span class="string">"?query=value"</span>;</span><br><span class="line"><span class="keyword">var</span> searchParams2 = <span class="keyword">new</span> URLSearchParams(paramsString2);</span><br><span class="line">searchParams2.has(<span class="string">"query"</span>); <span class="comment">// true </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> url = <span class="keyword">new</span> URL(<span class="string">"http://example.com/search?query=%40"</span>);</span><br><span class="line"><span class="keyword">var</span> searchParams3 = <span class="keyword">new</span> URLSearchParams(url.search);</span><br><span class="line">searchParams3.has(<span class="string">"query"</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -611,7 +616,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/获取浏览器url参数方法总结.html">获取浏览器url参数方法总结</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年08月08日 - 23:08</p>
-  <p><span>最后更新:</span>2019年06月17日 - 23:06</p>
+  <p><span>最后更新:</span>2020年04月21日 - 00:04</p>
   <p><span>原始链接:</span><a href="/获取浏览器url参数方法总结.html" title="获取浏览器url参数方法总结">http://mydearest.cn/获取浏览器url参数方法总结.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/获取浏览器url参数方法总结.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -935,7 +940,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 199.5k字</span>
+    <span class="post-count">Blog总字数: 199.6k字</span>
   </div>
 
   <div class="theme-info">

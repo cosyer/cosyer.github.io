@@ -141,7 +141,8 @@
 <meta property="og:description" content="HTTP 特性 基于TCP-IP协议 应用层协议 默认端口号80 无连接无状态  什么是无状态 状态】的含义就是：客户端和服务器在某次会话中产生的数据 那么对应的【无状态】就意味着：这些数据不会被保留 通过增加cookie和session机制，现在的网络请求其实是有状态的 在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/http-cache.jpeg">
-<meta property="og:updated_time" content="2020-04-14T16:40:45.923Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/http-cache2.png">
+<meta property="og:updated_time" content="2020-04-23T15:52:21.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入了解HTTP">
 <meta name="twitter:description" content="HTTP 特性 基于TCP-IP协议 应用层协议 默认端口号80 无连接无状态  什么是无状态 状态】的含义就是：客户端和服务器在某次会话中产生的数据 那么对应的【无状态】就意味着：这些数据不会被保留 通过增加cookie和session机制，现在的网络请求其实是有状态的 在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产">
@@ -416,12 +417,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-15T00:40:45+08:00">
+  <div class="post-date" data-datetime="2020-04-23T23:52:21+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">15</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月15</div>
+      <div class="post-tiem">4月23</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -526,7 +527,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,488 (字)
+                  2,839 (字)
                 </span>
               
 
@@ -542,7 +543,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  9 (分钟)
+                  10 (分钟)
                 </span>
               
             </div>
@@ -642,12 +643,24 @@ a:hover {
 <h4 id="XSS（Cross-Site-Scripting，跨站脚本攻击）"><a href="#XSS（Cross-Site-Scripting，跨站脚本攻击）" class="headerlink" title="XSS（Cross Site Scripting，跨站脚本攻击）"></a>XSS（Cross Site Scripting，跨站脚本攻击）</h4><p>XSS 全称“跨站脚本”，是注入攻击的一种。其特点是不对服务器端造成任何伤害，而是通过一些正常的站内交互途径，例如发布评论，提交含有 JavaScript 的内容文本。这时服务器端如果没有过滤或转义掉这些脚本，作为内容发布到了页面上，其他用户访问这个页面的时候就会运行这些脚本。</p>
 <p>XSS 是实现 CSRF 的诸多途径中的一条，但绝对不是唯一的一条。一般习惯上把通过 XSS 来实现的 CSRF 称为 XSRF。</p>
 <p>XSS（跨站脚本攻击）是指攻击者在返回的HTML中嵌入js脚本，为了减轻这些攻击，需要在HTTP头部配上set-cookie：http-only这个属性可以防止xss，它会禁止js脚本访问cookie。secure这个属性告诉浏览器仅在请求为https时发送cookie。</p>
-<h3 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h3><blockquote>
-<p>强缓存是不经过服务器的, 协商缓存是经过服务器的</p>
+<h3 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h3><p><code>缓存是指浏览器（客户端）在本地磁盘中对访问过的资源保存的副本文件。</code>
+浏览器缓存主要有以下几个优点：</p>
+<ol>
+<li>减少重复数据请求，避免通过网络再次加载资源，节省流量。</li>
+<li>降低服务器的压力，提升网站性能。</li>
+<li>加快客户端加载网页的速度， 提升用户体验。</li>
+</ol>
+<p>浏览器缓存分为强缓存和协商缓存，两者有两个比较明显的区别：</p>
+<ul>
+<li>如果浏览器命中强缓存，则不需要给服务器发请求；而协商缓存最终由服务器来决定是否使用缓存，即客户端与服务器之间存在一次通信。</li>
+<li>在 chrome 中强缓存（虽然没有发出真实的 http 请求）的请求状态码返回是 200 (from cache)；而协商缓存如果命中走缓存的话，请求的状态码是 304 (not modified)。 不同浏览器的策略不同，在 Fire Fox 中，from cache 状态码是 304.</li>
+</ul>
+<blockquote>
+<p> from cache 会分为 from disk cache 和 from memory cache. 从内存中获取最快，但是是 session 级别的缓存，关闭浏览器之后就没有了。</p>
 </blockquote>
 <ul>
 <li>强缓存（from cache）强制浏览器使用本地缓存<ul>
-<li>cache-control(响应头)</li>
+<li>Cache-control(响应头)</li>
 <li>Expires(响应头)</li>
 <li>Pragma</li>
 </ul>
@@ -660,8 +673,21 @@ a:hover {
 </ul>
 </li>
 </ul>
+<p>优先级</p>
+<blockquote>
+<p> Cache-Control  &gt; Expires &gt; Etag &gt; Last-Modified</p>
+</blockquote>
 <p>HTTP 缓存机制流程图:
 <img src="http://cdn.mydearest.cn/blog/images/http-cache.jpeg" alt="缓存机制流程图"></p>
+<p><img src="http://cdn.mydearest.cn/blog/images/http-cache2.png" alt="流程图"></p>
+<h3 id="如何设置强缓存和协商缓存"><a href="#如何设置强缓存和协商缓存" class="headerlink" title="如何设置强缓存和协商缓存"></a>如何设置强缓存和协商缓存</h3><ol>
+<li><p>后端服务器，写入代码逻辑中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.setHeader(<span class="string">'max-age'</span>: <span class="string">'3600 public'</span>)</span><br><span class="line">res.setHeader(etag: <span class="string">'5c20abbd-e2e8'</span>)</span><br><span class="line">res.setHeader(<span class="string">'last-modified'</span>: Mon, <span class="number">24</span> Dec <span class="number">2018</span> <span class="number">09</span>:<span class="number">49</span>:<span class="number">49</span> GMT)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Nginx 配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_header Cache-Control <span class="string">"max-age=3600"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <h2 id="HTTPS基本过程"><a href="#HTTPS基本过程" class="headerlink" title="HTTPS基本过程"></a>HTTPS基本过程</h2><p>HTTPS即 HTTP over TLS，是一种在加密信道进行HTTP内容传输的协议</p>
 <blockquote>
 <p>TLS 的早期版本叫做 SSL。SSL 的 1.0, 2.0, 3.0 版本均已经被废弃，出于安全问题考虑广大浏览器也不再对老旧的 SSL 版本进行支持了，因此这里我们就统一使用 TLS 名称了。</p>
@@ -697,7 +723,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/深入了解HTTP.html">深入了解HTTP</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年04月30日 - 00:04</p>
-  <p><span>最后更新:</span>2020年04月15日 - 00:04</p>
+  <p><span>最后更新:</span>2020年04月23日 - 23:04</p>
   <p><span>原始链接:</span><a href="/2019/深入了解HTTP.html" title="深入了解HTTP">http://mydearest.cn/2019/深入了解HTTP.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/深入了解HTTP.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -865,7 +891,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-count">124</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -887,7 +913,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1001,7 +1027,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-特性"><span class="nav-number">1.</span> <span class="nav-text">HTTP 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是无状态"><span class="nav-number">1.1.</span> <span class="nav-text">什么是无状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-报文"><span class="nav-number">2.</span> <span class="nav-text">HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST提交的方式"><span class="nav-number">2.2.</span> <span class="nav-text">POST提交的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应报文"><span class="nav-number">2.3.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久连接"><span class="nav-number">2.4.</span> <span class="nav-text">持久连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Pipelining（HTTP-管线化）"><span class="nav-number">2.5.</span> <span class="nav-text">HTTP Pipelining（HTTP 管线化）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话跟踪"><span class="nav-number">2.6.</span> <span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站攻击"><span class="nav-number">2.7.</span> <span class="nav-text">跨站攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF（Cross-site-request-forgery，跨站请求伪造）"><span class="nav-number">2.7.1.</span> <span class="nav-text">CSRF（Cross-site request forgery，跨站请求伪造）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS（Cross-Site-Scripting，跨站脚本攻击）"><span class="nav-number">2.7.2.</span> <span class="nav-text">XSS（Cross Site Scripting，跨站脚本攻击）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http缓存"><span class="nav-number">2.8.</span> <span class="nav-text">http缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS基本过程"><span class="nav-number">3.</span> <span class="nav-text">HTTPS基本过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-特性"><span class="nav-number">1.</span> <span class="nav-text">HTTP 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是无状态"><span class="nav-number">1.1.</span> <span class="nav-text">什么是无状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-报文"><span class="nav-number">2.</span> <span class="nav-text">HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST提交的方式"><span class="nav-number">2.2.</span> <span class="nav-text">POST提交的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应报文"><span class="nav-number">2.3.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久连接"><span class="nav-number">2.4.</span> <span class="nav-text">持久连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Pipelining（HTTP-管线化）"><span class="nav-number">2.5.</span> <span class="nav-text">HTTP Pipelining（HTTP 管线化）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话跟踪"><span class="nav-number">2.6.</span> <span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站攻击"><span class="nav-number">2.7.</span> <span class="nav-text">跨站攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF（Cross-site-request-forgery，跨站请求伪造）"><span class="nav-number">2.7.1.</span> <span class="nav-text">CSRF（Cross-site request forgery，跨站请求伪造）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS（Cross-Site-Scripting，跨站脚本攻击）"><span class="nav-number">2.7.2.</span> <span class="nav-text">XSS（Cross Site Scripting，跨站脚本攻击）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http缓存"><span class="nav-number">2.8.</span> <span class="nav-text">http缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何设置强缓存和协商缓存"><span class="nav-number">2.9.</span> <span class="nav-text">如何设置强缓存和协商缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS基本过程"><span class="nav-number">3.</span> <span class="nav-text">HTTPS基本过程</span></a></li></ol></div>
             
 
           </div>
@@ -1046,7 +1072,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 202.7k字</span>
+    <span class="post-count">Blog总字数: 203.5k字</span>
   </div>
 
   <div class="theme-info">

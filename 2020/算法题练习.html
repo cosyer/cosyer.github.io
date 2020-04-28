@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="写出一个方法输出1-100内的所有素数解析： 由素数（质数）定义可知：  ① 0、1都不是质数，那么最小的质数就是2。 ② 除了1和它自身，不能被其他数整除，那么代码表达式表示为：  1i % j === 0  代码实现  12345678910111213function fn() &amp;#123;  const arr = []  for (let i = 2; i &amp;lt;= 100; i++)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-22T17:07:49.792Z">
+<meta property="og:updated_time" content="2020-04-28T16:51:21.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法题练习">
 <meta name="twitter:description" content="写出一个方法输出1-100内的所有素数解析： 由素数（质数）定义可知：  ① 0、1都不是质数，那么最小的质数就是2。 ② 除了1和它自身，不能被其他数整除，那么代码表达式表示为：  1i % j === 0  代码实现  12345678910111213function fn() &amp;#123;  const arr = []  for (let i = 2; i &amp;lt;= 100; i++)">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-23T01:07:49+08:00">
+  <div class="post-date" data-datetime="2020-04-29T00:51:21+08:00">
     <div class="post-time-text">4月</div>
-    <div class="post-time-count">23</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月23</div>
+      <div class="post-tiem">4月29</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  280 (字)
+                  460 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -575,9 +575,10 @@ a:hover {
 <h2 id="给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9"><a href="#给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9" class="headerlink" title="给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]"></a>给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]</h2><p>解析：（分治法）
 将一个列表分割为左右两块，然后再将字列表再进行分割为左右两块，如何反复，知道子元素长度为1时，结束！</p>
 <ul>
-<li>代码实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">qSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> arr</span><br><span class="line">  <span class="keyword">const</span> index = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> midVal = arr.splice(index, <span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">const</span> left = [],</span><br><span class="line">    right = []</span><br><span class="line">  arr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item &lt; midVal) left.push(item)</span><br><span class="line">    <span class="keyword">else</span> right.push(item)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> [...qSort(left), midVal, ...qSort(right)]</span><br><span class="line">&#125;</span><br><span class="line">qSort([<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure></li>
+<li>代码实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">qSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> arr</span><br><span class="line">  <span class="keyword">const</span> index = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> midVal = arr.splice(index, <span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">const</span> left = [],</span><br><span class="line">    right = []</span><br><span class="line">  arr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item &lt; midVal) left.push(item)</span><br><span class="line">    <span class="keyword">else</span> right.push(item)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> [...qSort(left), midVal, ...qSort(right)]</span><br><span class="line">&#125;</span><br><span class="line">qSort([<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-
+<h2 id="求一个字符串中最长的非重复连续子串"><a href="#求一个字符串中最长的非重复连续子串" class="headerlink" title="求一个字符串中最长的非重复连续子串"></a>求一个字符串中最长的非重复连续子串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">''</span>;<span class="comment">//存放当前最大无重复项字符串</span></span><br><span class="line">    <span class="keyword">var</span> len = <span class="number">0</span>;<span class="comment">//存放当前最大无重复项字符串长度</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;s.length;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> char = s.charAt(i);</span><br><span class="line">        <span class="keyword">var</span> index = str.indexOf(char);</span><br><span class="line">        <span class="keyword">if</span>(index === <span class="number">-1</span>)&#123;  <span class="comment">//遍历s将元素挨个放入到str中，每放入一次判断str中是否有重复项</span></span><br><span class="line">            str += char;</span><br><span class="line">            len = len&lt;str.length?str.length:len;<span class="comment">//记录最大长度项,每次重新记录str进行判断，是否大于上次一次最大项</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            str = str.substr(index + <span class="number">1</span>) + char; <span class="comment">//从当前重复项开始重新记录str</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 'adasdddddddfghti' 6</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -608,7 +609,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/算法题练习.html">算法题练习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年04月23日 - 01:04</p>
-  <p><span>最后更新:</span>2020年04月23日 - 01:04</p>
+  <p><span>最后更新:</span>2020年04月29日 - 00:04</p>
   <p><span>原始链接:</span><a href="/2020/算法题练习.html" title="算法题练习">http://mydearest.cn/2020/算法题练习.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/算法题练习.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -693,6 +694,10 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/TAR命令详解.html" rel="prev" title="TAR命令详解">
+                TAR命令详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -772,7 +777,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-count">125</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -908,7 +913,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写出一个方法输出1-100内的所有素数"><span class="nav-number">1.</span> <span class="nav-text">写出一个方法输出1-100内的所有素数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9"><span class="nav-number">2.</span> <span class="nav-text">给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写出一个方法输出1-100内的所有素数"><span class="nav-number">1.</span> <span class="nav-text">写出一个方法输出1-100内的所有素数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9"><span class="nav-number">2.</span> <span class="nav-text">给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求一个字符串中最长的非重复连续子串"><span class="nav-number">3.</span> <span class="nav-text">求一个字符串中最长的非重复连续子串</span></a></li></ol></div>
             
 
           </div>
@@ -953,7 +958,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 204.4k字</span>
+    <span class="post-count">Blog总字数: 205.4k字</span>
   </div>
 
   <div class="theme-info">

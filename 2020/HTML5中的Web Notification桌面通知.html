@@ -141,7 +141,7 @@
 <meta property="og:description" content="Web Notifications 技术使页面可以发出通知，通知将被显示在页面之外的系统层面上。能够为用户提供更好的体验，即使用户忙于其他工作时也可以收到来自页面的消息通知，例如一个新邮件的提醒，或者一个在线聊天室收到的消息提醒等等。  PS：除了IE外，各大现代浏览器都对这个桌面推送有了基本的支持。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/notification.png">
-<meta property="og:updated_time" content="2020-05-06T06:50:29.327Z">
+<meta property="og:updated_time" content="2020-05-06T12:24:04.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5中的Web Notification桌面通知">
 <meta name="twitter:description" content="Web Notifications 技术使页面可以发出通知，通知将被显示在页面之外的系统层面上。能够为用户提供更好的体验，即使用户忙于其他工作时也可以收到来自页面的消息通知，例如一个新邮件的提醒，或者一个在线聊天室收到的消息提醒等等。  PS：除了IE外，各大现代浏览器都对这个桌面推送有了基本的支持。">
@@ -416,7 +416,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-06T14:50:29+08:00">
+  <div class="post-date" data-datetime="2020-05-06T20:24:04+08:00">
     <div class="post-time-text">5月</div>
     <div class="post-time-count">06</div>
     <div class="text-desc">
@@ -603,7 +603,7 @@ a:hover {
 <p>只有用户点击了允许，授权了通知，通知才会被显示出来。</p>
 <h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p><strong>如何获取到用户点击的是“允许”还是“阻止”呢？</strong></p>
 <p>window的 Notification实例有一个 requestPermission 函数用来获取用户的授权状态：
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先，我们检查是否具有权限显示通知</span></span><br><span class="line"><span class="comment">// 如果没有，我们就申请权限</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.Notification &amp;&amp; Notification.permission !== <span class="string">"granted"</span>) &#123;</span><br><span class="line">    Notification.requestPermission(<span class="function"><span class="keyword">function</span> (<span class="params">status</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//status是授权状态。</span></span><br><span class="line">    <span class="comment">//如果用户点击的允许，则status为'granted'</span></span><br><span class="line">    <span class="comment">// 如果用户点击的禁止，则status为'denied'</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 这将使我们能在 Chrome/Safari 中使用 Notification.permission</span></span><br><span class="line">    <span class="keyword">if</span> (Notification.permission !== status) &#123;</span><br><span class="line">        Notification.permission = status;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先，我们检查是否具有权限显示通知</span></span><br><span class="line"><span class="comment">// 如果没有，我们就申请权限</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.Notification &amp;&amp; Notification.permission !== <span class="string">"granted"</span>) &#123;</span><br><span class="line">    Notification.requestPermission(<span class="function"><span class="keyword">function</span> (<span class="params">status</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// status是授权状态。</span></span><br><span class="line">    <span class="comment">// 如果用户点击的允许，则status为'granted'</span></span><br><span class="line">    <span class="comment">// 如果用户点击的禁止，则status为'denied'</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 这将使我们能在 Chrome/Safari 中使用 Notification.permission</span></span><br><span class="line">    <span class="keyword">if</span> (Notification.permission !== status) &#123;</span><br><span class="line">            Notification.permission = status;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注意：如果用户点击了授权右上角的关闭按钮，则status的值为default。</p>
 </blockquote>
@@ -644,7 +644,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/HTML5中的Web Notification桌面通知.html">HTML5中的Web Notification桌面通知</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年05月06日 - 14:05</p>
-  <p><span>最后更新:</span>2020年05月06日 - 14:05</p>
+  <p><span>最后更新:</span>2020年05月06日 - 20:05</p>
   <p><span>原始链接:</span><a href="/2020/HTML5中的Web Notification桌面通知.html" title="HTML5中的Web Notification桌面通知">http://mydearest.cn/2020/HTML5中的Web Notification桌面通知.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/HTML5中的Web Notification桌面通知.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -729,6 +729,10 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/js二进制和位运算.html" rel="prev" title="js二进制和位运算">
+                js二进制和位运算 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -808,7 +812,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">127</span>
+                <span class="site-state-item-count">128</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -830,7 +834,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -989,7 +993,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 209.2k字</span>
+    <span class="post-count">Blog总字数: 211.1k字</span>
   </div>
 
   <div class="theme-info">

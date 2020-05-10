@@ -145,7 +145,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype3.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype4.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype5.png">
-<meta property="og:updated_time" content="2020-03-29T17:29:21.586Z">
+<meta property="og:updated_time" content="2020-05-10T15:37:08.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入之从原型到原型链">
 <meta name="twitter:description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时， 如果这个对象内部不存在这个属性，那么它就会去prototype里找这个属性，这个prototype又会有自己的prototype， 于是就这样一直找下去，也就是我们平时所说的原型链的概念  “prototype">
@@ -420,12 +420,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-30T01:29:21+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">30</div>
+  <div class="post-date" data-datetime="2020-05-10T23:37:08+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">10</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月30</div>
+      <div class="post-tiem">5月10</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -530,7 +530,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,490 (字)
+                  2,697 (字)
                 </span>
               
 
@@ -546,7 +546,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  10 (分钟)
+                  11 (分钟)
                 </span>
               
             </div>
@@ -656,13 +656,18 @@ configurable 特性表示对象的属性是否可以被删除，以及除 writab
 </li>
 <li>把作用域（this）指给这个对象</li>
 <li>执行构造函数的代码</li>
-<li>返回这个对象</li>
+<li>如果构造函数中没有返回其它对象，那么返回 this，即创建的这个的新对象，否则，返回构造函数中返回的对象</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Base</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.id = <span class="string">"base"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Base();</span><br></pre></td></tr></table></figure>
 <p><strong>new干了什么？</strong> </p>
-<p>1.var obj = {};</p>
-<p>2.obj.__proto__ = Base.protptype;</p>
-<p>3.Base.call(obj);</p>
+<ol>
+<li><p>var obj = {};</p>
+</li>
+<li><p>obj.__proto__ = Base.protptype;</p>
+</li>
+<li><p>Base.call(obj);</p>
+</li>
+</ol>
 <ul>
 <li>es5使用Object.create()来创建对象 new Object() 字面量写法{}
 使用Object.create()是将对象继承到<strong>proto</strong>属性上，
@@ -676,6 +681,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
 <li><p>hasOwnProperty 是 JavaScript 中唯一处理属性并且不会遍历原型链的方法。通常在for in循环中使用。</p>
 </li>
 </ul>
+<h3 id="实现-new-函数"><a href="#实现-new-函数" class="headerlink" title="实现 new 函数"></a>实现 new 函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span>(<span class="params">func</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第一步 创建新对象</span></span><br><span class="line">    <span class="keyword">let</span> obj= &#123;&#125;; </span><br><span class="line">    <span class="comment">// 第二步 空对象的_proto_指向了构造函数的prototype成员对象</span></span><br><span class="line">    obj.__proto__ = func.prototype;<span class="comment">//</span></span><br><span class="line">    <span class="comment">// 一二步合并就相当于 let obj=Object.create(func.prototype)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第三步 使用apply调用构造器函数，属性和方法被添加到 this 引用的对象中</span></span><br><span class="line">    <span class="keyword">let</span> result = func.apply(obj);</span><br><span class="line">    <span class="keyword">if</span> (result &amp;&amp; (<span class="keyword">typeof</span> (result) == <span class="string">"object"</span> || <span class="keyword">typeof</span> (result) == <span class="string">"function"</span>)) &#123;</span><br><span class="line">    <span class="comment">// 如果构造函数执行的结果返回的是一个对象，那么返回这个对象</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果构造函数返回的不是一个对象，返回创建的新对象</span></span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -707,7 +713,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
   <p><span>本文标题:</span><a href="/prototype.html">JavaScript深入之从原型到原型链</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月12日 - 19:06</p>
-  <p><span>最后更新:</span>2020年03月30日 - 01:03</p>
+  <p><span>最后更新:</span>2020年05月10日 - 23:05</p>
   <p><span>原始链接:</span><a href="/prototype.html" title="JavaScript深入之从原型到原型链">http://mydearest.cn/prototype.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/prototype.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1011,7 +1017,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数创建对象"><span class="nav-number">1.</span> <span class="nav-text">构造函数创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype"><span class="nav-number">1.1.</span> <span class="nav-text">prototype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto"><span class="nav-number">1.2.</span> <span class="nav-text">proto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">1.3.</span> <span class="nav-text">constructor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例与原型"><span class="nav-number">2.</span> <span class="nav-text">实例与原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型的原型"><span class="nav-number">3.</span> <span class="nav-text">原型的原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">4.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">5.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor"><span class="nav-number">5.1.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto-1"><span class="nav-number">5.2.</span> <span class="nav-text">proto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">5.3.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述符"><span class="nav-number">5.4.</span> <span class="nav-text">描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型对象的添加属性"><span class="nav-number">5.5.</span> <span class="nav-text">原型对象的添加属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-操作符具体干了什么"><span class="nav-number">5.6.</span> <span class="nav-text">new 操作符具体干了什么</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数创建对象"><span class="nav-number">1.</span> <span class="nav-text">构造函数创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype"><span class="nav-number">1.1.</span> <span class="nav-text">prototype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto"><span class="nav-number">1.2.</span> <span class="nav-text">proto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">1.3.</span> <span class="nav-text">constructor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例与原型"><span class="nav-number">2.</span> <span class="nav-text">实例与原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型的原型"><span class="nav-number">3.</span> <span class="nav-text">原型的原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">4.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">5.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor"><span class="nav-number">5.1.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto-1"><span class="nav-number">5.2.</span> <span class="nav-text">proto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">5.3.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述符"><span class="nav-number">5.4.</span> <span class="nav-text">描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型对象的添加属性"><span class="nav-number">5.5.</span> <span class="nav-text">原型对象的添加属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-操作符具体干了什么"><span class="nav-number">5.6.</span> <span class="nav-text">new 操作符具体干了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-new-函数"><span class="nav-number">5.7.</span> <span class="nav-text">实现 new 函数</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1056,7 +1062,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 213.5k字</span>
+    <span class="post-count">Blog总字数: 214.9k字</span>
   </div>
 
   <div class="theme-info">

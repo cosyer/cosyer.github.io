@@ -140,10 +140,12 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="浏览器内核 Trident:IE，360，搜狗  Gecko：firefox  webkit:safari，旧版chrome  presto：旧版opera  blink：新版chrome，新版opera   浏览器的渲染方式 构建DOM树 浏览器请求到html代码后，在生成DOM的最开始阶段，并行发起css、图片、js的请求。  构建CSSOM css文件加载完成，开始构建CSSOM  生成渲染">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.188Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/render.png">
+<meta property="og:updated_time" content="2020-05-11T17:01:23.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="主流浏览器的内核和渲染方式解读">
 <meta name="twitter:description" content="浏览器内核 Trident:IE，360，搜狗  Gecko：firefox  webkit:safari，旧版chrome  presto：旧版opera  blink：新版chrome，新版opera   浏览器的渲染方式 构建DOM树 浏览器请求到html代码后，在生成DOM的最开始阶段，并行发起css、图片、js的请求。  构建CSSOM css文件加载完成，开始构建CSSOM  生成渲染">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/render.png">
 
 
 
@@ -414,13 +416,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2020-05-12T01:01:23+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">12</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">5月12</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  235 (字)
+                  793 (字)
                 </span>
               
 
@@ -540,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -583,11 +585,35 @@ css文件加载完成，开始构建CSSOM</p>
 <li><p>生成渲染树（Render Tree）
 CSSOM构建结束后，和DOM一起生成Render Tree</p>
 </li>
-<li><p>布局（Layout）
+<li><p>计算渲染树布局（Layout）
 有了Render Tree，浏览器已经能知道网页中有哪些节点，各个节点的CSS定义以及他们的从属关系。开始布局，计算出各个节点在屏幕中的位置。</p>
 </li>
-<li><p>Paint绘制
+<li><p>将布局Paint绘制到屏幕上
 布局之后，浏览器知道哪些节点要显示，每个节点的CSS属性是什么，每个节点在屏幕中的位置。所以接下来按照算出来的规则，通过显卡，把内容画在屏幕上。</p>
+</li>
+</ol>
+<p><img src="http://cdn.mydearest.cn/blog/images/render.png" alt="render"></p>
+<p>CSS阻塞渲染：由于CSSOM负责存储渲染信息，浏览器就必须保证在合成渲染树之前，CSSOM是完备的，这种完备是指所有的CSS（内联、内部和外部）都已经下载完，并解析完，只有CSSOM和DOM的解析完全结束，浏览器才会进入下一步的渲染。CSS阻塞渲染意味着，在CSSOM完备前，页面将一直处理白屏状态，这就是为什么样式放在head中，仅仅是为了更快的解析CSS，保证更快的首次渲染。
+JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修改节点样式，这就导致了浏览器在解析HTML时，一旦碰到script，就会立即停止HTML的解析，也阻塞了其后的CSS解析，整个解析进程必须等待JS的执行完成才能够继续。从性能角度上讲，将script放在页面底部，也就合情合理了。</p>
+<h2 id="重排（Reflow）："><a href="#重排（Reflow）：" class="headerlink" title="重排（Reflow）："></a>重排（Reflow）：</h2><p>DOM结构中的各个元素都有自己的盒子（模型），这些都需要浏览器根据各种样式来计算并根据计算结果将元素放到它该出现的位置，这个过程称之为reflow。</p>
+<h3 id="触发重排（reflow）："><a href="#触发重排（reflow）：" class="headerlink" title="触发重排（reflow）："></a>触发重排（reflow）：</h3><ol>
+<li>当增加、删除、修改DOM节点时，会导致reflow或repaint</li>
+<li>当移动DOM的位置，或是插入动画的时候</li>
+<li>当修改CSS样式的时候</li>
+<li>当Resize窗口的时候，或是滚动的时候</li>
+<li>当修改网页的默认字体时</li>
+</ol>
+<h2 id="重绘（Repaint）："><a href="#重绘（Repaint）：" class="headerlink" title="重绘（Repaint）："></a>重绘（Repaint）：</h2><p>当各种盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来后，浏览器便把这些元素都按照各自的特性绘制了一遍，于是页面的内容出现了，这个过程称之为repaint。</p>
+<h3 id="触发重绘（Repaint）："><a href="#触发重绘（Repaint）：" class="headerlink" title="触发重绘（Repaint）："></a>触发重绘（Repaint）：</h3><ol>
+<li>DOM改动</li>
+<li>CSS改动</li>
+</ol>
+<h2 id="最小化重绘和重排"><a href="#最小化重绘和重排" class="headerlink" title="最小化重绘和重排"></a>最小化重绘和重排</h2><ol>
+<li><p>一次性修改样式：减少内联样式使用 样式合并写法 </p>
+</li>
+<li><p>批量修改DOM：使用文档片段创建一个子树，然后再拷贝到文档中（document.fragment）</p>
+</li>
+<li><p>缓存布局信息</p>
 </li>
 </ol>
 
@@ -621,7 +647,7 @@ CSSOM构建结束后，和DOM一起生成Render Tree</p>
   <p><span>本文标题:</span><a href="/主流浏览器的内核和渲染方式解读.html">主流浏览器的内核和渲染方式解读</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月05日 - 21:07</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2020年05月12日 - 01:05</p>
   <p><span>原始链接:</span><a href="/主流浏览器的内核和渲染方式解读.html" title="主流浏览器的内核和渲染方式解读">http://mydearest.cn/主流浏览器的内核和渲染方式解读.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/主流浏览器的内核和渲染方式解读.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -696,8 +722,8 @@ CSSOM构建结束后，和DOM一起生成Render Tree</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/flex.html" rel="next" title="flex布局">
-                <i class="fa fa-chevron-left"></i> flex布局
+              <a href="/前端工程化.html" rel="next" title="前端工程化">
+                <i class="fa fa-chevron-left"></i> 前端工程化
               </a>
             
           </div>
@@ -925,7 +951,7 @@ CSSOM构建结束后，和DOM一起生成Render Tree</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器内核"><span class="nav-number">1.</span> <span class="nav-text">浏览器内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的渲染方式"><span class="nav-number">2.</span> <span class="nav-text">浏览器的渲染方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器内核"><span class="nav-number">1.</span> <span class="nav-text">浏览器内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的渲染方式"><span class="nav-number">2.</span> <span class="nav-text">浏览器的渲染方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排（Reflow）："><span class="nav-number">3.</span> <span class="nav-text">重排（Reflow）：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发重排（reflow）："><span class="nav-number">3.1.</span> <span class="nav-text">触发重排（reflow）：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘（Repaint）："><span class="nav-number">4.</span> <span class="nav-text">重绘（Repaint）：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发重绘（Repaint）："><span class="nav-number">4.1.</span> <span class="nav-text">触发重绘（Repaint）：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小化重绘和重排"><span class="nav-number">5.</span> <span class="nav-text">最小化重绘和重排</span></a></li></ol></div>
             
 
           </div>
@@ -970,7 +996,7 @@ CSSOM构建结束后，和DOM一起生成Render Tree</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 214.9k字</span>
+    <span class="post-count">Blog总字数: 216.7k字</span>
   </div>
 
   <div class="theme-info">

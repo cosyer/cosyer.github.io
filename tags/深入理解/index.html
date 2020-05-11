@@ -1083,12 +1083,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-16T01:39:40+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">16</div>
+  <div class="post-date" data-datetime="2020-05-11T23:48:07+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">11</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月16</div>
+      <div class="post-tiem">5月11</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1195,7 +1195,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  590 (字)
+                  1,272 (字)
                 </span>
               
 
@@ -1211,7 +1211,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  5 (分钟)
                 </span>
               
             </div>
@@ -1238,6 +1238,16 @@ a:hover {
 <li>主进程同步执行任务，异步操作将添加到异步队列中</li>
 <li>等候主进程执行完毕后再执行异步队列中的操作</li>
 </ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/event-queue.png" alt="event-queue"></p>
+<blockquote>
+<p>同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；</p>
+</blockquote>
+<blockquote>
+<p>异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行</p>
+</blockquote>
+<p><img src="http://cdn.mydearest.cn/blog/images/task-queue.png" alt="task-queue">
+任务队列中存着的是异步任务，这些异步任务一定要等到执行栈清空后才会执行。
+异步任务，会先到事件列表中注册函数。如果事件列表中的事件触发了，会将这个函数移入到任务队列中（DOM操作对应DOM事件，资源加载操作对应加载事件，定时器操作可以看做对应一个“时间到了”的事件）</p>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
@@ -2818,7 +2828,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 214.9k字</span>
+    <span class="post-count">Blog总字数: 216.7k字</span>
   </div>
 
   <div class="theme-info">

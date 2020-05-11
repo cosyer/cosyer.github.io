@@ -140,10 +140,12 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="评估局部变量主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域 层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变 量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当 前的作用域和防止查询，从而提高代码的速度。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.174Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/optimize.png">
+<meta property="og:updated_time" content="2020-05-11T17:03:50.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript性能优化">
 <meta name="twitter:description" content="评估局部变量主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域 层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变 量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当 前的作用域和防止查询，从而提高代码的速度。">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/optimize.png">
 
 
 
@@ -414,13 +416,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2020-05-12T01:03:50+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">12</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">5月12</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -578,6 +580,7 @@ a:hover {
 <h3 id="尽量不要使用全局变量"><a href="#尽量不要使用全局变量" class="headerlink" title="尽量不要使用全局变量"></a>尽量不要使用全局变量</h3><p>由于脚本引擎需要搜索作用域，所以当从函数内部或其他作用域内引用全局变量时，如果局部作用域丢失，全局变量将被销毁。如果全局作用域中的变量并不一直存在于脚本的生命周期，则可以提升性能。</p>
 <h3 id="不要一直保留对其他文档的引用"><a href="#不要一直保留对其他文档的引用" class="headerlink" title="不要一直保留对其他文档的引用"></a>不要一直保留对其他文档的引用</h3><p>当脚本结束后不再保留对其他文档的引用可以实现更快的性能。因为对其他文档中的对象进行的任何引用不会被保存在整个 DOM 树中，并且脚本环境也不会一直保留在内存中。 因此文档本身不用再被加载。</p>
 <h3 id="不要误用-for-in-Object-hasOwnProperty-只遍历当前对象"><a href="#不要误用-for-in-Object-hasOwnProperty-只遍历当前对象" class="headerlink" title="不要误用 for-in Object.hasOwnProperty()只遍历当前对象"></a>不要误用 for-in Object.hasOwnProperty()只遍历当前对象</h3><p>由于“for-in”循环需要脚本引擎构建包含所有可枚举属性的列表，因此 for 循环内的代码是不会修改这个列表的。 在 for 循环内部，预先计算出列表的长度并赋给变量 len，然后进行迭代。</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/optimize.png" alt="optimize"></p>
 
       
     </div>
@@ -929,7 +932,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 214.9k字</span>
+    <span class="post-count">Blog总字数: 216.7k字</span>
   </div>
 
   <div class="theme-info">

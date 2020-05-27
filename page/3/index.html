@@ -415,687 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-08T01:31:26+08:00">
+  <div class="post-date" data-datetime="2020-05-14T01:16:04+08:00">
     <div class="post-time-text">5月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">14</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月08</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/正则总结.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/正则总结.html" itemprop="url">正则总结</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-14T22:42:18+08:00">
-                2018-10-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/正则总结.html" class="leancloud_visitors" data-flag-title="正则总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  3,817 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  15 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>正则表达式脱离语言，和数据结构与算法一样，作为程序员的软技能。目前存在的问题：不受重视
-优点：</p>
-<ul>
-<li>显著的提升代码质量</li>
-<li>灵活多变</li>
-<li>强大的数据校验支持</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex1 = <span class="regexp">/cosyer/g</span>;</span><br><span class="line"><span class="keyword">var</span> regex2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'cosyer'</span>, <span class="string">'g'</span>);</span><br><span class="line"><span class="keyword">var</span> regex3 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/cosyer/</span>, <span class="string">'g'</span>);</span><br><span class="line"><span class="keyword">var</span> regex4 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/cosyer/g</span>);</span><br></pre></td></tr></table></figure>
-<p>其中的模式（pattern）部分可以是任何简单或复杂的正则表达式，可以包含字符类、限定符、分组、 向前查找以及反向引用。每个正则表达式都可带有一或多个标志（flags），用以标明正则表达式的行为。 正则表达式的匹配模式支持下列 3 个标志。</p>
-<ul>
-<li>g：表示全局（global）模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止；</li>
-<li>i：表示不区分大小写（case-insensitive）模式，即在确定匹配项时忽略模式与字符串的大小写；</li>
-<li>m：表示多行（multiline）模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。</li>
-</ul>
-<p>新增的修饰符：</p>
-<ul>
-<li>u: Unicode模式。用来处理Unicode大于    \uFFFF的单个字符（超过\uFFFF会被程序员解析为两个字符）</li>
-<li>y: 粘连模式。和g一样作为全局匹配，区别是g的下一次匹配不要求位置，但是y下一次匹配要求紧跟这这次匹配项之后</li>
-<li>s: dotAll模式。正则表达式中点(.)作为匹配（除换行符\n，回车符\r，行分隔符，段分隔符）任意单个字符，支持点(.)真正匹配所有单个字符</li>
-</ul>
-<h2 id="两种使用方式"><a href="#两种使用方式" class="headerlink" title="两种使用方式"></a>两种使用方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a1 = <span class="regexp">/\+d/g</span>; <span class="comment">// 字面形式</span></span><br><span class="line"><span class="keyword">var</span> a2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\+d'</span>,<span class="string">'g'</span>) <span class="comment">// 构造函数</span></span><br></pre></td></tr></table></figure>
-<p>在JavaScript中建议使用字面形式的正则表达式，因为不需要担心字符串中的转义字符。比如上面示例代码中字面形式使用\d而构造函数使用的是\d；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">"aaa "</span>; </span><br><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/\s$/</span>; <span class="comment">//匹配字符串末尾的空格 </span></span><br><span class="line">pattern1.exec(text);</span><br></pre></td></tr></table></figure>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/正则总结.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-05-08T00:01:14+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">08</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月08</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识/" itemprop="url" rel="index">
-                    <span itemprop="name">知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/smallknowledge.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/smallknowledge.html" itemprop="url">你所不知道的前端冷门小知识(长期更新)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-11T21:55:52+08:00">
-                2018-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/smallknowledge.html" class="leancloud_visitors" data-flag-title="你所不知道的前端冷门小知识(长期更新)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  15,771 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  76 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://javascript-puzzlers.herokuapp.com/" target="_blank" rel="noopener">javascript-puzzlers</a></p>
-<h2 id="void"><a href="#void" class="headerlink" title="void"></a>void</h2><p>void其实是javascript中的一个函数，接受一个参数，返回值永远是undefined
-void expression</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="number">0</span>  </span><br><span class="line"><span class="keyword">void</span>() <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">void</span> (<span class="number">0</span>)  </span><br><span class="line"><span class="keyword">void</span> <span class="string">"hello"</span>  </span><br><span class="line"><span class="keyword">void</span> (<span class="keyword">new</span> <span class="built_in">Date</span>())  </span><br><span class="line"><span class="comment">// all will return undefined  </span></span><br><span class="line">context === <span class="keyword">void</span> <span class="number">666</span></span><br></pre></td></tr></table></figure>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/smallknowledge.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-05-07T23:56:17+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">07</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月07</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/js二进制和位运算.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/js二进制和位运算.html" itemprop="url">js二进制和位运算</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-05-06T14:27:55+08:00">
-                2020-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/js二进制和位运算.html" class="leancloud_visitors" data-flag-title="js二进制和位运算">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,888 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  8 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="js-二进制与位运算"><a href="#js-二进制与位运算" class="headerlink" title="js 二进制与位运算"></a>js 二进制与位运算</h1><p>生活中，我们经常用到的是以十进制为单位，进位是满 10 进 1，而计算机是用二进制，那么就是满 2 进 1 喽，为什么采用二进制呢？简单说下，Ta的由来其实是根据电路的开关闭合，电路只有 0 和 1，具体的详情这里不多做解释了，可以自行百科^_^。javascript 采用有符号 32 位的 2 进制，可表示 4294967295 个整数(含正负)，范围是 -2147483648(2 的 32 次方) ~ 2147483647。</p>
-<h2 id="带符号二进制基本规则与几个概念"><a href="#带符号二进制基本规则与几个概念" class="headerlink" title="带符号二进制基本规则与几个概念"></a>带符号二进制基本规则与几个概念</h2><p>在计算机中规定最高位是符号位，0 为正，1 为负。正数表示是原码，负数是原码的补码。</p>
-<h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><p>除去符号位，其他 32 位都为正。</p>
-<p>例：00000000000000000000000000001010 原码 00000000000000000000000000001010。</p>
-<h3 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h3><p>所谓反码，除符号位外，其他位 0 变 1，1 变 0。
-例：1010 反码 1101</p>
-<h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><p>所谓补码，就像是小学学过的 10 进制补数，举个例子就很好理解，3 的补数是多少？是 7。4 的补数是 6，补数就是 10 减去这个数。在二进制的补码就是相加等于 0，互为相反数。</p>
-<ul>
-<li>0 的补码
-0 的原码、反码、补码均为 0</li>
-<li>正数的补码
-原码</li>
-<li>负数的补码
-原码除符号位外的所有位取反+1。如何推出来的，看了一篇文章，挺有意思。<a href="https://blog.csdn.net/wenxinwukui234/article/details/42119265" target="_blank" rel="noopener">点击查看</a></li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/js二进制和位运算.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-05-06T20:24:04+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">06</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月06</div>
+      <div class="post-tiem">5月14</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1124,7 +449,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/HTML5中的Web Notification桌面通知.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/markdownGrammar.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -1143,7 +468,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/HTML5中的Web Notification桌面通知.html" itemprop="url">HTML5中的Web Notification桌面通知</a></h2>
+                <a class="post-title-link" href="/markdownGrammar.html" itemprop="url">如何使用 markdown 语法写博客</a></h2>
         
 
         <div class="post-meta">
@@ -1155,8 +480,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-05-06T14:27:55+08:00">
-                2020-05-06
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-04-07T07:25:19+08:00">
+                2018-04-07
               </time>
             
 
@@ -1174,7 +499,7 @@ void expression</p>
 
           
           
-             <span id="/2020/HTML5中的Web Notification桌面通知.html" class="leancloud_visitors" data-flag-title="HTML5中的Web Notification桌面通知">
+             <span id="/markdownGrammar.html" class="leancloud_visitors" data-flag-title="如何使用 markdown 语法写博客">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1202,7 +527,7 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,101 (字)
+                  336 (字)
                 </span>
               
 
@@ -1218,7 +543,7 @@ void expression</p>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  4 (分钟)
+                  1 (分钟)
                 </span>
               
             </div>
@@ -1240,14 +565,30 @@ void expression</p>
 
       
         
-          <p>Web Notifications 技术使页面可以发出通知，通知将被显示在页面之外的系统层面上。能够为用户提供更好的体验，即使用户忙于其他工作时也可以收到来自页面的消息通知，例如一个新邮件的提醒，或者一个在线聊天室收到的消息提醒等等。</p>
-<blockquote>
-<p>PS：除了IE外，各大现代浏览器都对这个桌面推送有了基本的支持。</p>
-</blockquote>
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://cdn.mydearest.cn/blog/images/markdown.png" class="full-image" alt="Markdown" title="Markdown"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<div class="note info"></div>
+<blockquote class="blockquote-center"></blockquote>
+<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><p><em>斜体</em>
+<strong>粗体</strong>
+<strong><em>粗斜体</em></strong><br>
+<del>删除线</del>
+<u>下划线文本</u></p>
+<ol>
+<li>I</li>
+<li>Love </li>
+<li>You</li>
+</ol>
+<ul>
+<li>点</li>
+</ul>
+<ul>
+<li>Foo</li>
+<li>Bar</li>
+</ul>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/HTML5中的Web Notification桌面通知.html#more" rel="contents">
+            <a class="btn" href="/markdownGrammar.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1305,12 +646,12 @@ void expression</p>
   
   
   
-  <div class="post-date" data-datetime="2020-04-30T01:12:03+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">30</div>
+  <div class="post-date" data-datetime="2020-05-14T00:33:00+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">14</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月30</div>
+      <div class="post-tiem">5月14</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1323,8 +664,8 @@ void expression</p>
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
                   </a>
                 </span>
 
@@ -1339,7 +680,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/前端动画的实现方式总结.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/js性能优化.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -1358,7 +699,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/前端动画的实现方式总结.html" itemprop="url">前端动画的实现方式总结</a></h2>
+                <a class="post-title-link" href="/js性能优化.html" itemprop="url">JavaScript性能优化</a></h2>
         
 
         <div class="post-meta">
@@ -1370,8 +711,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-30T00:48:40+08:00">
-                2020-04-30
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-30T00:17:32+08:00">
+                2018-08-30
               </time>
             
 
@@ -1389,7 +730,7 @@ void expression</p>
 
           
           
-             <span id="/2020/前端动画的实现方式总结.html" class="leancloud_visitors" data-flag-title="前端动画的实现方式总结">
+             <span id="/js性能优化.html" class="leancloud_visitors" data-flag-title="JavaScript性能优化">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1417,7 +758,7 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,362 (字)
+                  1,760 (字)
                 </span>
               
 
@@ -1455,25 +796,14 @@ void expression</p>
 
       
         
-          <p>通常在前端中，实现动画的方案主要有6种：</p>
-<ul>
-<li><p>js 直接实现</p>
-</li>
-<li><p>SVG（可伸缩矢量图形</p>
-</li>
-<li><p>CSS3 transition</p>
-</li>
-<li><p>CSS3 animation</p>
-</li>
-<li><p>Canvas动画</p>
-</li>
-<li><p>requestAnimationFrame</p>
-</li>
-</ul>
+          <h3 id="评估局部变量"><a href="#评估局部变量" class="headerlink" title="评估局部变量"></a>评估局部变量</h3><p>主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域
+层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变
+量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当
+前的作用域和防止查询，从而提高代码的速度。</p>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/前端动画的实现方式总结.html#more" rel="contents">
+            <a class="btn" href="/js性能优化.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1531,12 +861,12 @@ void expression</p>
   
   
   
-  <div class="post-date" data-datetime="2020-04-29T01:25:24+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">29</div>
+  <div class="post-date" data-datetime="2020-05-13T23:01:01+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">13</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月29</div>
+      <div class="post-tiem">5月13</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1549,8 +879,8 @@ void expression</p>
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
                   </a>
                 </span>
 
@@ -1565,7 +895,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/TAR命令详解.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/React Refs和DOM揭密.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -1584,7 +914,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/TAR命令详解.html" itemprop="url">TAR命令详解</a></h2>
+                <a class="post-title-link" href="/React Refs和DOM揭密.html" itemprop="url">React Refs揭密</a></h2>
         
 
         <div class="post-meta">
@@ -1596,8 +926,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-29T01:18:26+08:00">
-                2020-04-29
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-02-17T23:25:48+08:00">
+                2019-02-17
               </time>
             
 
@@ -1615,7 +945,7 @@ void expression</p>
 
           
           
-             <span id="/2020/TAR命令详解.html" class="leancloud_visitors" data-flag-title="TAR命令详解">
+             <span id="/React Refs和DOM揭密.html" class="leancloud_visitors" data-flag-title="React Refs揭密">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1643,7 +973,224 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  753 (字)
+                  1,198 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  5 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="什么是Ref"><a href="#什么是Ref" class="headerlink" title="什么是Ref"></a>什么是Ref</h2><p>React的官方介绍是这样的：</p>
+<p>In the typical React dataflow, props are the only way that parent components interact with their children. To modify a child, you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow. The child to be modified could be an instance of a React component, or it could be a DOM element. For both of these cases, React provides an escape hatch.</p>
+<p>其中提到了这几个概念：</p>
+<p>在典型的React数据流理念中，父组件跟子组件的交互都是通过传递属性(properties)实现的。如果父组件需要修改子组件，只需要将新的属性传递给子组件，由子组件来实现具体的绘制逻辑。</p>
+<p>在特殊的情况下，如果你需要命令式(imperatively)的修改子组件，React也提供了应急的处理办法–Ref。</p>
+<p>Ref 既支持修改DOM元素，也支持修改自定义的组件。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/React Refs和DOM揭密.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-05-12T01:01:23+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">12</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">5月12</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/主流浏览器的内核和渲染方式解读.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/主流浏览器的内核和渲染方式解读.html" itemprop="url">主流浏览器的内核和渲染方式解读</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-07-05T21:24:03+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/主流浏览器的内核和渲染方式解读.html" class="leancloud_visitors" data-flag-title="主流浏览器的内核和渲染方式解读">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  793 (字)
                 </span>
               
 
@@ -1681,473 +1228,61 @@ void expression</p>
 
       
         
-          <p>在Linux中，压缩与解压用得最多的是 <code>tar</code> 命令。</p>
-<p>-c: 建立压缩档案
--x：解压
--t：查看内容
--r：向压缩归档文件末尾追加文件
--u：更新原压缩包中的文件</p>
-<p>以上五个是独立的命令参数，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</p>
-<p>-z：有gzip属性的  gz
--j：有bz2属性的   bz2</p>
-<p>-J ：有xz属性的   xz
--Z：有compress属性的
--v：显示所有过程
--O：将文件解开到标准输出</p>
-<p>下面的参数-f是必须的</p>
-<p>-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/TAR命令详解.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-04-29T01:18:01+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">29</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月29</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Shell入门教程.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/Shell入门教程.html" itemprop="url">Shell入门教程</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-03-23T01:51:18+08:00">
-                2020-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
           
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/Shell入门教程.html" class="leancloud_visitors" data-flag-title="Shell入门教程">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  8,498 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  34 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="脚本运行"><a href="#脚本运行" class="headerlink" title="脚本运行"></a>脚本运行</h2><p>建立一个文本文件demo，以.sh结尾的或者不需要后缀都可以。
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">NUM=10</span><br><span class="line">printf "输出数字$NUM\n"</span><br><span class="line">echo $NUM</span><br></pre></td></tr></table></figure></p>
-<p>通过sh或者bash命令运行脚本，sh scriptname 运行一个Bash脚本将会禁止所有Bash的扩展特性。
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 你能够运行它用命令</span></span><br><span class="line">sh demo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 另外也也可以用bash来执行</span></span><br><span class="line">bash demo</span><br></pre></td></tr></table></figure></p>
-<p>脚本以”#!”行开头，行将会命令解释器(sh或是bash)。<code>#!/bin/rm</code> 当你运行这个脚本时，除了这个脚本消失了之外，你不会发现更多其他的东西。</p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>以#开头的行就是注释，会被解释器忽略。注释行前面也可以有空白字符。
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 这是一个注释</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="命令分隔符"><a href="#命令分隔符" class="headerlink" title="命令分隔符"></a>命令分隔符</h2><p>分号;命令分割符，分割符允许在同一行里有两个或更多的命令。
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo hello; echo there         # 输出 hello 和 there</span><br><span class="line">filename='cosyer'               # 变量文件名</span><br><span class="line">if [ -x "$filename" ]; then    # 注意："if" and "then"需要分隔符</span><br><span class="line">  echo "File $filename exists."; cp $filename $filename.bak</span><br><span class="line">else</span><br><span class="line">  echo "File $filename not found."; touch $filename</span><br><span class="line">fi; echo "File test complete.</span><br></pre></td></tr></table></figure></p>
-<h2 id="结束符"><a href="#结束符" class="headerlink" title="结束符"></a>结束符</h2><p>双分号;;，case语句分支的结束符。
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">read Keypress</span><br><span class="line">case "$Keypress" in</span><br><span class="line">  [[:lower:]]   ) echo "Lowercase letter";;</span><br><span class="line">  [[:upper:]]   ) echo "Uppercase letter";;</span><br><span class="line">  [0-9]         ) echo "Digit";;</span><br><span class="line">  *             ) echo "Punctuation, whitespace, or other";;</span><br><span class="line">esac      #  允许字符串的范围出现在[]中,</span><br><span class="line">          #+ 或者POSIX风格的[[中.</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/Shell入门教程.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-04-29T00:51:21+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">29</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月29</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/算法题练习.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/算法题练习.html" itemprop="url">算法题练习</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T01:03:40+08:00">
-                2020-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/算法题练习.html" class="leancloud_visitors" data-flag-title="算法题练习">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  460 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  2 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="写出一个方法输出1-100内的所有素数"><a href="#写出一个方法输出1-100内的所有素数" class="headerlink" title="写出一个方法输出1-100内的所有素数"></a>写出一个方法输出1-100内的所有素数</h2><p>解析：
-由素数（质数）定义可知：</p>
-<ul>
-<li>① 0、1都不是质数，那么最小的质数就是2。</li>
-<li>② 除了1和它自身，不能被其他数整除，那么代码表达式表示为：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i % j === <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>代码实现</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> bl = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">2</span>; j &lt;= i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i === j) <span class="keyword">continue</span></span><br><span class="line">      i % j === <span class="number">0</span> &amp;&amp; (bl = <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    !bl &amp;&amp; arr.push(i)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn())</span><br></pre></td></tr></table></figure>
-<h2 id="给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9"><a href="#给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9" class="headerlink" title="给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]"></a>给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]</h2><p>解析：（分治法）
-将一个列表分割为左右两块，然后再将字列表再进行分割为左右两块，如何反复，知道子元素长度为1时，结束！</p>
-<ul>
-<li>代码实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">qSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> arr</span><br><span class="line">  <span class="keyword">const</span> index = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> midVal = arr.splice(index, <span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">const</span> left = [],</span><br><span class="line">    right = []</span><br><span class="line">  arr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item &lt; midVal) left.push(item)</span><br><span class="line">    <span class="keyword">else</span> right.push(item)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> [...qSort(left), midVal, ...qSort(right)]</span><br><span class="line">&#125;</span><br><span class="line">qSort([<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+            <h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><ul>
+<li><p>Trident:IE，360，搜狗</p>
+</li>
+<li><p>Gecko：firefox</p>
+</li>
+<li><p>webkit:safari，旧版chrome</p>
+</li>
+<li><p>presto：旧版opera</p>
+</li>
+<li><p>blink：新版chrome，新版opera</p>
 </li>
 </ul>
-<h2 id="求一个字符串中最长的非重复连续子串"><a href="#求一个字符串中最长的非重复连续子串" class="headerlink" title="求一个字符串中最长的非重复连续子串"></a>求一个字符串中最长的非重复连续子串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">''</span>;<span class="comment">//存放当前最大无重复项字符串</span></span><br><span class="line">    <span class="keyword">var</span> len = <span class="number">0</span>;<span class="comment">//存放当前最大无重复项字符串长度</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;s.length;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> char = s.charAt(i);</span><br><span class="line">        <span class="keyword">var</span> index = str.indexOf(char);</span><br><span class="line">        <span class="keyword">if</span>(index === <span class="number">-1</span>)&#123;  <span class="comment">//遍历s将元素挨个放入到str中，每放入一次判断str中是否有重复项</span></span><br><span class="line">            str += char;</span><br><span class="line">            len = len&lt;str.length?str.length:len;<span class="comment">//记录最大长度项,每次重新记录str进行判断，是否大于上次一次最大项</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            str = str.substr(index + <span class="number">1</span>) + char; <span class="comment">//从当前重复项开始重新记录str</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 'adasdddddddfghti' 6</span></span><br></pre></td></tr></table></figure>
+<h2 id="浏览器的渲染方式"><a href="#浏览器的渲染方式" class="headerlink" title="浏览器的渲染方式"></a>浏览器的渲染方式</h2><ol>
+<li><p>构建DOM树
+浏览器请求到html代码后，在生成DOM的最开始阶段，并行发起css、图片、js的请求。</p>
+</li>
+<li><p>构建CSSOM
+css文件加载完成，开始构建CSSOM</p>
+</li>
+<li><p>生成渲染树（Render Tree）
+CSSOM构建结束后，和DOM一起生成Render Tree</p>
+</li>
+<li><p>计算渲染树布局（Layout）
+有了Render Tree，浏览器已经能知道网页中有哪些节点，各个节点的CSS定义以及他们的从属关系。开始布局，计算出各个节点在屏幕中的位置。</p>
+</li>
+<li><p>将布局Paint绘制到屏幕上
+布局之后，浏览器知道哪些节点要显示，每个节点的CSS属性是什么，每个节点在屏幕中的位置。所以接下来按照算出来的规则，通过显卡，把内容画在屏幕上。</p>
+</li>
+</ol>
+<p><img src="http://cdn.mydearest.cn/blog/images/render.png" alt="render"></p>
+<p>CSS阻塞渲染：由于CSSOM负责存储渲染信息，浏览器就必须保证在合成渲染树之前，CSSOM是完备的，这种完备是指所有的CSS（内联、内部和外部）都已经下载完，并解析完，只有CSSOM和DOM的解析完全结束，浏览器才会进入下一步的渲染。CSS阻塞渲染意味着，在CSSOM完备前，页面将一直处理白屏状态，这就是为什么样式放在head中，仅仅是为了更快的解析CSS，保证更快的首次渲染。
+JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修改节点样式，这就导致了浏览器在解析HTML时，一旦碰到script，就会立即停止HTML的解析，也阻塞了其后的CSS解析，整个解析进程必须等待JS的执行完成才能够继续。从性能角度上讲，将script放在页面底部，也就合情合理了。</p>
+<h2 id="重排（Reflow）："><a href="#重排（Reflow）：" class="headerlink" title="重排（Reflow）："></a>重排（Reflow）：</h2><p>DOM结构中的各个元素都有自己的盒子（模型），这些都需要浏览器根据各种样式来计算并根据计算结果将元素放到它该出现的位置，这个过程称之为reflow。</p>
+<h3 id="触发重排（reflow）："><a href="#触发重排（reflow）：" class="headerlink" title="触发重排（reflow）："></a>触发重排（reflow）：</h3><ol>
+<li>当增加、删除、修改DOM节点时，会导致reflow或repaint</li>
+<li>当移动DOM的位置，或是插入动画的时候</li>
+<li>当修改CSS样式的时候</li>
+<li>当Resize窗口的时候，或是滚动的时候</li>
+<li>当修改网页的默认字体时</li>
+</ol>
+<h2 id="重绘（Repaint）："><a href="#重绘（Repaint）：" class="headerlink" title="重绘（Repaint）："></a>重绘（Repaint）：</h2><p>当各种盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来后，浏览器便把这些元素都按照各自的特性绘制了一遍，于是页面的内容出现了，这个过程称之为repaint。</p>
+<h3 id="触发重绘（Repaint）："><a href="#触发重绘（Repaint）：" class="headerlink" title="触发重绘（Repaint）："></a>触发重绘（Repaint）：</h3><ol>
+<li>DOM改动</li>
+<li>CSS改动</li>
+</ol>
+<h2 id="最小化重绘和重排"><a href="#最小化重绘和重排" class="headerlink" title="最小化重绘和重排"></a>最小化重绘和重排</h2><ol>
+<li><p>一次性修改样式：减少内联样式使用 样式合并写法 </p>
+</li>
+<li><p>批量修改DOM：使用文档片段创建一个子树，然后再拷贝到文档中（document.fragment）</p>
+</li>
+<li><p>缓存布局信息</p>
+</li>
+</ol>
+
           
         
       
@@ -2202,12 +1337,12 @@ void expression</p>
   
   
   
-  <div class="post-date" data-datetime="2020-04-27T01:19:59+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2020-05-12T00:42:23+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">12</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月27</div>
+      <div class="post-tiem">5月12</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -2220,8 +1355,8 @@ void expression</p>
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
+                  <a href="/categories/知识/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
                   </a>
                 </span>
 
@@ -2236,7 +1371,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/jssummary.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/深入了解HTTP.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -2255,7 +1390,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/jssummary.html" itemprop="url">JavaScript整理总结</a></h2>
+                <a class="post-title-link" href="/2019/深入了解HTTP.html" itemprop="url">深入了解HTTP</a></h2>
         
 
         <div class="post-meta">
@@ -2267,8 +1402,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-21T19:37:27+08:00">
-                2018-06-21
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-04-30T00:48:20+08:00">
+                2019-04-30
               </time>
             
 
@@ -2286,7 +1421,7 @@ void expression</p>
 
           
           
-             <span id="/jssummary.html" class="leancloud_visitors" data-flag-title="JavaScript整理总结">
+             <span id="/2019/深入了解HTTP.html" class="leancloud_visitors" data-flag-title="深入了解HTTP">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2314,7 +1449,7 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  9,931 (字)
+                  3,031 (字)
                 </span>
               
 
@@ -2330,7 +1465,7 @@ void expression</p>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  45 (分钟)
+                  11 (分钟)
                 </span>
               
             </div>
@@ -2352,18 +1487,26 @@ void expression</p>
 
       
         
-          <p>JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。</p>
+          <h2 id="HTTP-特性"><a href="#HTTP-特性" class="headerlink" title="HTTP 特性"></a>HTTP 特性</h2><ul>
+<li>基于TCP-IP协议 应用层协议 默认端口号80</li>
+<li>无连接无状态</li>
+</ul>
+<h3 id="什么是无状态"><a href="#什么是无状态" class="headerlink" title="什么是无状态"></a>什么是无状态</h3><ul>
+<li>状态】的含义就是：客户端和服务器在某次会话中产生的数据</li>
+<li>那么对应的【无状态】就意味着：这些数据不会被保留</li>
+<li>通过增加cookie和session机制，现在的网络请求其实是有状态的</li>
+<li>在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产生的结果，而没有保留会话</li>
+</ul>
+<h2 id="HTTP-报文"><a href="#HTTP-报文" class="headerlink" title="HTTP 报文"></a>HTTP 报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p>HTTP 协议是以 ASCII （a s ki）码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。</p>
 <ul>
-<li>运行在宿主环境环境中，比如浏览器或node环境</li>
-<li>不用预编译，直接解释执行代码</li>
-<li>是弱类型语言，较为灵活</li>
-<li>与操作系统无关，跨平台的语言</li>
-<li>脚本语言，解释性语言</li>
+<li>GET 可提交的数据量受到URL长度的限制，HTTP 协议规范没有对 URL 长度进行限制。这个限制是特定的浏览器及服务器对它的限制</li>
+<li>理论上讲，POST 是没有大小限制的，HTTP 协议规范也没有进行大小限制，出于安全考虑，服务器软件在实现时会做一定限制</li>
+<li>参考上面的报文示例，可以发现 GET 和 POST 数据内容是一模一样的，只是位置不同，一个在 URL 里，一个在 HTTP 包的包体里</li>
 </ul>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/jssummary.html#more" rel="contents">
+            <a class="btn" href="/2019/深入了解HTTP.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2421,12 +1564,224 @@ void expression</p>
   
   
   
-  <div class="post-date" data-datetime="2020-04-27T00:47:46+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2020-05-12T00:01:53+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">12</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月27</div>
+      <div class="post-tiem">5月12</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/http请求概述.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/http请求概述.html" itemprop="url">Http请求概述</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-14T14:56:52+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/http请求概述.html" class="leancloud_visitors" data-flag-title="Http请求概述">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  3,806 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  14 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>超文本传输协议（HTTP, HyperText Transfer Protocol）是一种无状态的协议，它位于OSI七层模型的传输层。HTTP客户端会根据需要构建合适的HTTP请求方法，而HTTP服务器会根据不同的HTTP请求方法做出不同的响应。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/http请求概述.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-05-11T23:50:22+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">11</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">5月11</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -2455,7 +1810,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/高逼格的JS代码.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/createPromise.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -2474,7 +1829,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/高逼格的JS代码.html" itemprop="url">高逼格的JS代码</a></h2>
+                <a class="post-title-link" href="/createPromise.html" itemprop="url">Promise诞生记</a></h2>
         
 
         <div class="post-meta">
@@ -2486,8 +1841,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-30T09:22:25+08:00">
-                2018-10-30
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-05T01:34:09+08:00">
+                2018-06-05
               </time>
             
 
@@ -2505,7 +1860,7 @@ void expression</p>
 
           
           
-             <span id="/高逼格的JS代码.html" class="leancloud_visitors" data-flag-title="高逼格的JS代码">
+             <span id="/createPromise.html" class="leancloud_visitors" data-flag-title="Promise诞生记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2533,7 +1888,7 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,446 (字)
+                  2,617 (字)
                 </span>
               
 
@@ -2549,7 +1904,7 @@ void expression</p>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  7 (分钟)
+                  12 (分钟)
                 </span>
               
             </div>
@@ -2571,14 +1926,672 @@ void expression</p>
 
       
         
-          <p>黑科技JS代码整理 是不是很void 666</p>
-<h3 id="一行代码实现评级"><a href="#一行代码实现评级" class="headerlink" title="一行代码实现评级"></a>一行代码实现评级</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"★★★★★☆☆☆☆☆"</span>.slice(<span class="number">5</span> - rate, <span class="number">10</span> - rate);定义一个变量rate是<span class="number">1</span>到<span class="number">5</span>的值</span><br></pre></td></tr></table></figure>
-<h3 id="SB、NB、Hello-World"><a href="#SB、NB、Hello-World" class="headerlink" title="SB、NB、Hello World"></a>SB、NB、Hello World</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(!(~+[])+&#123;&#125;)[--[~+<span class="string">""</span>][+[]]*[~+[]] + ~~!+[]]+(&#123;&#125;+[])[[~!+[]]*~+[]]</span><br><span class="line"></span><br><span class="line">([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]]</span><br><span class="line"></span><br><span class="line">([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[+[]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+[])+(+!![]+[]))</span><br></pre></td></tr></table></figure>
-<h3 id="错误处理的正确方法"><a href="#错误处理的正确方法" class="headerlink" title="错误处理的正确方法"></a>错误处理的正确方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    something</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href =</span><br><span class="line">        <span class="string">"http://stackoverflow.com/search?q=[js]+"</span> +</span><br><span class="line">        e.message;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 百度版</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    something</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href =</span><br><span class="line">        <span class="string">"https://www.baidu.com/s?wd="</span> +</span><br><span class="line">        e.message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://cdn.mydearest.cn/blog/images/promise.png" class="full-image" alt="Promise" title="Promise"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>前端近年的兴起，有大部分是因为 <code>NodeJS</code> 的诞生，而 <code>NodeJS</code> 是个适用于 <strong>异步IO</strong> 密集型的语言，一些基于 <code>NodeJS</code> 的框架，比如 <em>KOA2、Adonis</em> 就有大量的 <code>async</code> 和 <code>await</code> 语法，<code>async</code>的函数的返回值就是 <code>Promise</code> 对象，我们可以用 <code>async</code> 和 <code>await</code> 语法，写出优雅的异步代码，来替换难看且难维护的回调函数。</p>
+<h2 id="Promise-概念-JS的-Promise是未来事件的表示"><a href="#Promise-概念-JS的-Promise是未来事件的表示" class="headerlink" title="Promise 概念(JS的 Promise是未来事件的表示)"></a>Promise 概念(JS的 Promise是未来事件的表示)</h2><p><code>Promise</code>是一种对异步操作的封装，主流的规范是Promise/A+。
+<code>Promise</code>可以使得异步代码层次清晰，便于理解，且更加容易维护。 Promise 可以以成功结束：用行话说我们已经解决了resolved(fulfilled)。 但如果 Promise 出错，我们会说它处于<strong>拒绝(rejected )状态。 Promise 也有一个默认状态：每个新的 Promise 都以挂起(pending)</strong>状态开始。
+<code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。
+生成实例时回执信作为参数的函数；<br> 
+<code>resolve</code>函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 fulfilled），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
+<code>reject</code>函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/高逼格的JS代码.html#more" rel="contents">
+            <a class="btn" href="/createPromise.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-05-11T23:48:07+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">11</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">5月11</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/EventLoop.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/EventLoop.html" itemprop="url">EventLoop</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-06-16T12:38:46+08:00">
+                2019-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/EventLoop.html" class="leancloud_visitors" data-flag-title="EventLoop">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,272 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  5 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="描述事件队列的过程？"><a href="#描述事件队列的过程？" class="headerlink" title="描述事件队列的过程？"></a>描述事件队列的过程？</h2><ul>
+<li>js是单线程的，会出现阻塞问题，因此有了异步队列的出现</li>
+<li>主进程同步执行任务，异步操作将添加到异步队列中</li>
+<li>等候主进程执行完毕后再执行异步队列中的操作</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/event-queue.png" alt="event-queue"></p>
+<blockquote>
+<p>同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；</p>
+</blockquote>
+<blockquote>
+<p>异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行</p>
+</blockquote>
+<p><img src="http://cdn.mydearest.cn/blog/images/task-queue.png" alt="task-queue">
+任务队列中存着的是异步任务，这些异步任务一定要等到执行栈清空后才会执行。
+异步任务，会先到事件列表中注册函数。如果事件列表中的事件触发了，会将这个函数移入到任务队列中（DOM操作对应DOM事件，资源加载操作对应加载事件，定时器操作可以看做对应一个“时间到了”的事件）</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/EventLoop.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-05-10T22:57:25+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">10</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">5月10</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/三栏布局总结.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/三栏布局总结.html" itemprop="url">三栏布局总结（左右固定宽度 中间自适应）</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-05-09T00:15:34+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/三栏布局总结.html" class="leancloud_visitors" data-flag-title="三栏布局总结（左右固定宽度 中间自适应）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  700 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  4 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="浮动布局-float-margin"><a href="#浮动布局-float-margin" class="headerlink" title="浮动布局(float + margin)"></a>浮动布局(float + margin)</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;div class="left"&gt;Left&lt;/div&gt;</span><br><span class="line">     &lt;!<span class="selector-tag">--</span> 右栏部分要写在中间内容之前 <span class="selector-tag">--</span>&gt;</span><br><span class="line">    &lt;div class="right"&gt;Right&lt;/div&gt;</span><br><span class="line">    &lt;div class="main"&gt;Main&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">html</span>,<span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*左边栏左浮动*/</span></span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*中间栏自适应*/</span></span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*右边栏右浮动*/</span></span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：快捷 简单 兼容性较好</li>
+<li>缺点: 有局限性 脱离文档流 需要清除浮动等</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/三栏布局总结.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-05-10T22:09:47+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">10</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">5月10</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/responsive.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/responsive.html" itemprop="url">响应式网页设计</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-20T01:33:47+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/responsive.html" class="leancloud_visitors" data-flag-title="响应式网页设计">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  736 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="什么是响应式网站"><a href="#什么是响应式网站" class="headerlink" title="什么是响应式网站"></a>什么是响应式网站</h2><p>响应式布局是Ethan Marcotte在2010年5月份提出的一个概念，简而言之，就是一个网站能够兼容多个终端——而不是为每个终端做一个特定的版本。这个概念是为解决移动互联网浏览而诞生的。Web设计应该做到根据不同设备环境自动响应及调整。当然响应式Web设计不仅仅是关于屏幕分辨率自适应以及自动缩放的图片等等，它更像是一种对于设计的全新思维模式；我们应当向下兼容、移动优先。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/responsive.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2841,7 +2854,7 @@ void expression</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 234.6k字</span>
+    <span class="post-count">Blog总字数: 235.8k字</span>
   </div>
 
   <div class="theme-info">

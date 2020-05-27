@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="执行上下文就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。 变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)12345if(!(&quot;a&quot; in window))&amp;#123; // false    var a=1;&amp;#125;console.log(a) // undefined// i">
+<meta name="description" content="执行上下文(EC)就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。 变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)12345if(!(&quot;a&quot; in window))&amp;#123; // false    var a=1;&amp;#125;console.log(a) // undefined">
 <meta name="keywords" content="上下文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入之执行上下文">
 <meta property="og:url" content="http://mydearest.cn/context.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="执行上下文就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。 变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)12345if(!(&quot;a&quot; in window))&amp;#123; // false    var a=1;&amp;#125;console.log(a) // undefined// i">
+<meta property="og:description" content="执行上下文(EC)就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。 变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)12345if(!(&quot;a&quot; in window))&amp;#123; // false    var a=1;&amp;#125;console.log(a) // undefined">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-28T17:48:20.256Z">
+<meta property="og:updated_time" content="2020-05-27T12:34:35.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入之执行上下文">
-<meta name="twitter:description" content="执行上下文就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。 变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)12345if(!(&quot;a&quot; in window))&amp;#123; // false    var a=1;&amp;#125;console.log(a) // undefined// i">
+<meta name="twitter:description" content="执行上下文(EC)就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。 变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)12345if(!(&quot;a&quot; in window))&amp;#123; // false    var a=1;&amp;#125;console.log(a) // undefined">
 
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-29T01:48:20+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">29</div>
+  <div class="post-date" data-datetime="2020-05-27T20:34:35+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">27</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月29</div>
+      <div class="post-tiem">5月27</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,794 (字)
+                  2,125 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  7 (分钟)
+                  8 (分钟)
                 </span>
               
             </div>
@@ -561,7 +561,7 @@ a:hover {
       
 
       
-        <p><strong>执行上下文就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。</strong></p>
+        <p><strong>执行上下文(EC)就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。</strong></p>
 <h2 id="变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边"><a href="#变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边" class="headerlink" title="变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)"></a>变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!(<span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>))&#123; <span class="comment">// false</span></span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// if(o.x)&#123;&#125; // 不能判断属性存不存在 假值undefine,null,false," ",0或NaN</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo1'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();  <span class="comment">// foo2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// foo2</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line">getName(); <span class="comment">// 4</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">6</span>);&#125;</span><br><span class="line">getName(); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
 <p>函数表达式执行的优先级==!主要原因是函数声明都被提前了，所以函数表达式在最后会覆盖。</p>
@@ -570,10 +570,27 @@ a:hover {
 JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）来管理执行上下文</p>
 <hr>
 <a id="more"></a>
-<h2 id="执行上下文的类型，主要有两类："><a href="#执行上下文的类型，主要有两类：" class="headerlink" title="执行上下文的类型，主要有两类："></a>执行上下文的类型，主要有两类：</h2><ul>
+<h2 id="分为三个部分"><a href="#分为三个部分" class="headerlink" title="分为三个部分"></a>分为三个部分</h2><ul>
+<li>变量对象(VO)</li>
+<li>作用域链</li>
+<li>this 指向</li>
+</ul>
+<h3 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h3><p>变量对象，是执行上下文中的一部分，可以抽象为一种 数据作用域，其实也可以理解为就是一个简单的对象，它存储着该执行上下文中的所有变量和函数声明(不包含函数表达式)。</p>
+<blockquote>
+<p>活动对象 (AO): 当变量对象所处的上下文为 active EC 时，称为活动对象。</p>
+</blockquote>
+<h3 id="作用域链-访问到父级甚至全局的变量"><a href="#作用域链-访问到父级甚至全局的变量" class="headerlink" title="作用域链(访问到父级甚至全局的变量)"></a>作用域链(访问到父级甚至全局的变量)</h3><p>执行上下文中还包含作用域链。理解作用域之前，先介绍下作用域。作用域其实可理解为该上下文中声明的 变量和声明的作用范围。可分为 块级作用域 和 函数作用域</p>
+<ul>
+<li>声明提前: 一个声明在函数体内都是可见的, 函数优先于变量</li>
+<li>非匿名自执行函数，函数变量为 只读 状态，无法修改<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">1</span>) &#125;;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo = <span class="number">10</span>  <span class="comment">// 由于foo在函数中只为可读，因此赋值无效</span></span><br><span class="line">    <span class="built_in">console</span>.log(foo)</span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="执行上下文的类型，主要有三类："><a href="#执行上下文的类型，主要有三类：" class="headerlink" title="执行上下文的类型，主要有三类："></a>执行上下文的类型，主要有三类：</h2><ul>
 <li><p>全局执行上下文：这是默认的，最基础的执行上下文。不在任何函数中的代码都位于全局执行上下文中。共有两个过程：1.创建有全局对象，在浏览器中这个全局对象就是window对象。2.将this指针指向这个全局对象。一个程序中只能存在一个执行上下文。</p>
 </li>
 <li><p>函数执行上下文：每次调用函数时，都会为该函数创建一个新的执行上下文。每个函数都拥有自己的执行上下文，但是只有在函数被调用的时候才会被创建。一个程序中可以存在多个函数执行上下文，这些函数执行上下文按照特定的顺序执行一系列步骤。</p>
+</li>
+<li><p>eval执行上下文</p>
 </li>
 </ul>
 <h2 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h2><p>调用栈，具有LIFO（Last in, First out 后进先出）结构，用于存储在代码执行期间创建的所有执行上下文。</p>
@@ -584,18 +601,20 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 <p>现在 JavaScript 遇到下面的这段代码了：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fun3'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fun3();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fun2();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun1();</span><br></pre></td></tr></table></figure>
 <p>当执行一个函数的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数执行完毕的时候，就会将函数的执行上下文从栈中弹出。知道了这样的工作原理，让我们来看看如何处理上面这段代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// fun1()</span></span><br><span class="line">ECStack.push(&lt;fun1\&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// fun1中竟然调用了fun2，还要创建fun2的执行上下文</span><br><span class="line">ECStack.push(&lt;fun2\&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// 擦，fun2还调用了fun3！</span><br><span class="line">ECStack.push(&lt;fun3\&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// fun3执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun2执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun1执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// javascript接着执行下面的代码，但是ECStack底层永远有个globalContext</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// fun1()</span></span><br><span class="line">ECStack.push(<span class="xml"><span class="tag">&lt;<span class="name">fun1\</span>&gt;</span> functionContext);</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">// fun1中竟然调用了fun2，还要创建fun2的执行上下文</span></span><br><span class="line">ECStack.push(&lt;fun2\&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// 擦，fun2还调用了fun3！</span><br><span class="line">ECStack.push(&lt;fun3\&gt; functionContext);</span><br><span class="line"></span><br><span class="line">// fun3执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun2执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// fun1执行完毕</span><br><span class="line">ECStack.pop();</span><br><span class="line"></span><br><span class="line">// javascript接着执行下面的代码，但是ECStack底层永远有个globalContext</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="string">'local scope'</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b()</span><br><span class="line">&#125;</span><br><span class="line">a()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="string">'local scope'</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line">a()()</span><br></pre></td></tr></table></figure>
 <p>分析如下👁：
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a()执行的时候，创建执行上下文入栈</span></span><br><span class="line">ECsatck.push(&lt;fun\&gt; a)</span><br><span class="line">// 函数a遇到b可执行函数，执行b函数创建可执行上下文入栈</span><br><span class="line">ECstack.push(&lt;fun\&gt; b)</span><br><span class="line">// 后进先出原则b执行完出栈</span><br><span class="line">ECstack.pop()</span><br><span class="line">// a执行完出栈</span><br><span class="line">ECstack.pop()</span><br><span class="line"></span><br><span class="line">第二段代码</span><br><span class="line"></span><br><span class="line">// a()执行的时候，创建执行上下文入栈</span><br><span class="line">ECsatck.push(&lt;fun\&gt; a)</span><br><span class="line">// a执行完后返回了b函数，注意这里没有直接执行而是直接返回了b,所有没有创建b函数的上下文，a执行完直接出栈</span><br><span class="line">ECstack.pop() //a出栈</span><br><span class="line">// 在外部返回的b函数被执行， 创建b的执行上下文，压入栈，</span><br><span class="line">ECstack.push(&lt;fun\&gt; b)</span><br><span class="line">// b执行完出栈</span><br><span class="line">ECstack.pop()</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a()执行的时候，创建执行上下文入栈</span></span><br><span class="line">ECsatck.push(<span class="xml"><span class="tag">&lt;<span class="name">fun\</span>&gt;</span> a)</span></span><br><span class="line"><span class="xml">// 函数a遇到b可执行函数，执行b函数创建可执行上下文入栈</span></span><br><span class="line">ECstack.push(&lt;fun\&gt; b)</span><br><span class="line">// 后进先出原则b执行完出栈</span><br><span class="line">ECstack.pop()</span><br><span class="line">// a执行完出栈</span><br><span class="line">ECstack.pop()</span><br><span class="line"></span><br><span class="line">第二段代码</span><br><span class="line"></span><br><span class="line">// a()执行的时候，创建执行上下文入栈</span><br><span class="line">ECsatck.push(&lt;fun\&gt; a)</span><br><span class="line">// a执行完后返回了b函数，注意这里没有直接执行而是直接返回了b,所有没有创建b函数的上下文，a执行完直接出栈</span><br><span class="line">ECstack.pop() //a出栈</span><br><span class="line">// 在外部返回的b函数被执行， 创建b的执行上下文，压入栈，</span><br><span class="line">ECstack.push(&lt;fun\&gt; b)</span><br><span class="line">// b执行完出栈</span><br><span class="line">ECstack.pop()</span><br></pre></td></tr></table></figure></p>
 <h2 id="调用栈执行的顺序"><a href="#调用栈执行的顺序" class="headerlink" title="调用栈执行的顺序"></a>调用栈执行的顺序</h2><ul>
-<li><p>创建全局上下文，全局变量和函数。</p>
+<li><p>创建全局上下文(global EC)</p>
 </li>
-<li><p>每个函数的调用，会创建一个上下文,外部环境的引用及 this。</p>
+<li><p>每个函数的创建，函数执行上下文，外部环境的引用及 this，会push到执行栈顶层</p>
 </li>
-<li><p>函数执行结束后会从堆栈中弹出，并且它的执行上下文被垃圾收集回收(闭包除外)。</p>
+<li><p>函数调用时，函数执行上下文被激活，成为 active EC, 开始执行函数中的代码，caller 被挂起</p>
 </li>
-<li><p>当调用堆栈为空时，它将从事件队列中获取事件。</p>
+<li><p>函数执行结束后会从堆栈中弹出pop，并且它的执行上下文被垃圾收集回收(闭包除外)。控制权交还全局上下文 (caller)，继续执行</p>
+</li>
+<li><p>当调用堆栈为空时，它将从事件队列中获取事件</p>
 </li>
 </ul>
 <p>当浏览器加载某些JS代码时，JS引擎会逐行读取并执行以下步骤：</p>
@@ -607,11 +626,6 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 </ul>
 <p>每个异步函数在被放入调用堆栈之前必须通过回调队列，但这个工作是谁做的呢，那就是事件循环(Event Loop)。</p>
 <p>事件循环只有一个任务:它检查调用堆栈是否为空。如果回调队列中(Callback Queue)有某个函数，并且调用堆栈是空闲的，那么就将其放入调用堆栈中。</p>
-<h2 id="三大属性"><a href="#三大属性" class="headerlink" title="三大属性"></a>三大属性</h2><ul>
-<li>变量对象</li>
-<li>作用域链</li>
-<li>this</li>
-</ul>
 <h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><div class="note info"><p>全局对象是预定义的对象，作为 JavaScript 的全局函数和全局属性的占位符。通过使用全局对象，可以访问所有其他所有预定义的对象、函数和属性。</p></div>
 <div class="note info"><p>例如，当JavaScript 代码引用 parseInt() 函数时，它引用的是全局对象的 parseInt 属性。全局对象是作用域链的头，还意味着在顶层 JavaScript 代码中声明的所有变量都将成为全局对象的属性。</p></div>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在浏览器客户端 全局对象就是window对象</span></span><br><span class="line"><span class="comment">// 通过this引用</span></span><br><span class="line"><span class="keyword">this</span> === <span class="built_in">window</span>  <span class="comment">// true</span></span><br><span class="line"><span class="keyword">this</span>.window === <span class="built_in">window</span> <span class="comment">// true</span></span><br><span class="line"><span class="keyword">this</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true 是通过Object构造函数实例出来的对象</span></span><br><span class="line"><span class="built_in">Math</span>.random() </span><br><span class="line"><span class="keyword">this</span>.Math.random() <span class="comment">// 预定义了一些函数和属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// window指向自身</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line">a <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">this</span>.a <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">window</span>.a <span class="comment">// 1 </span></span><br><span class="line"><span class="keyword">this</span>.window.a <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
@@ -648,7 +662,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
   <p><span>本文标题:</span><a href="/context.html">JavaScript深入之执行上下文</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月13日 - 17:06</p>
-  <p><span>最后更新:</span>2020年03月29日 - 01:03</p>
+  <p><span>最后更新:</span>2020年05月27日 - 20:05</p>
   <p><span>原始链接:</span><a href="/context.html" title="JavaScript深入之执行上下文">http://mydearest.cn/context.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/context.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -952,7 +966,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边"><span class="nav-number">1.</span> <span class="nav-text">变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行上下文的类型，主要有两类："><span class="nav-number">2.</span> <span class="nav-text">执行上下文的类型，主要有两类：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用栈"><span class="nav-number">3.</span> <span class="nav-text">调用栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用栈执行的顺序"><span class="nav-number">4.</span> <span class="nav-text">调用栈执行的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三大属性"><span class="nav-number">5.</span> <span class="nav-text">三大属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局对象"><span class="nav-number">6.</span> <span class="nav-text">全局对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明-gt-变量声明"><span class="nav-number">7.</span> <span class="nav-text">函数声明&gt;变量声明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边"><span class="nav-number">1.</span> <span class="nav-text">变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分为三个部分"><span class="nav-number">2.</span> <span class="nav-text">分为三个部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量对象"><span class="nav-number">2.1.</span> <span class="nav-text">变量对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链-访问到父级甚至全局的变量"><span class="nav-number">2.2.</span> <span class="nav-text">作用域链(访问到父级甚至全局的变量)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行上下文的类型，主要有三类："><span class="nav-number">3.</span> <span class="nav-text">执行上下文的类型，主要有三类：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用栈"><span class="nav-number">4.</span> <span class="nav-text">调用栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用栈执行的顺序"><span class="nav-number">5.</span> <span class="nav-text">调用栈执行的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局对象"><span class="nav-number">6.</span> <span class="nav-text">全局对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明-gt-变量声明"><span class="nav-number">7.</span> <span class="nav-text">函数声明&gt;变量声明</span></a></li></ol></div>
             
 
           </div>
@@ -997,7 +1011,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 234.6k字</span>
+    <span class="post-count">Blog总字数: 235.8k字</span>
   </div>
 
   <div class="theme-info">

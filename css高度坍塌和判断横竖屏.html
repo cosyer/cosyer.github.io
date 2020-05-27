@@ -140,10 +140,12 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="1.01^365=37.8  两个盒子，一个下边距20px，一个上边距50px，最后为两个盒子之间的距离为多少 50px 解决:根据W3C的标准，在页面中元素都一个隐含的属性叫做Block FormattingContext 简称BFC，该属性可以设置打开或者关闭，默认是关闭的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T16:22:08.056Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/z-index.png">
+<meta property="og:updated_time" content="2020-05-27T12:34:35.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css高度坍塌和判断横竖屏">
 <meta name="twitter:description" content="1.01^365=37.8  两个盒子，一个下边距20px，一个上边距50px，最后为两个盒子之间的距离为多少 50px 解决:根据W3C的标准，在页面中元素都一个隐含的属性叫做Block FormattingContext 简称BFC，该属性可以设置打开或者关闭，默认是关闭的。">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/z-index.png">
 
 
 
@@ -414,13 +416,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-09-04T00:22:08+08:00">
-    <div class="post-time-text">9月</div>
-    <div class="post-time-count">04</div>
+  <div class="post-date" data-datetime="2020-05-27T20:34:35+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">27</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月04</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">5月27</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  754 (字)
+                  1,033 (字)
                 </span>
               
 
@@ -540,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -585,11 +587,20 @@ a:hover {
 </ul>
 </li>
 </ul>
-<h4 id="当开启元素的BFC以后，元素将会具有如下的特性："><a href="#当开启元素的BFC以后，元素将会具有如下的特性：" class="headerlink" title="当开启元素的BFC以后，元素将会具有如下的特性："></a>当开启元素的BFC以后，元素将会具有如下的特性：</h4><ol>
-<li>父元素的垂直外边距不会和子元素重叠</li>
-<li>开启BFC的元素不会被浮动元素所覆盖</li>
-<li>开启BFC的元素可以包含浮动的子元素</li>
-</ol>
+<h4 id="当开启元素的BFC以后，元素将会具有如下的特性："><a href="#当开启元素的BFC以后，元素将会具有如下的特性：" class="headerlink" title="当开启元素的BFC以后，元素将会具有如下的特性："></a>当开启元素的BFC以后，元素将会具有如下的特性：</h4><ul>
+<li>属于同一个 BFC 的两个相邻 Box 垂直排列</li>
+<li>属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠</li>
+<li>BFC 中子元素的 margin box 的左边， 与包含块 (BFC) border box的左边相接触 (子元素 absolute 除外)</li>
+<li>BFC 的区域不会与 float 的元素区域重叠</li>
+<li>计算 BFC 的高度时，浮动子元素也参与计算</li>
+<li>文字层不会被浮动层覆盖，环绕于周围</li>
+</ul>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><ul>
+<li>阻止margin重叠</li>
+<li>可以包含浮动元素 —— 清除内部浮动(清除浮动的原理是两个div都位于同一个 BFC 区域之中)</li>
+<li>自适应两栏布局</li>
+<li>可以阻止元素被浮动元素覆盖</li>
+</ul>
 <h4 id="如何开启元素的BFC"><a href="#如何开启元素的BFC" class="headerlink" title="如何开启元素的BFC"></a>如何开启元素的BFC</h4><ol>
 <li>设置元素浮动(不推荐)</li>
 </ol>
@@ -626,8 +637,44 @@ zoom这个样式，只在IE中支持，其他浏览器都不支持。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 样式表中的CSS媒体查询 */</span></span><br><span class="line">@<span class="keyword">media</span> all and (orientation: portrait) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> <span class="selector-tag">div</span> &#123;<span class="attribute">background</span>: red;&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">700px</span>) and (orientation: landscape) &#123; </span><br><span class="line">  <span class="selector-tag">body</span> <span class="selector-tag">div</span> &#123;<span class="attribute">background</span>: blue; &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>resize方法
-可以用resize事件来判断。用innerWidth ， innerHeight，可以检索得到屏幕大小。依据宽和高的大小比较判断，宽小于高为竖屏，宽大与高就是横屏。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> updateOrientation = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> orientation = (<span class="built_in">window</span>.innerWidth &gt; <span class="built_in">window</span>.innerHeight) ? <span class="string">'landscape'</span> : <span class="string">'portrait'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        updateOrientation();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//监听resize事件</span></span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>,updateOrientation,<span class="literal">false</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>,init,<span class="literal">false</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></li>
+可以用resize事件来判断。用innerWidth ， innerHeight，可以检索得到屏幕大小。依据宽和高的大小比较判断，宽小于高为竖屏，宽大与高就是横屏。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> updateOrientation = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> orientation = (<span class="built_in">window</span>.innerWidth &gt; <span class="built_in">window</span>.innerHeight) ? <span class="string">'landscape'</span> : <span class="string">'portrait'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        updateOrientation();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//监听resize事件</span></span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>,updateOrientation,<span class="literal">false</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>,init,<span class="literal">false</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<h3 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h3><p>元素提升为一个比较特殊的图层，在三维空间中 (z轴) 高出普通元素一等。</p>
+<ul>
+<li><p>触发条件</p>
+<ul>
+<li>根层叠上下文(html)<ul>
+<li>position</li>
+<li>css3属性</li>
+<li>flex</li>
+<li>transform</li>
+<li>opacity</li>
+<li>filter</li>
+<li>will-change</li>
+<li>-webkit-overflow-scrolling</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>层叠等级：层叠上下文在z轴上的排序</p>
+<ul>
+<li>在同一层叠上下文中，层叠等级才有意义</li>
+<li>z-index的优先级最高</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/z-index.png" alt="z-index"></p>
+<h3 id="居中布局"><a href="#居中布局" class="headerlink" title="居中布局"></a>居中布局</h3><h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><p>行内元素: text-align: center
+块级元素: margin: 0 auto
+absolute + transform
+flex + justify-content: center</p>
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><p>line-height: height
+absolute + transform
+flex + align-items: center
+table</p>
+<h4 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h4><p>absolute + transform
+flex + justify-content + align-items</p>
 
       
     </div>
@@ -659,7 +706,7 @@ zoom这个样式，只在IE中支持，其他浏览器都不支持。</p>
   <p><span>本文标题:</span><a href="/css高度坍塌和判断横竖屏.html">css高度坍塌和判断横竖屏</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年12月08日 - 14:12</p>
-  <p><span>最后更新:</span>2019年09月04日 - 00:09</p>
+  <p><span>最后更新:</span>2020年05月27日 - 20:05</p>
   <p><span>原始链接:</span><a href="/css高度坍塌和判断横竖屏.html" title="css高度坍塌和判断横竖屏">http://mydearest.cn/css高度坍塌和判断横竖屏.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/css高度坍塌和判断横竖屏.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -963,7 +1010,7 @@ zoom这个样式，只在IE中支持，其他浏览器都不支持。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css高度坍塌"><span class="nav-number">1.</span> <span class="nav-text">css高度坍塌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#当开启元素的BFC以后，元素将会具有如下的特性："><span class="nav-number">1.1.</span> <span class="nav-text">当开启元素的BFC以后，元素将会具有如下的特性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何开启元素的BFC"><span class="nav-number">1.2.</span> <span class="nav-text">如何开启元素的BFC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备旋转监听"><span class="nav-number">2.</span> <span class="nav-text">设备旋转监听</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css高度坍塌"><span class="nav-number">1.</span> <span class="nav-text">css高度坍塌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#当开启元素的BFC以后，元素将会具有如下的特性："><span class="nav-number">1.1.</span> <span class="nav-text">当开启元素的BFC以后，元素将会具有如下的特性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">1.2.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何开启元素的BFC"><span class="nav-number">1.3.</span> <span class="nav-text">如何开启元素的BFC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备旋转监听"><span class="nav-number">2.</span> <span class="nav-text">设备旋转监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠上下文"><span class="nav-number">3.</span> <span class="nav-text">层叠上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#居中布局"><span class="nav-number">4.</span> <span class="nav-text">居中布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居中"><span class="nav-number">4.1.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直居中"><span class="nav-number">4.2.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平垂直居中"><span class="nav-number">4.3.</span> <span class="nav-text">水平垂直居中</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1008,7 +1055,7 @@ zoom这个样式，只在IE中支持，其他浏览器都不支持。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 234.6k字</span>
+    <span class="post-count">Blog总字数: 235.8k字</span>
   </div>
 
   <div class="theme-info">

@@ -1294,12 +1294,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-29T00:51:21+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">29</div>
+  <div class="post-date" data-datetime="2020-05-26T22:43:55+08:00">
+    <div class="post-time-text">5月</div>
+    <div class="post-time-count">26</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月29</div>
+      <div class="post-tiem">5月26</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1406,7 +1406,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  460 (字)
+                  570 (字)
                 </span>
               
 
@@ -1422,7 +1422,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -1463,6 +1463,11 @@ a:hover {
 </li>
 </ul>
 <h2 id="求一个字符串中最长的非重复连续子串"><a href="#求一个字符串中最长的非重复连续子串" class="headerlink" title="求一个字符串中最长的非重复连续子串"></a>求一个字符串中最长的非重复连续子串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">''</span>;<span class="comment">//存放当前最大无重复项字符串</span></span><br><span class="line">    <span class="keyword">var</span> len = <span class="number">0</span>;<span class="comment">//存放当前最大无重复项字符串长度</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;s.length;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> char = s.charAt(i);</span><br><span class="line">        <span class="keyword">var</span> index = str.indexOf(char);</span><br><span class="line">        <span class="keyword">if</span>(index === <span class="number">-1</span>)&#123;  <span class="comment">//遍历s将元素挨个放入到str中，每放入一次判断str中是否有重复项</span></span><br><span class="line">            str += char;</span><br><span class="line">            len = len&lt;str.length?str.length:len;<span class="comment">//记录最大长度项,每次重新记录str进行判断，是否大于上次一次最大项</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            str = str.substr(index + <span class="number">1</span>) + char; <span class="comment">//从当前重复项开始重新记录str</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 'adasdddddddfghti' 6</span></span><br></pre></td></tr></table></figure>
+<h2 id="求字符串数组的最长公共前缀"><a href="#求字符串数组的最长公共前缀" class="headerlink" title="求字符串数组的最长公共前缀"></a>求字符串数组的最长公共前缀</h2><blockquote>
+<p>比如输入: [“flower”,”flow”,”flight”]，输出: “fl”</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (strs === <span class="literal">null</span> || strs.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.length === <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">let</span> min = <span class="number">0</span>, max = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; strs.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs[min] &gt; strs[i]) min = i</span><br><span class="line">        <span class="keyword">if</span>(strs[max] &lt; strs[i]) max = i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; strs[min].length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs[min].charAt(j) !== strs[max].charAt(j)) &#123;</span><br><span class="line">            <span class="keyword">return</span> strs[min].substring(<span class="number">0</span>, j)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strs[min]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -2817,7 +2822,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 234.6k字</span>
+    <span class="post-count">Blog总字数: 235.8k字</span>
   </div>
 
   <div class="theme-info">

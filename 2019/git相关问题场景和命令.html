@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git-chain1.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/git-chain2.png">
-<meta property="og:updated_time" content="2020-05-24T09:37:37.060Z">
+<meta property="og:updated_time" content="2020-05-26T14:43:55.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关问题场景和命令">
 <meta name="twitter:description" content="一、必备知识点">
@@ -418,12 +418,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-24T17:37:37+08:00">
+  <div class="post-date" data-datetime="2020-05-26T22:43:55+08:00">
     <div class="post-time-text">5月</div>
-    <div class="post-time-count">24</div>
+    <div class="post-time-count">26</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月24</div>
+      <div class="post-tiem">5月26</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -528,7 +528,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,597 (字)
+                  3,635 (字)
                 </span>
               
 
@@ -664,9 +664,10 @@ git pull –rebase = git fetch + git rebase</p>
 <p>所以这时在合并前，通常我会先执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature</span><br><span class="line">git rebase dev</span><br></pre></td></tr></table></figure>
 <p>这样就可以将 feature 重新拼接到更新了的 dev 之后，然后就可以合并了，最终得到一个干净舒服的提交线图。</p>
-<p><strong>再次提醒：像之前提到的，rebase 是『危险行为』，建议你足够熟悉 git 时才这么做，否则的话是得不偿失啊。</strong></p>
+<p><strong>再次提醒：像之前提到的，rebase 是『危险行为』，建议你足够熟悉 git 时才这么做，否则的话是得不偿失的。</strong></p>
 <h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>使用 <code>git pull --rebase</code> 和 <code>git merge --no-ff</code> 其实和直接使用 <code>git pull</code> <code>git merge</code> 得到的代码应该是一样。</p>
-<p>使用 <code>git pull --rebase</code> 主要是为是将提交约线图平坦化，而 <code>git merge --no-ff</code> 则是刻意制造分叉。</p>
+<p>使用 <code>git pull --rebase</code> 主要是为是将提交的线图平坦化，而 <code>git merge --no-ff</code> 则是刻意制造分叉。</p>
+<p>git rebase 和 git merge 主要的区别在于是否保留分支的 commit 提交节点，rebase 会给你一个简洁的线性历史树。</p>
 <h3 id="六、SSH"><a href="#六、SSH" class="headerlink" title="六、SSH"></a>六、SSH</h3><h4 id="1-查看是否生成了-SSH-公钥"><a href="#1-查看是否生成了-SSH-公钥" class="headerlink" title="1. 查看是否生成了 SSH 公钥"></a>1. 查看是否生成了 SSH 公钥</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br><span class="line">$ ls</span><br><span class="line">id_rsa      id_rsa.pub      known_hosts</span><br></pre></td></tr></table></figure>
 <p>其中 id_rsa 是私钥，id_rsa.pub 是公钥。</p>
 <h4 id="2-如果没有那就开始生成，设置全局的user-name与user-email"><a href="#2-如果没有那就开始生成，设置全局的user-name与user-email" class="headerlink" title="2. 如果没有那就开始生成，设置全局的user.name与user.email"></a>2. 如果没有那就开始生成，设置全局的user.name与user.email</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --list <span class="comment">// 查看是否设置了user.name与user.email，没有的话，去设置</span></span><br><span class="line"><span class="comment">// 设置全局的user.name与user.email</span></span><br><span class="line">git config --global user.name <span class="string">"XX"</span></span><br><span class="line">git config --global user.email <span class="string">"XX"</span></span><br></pre></td></tr></table></figure>
@@ -796,7 +797,7 @@ git pull –rebase = git fetch + git rebase</p>
   <p><span>本文标题:</span><a href="/2019/git相关问题场景和命令.html">git相关问题场景和命令</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年09月21日 - 00:09</p>
-  <p><span>最后更新:</span>2020年05月24日 - 17:05</p>
+  <p><span>最后更新:</span>2020年05月26日 - 22:05</p>
   <p><span>原始链接:</span><a href="/2019/git相关问题场景和命令.html" title="git相关问题场景和命令">http://mydearest.cn/2019/git相关问题场景和命令.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/git相关问题场景和命令.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1145,7 +1146,7 @@ git pull –rebase = git fetch + git rebase</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 234.6k字</span>
+    <span class="post-count">Blog总字数: 235.8k字</span>
   </div>
 
   <div class="theme-info">

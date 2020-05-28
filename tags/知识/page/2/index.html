@@ -844,12 +844,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-12T01:01:23+08:00">
+  <div class="post-date" data-datetime="2020-05-29T01:02:27+08:00">
     <div class="post-time-text">5月</div>
-    <div class="post-time-count">12</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月12</div>
+      <div class="post-tiem">5月29</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -956,7 +956,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  793 (字)
+                  912 (字)
                 </span>
               
 
@@ -1027,18 +1027,24 @@ CSSOM构建结束后，和DOM一起生成Render Tree</p>
 <p><img src="http://cdn.mydearest.cn/blog/images/render.png" alt="render"></p>
 <p>CSS阻塞渲染：由于CSSOM负责存储渲染信息，浏览器就必须保证在合成渲染树之前，CSSOM是完备的，这种完备是指所有的CSS（内联、内部和外部）都已经下载完，并解析完，只有CSSOM和DOM的解析完全结束，浏览器才会进入下一步的渲染。CSS阻塞渲染意味着，在CSSOM完备前，页面将一直处理白屏状态，这就是为什么样式放在head中，仅仅是为了更快的解析CSS，保证更快的首次渲染。
 JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修改节点样式，这就导致了浏览器在解析HTML时，一旦碰到script，就会立即停止HTML的解析，也阻塞了其后的CSS解析，整个解析进程必须等待JS的执行完成才能够继续。从性能角度上讲，将script放在页面底部，也就合情合理了。</p>
+<h2 id="重绘（Repaint）："><a href="#重绘（Repaint）：" class="headerlink" title="重绘（Repaint）："></a>重绘（Repaint）：</h2><p>当各种盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来后，浏览器便把这些元素都按照各自的特性绘制了一遍，于是页面的内容出现了，这个过程称之为repaint。</p>
+<ul>
+<li>重绘(repaint): 当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要UI层面的重新像素绘制，因此 损耗较少。</li>
+</ul>
+<h3 id="触发重绘"><a href="#触发重绘" class="headerlink" title="触发重绘"></a>触发重绘</h3><ol>
+<li>DOM改动</li>
+<li>CSS改动</li>
+</ol>
 <h2 id="重排（Reflow）："><a href="#重排（Reflow）：" class="headerlink" title="重排（Reflow）："></a>重排（Reflow）：</h2><p>DOM结构中的各个元素都有自己的盒子（模型），这些都需要浏览器根据各种样式来计算并根据计算结果将元素放到它该出现的位置，这个过程称之为reflow。</p>
-<h3 id="触发重排（reflow）："><a href="#触发重排（reflow）：" class="headerlink" title="触发重排（reflow）："></a>触发重排（reflow）：</h3><ol>
+<ul>
+<li>回流(reflow): 当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。</li>
+</ul>
+<h3 id="触发重排"><a href="#触发重排" class="headerlink" title="触发重排"></a>触发重排</h3><ol>
 <li>当增加、删除、修改DOM节点时，会导致reflow或repaint</li>
 <li>当移动DOM的位置，或是插入动画的时候</li>
 <li>当修改CSS样式的时候</li>
 <li>当Resize窗口的时候，或是滚动的时候</li>
 <li>当修改网页的默认字体时</li>
-</ol>
-<h2 id="重绘（Repaint）："><a href="#重绘（Repaint）：" class="headerlink" title="重绘（Repaint）："></a>重绘（Repaint）：</h2><p>当各种盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来后，浏览器便把这些元素都按照各自的特性绘制了一遍，于是页面的内容出现了，这个过程称之为repaint。</p>
-<h3 id="触发重绘（Repaint）："><a href="#触发重绘（Repaint）：" class="headerlink" title="触发重绘（Repaint）："></a>触发重绘（Repaint）：</h3><ol>
-<li>DOM改动</li>
-<li>CSS改动</li>
 </ol>
 <h2 id="最小化重绘和重排"><a href="#最小化重绘和重排" class="headerlink" title="最小化重绘和重排"></a>最小化重绘和重排</h2><ol>
 <li><p>一次性修改样式：减少内联样式使用 样式合并写法 </p>
@@ -1976,12 +1982,12 @@ JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修�
   
   
   
-  <div class="post-date" data-datetime="2020-05-27T20:34:51+08:00">
+  <div class="post-date" data-datetime="2020-05-29T01:02:27+08:00">
     <div class="post-time-text">5月</div>
-    <div class="post-time-count">27</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月27</div>
+      <div class="post-tiem">5月29</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -2088,7 +2094,7 @@ JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修�
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  15,866 (字)
+                  16,029 (字)
                 </span>
               
 
@@ -2405,7 +2411,7 @@ void expression</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 235.8k字</span>
+    <span class="post-count">Blog总字数: 236.4k字</span>
   </div>
 
   <div class="theme-info">

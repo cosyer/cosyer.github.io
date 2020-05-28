@@ -141,11 +141,12 @@
 <meta property="og:description" content="字符串扩展的方法 includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.in">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/boardcast.png">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/get-post-diff.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/tcp.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/w3c-box.jpg">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ie-box.jpg">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ast.png">
-<meta property="og:updated_time" content="2020-05-27T12:34:35.314Z">
+<meta property="og:updated_time" content="2020-05-28T17:02:27.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题整理归纳">
 <meta name="twitter:description" content="字符串扩展的方法 includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined 123456var a=[1,2,3]a[4]=5 // [1, 2, 3, undefined × 1, 5] empty// a[3]=undefined [1, 2, 3, undefined, 5] a.indexOf(undefined) // -1a.in">
@@ -420,12 +421,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-27T20:34:35+08:00">
+  <div class="post-date" data-datetime="2020-05-29T01:02:27+08:00">
     <div class="post-time-text">5月</div>
-    <div class="post-time-count">27</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月27</div>
+      <div class="post-tiem">5月29</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -530,7 +531,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  24,363 (字)
+                  24,453 (字)
                 </span>
               
 
@@ -658,11 +659,11 @@ setTimeout 的第一个参数使用字符串而非函数的话，会引发内存
 <p>防止内存泄漏：<br>1、不要动态绑定事件；<br>2、不要在动态添加，或者会被动态移除的dom上绑事件，用事件冒泡在父容器监听事件；<br>3、如果要违反上面的原则，必须提供destroy方法，保证移除dom后事件也被移除，这点可以参考Backbone的源代码，做的比较好；<br>4、单例化，少创建dom，少绑事件。</p>
 <p>原因：</p>
 <ul>
-<li>全局变量</li>
+<li>意外的全局变量无法被回收</li>
 <li>闭包</li>
-<li>dom清空，事件未清除</li>
-<li>子元素存在引用</li>
-<li>计时器未删除</li>
+<li>定时器未删除被正确关闭</li>
+<li>dom事件未清除</li>
+<li>dom元素删除内存存在引用</li>
 </ul>
 <h2 id="html和xhtml有什么区别"><a href="#html和xhtml有什么区别" class="headerlink" title="html和xhtml有什么区别?"></a>html和xhtml有什么区别?</h2><p>HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记语言。</p>
 <p>1.XHTML 元素必须被正确地嵌套。</p>
@@ -746,11 +747,12 @@ jquery主要是兼容性好，可以跑在各种pc，移动上，好处是兼容
 <li>get产生一个TCP数据包，POST产生两个TCP数据包</li>
 </ul>
 <p>get就是将货品放在车顶，post放在车内。</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/get-post-diff.png" alt="get-post-diff"></p>
 <h2 id="GC机制？为什么闭包不会被回收变量和函数？"><a href="#GC机制？为什么闭包不会被回收变量和函数？" class="headerlink" title="GC机制？为什么闭包不会被回收变量和函数？"></a>GC机制？为什么闭包不会被回收变量和函数？</h2><ul>
-<li>GC：垃圾回收机制;  </li>
-<li>外部变量没释放仍然保持着引用，所以指向的大函数内的小函数也释放不了。
-引用类型是在没有引用之后, 通过 v8 的 GC 自动回收, 值类型如果是处于闭包的情况下, 要等闭包没有引用才会被 GC 回收, 非闭包的情况下等待 v8 的新生代 (new space) 切换的时候回收。</li>
+<li>GC垃圾回收机制：将内存中不再使用的数据进行清理，释放出内存空间。</li>
 </ul>
+<p>引用类型是在没有引用之后, 通过 v8 的 GC 自动回收, 值类型如果是处于闭包的情况下, 要等闭包没有引用才会被 GC 回收, 非闭包的情况下等待 v8 的新生代 (new space) 切换的时候回收。</p>
+<p>V8 将内存分成 新生代空间 和 老生代空间。</p>
 <p>回收方法有两种：标记清除、计数引用</p>
 <p>33 面向对象？
 万物皆对象，把一个对象抽象成类，具体上就是把一个对象的静态特征和动态特征抽象成属性（属性名、属性值）和方法，也就是把一类事物的算法和数据结构封装在一个类之中，程序就是多个对象和互相之间的通信组成的。</p>
@@ -901,7 +903,7 @@ CORS全称“ Cross-origin resource sharing ”（跨域资源共享），相比
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="built_in">require</span>(<span class="string">'http-proxy-middleware'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/zhuiszhu'</span>, proxy(&#123;<span class="attr">target</span>: <span class="string">'http://39.105.136.190:3000/'</span>, <span class="attr">changeOrigin</span>: <span class="literal">true</span>&#125;));</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>webpack-dev-server</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">        port: <span class="number">3000</span>,</span><br><span class="line">        inline: <span class="literal">true</span>,</span><br><span class="line">        proxy: &#123;</span><br><span class="line">            <span class="string">"/zhuiszhu"</span>: &#123;</span><br><span class="line">                target: <span class="string">"http://39.105.136.190:3000/"</span>,</span><br><span class="line">                changeOrigin: <span class="literal">true</span>  <span class="comment">//必须配置为true，才能正确代理</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    port: <span class="number">3000</span>,</span><br><span class="line">    inline: <span class="literal">true</span>,</span><br><span class="line">    proxy: &#123;</span><br><span class="line">        <span class="string">"/zhuiszhu"</span>: &#123;</span><br><span class="line">            target: <span class="string">"http://39.105.136.190:3000/"</span>,</span><br><span class="line">            changeOrigin: <span class="literal">true</span>  <span class="comment">//必须配置为true，才能正确代理</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>webpack 的 devServer.proxy 就是使用了非常强大的 http-proxy-middleware 包来实现代理的，所以本质上是相通的。</p>
@@ -1560,6 +1562,16 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 </ul>
 <h2 id="fetch会发送两次请求的原因"><a href="#fetch会发送两次请求的原因" class="headerlink" title="fetch会发送两次请求的原因"></a>fetch会发送两次请求的原因</h2><p>fetch发送post请求时总是发送两次，第一次状态码是204，第二次才会成功。 原因是，用fetch发送post请求时，第一次发送了一个options请求，询问服务器是否支持修改的请求头，如果支持，则在第二次发送真正的请求</p>
 <h2 id="webworker"><a href="#webworker" class="headerlink" title="webworker"></a>webworker</h2><p>在html页面中，如果在执行脚本时，页面的状态是不可响应的，直到脚本执行完成后页面才变为可响应。web worker是运行在后台的js，独立于其他脚本，不会影响页面。并且通过postMessage将结果回转至主线程。</p>
+<p>现代浏览器为JavaScript创造的多线程环境。可以新建并将部分任务分配到worker线程并行运行，两个线程可独立运行，互不干扰，可通过自带的消息机制相互通信。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 worker</span></span><br><span class="line"><span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(<span class="string">'work.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 向主进程推送消息</span></span><br><span class="line">worker.postMessage(<span class="string">'Hello World'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听主进程来的消息</span></span><br><span class="line">worker.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Received message '</span> + event.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>限制<ul>
+<li>同源限制</li>
+<li>无法使用 document / window / alert / confirm</li>
+<li>无法加载本地资源</li>
+</ul>
+</li>
+</ul>
 <h2 id="一句话概括RESTFUL"><a href="#一句话概括RESTFUL" class="headerlink" title="一句话概括RESTFUL"></a>一句话概括RESTFUL</h2><p>用url定位资源，用http描述操作</p>
 <h2 id="设备像素比（DPR-device-pixel-redio）"><a href="#设备像素比（DPR-device-pixel-redio）" class="headerlink" title="设备像素比（DPR device pixel redio）"></a>设备像素比（DPR device pixel redio）</h2><p>1DPR = 物理像素/分辨率 也就是物理像素在屏幕上最佳的逻辑像素大小</p>
 <p>在不缩放的情况下，一个逻辑像素就等于一个DPR，即1逻辑像素 = 物理像素/分辨率</p>
@@ -1609,14 +1621,18 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 <li>没有则查询DNS服务器</li>
 </ul>
 </li>
-<li>建立tcp连接</li>
-<li>根据ip和端口号构建一个http请求，封装为tcp包，请求传输：应用层-&gt;传输层-&gt;网络层-&gt;数据链路层-&gt;物理层</li>
+<li>建立tcp连接（TCP三次握手）</li>
+<li>根据ip和端口号构建一个http请求，封装为tcp包，请求传输：应用层-&gt;传输层-&gt;网络层-&gt;数据链路层-&gt;物理层（发送请求，解析url，设置请求报文(头，主体)）<ul>
 <li>到达服务器，服务器解析请求作出响应</li>
-<li>浏览器接收到html构建DOM树（中途如果遇到js就会停止构建而去执行会下载脚本）</li>
+</ul>
+</li>
+<li>浏览器接收到html构建DOM树（中途如果遇到js就会停止构建而去执行会下载脚本）（浏览器渲染）<ul>
 <li>构建CSSOM树</li>
 <li>合并两树为渲染树（排除了非视觉结点）</li>
 <li>布局（确定个元素的尺寸和位置）</li>
-<li>渲染页面</li>
+<li>渲染绘制页面</li>
+</ul>
+</li>
 </ul>
 <h2 id="Cache-control的值有哪些"><a href="#Cache-control的值有哪些" class="headerlink" title="Cache-control的值有哪些"></a>Cache-control的值有哪些</h2><p>Cache-control是一个通用消息头字段，被用于HTTP请求和响应中。通过指定指令来实现缓存机制，这个缓存指令是单向的，常见的取值有：</p>
 <ul>
@@ -1663,8 +1679,7 @@ PNG8 类似 GIF 颜色上限为 256，文件小，支持 alpha 透明度，无�
 <h2 id="line-height和height的区别"><a href="#line-height和height的区别" class="headerlink" title="line-height和height的区别"></a>line-height和height的区别</h2><p>line-height一般是指布局里面一段文字上下行之间的高度，是针对字体来设置的。height一般是指容器的整体高度</p>
 <h2 id="重绘和重排"><a href="#重绘和重排" class="headerlink" title="重绘和重排"></a>重绘和重排</h2><h3 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h3><p>当盒子的位置，大小以及其他属性，例如颜色。字体大小等都确定下来之后，浏览器便把这些元素都按各自的特性绘制一遍，将内容呈现在页面上，重绘是指一个元素外观的改变触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</p>
 <p>触发重绘的条件：改变元素的外观属性</p>
-<h3 id="重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载"><a href="#重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载" class="headerlink" title="重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载"></a>重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载</h3><p>重绘和重排的关系：在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，也就是意味着重排意味着重绘操作，而重绘不一定导致重排
-DOM的变化影响到运算内宿的几何属性比如宽高，浏览器重新计算元素的几何属性，其他元素的几何属性也会受到影响，浏览器需要重新构造渲染树，这个过程称为重排，浏览器将受到影响的部分重新绘制在屏幕上的过程称为重绘。</p>
+<h3 id="重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载"><a href="#重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载" class="headerlink" title="重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载"></a>重排：当渲染树中的一部分或全部因为元素的规模尺寸，布局，隐藏等改变而需要重新构建，每个页面至少经历一次重排，即首次加载</h3><p>重绘和重排的关系：在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，也就是意味着重排意味着重绘操作，而重绘不一定导致重排</p>
 <p>引起重排重绘的原因有:</p>
 <ul>
 <li>添加或者删除可见的DOM元素</li>
@@ -1772,7 +1787,7 @@ TCP协议是一种面向连接的、可靠的字节流的运输层通信协议�
   <p><span>本文标题:</span><a href="/interview.html">面试题整理归纳</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月23日 - 10:06</p>
-  <p><span>最后更新:</span>2020年05月27日 - 20:05</p>
+  <p><span>最后更新:</span>2020年05月29日 - 01:05</p>
   <p><span>原始链接:</span><a href="/interview.html" title="面试题整理归纳">http://mydearest.cn/interview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/interview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -2121,7 +2136,7 @@ TCP协议是一种面向连接的、可靠的字节流的运输层通信协议�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 235.8k字</span>
+    <span class="post-count">Blog总字数: 236.4k字</span>
   </div>
 
   <div class="theme-info">

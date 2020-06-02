@@ -142,7 +142,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/http-cache.jpeg">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/http-cache2.png">
-<meta property="og:updated_time" content="2020-05-11T16:42:23.818Z">
+<meta property="og:updated_time" content="2020-06-02T15:18:46.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入了解HTTP">
 <meta name="twitter:description" content="HTTP 特性 基于TCP-IP协议 应用层协议 默认端口号80 无连接无状态  什么是无状态 状态】的含义就是：客户端和服务器在某次会话中产生的数据 那么对应的【无状态】就意味着：这些数据不会被保留 通过增加cookie和session机制，现在的网络请求其实是有状态的 在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产">
@@ -417,12 +417,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-12T00:42:23+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">12</div>
+  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月12</div>
+      <div class="post-tiem">6月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -527,7 +527,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,031 (字)
+                  3,039 (字)
                 </span>
               
 
@@ -635,10 +635,10 @@ a:hover {
 <li>如何防范 CSRF 攻击？</li>
 </ul>
 <ol>
-<li>关键操作只接受 POST 请求</li>
+<li>关键操作只接受 POST 请求，get 不修改数据</li>
 <li>验证码 强制用户必须与应用进行交互。</li>
 <li>检测referer 通过Referer识别 根据HTTP协议，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址。在通常情况下，访问一个安全受限的页面的请求都来自于同一个网站。</li>
-<li>token</li>
+<li>请求校验</li>
 </ol>
 <h4 id="XSS（Cross-Site-Scripting，跨站脚本攻击）"><a href="#XSS（Cross-Site-Scripting，跨站脚本攻击）" class="headerlink" title="XSS（Cross Site Scripting，跨站脚本攻击）"></a>XSS（Cross Site Scripting，跨站脚本攻击）</h4><p>XSS 全称“跨站脚本”，是注入攻击的一种。其特点是不对服务器端造成任何伤害，而是通过一些正常的站内交互途径，例如发布评论，提交含有 JavaScript 的内容文本。这时服务器端如果没有过滤或转义掉这些脚本，作为内容发布到了页面上，其他用户访问这个页面的时候就会运行这些脚本。</p>
 <p>XSS 是实现 CSRF 的诸多途径中的一条，但绝对不是唯一的一条。一般习惯上把通过 XSS 来实现的 CSRF 称为 XSRF。</p>
@@ -649,8 +649,7 @@ a:hover {
 </ul>
 <ol>
 <li>cookie设置http-only，不允许js修改访问cookie</li>
-<li>输入检查</li>
-<li>输出检查，对变量输入到HTML页面的代码进行编码或转义</li>
+<li>输入检查、输出检查，对变量输入到HTML页面的代码进行编码或转义</li>
 </ol>
 <h3 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h3><p><code>缓存是指浏览器（客户端）在本地磁盘中对访问过的资源保存的副本文件。</code>
 浏览器缓存主要有以下几个优点：</p>
@@ -732,7 +731,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/深入了解HTTP.html">深入了解HTTP</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年04月30日 - 00:04</p>
-  <p><span>最后更新:</span>2020年05月12日 - 00:05</p>
+  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
   <p><span>原始链接:</span><a href="/2019/深入了解HTTP.html" title="深入了解HTTP">http://mydearest.cn/2019/深入了解HTTP.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/深入了解HTTP.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -900,7 +899,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">134</span>
+                <span class="site-state-item-count">137</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1081,7 +1080,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 236.4k字</span>
+    <span class="post-count">Blog总字数: 248.1k字</span>
   </div>
 
   <div class="theme-info">

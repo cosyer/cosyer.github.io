@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="浮动布局(float + margin)1234567891011121314151617181920212223242526272829303132&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;div class=&quot;left&quot;&amp;gt;Left&amp;lt;/div&amp;gt;     &amp;lt;!-- 右栏部分要写在中间内容之前 --&amp;gt;    &amp;lt;div class=&quot;">
+<meta name="description" content="圣杯布局和双飞翼布局(其实是一回事)都是实现的三栏布局。 浮动布局(float + margin)1234567891011121314151617181920212223242526272829303132&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;div class=&quot;left&quot;&amp;gt;Left&amp;lt;/div&amp;gt;     &amp;lt;!-- 右栏部分要写在中间内">
 <meta name="keywords" content="布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三栏布局总结（左右固定宽度 中间自适应）">
 <meta property="og:url" content="http://mydearest.cn/2020/三栏布局总结.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="浮动布局(float + margin)1234567891011121314151617181920212223242526272829303132&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;div class=&quot;left&quot;&amp;gt;Left&amp;lt;/div&amp;gt;     &amp;lt;!-- 右栏部分要写在中间内容之前 --&amp;gt;    &amp;lt;div class=&quot;">
+<meta property="og:description" content="圣杯布局和双飞翼布局(其实是一回事)都是实现的三栏布局。 浮动布局(float + margin)1234567891011121314151617181920212223242526272829303132&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;div class=&quot;left&quot;&amp;gt;Left&amp;lt;/div&amp;gt;     &amp;lt;!-- 右栏部分要写在中间内">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T14:57:25.479Z">
+<meta property="og:updated_time" content="2020-06-02T15:18:46.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三栏布局总结（左右固定宽度 中间自适应）">
-<meta name="twitter:description" content="浮动布局(float + margin)1234567891011121314151617181920212223242526272829303132&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;div class=&quot;left&quot;&amp;gt;Left&amp;lt;/div&amp;gt;     &amp;lt;!-- 右栏部分要写在中间内容之前 --&amp;gt;    &amp;lt;div class=&quot;">
+<meta name="twitter:description" content="圣杯布局和双飞翼布局(其实是一回事)都是实现的三栏布局。 浮动布局(float + margin)1234567891011121314151617181920212223242526272829303132&amp;lt;div class=&quot;container&quot;&amp;gt;    &amp;lt;div class=&quot;left&quot;&amp;gt;Left&amp;lt;/div&amp;gt;     &amp;lt;!-- 右栏部分要写在中间内">
 
 
 
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-10T22:57:25+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">10</div>
+  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月10</div>
+      <div class="post-tiem">6月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  700 (字)
+                  725 (字)
                 </span>
               
 
@@ -561,7 +561,8 @@ a:hover {
       
 
       
-        <h2 id="浮动布局-float-margin"><a href="#浮动布局-float-margin" class="headerlink" title="浮动布局(float + margin)"></a>浮动布局(float + margin)</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;div class="left"&gt;Left&lt;/div&gt;</span><br><span class="line">     &lt;!<span class="selector-tag">--</span> 右栏部分要写在中间内容之前 <span class="selector-tag">--</span>&gt;</span><br><span class="line">    &lt;div class="right"&gt;Right&lt;/div&gt;</span><br><span class="line">    &lt;div class="main"&gt;Main&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">html</span>,<span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*左边栏左浮动*/</span></span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*中间栏自适应*/</span></span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*右边栏右浮动*/</span></span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>圣杯布局和双飞翼布局(其实是一回事)都是实现的三栏布局。</p>
+<h2 id="浮动布局-float-margin"><a href="#浮动布局-float-margin" class="headerlink" title="浮动布局(float + margin)"></a>浮动布局(float + margin)</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;div class="left"&gt;Left&lt;/div&gt;</span><br><span class="line">     &lt;!<span class="selector-tag">--</span> 右栏部分要写在中间内容之前 <span class="selector-tag">--</span>&gt;</span><br><span class="line">    &lt;div class="right"&gt;Right&lt;/div&gt;</span><br><span class="line">    &lt;div class="main"&gt;Main&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">html</span>,<span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*左边栏左浮动*/</span></span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*中间栏自适应*/</span></span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*右边栏右浮动*/</span></span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>优点：快捷 简单 兼容性较好</li>
 <li>缺点: 有局限性 脱离文档流 需要清除浮动等</li>
@@ -619,7 +620,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/三栏布局总结.html">三栏布局总结（左右固定宽度 中间自适应）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年05月09日 - 00:05</p>
-  <p><span>最后更新:</span>2020年05月10日 - 22:05</p>
+  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
   <p><span>原始链接:</span><a href="/2020/三栏布局总结.html" title="三栏布局总结（左右固定宽度 中间自适应）">http://mydearest.cn/2020/三栏布局总结.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/三栏布局总结.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -694,8 +695,8 @@ a:hover {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/js二进制和位运算.html" rel="next" title="js二进制和位运算">
-                <i class="fa fa-chevron-left"></i> js二进制和位运算
+              <a href="/2020/HTML5中的Web Notification桌面通知.html" rel="next" title="HTML5中的Web Notification桌面通知">
+                <i class="fa fa-chevron-left"></i> HTML5中的Web Notification桌面通知
               </a>
             
           </div>
@@ -787,7 +788,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">134</span>
+                <span class="site-state-item-count">137</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -968,7 +969,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 236.4k字</span>
+    <span class="post-count">Blog总字数: 248.1k字</span>
   </div>
 
   <div class="theme-info">

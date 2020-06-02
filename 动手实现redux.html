@@ -132,18 +132,20 @@
 
 
 
-<meta name="description" content="概念：  一个app有一个store，一个store管理着一个全局state createStore 传入reducer，返回getState, dispatch, subscribe action是一个至少有type这个键的对象，可以写一个creactActioner 函数去return生成action对象 createStore.dispatch(action) 根据action这个对象去更新">
+<meta name="description" content="概念：  一个app只有一个store，一个store管理着一个全局state含有以下方法 getState: 获取 state； dispatch: 触发 action, 更新 state； subscribe: 订阅数据变更，注册监听器；   createStore 传入reducer，返回getState, dispatch, subscribe action是一个至少有type这个键的对象">
 <meta name="keywords" content="react,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动手实现redux">
 <meta property="og:url" content="http://mydearest.cn/动手实现redux.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="概念：  一个app有一个store，一个store管理着一个全局state createStore 传入reducer，返回getState, dispatch, subscribe action是一个至少有type这个键的对象，可以写一个creactActioner 函数去return生成action对象 createStore.dispatch(action) 根据action这个对象去更新">
+<meta property="og:description" content="概念：  一个app只有一个store，一个store管理着一个全局state含有以下方法 getState: 获取 state； dispatch: 触发 action, 更新 state； subscribe: 订阅数据变更，注册监听器；   createStore 传入reducer，返回getState, dispatch, subscribe action是一个至少有type这个键的对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-26T15:23:16.496Z">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/redux.png">
+<meta property="og:updated_time" content="2020-06-02T15:18:46.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动手实现redux">
-<meta name="twitter:description" content="概念：  一个app有一个store，一个store管理着一个全局state createStore 传入reducer，返回getState, dispatch, subscribe action是一个至少有type这个键的对象，可以写一个creactActioner 函数去return生成action对象 createStore.dispatch(action) 根据action这个对象去更新">
+<meta name="twitter:description" content="概念：  一个app只有一个store，一个store管理着一个全局state含有以下方法 getState: 获取 state； dispatch: 触发 action, 更新 state； subscribe: 订阅数据变更，注册监听器；   createStore 传入reducer，返回getState, dispatch, subscribe action是一个至少有type这个键的对象">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/redux.png">
 
 
 
@@ -414,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-26T23:23:16+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">26</div>
+  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月26</div>
+      <div class="post-tiem">6月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  396 (字)
+                  490 (字)
                 </span>
               
 
@@ -563,13 +565,24 @@ a:hover {
       
         <p>概念：</p>
 <ul>
-<li>一个app有一个store，一个store管理着一个全局state</li>
+<li>一个app只有一个store，一个store管理着一个全局state含有以下方法<ul>
+<li>getState: 获取 state；</li>
+<li>dispatch: 触发 action, 更新 state；</li>
+<li>subscribe: 订阅数据变更，注册监听器；</li>
+</ul>
+</li>
 <li>createStore 传入reducer，返回getState, dispatch, subscribe</li>
 <li>action是一个至少有type这个键的对象，可以写一个creactActioner 函数去return生成action对象</li>
 <li>createStore.dispatch(action) 根据action这个对象去更新state</li>
 <li>dispatch是一个函数，内部有将执行reducer函数</li>
-<li>reducer也是一个函数，传入state,action, 输出一个新的state . (switch case return…)</li>
+<li>reducer也是一个函数，传入state,action, 输出一个新的state . (switch case return…)<ul>
+<li>遵守数据不可变，不要去直接修改 state，而是返回出一个 新对象；</li>
+<li>默认情况下需要 返回原数据，避免数据被清空；</li>
+<li>最好设置 初始值，便于应用的初始化及数据稳定；</li>
 </ul>
+</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/redux.png" alt="redux"></p>
 <hr>
 <a id="more"></a>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span> = <span class="string">'title'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span> = <span class="string">"changeTheme"</span> <span class="attr">value</span>=<span class="string">"变成蓝色主题"</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -604,7 +617,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/动手实现redux.html">动手实现redux</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年10月03日 - 19:10</p>
-  <p><span>最后更新:</span>2020年04月26日 - 23:04</p>
+  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
   <p><span>原始链接:</span><a href="/动手实现redux.html" title="动手实现redux">http://mydearest.cn/动手实现redux.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/动手实现redux.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -765,7 +778,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">134</span>
+                <span class="site-state-item-count">137</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -930,7 +943,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 236.4k字</span>
+    <span class="post-count">Blog总字数: 248.1k字</span>
   </div>
 
   <div class="theme-info">

@@ -420,12 +420,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-26T22:43:55+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">26</div>
+  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月26</div>
+      <div class="post-tiem">6月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -532,7 +532,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  570 (字)
+                  944 (字)
                 </span>
               
 
@@ -548,7 +548,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -570,31 +570,70 @@ a:hover {
 
       
         
-          
-            <h2 id="写出一个方法输出1-100内的所有素数"><a href="#写出一个方法输出1-100内的所有素数" class="headerlink" title="写出一个方法输出1-100内的所有素数"></a>写出一个方法输出1-100内的所有素数</h2><p>解析：
-由素数（质数）定义可知：</p>
-<ul>
-<li>① 0、1都不是质数，那么最小的质数就是2。</li>
-<li>② 除了1和它自身，不能被其他数整除，那么代码表达式表示为：</li>
+          <h1 id="五大算法"><a href="#五大算法" class="headerlink" title="五大算法"></a>五大算法</h1><ul>
+<li>贪心算法：局部最优解法</li>
+<li>分治算法：分成多个小模块，与原问题性质相同</li>
+<li>动态规划：每个状态都是过去历史的一个总结</li>
+<li>回溯法：发现原先选择不优时，退回重新选择</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i % j === <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据树"><a href="#数据树" class="headerlink" title="数据树"></a>数据树</h2><ul>
+<li><p>二叉树: 最多只有两个子节点</p>
 <ul>
-<li>代码实现</li>
+<li>完全二叉树</li>
+<li>满二叉树<ul>
+<li>深度为 h, 有 n 个节点，且满足 n = 2^h - 1</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> bl = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">2</span>; j &lt;= i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i === j) <span class="keyword">continue</span></span><br><span class="line">      i % j === <span class="number">0</span> &amp;&amp; (bl = <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    !bl &amp;&amp; arr.push(i)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn())</span><br></pre></td></tr></table></figure>
-<h2 id="给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9"><a href="#给定一个整数数组，实现快速排序算法进行升序排列。如-2-5-8-9-3-gt-2-3-5-8-9" class="headerlink" title="给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]"></a>给定一个整数数组，实现快速排序算法进行升序排列。如[2, 5, 8, 9, 3] =&gt;[2, 3, 5, 8, 9]</h2><p>解析：（分治法）
-将一个列表分割为左右两块，然后再将字列表再进行分割为左右两块，如何反复，知道子元素长度为1时，结束！</p>
-<ul>
-<li>代码实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">qSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> arr</span><br><span class="line">  <span class="keyword">const</span> index = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> midVal = arr.splice(index, <span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">const</span> left = [],</span><br><span class="line">    right = []</span><br><span class="line">  arr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item &lt; midVal) left.push(item)</span><br><span class="line">    <span class="keyword">else</span> right.push(item)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> [...qSort(left), midVal, ...qSort(right)]</span><br><span class="line">&#125;</span><br><span class="line">qSort([<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="求一个字符串中最长的非重复连续子串"><a href="#求一个字符串中最长的非重复连续子串" class="headerlink" title="求一个字符串中最长的非重复连续子串"></a>求一个字符串中最长的非重复连续子串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">''</span>;<span class="comment">//存放当前最大无重复项字符串</span></span><br><span class="line">    <span class="keyword">var</span> len = <span class="number">0</span>;<span class="comment">//存放当前最大无重复项字符串长度</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;s.length;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> char = s.charAt(i);</span><br><span class="line">        <span class="keyword">var</span> index = str.indexOf(char);</span><br><span class="line">        <span class="keyword">if</span>(index === <span class="number">-1</span>)&#123;  <span class="comment">//遍历s将元素挨个放入到str中，每放入一次判断str中是否有重复项</span></span><br><span class="line">            str += char;</span><br><span class="line">            len = len&lt;str.length?str.length:len;<span class="comment">//记录最大长度项,每次重新记录str进行判断，是否大于上次一次最大项</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            str = str.substr(index + <span class="number">1</span>) + char; <span class="comment">//从当前重复项开始重新记录str</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 'adasdddddddfghti' 6</span></span><br></pre></td></tr></table></figure>
-<h2 id="求字符串数组的最长公共前缀"><a href="#求字符串数组的最长公共前缀" class="headerlink" title="求字符串数组的最长公共前缀"></a>求字符串数组的最长公共前缀</h2><blockquote>
-<p>比如输入: [“flower”,”flow”,”flight”]，输出: “fl”</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (strs === <span class="literal">null</span> || strs.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.length === <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">let</span> min = <span class="number">0</span>, max = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; strs.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs[min] &gt; strs[i]) min = i</span><br><span class="line">        <span class="keyword">if</span>(strs[max] &lt; strs[i]) max = i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; strs[min].length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs[min].charAt(j) !== strs[max].charAt(j)) &#123;</span><br><span class="line">            <span class="keyword">return</span> strs[min].substring(<span class="number">0</span>, j)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strs[min]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
+</li>
+<li><p>二叉查找树: 是一种特殊的二叉树，能有效地提高查找效率</p>
+<ul>
+<li>小值在左，大值在右</li>
+<li>节点 n 的所有左子树值小于 n，所有右子树值大于 n</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/binary-search-tree.png" alt="binary-search-tree"></p>
+<ul>
+<li>遍历节点<ul>
+<li>前序遍历<ul>
+<li>根节点</li>
+<li>访问左子节点，回到 1</li>
+<li>访问右子节点，回到 1</li>
+</ul>
+</li>
+<li>中序遍历<ul>
+<li>先访问到最左的子节点</li>
+<li>访问该节点的父节点</li>
+<li>访问该父节点的右子节点， 回到 1</li>
+</ul>
+</li>
+<li>后序遍历<ul>
+<li>先访问到最左的子节点</li>
+<li>访问相邻的右节点</li>
+<li>访问父节点， 回到 1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>DLR–前序遍历（根在前，从左往右，一棵树的根永远在左子树前面，左子树又永远在右子树前面 ）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/dlr.png" alt="dlr"></p>
+<p>LDR–中序遍历（根在中，从左往右，一棵树的左子树永远在根前面，根永远在右子树前面）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/ldr.png" alt="ldr"></p>
+<p>LRD–后序遍历（根在后，从左往右，一棵树的左子树永远在右子树前面，右子树永远在根前面）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/lrd.png" alt="lrd"></p>
+<ul>
+<li>插入与删除节点</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/算法题练习.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -693,7 +732,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">134</span>
+                <span class="site-state-item-count">137</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -858,7 +897,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 236.4k字</span>
+    <span class="post-count">Blog总字数: 248.1k字</span>
   </div>
 
   <div class="theme-info">

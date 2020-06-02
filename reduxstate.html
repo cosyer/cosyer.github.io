@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  Store — 数据存储中心，同时连接着Actions和Views（React Components）。  Store需要负责接收Views传来的Action 然后，根">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.180Z">
+<meta property="og:updated_time" content="2020-06-02T15:18:46.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux状态传播">
 <meta name="twitter:description" content="Redux三大概念 Redux 是JavaScript状态容器，提供可预测化的状态管理   action 普通的JS对象描述发生什么   reducer 只是一个接收 state 和 action，并返回新的 state 的函数  Store — 数据存储中心，同时连接着Actions和Views（React Components）。  Store需要负责接收Views传来的Action 然后，根">
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">6月02</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,035 (字)
+                  1,168 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  4 (分钟)
+                  5 (分钟)
                 </span>
               
             </div>
@@ -650,8 +650,15 @@ store.dispatch方法会触发 Reducer 的自动执行。为此，Store 需要知
 <p>TodoList是 UI 组件，VisibleTodoList就是由 react-redux 通过connect方法自动生成的容器组件。</p>
 <p>mapStateToProps：从Redux状态树中提取需要的部分作为props传递给当前的组件。
 mapDispatchToProps：将需要绑定的响应事件（action）作为props传递到组件上。</p>
-<h3 id="Provide"><a href="#Provide" class="headerlink" title="Provide"></a>Provide</h3><p>Provider实现store的全局访问，将store传给每个组件。
+<h3 id="Provide-将-store-通过-context-传入组件中"><a href="#Provide-将-store-通过-context-传入组件中" class="headerlink" title="Provide(将 store 通过 context 传入组件中)"></a>Provide(将 store 通过 context 传入组件中)</h3><p>Provider实现store的全局访问，将store传给每个组件。
 原理：使用React的context，context可以实现跨组件之间的传递。</p>
+<h3 id="reducer的拆分和重构"><a href="#reducer的拆分和重构" class="headerlink" title="reducer的拆分和重构"></a>reducer的拆分和重构</h3><p>随着项目越大，如果将所有状态的 reducer 全部写在一个函数中，将会 难以维护；可以将 reducer 进行拆分，也就是 函数分解，最终再使用<code>combineReducers()</code>进行重构合并；</p>
+<h3 id="异步Action"><a href="#异步Action" class="headerlink" title="异步Action"></a>异步Action</h3><p>由于 Reducer 是一个严格的纯函数，因此无法在 Reducer 中进行数据的请求，需要先获取数据，再dispatch(Action)即可，下面是三种不同的异步实现:</p>
+<ul>
+<li><a href="https://github.com/reduxjs/redux-thunk" target="_blank" rel="noopener">redex-thunk</a></li>
+<li><a href="https://github.com/redux-saga/redux-saga" target="_blank" rel="noopener">redux-saga</a></li>
+<li><a href="https://github.com/redux-observable/redux-observable" target="_blank" rel="noopener">redux-observable</a></li>
+</ul>
 <h2 id="使用-复杂性-数据交互-结构复杂繁琐-大型"><a href="#使用-复杂性-数据交互-结构复杂繁琐-大型" class="headerlink" title="使用 复杂性 数据交互 结构复杂繁琐 大型"></a>使用 复杂性 数据交互 结构复杂繁琐 大型</h2><ul>
 <li>“如果你不知道是否需要 Redux，那就是不需要它。”</li>
 <li>“只有遇到 React 实在解决不了的问题，你才需要 Redux。”</li>
@@ -687,7 +694,7 @@ mapDispatchToProps：将需要绑定的响应事件（action）作为props传递
   <p><span>本文标题:</span><a href="/reduxstate.html">redux状态传播</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月21日 - 19:06</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
   <p><span>原始链接:</span><a href="/reduxstate.html" title="redux状态传播">http://mydearest.cn/reduxstate.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/reduxstate.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -857,7 +864,7 @@ mapDispatchToProps：将需要绑定的响应事件（action）作为props传递
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">134</span>
+                <span class="site-state-item-count">137</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -993,7 +1000,7 @@ mapDispatchToProps：将需要绑定的响应事件（action）作为props传递
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux三大概念"><span class="nav-number">1.</span> <span class="nav-text">Redux三大概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三大原则"><span class="nav-number">1.1.</span> <span class="nav-text">三大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api"><span class="nav-number">1.2.</span> <span class="nav-text">api</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维持应用的-state"><span class="nav-number">1.2.1.</span> <span class="nav-text">维持应用的 state</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-redux"><span class="nav-number">2.</span> <span class="nav-text">react-redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#connect"><span class="nav-number">2.1.</span> <span class="nav-text">connect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Provide"><span class="nav-number">2.2.</span> <span class="nav-text">Provide</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-复杂性-数据交互-结构复杂繁琐-大型"><span class="nav-number">3.</span> <span class="nav-text">使用 复杂性 数据交互 结构复杂繁琐 大型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux三大概念"><span class="nav-number">1.</span> <span class="nav-text">Redux三大概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三大原则"><span class="nav-number">1.1.</span> <span class="nav-text">三大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api"><span class="nav-number">1.2.</span> <span class="nav-text">api</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维持应用的-state"><span class="nav-number">1.2.1.</span> <span class="nav-text">维持应用的 state</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-redux"><span class="nav-number">2.</span> <span class="nav-text">react-redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#connect"><span class="nav-number">2.1.</span> <span class="nav-text">connect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Provide-将-store-通过-context-传入组件中"><span class="nav-number">2.2.</span> <span class="nav-text">Provide(将 store 通过 context 传入组件中)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducer的拆分和重构"><span class="nav-number">2.3.</span> <span class="nav-text">reducer的拆分和重构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步Action"><span class="nav-number">2.4.</span> <span class="nav-text">异步Action</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-复杂性-数据交互-结构复杂繁琐-大型"><span class="nav-number">3.</span> <span class="nav-text">使用 复杂性 数据交互 结构复杂繁琐 大型</span></a></li></ol></div>
             
 
           </div>
@@ -1038,7 +1045,7 @@ mapDispatchToProps：将需要绑定的响应事件（action）作为props传递
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 236.4k字</span>
+    <span class="post-count">Blog总字数: 248.1k字</span>
   </div>
 
   <div class="theme-info">

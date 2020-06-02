@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="ES6 或 TS 引入了块级作用域,通过let和const、class等可以定义块级作用域里的变量，块级作用域内的变量不存在变量提升，且存在暂时性死区(在代码块内，使用let或const声明变量前该变量都是不可改变的)。常见的if语句，for循环的循环体内都可以定义块级变量。那么switch语句中的块级作用域是什么呢？ 先给出结论： switch语句中的块级作用域，在整个switch语句中，而不是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-18T08:46:24.507Z">
+<meta property="og:updated_time" content="2020-06-02T15:18:46.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="switch的块级作用域">
 <meta name="twitter:description" content="ES6 或 TS 引入了块级作用域,通过let和const、class等可以定义块级作用域里的变量，块级作用域内的变量不存在变量提升，且存在暂时性死区(在代码块内，使用let或const声明变量前该变量都是不可改变的)。常见的if语句，for循环的循环体内都可以定义块级变量。那么switch语句中的块级作用域是什么呢？ 先给出结论： switch语句中的块级作用域，在整个switch语句中，而不是">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-18T16:46:24+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">18</div>
+  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月18</div>
+      <div class="post-tiem">6月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -570,7 +570,7 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> number = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span>(number)&#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">let</span> name = <span class="string">'cosyer'</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">let</span> name = <span class="string">'yu'</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">   <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Identifier 'name' has already been declared</span></span><br></pre></td></tr></table></figure>
 <h2 id="可能存在的问题"><a href="#可能存在的问题" class="headerlink" title="可能存在的问题"></a>可能存在的问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> number = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span>(number)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span> : name = <span class="string">'cosyer'</span>; <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// name虽然没有声明，但是给name赋值相当于给全局的window对象复制，也就是window.name = 'cosyer'。</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> number = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">switch</span>(number)&#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">let</span> name = <span class="string">'cosyer'</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    name = <span class="string">'yu'</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Uncaught ReferenceError: name is not defined</span></span><br></pre></td></tr></table></figure>
-<p>这里虽然case里面定义的块级虽然不会存在变量提升，但是会存在暂时性死区,也就是说如果let name = ‘cosyer’ 没有执行，也就是name定义的过程没有执行，那么name在整个块级作用域内都是不可用的，都是undefined。</p>
+<p>这里虽然case里面定义的块级虽然不会存在变量提升，但是会存在暂时性锁区,也就是说如果let name = ‘cosyer’ 没有执行，也就是name定义的过程没有执行，那么name在整个块级作用域内都是不可用的，都是undefined。</p>
 <p>所以尽量不要在case里定义块级变量。</p>
 
       
@@ -603,7 +603,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/switch的块级作用域.html">switch的块级作用域</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年03月10日 - 00:03</p>
-  <p><span>最后更新:</span>2020年04月18日 - 16:04</p>
+  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
   <p><span>原始链接:</span><a href="/2019/switch的块级作用域.html" title="switch的块级作用域">http://mydearest.cn/2019/switch的块级作用域.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/switch的块级作用域.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -771,7 +771,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">134</span>
+                <span class="site-state-item-count">137</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -952,7 +952,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 236.4k字</span>
+    <span class="post-count">Blog总字数: 248.1k字</span>
   </div>
 
   <div class="theme-info">

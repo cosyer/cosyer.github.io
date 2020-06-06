@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="一. package.json 解读1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;#123;	&quot;name&quot;: &quot;hello world&quot;, // 项目名称	&quot;version&quot;: &quot;0.0.1&quot;, // 版本号：大版本.次要版本.小版本	&quot;author&quot;: &quot;张三&quot;,	&quot;de">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-27T12:34:51.111Z">
+<meta property="og:updated_time" content="2020-06-04T13:52:44.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm总结">
 <meta name="twitter:description" content="一. package.json 解读1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;#123;	&quot;name&quot;: &quot;hello world&quot;, // 项目名称	&quot;version&quot;: &quot;0.0.1&quot;, // 版本号：大版本.次要版本.小版本	&quot;author&quot;: &quot;张三&quot;,	&quot;de">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-27T20:34:51+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2020-06-04T21:52:44+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">04</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月27</div>
+      <div class="post-tiem">6月04</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,692 (字)
+                  2,732 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  11 (分钟)
+                  12 (分钟)
                 </span>
               
             </div>
@@ -618,7 +618,7 @@ a:hover {
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"bin"</span>: &#123;</span><br><span class="line">  <span class="string">"webpack"</span>: <span class="string">"./bin/webpack.js"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <p>通过全局安装的包都安装到一个统一的目录下，可以通过以下方式获得:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.resolve(process.execPath, <span class="string">".."</span>, <span class="string">".."</span>, <span class="string">"lib"</span>, <span class="string">"node_modules"</span>) </span><br><span class="line"><span class="comment">// 例如：/usr/local/lib/node_modules</span></span><br></pre></td></tr></table></figure>
-<h3 id="一零-npm-发布包"><a href="#一零-npm-发布包" class="headerlink" title="一零. npm 发布包"></a>一零. npm 发布包</h3><ul>
+<h3 id="十-npm-发布包"><a href="#十-npm-发布包" class="headerlink" title="十. npm 发布包"></a>十. npm 发布包</h3><ul>
 <li><strong>创建一个空文件</strong>：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/index.js</span></span><br><span class="line">exports.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello An!"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -640,6 +640,15 @@ a:hover {
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm owner add &lt;user[&lt;@scope&gt;/]&lt;pkg&gt;</span><br><span class="line">npm owner rm &lt;user[&lt;@scope&gt;/]&lt;pkg&gt;</span><br><span class="line">npm owner ls [&lt;@scope&gt;/]&lt;pkg&gt;</span><br></pre></td></tr></table></figure>
 <p>在自己的项目中安装包 <code>npm install</code>，通过 <code>npm ls</code> 分析模块路径找到的所有包，并生成依赖树。</p>
+<h3 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h3><ol>
+<li>Unable to look up github.com (port 9418)</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global url.<span class="string">"https://"</span>.insteadOf git:<span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<p>再重新<code>npm install</code>，问题解决。</p>
+<ol>
+<li>清除包缓存<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -671,7 +680,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/npm总结.html">npm总结</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年09月18日 - 00:09</p>
-  <p><span>最后更新:</span>2020年05月27日 - 20:05</p>
+  <p><span>最后更新:</span>2020年06月04日 - 21:06</p>
   <p><span>原始链接:</span><a href="/2019/npm总结.html" title="npm总结">http://mydearest.cn/2019/npm总结.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/npm总结.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -975,7 +984,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-package-json-解读"><span class="nav-number">1.</span> <span class="nav-text">一. package.json 解读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-版本号规范"><span class="nav-number">2.</span> <span class="nav-text">二. 版本号规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-npm-install-与-npm-update"><span class="nav-number">3.</span> <span class="nav-text">三. npm install 与 npm update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-npm-i-与-npm-install"><span class="nav-number">4.</span> <span class="nav-text">四. npm i 与 npm install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-npm-devDependencies-与-dependencies"><span class="nav-number">5.</span> <span class="nav-text">五. npm devDependencies 与 dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-全局安装与本地安装"><span class="nav-number">6.</span> <span class="nav-text">六. 全局安装与本地安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-全局安装，-将包安装成全局可用的可执行命令"><span class="nav-number">6.1.</span> <span class="nav-text">1. 全局安装， 将包安装成全局可用的可执行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地安装"><span class="nav-number">6.2.</span> <span class="nav-text">2. 本地安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改全局安装默认路径"><span class="nav-number">6.3.</span> <span class="nav-text">3. 修改全局安装默认路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-npm-包命令"><span class="nav-number">7.</span> <span class="nav-text">七. npm 包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-简写形式"><span class="nav-number">8.</span> <span class="nav-text">八. 简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-process"><span class="nav-number">9.</span> <span class="nav-text">九. process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一零-npm-发布包"><span class="nav-number">10.</span> <span class="nav-text">一零. npm 发布包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-package-json-解读"><span class="nav-number">1.</span> <span class="nav-text">一. package.json 解读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-版本号规范"><span class="nav-number">2.</span> <span class="nav-text">二. 版本号规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-npm-install-与-npm-update"><span class="nav-number">3.</span> <span class="nav-text">三. npm install 与 npm update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-npm-i-与-npm-install"><span class="nav-number">4.</span> <span class="nav-text">四. npm i 与 npm install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-npm-devDependencies-与-dependencies"><span class="nav-number">5.</span> <span class="nav-text">五. npm devDependencies 与 dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-全局安装与本地安装"><span class="nav-number">6.</span> <span class="nav-text">六. 全局安装与本地安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-全局安装，-将包安装成全局可用的可执行命令"><span class="nav-number">6.1.</span> <span class="nav-text">1. 全局安装， 将包安装成全局可用的可执行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地安装"><span class="nav-number">6.2.</span> <span class="nav-text">2. 本地安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改全局安装默认路径"><span class="nav-number">6.3.</span> <span class="nav-text">3. 修改全局安装默认路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-npm-包命令"><span class="nav-number">7.</span> <span class="nav-text">七. npm 包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-简写形式"><span class="nav-number">8.</span> <span class="nav-text">八. 简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-process"><span class="nav-number">9.</span> <span class="nav-text">九. process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十-npm-发布包"><span class="nav-number">10.</span> <span class="nav-text">十. npm 发布包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number">11.</span> <span class="nav-text">常见错误</span></a></li></ol></div>
             
 
           </div>

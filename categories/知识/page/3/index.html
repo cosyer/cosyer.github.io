@@ -1282,13 +1282,13 @@ string.trim()</li>
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
+  <div class="post-date" data-datetime="2020-06-15T01:21:18+08:00">
+    <div class="post-time-text">6月</div>
     <div class="post-time-count">15</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">6月15</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -1394,7 +1394,7 @@ string.trim()</li>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  51 (字)
+                  806 (字)
                 </span>
               
 
@@ -1410,7 +1410,7 @@ string.trim()</li>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -1433,7 +1433,18 @@ string.trim()</li>
       
         
           
-            <h3 id="meta基础知识"><a href="#meta基础知识" class="headerlink" title="meta基础知识"></a>meta基础知识</h3><h4 id="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"><a href="#H5页面窗口自动调整到设备宽度，并禁止用户缩放页面" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+            <h2 id="meta基础知识"><a href="#meta基础知识" class="headerlink" title="meta基础知识"></a>meta基础知识</h2><h3 id="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"><a href="#H5页面窗口自动调整到设备宽度，并禁止用户缩放页面" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="ios竖屏拍照上传，图片被旋转问题"><a href="#ios竖屏拍照上传，图片被旋转问题" class="headerlink" title="ios竖屏拍照上传，图片被旋转问题"></a>ios竖屏拍照上传，图片被旋转问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.通过第三方插件exif-js获取到图片的方向</span></span><br><span class="line"><span class="comment">// 2.new一个FileReader对象，加载读取上传的图片</span></span><br><span class="line"><span class="comment">// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收</span></span><br><span class="line"><span class="comment">// 4.在image的onload函数中，利用步骤1中获取到的方向orientation，通过canvas旋转校正，重新绘制一张新图</span></span><br><span class="line"><span class="comment">// 注意iPhone有3个拍照方向需要处理，横屏拍摄，home键在左侧，竖屏拍摄，home建上下</span></span><br><span class="line"><span class="comment">// 5.将绘制的新图转成Blob对象，添加到FormData对象中，然后进行校正后的上传操作</span></span><br><span class="line"><span class="comment">// 代码有点杂，待整理后上传，网上应该是可以找到的</span></span><br></pre></td></tr></table></figure>
+<h2 id="ios：DOM元素固定一边，另一边滚动，滚动很卡的问题"><a href="#ios：DOM元素固定一边，另一边滚动，滚动很卡的问题" class="headerlink" title="ios：DOM元素固定一边，另一边滚动，滚动很卡的问题"></a>ios：DOM元素固定一边，另一边滚动，滚动很卡的问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// (横向滚动用的多些)简单粗暴的办法，样式添加如下属性</span></span><br><span class="line">-webkit-overflow-scrolling: touch;</span><br></pre></td></tr></table></figure>
+<h2 id="部分手机第三方输入法会将页面网上挤的问题"><a href="#部分手机第三方输入法会将页面网上挤的问题" class="headerlink" title="部分手机第三方输入法会将页面网上挤的问题"></a>部分手机第三方输入法会将页面网上挤的问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 特定需求页面，比如评论页面，输入框在顶部之类的</span></span><br><span class="line"><span class="keyword">const</span> interval = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</span><br><span class="line">&#125;, <span class="number">100</span>)</span><br><span class="line"><span class="comment">// 注意关闭页面或者销毁组件的时候记得清空定时器</span></span><br><span class="line">clearInterval(interval);</span><br></pre></td></tr></table></figure>
+<h2 id="iPhoneX适配"><a href="#iPhoneX适配" class="headerlink" title="iPhoneX适配"></a>iPhoneX适配</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 1.viewport meta 标签增加属性viewport-fit=cover</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, viewport-fit=cover, xxxx&quot;&gt;</span><br><span class="line">// 2.body元素增加样式</span><br><span class="line">body &#123;</span><br><span class="line">  padding-bottom: constant(safe-area-inset-bottom);</span><br><span class="line">  padding-bottom: env(safe-area-inset-bottom);</span><br><span class="line">&#125;</span><br><span class="line">// 3.如有fixed底部的元素，也增加上面样式</span><br><span class="line">xxx &#123;</span><br><span class="line">  padding-bottom: constant(safe-area-inset-bottom);</span><br><span class="line">  padding-bottom: env(safe-area-inset-bottom);</span><br><span class="line">  background-color: #fff; // 记得添加background-color，不然会出现透明镂空的情况</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="某些机型不支持video标签的poster属性，特别是安卓"><a href="#某些机型不支持video标签的poster属性，特别是安卓" class="headerlink" title="某些机型不支持video标签的poster属性，特别是安卓"></a>某些机型不支持video标签的poster属性，特别是安卓</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用图片元素 &lt;img /&gt;来代替poster</span><br><span class="line">播放前显示&lt;img /&gt;，隐藏 &lt;video /&gt;</span><br><span class="line">播放后显示&lt;video /&gt;，隐藏 &lt;img /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS透明度颜色设置问题"><a href="#CSS透明度颜色设置问题" class="headerlink" title="CSS透明度颜色设置问题"></a>CSS透明度颜色设置问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Android部分不支持 hex写法，推荐用rgba的写法</span><br><span class="line">#0000009c --&gt; rgba(0, 0, 0, 0.61)</span><br></pre></td></tr></table></figure>
+<h2 id="flex对低版本的ios和Android的支持问题"><a href="#flex对低版本的ios和Android的支持问题" class="headerlink" title="flex对低版本的ios和Android的支持问题"></a>flex对低版本的ios和Android的支持问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用postcss的autoprefixer插件，自动添加浏览器内核前缀，</span></span><br><span class="line"><span class="comment">// 并且增加更低浏览器版本的配置，自动添加flex老版本的属性和写法</span></span><br><span class="line">autoprefixer(&#123;</span><br><span class="line">    browsers: [</span><br><span class="line">        <span class="string">'iOS &gt;= 6'</span>,     <span class="comment">// 特殊处理支持低版本IOS</span></span><br><span class="line">        <span class="string">'Safari &gt;= 6'</span>,  <span class="comment">// 特殊处理支持低版本Safari</span></span><br><span class="line">    ],</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+<h2 id="ios-页面回退到长列表出现灰色遮挡问题"><a href="#ios-页面回退到长列表出现灰色遮挡问题" class="headerlink" title="ios 页面回退到长列表出现灰色遮挡问题"></a>ios 页面回退到长列表出现灰色遮挡问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">方案1：对列表数据进行缓存，比如redux之类的用法。</span><br><span class="line">方案2：回退时，跳到页面顶部。</span><br><span class="line">const timer = setTimeout(() =&gt; &#123;</span><br><span class="line">    window.scrollTo(0, 1);</span><br><span class="line">    window.scrollTo(0, 0);</span><br><span class="line">&#125;, 0);</span><br></pre></td></tr></table></figure>
+<h2 id="ios-日期转换NAN的问题"><a href="#ios-日期转换NAN的问题" class="headerlink" title="ios 日期转换NAN的问题"></a>ios 日期转换NAN的问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将日期字符串的格式符号替换成&apos;/&apos;。</span><br><span class="line">栗子：&apos;yyyy-MM-dd&apos;.replace(/-/g, &apos;/&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="react未知错误异常，导致页面崩溃，空白"><a href="#react未知错误异常，导致页面崩溃，空白" class="headerlink" title="react未知错误异常，导致页面崩溃，空白"></a>react未知错误异常，导致页面崩溃，空白</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">React 16.x 增加了componentDidCatch() 生命周期方法</span><br><span class="line">捕获全局异常来进行页面的友好提示</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -2767,7 +2778,7 @@ string.trim()</li>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 253.4k字</span>
+    <span class="post-count">Blog总字数: 254.2k字</span>
   </div>
 
   <div class="theme-info">

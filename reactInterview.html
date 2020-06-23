@@ -140,7 +140,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/reactInterview.jpeg ">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ssr.png">
-<meta property="og:updated_time" content="2020-06-02T15:18:46.626Z">
+<meta property="og:updated_time" content="2020-06-22T12:57:38.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react面试题记录">
 <meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/reactInterview.jpeg ">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+  <div class="post-date" data-datetime="2020-06-22T20:57:38+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
+      <div class="post-tiem">6月22</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  6,871 (字)
+                  6,873 (字)
                 </span>
               
 
@@ -610,7 +610,7 @@ a:hover {
 <li>清晰：当一切都是一个箭头函数，任何常规函数都可以立即用于定义作用域。开发者总是可以查找 next-higher 函数语句，以查看 <code>this</code> 的值</li>
 </ul>
 <h3 id="为什么建议传递给-setState-的参数是一个-callback-而不是一个对象"><a href="#为什么建议传递给-setState-的参数是一个-callback-而不是一个对象" class="headerlink" title="为什么建议传递给 setState 的参数是一个 callback 而不是一个对象"></a>为什么建议传递给 setState 的参数是一个 callback 而不是一个对象</h3><p>因为 <code>this.props</code> 和 <code>this.state</code> 的更新可能是异步的，不能依赖它们的值去计算下一个 state。setState在生命周期里是异步的，第二个参数是组件重新渲染完成后的回调。</p>
-<h3 id="除了在构造函数中绑定-this，还有其它方式吗"><a href="#除了在构造函数中绑定-this，还有其它方式吗" class="headerlink" title="除了在构造函数中绑定 this，还有其它方式吗"></a>除了在构造函数中绑定 <code>this</code>，还有其它方式吗</h3><p>你可以使用属性初始值设定项(property initializers)来正确绑定回调，create-react-app 也是默认支持的。在回调中你可以使用箭头函数，但问题是每次组件渲染时都会创建一个新的回调。</p>
+<h3 id="除了在构造函数中绑定-this，还有其它方式吗"><a href="#除了在构造函数中绑定-this，还有其它方式吗" class="headerlink" title="除了在构造函数中绑定 this，还有其它方式吗"></a>除了在构造函数中绑定 <code>this</code>，还有其它方式吗</h3><p>在 constructor 里使用 bind。在回调中你可以使用箭头函数，但问题是每次组件渲染时都会创建一个新的回调。</p>
 <h3 id="怎么阻止组件的渲染"><a href="#怎么阻止组件的渲染" class="headerlink" title="怎么阻止组件的渲染"></a>怎么阻止组件的渲染</h3><p>在组件的 <code>render</code> 方法中返回 <code>null</code> 并不会影响触发组件的生命周期方法</p>
 <h3 id="当渲染一个列表时，何为-key？设置-key-的目的是什么"><a href="#当渲染一个列表时，何为-key？设置-key-的目的是什么" class="headerlink" title="当渲染一个列表时，何为 key？设置 key 的目的是什么"></a>当渲染一个列表时，何为 key？设置 key 的目的是什么</h3><p>Keys 会有助于 React 识别哪些 <code>items</code> 改变了，被添加了或者被移除了。Keys 应该被赋予数组内的元素以赋予(DOM)元素一个稳定的标识，选择一个 key 的最佳方法是使用一个字符串，该字符串能惟一地标识一个列表项。很多时候你会使用数据中的 IDs 作为 keys，当你没有稳定的 IDs 用于被渲染的 <code>items</code> 时，可以使用项目索引作为渲染项的 key，但这种方式并不推荐，如果 <code>items</code> 可以重新排序，就会导致 <code>re-render</code> 变慢。在map遍历是能唯一地标识元素item，时的处理列表更加高效。</p>
 <h3 id="在构造函数中-调用-super-props-的目的是什么"><a href="#在构造函数中-调用-super-props-的目的是什么" class="headerlink" title="(在构造函数中)调用 super(props) 的目的是什么"></a>(在构造函数中)调用 super(props) 的目的是什么</h3><p>在 <code>super()</code> 被调用之前，子类是不能使用 <code>this</code> 的，在 ES2015 中，子类必须在 <code>constructor</code> 中调用 <code>super()</code>。传递 <code>props</code> 给 <code>super()</code> 的原因则是便于(在子类中)能在 <code>constructor</code> 访问 <code>this.props</code>。</p>
@@ -653,7 +653,7 @@ a:hover {
 <p>选择性子树渲染。开发人员可以重写shouldComponentUpdate提高diff的性能。</p>
 <p>diff的只是html tag，并没有diff数据。</p>
 <h3 id="setState的理解"><a href="#setState的理解" class="headerlink" title="setState的理解"></a>setState的理解</h3><ul>
-<li>setState 只在<code>合成事件</code>和<code>钩子函数(除了componentDidUpdate)</code>中是“异步”的，在原生事件和setTimeout 中都是同步的。</li>
+<li>setState 只在<code>合成事件</code>和<code>钩子函数(除了componentDidUpdate)</code>中是“异步”的，在原生事件和 setTimeout 中都是同步的。</li>
 <li>setState 的“异步”并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形成了所谓的“异步”，当然可以通过第二个参数 setState(partialState, callback) 中的callback拿到更新后的结果。</li>
 <li><p>setState 的批量更新优化也是建立在“异步”（合成事件、钩子函数）之上的，在原生事件和setTimeout 中不会批量更新，在“异步”中如果对同一个值进行多次setState，setState的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时setState多个不同的值，在更新时会对其进行合并批量更新。</p>
 </li>
@@ -786,7 +786,10 @@ state：</li>
 <p>两者最好不要混用，原生事件中如果执行了stopPropagation方法，则会导致其他react事件失效，</p>
 <h3 id="虚拟dom比普通dom更快吗"><a href="#虚拟dom比普通dom更快吗" class="headerlink" title="虚拟dom比普通dom更快吗"></a>虚拟dom比普通dom更快吗</h3><p>首次渲染时vdom不具有任何优势甚至要进行更多的计算，消耗更多的内存</p>
 <p>vdom的优势在于react的diff算法和批处理策略，react在页面更新之前，提前计算好了如何进行更新和渲染dom。vdom主要是能在重复渲染时帮助我们计算如何实现更高效的更新，而不是说它比dom操作快</p>
-<h3 id="虚拟dom中的-typeof属性的作用是什么"><a href="#虚拟dom中的-typeof属性的作用是什么" class="headerlink" title="虚拟dom中的$$typeof属性的作用是什么"></a>虚拟dom中的$$typeof属性的作用是什么</h3><p>它被赋值为REACT_ELEMENT_TYPE，是一个symbol类型的变量，这个变量可以防止XSS。react渲染时会把没有$$typeof标识以及规则校验不通过的组件全都过滤掉</p>
+<h3 id="虚拟dom中的-typeof属性的作用是什么"><a href="#虚拟dom中的-typeof属性的作用是什么" class="headerlink" title="虚拟dom中的$$typeof属性的作用是什么"></a>虚拟dom中的$$typeof属性的作用是什么</h3><p>它被赋值为REACT_ELEMENT_TYPE，是一个symbol类型的变量，这个变量可以防止XSS。react渲染时会把没有$$typeof标识以及规则校验不通过的组件全都过滤掉。当你的环境不支持Symbol时，$$typeof被赋值为0xeac7，为什么采用0xeac7？</p>
+<blockquote>
+<p>0xeac7看起来有点像React。</p>
+</blockquote>
 <h3 id="HOC在业务场景中有哪些实际的应用"><a href="#HOC在业务场景中有哪些实际的应用" class="headerlink" title="HOC在业务场景中有哪些实际的应用"></a>HOC在业务场景中有哪些实际的应用</h3><ul>
 <li>组合渲染(属性代理)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyHoc</span>(<span class="params">Comp</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">		render() &#123;</span><br><span class="line">			<span class="keyword">const</span> newProps = &#123;</span><br><span class="line">				name: <span class="string">'tayde'</span>,</span><br><span class="line">				age: <span class="number">1</span>,</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Comp</span> &#123;<span class="attr">...this.props</span>&#125; &#123;<span class="attr">...newProps</span>&#125; /&gt;</span></span></span><br><span class="line"><span class="xml">		&#125;</span></span><br><span class="line"><span class="xml">	&#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -947,7 +950,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
   <p><span>本文标题:</span><a href="/reactInterview.html">react面试题记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月07日 - 14:06</p>
-  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
+  <p><span>最后更新:</span>2020年06月22日 - 20:06</p>
   <p><span>原始链接:</span><a href="/reactInterview.html" title="react面试题记录">http://mydearest.cn/reactInterview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/reactInterview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1117,7 +1120,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">139</span>
+                <span class="site-state-item-count">141</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1139,7 +1142,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1298,7 +1301,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 255.4k字</span>
+    <span class="post-count">Blog总字数: 259.5k字</span>
   </div>
 
   <div class="theme-info">

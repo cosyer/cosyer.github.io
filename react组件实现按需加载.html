@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="第一种：ReactTraining/react-router 介绍的基于 webpack, babel-plugin-syntax-dynamic-import, 和 react-loadable. 主要是利用了react-loadable这个高级组件，他是专门用来异步加载（也可以预加载）组件的。 https://github.com/ReactTraining/react-router/blob">
+<meta name="description" content="随着前端应用体积的扩大，资源加载的优化是我们必须要面对的问题，动态代码加载就是其中的一个方案，webpack 提供了符合 ECMAScript 提案 的 import() 语法 ，让我们来实现动态地加载模块（注：require.ensure 与 import() 均为 webpack 提供的代码动态加载方案，在 webpack 2.x  中，require.ensure 已被 import 取代）">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react组件实现按需加载">
 <meta property="og:url" content="http://mydearest.cn/react组件实现按需加载.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="第一种：ReactTraining/react-router 介绍的基于 webpack, babel-plugin-syntax-dynamic-import, 和 react-loadable. 主要是利用了react-loadable这个高级组件，他是专门用来异步加载（也可以预加载）组件的。 https://github.com/ReactTraining/react-router/blob">
+<meta property="og:description" content="随着前端应用体积的扩大，资源加载的优化是我们必须要面对的问题，动态代码加载就是其中的一个方案，webpack 提供了符合 ECMAScript 提案 的 import() 语法 ，让我们来实现动态地加载模块（注：require.ensure 与 import() 均为 webpack 提供的代码动态加载方案，在 webpack 2.x  中，require.ensure 已被 import 取代）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T05:37:34.180Z">
+<meta property="og:updated_time" content="2020-06-23T11:39:15.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react组件实现按需加载">
-<meta name="twitter:description" content="第一种：ReactTraining/react-router 介绍的基于 webpack, babel-plugin-syntax-dynamic-import, 和 react-loadable. 主要是利用了react-loadable这个高级组件，他是专门用来异步加载（也可以预加载）组件的。 https://github.com/ReactTraining/react-router/blob">
+<meta name="twitter:description" content="随着前端应用体积的扩大，资源加载的优化是我们必须要面对的问题，动态代码加载就是其中的一个方案，webpack 提供了符合 ECMAScript 提案 的 import() 语法 ，让我们来实现动态地加载模块（注：require.ensure 与 import() 均为 webpack 提供的代码动态加载方案，在 webpack 2.x  中，require.ensure 已被 import 取代）">
 
 
 
@@ -414,13 +414,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2020-06-23T19:39:15+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">6月23</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  350 (字)
+                  1,472 (字)
                 </span>
               
 
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  6 (分钟)
                 </span>
               
             </div>
@@ -561,23 +561,39 @@ a:hover {
       
 
       
-        <p>第一种：ReactTraining/react-router 介绍的基于 webpack, babel-plugin-syntax-dynamic-import, 和 react-loadable.</p>
-<p>主要是利用了react-loadable这个高级组件，他是专门用来异步加载（也可以预加载）组件的。</p>
-<p><a href="https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/guides/code-splitting.md" target="_blank" rel="noopener">https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/guides/code-splitting.md</a></p>
+        <p>随着前端应用体积的扩大，资源加载的优化是我们必须要面对的问题，动态代码加载就是其中的一个方案，webpack 提供了符合 ECMAScript 提案 的 <code>import()</code> 语法 ，让我们来实现动态地加载模块（注：require.ensure 与 import() 均为 webpack 提供的代码动态加载方案，在 webpack 2.x  中，require.ensure 已被 import 取代）。</p>
+<h2 id="React-lazy-是什么"><a href="#React-lazy-是什么" class="headerlink" title="React.lazy 是什么"></a>React.lazy 是什么</h2><p>在 React 16.6 版本中，新增了 React.lazy 函数，它能让你像渲染常规组件一样处理动态引入的组件，配合 webpack 的 Code Splitting ，只有当组件被加载，对应的资源才会导入 ，从而达到懒加载的效果。</p>
+<h2 id="使用-React-lazy"><a href="#使用-React-lazy" class="headerlink" title="使用 React.lazy"></a>使用 React.lazy</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不使用 React.lazy</span></span><br><span class="line"><span class="keyword">import</span> OtherComponent <span class="keyword">from</span> <span class="string">'./OtherComponent'</span>;</span><br><span class="line"><span class="comment">// 使用 React.lazy</span></span><br><span class="line"><span class="keyword">const</span> OtherComponent = React.lazy(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./OtherComponent'</span>))</span><br></pre></td></tr></table></figure>
+<p>React.lazy 接受一个函数作为参数，这个函数需要调用 import() 。它需要返回一个  Promise，该 Promise 需要 resolve 一个 defalut export 的 React 组件。</p>
+<p>在控制台打印可以看到，React.lazy 方法返回的是一个 lazy 组件的对象，类型是 react.lazy，并且 lazy 组件具有 _status 属性，与 Promise 类似它具有 Pending、Resolved、Rejected 三个状态，分别代表组件的加载中、已加载、和加载失败三种状态。</p>
+<blockquote>
+<p>需要注意的一点是，React.lazy 需要配合 Suspense 组件一起使用，在 Suspense 组件中渲染 React.lazy 异步加载的组件。如果单独使用 React.lazy，React 会给出错误提示。其中在 Suspense 组件中，
+fallback 是一个必需的占位属性，如果没有这个属性的话也是会报错的。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 延迟加载回调 不需要加载效果设置为null maxDuration可以设置最大持续时间 最新版本中已移除了这个属性</span></span><br><span class="line"><span class="keyword">const</span> SuspenseComponent = <span class="function">(<span class="params">Component</span>) =&gt;</span> (props) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Suspense fallback=&#123;<span class="built_in">Math</span>.random() &gt;= <span class="number">0.5</span> ? <span class="xml"><span class="tag">&lt;<span class="name">Loading</span> /&gt;</span> : <span class="tag">&lt;<span class="name">SkeletonView</span> /&gt;</span>&#125;&gt;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...props</span>&#125;&gt;</span><span class="tag">&lt;/<span class="name">Component</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">Suspense</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">component: SuspenseComponent(OtherComponent),</span><br></pre></td></tr></table></figure>
 <hr>
- <a id="more"></a> 
-<p>第二种：SF网友介绍的Bundle组件配合webpack组件bundle-loader</p>
-<p>bundle-loader效用其实和require.ensure()一样，把组件分片成单独的chunk，在Bundle组件中引入</p>
-<p><a href="https://segmentfault.com/a/1190000009539836" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009539836</a></p>
-<p>但是我尝试的时候发现总是报错说不要在import中引入webpack的loader。。。</p>
-<p>然后我继续查，发现第三种实现</p>
-<p>第三种：简书AlienZHOU介绍的同样基于create-react-app的方式，在Bundle组件中props入一个()=&gt;import(‘path’)函数</p>
-<p><a href="http://www.jianshu.com/p/547aa7b92d8c" target="_blank" rel="noopener">http://www.jianshu.com/p/547aa7b92d8c</a></p>
-<p>第四种，create-react-app文档给的react-router按需加载实现：用一个类Bundle组件的异步函数</p>
-<p><a href="https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html" target="_blank" rel="noopener">https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html</a></p>
-<p>这种方式我试了下，确实能分片，但是讨论里有人指出性能上不如Bundle组件，那个人好像还是Create-react-app的主要贡献者</p>
-<p>四种方式我都试过，期间。。这个过程略痛苦。。。不过结论是：第三种是目前我认为最好的，基于create-react-app，且实现最简单。</p>
-<p>但是较大的项目，一般我们都会eject出来自己配置webpack啦，其实影响也不大。</p>
+<a id="more"></a>
+<h2 id="Webpack-动态加载"><a href="#Webpack-动态加载" class="headerlink" title="Webpack 动态加载"></a>Webpack 动态加载</h2><p>上面使用了 <code>import()</code> 语法，webpack 检测到这种语法会自动代码分割。使用这种动态导入语法代替以前的静态引入，可以让组件在渲染的时候，再去加载组件对应的资源。这个异步加载流程的实现机制是怎么样
+呢？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">__webpack_require__.e = <span class="function"><span class="keyword">function</span> <span class="title">requireEnsure</span>(<span class="params">chunkId</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// installedChunks 是在外层代码中定义的对象，可以用来缓存了已加载 chunk</span></span><br><span class="line">  <span class="keyword">var</span> installedChunkData = installedChunks[chunkId]</span><br><span class="line">    <span class="comment">// 判断 installedChunkData 是否为 0：表示已加载 </span></span><br><span class="line">  <span class="keyword">if</span> (installedChunkData === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">      resolve()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (installedChunkData) &#123;</span><br><span class="line">    <span class="keyword">return</span> installedChunkData[<span class="number">2</span>]</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="comment">// 如果 chunk 还未加载，则构造对应的 Promsie 并缓存在 installedChunks 对象中</span></span><br><span class="line">  <span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    installedChunkData = installedChunks[chunkId] = [resolve, reject]</span><br><span class="line">  &#125;)</span><br><span class="line">  installedChunkData[<span class="number">2</span>] = promise</span><br><span class="line">  <span class="comment">// 构造 script 标签</span></span><br><span class="line">  <span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>)</span><br><span class="line">  script.type = <span class="string">"text/javascript"</span></span><br><span class="line">  script.charset = <span class="string">"utf-8"</span></span><br><span class="line">  script.async = <span class="literal">true</span></span><br><span class="line">  script.timeout = <span class="number">120000</span></span><br><span class="line">  <span class="keyword">if</span> (__webpack_require__.nc) &#123;</span><br><span class="line">    script.setAttribute(<span class="string">"nonce"</span>, __webpack_require__.nc)</span><br><span class="line">  &#125;</span><br><span class="line">  script.src =</span><br><span class="line">    __webpack_require__.p +</span><br><span class="line">    <span class="string">"static/js/"</span> +</span><br><span class="line">    (&#123; <span class="string">"0"</span>: <span class="string">"alert"</span> &#125;[chunkId] || chunkId) +</span><br><span class="line">    <span class="string">"."</span> +</span><br><span class="line">    &#123; <span class="string">"0"</span>: <span class="string">"620d2495"</span> &#125;[chunkId] +</span><br><span class="line">    <span class="string">".chunk.js"</span></span><br><span class="line">  <span class="keyword">var</span> timeout = setTimeout(onScriptComplete, <span class="number">120000</span>)</span><br><span class="line">  script.onerror = script.onload = onScriptComplete</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">onScriptComplete</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    script.onerror = script.onload = <span class="literal">null</span></span><br><span class="line">    clearTimeout(timeout)</span><br><span class="line">    <span class="keyword">var</span> chunk = installedChunks[chunkId]</span><br><span class="line">    <span class="comment">// 如果 chunk !== 0 表示加载失败</span></span><br><span class="line">    <span class="keyword">if</span> (chunk !== <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 返回错误信息</span></span><br><span class="line">      <span class="keyword">if</span> (chunk) &#123;</span><br><span class="line">        chunk[<span class="number">1</span>](<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Loading chunk "</span> + chunkId + <span class="string">" failed."</span>))</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 将此 chunk 的加载状态重置为未加载状态</span></span><br><span class="line">      installedChunks[chunkId] = <span class="literal">undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  head.appendChild(script)</span><br><span class="line">    <span class="comment">// 返回 fullfilled 的 Promise</span></span><br><span class="line">  <span class="keyword">return</span> promise</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结合上面的代码来看，webpack 通过创建 script 标签来实现动态加载的，找出依赖对应的 chunk 信息，然后生成 script 标签来动态加载 chunk，每个 chunk 都有对应的状态：未加载 、 加载中、已加载 。</p>
+<h2 id="Suspense"><a href="#Suspense" class="headerlink" title="Suspense"></a>Suspense</h2><p>Suspense 内部主要通过捕获组件的状态去判断如何加载，上面我们提到 React.lazy 创建的动态加载组件具有 Pending、Resolved、Rejected 三种状态，当这个组件的状态为 Pending 时显示的是 Suspense 
+中 fallback 的内容，只有状态变为 resolve 后才显示组件。</p>
+<h2 id="Error-Boundaries-统一处理资源加载失败场景"><a href="#Error-Boundaries-统一处理资源加载失败场景" class="headerlink" title="Error Boundaries 统一处理资源加载失败场景"></a>Error Boundaries 统一处理资源加载失败场景</h2><p>如果遇到网络问题或是组件内部错误，页面的动态资源可能会加载失败，为了优雅降级，可以使用 <a href="https://react.docschina.org/docs/error-boundaries.html" target="_blank" rel="noopener">Error Boundaries</a> 来解决这个问题。
+Error Boundaries 是一种组件，如果你在组件中定义了 static getDerivedStateFromError() 或 componentDidCatch() 生命周期函数，它就会成为一个  Error Boundaries 的组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ErrorBoundary</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">hasError</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">​</span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromError(error) &#123; </span><br><span class="line">      <span class="comment">// 更新 state 使下一次渲染能够显示降级后的 UI</span></span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">hasError</span>: <span class="literal">true</span> &#125;;  </span><br><span class="line">  &#125;</span><br><span class="line">  componentDidCatch(error, errorInfo) &#123; </span><br><span class="line">      <span class="comment">// 你同样可以将错误日志上报给服务器</span></span><br><span class="line">      logErrorToMyService(error, errorInfo);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.state.hasError) &#123; </span><br><span class="line">        <span class="comment">// 你可以自定义降级后的 UI 并渲染      </span></span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>对不起，发生异常，请刷新页面重试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以在 componentDidCatch  或者 getDerivedStateFromError 中打印错误日志并定义显示错误信息的条件，当捕获到 error 时便可以渲染备用的组件元素，不至于导致页面资源加载失败而出现空白。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ErrorBoundary&gt;</span><br><span class="line">  &lt;App /&gt;</span><br><span class="line">&lt;<span class="regexp">/ErrorBoundary&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要注意的是：错误边界仅可以捕获其子组件的错误，它无法捕获其自身的错误。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>React.lazy()  和 React.Suspense 的提出为现代 React 应用的性能优化和工程化提供了便捷之路。 React.lazy 可以让我们像渲染常规组件一样处理动态引入的组件，结合 Suspense 可以更优雅地展现组件懒
+加载的过渡动画以及处理加载异常的场景。</p>
+<blockquote>
+<p>注意：React.lazy 和 Suspense 尚不可用于服务器端，如果需要服务端渲染，可遵从官方建议使用 <a href="https://github.com/gregberge/loadable-components" target="_blank" rel="noopener">Loadable Components</a>。loadable支持服务端
+懒加载，而且支持库的懒加载。</p>
+</blockquote>
+<p><a href="https://github.com/cosyer/react-koa2-ssr" target="_blank" rel="noopener">react koa2 ssr教程</a></p>
 
       
     </div>
@@ -609,7 +625,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/react组件实现按需加载.html">react组件实现按需加载</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年08月15日 - 10:08</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2020年06月23日 - 19:06</p>
   <p><span>原始链接:</span><a href="/react组件实现按需加载.html" title="react组件实现按需加载">http://mydearest.cn/react组件实现按需加载.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/react组件实现按需加载.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -752,8 +768,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -768,7 +793,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">139</span>
+                <span class="site-state-item-count">141</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -790,7 +815,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -895,6 +920,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-lazy-是什么"><span class="nav-number">1.</span> <span class="nav-text">React.lazy 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-React-lazy"><span class="nav-number">2.</span> <span class="nav-text">使用 React.lazy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack-动态加载"><span class="nav-number">3.</span> <span class="nav-text">Webpack 动态加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Suspense"><span class="nav-number">4.</span> <span class="nav-text">Suspense</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Boundaries-统一处理资源加载失败场景"><span class="nav-number">5.</span> <span class="nav-text">Error Boundaries 统一处理资源加载失败场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -933,7 +974,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 255.4k字</span>
+    <span class="post-count">Blog总字数: 259.5k字</span>
   </div>
 
   <div class="theme-info">

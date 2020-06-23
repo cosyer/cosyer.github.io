@@ -415,470 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-07T22:41:10+08:00">
+  <div class="post-date" data-datetime="2020-06-22T20:57:38+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">07</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月07</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/实现双向绑定.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/实现双向绑定.html" itemprop="url">实现双向绑定</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-11-07T17:51:45+08:00">
-                2018-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/实现双向绑定.html" class="leancloud_visitors" data-flag-title="实现双向绑定">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  3,268 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  15 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>主流的双向绑定方法
-1.发布-订阅模式
-通过使用 get 和 set 的方式获取数据然后更新数据，其原理就是监听页面中某个具体元素的事件，然后将其最新的值手动 set 到 数据中，同时订阅 model 层的改变，然后触发页面的渲染更新</p>
-<p>2.脏检测
-通过对比数据是否有变更，来决定是否更新视图。最简单的可以通过定时轮询去检测数据的变动。Angular 只有在指定事件触发时进入脏检测：</p>
-<ul>
-<li>DOM事件，比如用户输入文本点击按钮等（ng-click）</li>
-<li>XHR响应事件
-浏览器 Location 变更</li>
-<li>Timer事件</li>
-<li>执行 $digest() 或 $apply();</li>
-</ul>
-<p>脏检查的主要原理是在将数据绑定到 View 的时候，就在监听器列表（scope 作用域中的监听队列 watchList）中插入一条监听器，当触发 UI 事件或者 Ajax 请求时，就会触发脏检查（$digest cycle), 在 $digest 流程中，将遍历每个数据变量的 watcher，比较它的新旧值。当新旧值不同时，触发 listener 函数，执行相关的更新逻辑。这个过程将会一直重复，直到所有数据指令的新旧值都相同为止。</p>
-<p>脏检查虽然可以达到实现双向绑定，但是当页面中绑定的 watcher 过多时，就会引发性能问题。所以 angular 在进行 $digest 检测时，会限制循环检查的次数最少2次，最多10次，防止无效的检查。</p>
-<p>3.数据劫持
-通过 ES5 的 Object.defineProperty() 来劫持数据属性的 getter 和 setter， 在数据变动时触发订阅者（watcher），从而触发相应的监听回调。</p>
-<ul>
-<li>Observer 对数据的所有属性进行监听其 getter 和 setter</li>
-<li>Compile 是一个指令解析器，对 MVVM 实例的所有元素指令进行解析，并渲染成 model 中的绑定数据，当数据进行更新时，也能替换为更新后的值。</li>
-<li>Watcher 作为 Compile 和 Observer 的桥梁，能够订阅数据属性的更新，然后执行相应的监听回调</li>
-<li>Deps 用于存放监听器数组，主要用来保存 Watcher</li>
-<li>Updater 执行更新操作，针对不同的指令进行不同的更新操作，如 v-model, v-class, v-html 等类型的指令。</li>
-<li>MVVM 作为入口函数，整合以上所有的功能。</li>
-</ul>
-<p><img src="http://cdn.mydearest.cn/blog/images/vue-mvvm.png" alt="vue-mvvm"></p>
-<p>Observer 劫持了所有数据属性的 getter 和 setter，当数据发生改变时，就会通知 deps 中所有 watcher 的更新操作，进而触发页面的重新渲染，这是修改 Model 层从而引发 View 层的重新渲染。
-在 Compile 中监听可输入元素的事件，然后将新值更新到 model 的数据中，这是修改 View 层触发的 Model 层的修改。</p>
-<ul>
-<li>用户名或者邮箱跟github没有关联上， github认为不是你提交的， 不统计。</li>
-<li>fork 的项目， 不统计</li>
-<li>没有在版本库的master【默认分支】上提交</li>
-</ul>
-<p><a href="https://github.com/SunShinewyf/issue-blog/issues/46" target="_blank" rel="noopener">解读</a></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/实现双向绑定.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-06T14:20:17+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">06</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月06</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/css绘制几何图形.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/css绘制几何图形.html" itemprop="url">css绘制几何图形</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-14T15:04:09+08:00">
-                2018-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/css绘制几何图形.html" class="leancloud_visitors" data-flag-title="css绘制几何图形">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  2,202 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  12 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>CSS能够生成各种形状。正方形和矩形很容易，因为它们是 web 的自然形状。添加宽度和高度，就得到了所需的精确大小的矩形。添加边框半径，你就可以把这个形状变成圆形，足够多的边框半径，你就可以把这些矩形变成圆形和椭圆形。</p>
-<p>我们还可以使用 CSS 伪元素中的 <code>::before</code> 和 <code>::after</code>，这为我们提供了向原始元素添加另外两个形状的可能性。通过巧妙地使用定位、转换和许多其他技巧，我们可以只用一个 HTML 元素在 CSS 中创建许多形状。</p>
-<p>虽然我们现在大都使用字体图标或者svg图片，似乎使用 CSS 来做图标意义不是很大，但怎么实现这些图标用到的一些技巧及思路是很值得我们学习。</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/css绘制几何图形.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-06T00:05:41+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">06</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月06</div>
+      <div class="post-tiem">6月22</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -985,7 +527,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  25,415 (字)
+                  25,530 (字)
                 </span>
               
 
@@ -1100,12 +642,12 @@ str | index</p>
   
   
   
-  <div class="post-date" data-datetime="2020-06-04T21:52:44+08:00">
+  <div class="post-date" data-datetime="2020-06-22T20:57:38+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">04</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月04</div>
+      <div class="post-tiem">6月22</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1118,8 +660,8 @@ str | index</p>
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识/" itemprop="url" rel="index">
-                    <span itemprop="name">知识</span>
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
                   </a>
                 </span>
 
@@ -1134,7 +676,7 @@ str | index</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/npm总结.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/关于node的那些事(基础篇).html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -1153,7 +695,7 @@ str | index</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/npm总结.html" itemprop="url">npm总结</a></h2>
+                <a class="post-title-link" href="/2020/关于node的那些事(基础篇).html" itemprop="url">关于node的那些事(基础篇)</a></h2>
         
 
         <div class="post-meta">
@@ -1165,8 +707,8 @@ str | index</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-09-18T00:17:31+08:00">
-                2019-09-18
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-21T23:41:55+08:00">
+                2020-06-21
               </time>
             
 
@@ -1184,7 +726,7 @@ str | index</p>
 
           
           
-             <span id="/2019/npm总结.html" class="leancloud_visitors" data-flag-title="npm总结">
+             <span id="/2020/关于node的那些事(基础篇).html" class="leancloud_visitors" data-flag-title="关于node的那些事(基础篇)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1212,1104 +754,7 @@ str | index</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,732 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  12 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="一-package-json-解读"><a href="#一-package-json-解读" class="headerlink" title="一. package.json 解读"></a>一. package.json 解读</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"name"</span>: <span class="string">"hello world"</span>, <span class="comment">// 项目名称</span></span><br><span class="line">	<span class="string">"version"</span>: <span class="string">"0.0.1"</span>, <span class="comment">// 版本号：大版本.次要版本.小版本</span></span><br><span class="line">	<span class="string">"author"</span>: <span class="string">"张三"</span>,</span><br><span class="line">	<span class="string">"description"</span>: <span class="string">"第一个node.js程序"</span>,</span><br><span class="line">	<span class="string">"keywords"</span>:[<span class="string">"node.js"</span>,<span class="string">"javascript"</span>], <span class="comment">// 关键词，有助于 npm search 发现</span></span><br><span class="line">	<span class="string">"repository"</span>: &#123; <span class="comment">// 存储库，指定代码所在位置（如果git repo在GitHub上，那么该npm docs 命令将能够找到文件位置。）</span></span><br><span class="line">		<span class="string">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">		<span class="string">"url"</span>: <span class="string">"https://path/to/url"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"license"</span>:<span class="string">"MIT"</span>, <span class="comment">// 指定包许可证，详细可见[SPDX许可证ID的完整列表](https://spdx.org/licenses/)</span></span><br><span class="line">	<span class="string">"engines"</span>: &#123;<span class="string">"node"</span>: <span class="string">"0.10.x"</span>&#125;, <span class="comment">// 指定该模块运行的平台，可以指定 node 版本、npm 版本等</span></span><br><span class="line">	<span class="string">"bugs"</span>:&#123;<span class="string">"url"</span>:<span class="string">"http://path/to/bug"</span>,<span class="string">"email"</span>:<span class="string">"bug@example.com"</span>&#125;, <span class="comment">// 项目问题跟踪器的URL和应报告问题的电子邮件地址。</span></span><br><span class="line">	<span class="string">"contributors"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"李四"</span>,<span class="string">"email"</span>:<span class="string">"lisi@example.com"</span>&#125;],</span><br><span class="line">    <span class="string">"bin"</span>: &#123; <span class="comment">// 指定内部命令对应的可执行文件的位置，在 scripts 中就可以简写</span></span><br><span class="line">    	<span class="string">"webpack"</span>: <span class="string">"./bin/webpack.js"</span></span><br><span class="line">  	&#125;,</span><br><span class="line">    <span class="string">"main"</span>: <span class="string">"lib/webpack.js"</span>, <span class="comment">// 指定加载的模块入口文件，require('moduleName')就会加载这个文件。这个字段的默认值是模块根目录下面的index.js。</span></span><br><span class="line">    <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;, <span class="comment">// 用于添加命令行的环境变量（用户在运行 scripts 命令时，就默认在脚本文件中添加 process.env.npm_package_config_port，用户可以通过 npm config set foo:port 80 命令更改这个值）</span></span><br><span class="line">	<span class="string">"scripts"</span>: &#123; <span class="comment">// 指定运行脚本的 npm 命令行缩写</span></span><br><span class="line">		<span class="string">"start"</span>: <span class="string">"node index.js"</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"peerDependencies"</span>: &#123; <span class="comment">// 指定项目安装必须一起安装的模块及其版本号，（注意：从 npm 3.0 开始，peerDependencies不会再默认安装）</span></span><br><span class="line">    	<span class="string">"chai"</span>: <span class="string">"1.x"</span></span><br><span class="line">  	&#125;,</span><br><span class="line">	<span class="string">"dependencies"</span>: &#123; <span class="comment">// 指定项目运行所依赖的模块</span></span><br><span class="line">		<span class="string">"express"</span>: <span class="string">"latest"</span>,</span><br><span class="line">		<span class="string">"mongoose"</span>: <span class="string">"~3.8.3"</span>,</span><br><span class="line">		<span class="string">"handlebars-runtime"</span>: <span class="string">"~1.0.12"</span>,</span><br><span class="line">		<span class="string">"express3-handlebars"</span>: <span class="string">"~0.5.0"</span>,</span><br><span class="line">		<span class="string">"MD5"</span>: <span class="string">"~1.2.0"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"devDependencies"</span>: &#123; <span class="comment">// 指定项目开发所需要的模块</span></span><br><span class="line">		<span class="string">"bower"</span>: <span class="string">"~1.2.8"</span>,</span><br><span class="line">		<span class="string">"grunt"</span>: <span class="string">"~0.4.1"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-concat"</span>: <span class="string">"~0.3.0"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-jshint"</span>: <span class="string">"~0.7.2"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-uglify"</span>: <span class="string">"~0.2.7"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-clean"</span>: <span class="string">"~0.5.0"</span>,</span><br><span class="line">		<span class="string">"browserify"</span>: <span class="string">"2.36.1"</span>,</span><br><span class="line">		<span class="string">"grunt-browserify"</span>: <span class="string">"~1.3.0"</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"browser"</span>: &#123; <span class="comment">// 指定该模板供浏览器使用的版本</span></span><br><span class="line">  		<span class="string">"tipso"</span>: <span class="string">"./node_modules/tipso/src/tipso.js"</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"preferGlobal"</span>: <span class="literal">true</span>, <span class="comment">// 表示当用户不将该模块安装为全局模块时（即不用–global参数），要不要显示警告，表示该模块的本意就是安装为全局模块。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>package.json</code> 在 node 和 npm 环节都要使用，node 在调用 <code>require</code> 的时候去查找模块，会按照一个次序去查找，<code>package.json</code> 会是查找中的一个环节。npm 用的就比较多，其中的 <code>dependencies</code> 字段就是本模块的依赖的模块清单。每次<code>npm update</code>的时候，npm会自动的把依赖到的模块也下载下来。当<code>npm install</code> 本模块的时候，会把这里提到的模块都一起下载下来。通过package.json,就可以管理好模块的依赖关系。</p>
-<p>关于更多规范，请看官方<a href="https://docs.npmjs.com/files/package.json.html" target="_blank" rel="noopener">npm-package.json</a></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/npm总结.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识/" itemprop="url" rel="index">
-                    <span itemprop="name">知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/微信小程序面试题.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/微信小程序面试题.html" itemprop="url">微信小程序面试题</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-18T19:16:48+08:00">
-                2018-06-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/微信小程序面试题.html" class="leancloud_visitors" data-flag-title="微信小程序面试题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,879 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  7 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="简单描述下微信小程序的相关文件类型？"><a href="#简单描述下微信小程序的相关文件类型？" class="headerlink" title="简单描述下微信小程序的相关文件类型？"></a>简单描述下微信小程序的相关文件类型？</h2><p>答：微信小程序项目结构主要有四个文件类型,如下：
-一、WXML （WeiXin Markup Language）是框架设计的一套标签语言，结合基础组件、事件系统，可以构建出页面的结构。内部主要是微信自己定义的一套组件。
-二、WXSS (WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式，
-二、js 逻辑处理，网络请求
-三、json 小程序设置，如页面注册，页面标题及tabBar。
-四、app.json
-必须要有这个文件，如果没有这个文件，项目无法运行，因为微信框架把这个作为配置文件入口，整个小程序的全局配置。包括页面注册，网络设置，以及小程序的window背景色，配置导航条样式，配置默认标题。
-五、app.js
-必须要有这个文件，没有也是会报错！但是这个文件创建一下就行 什么都不需要写以后我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。
-六、app.wxss</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/微信小程序面试题.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/sort.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/sort.html" itemprop="url">常见排序的JS实现</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-25T21:37:09+08:00">
-                2018-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/sort.html" class="leancloud_visitors" data-flag-title="常见排序的JS实现">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  772 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="https-github-com-damonare-Sorts-这位大兄弟♂总结的很好，快去看看吧！"><a href="#https-github-com-damonare-Sorts-这位大兄弟♂总结的很好，快去看看吧！" class="headerlink" title="https://github.com/damonare/Sorts 这位大兄弟♂总结的很好，快去看看吧！"></a><a href="https://github.com/damonare/Sorts" target="_blank" rel="noopener">https://github.com/damonare/Sorts</a> 这位大兄弟♂总结的很好，快去看看吧！</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/sort.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/reduxstate.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/reduxstate.html" itemprop="url">redux状态传播</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-21T19:37:18+08:00">
-                2018-06-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/reduxstate.html" class="leancloud_visitors" data-flag-title="redux状态传播">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,168 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  5 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Redux三大概念"><a href="#Redux三大概念" class="headerlink" title="Redux三大概念"></a>Redux三大概念</h2><blockquote>
-<p>Redux 是JavaScript状态容器，提供可预测化的状态管理</p>
-</blockquote>
-<blockquote>
-<p>action 普通的JS对象描述发生什么</p>
-</blockquote>
-<blockquote>
-<p>reducer 只是一个接收 state 和 action，并返回新的 state 的函数</p>
-</blockquote>
-<p>Store — 数据存储中心，同时连接着Actions和Views（React Components）。</p>
-<ol>
-<li>Store需要负责接收Views传来的Action</li>
-<li>然后，根据Action.type和Action.payload对Store里的数据进行修改</li>
-<li>最后，Store还需要通知Views，数据有改变，Views便去获取最新的Store数据，通过setState进行重新渲染组件（re-render）。</li>
-</ol>
-<h3 id="三大原则"><a href="#三大原则" class="headerlink" title="三大原则"></a>三大原则</h3><ol>
-<li>单一数据源</li>
-</ol>
-<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。和根级的reducer,拆成多个reducer而不是多个store。</p>
-<ol>
-<li>State 是只读的</li>
-</ol>
-<p>唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</p>
-<ol>
-<li>使用纯函数来执行修改</li>
-</ol>
-<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。传递数据 payload规范。</p>
-<p>当 state 变化时需要返回全新的对象，而不是修改传入的参数。</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/reduxstate.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/reactInterview.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/reactInterview.html" itemprop="url">react面试题记录</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-07T14:47:09+08:00">
-                2018-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/reactInterview.html" class="leancloud_visitors" data-flag-title="react面试题记录">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  6,871 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  26 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://cdn.mydearest.cn/blog/images/reactInterview.jpeg " class="full-image" alt="reactInterview" title="React"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/reactInterview.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/js性能优化.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/js性能优化.html" itemprop="url">JavaScript性能优化</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-30T00:17:32+08:00">
-                2018-08-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/js性能优化.html" class="leancloud_visitors" data-flag-title="JavaScript性能优化">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,760 (字)
+                  1,545 (字)
                 </span>
               
 
@@ -2347,14 +792,23 @@ str | index</p>
 
       
         
-          <h3 id="评估局部变量"><a href="#评估局部变量" class="headerlink" title="评估局部变量"></a>评估局部变量</h3><p>主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域
-层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变
-量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当
-前的作用域和防止查询，从而提高代码的速度。</p>
+          <h2 id="👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？"><a href="#👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？" class="headerlink" title="👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？"></a>👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？</h2><blockquote>
+<p>莫慌，Node依旧是社区热捧的服务器端 JavaScript 运行环境，Deno的出现其实本质上是完善现阶段的Node（新轮子），包括原生支持TS、安全性、支持ES Module浏览器模块、等特征。万变不离其宗，虽然有了
+Deno，将来可能就不需要 Node.js，但是新事物总是需要不断推演和考验后，所以这一点而言，Node短时间内很难被替换，毕竟背后依附着强大社区的支撑。</p>
+</blockquote>
+<h2 id="node-如何获取命令行传来的参数？"><a href="#node-如何获取命令行传来的参数？" class="headerlink" title="node 如何获取命令行传来的参数？"></a>node 如何获取命令行传来的参数？</h2><blockquote>
+<p>process.argv。process是一个全局变量，它提供当前 Node.js 进程的有关信息，而process.argv 属性则返回一个数组，数组中的信息包括启动Node.js进程时的命令行参数。</p>
+</blockquote>
+<ul>
+<li>process.argv[0] : 返回启动Node.js进程的可执行文件所在的绝对路径</li>
+<li>process.argv[1] : 为当前执行的JavaScript文件路径</li>
+<li>process.argv.splice(2) : 移除前两者后，剩余的元素为其他命令行参数(也就是我们自定义部分)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"script"</span>: &#123;</span><br><span class="line">    <span class="string">"serve"</span>: <span class="string">"node test.js arg1 arg2 arg3"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">arguments</span> = process.argv.splice(<span class="number">2</span>) <span class="comment">// [arg1, arg2, arg3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结合commander</span></span><br><span class="line">commander.parse(process.argv)</span><br></pre></td></tr></table></figure>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js性能优化.html#more" rel="contents">
+            <a class="btn" href="/2020/关于node的那些事(基础篇).html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2412,12 +866,436 @@ str | index</p>
   
   
   
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
+  <div class="post-date" data-datetime="2020-06-22T00:12:05+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
+      <div class="post-tiem">6月22</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Mac iTerm2 + oh-my-zsh.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/Mac iTerm2 + oh-my-zsh.html" itemprop="url">【Mac 终端配置】iTerm2 + oh-my-zsh</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-21T23:41:55+08:00">
+                2020-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/Mac iTerm2 + oh-my-zsh.html" class="leancloud_visitors" data-flag-title="【Mac 终端配置】iTerm2 + oh-my-zsh">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  578 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前置校验"><a href="#前置校验" class="headerlink" title="前置校验"></a>前置校验</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、默认已安装 Homebrew、iTerm2</span></span><br><span class="line"><span class="comment"># 2、查看是否安装了zsh，查看是否返回 /usr/bin/zsh</span></span><br><span class="line">cat /etc/shells</span><br><span class="line"><span class="comment"># 若未安装</span></span><br><span class="line">brew install zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># iTerm2 启动项配置</span></span><br><span class="line">chsh -s /bin/zsh      <span class="comment"># 设置为zsh</span></span><br><span class="line">chsh -s /bin/bash     <span class="comment"># 设置为bash（Mac自带默认）</span></span><br></pre></td></tr></table></figure>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/Mac iTerm2 + oh-my-zsh.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-20T18:49:54+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">20</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月20</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/git相关问题场景和命令.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/git相关问题场景和命令.html" itemprop="url">git相关问题场景和命令</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-09-21T00:51:40+08:00">
+                2019-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/git相关问题场景和命令.html" class="leancloud_visitors" data-flag-title="git相关问题场景和命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  3,812 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  15 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="一、必备知识点"><a href="#一、必备知识点" class="headerlink" title="一、必备知识点"></a>一、必备知识点</h3><p><img src="http://cdn.mydearest.cn/blog/images/git.png" alt="git"></p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/git相关问题场景和命令.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-18T19:44:00+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">18</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月18</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -2446,7 +1324,7 @@ str | index</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/jsthis.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/动手实现redux.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -2465,7 +1343,7 @@ str | index</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/jsthis.html" itemprop="url">JavaScript 中 this 的详解</a></h2>
+                <a class="post-title-link" href="/动手实现redux.html" itemprop="url">动手实现redux</a></h2>
         
 
         <div class="post-meta">
@@ -2477,8 +1355,8 @@ str | index</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-08T16:58:32+08:00">
-                2018-06-08
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-03T19:24:18+08:00">
+                2018-10-03
               </time>
             
 
@@ -2496,7 +1374,7 @@ str | index</p>
 
           
           
-             <span id="/jsthis.html" class="leancloud_visitors" data-flag-title="JavaScript 中 this 的详解">
+             <span id="/动手实现redux.html" class="leancloud_visitors" data-flag-title="动手实现redux">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2524,7 +1402,7 @@ str | index</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,857 (字)
+                  717 (字)
                 </span>
               
 
@@ -2540,7 +1418,7 @@ str | index</p>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  8 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -2562,14 +1440,1175 @@ str | index</p>
 
       
         
-          <h2 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h2><p><code>this</code> 是 js 中定义的关键字， 它的指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。在实际应用中，<code>this</code>的指向大致可以分为以下四种情况。</p>
-<blockquote>
-<p>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象(函数的直接调用者);</p>
-</blockquote>
+          <p>概念：</p>
+<ul>
+<li>一个app只有一个store，一个store管理着一个全局state含有以下方法<ul>
+<li>getState: 获取 state；</li>
+<li>dispatch: 触发 action, 更新 state；</li>
+<li>subscribe: 订阅数据变更，注册监听器；</li>
+</ul>
+</li>
+<li>createStore 传入reducer，返回getState, dispatch, subscribe</li>
+<li>action是一个至少有type这个键的对象，可以写一个creactActioner 函数去return生成action对象</li>
+<li>createStore.dispatch(action) 根据action这个对象去更新state</li>
+<li>dispatch是一个函数，内部有将执行reducer函数</li>
+<li>reducer也是一个函数，传入state,action, 输出一个新的state . (switch case return…)<ul>
+<li>遵守数据不可变，不要去直接修改 state，而是返回出一个 新对象；</li>
+<li>默认情况下需要 返回原数据，避免数据被清空；</li>
+<li>最好设置 初始值，便于应用的初始化及数据稳定；</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/redux.png" alt="redux"></p>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/jsthis.html#more" rel="contents">
+            <a class="btn" href="/动手实现redux.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-18T19:44:00+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">18</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月18</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/http请求概述.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/http请求概述.html" itemprop="url">Http请求概述</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-14T14:56:52+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/http请求概述.html" class="leancloud_visitors" data-flag-title="Http请求概述">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  3,940 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  15 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>超文本传输协议（HTTP, HyperText Transfer Protocol）是一种无状态的协议，它位于OSI七层模型的传输层。HTTP客户端会根据需要构建合适的HTTP请求方法，而HTTP服务器会根据不同的HTTP请求方法做出不同的响应。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/http请求概述.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-18T00:32:46+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">18</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月18</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/vueInterview.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/vueInterview.html" itemprop="url">vue面试题记录</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T00:10:18+08:00">
+                2020-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/vueInterview.html" class="leancloud_visitors" data-flag-title="vue面试题记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  4,855 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  20 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Vue面试问题"><a href="#Vue面试问题" class="headerlink" title="Vue面试问题"></a>Vue面试问题</h2><hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/vueInterview.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-15T01:21:18+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">15</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月15</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/移动端web问题总结.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/移动端web问题总结.html" itemprop="url">移动端web问题总结（长期更新）</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-21T10:14:35+08:00">
+                2018-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/移动端web问题总结.html" class="leancloud_visitors" data-flag-title="移动端web问题总结（长期更新）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  806 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="meta基础知识"><a href="#meta基础知识" class="headerlink" title="meta基础知识"></a>meta基础知识</h2><h3 id="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"><a href="#H5页面窗口自动调整到设备宽度，并禁止用户缩放页面" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="ios竖屏拍照上传，图片被旋转问题"><a href="#ios竖屏拍照上传，图片被旋转问题" class="headerlink" title="ios竖屏拍照上传，图片被旋转问题"></a>ios竖屏拍照上传，图片被旋转问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.通过第三方插件exif-js获取到图片的方向</span></span><br><span class="line"><span class="comment">// 2.new一个FileReader对象，加载读取上传的图片</span></span><br><span class="line"><span class="comment">// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收</span></span><br><span class="line"><span class="comment">// 4.在image的onload函数中，利用步骤1中获取到的方向orientation，通过canvas旋转校正，重新绘制一张新图</span></span><br><span class="line"><span class="comment">// 注意iPhone有3个拍照方向需要处理，横屏拍摄，home键在左侧，竖屏拍摄，home建上下</span></span><br><span class="line"><span class="comment">// 5.将绘制的新图转成Blob对象，添加到FormData对象中，然后进行校正后的上传操作</span></span><br><span class="line"><span class="comment">// 代码有点杂，待整理后上传，网上应该是可以找到的</span></span><br></pre></td></tr></table></figure>
+<h2 id="ios：DOM元素固定一边，另一边滚动，滚动很卡的问题"><a href="#ios：DOM元素固定一边，另一边滚动，滚动很卡的问题" class="headerlink" title="ios：DOM元素固定一边，另一边滚动，滚动很卡的问题"></a>ios：DOM元素固定一边，另一边滚动，滚动很卡的问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// (横向滚动用的多些)简单粗暴的办法，样式添加如下属性</span></span><br><span class="line">-webkit-overflow-scrolling: touch;</span><br></pre></td></tr></table></figure>
+<h2 id="部分手机第三方输入法会将页面网上挤的问题"><a href="#部分手机第三方输入法会将页面网上挤的问题" class="headerlink" title="部分手机第三方输入法会将页面网上挤的问题"></a>部分手机第三方输入法会将页面网上挤的问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 特定需求页面，比如评论页面，输入框在顶部之类的</span></span><br><span class="line"><span class="keyword">const</span> interval = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</span><br><span class="line">&#125;, <span class="number">100</span>)</span><br><span class="line"><span class="comment">// 注意关闭页面或者销毁组件的时候记得清空定时器</span></span><br><span class="line">clearInterval(interval);</span><br></pre></td></tr></table></figure>
+<h2 id="iPhoneX适配"><a href="#iPhoneX适配" class="headerlink" title="iPhoneX适配"></a>iPhoneX适配</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 1.viewport meta 标签增加属性viewport-fit=cover</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, viewport-fit=cover, xxxx&quot;&gt;</span><br><span class="line">// 2.body元素增加样式</span><br><span class="line">body &#123;</span><br><span class="line">  padding-bottom: constant(safe-area-inset-bottom);</span><br><span class="line">  padding-bottom: env(safe-area-inset-bottom);</span><br><span class="line">&#125;</span><br><span class="line">// 3.如有fixed底部的元素，也增加上面样式</span><br><span class="line">xxx &#123;</span><br><span class="line">  padding-bottom: constant(safe-area-inset-bottom);</span><br><span class="line">  padding-bottom: env(safe-area-inset-bottom);</span><br><span class="line">  background-color: #fff; // 记得添加background-color，不然会出现透明镂空的情况</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="某些机型不支持video标签的poster属性，特别是安卓"><a href="#某些机型不支持video标签的poster属性，特别是安卓" class="headerlink" title="某些机型不支持video标签的poster属性，特别是安卓"></a>某些机型不支持video标签的poster属性，特别是安卓</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用图片元素 &lt;img /&gt;来代替poster</span><br><span class="line">播放前显示&lt;img /&gt;，隐藏 &lt;video /&gt;</span><br><span class="line">播放后显示&lt;video /&gt;，隐藏 &lt;img /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS透明度颜色设置问题"><a href="#CSS透明度颜色设置问题" class="headerlink" title="CSS透明度颜色设置问题"></a>CSS透明度颜色设置问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Android部分不支持 hex写法，推荐用rgba的写法</span><br><span class="line">#0000009c --&gt; rgba(0, 0, 0, 0.61)</span><br></pre></td></tr></table></figure>
+<h2 id="flex对低版本的ios和Android的支持问题"><a href="#flex对低版本的ios和Android的支持问题" class="headerlink" title="flex对低版本的ios和Android的支持问题"></a>flex对低版本的ios和Android的支持问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用postcss的autoprefixer插件，自动添加浏览器内核前缀，</span></span><br><span class="line"><span class="comment">// 并且增加更低浏览器版本的配置，自动添加flex老版本的属性和写法</span></span><br><span class="line">autoprefixer(&#123;</span><br><span class="line">    browsers: [</span><br><span class="line">        <span class="string">'iOS &gt;= 6'</span>,     <span class="comment">// 特殊处理支持低版本IOS</span></span><br><span class="line">        <span class="string">'Safari &gt;= 6'</span>,  <span class="comment">// 特殊处理支持低版本Safari</span></span><br><span class="line">    ],</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+<h2 id="ios-页面回退到长列表出现灰色遮挡问题"><a href="#ios-页面回退到长列表出现灰色遮挡问题" class="headerlink" title="ios 页面回退到长列表出现灰色遮挡问题"></a>ios 页面回退到长列表出现灰色遮挡问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">方案1：对列表数据进行缓存，比如redux之类的用法。</span><br><span class="line">方案2：回退时，跳到页面顶部。</span><br><span class="line">const timer = setTimeout(() =&gt; &#123;</span><br><span class="line">    window.scrollTo(0, 1);</span><br><span class="line">    window.scrollTo(0, 0);</span><br><span class="line">&#125;, 0);</span><br></pre></td></tr></table></figure>
+<h2 id="ios-日期转换NAN的问题"><a href="#ios-日期转换NAN的问题" class="headerlink" title="ios 日期转换NAN的问题"></a>ios 日期转换NAN的问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将日期字符串的格式符号替换成&apos;/&apos;。</span><br><span class="line">栗子：&apos;yyyy-MM-dd&apos;.replace(/-/g, &apos;/&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="react未知错误异常，导致页面崩溃，空白"><a href="#react未知错误异常，导致页面崩溃，空白" class="headerlink" title="react未知错误异常，导致页面崩溃，空白"></a>react未知错误异常，导致页面崩溃，空白</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">React 16.x 增加了componentDidCatch() 生命周期方法</span><br><span class="line">捕获全局异常来进行页面的友好提示</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-14T17:06:20+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">14</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月14</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/算法题练习.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/算法题练习.html" itemprop="url">算法题练习</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T01:03:40+08:00">
+                2020-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/算法题练习.html" class="leancloud_visitors" data-flag-title="算法题练习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,314 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  6 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="五大算法"><a href="#五大算法" class="headerlink" title="五大算法"></a>五大算法</h1><ul>
+<li>贪心算法：局部最优解法</li>
+<li>分治算法：分成多个小模块，与原问题性质相同</li>
+<li>动态规划：每个状态都是过去历史的一个总结</li>
+<li>回溯法：发现原先选择不优时，退回重新选择</li>
+</ul>
+<h2 id="数据树"><a href="#数据树" class="headerlink" title="数据树"></a>数据树</h2><ul>
+<li><p>二叉树: 最多只有两个子节点</p>
+<ul>
+<li>完全二叉树</li>
+<li>满二叉树<ul>
+<li>深度为 h, 有 n 个节点，且满足 n = 2^h - 1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>二叉查找树: 是一种特殊的二叉树，能有效地提高查找效率</p>
+<ul>
+<li>小值在左，大值在右</li>
+<li>节点 n 的所有左子树值小于 n，所有右子树值大于 n</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/binary-search-tree.png" alt="binary-search-tree"></p>
+<ul>
+<li>遍历节点<ul>
+<li>前序遍历<ul>
+<li>根节点</li>
+<li>访问左子节点，回到 1</li>
+<li>访问右子节点，回到 1</li>
+</ul>
+</li>
+<li>中序遍历<ul>
+<li>先访问到最左的子节点</li>
+<li>访问该节点的父节点</li>
+<li>访问该父节点的右子节点， 回到 1</li>
+</ul>
+</li>
+<li>后序遍历<ul>
+<li>先访问到最左的子节点</li>
+<li>访问相邻的右节点</li>
+<li>访问父节点， 回到 1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>DLR–前序遍历（根在前，从左往右，一棵树的根永远在左子树前面，左子树又永远在右子树前面 ）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/dlr.png" alt="dlr"></p>
+<p>LDR–中序遍历（根在中，从左往右，一棵树的左子树永远在根前面，根永远在右子树前面）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/ldr.png" alt="ldr"></p>
+<p>LRD–后序遍历（根在后，从左往右，一棵树的左子树永远在右子树前面，右子树永远在根前面）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/lrd.png" alt="lrd"></p>
+<ul>
+<li>插入与删除节点</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/算法题练习.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-12T01:05:37+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">12</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月12</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/react SSR教程.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/react SSR教程.html" itemprop="url">react SSR教程</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-10T22:55:08+08:00">
+                2020-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/react SSR教程.html" class="leancloud_visitors" data-flag-title="react SSR教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,369 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  10 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文是基于react ssr的入门教程，在实际项目中使用还需要做更多的配置和优化，比较适合第一次尝试react ssr的小伙伴们。技术涉及到 koa2 + react，案例使用create-react-app创建。</p>
+<h2 id="客户端渲染与服务端渲染"><a href="#客户端渲染与服务端渲染" class="headerlink" title="客户端渲染与服务端渲染"></a>客户端渲染与服务端渲染</h2><h3 id="客户端渲染"><a href="#客户端渲染" class="headerlink" title="客户端渲染"></a>客户端渲染</h3><ul>
+<li>客户端渲染，实际上就是客户端向服务端请求页面，服务端返回的是一个非常简单的 HTML 页面，在这个页面里，只有很少的一些 HTML 标签</li>
+<li>客户端渲染时，页面中有两个比较重要的点，第一个是 script 标签，可能会有好几个 script 标签，这个标签是打包后的 js 代码，用来生成 DOM 元素，发送请求，事件绑定等。但是，生成的 DOM 元素需要有一个在页面上展示的容器，所以另外一个点就是容器，一般是一个 id 名为 root 或 app 的 div 标签，类似于这样 <code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code> 或<code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code></li>
+<li>客户端渲染的特点<ul>
+<li>客户端加载所有的 js 资源，渲染 DOM 元素</li>
+<li>在浏览器页面上的所有资源，都由客户端主动去获取，服务端只负责静态资源的提供和 API 接口，不再负责页面的渲染，如果采用 CDN 的话，服务端仅仅需要提供 API 接口</li>
+<li>优点: 前后端分离，责任区分，前端专注页面的开发，后端专注接口的开发</li>
+<li>缺点: 首屏加载资源多，首屏加载时响应慢。页面上没有 DOM 元素，不利于 SEO 优化</li>
+</ul>
+</li>
+</ul>
+<h3 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h3><ul>
+<li>服务端渲染，就是客户端页面上的 HTML 元素，都要由服务端负责渲染。服务端利用模板引擎，把数据填充到模板中，生成 HTML 字符串，最终把 HTML 字符串返回到浏览器，浏览器接收到 HTML 字符串，通过 HTML 引擎解析，最终生成 DOM 元素，显示在页面上</li>
+<li>比如 Node.js 可以渲染的模板引擎有 ejs，nunjucks，pug 等。Java 最常见的是 JSP 模板引擎。Python 最常见的是 Jinja2 模板引擎。</li>
+<li>服务端渲染的特点<ul>
+<li>优点: 页面资源大多由服务端负责处理，所以页面加载速度快，缩短首屏加载时间。有利于 SEO 优化。无需占用客户端资源</li>
+<li>缺点: 不利于前后端分离，开发效率低。占用服务器资源</li>
+</ul>
+</li>
+</ul>
+<h3 id="区分与选择"><a href="#区分与选择" class="headerlink" title="区分与选择"></a>区分与选择</h3><ul>
+<li>客户端渲染和服务端渲染本质的区别就是，是谁负责 HTML 页面的拼接，那么就是谁渲染的页面</li>
+<li>如果对首屏加载时间有非常高的需求，或者是需要 SEO 优化，那么就选择服务端渲染</li>
+<li>如果对首屏加载时间没有要求，也不需要做 SEO 优化，类似于做后台管理系列的业务，那么就可以选择客户端渲染</li>
+<li>具体选择客户端渲染还是服务端渲染，没有强制的要求，具体要根据项目的需求来区分选择</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/react SSR教程.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2619,7 +2658,7 @@ str | index</p>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2667,7 +2706,7 @@ str | index</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">139</span>
+                <span class="site-state-item-count">141</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2689,7 +2728,7 @@ str | index</p>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2832,7 +2871,7 @@ str | index</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 255.4k字</span>
+    <span class="post-count">Blog总字数: 259.5k字</span>
   </div>
 
   <div class="theme-info">

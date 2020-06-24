@@ -415,6 +415,728 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-06-15T01:21:18+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">15</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月15</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/移动端web问题总结.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/移动端web问题总结.html" itemprop="url">移动端web问题总结（长期更新）</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-21T10:14:35+08:00">
+                2018-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/移动端web问题总结.html" class="leancloud_visitors" data-flag-title="移动端web问题总结（长期更新）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  806 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="meta基础知识"><a href="#meta基础知识" class="headerlink" title="meta基础知识"></a>meta基础知识</h2><h3 id="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"><a href="#H5页面窗口自动调整到设备宽度，并禁止用户缩放页面" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="ios竖屏拍照上传，图片被旋转问题"><a href="#ios竖屏拍照上传，图片被旋转问题" class="headerlink" title="ios竖屏拍照上传，图片被旋转问题"></a>ios竖屏拍照上传，图片被旋转问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.通过第三方插件exif-js获取到图片的方向</span></span><br><span class="line"><span class="comment">// 2.new一个FileReader对象，加载读取上传的图片</span></span><br><span class="line"><span class="comment">// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收</span></span><br><span class="line"><span class="comment">// 4.在image的onload函数中，利用步骤1中获取到的方向orientation，通过canvas旋转校正，重新绘制一张新图</span></span><br><span class="line"><span class="comment">// 注意iPhone有3个拍照方向需要处理，横屏拍摄，home键在左侧，竖屏拍摄，home建上下</span></span><br><span class="line"><span class="comment">// 5.将绘制的新图转成Blob对象，添加到FormData对象中，然后进行校正后的上传操作</span></span><br><span class="line"><span class="comment">// 代码有点杂，待整理后上传，网上应该是可以找到的</span></span><br></pre></td></tr></table></figure>
+<h2 id="ios：DOM元素固定一边，另一边滚动，滚动很卡的问题"><a href="#ios：DOM元素固定一边，另一边滚动，滚动很卡的问题" class="headerlink" title="ios：DOM元素固定一边，另一边滚动，滚动很卡的问题"></a>ios：DOM元素固定一边，另一边滚动，滚动很卡的问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// (横向滚动用的多些)简单粗暴的办法，样式添加如下属性</span></span><br><span class="line">-webkit-overflow-scrolling: touch;</span><br></pre></td></tr></table></figure>
+<h2 id="部分手机第三方输入法会将页面网上挤的问题"><a href="#部分手机第三方输入法会将页面网上挤的问题" class="headerlink" title="部分手机第三方输入法会将页面网上挤的问题"></a>部分手机第三方输入法会将页面网上挤的问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 特定需求页面，比如评论页面，输入框在顶部之类的</span></span><br><span class="line"><span class="keyword">const</span> interval = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</span><br><span class="line">&#125;, <span class="number">100</span>)</span><br><span class="line"><span class="comment">// 注意关闭页面或者销毁组件的时候记得清空定时器</span></span><br><span class="line">clearInterval(interval);</span><br></pre></td></tr></table></figure>
+<h2 id="iPhoneX适配"><a href="#iPhoneX适配" class="headerlink" title="iPhoneX适配"></a>iPhoneX适配</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 1.viewport meta 标签增加属性viewport-fit=cover</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, viewport-fit=cover, xxxx&quot;&gt;</span><br><span class="line">// 2.body元素增加样式</span><br><span class="line">body &#123;</span><br><span class="line">  padding-bottom: constant(safe-area-inset-bottom);</span><br><span class="line">  padding-bottom: env(safe-area-inset-bottom);</span><br><span class="line">&#125;</span><br><span class="line">// 3.如有fixed底部的元素，也增加上面样式</span><br><span class="line">xxx &#123;</span><br><span class="line">  padding-bottom: constant(safe-area-inset-bottom);</span><br><span class="line">  padding-bottom: env(safe-area-inset-bottom);</span><br><span class="line">  background-color: #fff; // 记得添加background-color，不然会出现透明镂空的情况</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="某些机型不支持video标签的poster属性，特别是安卓"><a href="#某些机型不支持video标签的poster属性，特别是安卓" class="headerlink" title="某些机型不支持video标签的poster属性，特别是安卓"></a>某些机型不支持video标签的poster属性，特别是安卓</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用图片元素 &lt;img /&gt;来代替poster</span><br><span class="line">播放前显示&lt;img /&gt;，隐藏 &lt;video /&gt;</span><br><span class="line">播放后显示&lt;video /&gt;，隐藏 &lt;img /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS透明度颜色设置问题"><a href="#CSS透明度颜色设置问题" class="headerlink" title="CSS透明度颜色设置问题"></a>CSS透明度颜色设置问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Android部分不支持 hex写法，推荐用rgba的写法</span><br><span class="line">#0000009c --&gt; rgba(0, 0, 0, 0.61)</span><br></pre></td></tr></table></figure>
+<h2 id="flex对低版本的ios和Android的支持问题"><a href="#flex对低版本的ios和Android的支持问题" class="headerlink" title="flex对低版本的ios和Android的支持问题"></a>flex对低版本的ios和Android的支持问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用postcss的autoprefixer插件，自动添加浏览器内核前缀，</span></span><br><span class="line"><span class="comment">// 并且增加更低浏览器版本的配置，自动添加flex老版本的属性和写法</span></span><br><span class="line">autoprefixer(&#123;</span><br><span class="line">    browsers: [</span><br><span class="line">        <span class="string">'iOS &gt;= 6'</span>,     <span class="comment">// 特殊处理支持低版本IOS</span></span><br><span class="line">        <span class="string">'Safari &gt;= 6'</span>,  <span class="comment">// 特殊处理支持低版本Safari</span></span><br><span class="line">    ],</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+<h2 id="ios-页面回退到长列表出现灰色遮挡问题"><a href="#ios-页面回退到长列表出现灰色遮挡问题" class="headerlink" title="ios 页面回退到长列表出现灰色遮挡问题"></a>ios 页面回退到长列表出现灰色遮挡问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">方案1：对列表数据进行缓存，比如redux之类的用法。</span><br><span class="line">方案2：回退时，跳到页面顶部。</span><br><span class="line">const timer = setTimeout(() =&gt; &#123;</span><br><span class="line">    window.scrollTo(0, 1);</span><br><span class="line">    window.scrollTo(0, 0);</span><br><span class="line">&#125;, 0);</span><br></pre></td></tr></table></figure>
+<h2 id="ios-日期转换NAN的问题"><a href="#ios-日期转换NAN的问题" class="headerlink" title="ios 日期转换NAN的问题"></a>ios 日期转换NAN的问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将日期字符串的格式符号替换成&apos;/&apos;。</span><br><span class="line">栗子：&apos;yyyy-MM-dd&apos;.replace(/-/g, &apos;/&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="react未知错误异常，导致页面崩溃，空白"><a href="#react未知错误异常，导致页面崩溃，空白" class="headerlink" title="react未知错误异常，导致页面崩溃，空白"></a>react未知错误异常，导致页面崩溃，空白</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">React 16.x 增加了componentDidCatch() 生命周期方法</span><br><span class="line">捕获全局异常来进行页面的友好提示</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-14T17:06:20+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">14</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月14</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/算法题练习.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/算法题练习.html" itemprop="url">算法题练习</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T01:03:40+08:00">
+                2020-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/算法题练习.html" class="leancloud_visitors" data-flag-title="算法题练习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,314 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  6 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="五大算法"><a href="#五大算法" class="headerlink" title="五大算法"></a>五大算法</h1><ul>
+<li>贪心算法：局部最优解法</li>
+<li>分治算法：分成多个小模块，与原问题性质相同</li>
+<li>动态规划：每个状态都是过去历史的一个总结</li>
+<li>回溯法：发现原先选择不优时，退回重新选择</li>
+</ul>
+<h2 id="数据树"><a href="#数据树" class="headerlink" title="数据树"></a>数据树</h2><ul>
+<li><p>二叉树: 最多只有两个子节点</p>
+<ul>
+<li>完全二叉树</li>
+<li>满二叉树<ul>
+<li>深度为 h, 有 n 个节点，且满足 n = 2^h - 1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>二叉查找树: 是一种特殊的二叉树，能有效地提高查找效率</p>
+<ul>
+<li>小值在左，大值在右</li>
+<li>节点 n 的所有左子树值小于 n，所有右子树值大于 n</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/binary-search-tree.png" alt="binary-search-tree"></p>
+<ul>
+<li>遍历节点<ul>
+<li>前序遍历<ul>
+<li>根节点</li>
+<li>访问左子节点，回到 1</li>
+<li>访问右子节点，回到 1</li>
+</ul>
+</li>
+<li>中序遍历<ul>
+<li>先访问到最左的子节点</li>
+<li>访问该节点的父节点</li>
+<li>访问该父节点的右子节点， 回到 1</li>
+</ul>
+</li>
+<li>后序遍历<ul>
+<li>先访问到最左的子节点</li>
+<li>访问相邻的右节点</li>
+<li>访问父节点， 回到 1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>DLR–前序遍历（根在前，从左往右，一棵树的根永远在左子树前面，左子树又永远在右子树前面 ）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/dlr.png" alt="dlr"></p>
+<p>LDR–中序遍历（根在中，从左往右，一棵树的左子树永远在根前面，根永远在右子树前面）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/ldr.png" alt="ldr"></p>
+<p>LRD–后序遍历（根在后，从左往右，一棵树的左子树永远在右子树前面，右子树永远在根前面）</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/lrd.png" alt="lrd"></p>
+<ul>
+<li>插入与删除节点</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/算法题练习.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-12T01:05:37+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">12</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月12</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/react SSR教程.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/react SSR教程.html" itemprop="url">react SSR教程</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-10T22:55:08+08:00">
+                2020-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/react SSR教程.html" class="leancloud_visitors" data-flag-title="react SSR教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,369 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  10 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文是基于react ssr的入门教程，在实际项目中使用还需要做更多的配置和优化，比较适合第一次尝试react ssr的小伙伴们。技术涉及到 koa2 + react，案例使用create-react-app创建。</p>
+<h2 id="客户端渲染与服务端渲染"><a href="#客户端渲染与服务端渲染" class="headerlink" title="客户端渲染与服务端渲染"></a>客户端渲染与服务端渲染</h2><h3 id="客户端渲染"><a href="#客户端渲染" class="headerlink" title="客户端渲染"></a>客户端渲染</h3><ul>
+<li>客户端渲染，实际上就是客户端向服务端请求页面，服务端返回的是一个非常简单的 HTML 页面，在这个页面里，只有很少的一些 HTML 标签</li>
+<li>客户端渲染时，页面中有两个比较重要的点，第一个是 script 标签，可能会有好几个 script 标签，这个标签是打包后的 js 代码，用来生成 DOM 元素，发送请求，事件绑定等。但是，生成的 DOM 元素需要有一个在页面上展示的容器，所以另外一个点就是容器，一般是一个 id 名为 root 或 app 的 div 标签，类似于这样 <code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code> 或<code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code></li>
+<li>客户端渲染的特点<ul>
+<li>客户端加载所有的 js 资源，渲染 DOM 元素</li>
+<li>在浏览器页面上的所有资源，都由客户端主动去获取，服务端只负责静态资源的提供和 API 接口，不再负责页面的渲染，如果采用 CDN 的话，服务端仅仅需要提供 API 接口</li>
+<li>优点: 前后端分离，责任区分，前端专注页面的开发，后端专注接口的开发</li>
+<li>缺点: 首屏加载资源多，首屏加载时响应慢。页面上没有 DOM 元素，不利于 SEO 优化</li>
+</ul>
+</li>
+</ul>
+<h3 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h3><ul>
+<li>服务端渲染，就是客户端页面上的 HTML 元素，都要由服务端负责渲染。服务端利用模板引擎，把数据填充到模板中，生成 HTML 字符串，最终把 HTML 字符串返回到浏览器，浏览器接收到 HTML 字符串，通过 HTML 引擎解析，最终生成 DOM 元素，显示在页面上</li>
+<li>比如 Node.js 可以渲染的模板引擎有 ejs，nunjucks，pug 等。Java 最常见的是 JSP 模板引擎。Python 最常见的是 Jinja2 模板引擎。</li>
+<li>服务端渲染的特点<ul>
+<li>优点: 页面资源大多由服务端负责处理，所以页面加载速度快，缩短首屏加载时间。有利于 SEO 优化。无需占用客户端资源</li>
+<li>缺点: 不利于前后端分离，开发效率低。占用服务器资源</li>
+</ul>
+</li>
+</ul>
+<h3 id="区分与选择"><a href="#区分与选择" class="headerlink" title="区分与选择"></a>区分与选择</h3><ul>
+<li>客户端渲染和服务端渲染本质的区别就是，是谁负责 HTML 页面的拼接，那么就是谁渲染的页面</li>
+<li>如果对首屏加载时间有非常高的需求，或者是需要 SEO 优化，那么就选择服务端渲染</li>
+<li>如果对首屏加载时间没有要求，也不需要做 SEO 优化，类似于做后台管理系列的业务，那么就可以选择客户端渲染</li>
+<li>具体选择客户端渲染还是服务端渲染，没有强制的要求，具体要根据项目的需求来区分选择</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/react SSR教程.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-06-07T22:41:10+08:00">
     <div class="post-time-text">6月</div>
     <div class="post-time-count">07</div>
@@ -1962,659 +2684,6 @@ a:hover {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/三栏布局总结.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/三栏布局总结.html" itemprop="url">三栏布局总结（左右固定宽度 中间自适应）</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-05-09T00:15:34+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/三栏布局总结.html" class="leancloud_visitors" data-flag-title="三栏布局总结（左右固定宽度 中间自适应）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  725 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>圣杯布局和双飞翼布局(其实是一回事)都是实现的三栏布局。</p>
-<h2 id="浮动布局-float-margin"><a href="#浮动布局-float-margin" class="headerlink" title="浮动布局(float + margin)"></a>浮动布局(float + margin)</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;div class="left"&gt;Left&lt;/div&gt;</span><br><span class="line">     &lt;!<span class="selector-tag">--</span> 右栏部分要写在中间内容之前 <span class="selector-tag">--</span>&gt;</span><br><span class="line">    &lt;div class="right"&gt;Right&lt;/div&gt;</span><br><span class="line">    &lt;div class="main"&gt;Main&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">html</span>,<span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*左边栏左浮动*/</span></span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*中间栏自适应*/</span></span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*右边栏右浮动*/</span></span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>优点：快捷 简单 兼容性较好</li>
-<li>缺点: 有局限性 脱离文档流 需要清除浮动等</li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/三栏布局总结.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Nginx.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/Nginx.html" itemprop="url">Nginx</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-01T16:00:08+08:00">
-                2020-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/Nginx.html" class="leancloud_visitors" data-flag-title="Nginx">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,963 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  7 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>定义：轻量级、高性能的 Web 服务器，在现今的大型应用、网站基本都离不开 Nginx，已经成为了一项必选的技术；其实可以把它理解成 入口网关。</p>
-<blockquote>
-<p>当你去银行办理业务时，刚走进银行，需要到入门处的机器排队取号，然后按指令到对应的柜台办理业务，或者也有可能告诉你，今天不能排号了，回家吧！
-这样一个场景中，取号机器就是 Nginx(入口网关)。一个个柜台就是我们的业务服务器(办理业务)；银行中的保险箱就是我们的数据库(存取数据)；🤣</p>
-</blockquote>
-<p><img src="http://cdn.mydearest.cn/blog/images/nginx.png" alt="nginx"></p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
-<li>轻量级，配置方便灵活，无侵入性；</li>
-<li>占用内存少，启动快，性能好；</li>
-<li>高并发，事件驱动，异步；</li>
-<li>热部署，修改配置热生效；</li>
-</ol>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/Nginx.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Hybrid.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/Hybrid.html" itemprop="url">Hybrid混合方案</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-01T15:37:15+08:00">
-                2020-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/Hybrid.html" class="leancloud_visitors" data-flag-title="Hybrid混合方案">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,732 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  6 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>随着 Web技术 和 移动设备 的快速发展，在各家大厂中，Hybrid 技术已经成为一种最主流最不可取代的架构方案之一。一套好的 Hybrid 架构方案能让 App 既能拥有极致的体验和性能，同时也能拥有Web技术灵活的开发模式、跨平台能力以及热更新机制。因此，相关的 Hybrid 领域人才也是十分的吃香，精通Hybrid 技术和相关的实战经验，也是面试中一项大大的加分项。</p>
-<h2 id="混合方案简析"><a href="#混合方案简析" class="headerlink" title="混合方案简析"></a>混合方案简析</h2><p>Hybrid App，俗称 混合应用，即混合了 Native技术 与 Web技术 进行开发的移动应用。现在比较流行的混合方案主要有三种，主要是在UI渲染机制上的不同:</p>
-<h3 id="Webview-UI"><a href="#Webview-UI" class="headerlink" title="Webview UI"></a>Webview UI</h3><h4 id="通过-JSBridge-完成-H5-与-Native-的双向通讯，并-基于-Webview-进行页面的渲染；"><a href="#通过-JSBridge-完成-H5-与-Native-的双向通讯，并-基于-Webview-进行页面的渲染；" class="headerlink" title="通过 JSBridge 完成 H5 与 Native 的双向通讯，并 基于 Webview 进行页面的渲染；"></a>通过 JSBridge 完成 H5 与 Native 的双向通讯，并 基于 Webview 进行页面的渲染；</h4><h5 id="优势-简单易用，架构门槛-成本较低，适用性与灵活性极强；"><a href="#优势-简单易用，架构门槛-成本较低，适用性与灵活性极强；" class="headerlink" title="优势: 简单易用，架构门槛/成本较低，适用性与灵活性极强；"></a>优势: 简单易用，架构门槛/成本较低，适用性与灵活性极强；</h5><h5 id="Webview-性能局限，在复杂页面中，表现远不如原生页面；"><a href="#Webview-性能局限，在复杂页面中，表现远不如原生页面；" class="headerlink" title="Webview 性能局限，在复杂页面中，表现远不如原生页面；"></a>Webview 性能局限，在复杂页面中，表现远不如原生页面；</h5><h3 id="Native-UI"><a href="#Native-UI" class="headerlink" title="Native UI"></a>Native UI</h3><h4 id="通过-JSBridge-赋予-H5-原生能力，并进一步将-JS-生成的虚拟节点树-Virtual-DOM-传递至-Native-层，并使用-原生系统渲染。"><a href="#通过-JSBridge-赋予-H5-原生能力，并进一步将-JS-生成的虚拟节点树-Virtual-DOM-传递至-Native-层，并使用-原生系统渲染。" class="headerlink" title="通过 JSBridge 赋予 H5 原生能力，并进一步将 JS 生成的虚拟节点树(Virtual DOM)传递至 Native 层，并使用 原生系统渲染。"></a>通过 JSBridge 赋予 H5 原生能力，并进一步将 JS 生成的虚拟节点树(Virtual DOM)传递至 Native 层，并使用 原生系统渲染。</h4><h5 id="优势-用户体验基本接近原生，且能发挥-Web技术-开发灵活与易更新的特性；"><a href="#优势-用户体验基本接近原生，且能发挥-Web技术-开发灵活与易更新的特性；" class="headerlink" title="优势: 用户体验基本接近原生，且能发挥 Web技术 开发灵活与易更新的特性；"></a>优势: 用户体验基本接近原生，且能发挥 Web技术 开发灵活与易更新的特性；</h5><h5 id="上手-改造门槛较高，最好需要掌握一定程度的客户端技术。相比于常规Web开发，需要更高的开发调试、问题排查成本；"><a href="#上手-改造门槛较高，最好需要掌握一定程度的客户端技术。相比于常规Web开发，需要更高的开发调试、问题排查成本；" class="headerlink" title="上手/改造门槛较高，最好需要掌握一定程度的客户端技术。相比于常规Web开发，需要更高的开发调试、问题排查成本；"></a>上手/改造门槛较高，最好需要掌握一定程度的客户端技术。相比于常规Web开发，需要更高的开发调试、问题排查成本；</h5><h3 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h3><h4 id="通过更加定制化的-JSBridge，赋予了-Web-更大的权限，并使用双-WebView-双线程的模式隔离了-JS逻辑-与-UI渲染，形成了特殊的开发模式，加强了-H5-与-Native-混合程度，属于第一种方案的优化版本；"><a href="#通过更加定制化的-JSBridge，赋予了-Web-更大的权限，并使用双-WebView-双线程的模式隔离了-JS逻辑-与-UI渲染，形成了特殊的开发模式，加强了-H5-与-Native-混合程度，属于第一种方案的优化版本；" class="headerlink" title="通过更加定制化的 JSBridge，赋予了 Web 更大的权限，并使用双 WebView 双线程的模式隔离了 JS逻辑 与 UI渲染，形成了特殊的开发模式，加强了 H5 与 Native 混合程度，属于第一种方案的优化版本；"></a>通过更加定制化的 JSBridge，赋予了 Web 更大的权限，并使用双 WebView 双线程的模式隔离了 JS逻辑 与 UI渲染，形成了特殊的开发模式，加强了 H5 与 Native 混合程度，属于第一种方案的优化版本；</h4><h5 id="优势-用户体验好于常规-Webview-方案，且通常依托的平台也能提供更为友好的开发调试体验以及功能；"><a href="#优势-用户体验好于常规-Webview-方案，且通常依托的平台也能提供更为友好的开发调试体验以及功能；" class="headerlink" title="优势: 用户体验好于常规 Webview 方案，且通常依托的平台也能提供更为友好的开发调试体验以及功能；"></a>优势: 用户体验好于常规 Webview 方案，且通常依托的平台也能提供更为友好的开发调试体验以及功能；</h5><h5 id="劣势-需要依托于特定的平台的规范限定"><a href="#劣势-需要依托于特定的平台的规范限定" class="headerlink" title="劣势: 需要依托于特定的平台的规范限定"></a>劣势: 需要依托于特定的平台的规范限定</h5><hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/Hybrid.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2667,7 +2736,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">141</span>
+                <span class="site-state-item-count">142</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2689,7 +2758,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2832,7 +2901,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 259.5k字</span>
+    <span class="post-count">Blog总字数: 260.5k字</span>
   </div>
 
   <div class="theme-info">

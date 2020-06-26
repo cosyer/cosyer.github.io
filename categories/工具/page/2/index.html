@@ -1295,12 +1295,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-23T19:39:15+08:00">
+  <div class="post-date" data-datetime="2020-06-26T01:15:35+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">23</div>
+    <div class="post-time-count">26</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月23</div>
+      <div class="post-tiem">6月26</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1407,7 +1407,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  163 (字)
+                  374 (字)
                 </span>
               
 
@@ -1423,7 +1423,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  1 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -1456,7 +1456,18 @@ a:hover {
 drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</p>
 </blockquote>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 1. 关闭vscode</span><br><span class="line"></span><br><span class="line">// 2. 这一步是需要输入密码的</span><br><span class="line">sudo chown $USER ~/Library/Caches/com.microsoft.VSCode.ShipIt/ </span><br><span class="line"></span><br><span class="line">// 3. 这一步是不需要输入密码的, 如果不进行第一步，第二步会报错</span><br><span class="line">sudo chown $USER ~/Library/Caches/com.microsoft.VSCode.ShipIt/*</span><br><span class="line"></span><br><span class="line">// 4. 更新xattr</span><br><span class="line">xattr -dr com.apple.quarantine /Applications/Visual\ Studio\ Code.app</span><br></pre></td></tr></table></figure>
-<h2 id="重新安装更新-完成😁"><a href="#重新安装更新-完成😁" class="headerlink" title="重新安装更新 完成😁"></a>重新安装更新 完成😁</h2>
+<h2 id="重新安装更新-完成😁"><a href="#重新安装更新-完成😁" class="headerlink" title="重新安装更新 完成😁"></a>重新安装更新 完成😁</h2><h2 id="Mac版本下的Chrome，双击html文件打不开"><a href="#Mac版本下的Chrome，双击html文件打不开" class="headerlink" title="Mac版本下的Chrome，双击html文件打不开"></a>Mac版本下的Chrome，双击html文件打不开</h2><p>原因其实是因为在Mac OS系统下，在Finder(访达)中做任何操作，文件都会不可避免的被附加上一个特有的拓展属性(extend attributes)，可以通过终端命令ls -l查看，这些文件通常都会有@作为标记，因此，由于产品的原型是由Axure来制作的，然后导出了tar的压缩包，因此我们解压之后，通常都不能直接在浏览器打开！</p>
+<p>怎么解决这种问题呢？</p>
+<p>我们可以清除掉这个属性(extend attributes)！</p>
+<ol>
+<li><p>可以针对单个文件做清除操作（filename就是要文件名，例如：index.html）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -c filename</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以针对整个目录做清除操作（directory就是目录名，例如：content）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -rc directory</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
           
         
       
@@ -1957,7 +1968,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 260.5k字</span>
+    <span class="post-count">Blog总字数: 260.7k字</span>
   </div>
 
   <div class="theme-info">

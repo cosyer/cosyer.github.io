@@ -133,17 +133,16 @@
 
 
 <meta name="description" content="介绍Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。 Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装harmony-reflect; Reflect不是构造函数， 要使用的时候直接通过Ref">
-<meta name="keywords" content="深入理解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6Reflect对象">
-<meta property="og:url" content="http://mydearest.cn/2019/ES6Reflect对象.html">
+<meta property="og:url" content="http://mydearest.cn/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="介绍Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。 Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装harmony-reflect; Reflect不是构造函数， 要使用的时候直接通过Ref">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-07T16:05:52.501Z">
+<meta property="article:published_time" content="2019-05-01T18:31:52.000Z">
+<meta property="article:modified_time" content="2019-05-07T16:05:52.501Z">
+<meta property="article:author" content="陈宇（cosyer）">
+<meta property="article:tag" content="深入理解">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6Reflect对象">
-<meta name="twitter:description" content="介绍Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。 Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装harmony-reflect; Reflect不是构造函数， 要使用的时候直接通过Ref">
 
 
 
@@ -249,7 +248,7 @@ a:hover {
     cursor: url("http://cdn.mydearest.cn/blog/images/miku2.png"),auto!important
 }
 </style>
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -264,7 +263,7 @@ a:hover {
 
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
-    <a href="https://github.com/cosyer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <a href="https://github.com/cosyer" target="_blank" rel="noopener" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -448,7 +447,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/ES6Reflect对象.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -496,7 +495,7 @@ a:hover {
 
           
           
-             <span id="/2019/ES6Reflect对象.html" class="leancloud_visitors" data-flag-title="ES6Reflect对象">
+             <span id="/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html" class="leancloud_visitors" data-flag-title="ES6Reflect对象">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -589,7 +588,7 @@ a:hover {
 </li>
 </ul>
 <p>访问器中不想使用自己的方法，而是想要重定向this到wrapper：
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  obj = &#123;</span><br><span class="line">    set foo(value)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.bar();</span><br><span class="line">    &#125;</span><br><span class="line">    bar()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wrapper = &#123;</span><br><span class="line">    bar()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj, <span class="string">"foo"</span>, <span class="string">"value"</span>, wrapper)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  obj = &#123;</span><br><span class="line">    <span class="keyword">set</span> foo(value)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.bar();</span><br><span class="line">    &#125;</span><br><span class="line">    bar()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wrapper = &#123;</span><br><span class="line">    bar()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj, <span class="string">"foo"</span>, <span class="string">"value"</span>, wrapper)</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>避免直接访问<strong>proto</strong></li>
 </ul>
@@ -612,8 +611,8 @@ a:hover {
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.has(&#123;<span class="attr">x</span>:<span class="number">0</span>&#125;, <span class="string">"x"</span>) <span class="comment">//输出： true；</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="Reflect-isExtensible"><a href="#Reflect-isExtensible" class="headerlink" title="Reflect.isExtensible"></a>Reflect.isExtensible</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 现在这个元素是可以扩展的；</span></span><br><span class="line"><span class="keyword">var</span> empty = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(empty); <span class="comment">// === true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用preventExtensions方法， 让这个对象无法扩展新属性；</span></span><br><span class="line"><span class="built_in">Reflect</span>.preventExtensions(empty);</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(empty); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个对象无法扩展新属性， 可写的属性依然可以改动</span></span><br><span class="line"><span class="keyword">var</span> sealed = <span class="built_in">Object</span>.seal(&#123;&#125;);</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(sealed); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个对象完全被冻结了</span></span><br><span class="line"><span class="keyword">var</span> frozen = <span class="built_in">Object</span>.freeze(&#123;&#125;);</span><br><span class="line"><span class="built_in">Reflect</span>.isExtensible(frozen); <span class="comment">// === false</span></span><br></pre></td></tr></table></figure>
 <h3 id="Reflect-ownKeys"><a href="#Reflect-ownKeys" class="headerlink" title="Reflect.ownKeys"></a>Reflect.ownKeys</h3><p>返回对象的keys
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys(&#123;<span class="string">"a"</span>:<span class="number">0</span>,<span class="string">"b"</span>:<span class="number">1</span>,<span class="string">"c"</span>:<span class="number">2</span>,<span class="string">"d"</span>:<span class="number">3</span>&#125;)); <span class="comment">//输出 ：["a", "b", "c", "d"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys([])); <span class="comment">// ["length"]</span></span><br></pre></td></tr></table></figure></p>
-<p>reflect.ownKeys的排序是根据: 先显示数字， 数字根据大小排序，然后是 字符串根据插入的顺序排序， 最后是symbol类型的key也根据插入插入顺序排序;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys(&#123;<span class="string">"a"</span>:<span class="number">0</span>,<span class="string">"b"</span>:<span class="number">1</span>,<span class="string">"c"</span>:<span class="number">2</span>,<span class="string">"d"</span>:<span class="number">3</span>&#125;)); <span class="comment">//输出 ：["a", "b", "c", "d"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys([])); <span class="comment">// ["length"]</span></span><br></pre></td></tr></table></figure>
+reflect.ownKeys的排序是根据: 先显示数字， 数字根据大小排序，然后是 字符串根据插入的顺序排序， 最后是symbol类型的key也根据插入插入顺序排序;</p>
 <h3 id="Reflect-set"><a href="#Reflect-set" class="headerlink" title="Reflect.set"></a>Reflect.set</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj, <span class="string">"prop"</span>, <span class="string">"value"</span>); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log( obj.prop ); <span class="comment">// 输出："value"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="comment">// 相当于 Reflect.set(obj, undefined, undefined);</span></span><br></pre></td></tr></table></figure>
 <h3 id="Reflect-setPrototypeOf"><a href="#Reflect-setPrototypeOf" class="headerlink" title="Reflect.setPrototypeOf"></a>Reflect.setPrototypeOf</h3><p>修改对象的__proto__属性
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="built_in">Object</span>.prototype); <span class="comment">// 输出true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给该对象数组[[Prototype]] 为null.</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="literal">null</span>); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 此时的obj.__proto__为undefine</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把对象冻结以后重新设置[[prototype]]</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(<span class="built_in">Object</span>.freeze(&#123;&#125;), <span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果原型链循环依赖的话就会返回false.</span></span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> proto = <span class="built_in">Object</span>.create(target);</span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(target, proto); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
@@ -645,12 +644,12 @@ a:hover {
   <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
-  <p><span>本文标题:</span><a href="/2019/ES6Reflect对象.html">ES6Reflect对象</a></p>
+  <p><span>本文标题:</span><a href="/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html">ES6Reflect对象</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年05月02日 - 02:05</p>
   <p><span>最后更新:</span>2019年05月08日 - 00:05</p>
-  <p><span>原始链接:</span><a href="/2019/ES6Reflect对象.html" title="ES6Reflect对象">http://mydearest.cn/2019/ES6Reflect对象.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/ES6Reflect对象.html"  aria-label=" 复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html" title="ES6Reflect对象">http://mydearest.cn/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html"  aria-label=" 复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -710,7 +709,7 @@ a:hover {
       
         <div class="post-tags">
           
-            <a href="/tags/深入理解/" rel="tag"><i class="fa fa-tag fa-fw"></i> 深入理解</a>
+            <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/" rel="tag"><i class="fa fa-tag fa-fw"></i> 深入理解</a>
           
         </div>
       
@@ -723,7 +722,7 @@ a:hover {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/深入了解HTTP.html" rel="next" title="深入了解HTTP">
+              <a href="/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html" rel="next" title="深入了解HTTP">
                 <i class="fa fa-chevron-left"></i> 深入了解HTTP
               </a>
             
@@ -733,7 +732,7 @@ a:hover {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/use strict.html" rel="prev" title="use strict">
+              <a href="/2019/use%20strict.html" rel="prev" title="use strict">
                 use strict <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -816,7 +815,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">143</span>
+                <span class="site-state-item-count">145</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -997,7 +996,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 270.1k字</span>
+    <span class="post-count">Blog总字数: 272.2k字</span>
   </div>
 
   <div class="theme-info">
@@ -1010,12 +1009,12 @@ a:hover {
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
     NexT.Mist
   </a>
 </div>

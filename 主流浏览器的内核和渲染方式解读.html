@@ -133,18 +133,17 @@
 
 
 <meta name="description" content="浏览器内核 Trident:IE，360，搜狗  Gecko：firefox  webkit:safari，旧版chrome  presto：旧版opera  blink(webkit的一个分支)：新版chrome，新版opera   浏览器的渲染方式 构建DOM树 浏览器请求到html代码后，在生成DOM的最开始阶段，并行发起css、图片、js的请求。  构建CSSOM css文件加载完成，开始">
-<meta name="keywords" content="知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主流浏览器的内核和渲染方式解读">
-<meta property="og:url" content="http://mydearest.cn/主流浏览器的内核和渲染方式解读.html">
+<meta property="og:url" content="http://mydearest.cn/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%92%8C%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E8%A7%A3%E8%AF%BB.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="浏览器内核 Trident:IE，360，搜狗  Gecko：firefox  webkit:safari，旧版chrome  presto：旧版opera  blink(webkit的一个分支)：新版chrome，新版opera   浏览器的渲染方式 构建DOM树 浏览器请求到html代码后，在生成DOM的最开始阶段，并行发起css、图片、js的请求。  构建CSSOM css文件加载完成，开始">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/render.png">
-<meta property="og:updated_time" content="2020-06-28T13:53:57.686Z">
+<meta property="article:published_time" content="2018-07-05T13:24:03.000Z">
+<meta property="article:modified_time" content="2020-06-28T13:53:57.686Z">
+<meta property="article:author" content="陈宇（cosyer）">
+<meta property="article:tag" content="知识">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="主流浏览器的内核和渲染方式解读">
-<meta name="twitter:description" content="浏览器内核 Trident:IE，360，搜狗  Gecko：firefox  webkit:safari，旧版chrome  presto：旧版opera  blink(webkit的一个分支)：新版chrome，新版opera   浏览器的渲染方式 构建DOM树 浏览器请求到html代码后，在生成DOM的最开始阶段，并行发起css、图片、js的请求。  构建CSSOM css文件加载完成，开始">
 <meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/render.png">
 
 
@@ -251,7 +250,7 @@ a:hover {
     cursor: url("http://cdn.mydearest.cn/blog/images/miku2.png"),auto!important
 }
 </style>
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -266,7 +265,7 @@ a:hover {
 
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
-    <a href="https://github.com/cosyer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <a href="https://github.com/cosyer" target="_blank" rel="noopener" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -434,7 +433,7 @@ a:hover {
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
                     <span itemprop="name">知识</span>
                   </a>
                 </span>
@@ -450,7 +449,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/主流浏览器的内核和渲染方式解读.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%92%8C%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E8%A7%A3%E8%AF%BB.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -498,7 +497,7 @@ a:hover {
 
           
           
-             <span id="/主流浏览器的内核和渲染方式解读.html" class="leancloud_visitors" data-flag-title="主流浏览器的内核和渲染方式解读">
+             <span id="/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%92%8C%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E8%A7%A3%E8%AF%BB.html" class="leancloud_visitors" data-flag-title="主流浏览器的内核和渲染方式解读">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -650,12 +649,12 @@ JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修�
   <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
-  <p><span>本文标题:</span><a href="/主流浏览器的内核和渲染方式解读.html">主流浏览器的内核和渲染方式解读</a></p>
+  <p><span>本文标题:</span><a href="/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%92%8C%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E8%A7%A3%E8%AF%BB.html">主流浏览器的内核和渲染方式解读</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月05日 - 21:07</p>
   <p><span>最后更新:</span>2020年06月28日 - 21:06</p>
-  <p><span>原始链接:</span><a href="/主流浏览器的内核和渲染方式解读.html" title="主流浏览器的内核和渲染方式解读">http://mydearest.cn/主流浏览器的内核和渲染方式解读.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/主流浏览器的内核和渲染方式解读.html"  aria-label=" 复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%92%8C%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E8%A7%A3%E8%AF%BB.html" title="主流浏览器的内核和渲染方式解读">http://mydearest.cn/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%92%8C%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E8%A7%A3%E8%AF%BB.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%92%8C%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E8%A7%A3%E8%AF%BB.html"  aria-label=" 复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -715,7 +714,7 @@ JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修�
       
         <div class="post-tags">
           
-            <a href="/tags/知识/" rel="tag"><i class="fa fa-tag fa-fw"></i> 知识</a>
+            <a href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag"><i class="fa fa-tag fa-fw"></i> 知识</a>
           
         </div>
       
@@ -821,7 +820,7 @@ JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">143</span>
+                <span class="site-state-item-count">145</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1002,7 +1001,7 @@ JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 270.1k字</span>
+    <span class="post-count">Blog总字数: 272.2k字</span>
   </div>
 
   <div class="theme-info">
@@ -1015,12 +1014,12 @@ JS阻塞页面：JS可以操作DOM来修改DOM结构，可以操作CSSOM来修�
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
     NexT.Mist
   </a>
 </div>

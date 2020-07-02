@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="在做前端页面渲染时，经常会遇到有的组件需要跟随数据的变化而实时的变化，例如：一个线上报名系统，总人数有一定限制，所以要实时的展现已经报名的人数，应该怎么实现呢？最基本有如下3种方案：  Ajax轮询 Ajax长轮询(comet) websocket长连接">
 <meta property="article:published_time" content="2018-07-05T12:33:37.000Z">
-<meta property="article:modified_time" content="2020-04-05T16:05:04.682Z">
+<meta property="article:modified_time" content="2020-07-02T11:42:48.357Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="知识">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-06T00:05:04+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">06</div>
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月06</div>
+      <div class="post-tiem">7月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,075 (字)
+                  1,077 (字)
                 </span>
               
 
@@ -591,7 +591,8 @@ a:hover {
 <ol start="2">
 <li>数据传输</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前端客户端向后端发送数据：</span></span><br><span class="line">socket.emit(<span class="string">'chat message'</span>, $(<span class="string">'#m'</span>).val()); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 后端接收数据：</span></span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123; socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'message: '</span> + msg); &#125;); </span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 后端向前端发送数据：</span></span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123; socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; </span><br><span class="line">    io.emit(<span class="string">'chat message'</span>, msg); &#125;); &#125;); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端接收数据：</span></span><br><span class="line"></span><br><span class="line">socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; <span class="built_in">console</span>.log(msg); &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前端客户端向后端发送数据：</span></span><br><span class="line">socket.emit(<span class="string">'chat message'</span>, $(<span class="string">'#m'</span>).val()); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 后端接收数据：</span></span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123; </span><br><span class="line">    socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'message: '</span> + msg); &#125;); </span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 后端向前端发送数据：</span></span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; </span><br><span class="line">    io.emit(<span class="string">'chat message'</span>, msg); &#125;); </span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端接收数据：</span></span><br><span class="line">socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123; <span class="built_in">console</span>.log(msg); &#125;);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -622,7 +623,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html">服务器推送技术</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月05日 - 20:07</p>
-  <p><span>最后更新:</span>2020年04月06日 - 00:04</p>
+  <p><span>最后更新:</span>2020年07月02日 - 19:07</p>
   <p><span>原始链接:</span><a href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html" title="服务器推送技术">http://mydearest.cn/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -971,7 +972,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 272.2k字</span>
+    <span class="post-count">Blog总字数: 274.0k字</span>
   </div>
 
   <div class="theme-info">

@@ -1779,13 +1779,13 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
   
   
   
-  <div class="post-date" data-datetime="2019-03-08T22:03:18+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">08</div>
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月08</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -1891,7 +1891,7 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  353 (字)
+                  384 (字)
                 </span>
               
 
@@ -1949,7 +1949,7 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
 <blockquote>
 <p>instanceof对基本数据类型检测不起作用，因为基本数据类型没有原型链。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true </span></span><br><span class="line">/abc/ <span class="keyword">instanceof</span> <span class="built_in">RegExp</span> <span class="comment">// true </span></span><br><span class="line">(&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true </span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Function</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true </span></span><br><span class="line">/abc/ <span class="keyword">instanceof</span> <span class="built_in">RegExp</span> <span class="comment">// true </span></span><br><span class="line">(&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true </span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Function</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype;</span><br></pre></td></tr></table></figure>
 <h2 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call"></a>Object.prototype.toString.call</h2><p>可以检测各种数据类型，推荐使用。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call([]); <span class="comment">// =&gt; [object Array] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;); <span class="comment">// =&gt; [object Object] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">''</span>); <span class="comment">// =&gt; [object String] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">// =&gt; [object Date] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">1</span>); <span class="comment">// =&gt; [object Number] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// =&gt; [object Function] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="regexp">/test/i</span>); <span class="comment">// =&gt; [object RegExp] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>); <span class="comment">// =&gt; [object Boolean] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>); <span class="comment">// =&gt; [object Null] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(); <span class="comment">// =&gt; [object Undefined]</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params"> type </span>)</span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>)</span>&#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call( obj ) === <span class="string">'[object '</span>+ type +<span class="string">']'</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> isString = isType( <span class="string">'String'</span> ); </span><br><span class="line"><span class="keyword">var</span> isArray = isType( <span class="string">'Array'</span> ); </span><br><span class="line"><span class="keyword">var</span> isNumber = isType( <span class="string">'Number'</span> );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( isArray( [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ] ) ); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
@@ -2007,12 +2007,12 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
   
   
   
-  <div class="post-date" data-datetime="2020-05-27T20:34:35+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月27</div>
+      <div class="post-tiem">7月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -2119,7 +2119,7 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,926 (字)
+                  2,930 (字)
                 </span>
               
 
@@ -2862,7 +2862,7 @@ history: 兼容性差，直接访问报400，需要服务器做处理。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 272.2k字</span>
+    <span class="post-count">Blog总字数: 274.0k字</span>
   </div>
 
   <div class="theme-info">

@@ -428,228 +428,7 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-02T01:01:28+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html" itemprop="url">关于node的那些事(进阶篇)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-07-02T00:31:02+08:00">
-                2020-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html" class="leancloud_visitors" data-flag-title="关于node的那些事(进阶篇)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,106 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  5 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="👨提问：注册路由时-app-get、app-use、app-all-的区别是什么？"><a href="#👨提问：注册路由时-app-get、app-use、app-all-的区别是什么？" class="headerlink" title="👨提问：注册路由时 app.get、app.use、app.all 的区别是什么？"></a>👨提问：注册路由时 app.get、app.use、app.all 的区别是什么？</h2><h3 id="app-use-path-callback"><a href="#app-use-path-callback" class="headerlink" title="app.use(path,callback)"></a>app.use(path,callback)</h3><blockquote>
-<p>app.use是express用来调用中间件的方法。中间件通常不处理请求和响应，一般只处理输入数据，并将其交给队列中的下一个处理程序，比如下面这个例子app.use
-(‘/user’)，那么只要路径以 /user 开始即可匹配，如 /user/tree 就可以匹配。</p>
-</blockquote>
-<h3 id="app-all"><a href="#app-all" class="headerlink" title="app.all()"></a>app.all()</h3><blockquote>
-<p>app.all 是路由中指代所有的请求方式，用作路由处理，匹配完整路径，在app.use之后可以理解为包含了app.get、app.post等的定义，比如app.all(‘/
-user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)、 put(‘/user/tree’) ,不过相对于app.use()的前缀匹配，它则是匹配具体的路
-由。</p>
-</blockquote>
-<p><code>all完整匹配，use只匹配前缀</code></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-02T00:59:44+08:00">
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
     <div class="post-time-text">7月</div>
     <div class="post-time-count">02</div>
     <div class="text-desc">
@@ -683,7 +462,7 @@ user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/interview.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -702,7 +481,7 @@ user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/interview.html" itemprop="url">面试题整理归纳</a></h2>
+                <a class="post-title-link" href="/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html" itemprop="url">获取浏览器url参数方法总结</a></h2>
         
 
         <div class="post-meta">
@@ -714,8 +493,8 @@ user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-23T10:58:48+08:00">
-                2018-06-23
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-08T23:21:52+08:00">
+                2018-08-08
               </time>
             
 
@@ -733,7 +512,7 @@ user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)
 
           
           
-             <span id="/interview.html" class="leancloud_visitors" data-flag-title="面试题整理归纳">
+             <span id="/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html" class="leancloud_visitors" data-flag-title="获取浏览器url参数方法总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -761,7 +540,7 @@ user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  25,769 (字)
+                  421 (字)
                 </span>
               
 
@@ -777,7 +556,7 @@ user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  101 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -799,20 +578,14 @@ user/tree’),能同时覆盖：get(‘/user/tree’) 、 post(‘/user/tree’)
 
       
         
-          <h2 id="字符串扩展的方法"><a href="#字符串扩展的方法" class="headerlink" title="字符串扩展的方法"></a>字符串扩展的方法</h2><ul>
-<li>includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a[<span class="number">4</span>]=<span class="number">5</span> <span class="comment">// [1, 2, 3, undefined × 1, 5] empty</span></span><br><span class="line"><span class="comment">// a[3]=undefined [1, 2, 3, undefined, 5] </span></span><br><span class="line"></span><br><span class="line">a.indexOf(<span class="literal">undefined</span>) <span class="comment">// -1</span></span><br><span class="line">a.includes(<span class="literal">undefined</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
-<li>startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// polyfill</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">String</span>.prototype.startsWith) &#123;</span><br><span class="line">  <span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span> (<span class="params">search, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.substr((!index || index &lt; <span class="number">0</span>) ? <span class="number">0</span> : index, search.length) === search;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
-str | index</li>
-<li>repeat()：返回一个新字符串，表示将原字符串重复n次。参数如果是小数，会被取整(不四舍五入)。参数是负数或者Infinity，会报错。0/NaN返回空字符串,参数是字符串，则会先转换成数字，不传则为空字符串。</li>
-<li>padStart()：头部补全。</li>
-<li>padEnd()：尾部补全<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#39;x&#39;.padStart(5, &#39;ab&#39;) &#x2F;&#x2F; &#39;ababx&#39;</span><br><span class="line">&#39;x&#39;.padStart(4, &#39;ab&#39;) &#x2F;&#x2F; &#39;abax&#39;</span><br><span class="line"></span><br><span class="line">&#39;x&#39;.padEnd(5, &#39;ab&#39;) &#x2F;&#x2F; &#39;xabab&#39;</span><br><span class="line">&#39;x&#39;.padEnd(4, &#39;ab&#39;) &#x2F;&#x2F; &#39;xaba&#39;</span><br></pre></td></tr></table></figure>
-如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。默认使用空格</li>
-</ul>
+          <ol>
+<li>正则(xxx?typeId=1)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>, <span class="string">'i'</span>);</span><br><span class="line">    <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">    <span class="keyword">if</span> (r != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// return unescape(r[2]); // 中文会乱码</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">decodeURI</span>(r[<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">getQueryString(<span class="string">"typeId"</span>) <span class="comment">// "2"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/interview.html#more" rel="contents">
+            <a class="btn" href="/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -870,7 +643,7 @@ str | index</li>
   
   
   
-  <div class="post-date" data-datetime="2020-07-02T00:32:28+08:00">
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
     <div class="post-time-text">7月</div>
     <div class="post-time-count">02</div>
     <div class="text-desc">
@@ -888,8 +661,8 @@ str | index</li>
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
                   </a>
                 </span>
 
@@ -904,7 +677,7 @@ str | index</li>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -923,7 +696,7 @@ str | index</li>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html" itemprop="url">关于node的那些事(基础篇)</a></h2>
+                <a class="post-title-link" href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html" itemprop="url">服务器推送技术</a></h2>
         
 
         <div class="post-meta">
@@ -935,8 +708,8 @@ str | index</li>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-21T23:41:55+08:00">
-                2020-06-21
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-07-05T20:33:37+08:00">
+                2018-07-05
               </time>
             
 
@@ -954,7 +727,7 @@ str | index</li>
 
           
           
-             <span id="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html" class="leancloud_visitors" data-flag-title="关于node的那些事(基础篇)">
+             <span id="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html" class="leancloud_visitors" data-flag-title="服务器推送技术">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -982,7 +755,7 @@ str | index</li>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,545 (字)
+                  1,077 (字)
                 </span>
               
 
@@ -998,7 +771,7 @@ str | index</li>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -1020,24 +793,16 @@ str | index</li>
 
       
         
-          <h2 id="👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？"><a href="#👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？" class="headerlink" title="👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？"></a>👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？</h2><blockquote>
-<p>莫慌，Node依旧是社区热捧的服务器端 JavaScript 运行环境，Deno的出现其实本质上是完善现阶段的Node（新轮子），包括原生支持TS、安全性、支持ES 
-Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将来可能就不需要 Node.js，但是新事物总是需要不断推演和考验后，所以这一点而言，Node短时间内很
-难被替换，毕竟背后依附着强大社区的支撑。</p>
-</blockquote>
-<h2 id="node-如何获取命令行传来的参数？"><a href="#node-如何获取命令行传来的参数？" class="headerlink" title="node 如何获取命令行传来的参数？"></a>node 如何获取命令行传来的参数？</h2><blockquote>
-<p>process.argv。process是一个全局变量，它提供当前 Node.js 进程的有关信息，而process.argv 属性则返回一个数组，数组中的信息包括启动Node.js进程时的命令行参数。</p>
-</blockquote>
+          <p>在做前端页面渲染时，经常会遇到有的组件需要跟随数据的变化而实时的变化，例如：一个线上报名系统，总人数有一定限制，所以要实时的展现已经报名的人数，应该怎么实现呢？最基本有如下3种方案：</p>
 <ul>
-<li>process.argv[0] : 返回启动Node.js进程的可执行文件所在的绝对路径</li>
-<li>process.argv[1] : 为当前执行的JavaScript文件路径</li>
-<li>process.argv.splice(2) : 移除前两者后，剩余的元素为其他命令行参数(也就是我们自定义部分)</li>
+<li>Ajax轮询</li>
+<li>Ajax长轮询(comet)</li>
+<li>websocket长连接</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"script"</span>: &#123;</span><br><span class="line">    <span class="string">"serve"</span>: <span class="string">"node test.js arg1 arg2 arg3"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">arguments</span> = process.argv.splice(<span class="number">2</span>) <span class="comment">// [arg1, arg2, arg3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结合commander</span></span><br><span class="line">commander.parse(process.argv)</span><br></pre></td></tr></table></figure>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html#more" rel="contents">
+            <a class="btn" href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1095,7 +860,7 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
   
   
   
-  <div class="post-date" data-datetime="2020-07-02T00:23:10+08:00">
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
     <div class="post-time-text">7月</div>
     <div class="post-time-count">02</div>
     <div class="text-desc">
@@ -1207,7 +972,7 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  17,551 (字)
+                  17,555 (字)
                 </span>
               
 
@@ -1310,7 +1075,7 @@ void expression</p>
   
   
   
-  <div class="post-date" data-datetime="2020-07-02T00:20:55+08:00">
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
     <div class="post-time-text">7月</div>
     <div class="post-time-count">02</div>
     <div class="text-desc">
@@ -1328,8 +1093,8 @@ void expression</p>
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
                   </a>
                 </span>
 
@@ -1344,7 +1109,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -1363,7 +1128,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html" itemprop="url">实现图片懒加载</a></h2>
+                <a class="post-title-link" href="/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" itemprop="url">js判断数据类型</a></h2>
         
 
         <div class="post-meta">
@@ -1375,8 +1140,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-07-01T23:58:45+08:00">
-                2020-07-01
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-31T14:28:15+08:00">
+                2018-10-31
               </time>
             
 
@@ -1394,7 +1159,7 @@ void expression</p>
 
           
           
-             <span id="/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html" class="leancloud_visitors" data-flag-title="实现图片懒加载">
+             <span id="/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="leancloud_visitors" data-flag-title="js判断数据类型">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1422,7 +1187,7 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  868 (字)
+                  384 (字)
                 </span>
               
 
@@ -1438,7 +1203,7 @@ void expression</p>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -1460,13 +1225,240 @@ void expression</p>
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>图片懒加载在一些图片密集型的网站中运用比较多，通过图片懒加载可以让一些不可视的图片不去加载，避免一次性加载过多的图片导致请求阻塞（浏览器一般对同一域名
-下的并发请求的连接数有限制），这样就可以提高网站的加载速度，提高用户体验。 </p>
-<p><a href="http://cdn.mydearest.cn/blog/images/lazyload.png" target="_blank" rel="noopener">效果预览</a></p>
+          
+            <h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><blockquote>
+<p>typeof一般只能返回如下几个结果：number,boolean,string,function,object,undefined字符串</p>
+</blockquote>
+<blockquote>
+<p>对于Array,null等特殊对象使用typeof一律返回object，这正是typeof的局限性。</p>
+</blockquote>
+<blockquote>
+<p>在判断除Object类型的对象(基本类型)时比较方便。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span> (<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return a + b'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> fn <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><blockquote>
+<p>instanceof适用于检测对象，它是基于原型链运作的。</p>
+</blockquote>
+<blockquote>
+<p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。换种说法就是如果左侧的对象是右侧对象的实例， 则表达式返回true, 否则返回false 。</p>
+</blockquote>
+<blockquote>
+<p>instanceof对基本数据类型检测不起作用，因为基本数据类型没有原型链。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true </span></span><br><span class="line">/abc/ <span class="keyword">instanceof</span> <span class="built_in">RegExp</span> <span class="comment">// true </span></span><br><span class="line">(&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true </span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Function</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype;</span><br></pre></td></tr></table></figure>
+<h2 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call"></a>Object.prototype.toString.call</h2><p>可以检测各种数据类型，推荐使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call([]); <span class="comment">// =&gt; [object Array] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;); <span class="comment">// =&gt; [object Object] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">''</span>); <span class="comment">// =&gt; [object String] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">// =&gt; [object Date] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">1</span>); <span class="comment">// =&gt; [object Number] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// =&gt; [object Function] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="regexp">/test/i</span>); <span class="comment">// =&gt; [object RegExp] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>); <span class="comment">// =&gt; [object Boolean] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>); <span class="comment">// =&gt; [object Null] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(); <span class="comment">// =&gt; [object Undefined]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params"> type </span>)</span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>)</span>&#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call( obj ) === <span class="string">'[object '</span>+ type +<span class="string">']'</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> isString = isType( <span class="string">'String'</span> ); </span><br><span class="line"><span class="keyword">var</span> isArray = isType( <span class="string">'Array'</span> ); </span><br><span class="line"><span class="keyword">var</span> isNumber = isType( <span class="string">'Number'</span> );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( isArray( [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ] ) ); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html" itemprop="url">js创建对象实现继承</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-31T10:21:48+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html" class="leancloud_visitors" data-flag-title="js创建对象实现继承">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,930 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  13 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>今天10月31日，万圣节前夜。希望ff的病早点好，身体健康。</p>
+<h2 id="创建对象-字面量、构造函数、create方法、调用函数返回对象"><a href="#创建对象-字面量、构造函数、create方法、调用函数返回对象" class="headerlink" title="创建对象(字面量、构造函数、create方法、调用函数返回对象)"></a>创建对象(字面量、构造函数、create方法、调用函数返回对象)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125; <span class="comment">// 字面量 </span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>() <span class="comment">// 很少见，性能低 没有形参时可省略()</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(<span class="literal">null</span>) <span class="comment">// 以xx为原型创建对象</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;)   <span class="comment">// 复制到目标对象</span></span><br><span class="line"><span class="comment">// Object.assign()还可以去除多余的参数覆盖</span></span><br><span class="line"><span class="built_in">Object</span>.assign(&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">3</span>, <span class="attr">c</span>: <span class="number">3</span> &#125;)</span><br><span class="line"><span class="keyword">const</span> newObj = &#123; ...&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;, ...&#123; <span class="attr">b</span>: <span class="number">3</span>, <span class="attr">c</span>: <span class="number">3</span> &#125; &#125;</span><br><span class="line"><span class="comment">// &#123;a: 1, b: 3, c: 3&#125;</span></span><br><span class="line"><span class="comment">// Object() ==&gt; &#123;&#125;</span></span><br></pre></td></tr></table></figure>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html#more" rel="contents">
+            <a class="btn" href="/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1524,12 +1516,12 @@ void expression</p>
   
   
   
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
+      <div class="post-tiem">7月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1558,7 +1550,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/jsthis.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -1577,7 +1569,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html" itemprop="url">高逼格的JS代码</a></h2>
+                <a class="post-title-link" href="/jsthis.html" itemprop="url">JavaScript 中 this 的详解</a></h2>
         
 
         <div class="post-meta">
@@ -1589,8 +1581,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-30T09:22:25+08:00">
-                2018-10-30
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-08T16:58:32+08:00">
+                2018-06-08
               </time>
             
 
@@ -1608,7 +1600,7 @@ void expression</p>
 
           
           
-             <span id="/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html" class="leancloud_visitors" data-flag-title="高逼格的JS代码">
+             <span id="/jsthis.html" class="leancloud_visitors" data-flag-title="JavaScript 中 this 的详解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1636,7 +1628,7 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,464 (字)
+                  1,860 (字)
                 </span>
               
 
@@ -1674,14 +1666,14 @@ void expression</p>
 
       
         
-          <p>黑科技JS代码整理 是不是很void 666</p>
-<h3 id="一行代码实现评级"><a href="#一行代码实现评级" class="headerlink" title="一行代码实现评级"></a>一行代码实现评级</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"★★★★★☆☆☆☆☆"</span>.slice(<span class="number">5</span> - rate, <span class="number">10</span> - rate);定义一个变量rate是<span class="number">1</span>到<span class="number">5</span>的值</span><br></pre></td></tr></table></figure>
-<h3 id="SB、NB、Hello-World"><a href="#SB、NB、Hello-World" class="headerlink" title="SB、NB、Hello World"></a>SB、NB、Hello World</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(!(~+[])+&#123;&#125;)[--[~+<span class="string">""</span>][+[]]*[~+[]] + ~~!+[]]+(&#123;&#125;+[])[[~!+[]]*~+[]]</span><br><span class="line"></span><br><span class="line">([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]]</span><br><span class="line"></span><br><span class="line">([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[+[]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+[])+(+!![]+[]))</span><br></pre></td></tr></table></figure>
-<h3 id="错误处理的正确方法"><a href="#错误处理的正确方法" class="headerlink" title="错误处理的正确方法"></a>错误处理的正确方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    something</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href =</span><br><span class="line">        <span class="string">"http://stackoverflow.com/search?q=[js]+"</span> +</span><br><span class="line">        e.message;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 百度版</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    something</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href =</span><br><span class="line">        <span class="string">"https://www.baidu.com/s?wd="</span> +</span><br><span class="line">        e.message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h2><p><code>this</code> 是 js 中定义的关键字， 它的指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。在实际应用中，<code>this</code>的指向大致可以分为以下四种情况。</p>
+<blockquote>
+<p>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象(函数的直接调用者);</p>
+</blockquote>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html#more" rel="contents">
+            <a class="btn" href="/jsthis.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1739,674 +1731,12 @@ void expression</p>
   
   
   
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html" itemprop="url">动手实现redux</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-03T19:24:18+08:00">
-                2018-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html" class="leancloud_visitors" data-flag-title="动手实现redux">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  741 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>概念：</p>
-<ul>
-<li>一个app只有一个store，一个store管理着一个全局state含有以下方法<ul>
-<li>getState: 获取 state；</li>
-<li>dispatch: 触发 action, 更新 state；</li>
-<li>subscribe: 订阅数据变更，注册监听器；</li>
-</ul>
-</li>
-<li>createStore 传入reducer，返回getState, dispatch, subscribe</li>
-<li>action是一个至少有type这个键的对象，可以写一个creactAction 函数去return生成action对象</li>
-<li>createStore.dispatch(action) 根据action这个对象去更新state</li>
-<li>dispatch是一个函数，内部又将执行reducer函数</li>
-<li>reducer也是一个函数，传入state,action, 输出一个新的state . (switch case return…)<ul>
-<li>遵守数据不可变，不要去直接修改 state，而是返回出一个 新对象；</li>
-<li>默认情况下需要 返回原数据，避免数据被清空；</li>
-<li>最好设置 初始值，便于应用的初始化及数据稳定；</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://cdn.mydearest.cn/blog/images/redux.png" alt="redux"></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/reactInterview.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/reactInterview.html" itemprop="url">react面试题记录</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-07T14:47:09+08:00">
-                2018-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/reactInterview.html" class="leancloud_visitors" data-flag-title="react面试题记录">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  7,204 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  27 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://cdn.mydearest.cn/blog/images/reactInterview.jpeg " class="full-image" alt="reactInterview" title="React"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/reactInterview.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/jssummary.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/jssummary.html" itemprop="url">JavaScript整理总结</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-21T19:37:27+08:00">
-                2018-06-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/jssummary.html" class="leancloud_visitors" data-flag-title="JavaScript整理总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  10,222 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  46 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。</p>
-<ul>
-<li>运行在宿主环境环境中，比如浏览器或node环境</li>
-<li>不用预编译，直接解释执行代码</li>
-<li>是弱类型语言，较为灵活</li>
-<li>与操作系统无关，跨平台的语言</li>
-<li>脚本语言，解释性语言</li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/jssummary.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
+      <div class="post-tiem">7月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -2435,7 +1765,7 @@ void expression</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/http%E8%AF%B7%E6%B1%82%E6%A6%82%E8%BF%B0.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/interview.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -2454,7 +1784,7 @@ void expression</p>
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/http%E8%AF%B7%E6%B1%82%E6%A6%82%E8%BF%B0.html" itemprop="url">Http请求概述</a></h2>
+                <a class="post-title-link" href="/interview.html" itemprop="url">面试题整理归纳</a></h2>
         
 
         <div class="post-meta">
@@ -2466,8 +1796,8 @@ void expression</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-14T14:56:52+08:00">
-                2018-08-14
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-23T10:58:48+08:00">
+                2018-06-23
               </time>
             
 
@@ -2485,7 +1815,7 @@ void expression</p>
 
           
           
-             <span id="/http%E8%AF%B7%E6%B1%82%E6%A6%82%E8%BF%B0.html" class="leancloud_visitors" data-flag-title="Http请求概述">
+             <span id="/interview.html" class="leancloud_visitors" data-flag-title="面试题整理归纳">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2513,7 +1843,7 @@ void expression</p>
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,940 (字)
+                  27,333 (字)
                 </span>
               
 
@@ -2529,7 +1859,7 @@ void expression</p>
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  15 (分钟)
+                  107 (分钟)
                 </span>
               
             </div>
@@ -2551,11 +1881,660 @@ void expression</p>
 
       
         
-          <p>超文本传输协议（HTTP, HyperText Transfer Protocol）是一种无状态的协议，它位于OSI七层模型的传输层。HTTP客户端会根据需要构建合适的HTTP请求方法，而HTTP服务器会根据不同的HTTP请求方法做出不同的响应。</p>
+          <h2 id="字符串扩展的方法"><a href="#字符串扩展的方法" class="headerlink" title="字符串扩展的方法"></a>字符串扩展的方法</h2><ul>
+<li>includes()：返回布尔值，表示是否找到了参数字符串。数组也可以 a[1]=1 且能判断undefined<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a[<span class="number">4</span>]=<span class="number">5</span> <span class="comment">// [1, 2, 3, undefined × 1, 5] empty</span></span><br><span class="line"><span class="comment">// a[3]=undefined [1, 2, 3, undefined, 5] </span></span><br><span class="line"></span><br><span class="line">a.indexOf(<span class="literal">undefined</span>) <span class="comment">// -1</span></span><br><span class="line">a.includes(<span class="literal">undefined</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
+<li>startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// polyfill</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">String</span>.prototype.startsWith) &#123;</span><br><span class="line">  <span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span> (<span class="params">search, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.substr((!index || index &lt; <span class="number">0</span>) ? <span class="number">0</span> : index, search.length) === search;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+str | index</li>
+<li>repeat()：返回一个新字符串，表示将原字符串重复n次。参数如果是小数，会被取整(不四舍五入)。参数是负数或者Infinity，会报错。0/NaN返回空字符串,参数是字符串，则会先转换成数字，不传则为空字符串。</li>
+<li>padStart()：头部补全。</li>
+<li>padEnd()：尾部补全<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#39;x&#39;.padStart(5, &#39;ab&#39;) &#x2F;&#x2F; &#39;ababx&#39;</span><br><span class="line">&#39;x&#39;.padStart(4, &#39;ab&#39;) &#x2F;&#x2F; &#39;abax&#39;</span><br><span class="line"></span><br><span class="line">&#39;x&#39;.padEnd(5, &#39;ab&#39;) &#x2F;&#x2F; &#39;xabab&#39;</span><br><span class="line">&#39;x&#39;.padEnd(4, &#39;ab&#39;) &#x2F;&#x2F; &#39;xaba&#39;</span><br></pre></td></tr></table></figure>
+如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。默认使用空格</li>
+</ul>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/http%E8%AF%B7%E6%B1%82%E6%A6%82%E8%BF%B0.html#more" rel="contents">
+            <a class="btn" href="/interview.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/context.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/context.html" itemprop="url">JavaScript深入之执行上下文</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-13T17:06:49+08:00">
+                2018-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/context.html" class="leancloud_visitors" data-flag-title="JavaScript深入之执行上下文">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,125 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  8 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>执行上下文(EC)就是当前JavaScript代码被解析和执行是所在环境的抽象概念，JavaScript中运行任何的代码都是在执行上下文中运行。</strong></p>
+<h2 id="变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边"><a href="#变量-函数提升-函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边" class="headerlink" title="变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)"></a>变量/函数提升(函数及变量的声明都将被提升到函数的最顶部，且函数声明在变量声明上边)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!(<span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>))&#123; <span class="comment">// false</span></span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// if(o.x)&#123;&#125; // 不能判断属性存不存在 假值undefine,null,false," ",0或NaN</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo1'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();  <span class="comment">// foo2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// foo2</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line">getName(); <span class="comment">// 4</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">6</span>);&#125;</span><br><span class="line">getName(); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<p>函数表达式执行的优先级==!主要原因是函数声明都被提前了，所以函数表达式在最后会覆盖。</p>
+<p>JavaScript 引擎并非一行一行地分析和执行程序，而是一段一段地分析执行。插槽slot
+可执行代码的类型：全局代码、函数代码、eval代码。
+JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）来管理执行上下文</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/context.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/vueInterview.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/vueInterview.html" itemprop="url">vue面试题记录</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T00:10:18+08:00">
+                2020-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/vueInterview.html" class="leancloud_visitors" data-flag-title="vue面试题记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  4,922 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  20 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Vue面试问题"><a href="#Vue面试问题" class="headerlink" title="Vue面试问题"></a>Vue面试问题</h2><hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/vueInterview.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8F%91%E5%B1%95%E6%89%A9%E5%B1%95.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8F%91%E5%B1%95%E6%89%A9%E5%B1%95.html" itemprop="url">前端模块化发展扩展</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-07-10T00:51:20+08:00">
+                2019-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8F%91%E5%B1%95%E6%89%A9%E5%B1%95.html" class="leancloud_visitors" data-flag-title="前端模块化发展扩展">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,291 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  5 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>JavaScript 一开始并没有内建模块化支持，也几乎没有模块化这种概念。当时没那么大的需求，搞个模块化显得大材小用啊。随着互联网的发展，尤其是 2006 年 ajax 技术的出现和之后 Web 2.0 的兴起，越来越多的业务逻辑向前端转移，前端开发的复杂程度和代码量逐渐提升。这时，由于缺乏模块化概念，JavaScript 的一些问题便凸显出来：代码难以复用、容易出现全局变量污染和命名冲突、依赖管理难以维护等等。一开始，开发者们使用诸如暴露全局对象、自执行函数等方法来规避这些问题，但仍无法从根本上解决问题。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8F%91%E5%B1%95%E6%89%A9%E5%B1%95.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2818,7 +2797,7 @@ void expression</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 272.2k字</span>
+    <span class="post-count">Blog总字数: 274.0k字</span>
   </div>
 
   <div class="theme-info">

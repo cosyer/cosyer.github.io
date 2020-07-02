@@ -132,19 +132,19 @@
 
 
 
-<meta name="description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了任务队列的出现 主线程同步执行任务，异步的工作一般会交给其他线程完成，然后回调函数会放到事件队列中 等候主线程执行完毕后再执行事件队列中的操作    同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；   异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”">
+<meta name="description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了任务队列的出现 主线程同步执行任务，异步的工作一般会交给其他线程完成，然后回调函数会放到任务队列中 等候主线程执行完毕后再执行任务队列中的操作    同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；   异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EventLoop">
 <meta property="og:url" content="http://mydearest.cn/2019/EventLoop.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了任务队列的出现 主线程同步执行任务，异步的工作一般会交给其他线程完成，然后回调函数会放到事件队列中 等候主线程执行完毕后再执行事件队列中的操作    同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；   异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”">
+<meta property="og:description" content="描述事件队列的过程？ js是单线程的，会出现阻塞问题，因此有了任务队列的出现 主线程同步执行任务，异步的工作一般会交给其他线程完成，然后回调函数会放到任务队列中 等候主线程执行完毕后再执行任务队列中的操作    同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；   异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/event-queue.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/task-queue.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/macro-micro.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/eventloop.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/summary-loop.png">
 <meta property="article:published_time" content="2019-06-16T04:38:46.000Z">
-<meta property="article:modified_time" content="2020-06-30T13:01:11.815Z">
+<meta property="article:modified_time" content="2020-07-02T11:42:48.342Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="深入理解">
 <meta name="twitter:card" content="summary">
@@ -419,12 +419,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-30T21:01:11+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">30</div>
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月30</div>
+      <div class="post-tiem">7月02</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -529,7 +529,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,426 (字)
+                  1,506 (字)
                 </span>
               
 
@@ -568,8 +568,8 @@ a:hover {
       
         <h2 id="描述事件队列的过程？"><a href="#描述事件队列的过程？" class="headerlink" title="描述事件队列的过程？"></a>描述事件队列的过程？</h2><ul>
 <li>js是单线程的，会出现阻塞问题，因此有了任务队列的出现</li>
-<li>主线程同步执行任务，异步的工作一般会交给其他线程完成，然后回调函数会放到事件队列中</li>
-<li>等候主线程执行完毕后再执行事件队列中的操作</li>
+<li>主线程同步执行任务，异步的工作一般会交给其他线程完成，然后回调函数会放到任务队列中</li>
+<li>等候主线程执行完毕后再执行任务队列中的操作</li>
 </ul>
 <p><img src="http://cdn.mydearest.cn/blog/images/event-queue.png" alt="event-queue"></p>
 <blockquote>
@@ -611,6 +611,8 @@ a:hover {
 <h3 id="微任务的意义"><a href="#微任务的意义" class="headerlink" title="微任务的意义"></a>微任务的意义</h3><p>减少更新时的渲染次数
 因为根据HTML标准，会在宏任务执行结束之后，在下一个宏任务开始执行之前，UI都会重新渲染。如果在microtask中就完成数据更新，当 macro-task结束就可以得到最新的UI了。如果新建一个 macro-task来做数据更新的话，那么渲染会执行两次。</p>
 <h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><p><img src="http://cdn.mydearest.cn/blog/images/eventloop.png" alt="eventloop"></p>
+<p>js引擎存在monitoring process进程，会持续不断的检查主线程执行栈是否为空，一旦为空，就会去Event Queue那里检查是否有等待被调用的函数。这个过程是循环不断的，所以整个的这种运行机制又称为Event 
+Loop（事件循环）</p>
 <ol>
 <li>整体的script(作为第一个宏任务)开始执行的时候，会把所有代码分为两部分：“同步任务”、“异步任务”；</li>
 <li>同步任务会直接进入主线程依次执行；</li>
@@ -673,7 +675,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/EventLoop.html">EventLoop</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年06月16日 - 12:06</p>
-  <p><span>最后更新:</span>2020年06月30日 - 21:06</p>
+  <p><span>最后更新:</span>2020年07月02日 - 19:07</p>
   <p><span>原始链接:</span><a href="/2019/EventLoop.html" title="EventLoop">http://mydearest.cn/2019/EventLoop.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/EventLoop.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1022,7 +1024,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 272.2k字</span>
+    <span class="post-count">Blog总字数: 274.0k字</span>
   </div>
 
   <div class="theme-info">

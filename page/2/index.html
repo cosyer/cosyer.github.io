@@ -446,6 +446,881 @@ a:hover {
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html" itemprop="url">获取浏览器url参数方法总结</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-08-08T23:21:52+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html" class="leancloud_visitors" data-flag-title="获取浏览器url参数方法总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  421 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  2 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>正则(xxx?typeId=1)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>, <span class="string">'i'</span>);</span><br><span class="line">    <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">    <span class="keyword">if</span> (r != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// return unescape(r[2]); // 中文会乱码</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">decodeURI</span>(r[<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">getQueryString(<span class="string">"typeId"</span>) <span class="comment">// "2"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8url%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html" itemprop="url">服务器推送技术</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-07-05T20:33:37+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html" class="leancloud_visitors" data-flag-title="服务器推送技术">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,077 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  4 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在做前端页面渲染时，经常会遇到有的组件需要跟随数据的变化而实时的变化，例如：一个线上报名系统，总人数有一定限制，所以要实时的展现已经报名的人数，应该怎么实现呢？最基本有如下3种方案：</p>
+<ul>
+<li>Ajax轮询</li>
+<li>Ajax长轮询(comet)</li>
+<li>websocket长连接</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/smallknowledge.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/smallknowledge.html" itemprop="url">你所不知道的前端冷门小知识(长期更新)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-11T21:55:52+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/smallknowledge.html" class="leancloud_visitors" data-flag-title="你所不知道的前端冷门小知识(长期更新)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  17,555 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  85 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://javascript-puzzlers.herokuapp.com/" target="_blank" rel="noopener">javascript-puzzlers</a></p>
+<h2 id="void"><a href="#void" class="headerlink" title="void"></a>void</h2><p>void其实是javascript中的一个函数，接受一个参数，返回值永远是undefined
+void expression</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="number">0</span>  </span><br><span class="line"><span class="keyword">void</span>() <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">void</span> (<span class="number">0</span>)  </span><br><span class="line"><span class="keyword">void</span> <span class="string">"hello"</span>  </span><br><span class="line"><span class="keyword">void</span> (<span class="keyword">new</span> <span class="built_in">Date</span>())  </span><br><span class="line"><span class="comment">// all will return undefined  </span></span><br><span class="line">context === <span class="keyword">void</span> <span class="number">666</span></span><br></pre></td></tr></table></figure>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/smallknowledge.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" itemprop="url">js判断数据类型</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-31T14:28:15+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="leancloud_visitors" data-flag-title="js判断数据类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  384 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  2 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><blockquote>
+<p>typeof一般只能返回如下几个结果：number,boolean,string,function,object,undefined字符串</p>
+</blockquote>
+<blockquote>
+<p>对于Array,null等特殊对象使用typeof一律返回object，这正是typeof的局限性。</p>
+</blockquote>
+<blockquote>
+<p>在判断除Object类型的对象(基本类型)时比较方便。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span> (<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return a + b'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> fn <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><blockquote>
+<p>instanceof适用于检测对象，它是基于原型链运作的。</p>
+</blockquote>
+<blockquote>
+<p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。换种说法就是如果左侧的对象是右侧对象的实例， 则表达式返回true, 否则返回false 。</p>
+</blockquote>
+<blockquote>
+<p>instanceof对基本数据类型检测不起作用，因为基本数据类型没有原型链。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true </span></span><br><span class="line">/abc/ <span class="keyword">instanceof</span> <span class="built_in">RegExp</span> <span class="comment">// true </span></span><br><span class="line">(&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true </span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Function</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 基于constructor </span></span><br><span class="line">a.constructor === <span class="built_in">Array</span>; </span><br><span class="line"><span class="comment">// 基于Object.prototype.isPrototypeOf </span></span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(a); </span><br><span class="line"><span class="comment">// 4.基于getPrototypeOf </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === <span class="built_in">Array</span>.prototype;</span><br></pre></td></tr></table></figure>
+<h2 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call"></a>Object.prototype.toString.call</h2><p>可以检测各种数据类型，推荐使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call([]); <span class="comment">// =&gt; [object Array] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;); <span class="comment">// =&gt; [object Object] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">''</span>); <span class="comment">// =&gt; [object String] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">// =&gt; [object Date] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">1</span>); <span class="comment">// =&gt; [object Number] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// =&gt; [object Function] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="regexp">/test/i</span>); <span class="comment">// =&gt; [object RegExp] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>); <span class="comment">// =&gt; [object Boolean] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>); <span class="comment">// =&gt; [object Null] </span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(); <span class="comment">// =&gt; [object Undefined]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params"> type </span>)</span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>)</span>&#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call( obj ) === <span class="string">'[object '</span>+ type +<span class="string">']'</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> isString = isType( <span class="string">'String'</span> ); </span><br><span class="line"><span class="keyword">var</span> isArray = isType( <span class="string">'Array'</span> ); </span><br><span class="line"><span class="keyword">var</span> isNumber = isType( <span class="string">'Number'</span> );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( isArray( [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ] ) ); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-07-02T19:42:48+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">02</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月02</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/JS/" itemprop="url" rel="index">
                     <span itemprop="name">JS</span>
                   </a>
@@ -1725,878 +2600,6 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-02T00:20:55+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html" itemprop="url">实现图片懒加载</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-07-01T23:58:45+08:00">
-                2020-07-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html" class="leancloud_visitors" data-flag-title="实现图片懒加载">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  868 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  3 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>图片懒加载在一些图片密集型的网站中运用比较多，通过图片懒加载可以让一些不可视的图片不去加载，避免一次性加载过多的图片导致请求阻塞（浏览器一般对同一域名
-下的并发请求的连接数有限制），这样就可以提高网站的加载速度，提高用户体验。 </p>
-<p><a href="http://cdn.mydearest.cn/blog/images/lazyload.png" target="_blank" rel="noopener">效果预览</a></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html" itemprop="url">高逼格的JS代码</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-30T09:22:25+08:00">
-                2018-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html" class="leancloud_visitors" data-flag-title="高逼格的JS代码">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,464 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  8 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>黑科技JS代码整理 是不是很void 666</p>
-<h3 id="一行代码实现评级"><a href="#一行代码实现评级" class="headerlink" title="一行代码实现评级"></a>一行代码实现评级</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"★★★★★☆☆☆☆☆"</span>.slice(<span class="number">5</span> - rate, <span class="number">10</span> - rate);定义一个变量rate是<span class="number">1</span>到<span class="number">5</span>的值</span><br></pre></td></tr></table></figure>
-<h3 id="SB、NB、Hello-World"><a href="#SB、NB、Hello-World" class="headerlink" title="SB、NB、Hello World"></a>SB、NB、Hello World</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(!(~+[])+&#123;&#125;)[--[~+<span class="string">""</span>][+[]]*[~+[]] + ~~!+[]]+(&#123;&#125;+[])[[~!+[]]*~+[]]</span><br><span class="line"></span><br><span class="line">([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]]</span><br><span class="line"></span><br><span class="line">([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[+[]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+[])+(+!![]+[]))</span><br></pre></td></tr></table></figure>
-<h3 id="错误处理的正确方法"><a href="#错误处理的正确方法" class="headerlink" title="错误处理的正确方法"></a>错误处理的正确方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    something</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href =</span><br><span class="line">        <span class="string">"http://stackoverflow.com/search?q=[js]+"</span> +</span><br><span class="line">        e.message;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 百度版</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    something</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href =</span><br><span class="line">        <span class="string">"https://www.baidu.com/s?wd="</span> +</span><br><span class="line">        e.message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/%E9%AB%98%E9%80%BC%E6%A0%BC%E7%9A%84JS%E4%BB%A3%E7%A0%81.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html" itemprop="url">动手实现redux</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-10-03T19:24:18+08:00">
-                2018-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html" class="leancloud_visitors" data-flag-title="动手实现redux">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  741 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>概念：</p>
-<ul>
-<li>一个app只有一个store，一个store管理着一个全局state含有以下方法<ul>
-<li>getState: 获取 state；</li>
-<li>dispatch: 触发 action, 更新 state；</li>
-<li>subscribe: 订阅数据变更，注册监听器；</li>
-</ul>
-</li>
-<li>createStore 传入reducer，返回getState, dispatch, subscribe</li>
-<li>action是一个至少有type这个键的对象，可以写一个creactAction 函数去return生成action对象</li>
-<li>createStore.dispatch(action) 根据action这个对象去更新state</li>
-<li>dispatch是一个函数，内部又将执行reducer函数</li>
-<li>reducer也是一个函数，传入state,action, 输出一个新的state . (switch case return…)<ul>
-<li>遵守数据不可变，不要去直接修改 state，而是返回出一个 新对象；</li>
-<li>默认情况下需要 返回原数据，避免数据被清空；</li>
-<li>最好设置 初始值，便于应用的初始化及数据稳定；</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://cdn.mydearest.cn/blog/images/redux.png" alt="redux"></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0redux.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-01T21:58:14+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">01</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月01</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/reactInterview.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/reactInterview.html" itemprop="url">react面试题记录</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-07T14:47:09+08:00">
-                2018-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/reactInterview.html" class="leancloud_visitors" data-flag-title="react面试题记录">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  7,204 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  27 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://cdn.mydearest.cn/blog/images/reactInterview.jpeg " class="full-image" alt="reactInterview" title="React"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/reactInterview.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2814,7 +2817,7 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 275.0k字</span>
+    <span class="post-count">Blog总字数: 276.8k字</span>
   </div>
 
   <div class="theme-info">

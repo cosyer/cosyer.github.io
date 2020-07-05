@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="生成器（ generator）是能返回一个迭代器的函数。生成器函数也是一种函数，最直观的表现就是比普通的function多了个星号*，在其函数体内可以使用yield关键字，有意思的是函数会在每个yield后暂停。 这里生活中有一个比较形象的例子。咱们到银行办理业务时候都得向大厅的机器取一张排队号。你拿到你的排队号，机器并不会自动为你再出下一张票。也就是说取票机“暂停”住了，直到下一个人再次唤起才会">
 <meta property="article:published_time" content="2018-08-21T03:49:12.000Z">
-<meta property="article:modified_time" content="2019-07-13T16:58:58.874Z">
+<meta property="article:modified_time" content="2020-07-05T06:51:01.677Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="es6">
 <meta name="twitter:card" content="summary">
@@ -413,13 +413,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-07-14T00:58:58+08:00">
+  <div class="post-date" data-datetime="2020-07-05T14:51:01+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">14</div>
+    <div class="post-time-count">05</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月14</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">7月05</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  923 (字)
+                  1,117 (字)
                 </span>
               
 
@@ -571,12 +571,21 @@ a:hover {
 <li>next 指针移向下一个状态</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成器 最大的特点是可以交出函数的执行权</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">createGenerator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 迭代器</span></span><br><span class="line"><span class="keyword">let</span> iterator=createGenerator()</span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next().value) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">2</span> * (<span class="keyword">yield</span> (x + <span class="number">1</span>))</span><br><span class="line">  <span class="keyword">let</span> z = <span class="keyword">yield</span> (y / <span class="number">3</span>)</span><br><span class="line">  <span class="keyword">return</span> (x + y + z)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> it = foo(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">console</span>.log(it.next())   <span class="comment">// =&gt; &#123;value: 6, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">12</span>)) <span class="comment">// =&gt; &#123;value: 8, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">13</span>)) <span class="comment">// =&gt; &#123;value: 42, done: true&#125;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>首先 Generator 函数调用时它会返回一个迭代器</li>
+<li>当执行第一次 next 时，传参会被忽略，并且函数暂停在 yield (x + 1) 处，所以返回 5 + 1 = 6</li>
+<li>当执行第二次 next 时，传入的参数等于上一个 yield 的返回值，如果你不传参，yield 永远返回 undefined。此时 let y = 2 <em> 12，所以第二个 
+yield 等于 2 </em> 12 / 3 = 8</li>
+<li>当执行第三次 next 时，传入的参数会传递给 z，所以 z = 13, x = 5, y = 24，相加等于 42</li>
+</ol>
 <p>那生成器和迭代器又有什么用处呢？</p>
 <p>围绕着生成器的许多兴奋点都与异步编程直接相关。异步调用对于我们来说是很困难的事，我们的函数并不会等待异步调用完再执行，你可能会想到用回调函数，（当然还有其他方案比如Promise比如Async/await）。</p>
 <p>生成器可以让我们的代码进行等待。就不用嵌套的回调函数。使用generator可以确保当异步调用在我们的generator函数运行一下行代码之前完成时暂停函数的执行。</p>
 <p>那么问题来了，咱们也不能手动一直调用next()方法，你需要一个能够调用生成器并启动迭代器的方法。就像这样子的：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">taskDef</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 创建迭代器，让它在别处可用</span></span><br><span class="line">  <span class="keyword">let</span> task=taskDef();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 启动任务</span></span><br><span class="line">  <span class="keyword">let</span> result=task.next();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 递归使用函数来保持对next()的调用</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">step</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// 如果还有更多要做的</span></span><br><span class="line">      <span class="keyword">if</span>(!result.done)&#123;</span><br><span class="line">        result=task.next();</span><br><span class="line">        step();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 开始处理过程</span></span><br><span class="line">  step();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>生成器与迭代器最有趣、最令人激动的方面，或许就是可创建外观清晰的异步操作代码。可以不必到处使用回调函数，而是可以建立貌似同步的代码，但实际上却使用 <code>yield</code> 来等待异步操作结束。</p>
+<p>生成器与迭代器最有趣、最令人激动的方面，或许就是可创建外观清晰的异步操作代码。可以不必到处使用回调函数，而是可以建立貌似同步的代码，但实际上却使用 
+<code>yield</code> 来等待异步操作结束。</p>
 <p>es6引入了 async 函数，使得异步操作变得更加方便。</p>
 <p>async 函数是什么？一句话，它就是 Generator 函数的语法糖。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">ms</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">      setTimeout(resolve,ms)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncPrint</span>(<span class="params">value,ms</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> timeout(ms);</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">asyncPrint(<span class="string">'hello world'</span>,<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
@@ -619,7 +628,7 @@ async函数对 Generator 函数的改进，体现在以下四点：</p>
   <p><span>本文标题:</span><a href="/es6generator.html">generator生成器</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年08月21日 - 11:08</p>
-  <p><span>最后更新:</span>2019年07月14日 - 00:07</p>
+  <p><span>最后更新:</span>2020年07月05日 - 14:07</p>
   <p><span>原始链接:</span><a href="/es6generator.html" title="generator生成器">http://mydearest.cn/es6generator.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/es6generator.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -943,7 +952,7 @@ async函数对 Generator 函数的改进，体现在以下四点：</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 275.0k字</span>
+    <span class="post-count">Blog总字数: 276.8k字</span>
   </div>
 
   <div class="theme-info">

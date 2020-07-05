@@ -428,6 +428,679 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2019-11-25T23:52:29+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">25</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">11月25</div>
+      <div class="post-year">2019</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F.html" itemprop="url">事件机制</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-11-24T22:26:18+08:00">
+                2019-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F.html" class="leancloud_visitors" data-flag-title="事件机制">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  507 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>事件机制的核心就是发布-订阅模式。维护一个对象，对象的 key 存的是事件 type，对应的 value 为触发相应 type 的回调函数，即 listeners，然后 trigger 时遍历通知，即 forEach 进行回调执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventTarget</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">this</span>.listener = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听事件</span></span><br><span class="line">    on(type, callback) &#123;</span><br><span class="line">        <span class="comment">// 如果是第一次监听该事件，则初始化数组</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[type]) <span class="keyword">this</span>.listeners[type] = [];</span><br><span class="line">        <span class="keyword">this</span>.listeners[type].push(callback);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 只监听一次</span></span><br><span class="line">    once(type, callback) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[type]) <span class="keyword">this</span>.listeners[type] = [];</span><br><span class="line">        <span class="comment">// once 只触发一次，触发后 off 即可 回调函数加上标识</span></span><br><span class="line">        callback._once = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.listeners[type].push(callback); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 取消监听</span></span><br><span class="line">    off(type, callback) &#123;</span><br><span class="line">        <span class="keyword">const</span> listeners = <span class="keyword">this</span>.listeners[type];</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(listeners)) &#123;</span><br><span class="line">            <span class="comment">// filter 返回新的数组，会每次对 this.listeners[type] 分配新的空间</span></span><br><span class="line">            <span class="comment">// this.listeners[type] = listeners.filter(l =&gt; l !== callback);</span></span><br><span class="line">            <span class="comment">// 根据 type 取消对应的回调</span></span><br><span class="line">            <span class="keyword">const</span> index = listeners.indexOf(callback);</span><br><span class="line">            <span class="comment">// 用 splice 要好些，直接操作原数组</span></span><br><span class="line">            <span class="keyword">this</span>.listeners[type].splice(index, <span class="number">1</span>);</span><br><span class="line">            <span class="comment">// 如果回调为空，删除对该事件的监听</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.listeners[type].length === <span class="number">0</span>) <span class="keyword">delete</span> <span class="keyword">this</span>.listeners[type];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行 扳机社</span></span><br><span class="line">    trigger(event) &#123;</span><br><span class="line">        <span class="comment">// type 为必传属性</span></span><br><span class="line">        <span class="keyword">const</span> &#123; type &#125; = event;</span><br><span class="line">        <span class="keyword">if</span> (!type) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'没有要触发的事件！'</span>);</span><br><span class="line">        <span class="comment">// 判断是否之前对该事件进行监听了</span></span><br><span class="line">        <span class="keyword">const</span> listeners = <span class="keyword">this</span>.listeners[type];</span><br><span class="line">        <span class="keyword">if</span> (!listeners) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`没有对象监听 <span class="subst">$&#123;type&#125;</span> 事件！`</span>);</span><br><span class="line">        <span class="keyword">if</span> (!event.target) event.target = <span class="keyword">this</span>;</span><br><span class="line">        listeners.forEach(<span class="function"><span class="params">l</span> =&gt;</span> &#123;</span><br><span class="line">            l(event);</span><br><span class="line">            <span class="comment">// 如果通过 once 监听，执行一次后取消</span></span><br><span class="line">            <span class="keyword">if</span> (l._once) <span class="keyword">this</span>.off(type, l);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleMessage</span>(<span class="params">event</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">`message received: <span class="subst">$&#123; event.message &#125;</span>`</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleMessage2</span>(<span class="params">event</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">`message2 received: <span class="subst">$&#123; event.message &#125;</span>`</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> target = <span class="keyword">new</span> EventTarget();</span><br><span class="line"></span><br><span class="line">target.on(<span class="string">'message'</span>, handleMessage);</span><br><span class="line">target.on(<span class="string">'message'</span>, handleMessage2);</span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'message'</span>, <span class="attr">message</span>: <span class="string">'hello custom event'</span> &#125;); <span class="comment">// 打印 message，message2</span></span><br><span class="line"></span><br><span class="line">target.off(<span class="string">'message'</span>, handleMessage);</span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'message'</span>, <span class="attr">message</span>: <span class="string">'off the event'</span> &#125;); <span class="comment">// 只打印 message2</span></span><br><span class="line"></span><br><span class="line">target.once(<span class="string">'words'</span>, handleMessage);</span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'words'</span>, <span class="attr">message</span>: <span class="string">'hello2 once event'</span> &#125;); <span class="comment">// 打印 words</span></span><br><span class="line">target.trigger(&#123; <span class="attr">type</span>: <span class="string">'words'</span>, <span class="attr">message</span>: <span class="string">'hello2 once event'</span> &#125;); <span class="comment">// 报错：没有对象监听 words 事件！</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2019-11-17T00:02:28+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">17</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">11月17</div>
+      <div class="post-year">2019</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/console.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/console.html" itemprop="url">console控制台优化</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-18T20:07:08+08:00">
+                2018-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/console.html" class="leancloud_visitors" data-flag-title="console控制台优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,443 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  8 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>谷歌开发者中心上面关于谷歌浏览器控制台console.log()的文档：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">格式说明符</th>
+<th style="text-align:right">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">%s</td>
+<td style="text-align:right">将值格式化为字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">%d?or?%i</td>
+<td style="text-align:right">将值格式化为整数。</td>
+</tr>
+<tr>
+<td style="text-align:left">%f</td>
+<td style="text-align:right">将值格式化为浮点值。</td>
+</tr>
+<tr>
+<td style="text-align:left">%o</td>
+<td style="text-align:right">将值格式化为可扩展的DOM元素（如在元素面板中）。</td>
+</tr>
+<tr>
+<td style="text-align:left">%O</td>
+<td style="text-align:right">将值格式化为可扩展的JavaScript对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">%c</td>
+<td style="text-align:right">根据您提供的CSS样式格式化输出字符串。</td>
+</tr>
+</tbody>
+</table>
+<p>\n是换行，可以将一个字符串设置成多行
+%c标记之后的内容使用对应样式，格式如 console.log(‘%c第一个样式%c第二个样式’,’css1′,’css2′); 如此对应
+样式和普通的css效果基本一致，可以设置文字颜色，背景颜色，字体大小，间距，边距等等。还支持部分css3高级效果。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/console.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2019-11-16T23:52:46+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">16</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">11月16</div>
+      <div class="post-year">2019</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/destory.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/destory.html" itemprop="url">有趣的摧毁页面</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-20T01:14:13+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/destory.html" class="leancloud_visitors" data-flag-title="有趣的摧毁页面">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  315 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  1 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>食用方法</p>
+<p>使用【上下左右键】来控制飞行器的运动</p>
+<p>使用【空格键】来发射导弹</p>
+<p><a href="javascript:var%20KICKASSVERSION='2.0'; var%20s%20=%20document.createElement('script'); s.type='text/javascript'; document.body.appendChild(s); s.src='//hi.kickassapp.com/kickass.js'; void(0);"> 点击开始摧毁 </a></p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/destory.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2019-11-12T23:38:45+08:00">
     <div class="post-time-text">11月</div>
     <div class="post-time-count">12</div>
@@ -1986,724 +2659,6 @@ a:hover {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2019-08-05T23:31:33+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">05</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月05</div>
-      <div class="post-year">2019</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/%E6%95%88%E7%8E%87%E5%B7%A5%E4%BD%9C.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/%E6%95%88%E7%8E%87%E5%B7%A5%E4%BD%9C.html" itemprop="url">效率工作</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-08-05T23:29:31+08:00">
-                2019-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/%E6%95%88%E7%8E%87%E5%B7%A5%E4%BD%9C.html" class="leancloud_visitors" data-flag-title="效率工作">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  880 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  3 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>时间常有，时间在于优先。</p>
-</li>
-<li><p>时间总会有的：每天只计划 4～5 小时真正的工作。</p>
-</li>
-<li><p>当你在状态时，就多干点；不然就好好休息：有时候会连着几天不是工作状态，有时在工作状态时却又能天天忙活 12 小时，这都很正常的。</p>
-</li>
-<li><p>重视你的时间，并使其值得重视：你的时间值 1000 美元/小时，你得动起来。</p>
-</li>
-<li><p>不要多任务，这只会消耗注意力；保持专注，一心一用。</p>
-</li>
-<li><p>养成工作习惯，并持之以恒，你的身体会适应的。</p>
-</li>
-<li><p>在有限的时间内，我们总是非常专注并且有效率。</p>
-</li>
-<li><p>进入工作状态的最佳方式就是工作，从小任务开始做起，让工作运转起来。</p>
-</li>
-<li><p>迭代工作，期待完美收工会令人窒息：“做完事情，要胜于完美收工” 。动手做，胜过任何完美的想象。</p>
-</li>
-<li><p>工作时间越长，并不等于效率越高。</p>
-</li>
-<li><p>按重要性工作，提高效率。</p>
-</li>
-<li><p>有会议就尽早安排，用于准备会议的时间往往都浪费掉了。</p>
-</li>
-<li><p>把会议和沟通 (邮件或电话) 结合，创造不间断工作时间：一个小会，也会毁了一个下午，因为它会把下午撕成两个较小的时间段，以至于啥也干不成。PS：当看到一个程序员冥思苦想时，不要过去打扰，甚至一句问候都是多余的。</p>
-</li>
-<li><p>一整天保持相同的工作环境。在项目/客户之间切换，会效率低。</p>
-</li>
-<li><p>工作—放松—工作=高效(番茄工作法)。</p>
-</li>
-</ol>
-<blockquote>
-<p>番茄工作法是弗朗西斯科·西里洛于1992年创立的一种相对于GTD更微观的时间管理方法。使用番茄工作法，选择一个待完成的任务，将番茄时间设为25分钟，专注工作，中途不允许做任何与该任务无关的事，直到番茄时钟响起，然后在纸上画一个X短暂休息一下（5分钟就行），每4个番茄时段多休息一会儿。</p>
-</blockquote>
-<ol start="16">
-<li><p>把不切实际的任务分割成合理的小任务，只要每天都完成小任务，你就会越来越接近那个大目标了。</p>
-</li>
-<li><p>从来没有两个任务会有相同的优先级，总会有个更重要，仔细考虑待办事情列表。</p>
-</li>
-<li><p>必须清楚白天必须完成的那件事，是什么。 只去做那件有着最大影响的事情。</p>
-</li>
-<li><p>把任务按时间分段，就能感觉它快被搞定了。</p>
-</li>
-<li><p>授权并擅用他人的力量。—君子善假于物(人)也，如果某件事其他人也可以做到八成，那就给他做！</p>
-</li>
-<li><p>把昨天翻过去，只考虑今天和明天。昨天的全垒打赢不了今天的比赛。—好汉不提当年勇。</p>
-</li>
-<li><p>给所有事情都设定一个期限。不要让工作无期限地进行下去。</p>
-</li>
-<li><p>针对时间紧或有压力的任务，设置结束时间，万事皆可终结。</p>
-</li>
-<li><p>多记，多做笔记。</p>
-</li>
-<li><p>进入高效状态后，记下任何分散你注意力的东西比如Google搜索词、灵光乍现的想法、新点子等等。如果你把它们记下来，它就不会再蹦来蹦去了。</p>
-</li>
-<li><p>休息，休息一下～。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2019-08-02T00:44:45+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月02</div>
-      <div class="post-year">2019</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/angular7%E8%AF%A6%E8%A7%A3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/angular7%E8%AF%A6%E8%A7%A3.html" itemprop="url">angular7详解</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-12-19T01:36:55+08:00">
-                2018-12-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/angular7%E8%AF%A6%E8%A7%A3.html" class="leancloud_visitors" data-flag-title="angular7详解">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,185 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  6 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="开始准备"><a href="#开始准备" class="headerlink" title="开始准备"></a>开始准备</h2><ol>
-<li><p>安装nodejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装@angular/cli</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g @angular&#x2F;cli</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CLI命令建立项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng new ng7demo</span><br></pre></td></tr></table></figure>
-<p>选择是否加入路由模块以及哪种css预处理器</p>
-</li>
-</ol>
-<blockquote>
-<p>可ctrl+c取消自动安装node_modules，手动进入项目npm install
-node-sass安装不上可切换淘宝镜像库或者用cnpm安装</p>
-<ol>
-<li>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> 
-npm install</li>
-</ol>
-</blockquote>
-<p>or </p>
-<ol start="2">
-<li><p>npm install -g cnpm 
-cnpm install </p>
-</li>
-<li><p>启动项目</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng serve --open <span class="comment">// 自动打开浏览器 http://localhost:4200/</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/angular7%E8%AF%A6%E8%A7%A3.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2019-07-31T01:27:09+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">31</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月31</div>
-      <div class="post-year">2019</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/ES6Proxy.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/ES6Proxy.html" itemprop="url">ES6Proxy</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-07-31T01:25:34+08:00">
-                2019-07-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/ES6Proxy.html" class="leancloud_visitors" data-flag-title="ES6Proxy">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,258 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  6 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Proxy，代理，是ES6新增的功能，可以理解为代理器（即由它代理某些操作）。</p>
-<p>Proxy 对象用于定义或修改某些操作的自定义行为，可以在外界对目标对象进行访问前，对外界的访问进行改写。</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/ES6Proxy.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2921,7 +2876,7 @@ cnpm install </p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 275.0k字</span>
+    <span class="post-count">Blog总字数: 276.8k字</span>
   </div>
 
   <div class="theme-info">

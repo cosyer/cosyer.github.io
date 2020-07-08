@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="介绍Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。Reflect不是一个函数对象，因此它是不可构造的。 Reflect这个对象在新版本的chrome是支持的， ff比较早就支持Proxy和Reflect了，要让node支持Reflect可以安装harmony-reflect; Reflect不是构造函数， 要使用的时候直接通过Ref">
 <meta property="article:published_time" content="2019-05-01T18:31:52.000Z">
-<meta property="article:modified_time" content="2019-05-07T16:05:52.501Z">
+<meta property="article:modified_time" content="2020-07-07T12:31:06.097Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="深入理解">
 <meta name="twitter:card" content="summary">
@@ -413,13 +413,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2019-05-08T00:05:52+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">08</div>
+  <div class="post-date" data-datetime="2020-07-07T20:31:06+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月08</div>
-      <div class="post-year">2019</div>
+      <div class="post-tiem">7月07</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -615,7 +615,7 @@ a:hover {
 reflect.ownKeys的排序是根据: 先显示数字， 数字根据大小排序，然后是 字符串根据插入的顺序排序， 最后是symbol类型的key也根据插入插入顺序排序;</p>
 <h3 id="Reflect-set"><a href="#Reflect-set" class="headerlink" title="Reflect.set"></a>Reflect.set</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj, <span class="string">"prop"</span>, <span class="string">"value"</span>); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log( obj.prop ); <span class="comment">// 输出："value"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Reflect</span>.set(obj); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="comment">// 相当于 Reflect.set(obj, undefined, undefined);</span></span><br></pre></td></tr></table></figure>
 <h3 id="Reflect-setPrototypeOf"><a href="#Reflect-setPrototypeOf" class="headerlink" title="Reflect.setPrototypeOf"></a>Reflect.setPrototypeOf</h3><p>修改对象的__proto__属性
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="built_in">Object</span>.prototype); <span class="comment">// 输出true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给该对象数组[[Prototype]] 为null.</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="literal">null</span>); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 此时的obj.__proto__为undefine</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把对象冻结以后重新设置[[prototype]]</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(<span class="built_in">Object</span>.freeze(&#123;&#125;), <span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果原型链循环依赖的话就会返回false.</span></span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> proto = <span class="built_in">Object</span>.create(target);</span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(target, proto); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="built_in">Object</span>.prototype); <span class="comment">// 输出true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给该对象数组[[Prototype]] 为null.</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(&#123;&#125;, <span class="literal">null</span>); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 此时的obj.__proto__为undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把对象冻结以后重新设置[[prototype]]</span></span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(<span class="built_in">Object</span>.freeze(&#123;&#125;), <span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果原型链循环依赖的话就会返回false.</span></span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> proto = <span class="built_in">Object</span>.create(target);</span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(target, proto); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -647,7 +647,7 @@ reflect.ownKeys的排序是根据: 先显示数字， 数字根据大小排序�
   <p><span>本文标题:</span><a href="/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html">ES6Reflect对象</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年05月02日 - 02:05</p>
-  <p><span>最后更新:</span>2019年05月08日 - 00:05</p>
+  <p><span>最后更新:</span>2020年07月07日 - 20:07</p>
   <p><span>原始链接:</span><a href="/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html" title="ES6Reflect对象">http://mydearest.cn/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/ES6Reflect%E5%AF%B9%E8%B1%A1.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -996,7 +996,7 @@ reflect.ownKeys的排序是根据: 先显示数字， 数字根据大小排序�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 277.0k字</span>
+    <span class="post-count">Blog总字数: 279.7k字</span>
   </div>
 
   <div class="theme-info">

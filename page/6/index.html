@@ -428,6 +428,432 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-06-23T19:39:15+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">23</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月23</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/npm%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/npm%E6%80%BB%E7%BB%93.html" itemprop="url">npm总结</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-09-18T00:17:31+08:00">
+                2019-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/npm%E6%80%BB%E7%BB%93.html" class="leancloud_visitors" data-flag-title="npm总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,774 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  12 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="一-package-json-解读"><a href="#一-package-json-解读" class="headerlink" title="一. package.json 解读"></a>一. package.json 解读</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"name"</span>: <span class="string">"hello world"</span>, <span class="comment">// 项目名称</span></span><br><span class="line">	<span class="string">"version"</span>: <span class="string">"0.0.1"</span>, <span class="comment">// 版本号：大版本.次要版本.小版本</span></span><br><span class="line">	<span class="string">"author"</span>: <span class="string">"张三"</span>,</span><br><span class="line">	<span class="string">"description"</span>: <span class="string">"第一个node.js程序"</span>,</span><br><span class="line">	<span class="string">"keywords"</span>:[<span class="string">"node.js"</span>,<span class="string">"javascript"</span>], <span class="comment">// 关键词，有助于 npm search 发现</span></span><br><span class="line">	<span class="string">"repository"</span>: &#123; <span class="comment">// 存储库，指定代码所在位置（如果git repo在GitHub上，那么该npm docs 命令将能够找到文件位置。）</span></span><br><span class="line">		<span class="string">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">		<span class="string">"url"</span>: <span class="string">"https://path/to/url"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"license"</span>:<span class="string">"MIT"</span>, <span class="comment">// 指定包许可证，详细可见[SPDX许可证ID的完整列表](https://spdx.org/licenses/)</span></span><br><span class="line">	<span class="string">"engines"</span>: &#123;<span class="string">"node"</span>: <span class="string">"0.10.x"</span>&#125;, <span class="comment">// 指定该模块运行的平台，可以指定 node 版本、npm 版本等</span></span><br><span class="line">	<span class="string">"bugs"</span>:&#123;<span class="string">"url"</span>:<span class="string">"http://path/to/bug"</span>,<span class="string">"email"</span>:<span class="string">"bug@example.com"</span>&#125;, <span class="comment">// 项目问题跟踪器的URL和应报告问题的电子邮件地址。</span></span><br><span class="line">	<span class="string">"contributors"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"李四"</span>,<span class="string">"email"</span>:<span class="string">"lisi@example.com"</span>&#125;],</span><br><span class="line">    <span class="string">"bin"</span>: &#123; <span class="comment">// 指定内部命令对应的可执行文件的位置，在 scripts 中就可以简写</span></span><br><span class="line">    	<span class="string">"webpack"</span>: <span class="string">"./bin/webpack.js"</span></span><br><span class="line">  	&#125;,</span><br><span class="line">    <span class="string">"main"</span>: <span class="string">"lib/webpack.js"</span>, <span class="comment">// 指定加载的模块入口文件，require('moduleName')就会加载这个文件。这个字段的默认值是模块根目录下面的index.js。</span></span><br><span class="line">    <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;, <span class="comment">// 用于添加命令行的环境变量（用户在运行 scripts 命令时，就默认在脚本文件中添加 process.env.npm_package_config_port，用户可以通过 npm config set foo:port 80 命令更改这个值）</span></span><br><span class="line">	<span class="string">"scripts"</span>: &#123; <span class="comment">// 指定运行脚本的 npm 命令行缩写</span></span><br><span class="line">		<span class="string">"start"</span>: <span class="string">"node index.js"</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"peerDependencies"</span>: &#123; <span class="comment">// 指定项目安装必须一起安装的模块及其版本号，（注意：从 npm 3.0 开始，peerDependencies不会再默认安装）</span></span><br><span class="line">    	<span class="string">"chai"</span>: <span class="string">"1.x"</span></span><br><span class="line">  	&#125;,</span><br><span class="line">	<span class="string">"dependencies"</span>: &#123; <span class="comment">// 指定项目运行所依赖的模块</span></span><br><span class="line">		<span class="string">"express"</span>: <span class="string">"latest"</span>,</span><br><span class="line">		<span class="string">"mongoose"</span>: <span class="string">"~3.8.3"</span>,</span><br><span class="line">		<span class="string">"handlebars-runtime"</span>: <span class="string">"~1.0.12"</span>,</span><br><span class="line">		<span class="string">"express3-handlebars"</span>: <span class="string">"~0.5.0"</span>,</span><br><span class="line">		<span class="string">"MD5"</span>: <span class="string">"~1.2.0"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"devDependencies"</span>: &#123; <span class="comment">// 指定项目开发所需要的模块</span></span><br><span class="line">		<span class="string">"bower"</span>: <span class="string">"~1.2.8"</span>,</span><br><span class="line">		<span class="string">"grunt"</span>: <span class="string">"~0.4.1"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-concat"</span>: <span class="string">"~0.3.0"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-jshint"</span>: <span class="string">"~0.7.2"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-uglify"</span>: <span class="string">"~0.2.7"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-clean"</span>: <span class="string">"~0.5.0"</span>,</span><br><span class="line">		<span class="string">"browserify"</span>: <span class="string">"2.36.1"</span>,</span><br><span class="line">		<span class="string">"grunt-browserify"</span>: <span class="string">"~1.3.0"</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"browser"</span>: &#123; <span class="comment">// 指定该模板供浏览器使用的版本</span></span><br><span class="line">  		<span class="string">"tipso"</span>: <span class="string">"./node_modules/tipso/src/tipso.js"</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"preferGlobal"</span>: <span class="literal">true</span>, <span class="comment">// 表示当用户不将该模块安装为全局模块时（即不用–global参数），要不要显示警告，表示该模块的本意就是安装为全局模块。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>package.json</code> 在 node 和 npm 环节都要使用，node 在调用 <code>require</code> 的时候去查找模块，会按照一个次序去查找，<code>package.json</code> 会是查找中的一个环节。npm 用的就比较多，其中的 <code>dependencies</code> 字段就是本模块的依赖的模块清单。每次<code>npm update</code>的时候，npm会自动的把依赖到的模块也下载下来。当<code>npm install</code> 本模块的时候，会把这里提到的模块都一起下载下来。通过package.json,就可以管理好模块的依赖关系。</p>
+<p>关于更多规范，请看官方<a href="https://docs.npmjs.com/files/package.json.html" target="_blank" rel="noopener">npm-package.json</a></p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/npm%E6%80%BB%E7%BB%93.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-22T00:12:05+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">22</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月22</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Mac%20iTerm2%20+%20oh-my-zsh.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/Mac%20iTerm2%20+%20oh-my-zsh.html" itemprop="url">【Mac 终端配置】iTerm2 + oh-my-zsh</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-21T23:41:55+08:00">
+                2020-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/Mac%20iTerm2%20+%20oh-my-zsh.html" class="leancloud_visitors" data-flag-title="【Mac 终端配置】iTerm2 + oh-my-zsh">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  578 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前置校验"><a href="#前置校验" class="headerlink" title="前置校验"></a>前置校验</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、默认已安装 Homebrew、iTerm2</span></span><br><span class="line"><span class="comment"># 2、查看是否安装了zsh，查看是否返回 /usr/bin/zsh</span></span><br><span class="line">cat /etc/shells</span><br><span class="line"><span class="comment"># 若未安装</span></span><br><span class="line">brew install zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># iTerm2 启动项配置</span></span><br><span class="line">chsh -s /bin/zsh      <span class="comment"># 设置为zsh</span></span><br><span class="line">chsh -s /bin/bash     <span class="comment"># 设置为bash（Mac自带默认）</span></span><br></pre></td></tr></table></figure>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/Mac%20iTerm2%20+%20oh-my-zsh.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-06-12T01:05:37+08:00">
     <div class="post-time-text">6月</div>
     <div class="post-time-count">12</div>
@@ -1838,226 +2264,6 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Docker.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/Docker.html" itemprop="url">Docker</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-01T16:31:45+08:00">
-                2020-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/Docker.html" class="leancloud_visitors" data-flag-title="Docker">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,279 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Docker，是一款现在最流行的 软件容器平台，提供了软件运行时所依赖的环境。</p>
-<h2 id="物理机"><a href="#物理机" class="headerlink" title="物理机"></a>物理机</h2><p>硬件环境，真实的 计算机实体，包含了例如物理内存，硬盘等等硬件；</p>
-<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机:"></a>虚拟机:</h2><p>在物理机上 模拟出一套硬件环境和操作系统，应用软件可以运行于其中，并且毫无感知，是一套隔离的完整环境。本质上，它只是物理机上的一份运行文件。</p>
-<h2 id="为什么需要虚拟机？"><a href="#为什么需要虚拟机？" class="headerlink" title="为什么需要虚拟机？"></a>为什么需要虚拟机？</h2><h3 id="环境配置与迁移"><a href="#环境配置与迁移" class="headerlink" title="环境配置与迁移"></a>环境配置与迁移</h3><p>在软件开发和运行中，环境依赖一直是一个很头疼的难题，比如你想运行 node 应用，那至少环境得安装 node 吧，而且不同版本，不同系统都会影响运行。解决的办法就是我们的包装包中直接包含运行环境的安装，让同一份环境可以快速复制到任意一台物理机上。</p>
-<h3 id="资源利用率与隔离"><a href="#资源利用率与隔离" class="headerlink" title="资源利用率与隔离"></a>资源利用率与隔离</h3><p>通过硬件模拟，并包含一套完整的操作系统，应用可以独立运行在虚拟机中，与外界隔离。并且可以在同一台物理机上，开启多个不同的虚拟机启动服务，即一台服务器，提供多套服务，且资源完全相互隔离，互不影响。不仅能更好提高资源利用率率，降低成本，而且也有利于服务的稳定性。</p>
-<h3 id="传统虚拟机的缺点"><a href="#传统虚拟机的缺点" class="headerlink" title="传统虚拟机的缺点"></a>传统虚拟机的缺点</h3><h4 id="资源占用大"><a href="#资源占用大" class="headerlink" title="资源占用大"></a>资源占用大</h4><p>由于虚拟机是模拟出一套完整系统，包含众多系统级别的文件和库，运行也需要占用一部分资源，单单启动一个空的虚拟机，可能就要占用 100+MB 的内存了。</p>
-<h4 id="启动缓慢"><a href="#启动缓慢" class="headerlink" title="启动缓慢"></a>启动缓慢</h4><p>同样是由于完整系统，在启动过程中就需要运行各种系统应用和步骤，也就是跟我们平时启动电脑一样的耗时。</p>
-<h4 id="冗余步骤多"><a href="#冗余步骤多" class="headerlink" title="冗余步骤多"></a>冗余步骤多</h4><p>系统有许多内置的系统操作，例如用户登录，系统检查等等，有些场景其实我们要的只是一个隔离的环境，其实也就是说，虚拟机对部分需求痛点来说，其实是有点过重的。</p>
-<h2 id="Linux-容器"><a href="#Linux-容器" class="headerlink" title="Linux 容器"></a>Linux 容器</h2><p>Linux 中的一项虚拟化技术，称为 Linux 容器技术(LXC)。它在进程层面模拟出一套隔离的环境配置，但并没有模拟硬件和完整的操作系统。因此它完全规避了传统虚拟机的缺点，在启动速度，资源利用上远远优于虚拟机；</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/Docker.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Hybrid.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2255,8 +2461,8 @@ a:hover {
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
-                    <span itemprop="name">知识</span>
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -2271,7 +2477,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Docker.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -2290,7 +2496,7 @@ a:hover {
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html" itemprop="url">深入了解HTTP</a></h2>
+                <a class="post-title-link" href="/2020/Docker.html" itemprop="url">Docker</a></h2>
         
 
         <div class="post-meta">
@@ -2302,8 +2508,8 @@ a:hover {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-04-30T00:48:20+08:00">
-                2019-04-30
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-01T16:31:45+08:00">
+                2020-06-01
               </time>
             
 
@@ -2321,7 +2527,7 @@ a:hover {
 
           
           
-             <span id="/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html" class="leancloud_visitors" data-flag-title="深入了解HTTP">
+             <span id="/2020/Docker.html" class="leancloud_visitors" data-flag-title="Docker">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2349,7 +2555,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,039 (字)
+                  1,279 (字)
                 </span>
               
 
@@ -2365,7 +2571,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  11 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -2387,239 +2593,19 @@ a:hover {
 
       
         
-          <h2 id="HTTP-特性"><a href="#HTTP-特性" class="headerlink" title="HTTP 特性"></a>HTTP 特性</h2><ul>
-<li>基于TCP-IP协议 应用层协议 默认端口号80</li>
-<li>无连接无状态</li>
-</ul>
-<h3 id="什么是无状态"><a href="#什么是无状态" class="headerlink" title="什么是无状态"></a>什么是无状态</h3><ul>
-<li>状态】的含义就是：客户端和服务器在某次会话中产生的数据</li>
-<li>那么对应的【无状态】就意味着：这些数据不会被保留</li>
-<li>通过增加cookie和session机制，现在的网络请求其实是有状态的</li>
-<li>在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产生的结果，而没有保留会话</li>
-</ul>
-<h2 id="HTTP-报文"><a href="#HTTP-报文" class="headerlink" title="HTTP 报文"></a>HTTP 报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p>HTTP 协议是以 ASCII （a s ki）码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。</p>
-<ul>
-<li>GET 可提交的数据量受到URL长度的限制，HTTP 协议规范没有对 URL 长度进行限制。这个限制是特定的浏览器及服务器对它的限制</li>
-<li>理论上讲，POST 是没有大小限制的，HTTP 协议规范也没有进行大小限制，出于安全考虑，服务器软件在实现时会做一定限制</li>
-<li>参考上面的报文示例，可以发现 GET 和 POST 数据内容是一模一样的，只是位置不同，一个在 URL 里，一个在 HTTP 包的包体里</li>
-</ul>
+          <p>Docker，是一款现在最流行的 软件容器平台，提供了软件运行时所依赖的环境。</p>
+<h2 id="物理机"><a href="#物理机" class="headerlink" title="物理机"></a>物理机</h2><p>硬件环境，真实的 计算机实体，包含了例如物理内存，硬盘等等硬件；</p>
+<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机:"></a>虚拟机:</h2><p>在物理机上 模拟出一套硬件环境和操作系统，应用软件可以运行于其中，并且毫无感知，是一套隔离的完整环境。本质上，它只是物理机上的一份运行文件。</p>
+<h2 id="为什么需要虚拟机？"><a href="#为什么需要虚拟机？" class="headerlink" title="为什么需要虚拟机？"></a>为什么需要虚拟机？</h2><h3 id="环境配置与迁移"><a href="#环境配置与迁移" class="headerlink" title="环境配置与迁移"></a>环境配置与迁移</h3><p>在软件开发和运行中，环境依赖一直是一个很头疼的难题，比如你想运行 node 应用，那至少环境得安装 node 吧，而且不同版本，不同系统都会影响运行。解决的办法就是我们的包装包中直接包含运行环境的安装，让同一份环境可以快速复制到任意一台物理机上。</p>
+<h3 id="资源利用率与隔离"><a href="#资源利用率与隔离" class="headerlink" title="资源利用率与隔离"></a>资源利用率与隔离</h3><p>通过硬件模拟，并包含一套完整的操作系统，应用可以独立运行在虚拟机中，与外界隔离。并且可以在同一台物理机上，开启多个不同的虚拟机启动服务，即一台服务器，提供多套服务，且资源完全相互隔离，互不影响。不仅能更好提高资源利用率率，降低成本，而且也有利于服务的稳定性。</p>
+<h3 id="传统虚拟机的缺点"><a href="#传统虚拟机的缺点" class="headerlink" title="传统虚拟机的缺点"></a>传统虚拟机的缺点</h3><h4 id="资源占用大"><a href="#资源占用大" class="headerlink" title="资源占用大"></a>资源占用大</h4><p>由于虚拟机是模拟出一套完整系统，包含众多系统级别的文件和库，运行也需要占用一部分资源，单单启动一个空的虚拟机，可能就要占用 100+MB 的内存了。</p>
+<h4 id="启动缓慢"><a href="#启动缓慢" class="headerlink" title="启动缓慢"></a>启动缓慢</h4><p>同样是由于完整系统，在启动过程中就需要运行各种系统应用和步骤，也就是跟我们平时启动电脑一样的耗时。</p>
+<h4 id="冗余步骤多"><a href="#冗余步骤多" class="headerlink" title="冗余步骤多"></a>冗余步骤多</h4><p>系统有许多内置的系统操作，例如用户登录，系统检查等等，有些场景其实我们要的只是一个隔离的环境，其实也就是说，虚拟机对部分需求痛点来说，其实是有点过重的。</p>
+<h2 id="Linux-容器"><a href="#Linux-容器" class="headerlink" title="Linux 容器"></a>Linux 容器</h2><p>Linux 中的一项虚拟化技术，称为 Linux 容器技术(LXC)。它在进程层面模拟出一套隔离的环境配置，但并没有模拟硬件和完整的操作系统。因此它完全规避了传统虚拟机的缺点，在启动速度，资源利用上远远优于虚拟机；</p>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html" itemprop="url">switch的块级作用域</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-03-10T00:21:30+08:00">
-                2019-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html" class="leancloud_visitors" data-flag-title="switch的块级作用域">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  406 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  2 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>ES6 或 TS 引入了块级作用域,通过let和const、class等可以定义块级作用域里的变量，块级作用域内的变量不存在变量提升，且存在<code>暂时性死区</code>(在代码块内，使用let或const声明变量前该变量都是不可改变的)。常见的if语句，for循环的循环体内都可以定义块级变量。那么switch语句中的块级作用域是什么呢？ 先给出结论：</p>
-<p><code>switch语句中的块级作用域，在整个switch语句中，而不是对于每一个case生成一个独立的块级作用域。</code></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html#more" rel="contents">
+            <a class="btn" href="/2020/Docker.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2882,7 +2868,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 283.4k字</span>
+    <span class="post-count">Blog总字数: 284.0k字</span>
   </div>
 
   <div class="theme-info">

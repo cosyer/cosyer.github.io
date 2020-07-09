@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/equality.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/grayFilter.png">
 <meta property="article:published_time" content="2018-06-11T13:55:52.000Z">
-<meta property="article:modified_time" content="2020-07-07T16:46:35.630Z">
+<meta property="article:modified_time" content="2020-07-09T12:45:10.565Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="知识">
 <meta name="twitter:card" content="summary">
@@ -418,12 +418,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-08T00:46:35+08:00">
+  <div class="post-date" data-datetime="2020-07-09T20:45:10+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">09</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月08</div>
+      <div class="post-tiem">7月09</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -528,7 +528,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  19,239 (字)
+                  19,274 (字)
                 </span>
               
 
@@ -544,7 +544,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  91 (分钟)
+                  92 (分钟)
                 </span>
               
             </div>
@@ -686,7 +686,7 @@ vauleOf优先于toString()被调用</p>
 <h2 id="拦截控制台、右键和F12"><a href="#拦截控制台、右键和F12" class="headerlink" title="拦截控制台、右键和F12"></a>拦截控制台、右键和F12</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> e = <span class="built_in">window</span>.event || <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//屏蔽F12</span></span><br><span class="line">        <span class="keyword">if</span> (e.keyCode == <span class="number">123</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//屏蔽Ctrl+Shift+I</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((e.ctrlKey) &amp;&amp; (e.shiftKey) &amp;&amp; (e.keyCode == <span class="number">73</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//屏蔽Shift+F10</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((e.shiftKey) &amp;&amp; (e.keyCode == <span class="number">121</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//屏蔽右键单击</span></span><br><span class="line"><span class="built_in">document</span>.oncontextmenu = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="崩溃欺骗"><a href="#崩溃欺骗" class="headerlink" title="崩溃欺骗"></a>崩溃欺骗</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> OriginTitle = <span class="built_in">document</span>.title;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'visibilitychange'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.hidden) &#123;</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"/img/TEP.ico"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'╭(°A°`)╮ 页面崩溃啦 ~'</span>;</span><br><span class="line">        clearTimeout(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"/favicon.ico"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'(ฅ&gt;ω&lt;*ฅ) 噫又好了~'</span> + OriginTitle;</span><br><span class="line">        titleTime = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.title = OriginTitle;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h2 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 邮件</span></span><br><span class="line">&lt;a href=&#123;<span class="string">'mailto:'</span>+props.email&#125;&gt;&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 下载只有 Firefox 和 Chrome 支持 download 属性。</span></span><br><span class="line"><span class="regexp">&lt;a href="/im</span>ages/myw3schoolimage.jpg<span class="string">" download="</span>w3logo<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">   // QQ</span></span><br><span class="line"><span class="string">&lt;a href="</span>tencent:<span class="comment">//message/?uin=535509852&amp;Site=-&amp;Menu=yes" target="_blank"&gt;QQ:535509852&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="lt-script-gt-元素放在-HTML-文件底部"><a href="#lt-script-gt-元素放在-HTML-文件底部" class="headerlink" title="&lt;script&gt;元素放在 HTML 文件底部"></a><code>&lt;script&gt;</code>元素放在 HTML 文件底部</h2><p>我们将 <code>&lt;script&gt;</code>元素放在 HTML 文件底部的原因是，浏览器按照代码在文件中的顺序解析 HTML。如果 JavaScript在最前面被加载，HTML还未加载，JavaScript将无法作用于HTML，所以JavaScript无效，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。</p>
+<h2 id="lt-script-gt-元素放在-HTML-文件底部"><a href="#lt-script-gt-元素放在-HTML-文件底部" class="headerlink" title="&lt;script&gt;元素放在 HTML 文件底部"></a><code>&lt;script&gt;</code>元素放在 HTML 文件底部</h2><p>我们将 <code>&lt;script&gt;</code>元素放在 HTML 文件底部的原因是，浏览器按照代码在文件中的顺序解析 HTML。如果 JavaScript在最前面被加载，HTML还未加载，JavaScript将无法作用于HTML，所以JavaScript无效，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。当然在当下，并不是说 script 标签必须放在底部，因为你可以给 script 标签添加 defer 或者 async 属性。</p>
 <h2 id="某个字符在字符串中的个数"><a href="#某个字符在字符串中的个数" class="headerlink" title="某个字符在字符串中的个数"></a>某个字符在字符串中的个数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">"11112234241"</span></span><br><span class="line"><span class="built_in">console</span>.log(str.split(<span class="string">"1"</span>).length<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="数组求最大值方法汇总"><a href="#数组求最大值方法汇总" class="headerlink" title="数组求最大值方法汇总"></a>数组求最大值方法汇总</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> es6拓展运算符...</span><br><span class="line"><span class="built_in">Math</span>.max(...arr)</span><br><span class="line"><span class="number">2.</span> es5 apply(与方法<span class="number">1</span>原理相同)</span><br><span class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,arr)</span><br><span class="line"><span class="number">3.</span> <span class="keyword">for</span>循环</span><br><span class="line"><span class="keyword">let</span> max = arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    max = max &lt; arr[i+<span class="number">1</span>] ? arr[i+<span class="number">1</span>] : max</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">4.</span> 数组sort</span><br><span class="line">arr.sort(<span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b-a <span class="comment">// 降序</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="number">5.</span> 数组reduce</span><br><span class="line">arr.reduce(<span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a&gt;b?a:b</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">p1,p2</span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.val = p1 + p2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar = foo.bind( <span class="literal">null</span>, <span class="string">"p1"</span> );</span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> bar( <span class="string">"p2"</span> );</span><br><span class="line">baz.val; <span class="comment">// p1p2</span></span><br></pre></td></tr></table></figure>
@@ -1224,7 +1224,7 @@ webpack4默认是允许import语法动态导入的，但是需要babel的插件�
   <p><span>本文标题:</span><a href="/smallknowledge.html">你所不知道的前端冷门小知识(长期更新)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 21:06</p>
-  <p><span>最后更新:</span>2020年07月08日 - 00:07</p>
+  <p><span>最后更新:</span>2020年07月09日 - 20:07</p>
   <p><span>原始链接:</span><a href="/smallknowledge.html" title="你所不知道的前端冷门小知识(长期更新)">http://mydearest.cn/smallknowledge.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/smallknowledge.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1392,7 +1392,7 @@ webpack4默认是允许import语法动态导入的，但是需要babel的插件�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">145</span>
+                <span class="site-state-item-count">146</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1573,7 +1573,7 @@ webpack4默认是允许import语法动态导入的，但是需要babel的插件�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 279.7k字</span>
+    <span class="post-count">Blog总字数: 283.2k字</span>
   </div>
 
   <div class="theme-info">

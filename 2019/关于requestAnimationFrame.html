@@ -132,14 +132,14 @@
 
 
 
-<meta name="description" content="在JS中，我们可以使用 setTimeout 和 setIntarval 实现动画，但是 H5 的出现，让我们又多了两种实现动画的方式，分别是 CSS 动画（transition、animation）和 H5的canvas 实现。除此以外，H5还提供了一个专门用于请求动画的API，让 DOM 动画、canvas动画、svg动画、webGL动画等有一个专门的刷新机制。 1. 定义requestAni">
+<meta name="description" content="在JS中，我们可以使用 setTimeout 和 setIntarval 实现动画，但是 H5 的出现，让我们又多了两种实现动画的方式，分别是 CSS 动画（transition、animation）和 H5的canvas 实现。除此以外，H5还提供了一个专门用于请求动画的API，让 DOM 动画、canvas动画、svg动画、webGL动画等有一个专门的刷新机制。  传统的javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于requestAnimationFrame">
 <meta property="og:url" content="http://mydearest.cn/2019/%E5%85%B3%E4%BA%8ErequestAnimationFrame.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="在JS中，我们可以使用 setTimeout 和 setIntarval 实现动画，但是 H5 的出现，让我们又多了两种实现动画的方式，分别是 CSS 动画（transition、animation）和 H5的canvas 实现。除此以外，H5还提供了一个专门用于请求动画的API，让 DOM 动画、canvas动画、svg动画、webGL动画等有一个专门的刷新机制。 1. 定义requestAni">
+<meta property="og:description" content="在JS中，我们可以使用 setTimeout 和 setIntarval 实现动画，但是 H5 的出现，让我们又多了两种实现动画的方式，分别是 CSS 动画（transition、animation）和 H5的canvas 实现。除此以外，H5还提供了一个专门用于请求动画的API，让 DOM 动画、canvas动画、svg动画、webGL动画等有一个专门的刷新机制。  传统的javascript">
 <meta property="article:published_time" content="2019-09-22T04:24:48.000Z">
-<meta property="article:modified_time" content="2020-05-27T12:34:35.306Z">
+<meta property="article:modified_time" content="2020-07-10T13:05:33.054Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="深入理解">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-27T20:34:35+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">10</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月27</div>
+      <div class="post-tiem">7月10</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,559 (字)
+                  1,691 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  7 (分钟)
                 </span>
               
             </div>
@@ -561,6 +561,13 @@ a:hover {
 
       
         <p>在JS中，我们可以使用 <code>setTimeout</code> 和 <code>setIntarval</code> 实现动画，但是 H5 的出现，让我们又多了两种实现动画的方式，分别是 CSS 动画（<code>transition</code>、<code>animation</code>）和 H5的<code>canvas</code> 实现。除此以外，H5还提供了一个专门用于请求动画的API，让 DOM 动画、canvas动画、svg动画、webGL动画等有一个专门的刷新机制。</p>
+<blockquote>
+<p>传统的javascript 动画是通过定时器 setTimeout 或者 setInterval 实现的。但是定时器动画一直存在两个问题</p>
+<ul>
+<li>动画的循时间环间隔不好确定(推荐的最佳循环间隔是17ms（大多数电脑的显示器刷新频率是60Hz，1000ms/60）)</li>
+<li>定时器第二个时间参数只是指定了多久后将动画任务添加到浏览器的UI线程队列中，如果UI线程处于忙碌状态，那么动画不会立刻执行</li>
+</ul>
+</blockquote>
 <h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p><code>requestAnimationFrame</code> 方法会告诉浏览器希望执行动画并请求浏览器在下一次重绘之前调用回调函数来更新动画。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimationFrame(callback)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -589,7 +596,7 @@ a:hover {
 <li>能够在动画流刷新之后执行，即<strong>上一个动画流会完整执行</strong></li>
 </ol>
 <h3 id="4-实现"><a href="#4-实现" class="headerlink" title="4. 实现"></a>4. 实现</h3><p>我们可以使用 <code>requestAnimationFrame</code> 实现<code>setInterval</code>及 <code>setTimeout</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setInterval实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setInterval</span>(<span class="params">callback, interval</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="keyword">let</span> startTime = now()</span><br><span class="line">    <span class="keyword">let</span> endTime = startTime</span><br><span class="line">    <span class="keyword">const</span> loop = () =&#123;</span><br><span class="line">        timer = <span class="built_in">window</span>.requestAnimationFrame(loop)</span><br><span class="line">        endTime = now()</span><br><span class="line">        <span class="keyword">if</span> (endTime - startTime &gt;= interval) &#123;</span><br><span class="line">            startTime = endTime = now()</span><br><span class="line">            callback(timer)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    timer = <span class="built_in">window</span>.requestAnimationFrame(loop)</span><br><span class="line">    <span class="keyword">return</span> timer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">0</span></span><br><span class="line">setInterval(timer =&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">    a++</span><br><span class="line">    <span class="keyword">if</span> (a === <span class="number">3</span>) <span class="built_in">window</span>.cancelAnimationFrame(timer)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setInterval实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setInterval</span>(<span class="params">callback, interval</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now</span><br><span class="line">    <span class="keyword">let</span> startTime = now()</span><br><span class="line">    <span class="keyword">let</span> endTime = startTime</span><br><span class="line">    <span class="keyword">const</span> loop = () =&#123;</span><br><span class="line">        timer = <span class="built_in">window</span>.requestAnimationFrame(loop)</span><br><span class="line">        endTime = now()</span><br><span class="line">        <span class="keyword">if</span> (endTime - startTime &gt;= interval) &#123;</span><br><span class="line">            startTime = endTime = now()</span><br><span class="line">            callback(timer)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    timer = <span class="built_in">window</span>.requestAnimationFrame(loop)</span><br><span class="line">    <span class="keyword">return</span> timer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">0</span></span><br><span class="line">setInterval(timer =&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">    a++</span><br><span class="line">    <span class="keyword">if</span> (a === <span class="number">3</span>) <span class="built_in">window</span>.cancelAnimationFrame(timer)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setTimeout 实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setTimeout</span>(<span class="params">callback, interval</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now</span><br><span class="line">    <span class="keyword">let</span> startTime = now()</span><br><span class="line">    <span class="keyword">let</span> endTime = startTime</span><br><span class="line">    <span class="keyword">const</span> loop = () =&#123;</span><br><span class="line">        timer = <span class="built_in">window</span>.requestAnimationFrame(loop)</span><br><span class="line">        endTime = now()</span><br><span class="line">        <span class="keyword">if</span> (endTime - startTime &gt;= interval) &#123;</span><br><span class="line">            callback(timer)</span><br><span class="line">            <span class="built_in">window</span>.cancelAnimationFrame(timer)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    timer = <span class="built_in">window</span>.requestAnimationFrame(loop)</span><br><span class="line">    <span class="keyword">return</span> timer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">0</span></span><br><span class="line">setTimeout(timer =&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">    a++</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
 <h3 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="noopener">MDN</a></p>
 
@@ -623,7 +630,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/%E5%85%B3%E4%BA%8ErequestAnimationFrame.html">关于requestAnimationFrame</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年09月22日 - 12:09</p>
-  <p><span>最后更新:</span>2020年05月27日 - 20:05</p>
+  <p><span>最后更新:</span>2020年07月10日 - 21:07</p>
   <p><span>原始链接:</span><a href="/2019/%E5%85%B3%E4%BA%8ErequestAnimationFrame.html" title="关于requestAnimationFrame">http://mydearest.cn/2019/%E5%85%B3%E4%BA%8ErequestAnimationFrame.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/%E5%85%B3%E4%BA%8ErequestAnimationFrame.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -972,7 +979,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 284.0k字</span>
+    <span class="post-count">Blog总字数: 285.2k字</span>
   </div>
 
   <div class="theme-info">

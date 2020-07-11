@@ -132,15 +132,15 @@
 
 
 
-<meta name="description" content="评估局部变量主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域 层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变 量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当 前的作用域和防止查询，从而提高代码的速度。">
+<meta name="description" content="前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript性能优化">
-<meta property="og:url" content="http://mydearest.cn/js%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">
+<meta property="og:title" content="前端性能优化">
+<meta property="og:url" content="http://mydearest.cn/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="评估局部变量主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域 层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变 量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当 前的作用域和防止查询，从而提高代码的速度。">
+<meta property="og:description" content="前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/optimize.png">
 <meta property="article:published_time" content="2018-08-29T16:17:32.000Z">
-<meta property="article:modified_time" content="2020-06-02T15:18:46.623Z">
+<meta property="article:modified_time" content="2020-07-10T15:10:24.282Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="性能优化">
 <meta name="twitter:card" content="summary">
@@ -173,13 +173,13 @@
 
 
 
-  <link rel="canonical" href="http://mydearest.cn/js性能优化.html"/>
+  <link rel="canonical" href="http://mydearest.cn/前端性能优化.html"/>
 
 
 
 
 
-  <title>JavaScript性能优化 | cosyer's Blog</title>
+  <title>前端性能优化 | cosyer's Blog</title>
   
 
 
@@ -415,12 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2020-07-10T23:10:24+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">10</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
+      <div class="post-tiem">7月10</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -449,7 +449,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/js%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -466,7 +466,7 @@ a:hover {
 
         
         
-          <h2 class="post-title" itemprop="name headline">JavaScript性能优化</h2>
+          <h2 class="post-title" itemprop="name headline">前端性能优化</h2>
         
 
         <div class="post-meta">
@@ -497,7 +497,7 @@ a:hover {
 
           
           
-             <span id="/js%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html" class="leancloud_visitors" data-flag-title="JavaScript性能优化">
+             <span id="/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html" class="leancloud_visitors" data-flag-title="前端性能优化">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -525,7 +525,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,760 (字)
+                  1,135 (字)
                 </span>
               
 
@@ -541,7 +541,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -562,24 +562,38 @@ a:hover {
       
 
       
-        <h3 id="评估局部变量"><a href="#评估局部变量" class="headerlink" title="评估局部变量"></a>评估局部变量</h3><p>主要针对IE而言，由于局部变量的查找是从最特定作用域到最大作用域，且可以通过多个域
-层级，所以这种查找会导致查询到通用的结果。在定义函数作用域的时候，如果一个局部变
-量在之前没有进行过var变量声明， 那么此处一定要在变量名前加上var关键字以定义其当
-前的作用域和防止查询，从而提高代码的速度。</p>
-<hr>
-<a id="more"></a>
-<h3 id="除非必要，否则不要使用嵌套循环"><a href="#除非必要，否则不要使用嵌套循环" class="headerlink" title="除非必要，否则不要使用嵌套循环"></a>除非必要，否则不要使用嵌套循环</h3><p>减少不必要的循环，例如 for 和 while 循环，以保持 JavaScript 的线性，并避免需要遍历数千个对象。无用的循环可能会导致浏览器处理代码时更困难，从而减缓速度。</p>
-<h3 id="缓存对象以提高性能"><a href="#缓存对象以提高性能" class="headerlink" title="缓存对象以提高性能"></a>缓存对象以提高性能</h3><p>很多时候，会重复使用脚本来访问某个对象。 将重复访问的对象存储在用户定义的变量中，并且之后在引用该对象时使用此变量，可以立刻实现性能提升。</p>
-<h3 id="使用-js文件来缓存脚本"><a href="#使用-js文件来缓存脚本" class="headerlink" title="使用.js文件来缓存脚本"></a>使用.js文件来缓存脚本</h3><p>使用这种技术可以实现性能提升，因为它允许浏览器只加载脚本一次，当页面被重新加载或重新访问时只需要从缓存中调用脚本即可。</p>
-<h3 id="使用Gzip压缩文件"><a href="#使用Gzip压缩文件" class="headerlink" title="使用Gzip压缩文件"></a>使用Gzip压缩文件</h3><p>使用 GZip 可以明显地降低 JavaScript 文件的大小，节省带宽，并加快响应时间。 有时 JavaScript 文件非常大，如果没有经过压缩，它可能会造成网站瘫痪。较小的文件能提供更快、更令人满意的网页体验。</p>
-<h3 id="尽量减少对HTTP的请求"><a href="#尽量减少对HTTP的请求" class="headerlink" title="尽量减少对HTTP的请求"></a>尽量减少对HTTP的请求</h3><p>通过结合外部文件和直接在 XHTML 页面中嵌入 JavaScript 来尽量减少对 HTTP 返回页面的请求。 每一个特定的 HTTP 请求传输至服务器端都会导致大量的时延。</p>
-<h3 id="不要重复使用相同的脚本"><a href="#不要重复使用相同的脚本" class="headerlink" title="不要重复使用相同的脚本"></a>不要重复使用相同的脚本</h3><p>复的脚本对性能会造成显著的影响。重复的脚本会创建不需要的HTTP请求，尤其是在IE浏览器中。在HTML页面中使用脚本标签，可以帮助避免意外地生成重复的脚本。</p>
-<h3 id="缩短作用域链"><a href="#缩短作用域链" class="headerlink" title="缩短作用域链"></a>缩短作用域链</h3><p>全局作用域通常较慢，因为每次执行函数的时候，它会引发创建一个临时的调用作用域，JavaScript 会在作用域链中搜索第一个对象，如果找不到该变量，则会遍历链直到搜索到全局对象。</p>
-<h3 id="使用函数内联"><a href="#使用函数内联" class="headerlink" title="使用函数内联"></a>使用函数内联</h3><p>函数内联有助于减少函数调用的成本，并用被调用的函数体替换函数调用。 在 JavaScript 中执行函数调用是一个高成本的操作，因为需要执行几个准备步骤：为参数分配空间，复制参数以及解析函数名称。</p>
-<h3 id="尽量不要使用全局变量"><a href="#尽量不要使用全局变量" class="headerlink" title="尽量不要使用全局变量"></a>尽量不要使用全局变量</h3><p>由于脚本引擎需要搜索作用域，所以当从函数内部或其他作用域内引用全局变量时，如果局部作用域丢失，全局变量将被销毁。如果全局作用域中的变量并不一直存在于脚本的生命周期，则可以提升性能。</p>
-<h3 id="不要一直保留对其他文档的引用"><a href="#不要一直保留对其他文档的引用" class="headerlink" title="不要一直保留对其他文档的引用"></a>不要一直保留对其他文档的引用</h3><p>当脚本结束后不再保留对其他文档的引用可以实现更快的性能。因为对其他文档中的对象进行的任何引用不会被保存在整个 DOM 树中，并且脚本环境也不会一直保留在内存中。 因此文档本身不用再被加载。</p>
-<h3 id="不要误用-for-in-Object-hasOwnProperty-只遍历当前对象"><a href="#不要误用-for-in-Object-hasOwnProperty-只遍历当前对象" class="headerlink" title="不要误用 for-in Object.hasOwnProperty()只遍历当前对象"></a>不要误用 for-in Object.hasOwnProperty()只遍历当前对象</h3><p>由于“for-in”循环需要脚本引擎构建包含所有可枚举属性的列表，因此 for 循环内的代码是不会修改这个列表的。 在 for 循环内部，预先计算出列表的长度并赋给变量 len，然后进行迭代。</p>
+        <h2 id="前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。"><a href="#前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。" class="headerlink" title="前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。"></a>前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。</h2><a id="more"></a>
 <p><img src="http://cdn.mydearest.cn/blog/images/optimize.png" alt="optimize"></p>
+<h2 id="页面的内容"><a href="#页面的内容" class="headerlink" title="页面的内容"></a>页面的内容</h2><ol>
+<li><p>通过文件合并、css 雪碧图、使用 base64 等方式来减少 HTTP 请求数，避免过多的请求造成等待的情况。</p>
+</li>
+<li><p>通过 DNS 缓存等机制来减少 DNS 的查询次数。</p>
+</li>
+<li><p>通过设置缓存策略，对常用不变的资源进行缓存。</p>
+</li>
+<li><p>使用延迟加载的方式，来减少页面首屏加载时需要请求的资源。延迟加载的资源当用户需要访问时，再去请求加载。</p>
+</li>
+<li><p>通过用户行为，对某些资源使用预加载的方式，来提高用户需要访问资源时的响应速度。</p>
+</li>
+</ol>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><ol>
+<li><p>使用 CDN 服务，来提高用户对于资源请求时的响应速度。</p>
+</li>
+<li><p>服务器端启用 Gzip、Deflate 等方式对于传输的资源进行压缩，减小文件的体积。</p>
+</li>
+<li><p>尽可能减小 cookie 的大小，并且通过将静态资源分配到其他域名下，来避免对静态资源请求时携带不必要的 cookie</p>
+</li>
+</ol>
+<h2 id="CSS-和-JavaScript"><a href="#CSS-和-JavaScript" class="headerlink" title="CSS 和 JavaScript"></a>CSS 和 JavaScript</h2><ol>
+<li><p>把样式表放在页面的 head 标签中，减少页面的首次渲染的时间。</p>
+</li>
+<li><p>避免使用 @import 标签。</p>
+</li>
+<li><p>尽量把 js 脚本放在页面底部或者使用 defer 或 async 属性，避免脚本的加载和执行阻塞页面的渲染。</p>
+</li>
+<li><p>通过对 JavaScript 和 CSS 的文件进行压缩，来减小文件的体积。</p>
+</li>
+</ol>
 <h2 id="资源合并压缩-减少HTTP请求"><a href="#资源合并压缩-减少HTTP请求" class="headerlink" title="资源合并压缩 减少HTTP请求"></a>资源合并压缩 减少HTTP请求</h2><h3 id="尽量合并和压缩html-css和js文件-借助前端工具-例如-webpack-gulp-grunt…"><a href="#尽量合并和压缩html-css和js文件-借助前端工具-例如-webpack-gulp-grunt…" class="headerlink" title="尽量合并和压缩html css和js文件 借助前端工具 例如 webpack gulp grunt…"></a>尽量合并和压缩html css和js文件 借助前端工具 例如 webpack gulp grunt…</h3><h3 id="开启gzip压缩"><a href="#开启gzip压缩" class="headerlink" title="开启gzip压缩"></a>开启gzip压缩</h3><h2 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h2><h3 id="雪碧图-图片压缩-svg-base64"><a href="#雪碧图-图片压缩-svg-base64" class="headerlink" title="雪碧图 图片压缩 svg base64"></a>雪碧图 图片压缩 svg base64</h3><h2 id="懒加载-预加载"><a href="#懒加载-预加载" class="headerlink" title="懒加载 / 预加载"></a>懒加载 / 预加载</h2><h3 id="懒加载：图片进入可视区域之后请求图片资源-对于电商等图片很多，页面很长的业务场景适用-并发加载的资源过多会阻塞-js-的加载，影响网站的正常使用"><a href="#懒加载：图片进入可视区域之后请求图片资源-对于电商等图片很多，页面很长的业务场景适用-并发加载的资源过多会阻塞-js-的加载，影响网站的正常使用" class="headerlink" title="懒加载：图片进入可视区域之后请求图片资源 对于电商等图片很多，页面很长的业务场景适用 并发加载的资源过多会阻塞 js 的加载，影响网站的正常使用"></a>懒加载：图片进入可视区域之后请求图片资源 对于电商等图片很多，页面很长的业务场景适用 并发加载的资源过多会阻塞 js 的加载，影响网站的正常使用</h3><h3 id="预加载：图片等静态资源在使用之前的提前请求-资源使用到时能从缓存中加载，提升用户体验"><a href="#预加载：图片等静态资源在使用之前的提前请求-资源使用到时能从缓存中加载，提升用户体验" class="headerlink" title="预加载：图片等静态资源在使用之前的提前请求 资源使用到时能从缓存中加载，提升用户体验"></a>预加载：图片等静态资源在使用之前的提前请求 资源使用到时能从缓存中加载，提升用户体验</h3><h2 id="浏览器存储"><a href="#浏览器存储" class="headerlink" title="浏览器存储"></a>浏览器存储</h2><h3 id="localStorage：大小为-5M-左右仅在客户端使用，不和服务端进行通信-浏览器本地缓存方案"><a href="#localStorage：大小为-5M-左右仅在客户端使用，不和服务端进行通信-浏览器本地缓存方案" class="headerlink" title="localStorage：大小为 5M 左右仅在客户端使用，不和服务端进行通信 浏览器本地缓存方案"></a>localStorage：大小为 5M 左右仅在客户端使用，不和服务端进行通信 浏览器本地缓存方案</h3><h3 id="indexedDB：用于客户端存储大量结构化数据-为应用创建离线版本"><a href="#indexedDB：用于客户端存储大量结构化数据-为应用创建离线版本" class="headerlink" title="indexedDB：用于客户端存储大量结构化数据 为应用创建离线版本"></a>indexedDB：用于客户端存储大量结构化数据 为应用创建离线版本</h3><h2 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h2><h3 id="强缓存："><a href="#强缓存：" class="headerlink" title="强缓存："></a>强缓存：</h3><ul>
 <li><p>expires：
 缓存过期时间，用来指定资源到期的时间，是服务器端的绝对时间
@@ -944,7 +958,7 @@ if-none-match ——- request header</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#评估局部变量"><span class="nav-number">1.</span> <span class="nav-text">评估局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#除非必要，否则不要使用嵌套循环"><span class="nav-number">2.</span> <span class="nav-text">除非必要，否则不要使用嵌套循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存对象以提高性能"><span class="nav-number">3.</span> <span class="nav-text">缓存对象以提高性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-js文件来缓存脚本"><span class="nav-number">4.</span> <span class="nav-text">使用.js文件来缓存脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Gzip压缩文件"><span class="nav-number">5.</span> <span class="nav-text">使用Gzip压缩文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尽量减少对HTTP的请求"><span class="nav-number">6.</span> <span class="nav-text">尽量减少对HTTP的请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要重复使用相同的脚本"><span class="nav-number">7.</span> <span class="nav-text">不要重复使用相同的脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩短作用域链"><span class="nav-number">8.</span> <span class="nav-text">缩短作用域链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用函数内联"><span class="nav-number">9.</span> <span class="nav-text">使用函数内联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尽量不要使用全局变量"><span class="nav-number">10.</span> <span class="nav-text">尽量不要使用全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要一直保留对其他文档的引用"><span class="nav-number">11.</span> <span class="nav-text">不要一直保留对其他文档的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要误用-for-in-Object-hasOwnProperty-只遍历当前对象"><span class="nav-number">12.</span> <span class="nav-text">不要误用 for-in Object.hasOwnProperty()只遍历当前对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源合并压缩-减少HTTP请求"><span class="nav-number"></span> <span class="nav-text">资源合并压缩 减少HTTP请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#尽量合并和压缩html-css和js文件-借助前端工具-例如-webpack-gulp-grunt…"><span class="nav-number">1.</span> <span class="nav-text">尽量合并和压缩html css和js文件 借助前端工具 例如 webpack gulp grunt…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启gzip压缩"><span class="nav-number">2.</span> <span class="nav-text">开启gzip压缩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片优化"><span class="nav-number"></span> <span class="nav-text">图片优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#雪碧图-图片压缩-svg-base64"><span class="nav-number">1.</span> <span class="nav-text">雪碧图 图片压缩 svg base64</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载-预加载"><span class="nav-number"></span> <span class="nav-text">懒加载 &#x2F; 预加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#懒加载：图片进入可视区域之后请求图片资源-对于电商等图片很多，页面很长的业务场景适用-并发加载的资源过多会阻塞-js-的加载，影响网站的正常使用"><span class="nav-number">1.</span> <span class="nav-text">懒加载：图片进入可视区域之后请求图片资源 对于电商等图片很多，页面很长的业务场景适用 并发加载的资源过多会阻塞 js 的加载，影响网站的正常使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预加载：图片等静态资源在使用之前的提前请求-资源使用到时能从缓存中加载，提升用户体验"><span class="nav-number">2.</span> <span class="nav-text">预加载：图片等静态资源在使用之前的提前请求 资源使用到时能从缓存中加载，提升用户体验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器存储"><span class="nav-number"></span> <span class="nav-text">浏览器存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage：大小为-5M-左右仅在客户端使用，不和服务端进行通信-浏览器本地缓存方案"><span class="nav-number">1.</span> <span class="nav-text">localStorage：大小为 5M 左右仅在客户端使用，不和服务端进行通信 浏览器本地缓存方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexedDB：用于客户端存储大量结构化数据-为应用创建离线版本"><span class="nav-number">2.</span> <span class="nav-text">indexedDB：用于客户端存储大量结构化数据 为应用创建离线版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器缓存"><span class="nav-number"></span> <span class="nav-text">浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强缓存："><span class="nav-number">1.</span> <span class="nav-text">强缓存：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协商缓存："><span class="nav-number">2.</span> <span class="nav-text">协商缓存：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN-内容分发网络"><span class="nav-number"></span> <span class="nav-text">CDN 内容分发网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端错误监控以及上报"><span class="nav-number"></span> <span class="nav-text">前端错误监控以及上报</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。"><span class="nav-number">1.</span> <span class="nav-text">前端性能优化主要是为了提高页面的加载速度，优化用户的访问体验。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面的内容"><span class="nav-number">2.</span> <span class="nav-text">页面的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器"><span class="nav-number">3.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-和-JavaScript"><span class="nav-number">4.</span> <span class="nav-text">CSS 和 JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源合并压缩-减少HTTP请求"><span class="nav-number">5.</span> <span class="nav-text">资源合并压缩 减少HTTP请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#尽量合并和压缩html-css和js文件-借助前端工具-例如-webpack-gulp-grunt…"><span class="nav-number">5.1.</span> <span class="nav-text">尽量合并和压缩html css和js文件 借助前端工具 例如 webpack gulp grunt…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启gzip压缩"><span class="nav-number">5.2.</span> <span class="nav-text">开启gzip压缩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片优化"><span class="nav-number">6.</span> <span class="nav-text">图片优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#雪碧图-图片压缩-svg-base64"><span class="nav-number">6.1.</span> <span class="nav-text">雪碧图 图片压缩 svg base64</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载-预加载"><span class="nav-number">7.</span> <span class="nav-text">懒加载 &#x2F; 预加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#懒加载：图片进入可视区域之后请求图片资源-对于电商等图片很多，页面很长的业务场景适用-并发加载的资源过多会阻塞-js-的加载，影响网站的正常使用"><span class="nav-number">7.1.</span> <span class="nav-text">懒加载：图片进入可视区域之后请求图片资源 对于电商等图片很多，页面很长的业务场景适用 并发加载的资源过多会阻塞 js 的加载，影响网站的正常使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预加载：图片等静态资源在使用之前的提前请求-资源使用到时能从缓存中加载，提升用户体验"><span class="nav-number">7.2.</span> <span class="nav-text">预加载：图片等静态资源在使用之前的提前请求 资源使用到时能从缓存中加载，提升用户体验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器存储"><span class="nav-number">8.</span> <span class="nav-text">浏览器存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage：大小为-5M-左右仅在客户端使用，不和服务端进行通信-浏览器本地缓存方案"><span class="nav-number">8.1.</span> <span class="nav-text">localStorage：大小为 5M 左右仅在客户端使用，不和服务端进行通信 浏览器本地缓存方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexedDB：用于客户端存储大量结构化数据-为应用创建离线版本"><span class="nav-number">8.2.</span> <span class="nav-text">indexedDB：用于客户端存储大量结构化数据 为应用创建离线版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器缓存"><span class="nav-number">9.</span> <span class="nav-text">浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强缓存："><span class="nav-number">9.1.</span> <span class="nav-text">强缓存：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协商缓存："><span class="nav-number">9.2.</span> <span class="nav-text">协商缓存：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN-内容分发网络"><span class="nav-number">10.</span> <span class="nav-text">CDN 内容分发网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端错误监控以及上报"><span class="nav-number">11.</span> <span class="nav-text">前端错误监控以及上报</span></a></li></ol></div>
             
 
           </div>
@@ -989,7 +1003,7 @@ if-none-match ——- request header</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 285.2k字</span>
+    <span class="post-count">Blog总字数: 284.9k字</span>
   </div>
 
   <div class="theme-info">

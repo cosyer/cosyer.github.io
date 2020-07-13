@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。  运行在宿主环境环境中，比如浏览器或node环境 不用预编译，直接解释执行代码 是弱类型语言，较为灵活 与操作系统无关，跨平台的语言 脚本语言，解释性语言">
 <meta property="article:published_time" content="2018-06-21T11:37:27.000Z">
-<meta property="article:modified_time" content="2020-07-10T13:05:33.065Z">
+<meta property="article:modified_time" content="2020-07-13T11:42:48.066Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
+  <div class="post-date" data-datetime="2020-07-13T19:42:48+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">13</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">7月13</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10,687 (字)
+                  10,721 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  48 (分钟)
+                  49 (分钟)
                 </span>
               
             </div>
@@ -622,7 +622,10 @@ var ok ; let 和 const 则不会存在变量提升</p>
 <li>null</li>
 <li>undefined</li>
 <li>String </li>
-<li>Number 标识范围 -2^53~2^53 数字均为双精度浮点类型</li>
+<li>Number 标识范围 -2^53~2^53 数字均为双精度浮点类型<ul>
+<li>实质是一个 64 位的浮点数。使用 53 位表示小数位，10 位表示指数位，1 位表示符号位。</li>
+</ul>
+</li>
 <li>Symbol(它的实例是唯一且不可改变)</li>
 <li>bigint</li>
 </ul>
@@ -633,7 +636,7 @@ var ok ; let 和 const 则不会存在变量提升</p>
 恭喜你到了看山不是山的境界。因为 mantissa 固定长度是 52 位，再加上省略的一位，最多可以表示的数是 2^53=9007199254740992，对应科学计数尾数是 </p>
 <p>9.007199254740992，这也是 JS 最多能表示的精度。它的长度是 16，所以可以使用 toPrecision(16) 来做精度运算，超过的精度会自动做凑整处理。</p>
 <p>不仅 JavaScript，所有遵循 IEEE 754 规范的语言都是如此；</p>
-<p>在JavaScript中，所有的Number都是以64-bit的双精度浮点数存储的，在用二进制存储时会存在精度误差；</p>
+<p><code>在JavaScript中，所有的Number都是以64-bit的双精度浮点数存储的，在用二进制存储时会存在精度误差；</code></p>
 <p>双精度的浮点数在这64位上划分为3段，而这3段也就确定了一个浮点数的值，64bit的划分是“1-11-52”的模式，具体来说：</p>
 <p>1.就是1位最高位（最左边那一位）表示符号位，0表示正，1表示负；</p>
 <p>2.11位表示指数部分；52位表示尾数部分，也就是有效域部分</p>
@@ -1297,7 +1300,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 288.4k字</span>
+    <span class="post-count">Blog总字数: 288.8k字</span>
   </div>
 
   <div class="theme-info">

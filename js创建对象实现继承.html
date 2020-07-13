@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="今天10月31日，万圣节前夜。希望ff的病早点好，身体健康。 创建对象(字面量、构造函数、create方法、调用函数返回对象)123456789var obj &#x3D; &amp;#123;&amp;#125; &#x2F;&#x2F; 字面量 var obj &#x3D; new Object() &#x2F;&#x2F; 很少见，性能低 没有形参时可省略()var obj &#x3D; Object.create(null) &#x2F;&#x2F; 以xx为原型创建对象var obj &#x3D; O">
 <meta property="article:published_time" content="2018-10-31T02:21:48.000Z">
-<meta property="article:modified_time" content="2020-07-10T13:05:33.068Z">
+<meta property="article:modified_time" content="2020-07-13T11:42:48.070Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
+  <div class="post-date" data-datetime="2020-07-13T19:42:48+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">13</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">7月13</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,942 (字)
+                  3,034 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  13 (分钟)
+                  14 (分钟)
                 </span>
               
             </div>
@@ -664,6 +664,7 @@ a:hover {
 缺点：
 1.实现起来较为复杂（可通过Object.create简化）</li>
 </ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = obj.name</span><br><span class="line">    <span class="keyword">this</span>.age = obj.age</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(&#123;<span class="attr">name</span>:<span class="string">"番茄"</span>, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person1</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    Person.call(<span class="keyword">this</span>, obj)</span><br><span class="line">    <span class="keyword">this</span>.sex = obj.sex</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这一步是继承的关键</span></span><br><span class="line">Person1.prototype = <span class="built_in">Object</span>.create(Person.prototype)</span><br><span class="line">Person1.prototype.play = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Person1(&#123;<span class="attr">name</span>:<span class="string">"鸡蛋"</span>, <span class="attr">age</span>: <span class="number">118</span>, <span class="attr">sex</span>: <span class="string">"男"</span>&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="es6-class继承-使用extends表明继承自哪个父类，并且在子类构造函数中必须调用super"><a href="#es6-class继承-使用extends表明继承自哪个父类，并且在子类构造函数中必须调用super" class="headerlink" title="es6 class继承(使用extends表明继承自哪个父类，并且在子类构造函数中必须调用super)"></a>es6 class继承(使用extends表明继承自哪个父类，并且在子类构造函数中必须调用super)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">super</span>(name);</span><br><span class="line">    <span class="keyword">this</span>.name = name || <span class="string">"son"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s = <span class="keyword">new</span> Son(<span class="string">"son"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s.name); <span class="comment">// son</span></span><br><span class="line">s.sayAge(); <span class="comment">// 18</span></span><br><span class="line">s.sayName(); <span class="comment">// son</span></span><br><span class="line"><span class="built_in">console</span>.log(s.age); <span class="comment">// 18</span></span><br><span class="line"><span class="built_in">console</span>.log(s <span class="keyword">instanceof</span> Father); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(s <span class="keyword">instanceof</span> Son); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(s.constructor === Father); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(s.constructor === Son); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p><code>Happy Halloween!</code></p>
 
@@ -697,7 +698,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html">js创建对象实现继承</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年10月31日 - 10:10</p>
-  <p><span>最后更新:</span>2020年07月10日 - 21:07</p>
+  <p><span>最后更新:</span>2020年07月13日 - 19:07</p>
   <p><span>原始链接:</span><a href="/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html" title="js创建对象实现继承">http://mydearest.cn/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1046,7 +1047,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 288.4k字</span>
+    <span class="post-count">Blog总字数: 288.8k字</span>
   </div>
 
   <div class="theme-info">

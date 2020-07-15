@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="Error BoundaryError Boundary可以看作是一种特殊的React组件，新增了componentDidCatch这个生命周期函数，它可以捕获自身及子树上的错误并对错误做优雅处理，包括上报错误日志、展示出错提示，而不是卸载整个组件树。（注：它并不能捕获runtime所有的错误，比如组件回调事件里的错误，可以把它想象成传统的try-catch语句）">
 <meta property="article:published_time" content="2018-06-11T12:09:00.000Z">
-<meta property="article:modified_time" content="2018-12-15T05:37:34.176Z">
+<meta property="article:modified_time" content="2020-07-14T16:43:45.077Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
@@ -413,13 +413,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
+  <div class="post-date" data-datetime="2020-07-15T00:43:45+08:00">
+    <div class="post-time-text">7月</div>
     <div class="post-time-count">15</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">7月15</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  690 (字)
+                  740 (字)
                 </span>
               
 
@@ -568,6 +568,7 @@ a:hover {
 <h2 id="render方法新增返回类型"><a href="#render方法新增返回类型" class="headerlink" title="render方法新增返回类型"></a>render方法新增返回类型</h2><p>在React 16中，render方法支持直接返回string，number，boolean，null，portal，以及fragments(带有key属性的数组)，这可以在一定程度上减少页面的DOM层级。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello,world'</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//number</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//boolean</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> isTrue?<span class="literal">true</span>:<span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//null</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//fragments，未加key标识符，控制台会出现warning</span></span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    &lt;div&gt;hello&lt;<span class="regexp">/div&gt;,</span></span><br><span class="line"><span class="regexp">    &lt;span&gt;world&lt;/</span>span&gt;,</span><br><span class="line">    &lt;p&gt;oh&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  ]</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>以上各种类型现在均可以直接在render中返回，不需要再在外层包裹一层容器元素，不过在返回的数组类型中，需要在每个元素上加一个唯一且不变的key值，否则控制台会报一个warning。</p>
+<p>16.2 增加 Fragment 组件，其作用是将一些子元素添加到 DOM tree 上且不需要为这些元素提供额外的父节点，相当于 render 返回数组元素</p>
 <h2 id="使用createPortal将组件渲染到当前组件树之外"><a href="#使用createPortal将组件渲染到当前组件树之外" class="headerlink" title="使用createPortal将组件渲染到当前组件树之外"></a>使用createPortal将组件渲染到当前组件树之外</h2><h2 id="支持自定义DOM属性"><a href="#支持自定义DOM属性" class="headerlink" title="支持自定义DOM属性"></a>支持自定义DOM属性</h2><p>在之前的版本中，React会忽略无法识别的HTML和SVG属性，自定义属性只能通过data-*形式添加，现在它会把这些属性直接传递给DOM（这个改动让React可以去掉属性白名单，从而减少了文件大小）。</p>
 <h2 id="setState传入null时不会再触发更新"><a href="#setState传入null时不会再触发更新" class="headerlink" title="setState传入null时不会再触发更新"></a>setState传入null时不会再触发更新</h2><h2 id="更好的服务器端渲染"><a href="#更好的服务器端渲染" class="headerlink" title="更好的服务器端渲染"></a>更好的服务器端渲染</h2><p>React 16的SSR被完全重写，新的实现非常快，接近3倍性能于React 15，现在提供一种流模式streaming，可以更快地把渲染的字节发送到客户端。</p>
 <h2 id="新的打包策略"><a href="#新的打包策略" class="headerlink" title="新的打包策略"></a>新的打包策略</h2><p>新的打包策略中去掉了process.env检查。
@@ -603,7 +604,7 @@ React 16的体积比上个版本减小了32%（30% post-gzip），文件尺寸�
   <p><span>本文标题:</span><a href="/react16.html">快速了解React 16新特性</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月11日 - 20:06</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2020年07月15日 - 00:07</p>
   <p><span>原始链接:</span><a href="/react16.html" title="快速了解React 16新特性">http://mydearest.cn/react16.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/react16.html"  aria-label=" 复制成功！"></i></span>
   </p>

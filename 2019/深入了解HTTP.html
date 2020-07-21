@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/http-cache.jpeg">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/http-cache2.png">
 <meta property="article:published_time" content="2019-04-29T16:48:20.000Z">
-<meta property="article:modified_time" content="2020-06-02T15:18:46.609Z">
+<meta property="article:modified_time" content="2020-07-17T13:15:55.528Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2020-07-17T21:15:55+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">17</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
+      <div class="post-tiem">7月17</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,039 (字)
+                  3,152 (字)
                 </span>
               
 
@@ -542,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  11 (分钟)
+                  12 (分钟)
                 </span>
               
             </div>
@@ -608,6 +608,12 @@ a:hover {
 <li><p>HTTP 长连接不可能一直保持，例如 Keep-Alive: timeout=5, max=100，表示这个TCP通道可以保持5秒，max=100，表示这个长连接最多接收100次请求就断开。</p>
 </li>
 </ul>
+<h4 id="当-HTTP-采用-keepalive-模式，当客户端向服务器发生请求之后，客户端如何判断服务器的数据已经发生完成？"><a href="#当-HTTP-采用-keepalive-模式，当客户端向服务器发生请求之后，客户端如何判断服务器的数据已经发生完成？" class="headerlink" title="当 HTTP 采用 keepalive 模式，当客户端向服务器发生请求之后，客户端如何判断服务器的数据已经发生完成？"></a>当 HTTP 采用 keepalive 模式，当客户端向服务器发生请求之后，客户端如何判断服务器的数据已经发生完成？</h4><ol>
+<li><p>使用消息首部字段 Conent-Length：Conent-Length表示实体内容长度，客户端可以根据这个值来判断数据是否接收完成。</p>
+</li>
+<li><p>使用消息首部字段 Transfer-Encoding：chunk在最后有一个空 chunked 块，表明本次传输数据结束。 </p>
+</li>
+</ol>
 <h3 id="HTTP-Pipelining（HTTP-管线化）"><a href="#HTTP-Pipelining（HTTP-管线化）" class="headerlink" title="HTTP Pipelining（HTTP 管线化）"></a>HTTP Pipelining（HTTP 管线化）</h3><p>默认情况下 HTTP 协议中每个传输层连接只能承载一个 HTTP 请求和响应，浏览器会在收到上一个请求的响应之后，再发送下一个请求。在使用持久连接的情况下，某个连接上消息的传递类似于请求1 -&gt; 响应1 -&gt; 请求2 -&gt; 响应2 -&gt; 请求3 -&gt; 响应3。</p>
 <p>HTTP Pipelining（管线化）是将多个 HTTP 请求整批提交的技术，在传送过程中不需等待服务端的回应。使用 HTTP Pipelining 技术之后，某个连接上的消息变成了类似这样请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应2 -&gt; 响应3</p>
 <h3 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h3><ol>
@@ -730,7 +736,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html">深入了解HTTP</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年04月30日 - 00:04</p>
-  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
+  <p><span>最后更新:</span>2020年07月17日 - 21:07</p>
   <p><span>原始链接:</span><a href="/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html" title="深入了解HTTP">http://mydearest.cn/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTTP.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -898,7 +904,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -920,7 +926,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1034,7 +1040,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-特性"><span class="nav-number">1.</span> <span class="nav-text">HTTP 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是无状态"><span class="nav-number">1.1.</span> <span class="nav-text">什么是无状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-报文"><span class="nav-number">2.</span> <span class="nav-text">HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST提交的方式"><span class="nav-number">2.2.</span> <span class="nav-text">POST提交的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应报文"><span class="nav-number">2.3.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久连接"><span class="nav-number">2.4.</span> <span class="nav-text">持久连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Pipelining（HTTP-管线化）"><span class="nav-number">2.5.</span> <span class="nav-text">HTTP Pipelining（HTTP 管线化）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话跟踪"><span class="nav-number">2.6.</span> <span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站攻击"><span class="nav-number">2.7.</span> <span class="nav-text">跨站攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF（Cross-site-request-forgery，跨站请求伪造）"><span class="nav-number">2.7.1.</span> <span class="nav-text">CSRF（Cross-site request forgery，跨站请求伪造）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS（Cross-Site-Scripting，跨站脚本攻击）"><span class="nav-number">2.7.2.</span> <span class="nav-text">XSS（Cross Site Scripting，跨站脚本攻击）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http缓存"><span class="nav-number">2.8.</span> <span class="nav-text">http缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何设置强缓存和协商缓存"><span class="nav-number">2.9.</span> <span class="nav-text">如何设置强缓存和协商缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS基本过程"><span class="nav-number">3.</span> <span class="nav-text">HTTPS基本过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-特性"><span class="nav-number">1.</span> <span class="nav-text">HTTP 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是无状态"><span class="nav-number">1.1.</span> <span class="nav-text">什么是无状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-报文"><span class="nav-number">2.</span> <span class="nav-text">HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST提交的方式"><span class="nav-number">2.2.</span> <span class="nav-text">POST提交的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应报文"><span class="nav-number">2.3.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久连接"><span class="nav-number">2.4.</span> <span class="nav-text">持久连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#当-HTTP-采用-keepalive-模式，当客户端向服务器发生请求之后，客户端如何判断服务器的数据已经发生完成？"><span class="nav-number">2.4.1.</span> <span class="nav-text">当 HTTP 采用 keepalive 模式，当客户端向服务器发生请求之后，客户端如何判断服务器的数据已经发生完成？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Pipelining（HTTP-管线化）"><span class="nav-number">2.5.</span> <span class="nav-text">HTTP Pipelining（HTTP 管线化）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话跟踪"><span class="nav-number">2.6.</span> <span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站攻击"><span class="nav-number">2.7.</span> <span class="nav-text">跨站攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF（Cross-site-request-forgery，跨站请求伪造）"><span class="nav-number">2.7.1.</span> <span class="nav-text">CSRF（Cross-site request forgery，跨站请求伪造）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS（Cross-Site-Scripting，跨站脚本攻击）"><span class="nav-number">2.7.2.</span> <span class="nav-text">XSS（Cross Site Scripting，跨站脚本攻击）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http缓存"><span class="nav-number">2.8.</span> <span class="nav-text">http缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何设置强缓存和协商缓存"><span class="nav-number">2.9.</span> <span class="nav-text">如何设置强缓存和协商缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS基本过程"><span class="nav-number">3.</span> <span class="nav-text">HTTPS基本过程</span></a></li></ol></div>
             
 
           </div>
@@ -1079,7 +1085,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 288.8k字</span>
+    <span class="post-count">Blog总字数: 294.8k字</span>
   </div>
 
   <div class="theme-info">

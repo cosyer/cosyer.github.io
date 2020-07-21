@@ -433,12 +433,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
+  <div class="post-date" data-datetime="2020-07-16T19:01:25+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">16</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">7月16</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -545,7 +545,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,639 (字)
+                  2,638 (字)
                 </span>
               
 
@@ -583,19 +583,21 @@ a:hover {
 
       
         
-          <p>作为一个开发人员，或多或少都听说过对称加密、非对称加密、摘要、数字签名、数字证书这几个概念，它们是用来保证在互联网通信过程中数据传输安全的。有人可能会有疑惑，我给传输数据加个密不就安全了，为
-什么还要搞这么多花样出来？本文主要通过一个案例来讲解这几个概念的实际作用。</p>
+          <p>作为一个开发人员，或多或少都听说过对称加密、非对称加密、摘要、数字签名、数字证书这几个概念，它们是用来保证在互联网通信过程中数据传输安全的。有人可能会有疑惑，我给传输数
+据加个密不就安全了，为什么还要搞这么多花样出来？本文主要通过一个案例来讲解这几个概念的实际作用。</p>
 <p>在此之前，我先简单介绍一下这几个概念。</p>
 <h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>对称加密是指用来加密和解密的是同一个秘钥。其特点是加密速度快，但是秘钥容易被黑客截获，所以安全性不高。常见的有AES、DES算法。</p>
-<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>非对称加密是指用来加密和解密的是不同的秘钥，它们是成对出现的，称为公钥和私钥，知道其中一个秘钥是无法推导出另外一个秘钥的。用公钥加密的内容需要用私钥才能解密，用私钥加密的内容需要用公钥才能解</p>
-<p>密。非对称加密的特点是安全性高，缺点是加密速度慢。常见的有RSA、ECC算法。</p>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>所谓的摘要就是一段信息或者一个文件通过某个哈希算法(也叫摘要算法)而得到的一串字符。摘要算法的特点就是不同的文件计算出的摘要是不同的(也有可能相同，但是可能性非常非常低)，比如一个1G的视频文件，
-哪怕只是改动其中一个字节，最后计算得到的摘要也是完全不同的，所以摘要算法通常是用来判断文件是否被篡改过。其还有一个特点就是通过摘要是无法推导出源文件的信息的。常用的摘要(散列)算法有MD5、SHA
-等。</p>
-<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><p>数字签名就是一个文件的摘要加密后的信息。数字签名是和源文件一起发送给接收方的，接收方收到后对文件用摘要算法算出一个摘要，然后和数字签名中的摘要进行比对，两者不一致的话说明文件被篡改了。</p>
-<h2 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h2><p>数字证书是一个经证书授权中心生成的文件，数字证书里一般会包含公钥、公钥拥有者名称、CA的数字签名、有效期、授权中心名称、证书序列号等信息。其中CA的数字签名是验证证书是否被篡改的关键，它其实就是
-对证书里面除了CA的数字签名以外的内容进行摘要算法得到一个摘要，然后CA机构用他自己的私钥对这个摘要进行加密就生成了CA的数字签名，CA机构会公开它的公钥，验证证书时就是用这个公钥解密CA的数字签名，</p>
-<h2 id="然后用来验证证书是否被篡改。"><a href="#然后用来验证证书是否被篡改。" class="headerlink" title="然后用来验证证书是否被篡改。"></a>然后用来验证证书是否被篡改。</h2>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>非对称加密是指用来加密和解密的是不同的秘钥，它们是成对出现的，称为公钥和私钥，知道其中一个秘钥是无法推导出另外一个秘钥的。用公钥加密的内容需要用私钥才能解密，用私钥加密
+的内容需要用公钥才能解密。非对称加密的特点是安全性高，缺点是加密速度慢。常见的有RSA、ECC算法。</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>所谓的摘要就是一段信息或者一个文件通过某个哈希算法(也叫摘要算法)而得到的一串字符。摘要算法的特点就是不同的文件计算出的摘要是不同的(也有可能相同，但是可能性非常非常低)，
+比如一个1G的视频文件，哪怕只是改动其中一个字节，最后计算得到的摘要也是完全不同的，所以摘要算法通常是用来判断文件是否被篡改过。其还有一个特点就是通过摘要是无法推导出源文
+件的信息的。常用的摘要(散列)算法有MD5、SHA等。</p>
+<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><p>数字签名就是一个文件的摘要加密后的信息。数字签名是和源文件一起发送给接收方的，接收方收到后对文件用摘要算法算出一个摘要，然后和数字签名中的摘要进行比对，两者不一致的话说
+明文件被篡改了。</p>
+<h2 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h2><p>数字证书是一个经证书授权中心生成的文件，数字证书里一般会包含公钥、公钥拥有者名称、CA的数字签名、有效期、授权中心名称、证书序列号等信息。其中CA的数字签名是验证证书是否被
+篡改的关键，它其实就是对证书里面除了CA的数字签名以外的内容进行摘要算法得到一个摘要，然后CA机构用他自己的私钥对这个摘要进行加密就生成了CA的数字签名，CA机构会公开它的公
+钥，验证证书时就是用这个公钥解密CA的数字签名，然后用来验证证书是否被篡改。</p>
+<hr>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E6%91%98%E8%A6%81%E3%80%81%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E3%80%81%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6.html#more" rel="contents">
@@ -2167,12 +2169,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2020-07-17T21:15:55+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">17</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
+      <div class="post-tiem">7月17</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -2279,7 +2281,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,039 (字)
+                  3,152 (字)
                 </span>
               
 
@@ -2295,7 +2297,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  11 (分钟)
+                  12 (分钟)
                 </span>
               
             </div>
@@ -2660,7 +2662,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2682,7 +2684,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2825,7 +2827,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 288.8k字</span>
+    <span class="post-count">Blog总字数: 294.8k字</span>
   </div>
 
   <div class="theme-info">

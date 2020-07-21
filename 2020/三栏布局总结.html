@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="圣杯布局和双飞翼布局(其实是一回事)都是实现的三栏布局。 浮动布局(float + margin)1234567891011121314151617181920212223242526272829303132&lt;div class&#x3D;&quot;container&quot;&gt;    &lt;div class&#x3D;&quot;left&quot;&gt;Left&lt;&#x2F;div&gt;     &lt;!-- 右栏部分要写在中间内">
 <meta property="article:published_time" content="2020-05-08T16:15:34.000Z">
-<meta property="article:modified_time" content="2020-06-02T15:18:46.614Z">
+<meta property="article:modified_time" content="2020-07-16T17:17:17.605Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="布局">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2020-07-17T01:17:17+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">17</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
+      <div class="post-tiem">7月17</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  725 (字)
+                  1,055 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  4 (分钟)
+                  5 (分钟)
                 </span>
               
             </div>
@@ -588,6 +588,31 @@ a:hover {
 <li>优点：简单强大 解决二维布局问题</li>
 <li>缺点: 不兼容 ie9 及以下</li>
 </ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">布局方案</th>
+<th style="text-align:left">实现</th>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Float布局</td>
+<td style="text-align:left">左右中三列，左列左浮动，右列右浮动，中间列设置左右margin</td>
+<td style="text-align:left">比较简单，兼容性也比较好</td>
+<td style="text-align:left">浮动元素脱离文档流，使用的时候只需要注意一定要清除浮</td>
+</tr>
+</tbody>
+</table>
+<p>动。|
+|Position布局|左中右三列（无顺序），根据定位属性去直接设置各个子元素位置|快捷，设置很方便|元素脱离了文档流，后代元素也脱离了文档流，高度未知的时候，
+会有问题，有效性和可使用性比较差|
+|Table布局|左中右三列，父元素display: table;子元素display: table-cell;居中子元素不设宽度|使用起来方便,兼容性也不存在问题|①无法设置栏边距；②
+对seo不友好；③当其中一个单元格高度超出的时候，两侧的单元格也是会跟着一起变高的|
+|Flex布局|左中右三列，父元素display: flex;两侧元素设宽；居中子元素flex: 1;|比较完美|存在IE上兼容性问题，只能支持到IE9以上|
+|Grid布局|左中右三列，父元素display: grid;利用网格实现|最强大和最简单|兼容性不好，IE10+上支持，而且也仅支持部分属性|</p>
 
       
     </div>
@@ -619,7 +644,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html">三栏布局总结（左右固定宽度 中间自适应）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年05月09日 - 00:05</p>
-  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
+  <p><span>最后更新:</span>2020年07月17日 - 01:07</p>
   <p><span>原始链接:</span><a href="/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html" title="三栏布局总结（左右固定宽度 中间自适应）">http://mydearest.cn/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -787,7 +812,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -809,7 +834,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -923,7 +948,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动布局-float-margin"><span class="nav-number">1.</span> <span class="nav-text">浮动布局(float + margin)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绝对布局-position"><span class="nav-number">2.</span> <span class="nav-text">绝对布局(position)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弹性盒子布局-flex"><span class="nav-number">3.</span> <span class="nav-text">弹性盒子布局(flex)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格布局-table"><span class="nav-number">4.</span> <span class="nav-text">表格布局(table)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网格布局-Grid"><span class="nav-number">5.</span> <span class="nav-text">网格布局(Grid)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动布局-float-margin"><span class="nav-number">1.</span> <span class="nav-text">浮动布局(float + margin)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绝对布局-position"><span class="nav-number">2.</span> <span class="nav-text">绝对布局(position)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弹性盒子布局-flex"><span class="nav-number">3.</span> <span class="nav-text">弹性盒子布局(flex)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格布局-table"><span class="nav-number">4.</span> <span class="nav-text">表格布局(table)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网格布局-Grid"><span class="nav-number">5.</span> <span class="nav-text">网格布局(Grid)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -968,7 +993,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 288.8k字</span>
+    <span class="post-count">Blog总字数: 294.8k字</span>
   </div>
 
   <div class="theme-info">

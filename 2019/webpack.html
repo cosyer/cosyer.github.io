@@ -132,17 +132,19 @@
 
 
 
-<meta name="description" content="谈谈你对webpack的看法webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。 webpack的基本功能和工作原理？ 代码转换：">
+<meta name="description" content="谈谈你对webpack的看法webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。  webpack 最出色的功能之一就是，除了 J">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack">
 <meta property="og:url" content="http://mydearest.cn/2019/webpack.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="谈谈你对webpack的看法webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。 webpack的基本功能和工作原理？ 代码转换：">
+<meta property="og:description" content="谈谈你对webpack的看法webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。  webpack 最出色的功能之一就是，除了 J">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/webpack-hmr.png">
 <meta property="article:published_time" content="2019-08-18T06:37:40.000Z">
-<meta property="article:modified_time" content="2020-07-10T13:05:33.053Z">
+<meta property="article:modified_time" content="2020-07-22T13:57:41.265Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="打包">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/webpack-hmr.png">
 
 
 
@@ -413,12 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
+  <div class="post-date" data-datetime="2020-07-22T21:57:41+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">7月22</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +525,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,404 (字)
+                  3,164 (字)
                 </span>
               
 
@@ -539,7 +541,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  12 (分钟)
                 </span>
               
             </div>
@@ -561,6 +563,9 @@ a:hover {
 
       
         <h2 id="谈谈你对webpack的看法"><a href="#谈谈你对webpack的看法" class="headerlink" title="谈谈你对webpack的看法"></a>谈谈你对webpack的看法</h2><p>webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。</p>
+<blockquote>
+<p>webpack 最出色的功能之一就是，除了 JavaScript，还可以通过 loader 引入任何其他类型的文件。</p>
+</blockquote>
 <h2 id="webpack的基本功能和工作原理？"><a href="#webpack的基本功能和工作原理？" class="headerlink" title="webpack的基本功能和工作原理？"></a>webpack的基本功能和工作原理？</h2><ul>
 <li>代码转换：TypeScript 编译成 JavaScript、SCSS 编译成 CSS 等等</li>
 <li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片等</li>
@@ -568,7 +573,15 @@ a:hover {
 <li>模块合并：在采用模块化的项目有很多模块和文件，需要构建功能把模块分类合并成一个文件</li>
 <li>自动刷新：监听本地源代码的变化，自动构建，刷新浏览器</li>
 <li>代码校验：在代码被提交到仓库前需要检测代码是否符合规范，以及单元测试是否通过</li>
-<li>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</li>
+<li><p>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</p>
+</li>
+<li><p>Entry（入口）：Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</p>
+</li>
+<li>Output（出口）：指示 webpack 如何去输出、以及在哪里输出</li>
+<li>Module（模块）：在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
+<li>Chunk（代码块）：一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
+<li>Loader（模块转换器）：用于把模块原内容按照需求转换成新内容。</li>
+<li>Plugin（扩展插件）：在 Webpack 构建流程中的特定时机会广播出对应的事件，插件可以监听这些事件，并改变输出结果</li>
 </ul>
 <h2 id="webpack构建过程"><a href="#webpack构建过程" class="headerlink" title="webpack构建过程"></a>webpack构建过程</h2><ul>
 <li>从entry里配置的module开始递归解析entry依赖的所有module</li>
@@ -578,21 +591,32 @@ a:hover {
 <li>最后webpack会把所有Chunk转换成文件输出</li>
 <li>在整个流程中webpack会在恰当的时机执行plugin里定义的逻辑</li>
 </ul>
+<ol>
+<li>初始化：解析webpack配置参数，生成 Compiler 实例</li>
+<li>注册插件：调用插件的apply方法，给插件传入compiler实例的引用，插件通过compiler调用Webpack提供的API，让插件可以监听后续的所有事件节点。</li>
+<li>入口：读取入口文件</li>
+<li>解析文件：使用loader将文件解析成抽象语法树 AST</li>
+<li>生成依赖图谱：找出每个文件的依赖项（遍历）</li>
+<li>输出：根据转换好的代码，生成 chunk</li>
+<li>生成最后打包的文件</li>
+</ol>
 <h2 id="webpack打包原理"><a href="#webpack打包原理" class="headerlink" title="webpack打包原理"></a>webpack打包原理</h2><h2 id="将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><a href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载" class="headerlink" title="将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载"></a>将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</h2><a id="more"></a>
 <h2 id="什么是webpack，与gulp-grunt有什么区别"><a href="#什么是webpack，与gulp-grunt有什么区别" class="headerlink" title="什么是webpack，与gulp,grunt有什么区别"></a>什么是webpack，与gulp,grunt有什么区别</h2><ul>
 <li>webpack是一个模块打包工具，可以递归地打包项目中的所有模块，最终生成几个打包后的文件。</li>
-<li>区别：webpack支持代码分割，模块化（AMD,CommonJ,ES2015），全局分析</li>
+<li>区别：webpack支持代码分割，模块化（AMD,CommonJ,ES2015），全局分析。gulp 是任务执行器(task runner)：就是用来自动化处理常见的开发任务，例如项目的检查(lint)、构建(build)、测试(test)</li>
 </ul>
 <h2 id="什么是entry-output"><a href="#什么是entry-output" class="headerlink" title="什么是entry,output?"></a>什么是entry,output?</h2><ul>
 <li>entry 入口，告诉webpack要使用哪个模块作为构建项目的起点，默认为./src/index.js</li>
 <li>output 出口，告诉webpack在哪里输出它打包好的代码以及如何命名，默认为./dist</li>
 </ul>
 <h2 id="什么是loader，plugins"><a href="#什么是loader，plugins" class="headerlink" title="什么是loader，plugins?"></a>什么是loader，plugins?</h2><ul>
-<li>loader是用来告诉webpack如何转换某一类型的文件，并且引入到打包出的文件中。</li>
-<li>plugins(插件)作用更大，可以打包优化，资源管理和注入环境变量</li>
+<li>loader是用来告诉webpack如何转换某一类型的文件，并且引入到打包出的文件中</li>
+<li>plugins(插件)作用更大，可以打包优化，资源管理和注入环境变量(plugin是一个含有 apply 方法的 类)</li>
 </ul>
+<p>apply 方法中接收一个 compiler 参数，也就是 webpack实例。由于该参数的存在 plugin 可以很好的运用 webpack 的生命周期钩子，在不同的时间节点做一些操作。</p>
 <h3 id="手写一个loader"><a href="#手写一个loader" class="headerlink" title="手写一个loader"></a>手写一个loader</h3><p>loader就是一个node模块，它输出了一个函数。当某种资源需要用这个loader转换时，这个函数会被调用。并且，这个函数可以通过提供给它的this上下文访问Loader API。
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义 reverse-txt-loader.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//src是原文件内容（abcde），下面对内容进行处理，这里是反转</span></span><br><span class="line">  <span class="keyword">var</span> result = src.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>); </span><br><span class="line">  <span class="comment">//返回JavaScript源码，必须是String或者Buffer</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`module.exports = '<span class="subst">$&#123;result&#125;</span>'`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">&#123;</span><br><span class="line">	test: <span class="regexp">/\.txt$/</span>,</span><br><span class="line">	use: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">'./path/reverse-txt-loader'</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义 reverse-txt-loader.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//src是原文件内容（abcde），下面对内容进行处理，这里是反转</span></span><br><span class="line">  <span class="keyword">var</span> result = src.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>); </span><br><span class="line">  <span class="comment">//返回JavaScript源码，必须是String或者Buffer</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`module.exports = '<span class="subst">$&#123;result&#125;</span>'`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">&#123;</span><br><span class="line">	test: <span class="regexp">/\.txt$/</span>,</span><br><span class="line">	use: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">'./path/reverse-txt-loader'</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">    <span class="comment">// use: &#123;</span></span><br><span class="line">    <span class="comment">//     loader: './path/reverse-txt-loader',</span></span><br><span class="line">    <span class="comment">//     include: path.resolve(__dirname, 'src'),// 指定需要转译的文件夹</span></span><br><span class="line">    <span class="comment">//     exclude: path.resolve(__dirname, 'node_modules'),// 指定转译时忽略的文件夹  </span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h3 id="手写一个plugin"><a href="#手写一个plugin" class="headerlink" title="手写一个plugin"></a>手写一个plugin</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoWebpackPlugin</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'初始化 插件'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    apply (compiler) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = DemoWebpackPlugin</span><br></pre></td></tr></table></figure>
 <h2 id="什么是bundle-chunk-module"><a href="#什么是bundle-chunk-module" class="headerlink" title="什么是bundle,chunk,module?"></a>什么是bundle,chunk,module?</h2><p>bundle是webpack打包出来的文件，chunk是webpack在进行模块的依赖分析的时候，代码分割出来的代码块。module是开发中的单个模块</p>
 <h2 id="如何自动生成webpack配置？"><a href="#如何自动生成webpack配置？" class="headerlink" title="如何自动生成webpack配置？"></a>如何自动生成webpack配置？</h2><p>可以用一些官方脚手架</p>
 <ul>
@@ -602,7 +626,9 @@ a:hover {
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先安装</span></span><br><span class="line">npm install -g @vue/cli</span><br><span class="line"><span class="comment">// 新建项目hello</span></span><br><span class="line">vue create hello</span><br></pre></td></tr></table></figure>
 <p>nuxt-cli
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 确保安装了npx,npx在npm5.2.0默认安装了</span></span><br><span class="line"><span class="comment">// 新建项目hello</span></span><br><span class="line">npx create-nuxt-app hello</span><br></pre></td></tr></table></figure></p>
-<h2 id="webpack如何配置单页面和多页面的应用程序？"><a href="#webpack如何配置单页面和多页面的应用程序？" class="headerlink" title="webpack如何配置单页面和多页面的应用程序？"></a>webpack如何配置单页面和多页面的应用程序？</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单个页面</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./path/to/my/entry/file.js'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多页面应用程序</span></span><br><span class="line"><span class="built_in">module</span>.entrys = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        pageOne: <span class="string">'./src/pageOne/index.js'</span>,</span><br><span class="line">        pageTwo: <span class="string">'./src/pageTwo/index.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="webpack如何配置单页面和多页面的应用程序？"><a href="#webpack如何配置单页面和多页面的应用程序？" class="headerlink" title="webpack如何配置单页面和多页面的应用程序？"></a>webpack如何配置单页面和多页面的应用程序？</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单个页面</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./path/to/my/entry/file.js'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多页面应用程序</span></span><br><span class="line"><span class="built_in">module</span>.entrys = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        pageOne: <span class="string">'./src/pageOne/index.js'</span>,</span><br><span class="line">        pageTwo: [<span class="string">'./src/pageTwo/index.js'</span>, <span class="string">"./src/pageTwo/main.js"</span>],</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>多入口可以通过 HtmlWebpackPlugin 分开注入
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    chunks: [<span class="string">'pageOne'</span>],</span><br><span class="line">    filename: <span class="string">'test.html'</span>,</span><br><span class="line">    template: <span class="string">'src/assets/test.html'</span></span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <h2 id="几个常见的loader"><a href="#几个常见的loader" class="headerlink" title="几个常见的loader"></a>几个常见的loader</h2><ul>
 <li>file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件</li>
 <li>url-loader：和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去</li>
@@ -621,7 +647,55 @@ a:hover {
 <li>clean-webpack-plugin：删除打包文件</li>
 <li>happypack：实现多线程加速编译</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> UglifyJSPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"><span class="keyword">var</span> providePlugin = <span class="keyword">new</span> webpack.ProvidePlugin(&#123;<span class="attr">$</span>: <span class="string">'jquery'</span>, <span class="attr">jQuery</span>: <span class="string">'jquery'</span>, <span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span>&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        index: <span class="string">'./src/js/index.js'</span>,</span><br><span class="line">        goodsInfo: <span class="string">'./src/js/goodsInfo.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">'[name].js'</span>,</span><br><span class="line">        path: __dirname + <span class="string">'/out'</span>,</span><br><span class="line">        publicPath: <span class="string">'http://localhost:8080/out'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/.js$/</span>, <span class="attr">use</span>: [<span class="string">'babel-loader'</span>]&#125;,</span><br><span class="line">            <span class="comment">// // &#123;test: /.css$/, use: ['style-loader','css-loader']&#125;,</span></span><br><span class="line">            <span class="comment">// &#123;</span></span><br><span class="line">            <span class="comment">//     test: /.css$/,</span></span><br><span class="line">            <span class="comment">//     use: ExtractTextPlugin.extract(&#123;</span></span><br><span class="line">            <span class="comment">//       fallback: "style-loader",</span></span><br><span class="line">            <span class="comment">//       use: "css-loader"</span></span><br><span class="line">            <span class="comment">//     &#125;)</span></span><br><span class="line">            <span class="comment">// &#125;,</span></span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/.jpg|png|gif|svg$/</span>, <span class="attr">use</span>: [<span class="string">'url-loader?limit=8192&amp;name=./[name].[ext]'</span>]&#125;, </span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/.less$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'less-loader'</span>]&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> UglifyJSPlugin(),</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">            name: <span class="string">"commons"</span>,</span><br><span class="line">            filename: <span class="string">"commons.js"</span>,</span><br><span class="line">            minChunks:<span class="number">2</span>&#125;),  </span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>), </span><br><span class="line">        providePlugin     </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> UglifyJSPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"><span class="keyword">var</span> providePlugin = <span class="keyword">new</span> webpack.ProvidePlugin(&#123;<span class="attr">$</span>: <span class="string">'jquery'</span>, <span class="attr">jQuery</span>: <span class="string">'jquery'</span>, <span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span>&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        index: <span class="string">'./src/js/index.js'</span>,</span><br><span class="line">        goodsInfo: <span class="string">'./src/js/goodsInfo.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">'[name].js'</span>,</span><br><span class="line">        path: __dirname + <span class="string">'/out'</span>,</span><br><span class="line">        publicPath: <span class="string">'http://localhost:8080/out'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/.js$/</span>, <span class="attr">use</span>: [<span class="string">'babel-loader'</span>]&#125;,</span><br><span class="line">            <span class="comment">// // &#123;test: /.css$/, use: ['style-loader','css-loader']&#125;,</span></span><br><span class="line">            <span class="comment">// &#123;</span></span><br><span class="line">            <span class="comment">//     test: /.css$/,</span></span><br><span class="line">            <span class="comment">//     use: ExtractTextPlugin.extract(&#123;</span></span><br><span class="line">            <span class="comment">//       fallback: "style-loader",</span></span><br><span class="line">            <span class="comment">//       use: "css-loader"</span></span><br><span class="line">            <span class="comment">//     &#125;)</span></span><br><span class="line">            <span class="comment">// &#125;,</span></span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/.jpg|png|gif|svg$/</span>, <span class="attr">use</span>: [<span class="string">'url-loader?limit=8192&amp;name=./[name].[ext]'</span>]&#125;, </span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/.less$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'less-loader'</span>]&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> UglifyJSPlugin(),</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">            name: <span class="string">"commons"</span>,</span><br><span class="line">            filename: <span class="string">"commons.js"</span>,</span><br><span class="line">            minChunks:<span class="number">2</span>&#125;),  </span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>), </span><br><span class="line">        providePlugin     </span><br><span class="line">    ],</span><br><span class="line">    externals: &#123;</span><br><span class="line">    <span class="comment">// 从输出的 bundle 中排除 echarts 依赖</span></span><br><span class="line">    echarts: <span class="string">'echarts'</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><ol>
+<li>用express启一个服务</li>
+<li>sockjs与页面互动。</li>
+</ol>
+<p>底层一方面使用webpack在服务器端进行构建打包，一方面在客户端注入runtime以便和服务器端建立联系。还提供了代理功能，代理有很多应用场景，举几个简单的例子：本地数据接口模拟、远端接口调试、分拆接
+口到不同的远端服务器等。</p>
+<h3 id="自动刷新"><a href="#自动刷新" class="headerlink" title="自动刷新"></a>自动刷新</h3><ul>
+<li><p>iframe模式 http://[host]:[port]/webpack-dev-server/[path]
+✦ 无需额外的配置
+✦ 顶部条可以显示编译信息
+✦ 浏览器的地址不会跟着页面URL变动</p>
+</li>
+<li><p>inline模式 http://[host]:[port]/[path]
+✦ 需要额外的配置
+✦ 编译信息只能在命令行和浏览器console中查看
+✦ 浏览器的地址和页面URL同步</p>
+</li>
+</ul>
+<h3 id="热替换HMR-只支持inline模式"><a href="#热替换HMR-只支持inline模式" class="headerlink" title="热替换HMR 只支持inline模式"></a>热替换HMR 只支持inline模式</h3><blockquote>
+<p>webpack-dev-server –inline –hot</p>
+</blockquote>
+<h3 id="devServer配置"><a href="#devServer配置" class="headerlink" title="devServer配置"></a>devServer配置</h3><ul>
+<li>devServer.compress， 启用gzip压缩。</li>
+<li>devServer.contentBase，告诉服务器从哪里提供内容。 只有在你想要提供静态文件时才需要。</li>
+<li>devServer.host， 指定host。 使用0 .0 .0 .0 可以让局域网内可访问。</li>
+<li>devServer.hot， 启用 webpack 的模块热替换特性（ Hot Module Replacement）。</li>
+<li>devServer.inline， 模式切换。 默认为内联模式， 使用false切换到iframe模式。</li>
+<li>devServer.open， 启动webpack - dev - server后是否使用浏览器打开首页。</li>
+<li>devServer.port， 监听端口号。 默认8080。</li>
+<li>devServer.proxy， 代理， 对于另外有单独的后端开发服务器API来说比较适合。</li>
+<li>devServer.publicPath， 设置内存中的打包文件的输出目录。 区别于output.publicPath。</li>
+<li>devServer.historyApiFallback，回退:支持历史API。</li>
+<li>devServer.progress，让编译的输出内容带有进度和颜色。</li>
+</ul>
+<p><img src="http://cdn.mydearest.cn/blog/images/webpack-hmr.png" alt="webpack-hmr"></p>
+<p>注释：绿色是webpack控制区域，蓝色是webpack-dev-server控制区域，红色是文件系统，青色是项目本身。</p>
+<p>第一步：webpack监听文件变化并打包（1，2）
+webpack-dev-middleware 调用 webpack 的 api 对文件系统 watch，当文件发生改变后，webpack 重新对文件进行编译打包，然后保存到内存中。 打包到了内存中，不生成文件的原因就在于访问内存中的代码比访问文件系统中的文件更快，而且也减少了代码写入文件的开销</p>
+<p>第二步： webpack-dev-middleware对静态文件的监听（3）
+webpack-dev-server 对文件变化的一个监控，这一步不同于第一步，并不是监控代码变化重新打包。当我们在配置文件中配置了devServer.watchContentBase 为 true 的时候，Server 会监听这些配置文件夹中静态文件的变化，变化后会通知浏览器端对应用进行 live reload。注意，这儿是浏览器刷新，和 HMR 是两个概念</p>
+<p>第三步：devServer 通知浏览器端文件发生改变（4）
+sockjs 在服务端和浏览器端建立了一个 webSocket 长连接，以便将 webpack 编译和打包的各个阶段状态告知浏览器，最关键的步骤还是 webpack-dev-server 调用 webpack api 监听 compile的 done 事件，当compile 完成后，webpack-dev-server通过 _sendStatus 方法将编译打包后的新模块 hash 值发送到浏览器端。</p>
+<p>第四步：webpack 接收到最新 hash 值验证并请求模块代码（5，6）
+webpack-dev-server/client 端并不能够请求更新的代码，也不会执行热更模块操作，而把这些工作又交回给了 webpack，webpack/hot/dev-server 的工作就是根据 webpack-dev-server/client 传给它的信息以及 dev-server 的配置决定是刷新浏览器呢还是进行模块热更新。当然如果仅仅是刷新浏览器（执行步骤11），也就没有后面那些步骤了。</p>
+<p>第五步：HotModuleReplacement.runtime 对模块进行热更新（7,8,9）
+是客户端 HMR 的中枢，它接收到上一步传递给他的新模块的 hash 值，它通过 JsonpMainTemplate.runtime 向 server 端发送 Ajax 请求，服务端返回一个 json，该 json 包含了所有要更新的模块的 hash 值，获取到更新列表后，该模块再次通过 jsonp 请求，获取到最新的模块代码。</p>
+<p>第六步：HotModulePlugin 将会对新旧模块进行对比（10）
+HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，在决定更新模块后，检查模块之间的依赖关系，更新模块的同时更新模块间的依赖引用 ，第一个阶段是找出 outdatedModules 和 outdatedDependencies。第二个阶段从缓存中删除过期的模块和依赖。第三个阶段是将新的模块添加到 modules 中，当下次调用 <strong>webpack_require</strong> (webpack 重写的 require 方法)方法的时候，就是获取到了新的模块代码了。</p>
 
       
     </div>
@@ -653,7 +727,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/webpack.html">webpack</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年08月18日 - 14:08</p>
-  <p><span>最后更新:</span>2020年07月10日 - 21:07</p>
+  <p><span>最后更新:</span>2020年07月22日 - 21:07</p>
   <p><span>原始链接:</span><a href="/2019/webpack.html" title="webpack">http://mydearest.cn/2019/webpack.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/webpack.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -832,7 +906,7 @@ a:hover {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -957,7 +1031,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谈谈你对webpack的看法"><span class="nav-number">1.</span> <span class="nav-text">谈谈你对webpack的看法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack的基本功能和工作原理？"><span class="nav-number">2.</span> <span class="nav-text">webpack的基本功能和工作原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack构建过程"><span class="nav-number">3.</span> <span class="nav-text">webpack构建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack打包原理"><span class="nav-number">4.</span> <span class="nav-text">webpack打包原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><span class="nav-number">5.</span> <span class="nav-text">将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack，与gulp-grunt有什么区别"><span class="nav-number">6.</span> <span class="nav-text">什么是webpack，与gulp,grunt有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是entry-output"><span class="nav-number">7.</span> <span class="nav-text">什么是entry,output?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是loader，plugins"><span class="nav-number">8.</span> <span class="nav-text">什么是loader，plugins?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手写一个loader"><span class="nav-number">8.1.</span> <span class="nav-text">手写一个loader</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是bundle-chunk-module"><span class="nav-number">9.</span> <span class="nav-text">什么是bundle,chunk,module?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何自动生成webpack配置？"><span class="nav-number">10.</span> <span class="nav-text">如何自动生成webpack配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack如何配置单页面和多页面的应用程序？"><span class="nav-number">11.</span> <span class="nav-text">webpack如何配置单页面和多页面的应用程序？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的loader"><span class="nav-number">12.</span> <span class="nav-text">几个常见的loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的plugin"><span class="nav-number">13.</span> <span class="nav-text">几个常见的plugin</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谈谈你对webpack的看法"><span class="nav-number">1.</span> <span class="nav-text">谈谈你对webpack的看法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack的基本功能和工作原理？"><span class="nav-number">2.</span> <span class="nav-text">webpack的基本功能和工作原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack构建过程"><span class="nav-number">3.</span> <span class="nav-text">webpack构建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack打包原理"><span class="nav-number">4.</span> <span class="nav-text">webpack打包原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><span class="nav-number">5.</span> <span class="nav-text">将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack，与gulp-grunt有什么区别"><span class="nav-number">6.</span> <span class="nav-text">什么是webpack，与gulp,grunt有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是entry-output"><span class="nav-number">7.</span> <span class="nav-text">什么是entry,output?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是loader，plugins"><span class="nav-number">8.</span> <span class="nav-text">什么是loader，plugins?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手写一个loader"><span class="nav-number">8.1.</span> <span class="nav-text">手写一个loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手写一个plugin"><span class="nav-number">8.2.</span> <span class="nav-text">手写一个plugin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是bundle-chunk-module"><span class="nav-number">9.</span> <span class="nav-text">什么是bundle,chunk,module?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何自动生成webpack配置？"><span class="nav-number">10.</span> <span class="nav-text">如何自动生成webpack配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack如何配置单页面和多页面的应用程序？"><span class="nav-number">11.</span> <span class="nav-text">webpack如何配置单页面和多页面的应用程序？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的loader"><span class="nav-number">12.</span> <span class="nav-text">几个常见的loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的plugin"><span class="nav-number">13.</span> <span class="nav-text">几个常见的plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">14.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动刷新"><span class="nav-number">14.1.</span> <span class="nav-text">自动刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热替换HMR-只支持inline模式"><span class="nav-number">14.2.</span> <span class="nav-text">热替换HMR 只支持inline模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#devServer配置"><span class="nav-number">14.3.</span> <span class="nav-text">devServer配置</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1002,7 +1076,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 294.8k字</span>
+    <span class="post-count">Blog总字数: 297.3k字</span>
   </div>
 
   <div class="theme-info">

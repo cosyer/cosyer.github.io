@@ -142,7 +142,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/forward-agent.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/reverse-proxy.png">
 <meta property="article:published_time" content="2020-06-01T08:00:08.000Z">
-<meta property="article:modified_time" content="2020-06-02T15:18:46.611Z">
+<meta property="article:modified_time" content="2020-07-22T13:57:41.268Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="解决方案">
 <meta name="twitter:card" content="summary">
@@ -417,12 +417,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2020-07-22T21:57:41+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
+      <div class="post-tiem">7月22</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -527,7 +527,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,963 (字)
+                  1,982 (字)
                 </span>
               
 
@@ -666,7 +666,7 @@ a:hover {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 屏蔽 192.168.1.1 的访问；</span></span><br><span class="line"><span class="comment"># 允许 192.168.1.2 ~ 10 的访问；</span></span><br><span class="line">location / &#123;</span><br><span class="line">    deny  192.168.1.1;</span><br><span class="line">    allow 192.168.1.2/10;</span><br><span class="line">    deny  all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解决跨域(其实跨域是浏览器的安全策略，这意味着只要不是通过浏览器，就可以绕开跨域的问题。所以只要通过在同域下启动一个 Nginx 服务，转发请求即可)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location ^~/api/ &#123;</span><br><span class="line">	 <span class="comment"># 重写请求并代理到对应域名下</span></span><br><span class="line">    rewrite ^/api/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_pass https://www.cross-target.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location ^~/api/ &#123;</span><br><span class="line">	<span class="comment"># 重写请求并代理到对应域名下</span></span><br><span class="line">  rewrite ^/api/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">  proxy_pass https://www.cross-target.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>图片处理(通过 ngx_http_image_filter_module 这个模块，可以作为一层图片服务器的代理，在访问的时候 对图片进行特定的操作，例如裁剪，旋转，压缩等)</p>
 </li>
@@ -676,7 +676,7 @@ a:hover {
 <ul>
 <li>例如我们在接入一些第三方服务时经常会有一些域名白名单的限制，如果我们在本地通过localhost进行开发，便无法完成功能。这里我们可以做一层本地代理，便可以直接通过指定域名访问本地开发环境；</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen <span class="number">80</span>;</span><br><span class="line">server_name www.toutiao.com;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//localhost:3000;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen <span class="number">80</span>;</span><br><span class="line">server_name www.toutiao.com;</span><br><span class="line"></span><br><span class="line"><span class="comment">// server_name xxxx.cn xxxx.xxxx.cn;</span></span><br><span class="line"><span class="comment">// rewrite ^/(.*) https://xxx.xxxx.cn permanent; #跳转到Https</span></span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//localhost:3000;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -708,7 +708,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/Nginx.html">Nginx</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年06月01日 - 16:06</p>
-  <p><span>最后更新:</span>2020年06月02日 - 23:06</p>
+  <p><span>最后更新:</span>2020年07月22日 - 21:07</p>
   <p><span>原始链接:</span><a href="/2020/Nginx.html" title="Nginx">http://mydearest.cn/2020/Nginx.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/Nginx.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -887,7 +887,7 @@ a:hover {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1057,7 +1057,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 294.8k字</span>
+    <span class="post-count">Blog总字数: 297.3k字</span>
   </div>
 
   <div class="theme-info">

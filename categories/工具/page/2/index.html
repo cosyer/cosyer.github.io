@@ -433,236 +433,6 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-15T23:09:42+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">15</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月15</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Immer%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/Immer%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3.html" itemprop="url">Immer中文文档</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-15T22:51:45+08:00">
-                2020-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/Immer%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3.html" class="leancloud_visitors" data-flag-title="Immer中文文档">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  2,615 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  11 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Immer-中文文档"><a href="#Immer-中文文档" class="headerlink" title="Immer 中文文档"></a>Immer 中文文档</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://github.com/mweststrate/immer" target="_blank" rel="noopener">Immer</a> 是 mobx 的作者写的一个 immutable 库，核心实现是利用 ES6 的 proxy，几乎以最小的成本实现了 js 的不可变数据结构，简单易用、体量小巧、设计巧妙，满足了我们对JS不可变数据结构的需求。<br>无奈网络上完善的文档实在太少，所以自己写了一份，本篇文章以贴近实战的思路和流程，对 Immer 进行了全面的讲解。</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#数据处理存在的问题">数据处理存在的问题</a></li>
-<li><a href="#解决引用类型对象被修改的办法">解决引用类型对象被修改的办法</a></li>
-<li><a href="#immer功能介绍">immer功能介绍</a><ul>
-<li><a href="#安装immer">安装immer</a></li>
-<li><a href="#immer如何fix掉那些不爽的问题">immer如何fix掉那些不爽的问题</a></li>
-<li><a href="#概念说明">概念说明</a></li>
-<li><a href="#常用api介绍">常用api介绍</a></li>
-</ul>
-</li>
-<li><a href="#用immer优化react项目的探索">用immer优化react项目的探索</a><ul>
-<li><a href="#抛出需求">抛出需求</a></li>
-<li><a href="#优化setState方法">优化setState方法</a></li>
-<li><a href="#优化reducer">优化reducer</a></li>
-</ul>
-</li>
-<li><a href="#参考文档">参考文档</a></li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/Immer%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
   <div class="post-date" data-datetime="2020-04-29T01:18:01+08:00">
     <div class="post-time-text">4月</div>
     <div class="post-time-count">29</div>
@@ -1097,12 +867,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
+  <div class="post-date" data-datetime="2020-07-22T21:57:41+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">7月22</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1209,7 +979,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,404 (字)
+                  3,164 (字)
                 </span>
               
 
@@ -1225,7 +995,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  12 (分钟)
                 </span>
               
             </div>
@@ -1248,6 +1018,9 @@ a:hover {
       
         
           <h2 id="谈谈你对webpack的看法"><a href="#谈谈你对webpack的看法" class="headerlink" title="谈谈你对webpack的看法"></a>谈谈你对webpack的看法</h2><p>webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。</p>
+<blockquote>
+<p>webpack 最出色的功能之一就是，除了 JavaScript，还可以通过 loader 引入任何其他类型的文件。</p>
+</blockquote>
 <h2 id="webpack的基本功能和工作原理？"><a href="#webpack的基本功能和工作原理？" class="headerlink" title="webpack的基本功能和工作原理？"></a>webpack的基本功能和工作原理？</h2><ul>
 <li>代码转换：TypeScript 编译成 JavaScript、SCSS 编译成 CSS 等等</li>
 <li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片等</li>
@@ -1255,7 +1028,15 @@ a:hover {
 <li>模块合并：在采用模块化的项目有很多模块和文件，需要构建功能把模块分类合并成一个文件</li>
 <li>自动刷新：监听本地源代码的变化，自动构建，刷新浏览器</li>
 <li>代码校验：在代码被提交到仓库前需要检测代码是否符合规范，以及单元测试是否通过</li>
-<li>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</li>
+<li><p>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</p>
+</li>
+<li><p>Entry（入口）：Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</p>
+</li>
+<li>Output（出口）：指示 webpack 如何去输出、以及在哪里输出</li>
+<li>Module（模块）：在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
+<li>Chunk（代码块）：一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
+<li>Loader（模块转换器）：用于把模块原内容按照需求转换成新内容。</li>
+<li>Plugin（扩展插件）：在 Webpack 构建流程中的特定时机会广播出对应的事件，插件可以监听这些事件，并改变输出结果</li>
 </ul>
 <h2 id="webpack构建过程"><a href="#webpack构建过程" class="headerlink" title="webpack构建过程"></a>webpack构建过程</h2><ul>
 <li>从entry里配置的module开始递归解析entry依赖的所有module</li>
@@ -1265,6 +1046,15 @@ a:hover {
 <li>最后webpack会把所有Chunk转换成文件输出</li>
 <li>在整个流程中webpack会在恰当的时机执行plugin里定义的逻辑</li>
 </ul>
+<ol>
+<li>初始化：解析webpack配置参数，生成 Compiler 实例</li>
+<li>注册插件：调用插件的apply方法，给插件传入compiler实例的引用，插件通过compiler调用Webpack提供的API，让插件可以监听后续的所有事件节点。</li>
+<li>入口：读取入口文件</li>
+<li>解析文件：使用loader将文件解析成抽象语法树 AST</li>
+<li>生成依赖图谱：找出每个文件的依赖项（遍历）</li>
+<li>输出：根据转换好的代码，生成 chunk</li>
+<li>生成最后打包的文件</li>
+</ol>
 <h2 id="webpack打包原理"><a href="#webpack打包原理" class="headerlink" title="webpack打包原理"></a>webpack打包原理</h2><h2 id="将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><a href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载" class="headerlink" title="将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载"></a>将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</h2>
           <!--noindex-->
           <div class="post-button text-center">
@@ -2057,7 +1847,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2211,7 +2001,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 294.8k字</span>
+    <span class="post-count">Blog总字数: 297.3k字</span>
   </div>
 
   <div class="theme-info">

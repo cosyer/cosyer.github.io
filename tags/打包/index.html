@@ -433,12 +433,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
+  <div class="post-date" data-datetime="2020-07-22T21:57:41+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+    <div class="post-time-count">22</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">7月22</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -545,7 +545,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,404 (字)
+                  3,164 (字)
                 </span>
               
 
@@ -561,7 +561,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  12 (分钟)
                 </span>
               
             </div>
@@ -584,6 +584,9 @@ a:hover {
       
         
           <h2 id="谈谈你对webpack的看法"><a href="#谈谈你对webpack的看法" class="headerlink" title="谈谈你对webpack的看法"></a>谈谈你对webpack的看法</h2><p>webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。</p>
+<blockquote>
+<p>webpack 最出色的功能之一就是，除了 JavaScript，还可以通过 loader 引入任何其他类型的文件。</p>
+</blockquote>
 <h2 id="webpack的基本功能和工作原理？"><a href="#webpack的基本功能和工作原理？" class="headerlink" title="webpack的基本功能和工作原理？"></a>webpack的基本功能和工作原理？</h2><ul>
 <li>代码转换：TypeScript 编译成 JavaScript、SCSS 编译成 CSS 等等</li>
 <li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片等</li>
@@ -591,7 +594,15 @@ a:hover {
 <li>模块合并：在采用模块化的项目有很多模块和文件，需要构建功能把模块分类合并成一个文件</li>
 <li>自动刷新：监听本地源代码的变化，自动构建，刷新浏览器</li>
 <li>代码校验：在代码被提交到仓库前需要检测代码是否符合规范，以及单元测试是否通过</li>
-<li>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</li>
+<li><p>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</p>
+</li>
+<li><p>Entry（入口）：Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</p>
+</li>
+<li>Output（出口）：指示 webpack 如何去输出、以及在哪里输出</li>
+<li>Module（模块）：在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
+<li>Chunk（代码块）：一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
+<li>Loader（模块转换器）：用于把模块原内容按照需求转换成新内容。</li>
+<li>Plugin（扩展插件）：在 Webpack 构建流程中的特定时机会广播出对应的事件，插件可以监听这些事件，并改变输出结果</li>
 </ul>
 <h2 id="webpack构建过程"><a href="#webpack构建过程" class="headerlink" title="webpack构建过程"></a>webpack构建过程</h2><ul>
 <li>从entry里配置的module开始递归解析entry依赖的所有module</li>
@@ -601,6 +612,15 @@ a:hover {
 <li>最后webpack会把所有Chunk转换成文件输出</li>
 <li>在整个流程中webpack会在恰当的时机执行plugin里定义的逻辑</li>
 </ul>
+<ol>
+<li>初始化：解析webpack配置参数，生成 Compiler 实例</li>
+<li>注册插件：调用插件的apply方法，给插件传入compiler实例的引用，插件通过compiler调用Webpack提供的API，让插件可以监听后续的所有事件节点。</li>
+<li>入口：读取入口文件</li>
+<li>解析文件：使用loader将文件解析成抽象语法树 AST</li>
+<li>生成依赖图谱：找出每个文件的依赖项（遍历）</li>
+<li>输出：根据转换好的代码，生成 chunk</li>
+<li>生成最后打包的文件</li>
+</ol>
 <h2 id="webpack打包原理"><a href="#webpack打包原理" class="headerlink" title="webpack打包原理"></a>webpack打包原理</h2><h2 id="将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><a href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载" class="headerlink" title="将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载"></a>将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</h2>
           <!--noindex-->
           <div class="post-button text-center">
@@ -718,7 +738,7 @@ a:hover {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -872,7 +892,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 294.8k字</span>
+    <span class="post-count">Blog总字数: 297.3k字</span>
   </div>
 
   <div class="theme-info">

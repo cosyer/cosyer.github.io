@@ -428,6 +428,496 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-06-28T21:53:57+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">28</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月28</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/mobx.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mobx.html" itemprop="url">mobx -- 走进观察者模式</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-07-06T10:09:29+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/mobx.html" class="leancloud_visitors" data-flag-title="mobx -- 走进观察者模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  682 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  3 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="React是一个状态机，由开始的初始状态，通过与用户的互动，导致状态变化，从而重新渲染UI。"><a href="#React是一个状态机，由开始的初始状态，通过与用户的互动，导致状态变化，从而重新渲染UI。" class="headerlink" title="React是一个状态机，由开始的初始状态，通过与用户的互动，导致状态变化，从而重新渲染UI。"></a>React是一个状态机，由开始的初始状态，通过与用户的互动，导致状态变化，从而重新渲染UI。</h4><h4 id="React-提供了优化UI渲染的机制，-这种机制就是通过使用虚拟DOM来减少昂贵的DOM变化的数量。"><a href="#React-提供了优化UI渲染的机制，-这种机制就是通过使用虚拟DOM来减少昂贵的DOM变化的数量。" class="headerlink" title="React 提供了优化UI渲染的机制， 这种机制就是通过使用虚拟DOM来减少昂贵的DOM变化的数量。"></a>React 提供了优化UI渲染的机制， 这种机制就是通过使用虚拟DOM来减少昂贵的DOM变化的数量。</h4><h4 id="MobX-提供了优化应用状态与-React-组件同步的机制，这种机制就是使用响应式虚拟依赖状态图表，它只有在真正需要的时候才更新并且永远保持是最新的。"><a href="#MobX-提供了优化应用状态与-React-组件同步的机制，这种机制就是使用响应式虚拟依赖状态图表，它只有在真正需要的时候才更新并且永远保持是最新的。" class="headerlink" title="MobX 提供了优化应用状态与 React 组件同步的机制，这种机制就是使用响应式虚拟依赖状态图表，它只有在真正需要的时候才更新并且永远保持是最新的。"></a>MobX 提供了优化应用状态与 React 组件同步的机制，这种机制就是使用响应式虚拟依赖状态图表，它只有在真正需要的时候才更新并且永远保持是最新的。</h4><h4 id="redux缓存机制-时间回溯适用于撤销操作-操作状态"><a href="#redux缓存机制-时间回溯适用于撤销操作-操作状态" class="headerlink" title="redux缓存机制 时间回溯适用于撤销操作 操作状态"></a>redux缓存机制 时间回溯适用于撤销操作 操作状态</h4><ol>
+<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save mobx mobx-react</span><br></pre></td></tr></table></figure></li>
+<li>核心概念</li>
+</ol>
+<ul>
+<li>state(状态) 
+状态是驱动应用的数据。</li>
+<li>observable(value) &amp;&amp; @observable 
+Observable 值可以是JS基本数据类型、引用类型、普通对象、类实例、数组和映射。其修饰的state会暴露出来供观察者使用。</li>
+<li>observer(观察者)
+被observer修饰的组件，将会根据组件内使用到的被observable修饰的state的变化而自动重新渲染。</li>
+<li>action(动作)
+只有在 actions 中，才可以修改 Mobx 中 state 的值。
+action–&gt;state–&gt;view</li>
+<li>computed 
+计算值(computed values)是可以根据现有的状态或其它计算值衍生出的值。(可以看成公式)
+getter：获得计算得到的新state并返回。
+setter：不能用来直接改变计算属性的值，但是它们可以用来作”逆向”衍生。</li>
+<li>autorun
+这通常是当你需要从反应式代码桥接到命令式代码的情况，例如打印日志、持久化或者更新UI的代码。</li>
+<li>如果你有一个函数应该自动运行，但不会产生一个新的值，请使用autorun。 其余情况都应该使用 computed。</li>
+<li>reactions
+Reactions 和计算值很像，但它不是产生一个新的值，而是会产生一些副作用，比如打印到控制台、网络请求、递增地更新 React 组件树以修补DOM、等等。 简而言之，reactions 在 响应式编程和命令式编程之间建立沟通的桥梁。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// component</span></span><br><span class="line"><span class="keyword">import</span> &#123;inject, observer&#125; <span class="keyword">from</span> <span class="string">"mobx-react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 观察者 注入store添加到属性上</span></span><br><span class="line">@inject(<span class="string">"store"</span>) @observer</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.props.store.xxStore.num</span><br><span class="line"><span class="keyword">this</span>.props.store.xxStore.plus() <span class="comment">// num+=1</span></span><br><span class="line"><span class="keyword">this</span>.props.store.xxStore.total</span><br><span class="line"></span><br><span class="line"><span class="comment">// homeStore</span></span><br><span class="line"></span><br><span class="line">@observable num;</span><br><span class="line">construtor()&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=<span class="string">''</span></span><br><span class="line">    <span class="keyword">this</span>.items=[]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@computed <span class="keyword">get</span> total() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.items.length;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">@action plus=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.num+=<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">autorun(<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> homeStore =<span class="keyword">new</span> HomeStore()</span><br><span class="line"><span class="keyword">export</span> &#123;homeStore&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span></span><br><span class="line">router render=&#123;(props)=&gt;<span class="xml"><span class="tag">&lt;<span class="name">Item</span> &#123;<span class="attr">...props</span>&#125;/&gt;</span></span>&#125;</span><br><span class="line">router component=&#123;Index&#125;</span><br><span class="line">react-route-dom</span><br><span class="line">withRouter</span><br><span class="line">Linking</span><br><span class="line"><span class="comment">// Provider 传递stores</span></span><br><span class="line">Privider store=&#123;stores&#125;</span><br><span class="line">create-react-app react-scripts</span><br></pre></td></tr></table></figure>
+<p>基本就这两种方法:immutable/observable
+mobx: oop
+redux: 函数式</p>
+<p>ssr:流模式、字符串</p>
+<p><a href="https://github.com/cosyer/mobx-demo" target="_blank" rel="noopener">demo地址</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-06-28T21:53:57+08:00">
+    <div class="post-time-text">6月</div>
+    <div class="post-time-count">28</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">6月28</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84TypeScript%E6%95%99%E7%A8%8B.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84TypeScript%E6%95%99%E7%A8%8B.html" itemprop="url">超详细的TypeScript教程</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-28T17:12:42+08:00">
+                2020-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84TypeScript%E6%95%99%E7%A8%8B.html" class="leancloud_visitors" data-flag-title="超详细的TypeScript教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  7,807 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  35 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="typescript"><a href="#typescript" class="headerlink" title="typescript"></a>typescript</h1><p><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a> 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">TypeScript</th>
+<th style="text-align:center">JavaScript</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">JavaScript 的超集用于解决大型项目的代码复杂性</td>
+<td style="text-align:center">一种脚本语言，用于创建动态网页</td>
+</tr>
+<tr>
+<td style="text-align:center">可以在编译期间发现并纠正错误</td>
+<td style="text-align:center">作为一种解释型语言，只能在运行时发现错误</td>
+</tr>
+<tr>
+<td style="text-align:center">强类型，支持静态和动态类型</td>
+<td style="text-align:center">弱类型，没有静态类型选项</td>
+</tr>
+<tr>
+<td style="text-align:center">最终被编译成 JavaScript 代码，使浏览器可以理解</td>
+<td style="text-align:center">可以直接在浏览器中使用</td>
+</tr>
+<tr>
+<td style="text-align:center">支持模块、泛型和接口</td>
+<td style="text-align:center">不支持模块，泛型或接口</td>
+</tr>
+<tr>
+<td style="text-align:center">支持 ES3，ES4，ES5 和 ES6 等</td>
+<td style="text-align:center">不支持编译其他 ES3，ES4，ES5 或 ES6 功能</td>
+</tr>
+<tr>
+<td style="text-align:center">社区的支持仍在增长，而且还不是很大</td>
+<td style="text-align:center">大量的社区支持以及大量文档和解决问题的支持</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g typescript</span><br></pre></td></tr></table></figure>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tsc helloworld.ts</span><br><span class="line"><span class="comment">// helloworld.ts =&gt; helloworld.js</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://www.typescriptlang.org/play" target="_blank" rel="noopener">在线学习语法和特性</a></p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84TypeScript%E6%95%99%E7%A8%8B.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-06-26T01:15:35+08:00">
     <div class="post-time-text">6月</div>
     <div class="post-time-count">26</div>
@@ -2170,439 +2660,6 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Docker.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/Docker.html" itemprop="url">Docker</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-01T16:31:45+08:00">
-                2020-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/Docker.html" class="leancloud_visitors" data-flag-title="Docker">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,279 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Docker，是一款现在最流行的 软件容器平台，提供了软件运行时所依赖的环境。</p>
-<h2 id="物理机"><a href="#物理机" class="headerlink" title="物理机"></a>物理机</h2><p>硬件环境，真实的 计算机实体，包含了例如物理内存，硬盘等等硬件；</p>
-<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机:"></a>虚拟机:</h2><p>在物理机上 模拟出一套硬件环境和操作系统，应用软件可以运行于其中，并且毫无感知，是一套隔离的完整环境。本质上，它只是物理机上的一份运行文件。</p>
-<h2 id="为什么需要虚拟机？"><a href="#为什么需要虚拟机？" class="headerlink" title="为什么需要虚拟机？"></a>为什么需要虚拟机？</h2><h3 id="环境配置与迁移"><a href="#环境配置与迁移" class="headerlink" title="环境配置与迁移"></a>环境配置与迁移</h3><p>在软件开发和运行中，环境依赖一直是一个很头疼的难题，比如你想运行 node 应用，那至少环境得安装 node 吧，而且不同版本，不同系统都会影响运行。解决的办法就是我们的包装包中直接包含运行环境的安装，让同一份环境可以快速复制到任意一台物理机上。</p>
-<h3 id="资源利用率与隔离"><a href="#资源利用率与隔离" class="headerlink" title="资源利用率与隔离"></a>资源利用率与隔离</h3><p>通过硬件模拟，并包含一套完整的操作系统，应用可以独立运行在虚拟机中，与外界隔离。并且可以在同一台物理机上，开启多个不同的虚拟机启动服务，即一台服务器，提供多套服务，且资源完全相互隔离，互不影响。不仅能更好提高资源利用率率，降低成本，而且也有利于服务的稳定性。</p>
-<h3 id="传统虚拟机的缺点"><a href="#传统虚拟机的缺点" class="headerlink" title="传统虚拟机的缺点"></a>传统虚拟机的缺点</h3><h4 id="资源占用大"><a href="#资源占用大" class="headerlink" title="资源占用大"></a>资源占用大</h4><p>由于虚拟机是模拟出一套完整系统，包含众多系统级别的文件和库，运行也需要占用一部分资源，单单启动一个空的虚拟机，可能就要占用 100+MB 的内存了。</p>
-<h4 id="启动缓慢"><a href="#启动缓慢" class="headerlink" title="启动缓慢"></a>启动缓慢</h4><p>同样是由于完整系统，在启动过程中就需要运行各种系统应用和步骤，也就是跟我们平时启动电脑一样的耗时。</p>
-<h4 id="冗余步骤多"><a href="#冗余步骤多" class="headerlink" title="冗余步骤多"></a>冗余步骤多</h4><p>系统有许多内置的系统操作，例如用户登录，系统检查等等，有些场景其实我们要的只是一个隔离的环境，其实也就是说，虚拟机对部分需求痛点来说，其实是有点过重的。</p>
-<h2 id="Linux-容器"><a href="#Linux-容器" class="headerlink" title="Linux 容器"></a>Linux 容器</h2><p>Linux 中的一项虚拟化技术，称为 Linux 容器技术(LXC)。它在进程层面模拟出一套隔离的环境配置，但并没有模拟硬件和完整的操作系统。因此它完全规避了传统虚拟机的缺点，在启动速度，资源利用上远远优于虚拟机；</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/Docker.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-06-02T23:18:46+08:00">
-    <div class="post-time-text">6月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html" itemprop="url">switch的块级作用域</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-03-10T00:21:30+08:00">
-                2019-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html" class="leancloud_visitors" data-flag-title="switch的块级作用域">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  406 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  2 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>ES6 或 TS 引入了块级作用域,通过let和const、class等可以定义块级作用域里的变量，块级作用域内的变量不存在变量提升，且存在<code>暂时性死区</code>(在代码块内，使用let或const声明变量前该变量都是不可改变的)。常见的if语句，for循环的循环体内都可以定义块级变量。那么switch语句中的块级作用域是什么呢？ 先给出结论：</p>
-<p><code>switch语句中的块级作用域，在整个switch语句中，而不是对于每一个case生成一个独立的块级作用域。</code></p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/switch%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2655,7 +2712,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">147</span>
+                <span class="site-state-item-count">148</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2820,7 +2877,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 297.3k字</span>
+    <span class="post-count">Blog总字数: 303.3k字</span>
   </div>
 
   <div class="theme-info">

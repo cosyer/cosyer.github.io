@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="vue 双向绑定的原理采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调，实现视图刷新。 具体流程： Vue中先遍历data选项中所有的属性（发布者）用Object.defineProperty劫持这些属性将其转为getter&#x2F;setter。读取数据时候会触发get">
 <meta property="article:published_time" content="2020-04-22T16:10:18.000Z">
-<meta property="article:modified_time" content="2020-07-21T17:00:58.735Z">
+<meta property="article:modified_time" content="2020-07-28T12:23:07.647Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="vue">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-22T01:00:58+08:00">
+  <div class="post-date" data-datetime="2020-07-28T20:23:07+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">22</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月22</div>
+      <div class="post-tiem">7月28</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -524,7 +524,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  9,888 (字)
+                  9,929 (字)
                 </span>
               
 
@@ -917,7 +917,9 @@ this.$parent</li>
 </ul>
 <h3 id="v-on绑定多个方法"><a href="#v-on绑定多个方法" class="headerlink" title="v-on绑定多个方法"></a>v-on绑定多个方法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:</span>&#123;<span class="attr">click:a</span>,<span class="attr">dblclick:b</span>&#125;&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    methods:&#123;</span><br><span class="line">        a()&#123;</span><br><span class="line">            alert(1)</span><br><span class="line">        &#125;,</span><br><span class="line">        b()&#123;</span><br><span class="line">            alert(2)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="css样式当前组件有效"><a href="#css样式当前组件有效" class="headerlink" title="css样式当前组件有效"></a>css样式当前组件有效</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span> <span class="attr">scoped</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>原理：vue通过在DOM结构以及css样式上加上唯一的标记<code>data-v-xxxxxx</code>，保证唯一，达到样式私有化，不污染全局的作用。</p>
+<p>原理：vue通过在DOM结构以及css样式上加上唯一的标记<code>data-v-xxxxxx</code>，保证动态属性唯一，达到样式私有化，不污染全局的作用。</p>
+<p>编译后：
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">data-v-3e5b2a80</span> <span class="attr">class</span>=<span class="string">"textScoped"</span>&gt;</span>scoped测试<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span>    </span><br><span class="line"><span class="css">    <span class="selector-class">.textScoped</span><span class="selector-attr">[data-v-3e5b2a80]</span>&#123;        </span></span><br><span class="line">        color: red;    </span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="渲染模板保留注释"><a href="#渲染模板保留注释" class="headerlink" title="渲染模板保留注释"></a>渲染模板保留注释</h3><ul>
 <li>在组件中将comments选项设置为true</li>
 <li><template comments=""> … <template></template></template></li>
@@ -1146,7 +1148,7 @@ this.$parent</li>
   <p><span>本文标题:</span><a href="/2020/vueInterview.html">vue面试题记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年04月23日 - 00:04</p>
-  <p><span>最后更新:</span>2020年07月22日 - 01:07</p>
+  <p><span>最后更新:</span>2020年07月28日 - 20:07</p>
   <p><span>原始链接:</span><a href="/2020/vueInterview.html" title="vue面试题记录">http://mydearest.cn/2020/vueInterview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/vueInterview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1316,7 +1318,7 @@ this.$parent</li>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">147</span>
+                <span class="site-state-item-count">148</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1497,7 +1499,7 @@ this.$parent</li>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 297.3k字</span>
+    <span class="post-count">Blog总字数: 303.3k字</span>
   </div>
 
   <div class="theme-info">

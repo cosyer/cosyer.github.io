@@ -140,7 +140,7 @@
 <meta property="og:description" content="谈谈你对webpack的看法webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。  webpack 最出色的功能之一就是，除了 J">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/webpack-hmr.png">
 <meta property="article:published_time" content="2019-08-18T06:37:40.000Z">
-<meta property="article:modified_time" content="2020-07-22T13:57:41.265Z">
+<meta property="article:modified_time" content="2020-07-24T15:07:25.901Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="打包">
 <meta name="twitter:card" content="summary">
@@ -415,12 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-22T21:57:41+08:00">
+  <div class="post-date" data-datetime="2020-07-24T23:07:25+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">22</div>
+    <div class="post-time-count">24</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月22</div>
+      <div class="post-tiem">7月24</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -525,7 +525,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,164 (字)
+                  3,235 (字)
                 </span>
               
 
@@ -541,7 +541,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  12 (分钟)
+                  13 (分钟)
                 </span>
               
             </div>
@@ -696,6 +696,8 @@ webpack-dev-server/client 端并不能够请求更新的代码，也不会执行
 是客户端 HMR 的中枢，它接收到上一步传递给他的新模块的 hash 值，它通过 JsonpMainTemplate.runtime 向 server 端发送 Ajax 请求，服务端返回一个 json，该 json 包含了所有要更新的模块的 hash 值，获取到更新列表后，该模块再次通过 jsonp 请求，获取到最新的模块代码。</p>
 <p>第六步：HotModulePlugin 将会对新旧模块进行对比（10）
 HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，在决定更新模块后，检查模块之间的依赖关系，更新模块的同时更新模块间的依赖引用 ，第一个阶段是找出 outdatedModules 和 outdatedDependencies。第二个阶段从缓存中删除过期的模块和依赖。第三个阶段是将新的模块添加到 modules 中，当下次调用 <strong>webpack_require</strong> (webpack 重写的 require 方法)方法的时候，就是获取到了新的模块代码了。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>工具的使用是分场景的，Rollup的使用场景是，你的代码基于 ES6 模块编写，并且你做的东西是准备给他人使用的。</p>
+<p>有一句经验之谈：在开发应用时使用 Webpack，开发库时使用 Rollup。</p>
 
       
     </div>
@@ -727,7 +729,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
   <p><span>本文标题:</span><a href="/2019/webpack.html">webpack</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年08月18日 - 14:08</p>
-  <p><span>最后更新:</span>2020年07月22日 - 21:07</p>
+  <p><span>最后更新:</span>2020年07月24日 - 23:07</p>
   <p><span>原始链接:</span><a href="/2019/webpack.html" title="webpack">http://mydearest.cn/2019/webpack.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/webpack.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -895,7 +897,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">147</span>
+                <span class="site-state-item-count">148</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1031,7 +1033,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谈谈你对webpack的看法"><span class="nav-number">1.</span> <span class="nav-text">谈谈你对webpack的看法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack的基本功能和工作原理？"><span class="nav-number">2.</span> <span class="nav-text">webpack的基本功能和工作原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack构建过程"><span class="nav-number">3.</span> <span class="nav-text">webpack构建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack打包原理"><span class="nav-number">4.</span> <span class="nav-text">webpack打包原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><span class="nav-number">5.</span> <span class="nav-text">将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack，与gulp-grunt有什么区别"><span class="nav-number">6.</span> <span class="nav-text">什么是webpack，与gulp,grunt有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是entry-output"><span class="nav-number">7.</span> <span class="nav-text">什么是entry,output?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是loader，plugins"><span class="nav-number">8.</span> <span class="nav-text">什么是loader，plugins?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手写一个loader"><span class="nav-number">8.1.</span> <span class="nav-text">手写一个loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手写一个plugin"><span class="nav-number">8.2.</span> <span class="nav-text">手写一个plugin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是bundle-chunk-module"><span class="nav-number">9.</span> <span class="nav-text">什么是bundle,chunk,module?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何自动生成webpack配置？"><span class="nav-number">10.</span> <span class="nav-text">如何自动生成webpack配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack如何配置单页面和多页面的应用程序？"><span class="nav-number">11.</span> <span class="nav-text">webpack如何配置单页面和多页面的应用程序？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的loader"><span class="nav-number">12.</span> <span class="nav-text">几个常见的loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的plugin"><span class="nav-number">13.</span> <span class="nav-text">几个常见的plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">14.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动刷新"><span class="nav-number">14.1.</span> <span class="nav-text">自动刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热替换HMR-只支持inline模式"><span class="nav-number">14.2.</span> <span class="nav-text">热替换HMR 只支持inline模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#devServer配置"><span class="nav-number">14.3.</span> <span class="nav-text">devServer配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谈谈你对webpack的看法"><span class="nav-number">1.</span> <span class="nav-text">谈谈你对webpack的看法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack的基本功能和工作原理？"><span class="nav-number">2.</span> <span class="nav-text">webpack的基本功能和工作原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack构建过程"><span class="nav-number">3.</span> <span class="nav-text">webpack构建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack打包原理"><span class="nav-number">4.</span> <span class="nav-text">webpack打包原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><span class="nav-number">5.</span> <span class="nav-text">将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack，与gulp-grunt有什么区别"><span class="nav-number">6.</span> <span class="nav-text">什么是webpack，与gulp,grunt有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是entry-output"><span class="nav-number">7.</span> <span class="nav-text">什么是entry,output?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是loader，plugins"><span class="nav-number">8.</span> <span class="nav-text">什么是loader，plugins?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手写一个loader"><span class="nav-number">8.1.</span> <span class="nav-text">手写一个loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手写一个plugin"><span class="nav-number">8.2.</span> <span class="nav-text">手写一个plugin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是bundle-chunk-module"><span class="nav-number">9.</span> <span class="nav-text">什么是bundle,chunk,module?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何自动生成webpack配置？"><span class="nav-number">10.</span> <span class="nav-text">如何自动生成webpack配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack如何配置单页面和多页面的应用程序？"><span class="nav-number">11.</span> <span class="nav-text">webpack如何配置单页面和多页面的应用程序？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的loader"><span class="nav-number">12.</span> <span class="nav-text">几个常见的loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个常见的plugin"><span class="nav-number">13.</span> <span class="nav-text">几个常见的plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">14.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动刷新"><span class="nav-number">14.1.</span> <span class="nav-text">自动刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热替换HMR-只支持inline模式"><span class="nav-number">14.2.</span> <span class="nav-text">热替换HMR 只支持inline模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#devServer配置"><span class="nav-number">14.3.</span> <span class="nav-text">devServer配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">14.4.</span> <span class="nav-text">使用场景</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1076,7 +1078,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 297.3k字</span>
+    <span class="post-count">Blog总字数: 303.3k字</span>
   </div>
 
   <div class="theme-info">

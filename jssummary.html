@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="JS的相关知识点比较繁杂，特此开篇整理一波，方便回顾总结查阅。  运行在宿主环境环境中，比如浏览器或node环境 不用预编译，直接解释执行代码 是弱类型语言，较为灵活 与操作系统无关，跨平台的语言 脚本语言，解释性语言">
 <meta property="article:published_time" content="2018-06-21T11:37:27.000Z">
-<meta property="article:modified_time" content="2020-07-13T11:42:48.066Z">
+<meta property="article:modified_time" content="2020-07-28T12:23:07.652Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-13T19:42:48+08:00">
+  <div class="post-date" data-datetime="2020-07-28T20:23:07+08:00">
     <div class="post-time-text">7月</div>
-    <div class="post-time-count">13</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月13</div>
+      <div class="post-tiem">7月28</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  10,721 (字)
+                  11,179 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  49 (分钟)
+                  51 (分钟)
                 </span>
               
             </div>
@@ -629,14 +629,19 @@ var ok ; let 和 const 则不会存在变量提升</p>
 <li>Symbol(它的实例是唯一且不可改变)</li>
 <li>bigint</li>
 </ul>
-<p>Object 是 JavaScript 中所有对象的父对象
-数据封装类对象：Object、Array、Boolean、Number 和 String
+<p>Object 是 JavaScript 中所有对象的父对象（object、array、function）</p>
+<p>两种类型的区别是：存储位置不同；
+原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；
+引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先
+检索其在栈中的地址，取得地址后从堆中获得实体</p>
+<p>数据封装类对象：Object、Array、Boolean、Number 和 String
 其他对象：Function、Arguments、Math、Date、RegExp、Error</p>
 <p>为什么 x=0.1 能得到 0.1？
 恭喜你到了看山不是山的境界。因为 mantissa 固定长度是 52 位，再加上省略的一位，最多可以表示的数是 2^53=9007199254740992，对应科学计数尾数是 </p>
 <p>9.007199254740992，这也是 JS 最多能表示的精度。它的长度是 16，所以可以使用 toPrecision(16) 来做精度运算，超过的精度会自动做凑整处理。</p>
 <p>不仅 JavaScript，所有遵循 IEEE 754 规范的语言都是如此；</p>
 <p><code>在JavaScript中，所有的Number都是以64-bit的双精度浮点数存储的，在用二进制存储时会存在精度误差；</code></p>
+<p><code>原因：计算机不能精确表示0.1， 0.2这样的浮点数，计算时使用的是带有舍入误差的数，但不是所有的浮点数在计算机内部都存在舍入误差，比如0.5就没有舍入误差</code></p>
 <p>双精度的浮点数在这64位上划分为3段，而这3段也就确定了一个浮点数的值，64bit的划分是“1-11-52”的模式，具体来说：</p>
 <p>1.就是1位最高位（最左边那一位）表示符号位，0表示正，1表示负；</p>
 <p>2.11位表示指数部分；52位表示尾数部分，也就是有效域部分</p>
@@ -674,7 +679,7 @@ var ok ; let 和 const 则不会存在变量提升</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'string'</span></span><br><span class="line">a[<span class="number">0</span>] = <span class="string">'a'</span></span><br><span class="line"><span class="built_in">console</span>.log(a)  <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
 <p>我们通常情况下都是对一个变量重新赋值，而不是改变基本数据类型的值。在 js 中是没有方法是可以改变布尔值和数字的。
 倒是有很多操作字符串的方法，但是这些方法都是返回一个新的字符串，并没有改变其原有的数据。</p>
-<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>引用类型（object）是存放在堆内存中的，变量实际上是一个存放在栈内存的指针，这个指针指向堆内存中的地址。每个空间大小不一样，要根据情况开进行特定的分配。</p>
+<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>引用类型（object）是存放在堆heap内存中的，变量实际上是一个存放在栈内存的指针，这个指针指向堆内存中的地址。每个空间大小不一样，要根据情况开进行特定的分配。</p>
 <h3 id="传值和传址"><a href="#传值和传址" class="headerlink" title="传值和传址"></a>传值和传址</h3><p>了解了基本数据类型与引用类型的区别之后，我们就应该能明白传值与传址的区别了。
 在我们进行赋值操作的时候，基本数据类型的赋值（=）是在内存中新开辟一段栈内存，然后再将值赋值到新的栈中。例如:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line"></span><br><span class="line">a ++ ;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
@@ -811,9 +816,17 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 <li>Object.keys() 不包括原型的属性名数组</li>
 <li>Object.getOwnPropertyNames()</li>
 </ol>
-<h2 id="Symbol-原始数据类型-不可枚举的-符号类型"><a href="#Symbol-原始数据类型-不可枚举的-符号类型" class="headerlink" title="Symbol(原始数据类型) 不可枚举的 符号类型"></a>Symbol(原始数据类型) 不可枚举的 符号类型</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  myPrivateMethod  = <span class="built_in">Symbol</span>(); <span class="comment">// 不能使用new Symbol()创建，它是一个不完整的类属于基本类型</span></span><br><span class="line"><span class="keyword">this</span>[myPrivateMethod] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Symbol-原始数据类型-不可枚举的-符号类型"><a href="#Symbol-原始数据类型-不可枚举的-符号类型" class="headerlink" title="Symbol(原始数据类型) 不可枚举的 符号类型"></a>Symbol(原始数据类型) 不可枚举的 符号类型</h2><ul>
+<li>应用于对象的属性,Symbol类型的属性具有一定的隐藏性。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  myPrivateMethod  = <span class="built_in">Symbol</span>(); <span class="comment">// 不能使用new Symbol()创建，它是一个不完整的类属于基本类型</span></span><br><span class="line"><span class="keyword">this</span>[myPrivateMethod] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>for in 和 Object.getOwnPropertyNames()访问不到，只能通过myPrivateMethod或者Object.getOwnPropertySymbols()来访问</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Symbol</span>(<span class="string">"foo"</span>) !== <span class="built_in">Symbol</span>(<span class="string">"foo"</span>) <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">const</span> bar = <span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">typeof</span> foo === <span class="string">"symbol"</span> <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> bar === <span class="string">"symbol"</span> <span class="comment">// true</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">obj[foo] = <span class="string">"foo"</span></span><br><span class="line">obj[bar] = <span class="string">"bar"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj) <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// []</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj) <span class="comment">// []</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertySymbols(obj) <span class="comment">// [ foo, bar ]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">"foo"</span>); <span class="comment">// 创建一个 symbol 并放入 symbol 注册表中，键为 "foo"</span></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">"foo"</span>); <span class="comment">// 从 symbol 注册表中读取键为"foo"的 symbol</span></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">"bar"</span>) === <span class="built_in">Symbol</span>.for(<span class="string">"bar"</span>); <span class="comment">// true，证明了上面说的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个 symbol 并放入 Symbol 注册表，key 为 "foo"</span></span><br><span class="line"><span class="keyword">var</span> globalSym = <span class="built_in">Symbol</span>.for(<span class="string">"foo"</span>); </span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(globalSym); <span class="comment">// "foo"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="built_in">Symbol</span>(<span class="string">'name'</span>);</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  age:<span class="number">22</span>,</span><br><span class="line">  [name]:<span class="string">'Joh'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// 打印不出 类型为Symbol的[name]属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用for-in也打印不出 类型为Symbol的[name]属性</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(k);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Object.getOwnPropertyNames 同样打印不出 类型为Symbol的[name]属性</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(obj)); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Object.getOwnPropertySymbols 可以</span></span><br><span class="line"><span class="keyword">var</span> key = <span class="built_in">Object</span>.getOwnPropertySymbols(obj)[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(obj[key]); <span class="comment">// Joh</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用Symbol.iterator迭代器来逐个返回数组的单项<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">et arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">var</span> iterator = arr[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line"><span class="comment">// next 方法返回done表示是否完成</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next()); <span class="comment">// &#123;value: "a", done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next()); <span class="comment">// &#123;value: "b", done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next()); <span class="comment">// &#123;value: "c", done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next()); <span class="comment">// &#123;value: undefined, done: true&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(iterator.next()); <span class="comment">// &#123;value: undefined, done: true&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="Proxy-代理"><a href="#Proxy-代理" class="headerlink" title="Proxy 代理"></a>Proxy 代理</h2><p><code>let p= new Proxy(target,handler)</code></p>
 <ul>
 <li><p>target
@@ -1119,7 +1132,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">147</span>
+                <span class="site-state-item-count">148</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1300,7 +1313,7 @@ JavaScript会自动将字符串字面值转换为一个临时字符串对象，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 297.3k字</span>
+    <span class="post-count">Blog总字数: 303.3k字</span>
   </div>
 
   <div class="theme-info">

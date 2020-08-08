@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="在Linux中，压缩与解压用得最多的是 tar 命令。 -c: 建立压缩档案 -x：解压 -t：查看内容 -r：向压缩归档文件末尾追加文件 -u：更新原压缩包中的文件 以上五个是独立的命令参数，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。 -z：有gzip属性的  gz -j：有bz2属性的   bz2 -J ：有xz属性的   xz">
 <meta property="article:published_time" content="2020-04-28T17:18:26.000Z">
-<meta property="article:modified_time" content="2020-04-28T17:25:24.371Z">
+<meta property="article:modified_time" content="2020-08-04T16:40:58.317Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-29T01:25:24+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">29</div>
+  <div class="post-date" data-datetime="2020-08-05T00:40:58+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">05</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月29</div>
+      <div class="post-tiem">8月05</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  753 (字)
+                  767 (字)
                 </span>
               
 
@@ -584,7 +584,7 @@ a:hover {
 <h3 id="tar-xf-all-tar"><a href="#tar-xf-all-tar" class="headerlink" title="tar -xf all.tar"></a>tar -xf all.tar</h3><p>这条命令是解出all.tar包中所有文件，-t是解开的意思</p>
 <h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将目录里所有jpg文件打包成tar.jpg</span></span><br><span class="line">tar -cvf jpg.tar *.jpg </span><br><span class="line"></span><br><span class="line"><span class="comment">// 将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</span></span><br><span class="line">tar -czf jpg.tar.gz *.jpg</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</span></span><br><span class="line">tar -cjf jpg.tar.bz2 *.jpg</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</span></span><br><span class="line">tar -cZf jpg.tar.Z *.jpg</span><br><span class="line"></span><br><span class="line"><span class="comment">// rar格式的压缩，需要先下载rar for linux</span></span><br><span class="line">rar a jpg.rar *.jpg</span><br><span class="line"></span><br><span class="line"><span class="comment">// zip格式的压缩，需要先下载zip for linux</span></span><br><span class="line">zip jpg.zip *.jpg</span><br></pre></td></tr></table></figure>
 <h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解压 tar包</span></span><br><span class="line">tar -xvf file.tar </span><br><span class="line"></span><br><span class="line"><span class="comment">// 解压tar.gz</span></span><br><span class="line">tar -xzvf file.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解压 tar.bz2</span></span><br><span class="line">tar -xjvf file.tar.bz2</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解压tar.Z</span></span><br><span class="line">tar -xZvf file.tar.Z</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解压tar.xz</span></span><br><span class="line">tar -Jxvf fle.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解压rar</span></span><br><span class="line">unrar e file.rar </span><br><span class="line"></span><br><span class="line"><span class="comment">// 解压zip</span></span><br><span class="line">unzip file.zip</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、*.tar 用 tar -xvf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、*.gz 用 gzip -d或者gunzip 解压</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、*.tar.gz和*.tgz 用 tar -xzf 解压   tar.xz  用 tar -Jxvf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、*.bz2 用 bzip2 -d或者用bunzip2 解压</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、*.tar.bz2用tar -xjf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、*.Z 用 uncompress 解压</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>、*.tar.Z 用tar -xZf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>、*.rar 用 unrar e解压</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>、*.zip 用 unzip 解压</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、*.tar 用 tar -xvf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、*.gz 用 gzip -d或者gunzip 解压</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、*.tar.gz和*.tgz 用 tar -xzf 解压   tar.xz  用 tar -Jxvf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、*.bz2 用 bzip2 -d或者用bunzip2 解压</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、*.tar.bz2用tar -xjf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、*.Z 用 uncompress 解压</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>、*.tar.Z 用tar -xZf 解压</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>、*.rar 用 unrar e解压</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>、*.zip 用 unzip 解压</span><br><span class="line"></span><br><span class="line">tar -zcvf <span class="number">1.</span>tar.gz xxx</span><br><span class="line">tar -zxvf <span class="number">1.</span>tar.gz</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -616,7 +616,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/TAR%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3.html">TAR命令详解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年04月29日 - 01:04</p>
-  <p><span>最后更新:</span>2020年04月29日 - 01:04</p>
+  <p><span>最后更新:</span>2020年08月05日 - 00:08</p>
   <p><span>原始链接:</span><a href="/2020/TAR%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3.html" title="TAR命令详解">http://mydearest.cn/2020/TAR%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/TAR%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3.html"  aria-label=" 复制成功！"></i></span>
   </p>

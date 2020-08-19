@@ -140,7 +140,7 @@
 <meta property="og:description" content="谈谈你对webpack的看法webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。  webpack 最出色的功能之一就是，除了 J">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/webpack-hmr.png">
 <meta property="article:published_time" content="2019-08-18T06:37:40.000Z">
-<meta property="article:modified_time" content="2020-07-24T15:07:25.901Z">
+<meta property="article:modified_time" content="2020-08-16T16:29:42.185Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="打包">
 <meta name="twitter:card" content="summary">
@@ -415,12 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-24T23:07:25+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">24</div>
+  <div class="post-date" data-datetime="2020-08-17T00:29:42+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">17</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月24</div>
+      <div class="post-tiem">8月17</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -525,7 +525,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,235 (字)
+                  3,510 (字)
                 </span>
               
 
@@ -541,7 +541,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  13 (分钟)
+                  14 (分钟)
                 </span>
               
             </div>
@@ -611,13 +611,22 @@ a:hover {
 </ul>
 <h2 id="什么是loader，plugins"><a href="#什么是loader，plugins" class="headerlink" title="什么是loader，plugins?"></a>什么是loader，plugins?</h2><ul>
 <li>loader是用来告诉webpack如何转换某一类型的文件，并且引入到打包出的文件中</li>
-<li>plugins(插件)作用更大，可以打包优化，资源管理和注入环境变量(plugin是一个含有 apply 方法的 类)</li>
+<li>plugins(插件)作用更大，可以打包优化，资源管理和注入环境变量(plugin是一个含有 apply 方法的类)</li>
 </ul>
 <p>apply 方法中接收一个 compiler 参数，也就是 webpack实例。由于该参数的存在 plugin 可以很好的运用 webpack 的生命周期钩子，在不同的时间节点做一些操作。</p>
-<h3 id="手写一个loader"><a href="#手写一个loader" class="headerlink" title="手写一个loader"></a>手写一个loader</h3><p>loader就是一个node模块，它输出了一个函数。当某种资源需要用这个loader转换时，这个函数会被调用。并且，这个函数可以通过提供给它的this上下文访问Loader API。
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义 reverse-txt-loader.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//src是原文件内容（abcde），下面对内容进行处理，这里是反转</span></span><br><span class="line">  <span class="keyword">var</span> result = src.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>); </span><br><span class="line">  <span class="comment">//返回JavaScript源码，必须是String或者Buffer</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`module.exports = '<span class="subst">$&#123;result&#125;</span>'`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">&#123;</span><br><span class="line">	test: <span class="regexp">/\.txt$/</span>,</span><br><span class="line">	use: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">'./path/reverse-txt-loader'</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">    <span class="comment">// use: &#123;</span></span><br><span class="line">    <span class="comment">//     loader: './path/reverse-txt-loader',</span></span><br><span class="line">    <span class="comment">//     include: path.resolve(__dirname, 'src'),// 指定需要转译的文件夹</span></span><br><span class="line">    <span class="comment">//     exclude: path.resolve(__dirname, 'node_modules'),// 指定转译时忽略的文件夹  </span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h3 id="手写一个loader"><a href="#手写一个loader" class="headerlink" title="手写一个loader"></a>手写一个loader</h3><p>loader就是一个node模块(导出为函数的JS模块)，它输出了一个函数。当某种资源需要用这个loader转换时，这个函数会被调用。并且，这个函数可以通过提供给它的this上下文访问Loader API。传入上一个loader的结果或者资源文件。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义 reverse-txt-loader.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//src是原文件内容（abcde），下面对内容进行处理，这里是反转</span></span><br><span class="line">  <span class="keyword">var</span> result = src.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>); </span><br><span class="line">  <span class="comment">//返回JavaScript源码，必须是String或者Buffer</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`module.exports = '<span class="subst">$&#123;result&#125;</span>'`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">&#123;</span><br><span class="line">	test: <span class="regexp">/\.txt$/</span>,</span><br><span class="line">	use: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">'./path/reverse-txt-loader'</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">    <span class="comment">// use: &#123;</span></span><br><span class="line">    <span class="comment">//     loader: './path/reverse-txt-loader',</span></span><br><span class="line">    <span class="comment">//     include: path.resolve(__dirname, 'src'),// 指定需要转译的文件夹</span></span><br><span class="line">    <span class="comment">//     exclude: path.resolve(__dirname, 'node_modules'),// 指定转译时忽略的文件夹  </span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+注意点：</p>
+<ul>
+<li>编写 Loader 时要遵循单一职责，每个 Loader 只做一种”转义”工作。每个 Loader 的拿到的是源文件内容（source），可以通过返回值的方式将处理后的内容输出，也可以调用 this.callback()方法，将内容返回给 webpack。 还可以通过 this.async()生成一个 callback 函数，再用这个 callback 将处理后的内容输出出去。</li>
+<li>Loader 运行在 Node.js 中，我们可以调用任意 Node.js 自带的 API 或者安装第三方模块进行调用</li>
+<li>Webpack 传给 Loader 的源内容默认都是 UTF-8 格式编码的字符串，当某些场景下 Loader 处理二进制文件时，需要通过 exports.raw = true 告诉 Webpack 该 Loader 是否需要二进制数据</li>
+<li>尽可能的异步化 Loader，如果计算量很小，同步也可以</li>
+<li>Loader 是无状态的，我们不应该在 Loader 中保留状态</li>
+<li>使用 loader-utils 和 schema-utils 为我们提供的实用工具</li>
+</ul>
 <h3 id="手写一个plugin"><a href="#手写一个plugin" class="headerlink" title="手写一个plugin"></a>手写一个plugin</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoWebpackPlugin</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'初始化 插件'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    apply (compiler) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = DemoWebpackPlugin</span><br></pre></td></tr></table></figure>
-<h2 id="什么是bundle-chunk-module"><a href="#什么是bundle-chunk-module" class="headerlink" title="什么是bundle,chunk,module?"></a>什么是bundle,chunk,module?</h2><p>bundle是webpack打包出来的文件，chunk是webpack在进行模块的依赖分析的时候，代码分割出来的代码块。module是开发中的单个模块</p>
+<h2 id="什么是bundle-chunk-module"><a href="#什么是bundle-chunk-module" class="headerlink" title="什么是bundle,chunk,module?"></a>什么是bundle,chunk,module?</h2><p>bundle是webpack打包出来的文件，chunk是webpack在进行模块的依赖分析的时候，代码分割出来的代码块，module是开发中的单个模块。</p>
 <h2 id="如何自动生成webpack配置？"><a href="#如何自动生成webpack配置？" class="headerlink" title="如何自动生成webpack配置？"></a>如何自动生成webpack配置？</h2><p>可以用一些官方脚手架</p>
 <ul>
 <li>webpack-cli</li>
@@ -729,7 +738,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
   <p><span>本文标题:</span><a href="/2019/webpack.html">webpack</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年08月18日 - 14:08</p>
-  <p><span>最后更新:</span>2020年07月24日 - 23:07</p>
+  <p><span>最后更新:</span>2020年08月17日 - 00:08</p>
   <p><span>原始链接:</span><a href="/2019/webpack.html" title="webpack">http://mydearest.cn/2019/webpack.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/webpack.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -897,7 +906,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">148</span>
+                <span class="site-state-item-count">149</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -919,7 +928,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1078,7 +1087,7 @@ HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 304.4k字</span>
+    <span class="post-count">Blog总字数: 305.6k字</span>
   </div>
 
   <div class="theme-info">

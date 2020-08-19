@@ -142,7 +142,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/forward-agent.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/reverse-proxy.png">
 <meta property="article:published_time" content="2020-06-01T08:00:08.000Z">
-<meta property="article:modified_time" content="2020-07-22T13:57:41.268Z">
+<meta property="article:modified_time" content="2020-08-18T06:21:03.779Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="解决方案">
 <meta name="twitter:card" content="summary">
@@ -417,12 +417,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-22T21:57:41+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">22</div>
+  <div class="post-date" data-datetime="2020-08-18T14:21:03+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">18</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月22</div>
+      <div class="post-tiem">8月18</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -527,7 +527,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,982 (字)
+                  1,984 (字)
                 </span>
               
 
@@ -611,7 +611,7 @@ a:hover {
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="官网下载"><a href="#官网下载" class="headerlink" title="官网下载"></a>官网下载</h3><h3 id="配置文件路径：-usr-local-etc-nginx-nginx-conf"><a href="#配置文件路径：-usr-local-etc-nginx-nginx-conf" class="headerlink" title="配置文件路径： /usr/local/etc/nginx/nginx.conf"></a>配置文件路径： /usr/local/etc/nginx/nginx.conf</h3><h3 id="启动-终端输入-nginx，访问-localhost-8080-就能看到-Welcome…"><a href="#启动-终端输入-nginx，访问-localhost-8080-就能看到-Welcome…" class="headerlink" title="启动: 终端输入 nginx，访问 localhost:8080 就能看到 Welcome…"></a>启动: 终端输入 nginx，访问 localhost:8080 就能看到 Welcome…</h3><h3 id="停止与启动"><a href="#停止与启动" class="headerlink" title="停止与启动"></a>停止与启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s stop: <span class="comment"># 停止服务</span></span><br><span class="line">nginx -s reload <span class="comment"># 热重启服务</span></span><br></pre></td></tr></table></figure>
 <h3 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://xxx.xxx.xx.xx:3000;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="常用场景"><a href="#常用场景" class="headerlink" title="常用场景"></a>常用场景</h2><h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><p>其实 Nginx 可以算一层 代理服务器，将客户端的请求处理一层后，再转发到业务服务器，这里可以分成两种类型，其实实质就是请求的转发，使用 Nginx 非常合适、高效；</p>
-<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><ul>
+<h3 id="正向代理-VPN"><a href="#正向代理-VPN" class="headerlink" title="正向代理(VPN)"></a>正向代理(VPN)</h3><ul>
 <li>即用户通过访问这层正向代理服务器，再由代理服务器去到原始服务器请求内容后，再返回给用户；</li>
 <li>例如我们常使用的 VPN 就是一种常见的正向代理模式。通常我们无法直接访问谷歌服务器，但是通过访问一台国外的服务器，再由这台服务器去请求谷歌返回给用户，用户即可访问谷歌；</li>
 </ul>
@@ -621,7 +621,7 @@ a:hover {
 <li>对内容服务器来说是隐藏的，内容服务器并无法分清访问是来自用户或者代理；</li>
 </ol>
 <p><img src="http://cdn.mydearest.cn/blog/images/forward-agent.png" alt="forward-agent"></p>
-<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><ul>
+<h3 id="反向代理-Nginx"><a href="#反向代理-Nginx" class="headerlink" title="反向代理(Nginx)"></a>反向代理(Nginx)</h3><ul>
 <li>用户访问头条的反向代理网关，通过网关的一层处理和调度后，再由网关将访问转发到内部的服务器上，返回内容给用户；</li>
 </ul>
 <h4 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h4><ol>
@@ -708,7 +708,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/Nginx.html">Nginx</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年06月01日 - 16:06</p>
-  <p><span>最后更新:</span>2020年07月22日 - 21:07</p>
+  <p><span>最后更新:</span>2020年08月18日 - 14:08</p>
   <p><span>原始链接:</span><a href="/2020/Nginx.html" title="Nginx">http://mydearest.cn/2020/Nginx.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/Nginx.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -876,7 +876,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">148</span>
+                <span class="site-state-item-count">149</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -898,7 +898,7 @@ a:hover {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1012,7 +1012,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构模型"><span class="nav-number">2.</span> <span class="nav-text">架构模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官网下载"><span class="nav-number">3.1.</span> <span class="nav-text">官网下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件路径：-usr-local-etc-nginx-nginx-conf"><span class="nav-number">3.2.</span> <span class="nav-text">配置文件路径： &#x2F;usr&#x2F;local&#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-终端输入-nginx，访问-localhost-8080-就能看到-Welcome…"><span class="nav-number">3.3.</span> <span class="nav-text">启动: 终端输入 nginx，访问 localhost:8080 就能看到 Welcome…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止与启动"><span class="nav-number">3.4.</span> <span class="nav-text">停止与启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置代理"><span class="nav-number">3.5.</span> <span class="nav-text">配置代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用场景"><span class="nav-number">4.</span> <span class="nav-text">常用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代理"><span class="nav-number">4.1.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正向代理"><span class="nav-number">4.2.</span> <span class="nav-text">正向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向代理"><span class="nav-number">4.3.</span> <span class="nav-text">反向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-2"><span class="nav-number">4.3.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反向代理的好处"><span class="nav-number">4.3.2.</span> <span class="nav-text">反向代理的好处:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#负载均衡"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">负载均衡</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-对于前端的作用"><span class="nav-number">5.</span> <span class="nav-text">Nginx 对于前端的作用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构模型"><span class="nav-number">2.</span> <span class="nav-text">架构模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官网下载"><span class="nav-number">3.1.</span> <span class="nav-text">官网下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件路径：-usr-local-etc-nginx-nginx-conf"><span class="nav-number">3.2.</span> <span class="nav-text">配置文件路径： &#x2F;usr&#x2F;local&#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-终端输入-nginx，访问-localhost-8080-就能看到-Welcome…"><span class="nav-number">3.3.</span> <span class="nav-text">启动: 终端输入 nginx，访问 localhost:8080 就能看到 Welcome…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止与启动"><span class="nav-number">3.4.</span> <span class="nav-text">停止与启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置代理"><span class="nav-number">3.5.</span> <span class="nav-text">配置代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用场景"><span class="nav-number">4.</span> <span class="nav-text">常用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代理"><span class="nav-number">4.1.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正向代理-VPN"><span class="nav-number">4.2.</span> <span class="nav-text">正向代理(VPN)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向代理-Nginx"><span class="nav-number">4.3.</span> <span class="nav-text">反向代理(Nginx)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-2"><span class="nav-number">4.3.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反向代理的好处"><span class="nav-number">4.3.2.</span> <span class="nav-text">反向代理的好处:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#负载均衡"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">负载均衡</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-对于前端的作用"><span class="nav-number">5.</span> <span class="nav-text">Nginx 对于前端的作用</span></a></li></ol></div>
             
 
           </div>
@@ -1057,7 +1057,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 304.4k字</span>
+    <span class="post-count">Blog总字数: 305.6k字</span>
   </div>
 
   <div class="theme-info">

@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="简单描述下微信小程序的相关文件类型？答：微信小程序项目结构主要有四个文件类型,如下： 一、WXML （WeiXin Markup Language）是框架设计的一套标签语言，结合基础组件、事件系统，可以构建出页面的结构。内部主要是微信自己定义的一套组件。 二、WXSS (WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式， 二、js 逻辑处理，网络请求 三、js">
 <meta property="article:published_time" content="2018-06-18T11:16:48.000Z">
-<meta property="article:modified_time" content="2020-07-09T12:45:00.283Z">
+<meta property="article:modified_time" content="2020-08-31T15:28:51.103Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="小程序">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-09T20:45:00+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">09</div>
+  <div class="post-date" data-datetime="2020-08-31T23:28:51+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">31</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月09</div>
+      <div class="post-tiem">8月31</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,885 (字)
+                  2,085 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  7 (分钟)
+                  8 (分钟)
                 </span>
               
             </div>
@@ -636,11 +636,25 @@ app.js</p>
 <li>网络资源引用
 不支持background:url()形式</li>
 </ul>
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h3 id="onLoad-Object-query"><a href="#onLoad-Object-query" class="headerlink" title="onLoad(Object query)"></a>onLoad(Object query)</h3><p>页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。</p>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h3 id="onLauch-启动"><a href="#onLauch-启动" class="headerlink" title="onLauch 启动"></a>onLauch 启动</h3><h3 id="onLoad-Object-query"><a href="#onLoad-Object-query" class="headerlink" title="onLoad(Object query)"></a>onLoad(Object query)</h3><p>页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。</p>
 <h3 id="onShow"><a href="#onShow" class="headerlink" title="onShow()"></a>onShow()</h3><p>页面显示/切入前台时触发。</p>
 <h3 id="onReady"><a href="#onReady" class="headerlink" title="onReady()"></a>onReady()</h3><p>页面初次渲染完成时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。调用接口</p>
 <h3 id="onHide"><a href="#onHide" class="headerlink" title="onHide()"></a>onHide()</h3><p>页面隐藏/切入后台时触发。 如 navigateTo 或底部 tab 切换到其他页面，小程序切入后台等。</p>
 <h3 id="onUnload"><a href="#onUnload" class="headerlink" title="onUnload()"></a>onUnload()</h3><p>页面卸载时触发。如redirectTo或navigateBack到其他页面时。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li><p>import 的路径不支持绝对路径，比如你希望引用 utils/fetch.js，在不管多深的组件里面你都要慢慢 ../ 点到根目录，同样 .wxss 文件 @import 导入文
+件时也只能使用相对路径，所以就会出现 ../../../../../../utils/fetch.js 这种东西</p>
+</li>
+<li><p>setData 连一个对象合并都懒得做，如果 data: {a: {b: 1, c: 1}}，那么 setData({a: {b: 2}}) 就会丢失 a.c 的值，真是让人火冒三丈啊，还要 
+setData({[‘a.b’: 2]}) 这样才行；通常使用<code>wx-updata</code> this.updata</p>
+</li>
+<li><p>微信请求promise化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; promisifyAll &#125; <span class="keyword">from</span> <span class="string">'wx-promise-pro'</span></span><br><span class="line"></span><br><span class="line">promisifyAll()  <span class="comment">// promisify all wx api</span></span><br><span class="line"></span><br><span class="line">App(&#123; ... &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自己实现promisify</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promisify</span>(<span class="params">api</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">opt = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            api(&#123;</span><br><span class="line">                ...opt,</span><br><span class="line">                fail: reject,</span><br><span class="line">                success: resolve</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -672,7 +686,7 @@ app.js</p>
   <p><span>本文标题:</span><a href="/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html">微信小程序面试题</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月18日 - 19:06</p>
-  <p><span>最后更新:</span>2020年07月09日 - 20:07</p>
+  <p><span>最后更新:</span>2020年08月31日 - 23:08</p>
   <p><span>原始链接:</span><a href="/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html" title="微信小程序面试题">http://mydearest.cn/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -840,7 +854,7 @@ app.js</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -976,7 +990,7 @@ app.js</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单描述下微信小程序的相关文件类型？"><span class="nav-number">1.</span> <span class="nav-text">简单描述下微信小程序的相关文件类型？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你是怎么封装微信小程序的数据请求的？"><span class="nav-number">2.</span> <span class="nav-text">你是怎么封装微信小程序的数据请求的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有哪些参数传值的方法？"><span class="nav-number">3.</span> <span class="nav-text">有哪些参数传值的方法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你使用过哪些方法，来提高微信小程序的应用速度？"><span class="nav-number">4.</span> <span class="nav-text">你使用过哪些方法，来提高微信小程序的应用速度？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序与原生App哪个好？"><span class="nav-number">5.</span> <span class="nav-text">小程序与原生App哪个好？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述微信小程序原理？"><span class="nav-number">6.</span> <span class="nav-text">简述微信小程序原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析下微信小程序的优劣势？"><span class="nav-number">7.</span> <span class="nav-text">分析下微信小程序的优劣势？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优势："><span class="nav-number">7.1.</span> <span class="nav-text">优势：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#劣势："><span class="nav-number">7.2.</span> <span class="nav-text">劣势：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么解决小程序的异步请求问题？"><span class="nav-number">8.</span> <span class="nav-text">怎么解决小程序的异步请求问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的双向绑定和vue哪里不一样？"><span class="nav-number">9.</span> <span class="nav-text">小程序的双向绑定和vue哪里不一样？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用"><span class="nav-number">10.</span> <span class="nav-text">常用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单提交"><span class="nav-number">10.1.</span> <span class="nav-text">表单提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wx-for"><span class="nav-number">10.2.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image组件"><span class="nav-number">10.3.</span> <span class="nav-text">image组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">11.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#onLoad-Object-query"><span class="nav-number">11.1.</span> <span class="nav-text">onLoad(Object query)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onShow"><span class="nav-number">11.2.</span> <span class="nav-text">onShow()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onReady"><span class="nav-number">11.3.</span> <span class="nav-text">onReady()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onHide"><span class="nav-number">11.4.</span> <span class="nav-text">onHide()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onUnload"><span class="nav-number">11.5.</span> <span class="nav-text">onUnload()</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单描述下微信小程序的相关文件类型？"><span class="nav-number">1.</span> <span class="nav-text">简单描述下微信小程序的相关文件类型？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你是怎么封装微信小程序的数据请求的？"><span class="nav-number">2.</span> <span class="nav-text">你是怎么封装微信小程序的数据请求的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有哪些参数传值的方法？"><span class="nav-number">3.</span> <span class="nav-text">有哪些参数传值的方法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你使用过哪些方法，来提高微信小程序的应用速度？"><span class="nav-number">4.</span> <span class="nav-text">你使用过哪些方法，来提高微信小程序的应用速度？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序与原生App哪个好？"><span class="nav-number">5.</span> <span class="nav-text">小程序与原生App哪个好？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述微信小程序原理？"><span class="nav-number">6.</span> <span class="nav-text">简述微信小程序原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析下微信小程序的优劣势？"><span class="nav-number">7.</span> <span class="nav-text">分析下微信小程序的优劣势？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优势："><span class="nav-number">7.1.</span> <span class="nav-text">优势：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#劣势："><span class="nav-number">7.2.</span> <span class="nav-text">劣势：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么解决小程序的异步请求问题？"><span class="nav-number">8.</span> <span class="nav-text">怎么解决小程序的异步请求问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的双向绑定和vue哪里不一样？"><span class="nav-number">9.</span> <span class="nav-text">小程序的双向绑定和vue哪里不一样？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用"><span class="nav-number">10.</span> <span class="nav-text">常用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单提交"><span class="nav-number">10.1.</span> <span class="nav-text">表单提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wx-for"><span class="nav-number">10.2.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image组件"><span class="nav-number">10.3.</span> <span class="nav-text">image组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">11.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#onLauch-启动"><span class="nav-number">11.1.</span> <span class="nav-text">onLauch 启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onLoad-Object-query"><span class="nav-number">11.2.</span> <span class="nav-text">onLoad(Object query)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onShow"><span class="nav-number">11.3.</span> <span class="nav-text">onShow()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onReady"><span class="nav-number">11.4.</span> <span class="nav-text">onReady()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onHide"><span class="nav-number">11.5.</span> <span class="nav-text">onHide()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onUnload"><span class="nav-number">11.6.</span> <span class="nav-text">onUnload()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">12.</span> <span class="nav-text">注意点</span></a></li></ol></div>
             
 
           </div>
@@ -1021,7 +1035,7 @@ app.js</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

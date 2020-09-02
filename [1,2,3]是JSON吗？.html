@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="A: “这个接口我传个 JSON 给你，格式是这样的 ‘[1, 2, 3]’” B: “等下，这不是数组吗，JSON 应该有键啊，类似这样才行’{ “key”: [1, 2, 3] }’” A: “不，这就是 JSON 格式的数据” B: “啊，是吗？” 你是否也有这样的疑惑？ wappalyzer chrome网页分析插件">
 <meta property="article:published_time" content="2018-11-21T03:17:20.000Z">
-<meta property="article:modified_time" content="2018-12-15T05:37:34.137Z">
+<meta property="article:modified_time" content="2020-09-02T16:07:58.441Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="知识">
 <meta name="twitter:card" content="summary">
@@ -413,13 +413,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2018-12-15T13:37:34+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">15</div>
+  <div class="post-date" data-datetime="2020-09-03T00:07:58+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">03</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月15</div>
-      <div class="post-year">2018</div>
+      <div class="post-tiem">9月03</div>
+      <div class="post-year">2020</div>
 		</div>
   </div>
   
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  723 (字)
+                  815 (字)
                 </span>
               
 
@@ -592,20 +592,30 @@ a:hover {
 <li>object</li>
 <li>array</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"person"</span>: &#123;</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"ltaoo"</span>,</span><br><span class="line">        <span class="string">"age"</span>: <span class="number">18</span>,</span><br><span class="line">        <span class="string">"skills"</span>: [<span class="string">"javascript"</span>, <span class="string">"html"</span>, <span class="string">"css"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"happy"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"person"</span>: &#123;</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"cosyer"</span>,</span><br><span class="line">        <span class="string">"age"</span>: <span class="number">18</span>,</span><br><span class="line">        <span class="string">"skills"</span>: [<span class="string">"javascript"</span>, <span class="string">"html"</span>, <span class="string">"css"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"happy"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="JS中的JSON"><a href="#JS中的JSON" class="headerlink" title="JS中的JSON"></a>JS中的JSON</h2><p>在JavaScript中，如果在请求接口时要传递数据，我们往往会说“传一个JSON”，从上面已经知道JSON只是一个格式，那我们传递的到底是什么？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个简单的 post 请求</span></span><br><span class="line"><span class="keyword">const</span> body = &#123;</span><br><span class="line">    name: <span class="string">'ltaoo'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'https://easy-mock.com/mock/5a1d30028e6ddb24964c2d91/business/api/login'</span>, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    body,</span><br><span class="line">&#125;)</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>) =&gt;</span> res.json())</span><br><span class="line">    .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个简单的 post 请求</span></span><br><span class="line"><span class="keyword">const</span> body = &#123;</span><br><span class="line">    name: <span class="string">'cosyer'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'https://easy-mock.com/mock/5a1d30028e6ddb24964c2d91/business/api/login'</span>, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    body,</span><br><span class="line">&#125;)</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>) =&gt;</span> res.json())</span><br><span class="line">    .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>但实际上并没有将参数传递过去，即Headers中并不存在Request Payload，需要将body使用JSON.stringify()方法转换为一个字符串后，才能成功传递。
-body:JSON.stringify(body) or ‘{“name”: ‘ltaoo’,”age”: 18}’</p>
+body:JSON.stringify(body) or ‘{“name”: ‘cosyer’,”age”: 18}’</p>
 </blockquote>
 <p>但两者还是有区别的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> body = &#123;</span><br><span class="line">    name: <span class="string">'ltaoo'</span>,</span><br><span class="line">    skills: <span class="literal">undefined</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(body)); <span class="comment">// &#123;"name":"ltaoo"&#125;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> body = &#123;</span><br><span class="line">    name: <span class="string">'ltaoo'</span>,</span><br><span class="line">    skills: [<span class="literal">undefined</span>],</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(body)); <span class="comment">// &#123;"name":"ltaoo","skills":[null]&#125;。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> body = &#123;</span><br><span class="line">    name: <span class="string">'cosyer'</span>,</span><br><span class="line">    skills: <span class="literal">undefined</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(body)); <span class="comment">// &#123;"name":"cosyer"&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> body = &#123;</span><br><span class="line">    name: <span class="string">'cosyer'</span>,</span><br><span class="line">    skills: [<span class="literal">undefined</span>],</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(body)); <span class="comment">// &#123;"name":"cosyer","skills":[null]&#125;。</span></span><br></pre></td></tr></table></figure>
 <h3 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse"></a>JSON.parse</h3><blockquote>
 <p>JSON.parse() 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。
 可以用来判断某个字符串是否符合JSON格式</p>
 </blockquote>
+<h3 id="和XML的区别"><a href="#和XML的区别" class="headerlink" title="和XML的区别"></a>和XML的区别</h3><ul>
+<li>数据体积方面
+JSON相对于XML来讲，数据的体积小，传递的速度更快些。</li>
+<li>数据交互方面
+JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互</li>
+<li>数据描述方面
+JSON对数据的描述性比XML较差</li>
+<li>传输速度方面
+JSON的速度要远远快于XML</li>
+</ul>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>JSON是日常开发中最常使用的，但仅限于“会用”，实际上JSON的用途已经不局限在“数据交换”，NoSQL、配置文件也有JSON的身影，深入了解是有必要的，毕竟看起来这么“简单”。</p>
 
       
@@ -638,7 +648,7 @@ body:JSON.stringify(body) or ‘{“name”: ‘ltaoo’,”age”: 18}’</p>
   <p><span>本文标题:</span><a href="/%5B1,2,3%5D%E6%98%AFJSON%E5%90%97%EF%BC%9F.html">\[1,2,3\]是JSON吗？</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年11月21日 - 11:11</p>
-  <p><span>最后更新:</span>2018年12月15日 - 13:12</p>
+  <p><span>最后更新:</span>2020年09月03日 - 00:09</p>
   <p><span>原始链接:</span><a href="/%5B1,2,3%5D%E6%98%AFJSON%E5%90%97%EF%BC%9F.html" title="\[1,2,3\]是JSON吗？">http://mydearest.cn/[1,2,3]%E6%98%AFJSON%E5%90%97%EF%BC%9F.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/[1,2,3]%E6%98%AFJSON%E5%90%97%EF%BC%9F.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -713,8 +723,8 @@ body:JSON.stringify(body) or ‘{“name”: ‘ltaoo’,”age”: 18}’</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E4%B8%BA%E4%BB%80%E4%B9%88react%E5%92%8Cimmutable%E6%88%90%E4%B8%BA%E4%BA%86%E5%A5%BD%E5%9F%BA%E5%8F%8B.html" rel="next" title="为什么react和immutable成为了好基友">
-                <i class="fa fa-chevron-left"></i> 为什么react和immutable成为了好基友
+              <a href="/java%20-jar%E4%B8%8Enohup.html" rel="next" title="java -jar与nohup">
+                <i class="fa fa-chevron-left"></i> java -jar与nohup
               </a>
             
           </div>
@@ -723,8 +733,8 @@ body:JSON.stringify(body) or ‘{“name”: ‘ltaoo’,”age”: 18}’</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/js%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96.html" rel="prev" title="js函数柯里化">
-                js函数柯里化 <i class="fa fa-chevron-right"></i>
+              <a href="/%E4%B8%BA%E4%BB%80%E4%B9%88react%E5%92%8Cimmutable%E6%88%90%E4%B8%BA%E4%BA%86%E5%A5%BD%E5%9F%BA%E5%8F%8B.html" rel="prev" title="为什么react和immutable成为了好基友">
+                为什么react和immutable成为了好基友 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -806,7 +816,7 @@ body:JSON.stringify(body) or ‘{“name”: ‘ltaoo’,”age”: 18}’</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -942,7 +952,7 @@ body:JSON.stringify(body) or ‘{“name”: ‘ltaoo’,”age”: 18}’</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JSON"><span class="nav-number">1.</span> <span class="nav-text">什么是JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的JSON"><span class="nav-number">2.</span> <span class="nav-text">JS中的JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-parse"><span class="nav-number">2.1.</span> <span class="nav-text">JSON.parse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JSON"><span class="nav-number">1.</span> <span class="nav-text">什么是JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的JSON"><span class="nav-number">2.</span> <span class="nav-text">JS中的JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-parse"><span class="nav-number">2.1.</span> <span class="nav-text">JSON.parse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和XML的区别"><span class="nav-number">2.2.</span> <span class="nav-text">和XML的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -987,7 +997,7 @@ body:JSON.stringify(body) or ‘{“name”: ‘ltaoo’,”age”: 18}’</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

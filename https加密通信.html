@@ -132,14 +132,14 @@
 
 
 
-<meta name="description" content="https其实是有两部分组成：http + SSL &#x2F; TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。  SSL的">
+<meta name="description" content="https其实是有两部分组成：http + SSL &#x2F; TLS加密数据包，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="https加密通信流程解析">
 <meta property="og:url" content="http://mydearest.cn/https%E5%8A%A0%E5%AF%86%E9%80%9A%E4%BF%A1.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="https其实是有两部分组成：http + SSL &#x2F; TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。  SSL的">
+<meta property="og:description" content="https其实是有两部分组成：http + SSL &#x2F; TLS加密数据包，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。 https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。">
 <meta property="article:published_time" content="2018-07-25T14:18:26.000Z">
-<meta property="article:modified_time" content="2020-07-10T13:05:33.059Z">
+<meta property="article:modified_time" content="2020-08-27T16:19:14.436Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+  <div class="post-date" data-datetime="2020-08-28T00:19:14+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">8月28</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,539 (字)
+                  1,560 (字)
                 </span>
               
 
@@ -560,12 +560,17 @@ a:hover {
       
 
       
-        <p>https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。</p>
+        <p>https其实是有两部分组成：http + SSL / TLS加密数据包，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。</p>
 <p>https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。</p>
 <blockquote>
 <p>SSL的全称是Secure Sockets Layer，即安全套接层协议，是为网络通信提供安全及数据完整性的一种安全协议。SSL最新的版本是3.0。TLS的全称是Transport Layer Security，即安全传输层协议，是建立在SSL 3.0协议规范之上，是SSL 3.0的后续版本。</p>
 </blockquote>
-<h2 id="SSL-TLS-非对称加密（如RSA、ECC）-对称加密（如AES、DES）-散列算法（如MD5）"><a href="#SSL-TLS-非对称加密（如RSA、ECC）-对称加密（如AES、DES）-散列算法（如MD5）" class="headerlink" title="SSL/TLS = 非对称加密（如RSA、ECC） + 对称加密（如AES、DES） + 散列算法（如MD5）"></a>SSL/TLS = 非对称加密（如RSA、ECC） + 对称加密（如AES、DES） + 散列算法（如MD5）</h2><a id="more"></a>
+<p>SSL/TLS = 非对称加密（如RSA、ECC） + 对称加密（如AES、DES） + 散列算法（如MD5）</p>
+<blockquote>
+<p>1.对数据加密 2.验证网站服务器身份</p>
+</blockquote>
+<hr>
+<a id="more"></a>
 <h2 id="流程解析"><a href="#流程解析" class="headerlink" title="流程解析"></a>流程解析</h2><h3 id="客户端发起HTTPS请求"><a href="#客户端发起HTTPS请求" class="headerlink" title="客户端发起HTTPS请求"></a>客户端发起HTTPS请求</h3><p>用户在浏览器里输入一个https网址，然后连接到server的443端口。</p>
 <h3 id="服务端的配置"><a href="#服务端的配置" class="headerlink" title="服务端的配置"></a>服务端的配置</h3><p>采用HTTPS协议的服务器必须要有一套数字证书，可以自己制作，也可以向组织申请。区别就是自己颁发的证书需要客户端验证通过，才可以继续访问，而使用受信任的公司申请的证书则不会弹出提示页面(startssl就是个不错的选择，有1年的免费服务)。这套证书其实就是一对公钥和私钥。如果对公钥和私钥不太理解，可以想象成一把钥匙和一个锁头，只是全世界只有你一个人有这把钥匙，你可以把锁头给别人，别人可以用这个锁把重要的东西锁起来，然后发给你，因为只有你一个人有这把钥匙，所以只有你才能看到被这把锁锁起来的东西。</p>
 <h3 id="传送证书"><a href="#传送证书" class="headerlink" title="传送证书"></a>传送证书</h3><p>这个证书其实就是公钥，只是包含了很多信息，如证书的颁发机构，过期时间等等。</p>
@@ -661,7 +666,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/https%E5%8A%A0%E5%AF%86%E9%80%9A%E4%BF%A1.html">https加密通信流程解析</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月25日 - 22:07</p>
-  <p><span>最后更新:</span>2020年07月10日 - 21:07</p>
+  <p><span>最后更新:</span>2020年08月28日 - 00:08</p>
   <p><span>原始链接:</span><a href="/https%E5%8A%A0%E5%AF%86%E9%80%9A%E4%BF%A1.html" title="https加密通信流程解析">http://mydearest.cn/https%E5%8A%A0%E5%AF%86%E9%80%9A%E4%BF%A1.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/https%E5%8A%A0%E5%AF%86%E9%80%9A%E4%BF%A1.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -829,7 +834,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -965,7 +970,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-TLS-非对称加密（如RSA、ECC）-对称加密（如AES、DES）-散列算法（如MD5）"><span class="nav-number">1.</span> <span class="nav-text">SSL&#x2F;TLS &#x3D; 非对称加密（如RSA、ECC） + 对称加密（如AES、DES） + 散列算法（如MD5）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程解析"><span class="nav-number">2.</span> <span class="nav-text">流程解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端发起HTTPS请求"><span class="nav-number">2.1.</span> <span class="nav-text">客户端发起HTTPS请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端的配置"><span class="nav-number">2.2.</span> <span class="nav-text">服务端的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送证书"><span class="nav-number">2.3.</span> <span class="nav-text">传送证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送加密信息"><span class="nav-number">2.4.</span> <span class="nav-text">传送加密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端解密信息"><span class="nav-number">2.5.</span> <span class="nav-text">服务端解密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输加密后的信息"><span class="nav-number">2.6.</span> <span class="nav-text">传输加密后的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端解密信息"><span class="nav-number">2.7.</span> <span class="nav-text">客户端解密信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下http和https"><span class="nav-number">3.</span> <span class="nav-text">说一下http和https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用HTTPS？"><span class="nav-number">4.</span> <span class="nav-text">为什么要用HTTPS？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http和https的区别？"><span class="nav-number">4.1.</span> <span class="nav-text">http和https的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https协议的工作原理-双向加密建立"><span class="nav-number">4.2.</span> <span class="nav-text">https协议的工作原理(双向加密建立)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议解析"><span class="nav-number">4.3.</span> <span class="nav-text">协议解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">4.4.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程解析"><span class="nav-number">1.</span> <span class="nav-text">流程解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端发起HTTPS请求"><span class="nav-number">1.1.</span> <span class="nav-text">客户端发起HTTPS请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端的配置"><span class="nav-number">1.2.</span> <span class="nav-text">服务端的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送证书"><span class="nav-number">1.3.</span> <span class="nav-text">传送证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送加密信息"><span class="nav-number">1.4.</span> <span class="nav-text">传送加密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端解密信息"><span class="nav-number">1.5.</span> <span class="nav-text">服务端解密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输加密后的信息"><span class="nav-number">1.6.</span> <span class="nav-text">传输加密后的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端解密信息"><span class="nav-number">1.7.</span> <span class="nav-text">客户端解密信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下http和https"><span class="nav-number">2.</span> <span class="nav-text">说一下http和https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用HTTPS？"><span class="nav-number">3.</span> <span class="nav-text">为什么要用HTTPS？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http和https的区别？"><span class="nav-number">3.1.</span> <span class="nav-text">http和https的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https协议的工作原理-双向加密建立"><span class="nav-number">3.2.</span> <span class="nav-text">https协议的工作原理(双向加密建立)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议解析"><span class="nav-number">3.3.</span> <span class="nav-text">协议解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">3.4.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1010,7 +1015,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

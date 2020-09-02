@@ -650,12 +650,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-16T19:01:25+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">16</div>
+  <div class="post-date" data-datetime="2020-08-28T01:44:31+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月16</div>
+      <div class="post-tiem">8月28</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -762,7 +762,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,638 (字)
+                  2,760 (字)
                 </span>
               
 
@@ -803,9 +803,11 @@ a:hover {
           <p>作为一个开发人员，或多或少都听说过对称加密、非对称加密、摘要、数字签名、数字证书这几个概念，它们是用来保证在互联网通信过程中数据传输安全的。有人可能会有疑惑，我给传输数
 据加个密不就安全了，为什么还要搞这么多花样出来？本文主要通过一个案例来讲解这几个概念的实际作用。</p>
 <p>在此之前，我先简单介绍一下这几个概念。</p>
-<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>对称加密是指用来加密和解密的是同一个秘钥。其特点是加密速度快，但是秘钥容易被黑客截获，所以安全性不高。常见的有AES、DES算法。</p>
+<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>对称加密是指用来加密和解密的是同一个秘钥。其特点是加密速度快，但是秘钥容易被黑客截获，所以安全性不高。密钥不可能一开始在发送方和接收方都全部生成好了 需要在一方生成之后传递给另一方 如果在传递过程密钥被劫持 整个加密就不安全了。常见的有AES、DES算法。</p>
 <h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>非对称加密是指用来加密和解密的是不同的秘钥，它们是成对出现的，称为公钥和私钥，知道其中一个秘钥是无法推导出另外一个秘钥的。用公钥加密的内容需要用私钥才能解密，用私钥加密
-的内容需要用公钥才能解密。非对称加密的特点是安全性高，缺点是加密速度慢。常见的有RSA、ECC算法。</p>
+的内容需要用公钥才能解密。非对称加密的特点是安全性高，缺点是加密速度慢。公钥对外公开 如果密文是私钥加密 那么任何人都能用公钥解密。常见的有RSA、ECC算法。</p>
+<h2 id="混合加密"><a href="#混合加密" class="headerlink" title="混合加密"></a>混合加密</h2><p>在传递过程把我们的对称加密中的密钥用非对称加密的方式去传递就好了。
+<img src="http://cdn.mydearest.cn/blog/images/mix.png" alt="mix"></p>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>所谓的摘要就是一段信息或者一个文件通过某个哈希算法(也叫摘要算法)而得到的一串字符。摘要算法的特点就是不同的文件计算出的摘要是不同的(也有可能相同，但是可能性非常非常低)，
 比如一个1G的视频文件，哪怕只是改动其中一个字节，最后计算得到的摘要也是完全不同的，所以摘要算法通常是用来判断文件是否被篡改过。其还有一个特点就是通过摘要是无法推导出源文
 件的信息的。常用的摘要(散列)算法有MD5、SHA等。</p>
@@ -1314,12 +1316,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+  <div class="post-date" data-datetime="2020-08-28T00:19:14+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">8月28</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1426,7 +1428,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,539 (字)
+                  1,560 (字)
                 </span>
               
 
@@ -1464,12 +1466,16 @@ a:hover {
 
       
         
-          <p>https其实是有两部分组成：http + SSL / TLS，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。</p>
+          <p>https其实是有两部分组成：http + SSL / TLS加密数据包，也就是在HTTP上又加了一层处理加密信息的模块。服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据。</p>
 <p>https比http要占用更多的资源，http使用TCP 三次握手建立连接，客户端和服务器需要交换3个包，https除了 TCP 的三个包，还要加上 ssl握手需要的9个包，所以一共是12个包。</p>
 <blockquote>
 <p>SSL的全称是Secure Sockets Layer，即安全套接层协议，是为网络通信提供安全及数据完整性的一种安全协议。SSL最新的版本是3.0。TLS的全称是Transport Layer Security，即安全传输层协议，是建立在SSL 3.0协议规范之上，是SSL 3.0的后续版本。</p>
 </blockquote>
-<h2 id="SSL-TLS-非对称加密（如RSA、ECC）-对称加密（如AES、DES）-散列算法（如MD5）"><a href="#SSL-TLS-非对称加密（如RSA、ECC）-对称加密（如AES、DES）-散列算法（如MD5）" class="headerlink" title="SSL/TLS = 非对称加密（如RSA、ECC） + 对称加密（如AES、DES） + 散列算法（如MD5）"></a>SSL/TLS = 非对称加密（如RSA、ECC） + 对称加密（如AES、DES） + 散列算法（如MD5）</h2>
+<p>SSL/TLS = 非对称加密（如RSA、ECC） + 对称加密（如AES、DES） + 散列算法（如MD5）</p>
+<blockquote>
+<p>1.对数据加密 2.验证网站服务器身份</p>
+</blockquote>
+<hr>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/https%E5%8A%A0%E5%AF%86%E9%80%9A%E4%BF%A1.html#more" rel="contents">
@@ -1575,7 +1581,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1740,7 +1746,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="Proxy，代理，是ES6新增的功能，可以理解为代理器（即由它代理某些操作）。 Proxy 对象用于定义或修改某些操作的自定义行为，可以在外界对目标对象进行访问前，对外界的访问进行改写。 Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。">
 <meta property="article:published_time" content="2019-07-30T17:25:34.000Z">
-<meta property="article:modified_time" content="2020-07-03T16:42:04.900Z">
+<meta property="article:modified_time" content="2020-08-24T13:55:05.867Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="深入理解">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-04T00:42:04+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">04</div>
+  <div class="post-date" data-datetime="2020-08-24T21:55:05+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">24</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月04</div>
+      <div class="post-tiem">8月24</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,303 (字)
+                  1,471 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  7 (分钟)
                 </span>
               
             </div>
@@ -611,6 +611,14 @@ a:hover {
 <h4 id="4-apply"><a href="#4-apply" class="headerlink" title="4. apply"></a>4. apply</h4><p>apply 拦截 Proxy 实例作为函数调用的操作，比如函数的调用（<code>proxy(...args)</code>）、call（<code>proxy.call(object, ...args)</code>）、apply（<code>proxy.apply(...)</code>）等。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'I am the target'</span>; &#125;;</span><br><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  apply: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'I am the proxy'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler);</span><br><span class="line"></span><br><span class="line">proxy();</span><br><span class="line"><span class="comment">// "I am the proxy"</span></span><br></pre></td></tr></table></figure>
 <p>Proxy 方法太多，这里只是将常用的简要介绍，更多请看阮一峰老师的 <a href="https://link.juejin.im/?target=http%3A%2F%2Fes6.ruanyifeng.com%2F%23docs%2Fproxy">《ECMAScript 6 入门》</a></p>
+<h3 id="和Object-defineProperty-的对比"><a href="#和Object-defineProperty-的对比" class="headerlink" title="和Object.defineProperty()的对比"></a>和Object.defineProperty()的对比</h3><p>defineProperty存在以下问题：</p>
+<ol>
+<li>不能监听数组的变化</li>
+<li>必须遍历对象的每个属性</li>
+<li>必须深层遍历嵌套的对象(vue walk方法)</li>
+</ol>
+<p>也需要嵌套
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  info: &#123;</span><br><span class="line">    name: <span class="string">'eason'</span>,</span><br><span class="line">    blogs: [<span class="string">'webpack'</span>, <span class="string">'babel'</span>, <span class="string">'cache'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> handler = &#123;</span><br><span class="line">  <span class="keyword">get</span> (target, key, receiver) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'get'</span>, key)</span><br><span class="line">    <span class="comment">// 递归创建并返回</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> target[key] === <span class="string">'object'</span> &amp;&amp; target[key] !== <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(target[key], handler)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key, receiver)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> (target, key, value, receiver) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'set'</span>, key, value)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, value, receiver)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, handler)</span><br><span class="line"><span class="comment">// 以下两句都能够进入 set</span></span><br><span class="line">proxy.info.name = <span class="string">'Zoe'</span></span><br><span class="line">proxy.info.blogs.push(<span class="string">'proxy'</span>)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -642,7 +650,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/ES6Proxy.html">ES6Proxy</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年07月31日 - 01:07</p>
-  <p><span>最后更新:</span>2020年07月04日 - 00:07</p>
+  <p><span>最后更新:</span>2020年08月24日 - 21:08</p>
   <p><span>原始链接:</span><a href="/2019/ES6Proxy.html" title="ES6Proxy">http://mydearest.cn/2019/ES6Proxy.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/ES6Proxy.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -810,7 +818,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -946,7 +954,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Proxy-定义"><span class="nav-number">1.</span> <span class="nav-text">1. Proxy 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Proxy-handler方法（拦截方法）"><span class="nav-number">2.</span> <span class="nav-text">2. Proxy handler方法（拦截方法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-get，set"><span class="nav-number">2.1.</span> <span class="nav-text">1. get，set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-has"><span class="nav-number">2.2.</span> <span class="nav-text">2. has</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ownKeys"><span class="nav-number">2.3.</span> <span class="nav-text">3. ownKeys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-apply"><span class="nav-number">2.4.</span> <span class="nav-text">4. apply</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Proxy-定义"><span class="nav-number">1.</span> <span class="nav-text">1. Proxy 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Proxy-handler方法（拦截方法）"><span class="nav-number">2.</span> <span class="nav-text">2. Proxy handler方法（拦截方法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-get，set"><span class="nav-number">2.1.</span> <span class="nav-text">1. get，set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-has"><span class="nav-number">2.2.</span> <span class="nav-text">2. has</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ownKeys"><span class="nav-number">2.3.</span> <span class="nav-text">3. ownKeys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-apply"><span class="nav-number">2.4.</span> <span class="nav-text">4. apply</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和Object-defineProperty-的对比"><span class="nav-number">3.</span> <span class="nav-text">和Object.defineProperty()的对比</span></a></li></ol></div>
             
 
           </div>
@@ -991,7 +999,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

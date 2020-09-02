@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="👨提问：注册路由时 app.get、app.use、app.all 的区别是什么？app.use(path,callback) app.use是express用来调用中间件的方法。中间件通常不处理请求和响应，一般只处理输入数据，并将其交给队列中的下一个处理程序，比如下面这个例子app.use (‘&#x2F;user’)，那么只要路径以 &#x2F;user 开始即可匹配，如 &#x2F;user&#x2F;tree 就可以匹配。">
 <meta property="article:published_time" content="2020-07-01T16:31:02.000Z">
-<meta property="article:modified_time" content="2020-07-01T17:01:28.980Z">
+<meta property="article:modified_time" content="2020-08-30T17:55:32.158Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="NodeJS">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-02T01:01:28+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2020-08-31T01:55:32+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">31</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月02</div>
+      <div class="post-tiem">8月31</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,106 (字)
+                  1,752 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  5 (分钟)
+                  7 (分钟)
                 </span>
               
             </div>
@@ -588,10 +588,22 @@ redirect()，而这几个有什么不同呢？更多请看文档<a href="https:/
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res.redirect(<span class="string">'http://baidu.com'</span>);</span><br><span class="line">res.redirect(<span class="number">301</span>, <span class="string">'http://baidu.com'</span>);</span><br></pre></td></tr></table></figure></p>
 <h2 id="node如何利用多核CPU以及创建集群"><a href="#node如何利用多核CPU以及创建集群" class="headerlink" title="node如何利用多核CPU以及创建集群?"></a>node如何利用多核CPU以及创建集群?</h2><p>众所周知，nodejs是基于chrome浏览器的V8引擎构建的，一个nodejs进程只能使用一个CPU(一个CPU运行一个node实例)，举个例子：我们现在有一台8核的服务器，
 那么如果不利用多核CPU，是很一种浪费资源的行为，这个时候可以通过启动多个进程来利用多核CPU。</p>
-<p>Node.js给我们提供了cluster模块，用于nodejs多核处理，同时可以通过它来搭建一个用于负载均衡的node服务集群。
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>)</span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> numCPUs = os.cpus().length</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i =<span class="number">0</span> ;i&lt;numCPUs.length;++i) &#123;</span><br><span class="line">        cluster.fork()</span><br><span class="line">    &#125;</span><br><span class="line">    cluster.on(<span class="string">'exit'</span>, (worker, code, signal) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`worker <span class="subst">$&#123;worker.process.pid&#125;</span> died`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    app.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`worker <span class="subst">$&#123;worker.process.pid&#125;</span> started`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一个端口被多个进程监听</span></span><br></pre></td></tr></table></figure></p>
+<p>Node.js给我们提供了cluster模块，用于nodejs多核处理，同时可以通过它来搭建一个用于负载均衡的node服务集群。创建多进程。</p>
+<blockquote>
+<p>本质还是通过 child_process.fork() 专门用于衍生新的 Node.js 进程,衍生的 Node.js 子进程独立于父进程，但两者之间建立的 IPC 通信通道除外， 每
+个进程都有自己的内存，带有自己的 V8 实例</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>)</span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> numCPUs = os.cpus().length</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i =<span class="number">0</span> ;i&lt;numCPUs.length;++i) &#123;</span><br><span class="line">        cluster.fork()</span><br><span class="line">    &#125;</span><br><span class="line">    cluster.on(<span class="string">'exit'</span>, (worker, code, signal) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`worker <span class="subst">$&#123;worker.process.pid&#125;</span> died`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    app.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`worker <span class="subst">$&#123;worker.process.pid&#125;</span> started`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一个端口被多个进程监听</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsof -i -P -n | grep 3000</span><br><span class="line">ps -ef | grep pid</span><br></pre></td></tr></table></figure>
-<p>Master 通过 cluster.fork() 这个方法创建的，本质上还是使用的 child_process.fork()</p>
+<h2 id="开启多个子线程"><a href="#开启多个子线程" class="headerlink" title="开启多个子线程"></a>开启多个子线程</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">    Worker, isMainThread, parentPort, workerData</span><br><span class="line">&#125; = <span class="built_in">require</span>(<span class="string">'worker_threads'</span>);</span><br><span class="line"><span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(__filename, &#123;</span><br><span class="line">    workerData: script</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>线程间如何传输数据: parentPort postMessage on 发送监听消息</li>
+<li><p>共享内存： SharedArrayBuffer 通过这个共享内存</p>
+</li>
+<li><p>在服务中若需要执行 shell 命令，那么就需要开启一个进程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</span><br><span class="line">exec(<span class="string">'ls'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, stdout, stderr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(error) &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">'error: '</span> + error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'stdout: '</span> + stdout);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="node是怎样支持https"><a href="#node是怎样支持https" class="headerlink" title="node是怎样支持https?"></a>node是怎样支持https?</h2><p>https实现，离不开证书，通过openssl生成公钥私钥（不做详细介绍），然后基于 express的 https模块 实现，设置options配置, options有两个选项，一个是
 证书本体，一个是密码。</p>
 <h2 id="node和客户端怎么解决跨域的问题？"><a href="#node和客户端怎么解决跨域的问题？" class="headerlink" title="node和客户端怎么解决跨域的问题？"></a>node和客户端怎么解决跨域的问题？</h2><p>app.all(‘*’,(req,res,next)=&gt;{}) 效果相当于app.use((req,res,next)=&gt;{}), 这也是app.all的一个比较常见的应用，就是用来处理跨域请求。
@@ -601,6 +613,23 @@ redirect()，而这几个有什么不同呢？更多请看文档<a href="https:/
 </ul>
 <h2 id="两个node程序之间怎样交互"><a href="#两个node程序之间怎样交互" class="headerlink" title="两个node程序之间怎样交互?"></a>两个node程序之间怎样交互?</h2><p>通过fork，原理是子程序用process.on来监听父程序的消息，用 process.send给子程序发消息，父程序里用child.on,child.send进行交互，来实现父进程和子
 进程互相发送消息。</p>
+<h2 id="执行中间件（洋葱模型）"><a href="#执行中间件（洋葱模型）" class="headerlink" title="执行中间件（洋葱模型）"></a>执行中间件（洋葱模型）</h2><p>我们通过 use 注册中间件，中间件函数有两个参数第一个是上下文，第二个是 next，在中间件函数执行过程中，若遇到 next() ，那么就会进入到下一个中间件中执
+行，下一个中间执行完成后，在返回上一个中间件执行 next() 后面的方法，这便是中间件的执行逻辑。</p>
+<h2 id="介绍下-stream"><a href="#介绍下-stream" class="headerlink" title="介绍下 stream"></a>介绍下 stream</h2><p>流在 nodejs 用的很广泛，但对于大部分开发者来说，更多的是使用流，比如说 HTTP 中的 request respond ，标准输入输出，文件读取
+（createReadStream）， gulp 构建工具等等。
+流，可以理解成是一个管道，比如读取一个文件，常用的方法是从硬盘读取到内存中，在从内存中读取，这种方式对于小文件没问题，但若是大文件，效率就非常低，还有
+可能内存不足，采用流的方式，就好像给大文件插上一根吸管，持续的一点点读取文件的内容，管道的另一端收到数据，就可以进行处理，了解 Linux 的朋友应该非常熟
+悉这个概念。</p>
+<ul>
+<li>Node.js 中有四种基本的流类型：</li>
+</ul>
+<ol>
+<li>Writable - 可写入数据的流（例如 fs.createWriteStream()）。</li>
+<li>Readable - 可读取数据的流（例如 fs.createReadStream()）。</li>
+<li>Duplex - 可读又可写的流（例如 net.Socket）。</li>
+<li>Transform - 在读写过程中可以修改或转换数据的 Duplex 流（例如 zlib.createDeflate()）。接触比较多的还是第一二种pipe 来消费可读流</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 直接读取文件</span></span><br><span class="line">fs.open(<span class="string">'./xxx.js'</span>, <span class="string">'r'</span>, (err, data) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 流的方式读取、写入</span></span><br><span class="line"><span class="keyword">let</span> readStream = fs.createReadStream(<span class="string">'./a.js'</span>);</span><br><span class="line"><span class="keyword">let</span> writeStream = fs.createWriteStream(<span class="string">'./b.js'</span>)</span><br><span class="line">readStream.pipe(writeStream).on(<span class="string">'data'</span>, (chunk) =&gt; &#123; <span class="comment">// 可读流被可写流消费</span></span><br><span class="line">    <span class="built_in">console</span>.log(chunk)</span><br><span class="line">    writeStream.write(chunk);</span><br><span class="line">&#125;).on(<span class="string">'finish'</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'finish'</span>))</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -632,7 +661,7 @@ redirect()，而这几个有什么不同呢？更多请看文档<a href="https:/
   <p><span>本文标题:</span><a href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html">关于node的那些事(进阶篇)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年07月02日 - 00:07</p>
-  <p><span>最后更新:</span>2020年07月02日 - 01:07</p>
+  <p><span>最后更新:</span>2020年08月31日 - 01:08</p>
   <p><span>原始链接:</span><a href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html" title="关于node的那些事(进阶篇)">http://mydearest.cn/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E8%BF%9B%E9%98%B6%E7%AF%87).html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -800,7 +829,7 @@ redirect()，而这几个有什么不同呢？更多请看文档<a href="https:/
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -936,7 +965,7 @@ redirect()，而这几个有什么不同呢？更多请看文档<a href="https:/
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#👨提问：注册路由时-app-get、app-use、app-all-的区别是什么？"><span class="nav-number">1.</span> <span class="nav-text">👨提问：注册路由时 app.get、app.use、app.all 的区别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use-path-callback"><span class="nav-number">1.1.</span> <span class="nav-text">app.use(path,callback)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-all"><span class="nav-number">1.2.</span> <span class="nav-text">app.all()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express-response有哪些常用方法"><span class="nav-number">2.</span> <span class="nav-text">express response有哪些常用方法?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#res-end"><span class="nav-number">2.1.</span> <span class="nav-text">res.end()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-send-body"><span class="nav-number">2.2.</span> <span class="nav-text">res.send(body)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-render"><span class="nav-number">2.3.</span> <span class="nav-text">res.render</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-redirect"><span class="nav-number">2.4.</span> <span class="nav-text">res.redirect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node如何利用多核CPU以及创建集群"><span class="nav-number">3.</span> <span class="nav-text">node如何利用多核CPU以及创建集群?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node是怎样支持https"><span class="nav-number">4.</span> <span class="nav-text">node是怎样支持https?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node和客户端怎么解决跨域的问题？"><span class="nav-number">5.</span> <span class="nav-text">node和客户端怎么解决跨域的问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个node程序之间怎样交互"><span class="nav-number">6.</span> <span class="nav-text">两个node程序之间怎样交互?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#👨提问：注册路由时-app-get、app-use、app-all-的区别是什么？"><span class="nav-number">1.</span> <span class="nav-text">👨提问：注册路由时 app.get、app.use、app.all 的区别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use-path-callback"><span class="nav-number">1.1.</span> <span class="nav-text">app.use(path,callback)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-all"><span class="nav-number">1.2.</span> <span class="nav-text">app.all()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express-response有哪些常用方法"><span class="nav-number">2.</span> <span class="nav-text">express response有哪些常用方法?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#res-end"><span class="nav-number">2.1.</span> <span class="nav-text">res.end()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-send-body"><span class="nav-number">2.2.</span> <span class="nav-text">res.send(body)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-render"><span class="nav-number">2.3.</span> <span class="nav-text">res.render</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-redirect"><span class="nav-number">2.4.</span> <span class="nav-text">res.redirect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node如何利用多核CPU以及创建集群"><span class="nav-number">3.</span> <span class="nav-text">node如何利用多核CPU以及创建集群?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启多个子线程"><span class="nav-number">4.</span> <span class="nav-text">开启多个子线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node是怎样支持https"><span class="nav-number">5.</span> <span class="nav-text">node是怎样支持https?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node和客户端怎么解决跨域的问题？"><span class="nav-number">6.</span> <span class="nav-text">node和客户端怎么解决跨域的问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个node程序之间怎样交互"><span class="nav-number">7.</span> <span class="nav-text">两个node程序之间怎样交互?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行中间件（洋葱模型）"><span class="nav-number">8.</span> <span class="nav-text">执行中间件（洋葱模型）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍下-stream"><span class="nav-number">9.</span> <span class="nav-text">介绍下 stream</span></a></li></ol></div>
             
 
           </div>
@@ -981,7 +1010,7 @@ redirect()，而这几个有什么不同呢？更多请看文档<a href="https:/
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

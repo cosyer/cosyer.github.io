@@ -138,11 +138,13 @@
 <meta property="og:url" content="http://mydearest.cn/2020/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E6%91%98%E8%A6%81%E3%80%81%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E3%80%81%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="作为一个开发人员，或多或少都听说过对称加密、非对称加密、摘要、数字签名、数字证书这几个概念，它们是用来保证在互联网通信过程中数据传输安全的。有人可能会有疑惑，我给传输数 据加个密不就安全了，为什么还要搞这么多花样出来？本文主要通过一个案例来讲解这几个概念的实际作用。 在此之前，我先简单介绍一下这几个概念。 对称加密对称加密是指用来加密和解密的是同一个秘钥。其特点是加密速度快，但是秘钥容易被黑客截获">
+<meta property="og:image" content="http://cdn.mydearest.cn/blog/images/mix.png">
 <meta property="article:published_time" content="2020-07-09T01:51:49.000Z">
-<meta property="article:modified_time" content="2020-07-16T11:01:25.392Z">
+<meta property="article:modified_time" content="2020-08-27T17:44:31.779Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.mydearest.cn/blog/images/mix.png">
 
 
 
@@ -413,12 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-16T19:01:25+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">16</div>
+  <div class="post-date" data-datetime="2020-08-28T01:44:31+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">28</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月16</div>
+      <div class="post-tiem">8月28</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +525,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,638 (字)
+                  2,760 (字)
                 </span>
               
 
@@ -563,9 +565,11 @@ a:hover {
         <p>作为一个开发人员，或多或少都听说过对称加密、非对称加密、摘要、数字签名、数字证书这几个概念，它们是用来保证在互联网通信过程中数据传输安全的。有人可能会有疑惑，我给传输数
 据加个密不就安全了，为什么还要搞这么多花样出来？本文主要通过一个案例来讲解这几个概念的实际作用。</p>
 <p>在此之前，我先简单介绍一下这几个概念。</p>
-<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>对称加密是指用来加密和解密的是同一个秘钥。其特点是加密速度快，但是秘钥容易被黑客截获，所以安全性不高。常见的有AES、DES算法。</p>
+<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>对称加密是指用来加密和解密的是同一个秘钥。其特点是加密速度快，但是秘钥容易被黑客截获，所以安全性不高。密钥不可能一开始在发送方和接收方都全部生成好了 需要在一方生成之后传递给另一方 如果在传递过程密钥被劫持 整个加密就不安全了。常见的有AES、DES算法。</p>
 <h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>非对称加密是指用来加密和解密的是不同的秘钥，它们是成对出现的，称为公钥和私钥，知道其中一个秘钥是无法推导出另外一个秘钥的。用公钥加密的内容需要用私钥才能解密，用私钥加密
-的内容需要用公钥才能解密。非对称加密的特点是安全性高，缺点是加密速度慢。常见的有RSA、ECC算法。</p>
+的内容需要用公钥才能解密。非对称加密的特点是安全性高，缺点是加密速度慢。公钥对外公开 如果密文是私钥加密 那么任何人都能用公钥解密。常见的有RSA、ECC算法。</p>
+<h2 id="混合加密"><a href="#混合加密" class="headerlink" title="混合加密"></a>混合加密</h2><p>在传递过程把我们的对称加密中的密钥用非对称加密的方式去传递就好了。
+<img src="http://cdn.mydearest.cn/blog/images/mix.png" alt="mix"></p>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>所谓的摘要就是一段信息或者一个文件通过某个哈希算法(也叫摘要算法)而得到的一串字符。摘要算法的特点就是不同的文件计算出的摘要是不同的(也有可能相同，但是可能性非常非常低)，
 比如一个1G的视频文件，哪怕只是改动其中一个字节，最后计算得到的摘要也是完全不同的，所以摘要算法通常是用来判断文件是否被篡改过。其还有一个特点就是通过摘要是无法推导出源文
 件的信息的。常用的摘要(散列)算法有MD5、SHA等。</p>
@@ -644,7 +648,7 @@ wangwu2替换了李四的公钥lisi2，所以张三最后收到的公钥实际�
   <p><span>本文标题:</span><a href="/2020/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E6%91%98%E8%A6%81%E3%80%81%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E3%80%81%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6.html">对称加密、非对称加密、摘要、数字签名、数字证书</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年07月09日 - 09:07</p>
-  <p><span>最后更新:</span>2020年07月16日 - 19:07</p>
+  <p><span>最后更新:</span>2020年08月28日 - 01:08</p>
   <p><span>原始链接:</span><a href="/2020/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E6%91%98%E8%A6%81%E3%80%81%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E3%80%81%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6.html" title="对称加密、非对称加密、摘要、数字签名、数字证书">http://mydearest.cn/2020/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E6%91%98%E8%A6%81%E3%80%81%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E3%80%81%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E6%91%98%E8%A6%81%E3%80%81%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E3%80%81%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -812,7 +816,7 @@ wangwu2替换了李四的公钥lisi2，所以张三最后收到的公钥实际�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -948,7 +952,7 @@ wangwu2替换了李四的公钥lisi2，所以张三最后收到的公钥实际�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对称加密"><span class="nav-number">1.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非对称加密"><span class="nav-number">2.</span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">3.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字签名"><span class="nav-number">4.</span> <span class="nav-text">数字签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字证书"><span class="nav-number">5.</span> <span class="nav-text">数字证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例讲解"><span class="nav-number">6.</span> <span class="nav-text">案例讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过对称加密有什么风险"><span class="nav-number">6.1.</span> <span class="nav-text">通过对称加密有什么风险</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果用非对称加密会怎么样"><span class="nav-number">6.2.</span> <span class="nav-text">如果用非对称加密会怎么样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字签名有什么用"><span class="nav-number">6.3.</span> <span class="nav-text">数字签名有什么用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字证书有什么用"><span class="nav-number">6.4.</span> <span class="nav-text">数字证书有什么用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对称加密"><span class="nav-number">1.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非对称加密"><span class="nav-number">2.</span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合加密"><span class="nav-number">3.</span> <span class="nav-text">混合加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">4.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字签名"><span class="nav-number">5.</span> <span class="nav-text">数字签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字证书"><span class="nav-number">6.</span> <span class="nav-text">数字证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例讲解"><span class="nav-number">7.</span> <span class="nav-text">案例讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过对称加密有什么风险"><span class="nav-number">7.1.</span> <span class="nav-text">通过对称加密有什么风险</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果用非对称加密会怎么样"><span class="nav-number">7.2.</span> <span class="nav-text">如果用非对称加密会怎么样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字签名有什么用"><span class="nav-number">7.3.</span> <span class="nav-text">数字签名有什么用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字证书有什么用"><span class="nav-number">7.4.</span> <span class="nav-text">数字证书有什么用</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -993,7 +997,7 @@ wangwu2替换了李四的公钥lisi2，所以张三最后收到的公钥实际�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

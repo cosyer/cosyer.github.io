@@ -132,19 +132,19 @@
 
 
 
-<meta name="description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时， 如果这个对象内部不存在这个属性，那么它就会去prototype里找这个属性，这个prototype又会有自己的prototype， 于是就这样一直找下去，也就是我们平时所说的原型链的概念  “prototype">
+<meta name="description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时， 如果这个对象内部不存在这个属性，那么它就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念  “prototype”">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入之从原型到原型链">
 <meta property="og:url" content="http://mydearest.cn/prototype.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时， 如果这个对象内部不存在这个属性，那么它就会去prototype里找这个属性，这个prototype又会有自己的prototype， 于是就这样一直找下去，也就是我们平时所说的原型链的概念  “prototype">
+<meta property="og:description" content="原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。  每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时， 如果这个对象内部不存在这个属性，那么它就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念  “prototype”">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype1.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype2.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype3.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype4.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/prototype5.png">
 <meta property="article:published_time" content="2018-06-12T11:47:24.000Z">
-<meta property="article:modified_time" content="2020-07-10T13:05:33.069Z">
+<meta property="article:modified_time" content="2020-08-27T15:26:50.983Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="原型链">
 <meta name="twitter:card" content="summary">
@@ -419,12 +419,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-10T21:05:33+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">10</div>
+  <div class="post-date" data-datetime="2020-08-27T23:26:50+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">27</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月10</div>
+      <div class="post-tiem">8月27</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -529,7 +529,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,744 (字)
+                  2,765 (字)
                 </span>
               
 
@@ -569,8 +569,7 @@ a:hover {
         <blockquote class="blockquote-center"><p>原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已，仅有一份。</p>
 </blockquote>
 <p>每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，
-如果这个对象内部不存在这个属性，那么它就会去prototype里找这个属性，这个prototype又会有自己的prototype，
-于是就这样一直找下去，也就是我们平时所说的原型链的概念</p>
+如果这个对象内部不存在这个属性，那么它就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念</p>
 <ul>
 <li>“prototype” 是什么？
 prototype 是所有公共方法和属性的宿主，从祖先派生的“子”对象可以从使用祖先的方法和属性。</li>
@@ -605,7 +604,7 @@ prototype 是所有公共方法和属性的宿主，从祖先派生的“子”�
 <p>所以再更新下关系图：
 <img src="http://cdn.mydearest.cn/blog/images/prototype3.png" alt="prototype">
 综上我们可以得出：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型 实例原型的constructor指向构造函数,构造函数的prototype指向实例原型,实例对象的__proto__指向实例原型,实例原型也是对象,它也有原型 最后的一个环节是null。访问实例对象的constructor时,也能从实例原型上去找,从而指向到构造函数。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型 实例原型的constructor指向构造函数,构造函数的prototype指向实例原型,实例对象的__proto__指向实例原型,实例原型也是对象,它也有原型 最后的一个环节是null。访问实例对象的constructor时,也能从实例原型上去找,从而指向到构造函数。是一个用来实现继承和共享属性的有限的对象链。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <h2 id="实例与原型"><a href="#实例与原型" class="headerlink" title="实例与原型"></a>实例与原型</h2><p>当读取实例的属性时，如果找不到，就会查找与对象关联的原型中的属性，如果还查不到，就去找原型的原型，一直找到最顶层为止。</p>
 <p>举个例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.name = <span class="string">"cosyer"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line">person.name = <span class="string">"Daisy"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// Daisy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> person.name;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// cosyer</span></span><br></pre></td></tr></table></figure>
@@ -716,7 +715,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
   <p><span>本文标题:</span><a href="/prototype.html">JavaScript深入之从原型到原型链</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月12日 - 19:06</p>
-  <p><span>最后更新:</span>2020年07月10日 - 21:07</p>
+  <p><span>最后更新:</span>2020年08月27日 - 23:08</p>
   <p><span>原始链接:</span><a href="/prototype.html" title="JavaScript深入之从原型到原型链">http://mydearest.cn/prototype.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/prototype.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -884,7 +883,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1065,7 +1064,7 @@ Object.create(null)没有继承任何原型方法，也就是说它的原型链�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

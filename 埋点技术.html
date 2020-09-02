@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="埋点的需求：一个网站上线,开发者除了保证网站功能正常,体验优好之外,还有一项重要的工作是数据收集,通过收集用户的行为数据可以帮助了解网站的功能是否满足用户的需求,导流方式是否有效,新功能上线后是否效果是否达到设计初衷,根据数据指引有效优化产品体验以及发现新的产品方向是产品经理的必备技能,而如何采集准确并且足够的网站数据则应该是开发者的责任.在大数据处理能力越来越强下,以及机器学习等依赖数据哺育的工">
 <meta property="article:published_time" content="2018-07-25T06:04:09.000Z">
-<meta property="article:modified_time" content="2020-05-27T12:34:51.111Z">
+<meta property="article:modified_time" content="2020-09-02T16:07:58.449Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="知识">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-05-27T20:34:51+08:00">
-    <div class="post-time-text">5月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2020-09-03T00:07:58+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">03</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">5月27</div>
+      <div class="post-tiem">9月03</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,010 (字)
+                  1,062 (字)
                 </span>
               
 
@@ -579,7 +579,7 @@ a:hover {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据格式规则,如:<span class="number">1.</span>gif?q=xxx&amp;fr=xxx&amp;refer=xxx&amp;p=xxxx&amp;xxxxx</span><br><span class="line">q表示页面搜索词; fr表示页面的上游页面时什么, refer是指从来源页面, p表示事件类型等;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="访问时长的计算"><a href="#访问时长的计算" class="headerlink" title="访问时长的计算"></a>访问时长的计算</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> st = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();  <span class="comment">// 在页面加载运行js时记录当前时间</span></span><br><span class="line"></span><br><span class="line">$(<span class="built_in">window</span>).on(<span class="string">'beforeunload'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> et = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">var</span> stayTime = et - st;</span><br><span class="line">    </span><br><span class="line">&#125;); <span class="comment">// 在页面要unload触发'beforeunload'事件时进行时间差计算得到访问时长</span></span><br></pre></td></tr></table></figure>
+<h2 id="访问时长的计算"><a href="#访问时长的计算" class="headerlink" title="访问时长的计算"></a>访问时长的计算</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> st = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();  <span class="comment">// 在页面加载运行js时记录当前时间</span></span><br><span class="line"></span><br><span class="line">$(<span class="built_in">window</span>).on(<span class="string">'beforeunload'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> et = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">var</span> stayTime = et - st;</span><br><span class="line">    </span><br><span class="line">&#125;); <span class="comment">// 在页面要unload触发'beforeunload'事件时进行时间差计算得到访问时长</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要用户在页面有过任何操作才会出现提示。每次都是打开接着就关闭进行测试，所以以为没用</span></span><br><span class="line"><span class="built_in">window</span>.onbeforeunload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"onbeforeunload is work"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h2><h3 id="PV-pageview"><a href="#PV-pageview" class="headerlink" title="PV pageview"></a>PV pageview</h3><p>传统意义上每次页面刷新代表着一次新的pv, 也就是每次统计js执行时都+1, 而现在页面很多都用到了ajax技术来进行无刷新获取展现页面来替代翻页,如瀑布流页面通过下来加载新的页面,这时候页面不重新刷新,因此可以在ajax请求接口处进行埋点进行pv累加;</p>
 <h3 id="单项PV"><a href="#单项PV" class="headerlink" title="单项PV"></a>单项PV</h3><p>页面上部分元素有单独统计pv的需要,有些页面元素不是页面展现都展现,或者需要统计类似于某一广告的展现次数,这种需要需要在url里单独定义参数来标识;</p>
 <h3 id="聚焦时间"><a href="#聚焦时间" class="headerlink" title="聚焦时间"></a>聚焦时间</h3><p>与访问时长不同,由于页面可以通过tab切换导致虽然页面没有unload但实际处于失去焦点状态, 因此需要订阅focusIn与focusOut两个事件,在focusIn时开始计时, 在focusOut时停止计时,在页面unload时将focus时间进行累加得到聚焦时间;</p>
@@ -614,7 +614,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/%E5%9F%8B%E7%82%B9%E6%8A%80%E6%9C%AF.html">网页埋点相关知识</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年07月25日 - 14:07</p>
-  <p><span>最后更新:</span>2020年05月27日 - 20:05</p>
+  <p><span>最后更新:</span>2020年09月03日 - 00:09</p>
   <p><span>原始链接:</span><a href="/%E5%9F%8B%E7%82%B9%E6%8A%80%E6%9C%AF.html" title="网页埋点相关知识">http://mydearest.cn/%E5%9F%8B%E7%82%B9%E6%8A%80%E6%9C%AF.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/%E5%9F%8B%E7%82%B9%E6%8A%80%E6%9C%AF.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -782,7 +782,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -963,7 +963,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

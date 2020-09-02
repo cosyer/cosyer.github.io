@@ -132,14 +132,14 @@
 
 
 
-<meta name="description" content="作为常用的跨域解决方案，怎么能不用原生实现一下呢！ jsonp跨域其实也是JavaScript设计模式中的一种代理模式。 在html页面中通过相应的标签从不同域名下加载静态资源文件是被浏览器允许的，所以我们可以通过这个“犯罪漏洞”来进行跨域。 一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。 123456789&#x2F;&#x2F; 实现目标JSONP(url, &amp;#123;  dat">
+<meta name="description" content="作为常用的跨域解决方案，怎么能不用原生实现一下呢！ jsonp跨域其实也是JavaScript设计模式中的一种代理模式。 在html页面中通过相应的标签从不同域名下加载静态资源文件是被浏览器允许的，所以我们可以通过这个“犯罪漏洞”来进行跨域。 一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。补充一点，JSONP不使用XMLHttpRequest对象加载资源，不属于真正">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现jsonp">
 <meta property="og:url" content="http://mydearest.cn/%E5%AE%9E%E7%8E%B0jsonp.html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="作为常用的跨域解决方案，怎么能不用原生实现一下呢！ jsonp跨域其实也是JavaScript设计模式中的一种代理模式。 在html页面中通过相应的标签从不同域名下加载静态资源文件是被浏览器允许的，所以我们可以通过这个“犯罪漏洞”来进行跨域。 一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。 123456789&#x2F;&#x2F; 实现目标JSONP(url, &amp;#123;  dat">
+<meta property="og:description" content="作为常用的跨域解决方案，怎么能不用原生实现一下呢！ jsonp跨域其实也是JavaScript设计模式中的一种代理模式。 在html页面中通过相应的标签从不同域名下加载静态资源文件是被浏览器允许的，所以我们可以通过这个“犯罪漏洞”来进行跨域。 一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。补充一点，JSONP不使用XMLHttpRequest对象加载资源，不属于真正">
 <meta property="article:published_time" content="2018-10-30T06:08:48.000Z">
-<meta property="article:modified_time" content="2020-03-02T14:55:13.948Z">
+<meta property="article:modified_time" content="2020-08-29T14:26:18.671Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="知识">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-03-02T22:55:13+08:00">
-    <div class="post-time-text">3月</div>
-    <div class="post-time-count">02</div>
+  <div class="post-date" data-datetime="2020-08-29T22:26:18+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">29</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">3月02</div>
+      <div class="post-tiem">8月29</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  402 (字)
+                  613 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  3 (分钟)
                 </span>
               
             </div>
@@ -563,14 +563,26 @@ a:hover {
         <p>作为常用的跨域解决方案，怎么能不用原生实现一下呢！</p>
 <p>jsonp跨域其实也是JavaScript设计模式中的一种代理模式。
 在html页面中通过相应的标签从不同域名下加载静态资源文件是被浏览器允许的，所以我们可以通过这个“犯罪漏洞”来进行跨域。
-一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。</p>
+一般，我们可以动态的创建script标签，再去请求一个带参网址来实现跨域通信。补充一点，JSONP不使用XMLHttpRequest对象加载资源，不属于真正意义上的AJAX。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现目标</span></span><br><span class="line">JSONP(url, &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    key1: value1</span><br><span class="line">  &#125;,</span><br><span class="line">  callback: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// data 是服务端返回的数据</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <hr>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> JSONP = <span class="function">(<span class="params">url, jsonpObj</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 属性名 </span></span><br><span class="line">  <span class="keyword">let</span> cbName = <span class="string">"cb"</span> + JSONP.count++</span><br><span class="line">  <span class="comment">// 回调函数 </span></span><br><span class="line">  <span class="keyword">let</span> cbQuery = <span class="string">"JSONP."</span> + cbName</span><br><span class="line">  <span class="keyword">let</span> paramsToQuery = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> query = <span class="string">'?'</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(k)) &#123;</span><br><span class="line">        query += <span class="string">`<span class="subst">$&#123;k&#125;</span>=<span class="subst">$&#123;obj[k]&#125;</span>&amp;`</span></span><br><span class="line">      &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> query</span><br><span class="line">  &#125;</span><br><span class="line">  JSONP[cbName] = <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      jsonpObj.callback(data)</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="keyword">delete</span> JSONP[cbName]</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(script)</span><br><span class="line">    &#125;   </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> queryStr = paramsToQuery(jsonpObj.data) + <span class="string">'callback='</span> + cbQuery</span><br><span class="line">  <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">  script.src = url + <span class="built_in">encodeURIComponent</span>(queryStr)</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line">JSONP.count = <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>简单的不传参数的jsonp实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonp = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(&#123;resolve, reject&#125; =&gt; &#123;</span><br><span class="line">    <span class="comment">// 创建标签</span></span><br><span class="line">    <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    <span class="comment">// 设置回调名</span></span><br><span class="line">    <span class="keyword">const</span> callbackId = <span class="string">`jsonp_<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span>`</span></span><br><span class="line">    <span class="comment">// 拼接url</span></span><br><span class="line">    script.src = url.includes(<span class="string">'?'</span>) ? <span class="string">`<span class="subst">$&#123;url&#125;</span>&amp;callback=<span class="subst">$&#123;callbackId&#125;</span>`</span> : <span class="string">`<span class="subst">$&#123;url&#125;</span>?callback=<span class="subst">$&#123;callbackId&#125;</span>`</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置读取返回结果的回调函数, 必须设置在window上</span></span><br><span class="line">    <span class="built_in">window</span>[callbackId] = <span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 释放内存</span></span><br><span class="line">      <span class="keyword">delete</span> <span class="built_in">window</span>[callbackId]</span><br><span class="line">      <span class="comment">// 移除标签</span></span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(script)</span><br><span class="line">      <span class="comment">// 结果</span></span><br><span class="line">      result ? resolve(result) : reject(<span class="string">'404'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    script.addEventListener(<span class="string">'error'</span>, () =&gt; reject(<span class="string">'script create fail'</span>))</span><br><span class="line">    <span class="comment">// 发出请求</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jsonp(<span class="string">''</span>).then(<span class="built_in">console</span>.log)</span><br></pre></td></tr></table></figure></li>
+<li><p>带参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> JSONP = <span class="function">(<span class="params">url, jsonpObj</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 属性名 </span></span><br><span class="line">  <span class="keyword">let</span> cbName = <span class="string">"cb"</span> + JSONP.count++</span><br><span class="line">  <span class="comment">// 回调函数 </span></span><br><span class="line">  <span class="keyword">let</span> cbQuery = <span class="string">"JSONP."</span> + cbName</span><br><span class="line">  <span class="keyword">let</span> paramsToQuery = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> query = <span class="string">'?'</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(k)) &#123;</span><br><span class="line">        query += <span class="string">`<span class="subst">$&#123;k&#125;</span>=<span class="subst">$&#123;obj[k]&#125;</span>&amp;`</span></span><br><span class="line">      &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> query</span><br><span class="line">  &#125;</span><br><span class="line">  JSONP[cbName] = <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      jsonpObj.callback(data)</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="keyword">delete</span> JSONP[cbName]</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(script)</span><br><span class="line">    &#125;   </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> queryStr = paramsToQuery(jsonpObj.data) + <span class="string">'callback='</span> + cbQuery</span><br><span class="line">  <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">  script.src = url + <span class="built_in">encodeURIComponent</span>(queryStr)</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line">JSONP.count = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>easy模式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">url, jsonpCallback, success</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">  script.src = url</span><br><span class="line">  script.async = <span class="literal">true</span></span><br><span class="line">  script.type = <span class="string">'text/javascript'</span></span><br><span class="line">  <span class="built_in">window</span>[jsonpCallback] = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    success &amp;&amp; success(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简单的不传参数的jsonp实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonp = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 创建标签</span></span><br><span class="line">    <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    <span class="comment">// 设置回调名</span></span><br><span class="line">    <span class="keyword">const</span> callbackId = <span class="string">`jsonp_<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span>`</span></span><br><span class="line">    <span class="comment">// 拼接url</span></span><br><span class="line">    script.src = url.includes(<span class="string">'?'</span>) ? <span class="string">`<span class="subst">$&#123;url&#125;</span>&amp;callback=<span class="subst">$&#123;callbackId&#125;</span>`</span> : <span class="string">`<span class="subst">$&#123;url&#125;</span>?callback=<span class="subst">$&#123;callbackId&#125;</span>`</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置读取返回结果的回调函数, 必须设置在window上</span></span><br><span class="line">    <span class="built_in">window</span>[callbackId] = <span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 释放内存</span></span><br><span class="line">      <span class="keyword">delete</span> <span class="built_in">window</span>[callbackId]</span><br><span class="line">      <span class="comment">// 移除标签</span></span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(script)</span><br><span class="line">      <span class="comment">// 结果</span></span><br><span class="line">      result ? resolve(result) : reject(<span class="string">'404'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    script.addEventListener(<span class="string">'error'</span>, () =&gt; reject(<span class="string">'script create fail'</span>))</span><br><span class="line">    <span class="comment">// 发出请求</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jsonp(<span class="string">''</span>).then(<span class="built_in">console</span>.log)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<h2 id="服务端实现jsonp"><a href="#服务端实现jsonp" class="headerlink" title="服务端实现jsonp"></a>服务端实现jsonp</h2><ul>
+<li>express<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 服务端相关操作，以express为例 */</span></span><br><span class="line"><span class="keyword">let</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">let</span> app = express()</span><br><span class="line"><span class="keyword">const</span> port = <span class="string">'3000'</span></span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> &#123;a,b,callback&#125; = req.query</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  <span class="built_in">console</span>.log(b)</span><br><span class="line">  <span class="comment">// 注意，返回给script标签，浏览器直接把这部分字符串执行</span></span><br><span class="line">  res.send(<span class="string">`<span class="subst">$&#123;callback&#125;</span>('数据包')`</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app;listen(port)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>和CORS相比，JSONP 最大的优势在于兼容性好，IE 10以下低版本不能使用 CORS 但可以使用 JSONP，缺点也很明显，请求方法单一，只支持 GET 请求。</p>
 
       
     </div>
@@ -602,7 +614,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/%E5%AE%9E%E7%8E%B0jsonp.html">实现jsonp</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年10月30日 - 14:10</p>
-  <p><span>最后更新:</span>2020年03月02日 - 22:03</p>
+  <p><span>最后更新:</span>2020年08月29日 - 22:08</p>
   <p><span>原始链接:</span><a href="/%E5%AE%9E%E7%8E%B0jsonp.html" title="实现jsonp">http://mydearest.cn/%E5%AE%9E%E7%8E%B0jsonp.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/%E5%AE%9E%E7%8E%B0jsonp.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -745,8 +757,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -761,7 +782,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -888,6 +909,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端实现jsonp"><span class="nav-number">1.</span> <span class="nav-text">服务端实现jsonp</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -926,7 +963,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

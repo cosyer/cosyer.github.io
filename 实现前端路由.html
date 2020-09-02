@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="现代的前端框架react&#x2F;vue&#x2F;angular都有路由router的概念，通过手写实现可以帮助我们更好地了解它的工作原理。它们都推荐单页面应用 SPA 开发模式，在路由切换时替换 DOM Tree 中最小修改的部分 DOM，来减少原先因为多页应用的页面跳转带来的巨量性能损耗。它们都有自己的典型路由解决方案，@angular&#x2F;router、react-router、vue-router等。 一般来">
 <meta property="article:published_time" content="2018-11-24T03:44:48.000Z">
-<meta property="article:modified_time" content="2020-07-22T13:57:41.284Z">
+<meta property="article:modified_time" content="2020-08-30T16:51:02.545Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-07-22T21:57:41+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">22</div>
+  <div class="post-date" data-datetime="2020-08-31T00:51:02+08:00">
+    <div class="post-time-text">8月</div>
+    <div class="post-time-count">31</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月22</div>
+      <div class="post-tiem">8月31</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,737 (字)
+                  1,788 (字)
                 </span>
               
 
@@ -576,9 +576,13 @@ history: 兼容性差，直接访问报404，需要服务器做处理。</p>
 <p>注意： Hash 方法是利用了相当于页面锚点的功能，所以与原来的通过锚点定位来进行页面滚动定位的方式冲突，导致定位到错误的路由路径，因此需要采用别的办法。</p>
 </blockquote>
 <ul>
-<li>history 则基于 pushState 和 popState </li>
+<li>history 则基于 pushState 和 popState replaceState</li>
 </ul>
 <p>Hash 模式是使用 URL 的 Hash 来模拟一个完整的 URL，因此当 URL 改变的时候页面并不会重载。History 模式则会直接改变 URL，所以在路由跳转的时候会丢失一些地址信息(只是动态的通过js操作window.history来改变浏览器地址栏里的路径，并没有发起http请求)，在刷新或直接访问路由地址的时候会匹配不到静态资源。因此需要在服务器上配置一些信息，让服务器增加一个覆盖所有情况的候选资源。</p>
+<blockquote>
+<p>history 模式下，前端的 URL 必须和实际向后端发起请求的 URL 一致，如 <a href="http://www.xxx.com/items/id。后端如果缺少对" target="_blank" rel="noopener">www.xxx.com/items/id。后端如果缺少对</a> /items/id 的路由处理，将返回 
+404 错误。</p>
+</blockquote>
 <hr>
 <a id="more"></a>
 <ul>
@@ -636,7 +640,7 @@ history: 兼容性差，直接访问报404，需要服务器做处理。</p>
   <p><span>本文标题:</span><a href="/%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1.html">实现前端路由</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年11月24日 - 11:11</p>
-  <p><span>最后更新:</span>2020年07月22日 - 21:07</p>
+  <p><span>最后更新:</span>2020年08月31日 - 00:08</p>
   <p><span>原始链接:</span><a href="/%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1.html" title="实现前端路由">http://mydearest.cn/%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -804,7 +808,7 @@ history: 兼容性差，直接访问报404，需要服务器做处理。</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -985,7 +989,7 @@ history: 兼容性差，直接访问报404，需要服务器做处理。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 305.7k字</span>
+    <span class="post-count">Blog总字数: 286.3k字</span>
   </div>
 
   <div class="theme-info">

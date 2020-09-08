@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？ 莫慌，Node依旧是社区热捧的服务器端 JavaScript 运行环境，Deno的出现其实本质上是完善现阶段的Node（新轮子），包括原生支持TS、安全性、支持ES  Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将来可能就不需要 Node.js，但是新事物总是需要不断推演和考验后，所以这一点而言">
 <meta property="article:published_time" content="2020-06-21T15:41:55.000Z">
-<meta property="article:modified_time" content="2020-08-30T17:39:22.730Z">
+<meta property="article:modified_time" content="2020-09-08T11:14:21.049Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="NodeJS">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-08-31T01:39:22+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">31</div>
+  <div class="post-date" data-datetime="2020-09-08T19:14:21+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">08</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月31</div>
+      <div class="post-tiem">9月08</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,876 (字)
+                  2,191 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  8 (分钟)
+                  9 (分钟)
                 </span>
               
             </div>
@@ -576,8 +576,17 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"script"</span>: &#123;</span><br><span class="line">    <span class="string">"serve"</span>: <span class="string">"node test.js arg1 arg2 arg3"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">arguments</span> = process.argv.splice(<span class="number">2</span>) <span class="comment">// [arg1, arg2, arg3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结合commander</span></span><br><span class="line">commander.parse(process.argv)</span><br></pre></td></tr></table></figure>
 <hr>
 <a id="more"></a>
+<h2 id="为什么要用node（基于v8引擎运行在服务端的JS运行环境）"><a href="#为什么要用node（基于v8引擎运行在服务端的JS运行环境）" class="headerlink" title="为什么要用node（基于v8引擎运行在服务端的JS运行环境）"></a>为什么要用node（基于v8引擎运行在服务端的JS运行环境）</h2><blockquote>
+<p>总结起来node有以下几个特点:简单强大，轻量可扩展．简单体现在node使用的是javascript，json来进行编码，人人都会；强大体现在非阻塞IO,可以适应分块传输数据，较慢的网络环境，尤其擅长
+高并发访问；轻量体现在node本身既是代码，又是服务器，前后端使用统一语言;可扩展体现在可以轻松应对多实例，多服务器架构，同时有海量的第三方应用组件。</p>
+</blockquote>
+<ul>
+<li>全局对象
+process、console、Buffer</li>
+</ul>
+<p><strong>基于事件驱动和无阻塞适合高并发的场景，统一语言</strong></p>
 <h2 id="怎么看-nodejs-可支持高并发"><a href="#怎么看-nodejs-可支持高并发" class="headerlink" title="怎么看 nodejs 可支持高并发"></a>怎么看 nodejs 可支持高并发</h2><p>nodejs 其实并不是真正的单线程架构，因为 nodejs 还有I/O线程存在（网络I/O、磁盘I/O），这些I/O线程是由更底层的 libuv 处理，这部分线程对于开发者来
-说是透明的。 JavaScript 代码永远运行在V8上，是单线程的。</p>
+说是透明的。 JavaScript 代码永远运行在V8上，是单线程的。异步通过一次次循环事件队列来实现的。</p>
 <ul>
 <li>单线程架构的优势和劣势：<ul>
 <li>优势：</li>
@@ -651,12 +660,22 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
 <li>koa2 中间件：是通过 async await 实现的，中间件执行顺序是“洋葱圈”模型（推荐）</li>
 </ul>
 <ol>
-<li>express大而全有路由，而koa2小而精通过中间件</li>
-<li>koa2使用async await，express next</li>
-<li>koa2有洋葱模型和ctx上下文，express没有</li>
+<li><p>语法区别
+experss 异步使用 回调
+koa1 异步使用 generator + yield
+koa2 异步使用 await/async</p>
+</li>
+<li><p>中间件区别
+koa采用洋葱模型，进行顺序执行，出去反向执行，支持context传递数据
+express本身无洋葱模型，需要引入插件，不支持context
+express的中间件中执行异步函数，执行顺序不会按照洋葱模型，异步的执行结果有可能被放到最后，response之前。</p>
+</li>
+<li><p>集成度区别
+express 内置了很多中间件，集成度高，使用省心，
+koa 轻量简洁，容易定制</p>
+</li>
 </ol>
-<p>koa2和egg的区别</p>
-<ul>
+<h2 id="koa2和egg的区别"><a href="#koa2和egg的区别" class="headerlink" title="koa2和egg的区别"></a>koa2和egg的区别</h2><ul>
 <li>egg是在koa2上的封装</li>
 <li>egg有controller、service、router</li>
 <li>egg约定了文件目录结构</li>
@@ -702,7 +721,7 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
   <p><span>本文标题:</span><a href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html">关于node的那些事(基础篇)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年06月21日 - 23:06</p>
-  <p><span>最后更新:</span>2020年08月31日 - 01:08</p>
+  <p><span>最后更新:</span>2020年09月08日 - 19:09</p>
   <p><span>原始链接:</span><a href="/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html" title="关于node的那些事(基础篇)">http://mydearest.cn/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/%E5%85%B3%E4%BA%8Enode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B(%E5%9F%BA%E7%A1%80%E7%AF%87).html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1006,7 +1025,7 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？"><span class="nav-number">1.</span> <span class="nav-text">👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-如何获取命令行传来的参数？"><span class="nav-number">2.</span> <span class="nav-text">node 如何获取命令行传来的参数？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么看-nodejs-可支持高并发"><span class="nav-number">3.</span> <span class="nav-text">怎么看 nodejs 可支持高并发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node有哪些相关的文件路径？"><span class="nav-number">4.</span> <span class="nav-text">node有哪些相关的文件路径？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node相关path-API-有哪些？"><span class="nav-number">5.</span> <span class="nav-text">node相关path API 有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node的文件读取怎么做的？"><span class="nav-number">6.</span> <span class="nav-text">node的文件读取怎么做的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node的url模块是用来干嘛的？"><span class="nav-number">7.</span> <span class="nav-text">node的url模块是用来干嘛的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node的http模块创建服务与Express或Koa框架有何不同"><span class="nav-number">8.</span> <span class="nav-text">node的http模块创建服务与Express或Koa框架有何不同?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http"><span class="nav-number">8.1.</span> <span class="nav-text">http</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#express"><span class="nav-number">8.2.</span> <span class="nav-text">express</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#koa"><span class="nav-number">8.3.</span> <span class="nav-text">koa</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express和Koa框架中间件有什么不同？"><span class="nav-number">9.</span> <span class="nav-text">Express和Koa框架中间件有什么不同？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是模版引擎？"><span class="nav-number">10.</span> <span class="nav-text">什么是模版引擎？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？"><span class="nav-number">1.</span> <span class="nav-text">👨提问：最近Deno很火，会不会替代node的替代品，学node是不是没有前途？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-如何获取命令行传来的参数？"><span class="nav-number">2.</span> <span class="nav-text">node 如何获取命令行传来的参数？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用node（基于v8引擎运行在服务端的JS运行环境）"><span class="nav-number">3.</span> <span class="nav-text">为什么要用node（基于v8引擎运行在服务端的JS运行环境）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么看-nodejs-可支持高并发"><span class="nav-number">4.</span> <span class="nav-text">怎么看 nodejs 可支持高并发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node有哪些相关的文件路径？"><span class="nav-number">5.</span> <span class="nav-text">node有哪些相关的文件路径？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node相关path-API-有哪些？"><span class="nav-number">6.</span> <span class="nav-text">node相关path API 有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node的文件读取怎么做的？"><span class="nav-number">7.</span> <span class="nav-text">node的文件读取怎么做的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node的url模块是用来干嘛的？"><span class="nav-number">8.</span> <span class="nav-text">node的url模块是用来干嘛的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node的http模块创建服务与Express或Koa框架有何不同"><span class="nav-number">9.</span> <span class="nav-text">node的http模块创建服务与Express或Koa框架有何不同?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http"><span class="nav-number">9.1.</span> <span class="nav-text">http</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#express"><span class="nav-number">9.2.</span> <span class="nav-text">express</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#koa"><span class="nav-number">9.3.</span> <span class="nav-text">koa</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express和Koa框架中间件有什么不同？"><span class="nav-number">10.</span> <span class="nav-text">Express和Koa框架中间件有什么不同？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#koa2和egg的区别"><span class="nav-number">11.</span> <span class="nav-text">koa2和egg的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是模版引擎？"><span class="nav-number">12.</span> <span class="nav-text">什么是模版引擎？</span></a></li></ol></div>
             
 
           </div>
@@ -1051,7 +1070,7 @@ Module浏览器模块、等特征。万变不离其宗，虽然有了Deno，将�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 286.9k字</span>
+    <span class="post-count">Blog总字数: 288.0k字</span>
   </div>
 
   <div class="theme-info">

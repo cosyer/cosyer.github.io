@@ -428,6 +428,220 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-07-22T01:25:33+08:00">
+    <div class="post-time-text">7月</div>
+    <div class="post-time-count">22</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">7月22</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ng/" itemprop="url" rel="index">
+                    <span itemprop="name">Ng</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Angular%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/Angular%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF.html" itemprop="url">Angular组件通讯</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-03-15T22:54:18+08:00">
+                2020-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/Angular%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF.html" class="leancloud_visitors" data-flag-title="Angular组件通讯">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  759 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  4 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>组件通讯，意在不同的指令和组件之间共享信息。</p>
+<h2 id="父-gt-子-input"><a href="#父-gt-子-input" class="headerlink" title="父-&gt;子 input"></a>父-&gt;子 input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; parent.html</span><br><span class="line">&lt;child [content]&#x3D;&quot;i&quot;&gt;&lt;&#x2F;child&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; child.ts</span><br><span class="line">@Input() content:string;</span><br></pre></td></tr></table></figure>
+<h2 id="子-gt-父-output"><a href="#子-gt-父-output" class="headerlink" title="子-&gt;父 output"></a>子-&gt;父 output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; parent.html</span><br><span class="line">&lt;child (changeNumber)&#x3D;&quot;changeNumber($event)&quot;&gt;&lt;&#x2F;child&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; child.ts</span><br><span class="line">@Output() changeNumber: EventEmitter&lt;number&gt; &#x3D; new EventEmitter();</span><br><span class="line"></span><br><span class="line">this.changeNumber(1);</span><br></pre></td></tr></table></figure>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/Angular%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-07-22T01:01:44+08:00">
     <div class="post-time-text">7月</div>
     <div class="post-time-count">22</div>
@@ -2419,223 +2633,6 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-07-17T01:17:17+08:00">
-    <div class="post-time-text">7月</div>
-    <div class="post-time-count">17</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">7月17</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html" itemprop="url">三栏布局总结（左右固定宽度 中间自适应）</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-05-09T00:15:34+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html" class="leancloud_visitors" data-flag-title="三栏布局总结（左右固定宽度 中间自适应）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,055 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  5 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>圣杯布局和双飞翼布局(其实是一回事)都是实现的三栏布局。</p>
-<h2 id="浮动布局-float-margin"><a href="#浮动布局-float-margin" class="headerlink" title="浮动布局(float + margin)"></a>浮动布局(float + margin)</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;div class="left"&gt;Left&lt;/div&gt;</span><br><span class="line">     &lt;!<span class="selector-tag">--</span> 右栏部分要写在中间内容之前 <span class="selector-tag">--</span>&gt;</span><br><span class="line">    &lt;div class="right"&gt;Right&lt;/div&gt;</span><br><span class="line">    &lt;div class="main"&gt;Main&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">html</span>,<span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*左边栏左浮动*/</span></span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*中间栏自适应*/</span></span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*右边栏右浮动*/</span></span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>优点：快捷 简单 兼容性较好</li>
-<li>缺点: 有局限性 脱离文档流 需要清除浮动等</li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2853,7 +2850,7 @@ JavaScript 引擎创建了执行上下文栈（Execution context stack，ECS）�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 288.0k字</span>
+    <span class="post-count">Blog总字数: 289.7k字</span>
   </div>
 
   <div class="theme-info">

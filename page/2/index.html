@@ -446,8 +446,8 @@ a:hover {
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
                   </a>
                 </span>
 
@@ -462,7 +462,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/vueInterview.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -481,7 +481,7 @@ a:hover {
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html" itemprop="url">30分钟精通React Hooks</a></h2>
+                <a class="post-title-link" href="/2020/vueInterview.html" itemprop="url">vue面试题记录</a></h2>
         
 
         <div class="post-meta">
@@ -493,8 +493,8 @@ a:hover {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-05-12T11:40:08+08:00">
-                2020-05-12
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T00:10:18+08:00">
+                2020-04-23
               </time>
             
 
@@ -512,7 +512,7 @@ a:hover {
 
           
           
-             <span id="/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html" class="leancloud_visitors" data-flag-title="30分钟精通React Hooks">
+             <span id="/2020/vueInterview.html" class="leancloud_visitors" data-flag-title="vue面试题记录">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  6,959 (字)
+                  11,681 (字)
                 </span>
               
 
@@ -556,7 +556,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  30 (分钟)
+                  48 (分钟)
                 </span>
               
             </div>
@@ -578,21 +578,248 @@ a:hover {
 
       
         
-          <p>它来了，它来了，16.8版本<code>hooks</code>成功加入(<em>^▽^</em>)</p>
-<p>你还在为该使用无状态组件（Function）还是有状态组件（Class）而烦恼吗？
-—— 拥有了hooks，你再也不需要写Class了，你的所有组件都将是Function。</p>
-<p>你还在为搞不清使用哪个生命周期钩子函数而日夜难眠吗？
-—— 拥有了Hooks，生命周期钩子函数可以先丢一边了。</p>
-<p>你在还在为组件中的this指向而晕头转向吗？
-—— 既然Class都丢掉了，哪里还有this？你的人生第一次不再需要面对this。</p>
+          <h3 id="vue-双向绑定的原理"><a href="#vue-双向绑定的原理" class="headerlink" title="vue 双向绑定的原理"></a>vue 双向绑定的原理</h3><p>采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调，实现视图刷新。</p>
+<p>具体流程：
+Vue中先遍历data选项中所有的属性（发布者）用Object.defineProperty劫持这些属性将其转为getter/setter。读取数据时候会触发getter。修改数据时会触发setter。</p>
+<p>然后给每个属性对应new Dep()，Dep是专门收集依赖、删除依赖、向依赖发送消息的。先让每个依赖设置在Dep.target上，在Dep中创建一个依赖数组，先判断Dep.target是否已经在依赖中存在，不存在的话添加到依赖数组中完成依赖收集，随后将Dep.target置为上一个依赖。</p>
+<p>组件在挂载过程中都会new一个Watcher实例。这个实例就是依赖（订阅者）。Watcher第二参数是一个函数，此函数作用是更新且渲染节点。在首次渲染过程，会自动调用Dep方法来收集依赖，收集完成后组件中每个数据都绑定上该依赖。当数据变化时就会在setter中通知对应的依赖进行更新。在更新过程中要先读取数据，就会触发Wacther的第二个函数参数。一触发就再次自动调用Dep方法收集依赖，同时在此函数中运行patch（diff运算)来更新对应的DOM节点，完成了双向绑定。</p>
+<ul>
+<li>每一个组件默认都会创建一个 Watcher，自定义的 watch 和 computed 方法也会创建 Watcher </li>
+</ul>
+<h3 id="Object-defineProperty-实现双向绑定的缺点"><a href="#Object-defineProperty-实现双向绑定的缺点" class="headerlink" title="Object.defineProperty()实现双向绑定的缺点"></a>Object.defineProperty()实现双向绑定的缺点</h3><ol>
+<li>只能监听某个属性，不能监听整个对象</li>
+<li>需要使用for in遍历对象属性绑定监听</li>
+<li>不能监听数组，需要重写数组方法进行特异性操作</li>
+<li>会污染原对象</li>
+</ol>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html#more" rel="contents">
+            <a class="btn" href="/2020/vueInterview.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-09-08T19:14:21+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">08</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">9月08</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/HTML%E4%B8%ADp%E6%A0%87%E7%AD%BE%E4%B8%AD%E6%8F%92%E5%85%A5div%E6%A0%87%E7%AD%BE%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/HTML%E4%B8%ADp%E6%A0%87%E7%AD%BE%E4%B8%AD%E6%8F%92%E5%85%A5div%E6%A0%87%E7%AD%BE%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88.html" itemprop="url">HTML中p标签中插入div标签会发生什么</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-09-02T11:13:55+08:00">
+                2020-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/HTML%E4%B8%ADp%E6%A0%87%E7%AD%BE%E4%B8%AD%E6%8F%92%E5%85%A5div%E6%A0%87%E7%AD%BE%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88.html" class="leancloud_visitors" data-flag-title="HTML中p标签中插入div标签会发生什么">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  116 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  1 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>面试遇到了问题:<code>&lt;p&gt;中能不能插入&lt;div&gt;? 插入&lt;div&gt;会如何?</code></p>
+<p>先直接实践下：</p>
+<p><img src="http://cdn.mydearest.cn/blog/images/div1.png" alt="div1"></p>
+<blockquote>
+<p>我们可以看到,<div>把<p>分成了两段, 并且div外字段并不在</p><p>内。把div变成行内块级元素也不行。</p>
+</div></p></blockquote>
+<p><img src="http://cdn.mydearest.cn/blog/images/div2.png" alt="div2"></p>
+<p>解答:
+可以在HTML标准(<a href="https://www.w3.org/TR/html401/struct/text.html#h-9.3.1)中看到" target="_blank" rel="noopener">https://www.w3.org/TR/html401/struct/text.html#h-9.3.1)中看到</a>,</p>
+<blockquote>
+<p></p><p>虽然是块级元素, 但是只能包含行内元素, 不能包含块级元素(包括</p><p>自己)</p>
+</blockquote>
+<p><img src="http://cdn.mydearest.cn/blog/images/div3.png" alt="div3"></p>
+<p>over!</p>
+
+          
         
       
     </div>
@@ -2450,227 +2677,6 @@ void expression</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-08-31T23:28:51+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">31</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月31</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
-                    <span itemprop="name">知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html" itemprop="url">微信小程序面试题</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-18T19:16:48+08:00">
-                2018-06-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html" class="leancloud_visitors" data-flag-title="微信小程序面试题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  2,085 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  8 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="简单描述下微信小程序的相关文件类型？"><a href="#简单描述下微信小程序的相关文件类型？" class="headerlink" title="简单描述下微信小程序的相关文件类型？"></a>简单描述下微信小程序的相关文件类型？</h2><p>答：微信小程序项目结构主要有四个文件类型,如下：
-一、WXML （WeiXin Markup Language）是框架设计的一套标签语言，结合基础组件、事件系统，可以构建出页面的结构。内部主要是微信自己定义的一套组件。
-二、WXSS (WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式，
-二、js 逻辑处理，网络请求
-三、json 小程序设置，如页面注册，页面标题及tabBar。
-四、app.json
-必须要有这个文件，如果没有这个文件，项目无法运行，因为微信框架把这个作为配置文件入口，整个小程序的全局配置。包括页面注册，网络设置，以及小程序的window背景色，配置导航条样式，配置默认标题。
-五、app.js
-必须要有这个文件，没有也是会报错！但是这个文件创建一下就行 什么都不需要写以后我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。
-六、app.wxss</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95%E9%A2%98.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2888,7 +2894,7 @@ void expression</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 288.0k字</span>
+    <span class="post-count">Blog总字数: 289.7k字</span>
   </div>
 
   <div class="theme-info">

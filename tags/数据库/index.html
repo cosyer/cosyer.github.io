@@ -433,6 +433,227 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-09-19T01:42:09+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">19</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">9月19</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html" itemprop="url">elasticsearch、redis部署</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-09-18T11:14:08+08:00">
+                2020-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html" class="leancloud_visitors" data-flag-title="elasticsearch、redis部署">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  884 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  5 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="skywalking"><a href="#skywalking" class="headerlink" title="skywalking"></a>skywalking</h1><h2 id="预安装JDK"><a href="#预安装JDK" class="headerlink" title="预安装JDK"></a>预安装JDK</h2><p><a href="https://www.cnblogs.com/cosyer/p/7827995.html" target="_blank" rel="noopener">Linux系统（Centos）下安装Java环境</a></p>
+<h2 id="elasticsearch"><a href="#elasticsearch" class="headerlink" title="elasticsearch"></a>elasticsearch</h2><h3 id="官网下载-https-www-elastic-co-cn-downloads-elasticsearch"><a href="#官网下载-https-www-elastic-co-cn-downloads-elasticsearch" class="headerlink" title="官网下载 https://www.elastic.co/cn/downloads/elasticsearch"></a>官网下载 <a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/elasticsearch</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf elasticsearch-6.1.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 config/elasticsearch.yml</span></span><br><span class="line">cluster.name: myskywalking</span><br><span class="line">path.data: /opt/data/es/data</span><br><span class="line">path.logs: /opt/data/es/logs</span><br><span class="line">bootstrap.memory_lock: <span class="literal">false</span></span><br><span class="line">network.host: 193.160.59.45</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单机运行</span></span><br><span class="line">./bin/elasticsearch -V</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台运行</span></span><br><span class="line">./bin/elasticsearch -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问</span></span><br><span class="line">http://127.0.0.1:9200</span><br></pre></td></tr></table></figure>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
+<li><p>需要非root用户启动</p>
+</li>
+<li><p>【报错】max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144] 内存过小
+解决:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.sudo vi /etc/sysctl.conf 文件最后添加一行</span></span><br><span class="line"><span class="comment">#    vm.max_map_count=262144</span></span><br><span class="line"><span class="comment"># 2.加载设置好的系统参数</span></span><br><span class="line"><span class="comment">#    sudo sysctl -p</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+          
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-08-23T01:43:50+08:00">
     <div class="post-time-text">8月</div>
     <div class="post-time-count">23</div>
@@ -690,7 +911,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">150</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -855,7 +1076,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 289.7k字</span>
+    <span class="post-count">Blog总字数: 291.6k字</span>
   </div>
 
   <div class="theme-info">

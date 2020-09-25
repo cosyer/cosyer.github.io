@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="它来了，它来了，16.8版本hooks成功加入(^▽^) 你还在为该使用无状态组件（Function）还是有状态组件（Class）而烦恼吗？ —— 拥有了hooks，你再也不需要写Class了，你的所有组件都将是Function。 你还在为搞不清使用哪个生命周期钩子函数而日夜难眠吗？ —— 拥有了Hooks，生命周期钩子函数可以先丢一边了。 你在还在为组件中的this指向而晕头转向吗？ —— 既然">
 <meta property="article:published_time" content="2020-05-12T03:40:08.000Z">
-<meta property="article:modified_time" content="2020-09-08T15:36:36.223Z">
+<meta property="article:modified_time" content="2020-09-09T16:33:57.694Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-09-08T23:36:36+08:00">
+  <div class="post-date" data-datetime="2020-09-10T00:33:57+08:00">
     <div class="post-time-text">9月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">10</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月08</div>
+      <div class="post-tiem">9月10</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  8,405 (字)
+                  8,483 (字)
                 </span>
               
 
@@ -731,7 +731,7 @@ useRef 返回的对象在组件的整个生命周期内保持不变，每次渲�
 <p><strong>但由于对 state 的读取没有通过 this. 的方式，使得每次 setTimeout 都读取了当时渲染闭包环境的数据，虽然最新的值跟着最新的渲染变了，但旧的渲染里，状态依然是旧值。</strong></p>
 <h2 id="useImperativeHandle"><a href="#useImperativeHandle" class="headerlink" title="useImperativeHandle"></a>useImperativeHandle</h2><p><code>useImperativeHandle</code> 可以让你在使用 ref 时，自定义暴露给父组件的实例值，在大多数情况下，应当避免使用 ref 这样的命令式代码。<code>useImperativeHandle</code> 应当与 <code>forwardRef</code> 一起使用：
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyInput</span>(<span class="params">props, ref</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = useRef(<span class="literal">null</span> <span class="keyword">as</span> any)</span><br><span class="line">  useImperativeHandle(ref, () =&gt; (&#123;</span><br><span class="line">    focus: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      inputRef.current.focus()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;))</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">&#123;inputRef&#125;</span> /&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FancyInputRef = forwardRef(FancyInput)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> useImperativeHandleDemo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = useRef(<span class="literal">null</span> <span class="keyword">as</span> any)</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    inputRef.current.focus()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">FancyInputRef</span> <span class="attr">ref</span>=<span class="string">&#123;inputRef&#125;</span> /&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="useLayoutEffect"><a href="#useLayoutEffect" class="headerlink" title="useLayoutEffect"></a>useLayoutEffect</h2><p>其函数签名 与 <code>useEffect</code> 相同，但它会在所有的 DOM 变更之后同步调用 effect。可以使用它来读取 DOM 布局并同步触发重渲染。在浏览器执行绘制之前完成。
+<h2 id="useLayoutEffect"><a href="#useLayoutEffect" class="headerlink" title="useLayoutEffect"></a>useLayoutEffect</h2><p>其函数签名 与 <code>useEffect</code> 相同，但它会在所有的 DOM 变更之后同步调用 effect。可以使用它来读取 DOM 布局并同步触发渲染。在浏览器执行绘制之前完成。
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> BlinkyRender = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = useState(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (value === <span class="number">0</span>) &#123;</span><br><span class="line">      setValue(<span class="number">10</span> + <span class="built_in">Math</span>.random() * <span class="number">200</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, [value]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div onClick=&#123;() =&gt; setValue(<span class="number">0</span>)&#125;&gt;value: &#123;value&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
 当我们快速点击时，value 会发生随机变化，但 <code>useEffect</code> 是 UI 已经渲染到屏幕上以后才会执行，value 会先渲染为 0，然后在渲染成随机数，因此屏幕会出现闪烁。
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">useLayoutEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (value === <span class="number">0</span>) &#123;</span><br><span class="line">    setValue(<span class="number">10</span> + <span class="built_in">Math</span>.random() * <span class="number">200</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, [value]);</span><br></pre></td></tr></table></figure>
@@ -780,6 +780,9 @@ useMemo是在渲染期间完成的，有这样一个一前一后的区别。</p>
 <p>useMemo返回的是计算的结果值，用于缓存计算后的状态
 useCallback返回的是函数，主要用来缓存函数，因为函数式组件中的state的变化都会导致整个组件被重新刷新（即使一些函数没有必要被刷新），此时用useCallback就会将
 函数进行缓存，减少渲染时的性能损耗​；</p>
+<p>React Hooks只能用于函数组件，而每一次函数组件被渲染，都是一个全新的开始；
+每一个全新的开始，所有的局部变量全都重来，全体失忆；
+每一次全新的开始，只有Hooks函数（比如useEffect）具有上一次渲染的“记忆”；</p>
 <h2 id="仓库代码"><a href="#仓库代码" class="headerlink" title="仓库代码"></a>仓库代码</h2><p><a href="https://github.com/cosyer/react-hooks-demo" target="_blank" rel="noopener">react-hooks-demo</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章将 React Hooks 语法进行了简单介绍，Hooks 功能十分强大，如果看完文章还不是很理解的话，建议把这些 demo 自己再手动实现一遍，这样收获会更多。
 如果文章内容有哪些描述错误或者不清的地方，欢迎各位纠正并一起交流。👏👏👏</p>
@@ -814,7 +817,7 @@ useCallback返回的是函数，主要用来缓存函数，因为函数式组件
   <p><span>本文标题:</span><a href="/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html">30分钟精通React Hooks</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年05月12日 - 11:05</p>
-  <p><span>最后更新:</span>2020年09月08日 - 23:09</p>
+  <p><span>最后更新:</span>2020年09月10日 - 00:09</p>
   <p><span>原始链接:</span><a href="/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html" title="30分钟精通React Hooks">http://mydearest.cn/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/30%E5%88%86%E9%92%9F%E7%B2%BE%E9%80%9AReact%20Hooks.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -982,7 +985,7 @@ useCallback返回的是函数，主要用来缓存函数，因为函数式组件
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">150</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1163,7 +1166,7 @@ useCallback返回的是函数，主要用来缓存函数，因为函数式组件
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 289.7k字</span>
+    <span class="post-count">Blog总字数: 291.6k字</span>
   </div>
 
   <div class="theme-info">

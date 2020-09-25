@@ -140,7 +140,7 @@
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/patch.png">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/ssr.png">
 <meta property="article:published_time" content="2018-06-07T06:47:09.000Z">
-<meta property="article:modified_time" content="2020-09-08T13:45:36.844Z">
+<meta property="article:modified_time" content="2020-09-13T15:42:16.273Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="react">
 <meta property="article:tag" content="面试">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-09-08T21:45:36+08:00">
+  <div class="post-date" data-datetime="2020-09-13T23:42:16+08:00">
     <div class="post-time-text">9月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">13</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月08</div>
+      <div class="post-tiem">9月13</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  9,768 (字)
+                  10,165 (字)
                 </span>
               
 
@@ -542,7 +542,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  37 (分钟)
+                  38 (分钟)
                 </span>
               
             </div>
@@ -905,9 +905,23 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
 </li>
 </ul>
 <p>后续中展示组件需要改造成类组件需要有自己的状态管理和生命周期方法将复用逻辑提升到代码顶部。</p>
-<h3 id="Fiber"><a href="#Fiber" class="headerlink" title="Fiber"></a>Fiber</h3><p>React 的核心流程可以分为两个部分:</p>
+<h3 id="Fiber"><a href="#Fiber" class="headerlink" title="Fiber"></a>Fiber</h3><blockquote>
+<p>Fiber核心是实现了一个基于优先级和requestIdleCallback的循环任务调度算法</p>
+</blockquote>
 <ul>
-<li><p>reconciliation (调度算法，也可称为 render):</p>
+<li>reconciliation阶段可以把任务拆分成多个小任务</li>
+<li>reconciliation阶段可随时中止或恢复任务</li>
+<li>可以根据优先级不同来选择优先执行任务</li>
+</ul>
+<blockquote>
+<p>在任务队列中选出高优先级的fiber node执行，调用requestIdleCallback获取所剩时间，若执行时间超过了deathLine，或者突然插入更高优先级的任务，则执行中断，保存当前结果，修改tag标记一下，设置为pending状态，迅速收尾并再调用一个requestIdleCallback，等主线程释放出来再继续
+恢复任务执行时，检查tag是被中断的任务，会接着继续做任务或者重做</p>
+</blockquote>
+<p>在 v16 之前，reconciliation 简单说就是一个自顶向下递归算法，产出需要对当前DOM进行更新或替换的操作列表，一旦开始，会持续占用主线程，中断操作却不容易实现。当JS长时间执行（如大量计算等），会阻塞
+样式计算、绘制等工作，出现页面脱帧现象。所以，v16 进行了一次重写，迎来了代号为Fiber的异步渲染架构。</p>
+<p>React 的核心流程可以分为两个部分:</p>
+<ul>
+<li><p>reconciliation (调度算法，也可称为 render diff阶段):</p>
 <ul>
 <li>更新 state 与 props；</li>
 <li>调用生命周期钩子；</li>
@@ -919,7 +933,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
 <li>确定是否需要重新渲染</li>
 </ul>
 </li>
-<li><p>commit:</p>
+<li><p>commit(操作dom阶段):</p>
 <ul>
 <li>如需要，则操作 dom 节点更新；</li>
 </ul>
@@ -940,6 +954,10 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
 <p>核心思想是 任务拆分和协同，主动把执行权交给主线程，使主线程有时间空挡处理其他高优先级任务。
 当遇到进程阻塞的问题时，任务分割、异步调用 和 缓存策略 是三个显著的解决思路。</p>
 </blockquote>
+<ul>
+<li>任务优先级(7种)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">  NoWork: <span class="number">0</span>, <span class="comment">// No work is pending.</span></span><br><span class="line">  SynchronousPriority: <span class="number">1</span>, <span class="comment">// 文本输入框</span></span><br><span class="line">  TaskPriority: <span class="number">2</span>, <span class="comment">// 当前调度正执行的任务</span></span><br><span class="line">  AnimationPriority: <span class="number">3</span>, <span class="comment">// 动画过渡</span></span><br><span class="line">  HighPriority: <span class="number">4</span>, <span class="comment">// 用户交互反馈</span></span><br><span class="line">  LowPriority: <span class="number">5</span>, <span class="comment">// 数据的更新</span></span><br><span class="line">  OffscreenPriority: <span class="number">6</span>, <span class="comment">// 预估未来需要显示的任务</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h3 id="为什么生命周期有了变动"><a href="#为什么生命周期有了变动" class="headerlink" title="为什么生命周期有了变动"></a>为什么生命周期有了变动</h3><p>在 Fiber 中，reconciliation 阶段进行了任务分割，涉及到 暂停 和 重启，因此可能会导致 reconciliation 中的生命周期函数在一次更新渲染循环中被<code>多次调用</code>的情况，产生一些意外错误。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 替换 `componentWillReceiveProps` ，</span></span><br><span class="line">  <span class="comment">// 初始化和 update 时被调用</span></span><br><span class="line">  <span class="comment">// 静态函数，无法使用 this</span></span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromProps(nextProps, prevState) &#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 判断是否需要更新组件</span></span><br><span class="line">  <span class="comment">// 可以用于组件性能优化</span></span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 组件被挂载后触发</span></span><br><span class="line">  componentDidMount() &#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 替换 componentWillUpdate</span></span><br><span class="line">  <span class="comment">// 可以在更新之前获取最新 dom 数据</span></span><br><span class="line">  getSnapshotBeforeUpdate() &#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 组件更新后调用</span></span><br><span class="line">  componentDidUpdate() &#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 组件即将销毁</span></span><br><span class="line">  componentWillUnmount() &#123;&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 组件已销毁</span></span><br><span class="line">  componentDidUnMount() &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 错误边界捕获全局异常</span></span><br><span class="line">  componentDidCatch() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -1086,7 +1104,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
   <p><span>本文标题:</span><a href="/reactInterview.html">react面试题记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月07日 - 14:06</p>
-  <p><span>最后更新:</span>2020年09月08日 - 21:09</p>
+  <p><span>最后更新:</span>2020年09月13日 - 23:09</p>
   <p><span>原始链接:</span><a href="/reactInterview.html" title="react面试题记录">http://mydearest.cn/reactInterview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/reactInterview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1256,7 +1274,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">150</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1437,7 +1455,7 @@ hook和mixin在用法上有一定的相似之处，但是mixin引入的逻辑状
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 289.7k字</span>
+    <span class="post-count">Blog总字数: 291.6k字</span>
   </div>
 
   <div class="theme-info">

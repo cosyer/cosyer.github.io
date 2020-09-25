@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="Cookie(属于文档对象模型DOM树根节点document)Cookie 是小甜饼的意思。顾名思义，cookie 确实非常小，它的大小限制为4KB左右。它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。 localStorage(属于浏览器对象模型BOM的对象window)localStorage 是 H">
 <meta property="article:published_time" content="2018-06-23T05:43:32.000Z">
-<meta property="article:modified_time" content="2020-08-27T15:27:04.837Z">
+<meta property="article:modified_time" content="2020-09-13T15:42:16.278Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="浏览器">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-08-27T23:27:04+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">27</div>
+  <div class="post-date" data-datetime="2020-09-13T23:42:16+08:00">
+    <div class="post-time-text">9月</div>
+    <div class="post-time-count">13</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月27</div>
+      <div class="post-tiem">9月13</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,535 (字)
+                  1,755 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  6 (分钟)
+                  7 (分钟)
                 </span>
               
             </div>
@@ -625,6 +625,18 @@ document.cookie=”username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; pat
 </li>
 <li><p>Cookie 是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是实现 Session 的一种方式。</p>
 </li>
+</ul>
+<h3 id="session鉴权流程"><a href="#session鉴权流程" class="headerlink" title="session鉴权流程"></a>session鉴权流程</h3><ul>
+<li>用户登录的时候，服务端生成一个会话和一个id标识</li>
+<li>会话id在客户端和服务端之间通过cookie进行传输</li>
+<li>服务端通过会话id可以获取到会话相关的信息，然后对客户端的请求进行响应；如果找不到有效的会话，那么认为用户是未登陆状态</li>
+<li>会话会有过期时间，也可以通过一些操作（比如登出）来主动删除</li>
+</ul>
+<h3 id="token的典型流程"><a href="#token的典型流程" class="headerlink" title="token的典型流程"></a>token的典型流程</h3><ul>
+<li>用户登录的时候，服务端生成一个token返回给客户端</li>
+<li>客户端后续的请求都带上这个token</li>
+<li>服务端解析token获取用户信息，并响应用户的请求</li>
+<li>token会有过期时间，客户端登出的时候也会废弃token，但是服务端不需要任何操作</li>
 </ul>
 <h2 id="规避localStorage缺点—localforage"><a href="#规避localStorage缺点—localforage" class="headerlink" title="规避localStorage缺点—localforage"></a>规避localStorage缺点—localforage</h2><p>localforage的逻辑是这样的：优先使用IndexedDB存储数据，如果浏览器不支持，使用WebSQL，浏览器再不支持，使用localStorage。</p>
 <p>localforage的API名称和localStorage一样，但是，在同步还是异步上却不同，localforage是异步执行的，用法示意如下。
@@ -799,7 +811,7 @@ document.cookie=”username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; pat
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">150</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -935,7 +947,7 @@ document.cookie=”username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; pat
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-属于文档对象模型DOM树根节点document"><span class="nav-number">1.</span> <span class="nav-text">Cookie(属于文档对象模型DOM树根节点document)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage-属于浏览器对象模型BOM的对象window"><span class="nav-number">2.</span> <span class="nav-text">localStorage(属于浏览器对象模型BOM的对象window)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sessionStorage"><span class="nav-number">3.</span> <span class="nav-text">sessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三者的异同"><span class="nav-number">4.</span> <span class="nav-text">三者的异同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的考虑"><span class="nav-number">5.</span> <span class="nav-text">安全性的考虑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie用法"><span class="nav-number">6.</span> <span class="nav-text">cookie用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage和sessionStorage用法-存储数组、数字、对象等可以被序列化为字符串的内容"><span class="nav-number">7.</span> <span class="nav-text">localStorage和sessionStorage用法(存储数组、数字、对象等可以被序列化为字符串的内容)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie-与-session-的区别"><span class="nav-number">8.</span> <span class="nav-text">cookie 与 session 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规避localStorage缺点—localforage"><span class="nav-number">9.</span> <span class="nav-text">规避localStorage缺点—localforage</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-属于文档对象模型DOM树根节点document"><span class="nav-number">1.</span> <span class="nav-text">Cookie(属于文档对象模型DOM树根节点document)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage-属于浏览器对象模型BOM的对象window"><span class="nav-number">2.</span> <span class="nav-text">localStorage(属于浏览器对象模型BOM的对象window)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sessionStorage"><span class="nav-number">3.</span> <span class="nav-text">sessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三者的异同"><span class="nav-number">4.</span> <span class="nav-text">三者的异同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的考虑"><span class="nav-number">5.</span> <span class="nav-text">安全性的考虑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie用法"><span class="nav-number">6.</span> <span class="nav-text">cookie用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage和sessionStorage用法-存储数组、数字、对象等可以被序列化为字符串的内容"><span class="nav-number">7.</span> <span class="nav-text">localStorage和sessionStorage用法(存储数组、数字、对象等可以被序列化为字符串的内容)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie-与-session-的区别"><span class="nav-number">8.</span> <span class="nav-text">cookie 与 session 的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session鉴权流程"><span class="nav-number">8.1.</span> <span class="nav-text">session鉴权流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token的典型流程"><span class="nav-number">8.2.</span> <span class="nav-text">token的典型流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规避localStorage缺点—localforage"><span class="nav-number">9.</span> <span class="nav-text">规避localStorage缺点—localforage</span></a></li></ol></div>
             
 
           </div>
@@ -980,7 +992,7 @@ document.cookie=”username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; pat
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 289.7k字</span>
+    <span class="post-count">Blog总字数: 291.6k字</span>
   </div>
 
   <div class="theme-info">

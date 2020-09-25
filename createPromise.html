@@ -140,7 +140,7 @@
 <meta property="og:description" content="前端近年的兴起，有大部分是因为 NodeJS 的诞生，而 NodeJS 是个适用于 异步IO 密集型的语言，一些基于 NodeJS 的框架，比如 KOA2、Adonis 就有大量的 async 和 await 语法，async的函数的返回值就是 Promise 对象，我们可以用 async 和 await 语法，写出优雅的异步代码，来替换难看且难维护的回调函数。 Promise 概念(JS的 P">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/promise.png">
 <meta property="article:published_time" content="2018-06-04T17:34:09.000Z">
-<meta property="article:modified_time" content="2020-09-08T11:15:30.772Z">
+<meta property="article:modified_time" content="2020-09-13T15:42:16.267Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="es6">
 <meta property="article:tag" content="promise">
@@ -416,12 +416,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-09-08T19:15:30+08:00">
+  <div class="post-date" data-datetime="2020-09-13T23:42:16+08:00">
     <div class="post-time-text">9月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">13</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">9月08</div>
+      <div class="post-tiem">9月13</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -526,7 +526,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  2,906 (字)
+                  3,070 (字)
                 </span>
               
 
@@ -629,6 +629,9 @@ a:hover {
 <li><p>promise.all并发还是串行
 并发的。不过Promise.all().then()结果中数组的顺序和Promise.all()接收到的数组顺序一致。</p>
 </li>
+<li><p>promise.all失败获取所有请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">api</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> ok = <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span>  <span class="comment">// 模拟请求成功或失败</span></span><br><span class="line">      <span class="keyword">if</span>(ok)</span><br><span class="line">        resolve(<span class="string">'get '</span> + api + <span class="string">' data'</span>)</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// reject(api + ' fail')   // 如果调用reject就会使Promise.all()进行失败回调</span></span><br><span class="line">        resolve(<span class="string">'error'</span>)    <span class="comment">// Promise all的时候做判断  如果是error则说明这条请求失败</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,<span class="number">2000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDatas</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> promises = arr.map(<span class="function"><span class="params">item</span> =&gt;</span> getData(item))</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.all(promises).then(<span class="function"><span class="params">values</span> =&gt;</span> &#123;</span><br><span class="line">    values.map(<span class="function">(<span class="params">v,index</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(v == <span class="string">'error'</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'第'</span> + (index+<span class="number">1</span>) + <span class="string">'个请求失败'</span>)</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(v)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">getDatas([<span class="string">'./api1'</span>,<span class="string">'./api2'</span>,<span class="string">'./api3'</span>,<span class="string">'./api4'</span>]).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="string">'请求结束'</span>)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -661,7 +664,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/createPromise.html">Promise诞生记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2018年06月05日 - 01:06</p>
-  <p><span>最后更新:</span>2020年09月08日 - 19:09</p>
+  <p><span>最后更新:</span>2020年09月13日 - 23:09</p>
   <p><span>原始链接:</span><a href="/createPromise.html" title="Promise诞生记">http://mydearest.cn/createPromise.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/createPromise.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -831,7 +834,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">150</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1012,7 +1015,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 289.7k字</span>
+    <span class="post-count">Blog总字数: 291.6k字</span>
   </div>
 
   <div class="theme-info">

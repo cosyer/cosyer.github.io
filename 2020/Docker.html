@@ -140,7 +140,7 @@
 <meta property="og:description" content="Docker，是一款现在最流行的 软件容器平台，提供了软件运行时所依赖的环境。 物理机硬件环境，真实的 计算机实体，包含了例如物理内存，硬盘等等硬件； 虚拟机:在物理机上 模拟出一套硬件环境和操作系统，应用软件可以运行于其中，并且毫无感知，是一套隔离的完整环境。本质上，它只是物理机上的一份运行文件。 为什么需要虚拟机？环境配置与迁移在软件开发和运行中，环境依赖一直是一个很头疼的难题，比如你想运行">
 <meta property="og:image" content="http://cdn.mydearest.cn/blog/images/docker.png">
 <meta property="article:published_time" content="2020-06-01T08:31:45.000Z">
-<meta property="article:modified_time" content="2020-08-11T16:42:39.841Z">
+<meta property="article:modified_time" content="2020-10-07T15:21:59.405Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="解决方案">
 <meta name="twitter:card" content="summary">
@@ -415,12 +415,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-08-12T00:42:39+08:00">
-    <div class="post-time-text">8月</div>
-    <div class="post-time-count">12</div>
+  <div class="post-date" data-datetime="2020-10-07T23:21:59+08:00">
+    <div class="post-time-text">10月</div>
+    <div class="post-time-count">07</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">8月12</div>
+      <div class="post-tiem">10月07</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -525,7 +525,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,956 (字)
+                  4,071 (字)
                 </span>
               
 
@@ -541,7 +541,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  16 (分钟)
+                  17 (分钟)
                 </span>
               
             </div>
@@ -577,10 +577,10 @@ a:hover {
 基本概念: 在 Docker 中，有三个核心的概念:</p>
 <h3 id="镜像-Image"><a href="#镜像-Image" class="headerlink" title="镜像 (Image):"></a>镜像 (Image):</h3><ol>
 <li>从原理上说，镜像属于一种<code>root 文件系统</code>，包含了一些系统文件和环境配置等，可以将其理解成一套<code>最小操作系统</code>。为了让镜像轻量化和可移植，Docker 采用了<code>Union FS 的分层存储模式</code>。将文件系统分成一层一层的结构，逐步从底层往上层构建，每层文件都可以进行继承和定制。这里从前端的角度来理解:<code>镜像就类似于代码中的 class，可以通过继承与上层封装进行复用</code>。</li>
-<li>从外层系统看来，一个镜像就是一个 Image<code>二进制文件</code>，可以任意迁移，删除，添加；</li>
+<li>从外层系统看来，一个镜像就是一个 Image<code>二进制文件</code>，可以任意迁移，删除，添加；<code>镜像是容器的基石，不包含任何动态数据。</code></li>
 </ol>
 <h3 id="容器-Container"><a href="#容器-Container" class="headerlink" title="容器 (Container):"></a>容器 (Container):</h3><ol>
-<li>镜像是一份静态文件系统，无法进行运行时操作，就如class，如果我们不进行实例化时，便无法进行操作和使用。因此<code>容器可以理解成镜像的实例</code>，即<code>new 镜像()</code>，这样我们便可以创建、修改、操作容器；一旦创建后，就可以简单理解成一个轻量级的操作系统，可以在内部进行各种操作，例如运行 node 应用，拉取 git 等；</li>
+<li>镜像是一份静态文件系统，无法进行运行时操作，就如class，如果我们不进行实例化时，便无法进行操作和使用。因此<code>容器可以理解成镜像的实例(镜像运行的实体)</code>，即<code>new 镜像()</code>，这样我们便可以创建、修改、操作容器；一旦创建后，就可以简单理解成一个轻量级的操作系统，可以在内部进行各种操作，例如运行 node 应用，拉取 git 等；</li>
 <li>基于镜像的分层结构，容器是<code>以镜像为基础底层</code>，在上面封装了一层<code>容器的存储层</code>；</li>
 </ol>
 <ul>
@@ -595,6 +595,10 @@ a:hover {
 <li>数据卷 (Volume): 一种可以在多个容器间共享的特殊目录，其处于容器外层，并不会随着容器销毁而删除；</li>
 <li>挂载主机目录: 直接将一个主机目录挂载到容器中进行写入；</li>
 </ul>
+<ol start="4">
+<li>容器运行着真正的应用进程。有着初建、运行、停止、暂停和删除5种状态。本质上是在主机上运行的一个进程，但容器有自己独立的命名空间隔离和资源
+限制。</li>
+</ol>
 <h3 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库 (Repository):"></a>仓库 (Repository):</h3><ol>
 <li>为了便于镜像的使用，Docker 提供了类似于 git 的仓库机制，在仓库中包含着各种各样版本的镜像。官方服务是 Docker Hub；</li>
 <li>可以快速地从仓库中拉取各种类型的镜像，也可以基于某些镜像进行自定义，甚至发布到仓库供社区使用；</li>
@@ -656,7 +660,7 @@ Dockerfile来打包出一个镜像。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker info</span><br></pre></td></tr></table></figure></p>
 <h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container create -p 9000:80 hello-docker:1.0.0 <span class="comment"># 根据镜像创建容器</span></span><br><span class="line">docker container start xxx <span class="comment"># xxx 为上一条命令运行得到的结果</span></span><br></pre></td></tr></table></figure>
 <p>然后在浏览器打开ip:9000，就能刚刚自己写的index.html内容。</p>
-<p>在上边第一个命令中，我们使用docker container create来创建基于hello-docker:1.0.0镜像的一个容器，使用-p来指定端口绑定——将容器中的80端口绑定在宿主机的2333端口。执行完该命令，会返回一个容ID
+<p>在上边第一个命令中，我们使用docker container create来创建基于hello-docker:1.0.0镜像的一个容器，使用-p来指定端口绑定——将容器中的80端口绑定在宿主机的9000端口。执行完该命令，会返回一个容器ID
 而第二个命令，则是启动这个容器启动后，就能通过访问本机的9000端口来达到访问容器内80端口的效果了</p>
 <blockquote>
 <p>Tips: 你可以使用docker container ls来查看当前运行的容器
@@ -664,7 +668,7 @@ Dockerfile来打包出一个镜像。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container <span class="built_in">exec</span> -it xxx /bin/bash <span class="comment"># xxx 为容器ID</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>原理实际上是启动了容器内的/bin/bash，此时你就可以通过bash shell与容器内交互了。就像远程连接了SSH一样</p>
-<h4 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span> <span class="comment"># 直接退出</span></span><br><span class="line"></span><br><span class="line">Ctrl + p + q <span class="comment"># 退出不停止</span></span><br></pre></td></tr></table></figure>
+<h4 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span> <span class="comment"># 直接退出</span></span><br><span class="line"></span><br><span class="line">ctrl + p + q <span class="comment"># 退出不停止</span></span><br></pre></td></tr></table></figure>
 <h4 id="制作镜像"><a href="#制作镜像" class="headerlink" title="制作镜像"></a>制作镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=<span class="string">'message'</span> -a=<span class="string">'cosyer'</span> containerId hello-docker:1.0.1</span><br></pre></td></tr></table></figure>
 <h4 id="DockerFile"><a href="#DockerFile" class="headerlink" title="DockerFile"></a>DockerFile</h4><ul>
 <li>FROM：这个镜像依赖谁（基础镜像）</li>
@@ -685,13 +689,14 @@ Dockerfile来打包出一个镜像。</p>
 <li>docker tag imageId message</li>
 <li>docker push imageId</li>
 </ul>
+<h4 id="重命名镜像"><a href="#重命名镜像" class="headerlink" title="重命名镜像"></a>重命名镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag busybox:latest mybusybox:latest</span><br></pre></td></tr></table></figure>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
 <li>写一个 Dockerfile</li>
 <li>使用docker image build来将Dockerfile打包成镜像</li>
 <li>使用docker container create来根据镜像创建一个容器</li>
 <li>使用docker container start来启动一个创建好的容器</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># images</span></span><br><span class="line">docker pull image</span><br><span class="line">docker images <span class="comment"># 查看所有镜像</span></span><br><span class="line">docker rmi imageId -f <span class="comment"># 强制删除镜像</span></span><br><span class="line">docker rmi -f \$(docker images -aq) <span class="comment"># 小技巧删除所有镜像</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># container</span></span><br><span class="line">docker ps <span class="comment"># 查看运行容器</span></span><br><span class="line">-a 列出历史</span><br><span class="line">-n 列出最近</span><br><span class="line">-q 只显示编号</span><br><span class="line">docker rm containerId <span class="comment"># 删除容器</span></span><br><span class="line">docker rmi -f \$(docker ps -aq) <span class="comment"># 小技巧删除所有容器</span></span><br><span class="line">docker start id <span class="comment"># 启动容器</span></span><br><span class="line">docker restart id <span class="comment">#重启容器</span></span><br><span class="line">docker stop id <span class="comment"># 停止当前运行的容器</span></span><br><span class="line">docker <span class="built_in">kill</span> id <span class="comment"># 强制停止当前运行容器</span></span><br><span class="line">docker inspect containerId <span class="comment"># 查看容器基本信息</span></span><br><span class="line">docker logs containerId <span class="comment"># 查看容器日志</span></span><br><span class="line">docker <span class="built_in">exec</span> -it containerId /bin/bash <span class="comment"># 进入容器</span></span><br><span class="line">docker attach <span class="comment"># 本机输入到容器中</span></span><br><span class="line">docker cp 本机路径 容器id:文件路径 <span class="comment"># 主机内容拷贝到容器</span></span><br><span class="line">docker cp 容器id:文件路径 本机路径 <span class="comment"># 容器拷贝内容到主机</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># images</span></span><br><span class="line">docker pull image</span><br><span class="line">docker images <span class="comment"># 查看所有镜像</span></span><br><span class="line">docker image ls</span><br><span class="line">docker images | grep busybox</span><br><span class="line">docker rmi imageId -f <span class="comment"># 强制删除镜像</span></span><br><span class="line">docker rmi -f \$(docker images -aq) <span class="comment"># 小技巧删除所有镜像</span></span><br><span class="line">docker image rm</span><br><span class="line"></span><br><span class="line"><span class="comment"># container</span></span><br><span class="line">docker ps <span class="comment"># 查看运行容器</span></span><br><span class="line">-a 列出历史</span><br><span class="line">-n 列出最近</span><br><span class="line">-q 只显示编号</span><br><span class="line">docker rm containerId <span class="comment"># 删除容器</span></span><br><span class="line">docker rmi -f \$(docker ps -aq) <span class="comment"># 小技巧删除所有容器</span></span><br><span class="line">docker start id <span class="comment"># 启动容器</span></span><br><span class="line">docker restart id <span class="comment">#重启容器</span></span><br><span class="line">docker stop id <span class="comment"># 停止当前运行的容器</span></span><br><span class="line">docker <span class="built_in">kill</span> id <span class="comment"># 强制停止当前运行容器</span></span><br><span class="line">docker inspect containerId <span class="comment"># 查看容器基本信息</span></span><br><span class="line">docker logs containerId <span class="comment"># 查看容器日志</span></span><br><span class="line">docker <span class="built_in">exec</span> -it containerId /bin/bash <span class="comment"># 进入容器</span></span><br><span class="line">docker attach <span class="comment"># 本机输入到容器中</span></span><br><span class="line">docker cp 本机路径 容器id:文件路径 <span class="comment"># 主机内容拷贝到容器</span></span><br><span class="line">docker cp 容器id:文件路径 本机路径 <span class="comment"># 容器拷贝内容到主机</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://cdn.mydearest.cn/blog/images/docker.png" alt="docker"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">iptables --list | grep DOCKER</span><br><span class="line"></span><br><span class="line">iptables -t nat -nvL</span><br><span class="line"></span><br><span class="line">sysctl net.ipv4.ip_forward  </span><br><span class="line"></span><br><span class="line">firewall-cmd --state</span><br><span class="line"></span><br><span class="line">vi /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">docker rm -f `docker ps -a -q`</span><br><span class="line"></span><br><span class="line">docker inspect my-nginx9|grep IPAddress</span><br><span class="line"></span><br><span class="line">docker container run --name nginxserver -d -p 80:80 nginx</span><br><span class="line"></span><br><span class="line">172.17.0.2:80</span><br></pre></td></tr></table></figure>
 <ul>
@@ -792,7 +797,7 @@ Dockerfile来打包出一个镜像。</p>
   <p><span>本文标题:</span><a href="/2020/Docker.html">Docker</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年06月01日 - 16:06</p>
-  <p><span>最后更新:</span>2020年08月12日 - 00:08</p>
+  <p><span>最后更新:</span>2020年10月07日 - 23:10</p>
   <p><span>原始链接:</span><a href="/2020/Docker.html" title="Docker">http://mydearest.cn/2020/Docker.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/Docker.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1096,7 +1101,7 @@ Dockerfile来打包出一个镜像。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#物理机"><span class="nav-number">1.</span> <span class="nav-text">物理机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机"><span class="nav-number">2.</span> <span class="nav-text">虚拟机:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要虚拟机？"><span class="nav-number">3.</span> <span class="nav-text">为什么需要虚拟机？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置与迁移"><span class="nav-number">3.1.</span> <span class="nav-text">环境配置与迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源利用率与隔离"><span class="nav-number">3.2.</span> <span class="nav-text">资源利用率与隔离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统虚拟机的缺点"><span class="nav-number">3.3.</span> <span class="nav-text">传统虚拟机的缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#资源占用大"><span class="nav-number">3.3.1.</span> <span class="nav-text">资源占用大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动缓慢"><span class="nav-number">3.3.2.</span> <span class="nav-text">启动缓慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#冗余步骤多"><span class="nav-number">3.3.3.</span> <span class="nav-text">冗余步骤多</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-容器"><span class="nav-number">4.</span> <span class="nav-text">Linux 容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">5.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像-Image"><span class="nav-number">5.1.</span> <span class="nav-text">镜像 (Image):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器-Container"><span class="nav-number">5.2.</span> <span class="nav-text">容器 (Container):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库-Repository"><span class="nav-number">5.3.</span> <span class="nav-text">仓库 (Repository):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">5.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个-docker-项目"><span class="nav-number">5.5.</span> <span class="nav-text">第一个 docker 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建文件"><span class="nav-number">5.5.1.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包镜像"><span class="nav-number">5.5.2.</span> <span class="nav-text">打包镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置国内镜像源"><span class="nav-number">5.5.3.</span> <span class="nav-text">配置国内镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行容器"><span class="nav-number">5.5.4.</span> <span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出容器"><span class="nav-number">5.5.5.</span> <span class="nav-text">退出容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制作镜像"><span class="nav-number">5.5.6.</span> <span class="nav-text">制作镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DockerFile"><span class="nav-number">5.5.7.</span> <span class="nav-text">DockerFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布镜像"><span class="nav-number">5.5.8.</span> <span class="nav-text">发布镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.5.9.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种网络模式"><span class="nav-number">5.5.10.</span> <span class="nav-text">三种网络模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPA应用静态站点迁移"><span class="nav-number">5.6.</span> <span class="nav-text">SPA应用静态站点迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#travis"><span class="nav-number">5.6.1.</span> <span class="nav-text">travis</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx反向代理"><span class="nav-number">5.7.</span> <span class="nav-text">nginx反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nodejs站点迁移-express"><span class="nav-number">5.8.</span> <span class="nav-text">nodejs站点迁移(express)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-compose"><span class="nav-number">5.9.</span> <span class="nav-text">docker-compose</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#物理机"><span class="nav-number">1.</span> <span class="nav-text">物理机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机"><span class="nav-number">2.</span> <span class="nav-text">虚拟机:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要虚拟机？"><span class="nav-number">3.</span> <span class="nav-text">为什么需要虚拟机？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置与迁移"><span class="nav-number">3.1.</span> <span class="nav-text">环境配置与迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源利用率与隔离"><span class="nav-number">3.2.</span> <span class="nav-text">资源利用率与隔离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统虚拟机的缺点"><span class="nav-number">3.3.</span> <span class="nav-text">传统虚拟机的缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#资源占用大"><span class="nav-number">3.3.1.</span> <span class="nav-text">资源占用大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动缓慢"><span class="nav-number">3.3.2.</span> <span class="nav-text">启动缓慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#冗余步骤多"><span class="nav-number">3.3.3.</span> <span class="nav-text">冗余步骤多</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-容器"><span class="nav-number">4.</span> <span class="nav-text">Linux 容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">5.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像-Image"><span class="nav-number">5.1.</span> <span class="nav-text">镜像 (Image):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器-Container"><span class="nav-number">5.2.</span> <span class="nav-text">容器 (Container):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库-Repository"><span class="nav-number">5.3.</span> <span class="nav-text">仓库 (Repository):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">5.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个-docker-项目"><span class="nav-number">5.5.</span> <span class="nav-text">第一个 docker 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建文件"><span class="nav-number">5.5.1.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包镜像"><span class="nav-number">5.5.2.</span> <span class="nav-text">打包镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置国内镜像源"><span class="nav-number">5.5.3.</span> <span class="nav-text">配置国内镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行容器"><span class="nav-number">5.5.4.</span> <span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出容器"><span class="nav-number">5.5.5.</span> <span class="nav-text">退出容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制作镜像"><span class="nav-number">5.5.6.</span> <span class="nav-text">制作镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DockerFile"><span class="nav-number">5.5.7.</span> <span class="nav-text">DockerFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布镜像"><span class="nav-number">5.5.8.</span> <span class="nav-text">发布镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重命名镜像"><span class="nav-number">5.5.9.</span> <span class="nav-text">重命名镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.5.10.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种网络模式"><span class="nav-number">5.5.11.</span> <span class="nav-text">三种网络模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPA应用静态站点迁移"><span class="nav-number">5.6.</span> <span class="nav-text">SPA应用静态站点迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#travis"><span class="nav-number">5.6.1.</span> <span class="nav-text">travis</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx反向代理"><span class="nav-number">5.7.</span> <span class="nav-text">nginx反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nodejs站点迁移-express"><span class="nav-number">5.8.</span> <span class="nav-text">nodejs站点迁移(express)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-compose"><span class="nav-number">5.9.</span> <span class="nav-text">docker-compose</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1141,7 +1146,7 @@ Dockerfile来打包出一个镜像。</p>
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 291.8k字</span>
+    <span class="post-count">Blog总字数: 292.7k字</span>
   </div>
 
   <div class="theme-info">

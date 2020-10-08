@@ -428,12 +428,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-06-22T00:12:05+08:00">
+  <div class="post-date" data-datetime="2020-06-23T19:39:15+08:00">
     <div class="post-time-text">6月</div>
-    <div class="post-time-count">22</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">6月22</div>
+      <div class="post-tiem">6月23</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -462,7 +462,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Mac%20iTerm2%20+%20oh-my-zsh.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/windows%E5%AE%89%E8%A3%85mysql.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -481,7 +481,7 @@ a:hover {
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/Mac%20iTerm2%20+%20oh-my-zsh.html" itemprop="url">【Mac 终端配置】iTerm2 + oh-my-zsh</a></h2>
+                <a class="post-title-link" href="/2020/windows%E5%AE%89%E8%A3%85mysql.html" itemprop="url">windows安装mysql</a></h2>
         
 
         <div class="post-meta">
@@ -493,8 +493,8 @@ a:hover {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-21T23:41:55+08:00">
-                2020-06-21
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-06-23T17:05:10+08:00">
+                2020-06-23
               </time>
             
 
@@ -512,7 +512,7 @@ a:hover {
 
           
           
-             <span id="/2020/Mac%20iTerm2%20+%20oh-my-zsh.html" class="leancloud_visitors" data-flag-title="【Mac 终端配置】iTerm2 + oh-my-zsh">
+             <span id="/2020/windows%E5%AE%89%E8%A3%85mysql.html" class="leancloud_visitors" data-flag-title="windows安装mysql">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -540,7 +540,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  578 (字)
+                  468 (字)
                 </span>
               
 
@@ -556,7 +556,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  3 (分钟)
+                  2 (分钟)
                 </span>
               
             </div>
@@ -578,11 +578,23 @@ a:hover {
 
       
         
-          <h2 id="前置校验"><a href="#前置校验" class="headerlink" title="前置校验"></a>前置校验</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、默认已安装 Homebrew、iTerm2</span></span><br><span class="line"><span class="comment"># 2、查看是否安装了zsh，查看是否返回 /usr/bin/zsh</span></span><br><span class="line">cat /etc/shells</span><br><span class="line"><span class="comment"># 若未安装</span></span><br><span class="line">brew install zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># iTerm2 启动项配置</span></span><br><span class="line">chsh -s /bin/zsh      <span class="comment"># 设置为zsh</span></span><br><span class="line">chsh -s /bin/bash     <span class="comment"># 设置为bash（Mac自带默认）</span></span><br></pre></td></tr></table></figure>
+          <h2 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h2><ul>
+<li><p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+</li>
+<li><p>Mysql国内镜像：<a href="http://mirrors.sohu.com/mysql/MySQL-8.0/" target="_blank" rel="noopener">http://mirrors.sohu.com/mysql/MySQL-8.0/</a></p>
+</li>
+</ul>
+<p>下载完成后，选择一个磁盘内放置并解压。</p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><ol>
+<li>变量名：MYSQL_HOME</li>
+<li>变量值：E:\mysql5.7.23</li>
+<li>path里添加：%MYSQL_HOME%\bin</li>
+</ol>
+<h2 id="初始化设置"><a href="#初始化设置" class="headerlink" title="初始化设置"></a>初始化设置</h2><h3 id="创建data-Uploads文件夹"><a href="#创建data-Uploads文件夹" class="headerlink" title="创建data Uploads文件夹"></a>创建data Uploads文件夹</h3><h3 id="my-init文件"><a href="#my-init文件" class="headerlink" title="my.init文件"></a>my.init文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">port=<span class="number">3306</span></span><br><span class="line">character_set_server=utf8</span><br><span class="line">basedir=E:\mysql5<span class="number">.7</span><span class="number">.23</span></span><br><span class="line">datadir=E:\mysql5<span class="number">.7</span><span class="number">.23</span>\data</span><br><span class="line">server-id=<span class="number">1</span></span><br><span class="line">sql_mode=NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br><span class="line">lower_case_table_names=<span class="number">1</span></span><br><span class="line">innodb_file_per_table = <span class="number">1</span></span><br><span class="line">log_timestamps=SYSTEM</span><br><span class="line"></span><br><span class="line">log-error   = error.log</span><br><span class="line">slow_query_log = <span class="number">1</span></span><br><span class="line">slow_query_log_file = slow.log</span><br><span class="line">long_query_time = <span class="number">5</span></span><br><span class="line">log-bin = binlog</span><br><span class="line">binlog_format = row</span><br><span class="line">expire_logs_days = <span class="number">15</span></span><br><span class="line">log_bin_trust_function_creators = <span class="number">1</span></span><br><span class="line">secure-file-priv=E:\mysql5<span class="number">.7</span><span class="number">.23</span>\Uploads</span><br><span class="line"></span><br><span class="line">[client]   </span><br><span class="line"><span class="keyword">default</span>-character-<span class="keyword">set</span>=utf8</span><br></pre></td></tr></table></figure>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/Mac%20iTerm2%20+%20oh-my-zsh.html#more" rel="contents">
+            <a class="btn" href="/2020/windows%E5%AE%89%E8%A3%85mysql.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2815,7 +2827,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 291.8k字</span>
+    <span class="post-count">Blog总字数: 292.7k字</span>
   </div>
 
   <div class="theme-info">

@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="react," />
 
 
 
@@ -132,29 +132,16 @@
 
 
 
-<meta name="description" content="陈宇的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cosyer&#39;s Blog">
-<meta property="og:url" content="http://mydearest.cn/tags/%E6%BA%90%E7%A0%81/index.html">
+<meta name="description" content="今天开始学习react源码相关的内容，源码基于版本v16.6.0。React16相较于之前的版本是核心上的一次重写，虽然主要的API都没有变化，但是增加了很多能力。并且首次引入了Fiber的概念，之后新的功能都是围绕Fiber进行实现，比如AsyncMode，Profiler等。 React与ReactDom的区别问题：react仅仅1000多行代码，而react-dom却将近2w行 答： Rea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react源码解析系列一(React相关API)">
+<meta property="og:url" content="http://mydearest.cn/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%80(React%E7%9B%B8%E5%85%B3API).html">
 <meta property="og:site_name" content="cosyer&#39;s Blog">
-<meta property="og:description" content="陈宇的博客">
+<meta property="og:description" content="今天开始学习react源码相关的内容，源码基于版本v16.6.0。React16相较于之前的版本是核心上的一次重写，虽然主要的API都没有变化，但是增加了很多能力。并且首次引入了Fiber的概念，之后新的功能都是围绕Fiber进行实现，比如AsyncMode，Profiler等。 React与ReactDom的区别问题：react仅仅1000多行代码，而react-dom却将近2w行 答： Rea">
+<meta property="article:published_time" content="2020-11-03T11:21:48.000Z">
+<meta property="article:modified_time" content="2020-11-04T13:41:42.943Z">
 <meta property="article:author" content="陈宇（cosyer）">
-<meta property="article:tag" content="个人博客">
-<meta property="article:tag" content="web前端">
-<meta property="article:tag" content="前端工程师">
-<meta property="article:tag" content="vue">
 <meta property="article:tag" content="react">
-<meta property="article:tag" content="webpack">
-<meta property="article:tag" content="css3">
-<meta property="article:tag" content="es6">
-<meta property="article:tag" content="html5">
-<meta property="article:tag" content="nodejs">
-<meta property="article:tag" content="php">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="next">
-<meta property="article:tag" content="electron">
-<meta property="article:tag" content="iview">
 <meta name="twitter:card" content="summary">
 
 
@@ -184,13 +171,13 @@
 
 
 
-  <link rel="canonical" href="http://mydearest.cn/tags/源码/"/>
+  <link rel="canonical" href="http://mydearest.cn/2020/react源码解析系列一(React相关API).html"/>
 
 
 
 
 
-  <title>标签: 源码 | cosyer's Blog</title>
+  <title>react源码解析系列一(React相关API) | cosyer's Blog</title>
   
 
 
@@ -274,7 +261,7 @@ a:hover {
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/cosyer" target="_blank" rel="noopener" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -412,16 +399,9 @@ a:hover {
         <div class="content-wrap">
           <div id="content" class="content">
             
-      <div class="collection-title-per">
-        <h2>
-          源码
-          <span>标签</span>
-        </h2>
-      </div>
 
-      <section id="posts" class="posts-expand">
-        
-          
+  <div id="posts" class="posts-expand">
+    
 
   
 
@@ -433,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-04-11T12:17:48+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">11</div>
+  <div class="post-date" data-datetime="2020-11-04T21:41:42+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">04</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月11</div>
+      <div class="post-tiem">11月04</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -451,8 +431,8 @@ a:hover {
             <span class="post-category" >
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -467,7 +447,7 @@ a:hover {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%88%B1%E5%BF%83%E5%92%8C%E5%AF%8C%E5%BC%BA%E7%89%B9%E6%95%88.html">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%80(React%E7%9B%B8%E5%85%B3API).html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈宇（cosyer）">
@@ -484,9 +464,7 @@ a:hover {
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%88%B1%E5%BF%83%E5%92%8C%E5%AF%8C%E5%BC%BA%E7%89%B9%E6%95%88.html" itemprop="url">鼠标点击爱心和富强特效</a></h2>
+          <h2 class="post-title" itemprop="name headline">react源码解析系列一(React相关API)</h2>
         
 
         <div class="post-meta">
@@ -498,8 +476,8 @@ a:hover {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-07T23:55:33+08:00">
-                2020-04-07
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-11-03T19:21:48+08:00">
+                2020-11-03
               </time>
             
 
@@ -517,7 +495,7 @@ a:hover {
 
           
           
-             <span id="/2020/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%88%B1%E5%BF%83%E5%92%8C%E5%AF%8C%E5%BC%BA%E7%89%B9%E6%95%88.html" class="leancloud_visitors" data-flag-title="鼠标点击爱心和富强特效">
+             <span id="/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%80(React%E7%9B%B8%E5%85%B3API).html" class="leancloud_visitors" data-flag-title="react源码解析系列一(React相关API)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -545,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  1,030 (字)
+                  1,846 (字)
                 </span>
               
 
@@ -561,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  5 (分钟)
+                  9 (分钟)
                 </span>
               
             </div>
@@ -582,47 +560,182 @@ a:hover {
       
 
       
-        
-          <h2 id="爱心"><a href="#爱心" class="headerlink" title="爱心"></a>爱心</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">e, t, a</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> e = <span class="number">0</span>; e &lt; s.length; e++) s[e].alpha &lt;= <span class="number">0</span> ? (t.body.removeChild(s[e].el), s.splice(e, <span class="number">1</span>)) : (s[e].y--, s[e].scale += <span class="number">.004</span>, s[e].alpha -= <span class="number">.013</span>, s[e].el.style.cssText = <span class="string">"left:"</span> + s[e].x + <span class="string">"px;top:"</span> + s[e].y + <span class="string">"px;opacity:"</span> + s[e].alpha + <span class="string">";transform:scale("</span> + s[e].scale + <span class="string">","</span> + s[e].scale + <span class="string">") rotate(45deg);background:"</span> + s[e].color + <span class="string">";z-index:99999"</span>);</span><br><span class="line">        requestAnimationFrame(r)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">n</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> t = <span class="string">"function"</span> == <span class="keyword">typeof</span> e.onclick &amp;&amp; e.onclick;</span><br><span class="line">        e.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            t &amp;&amp; t(),</span><br><span class="line">            o(e)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">o</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = t.createElement(<span class="string">"div"</span>);</span><br><span class="line">        a.className = <span class="string">"heart"</span>,</span><br><span class="line">        s.push(&#123;</span><br><span class="line">            el: a,</span><br><span class="line">            x: e.clientX - <span class="number">5</span>,</span><br><span class="line">            y: e.clientY - <span class="number">5</span>,</span><br><span class="line">            scale: <span class="number">1</span>,</span><br><span class="line">            alpha: <span class="number">1</span>,</span><br><span class="line">            color: c()</span><br><span class="line">        &#125;),</span><br><span class="line">        t.body.appendChild(a)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = t.createElement(<span class="string">"style"</span>);</span><br><span class="line">        a.type = <span class="string">"text/css"</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            a.appendChild(t.createTextNode(e))</span><br><span class="line">        &#125; <span class="keyword">catch</span>(t) &#123;</span><br><span class="line">            a.styleSheet.cssText = e</span><br><span class="line">        &#125;</span><br><span class="line">        t.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(a)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"rgb("</span> + ~~ (<span class="number">255</span> * <span class="built_in">Math</span>.random()) + <span class="string">","</span> + ~~ (<span class="number">255</span> * <span class="built_in">Math</span>.random()) + <span class="string">","</span> + ~~ (<span class="number">255</span> * <span class="built_in">Math</span>.random()) + <span class="string">")"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> s = [];</span><br><span class="line">    e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame ||</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        setTimeout(e, <span class="number">1e3</span> / <span class="number">60</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    i(<span class="string">".heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;"</span>),</span><br><span class="line">    n(),</span><br><span class="line">    r()</span><br><span class="line">&#125; (<span class="built_in">window</span>, <span class="built_in">document</span>);</span><br></pre></td></tr></table></figure>
+        <p>今天开始学习react源码相关的内容，源码基于版本<code>v16.6.0</code>。React16相较于之前的版本是核心上的一次重写，虽然主要的API都没有变化，但是增加了很多能力。并且首次引入了<code>Fiber</code>的概念，之后新的功能都是围绕<code>Fiber</code>进行实现，比如<code>AsyncMode</code>，<code>Profiler</code>等。</p>
+<h2 id="React与ReactDom的区别"><a href="#React与ReactDom的区别" class="headerlink" title="React与ReactDom的区别"></a>React与ReactDom的区别</h2><p>问题：<strong><em>react仅仅1000多行代码，而react-dom却将近2w行</em></strong></p>
+<p>答： React主要定义基础的概念，比如节点定义和描述相关，真正的实现代码都是在ReactDom里面的，也就是“平台无关”概念，针对不同的平台有不同的实现，但
+基本的概念都定义在React里。</p>
+<h2 id="React16-6-0使用FlowType做类型检查"><a href="#React16-6-0使用FlowType做类型检查" class="headerlink" title="React16.6.0使用FlowType做类型检查"></a>React16.6.0使用FlowType做类型检查</h2><p>Flow 是 facebook 出品的 JavaScript 静态类型检查⼯具。所谓类型检查，就是在编译期尽早发现（由类型错误引起的）bug，⼜不影响代码运⾏（不需要运⾏时动态检查类型），使编写 JavaScript 具有和编写 Java 等强类型语⾔相近的体验。</p>
+<p><a href="https://github.com/facebook/flow" target="_blank" rel="noopener">官方网站</a></p>
+<p>简单示例🌰
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g flow-bin</span><br><span class="line">flow init</span><br><span class="line">touch index.js</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js 进行类型注释</span></span><br><span class="line"><span class="comment">/*@flow*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x: number, y: number</span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="string">'Hello'</span>, <span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
 <hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%88%B1%E5%BF%83%E5%92%8C%E5%AF%8C%E5%BC%BA%E7%89%B9%E6%95%88.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<a id="more"></a>
+<h2 id="React暴露的Api"><a href="#React暴露的Api" class="headerlink" title="React暴露的Api"></a>React暴露的Api</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> React = &#123;</span><br><span class="line">  Children: &#123;</span><br><span class="line">    map,</span><br><span class="line">    forEach,</span><br><span class="line">    count,</span><br><span class="line">    toArray,</span><br><span class="line">    only,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  createRef,</span><br><span class="line">  Component,</span><br><span class="line">  PureComponent,</span><br><span class="line"></span><br><span class="line">  createContext,</span><br><span class="line">  forwardRef,</span><br><span class="line"></span><br><span class="line">  Fragment: REACT_FRAGMENT_TYPE,</span><br><span class="line">  StrictMode: REACT_STRICT_MODE_TYPE,</span><br><span class="line">  unstable_AsyncMode: REACT_ASYNC_MODE_TYPE,</span><br><span class="line">  unstable_Profiler: REACT_PROFILER_TYPE,</span><br><span class="line"></span><br><span class="line">  createElement: __DEV__ ? createElementWithValidation : createElement,</span><br><span class="line">  cloneElement: __DEV__ ? cloneElementWithValidation : cloneElement,</span><br><span class="line">  createFactory: __DEV__ ? createFactoryWithValidation : createFactory,</span><br><span class="line">  isValidElement: isValidElement,</span><br><span class="line"></span><br><span class="line">  version: ReactVersion,</span><br><span class="line"></span><br><span class="line">  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="JSX转换成什么"><a href="#JSX转换成什么" class="headerlink" title="JSX转换成什么"></a>JSX转换成什么</h2><ul>
+<li>核心<code>React.createElement</code>
+<code>ReactElement</code>通过<code>createElement</code>创建，调用该方法需要传入三个参数<ul>
+<li>type</li>
+<li>config</li>
+<li>children</li>
+</ul>
+</li>
+</ul>
+<h3 id="type指代这个ReactElement的类型"><a href="#type指代这个ReactElement的类型" class="headerlink" title="type指代这个ReactElement的类型"></a>type指代这个ReactElement的类型</h3><ul>
+<li>字符串比如<code>div</code>原生DOM，称为<code>HostComponent</code><strong>首字母小写</strong></li>
+<li>自定义组件变量(<code>functional Component</code>/<code>ClassComponent</code>)<strong>首字母大写</strong>不大写会识别为原生DOM解析</li>
+<li>原生提供的<code>Fragment</code>、<code>AsyncMode</code>等是<code>Symbol</code>，会被特殊处理</li>
+</ul>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><p>react会把关键参数解析出来，例如<code>key</code>、<code>ref</code>，在<code>createElement</code>中识别分离，这些参数不会和其他参数一起处理而是单独作为变量出现在
+<code>ReactElement</code>上。</p>
+<h3 id="children"><a href="#children" class="headerlink" title="children"></a>children</h3><p>第三个参数就是children，而且可以有任意多的参数，表示兄弟节点。可以通过<code>this.props.children</code>访问到。</p>
+<h3 id="相关源码以及注解⬇️"><a href="#相关源码以及注解⬇️" class="headerlink" title="相关源码以及注解⬇️"></a>相关源码以及注解⬇️</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createElement</span>(<span class="params">type, config, children</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (config != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (hasValidRef(config)) &#123; <span class="comment">// 从第二个参数筛选出ref和key</span></span><br><span class="line">      ref = config.ref;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (hasValidKey(config)) &#123;</span><br><span class="line">      key = <span class="string">''</span> + config.key;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Remaining properties are added to a new props object</span></span><br><span class="line">    <span class="keyword">for</span> (propName <span class="keyword">in</span> config) &#123;</span><br><span class="line">      <span class="keyword">if</span> (</span><br><span class="line">        hasOwnProperty.call(config, propName) &amp;&amp;</span><br><span class="line">        !RESERVED_PROPS.hasOwnProperty(propName) <span class="comment">// 内置的ref、id就是这解析出来的</span></span><br><span class="line">      ) &#123;</span><br><span class="line">        props[propName] = config[propName];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// </span></span><br><span class="line">  <span class="keyword">const</span> childrenLength = <span class="built_in">arguments</span>.length - <span class="number">2</span>; <span class="comment">// 3以后的参数都是children</span></span><br><span class="line">  <span class="keyword">if</span> (childrenLength === <span class="number">1</span>) &#123;</span><br><span class="line">    props.children = children;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (childrenLength &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> childArray = <span class="built_in">Array</span>(childrenLength); <span class="comment">// 大于1 放到数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; childrenLength; i++) &#123;</span><br><span class="line">      childArray[i] = <span class="built_in">arguments</span>[i + <span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    props.children = childArray; <span class="comment">// 放到chidren props.children拿的就是这个</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Resolve default props</span></span><br><span class="line">  <span class="keyword">if</span> (type &amp;&amp; type.defaultProps) &#123; <span class="comment">// 设置props的默认值</span></span><br><span class="line">    <span class="keyword">const</span> defaultProps = type.defaultProps;</span><br><span class="line">    <span class="keyword">for</span> (propName <span class="keyword">in</span> defaultProps) &#123;</span><br><span class="line">      <span class="keyword">if</span> (props[propName] === <span class="literal">undefined</span>) &#123; <span class="comment">// 如果props是undefined才会使用默认值</span></span><br><span class="line">        props[propName] = defaultProps[propName];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> ReactElement(</span><br><span class="line">    type,</span><br><span class="line">    key,</span><br><span class="line">    ref,</span><br><span class="line">    self,</span><br><span class="line">    source,</span><br><span class="line">    ReactCurrentOwner.current,</span><br><span class="line">    props,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ReactElement = <span class="function"><span class="keyword">function</span>(<span class="params">type, key, ref, self, source, owner, props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> element = &#123;</span><br><span class="line">    <span class="comment">// This tag allows us to uniquely identify this as a React Element</span></span><br><span class="line">    $$<span class="keyword">typeof</span>: REACT_ELEMENT_TYPE,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Built-in properties that belong on the element</span></span><br><span class="line">    type: type,</span><br><span class="line">    key: key,</span><br><span class="line">    ref: ref,</span><br><span class="line">    props: props,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Record the component responsible for creating this element.</span></span><br><span class="line">    _owner: owner,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> element</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ReactElement"><a href="#ReactElement" class="headerlink" title="ReactElement"></a>ReactElement</h3><p><code>ReactElement</code>只是一个用来承载信息的容器，它会告诉后续的操作这个节点的以下信息：</p>
+<ul>
+<li>type类型，用于判断如何创建节点</li>
+<li>key和ref这些特殊信息</li>
+<li>props新的属性内容</li>
+<li>$$typeof用于确定是否属于<code>ReactElement</code></li>
+</ul>
+<blockquote>
+<p>React通过提供这种类型的数据，来脱离平台的限制。</p>
+</blockquote>
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="$$typeof"></a>$$typeof</h3><p>在最后创建<code>ReactElement</code>我们👀看到了这么一个变量<code>$$typeof</code>。这是啥呢？React元素，会有一个<code>$$typeof</code>来表示该元素是什么类型。当本地有
+<code>Symbol</code>，则使用<code>Symbol</code>生成，没有时使用16进制。但有一个特例：<code>ReactDOM.createPortal</code>的时候是<code>REACT_PORTAL_TYPE</code>，不过它不是通过
+<code>createElement</code>创建的，所以它也不属于<code>ReactElement</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> REACT_ELEMENT_TYPE = <span class="number">0xeac7</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> REACT_PORTAL_TYPE = <span class="number">0xeaca</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> REACT_FRAGMENT_TYPE = <span class="number">0xeacb</span>;</span><br><span class="line">....</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Symbol</span> === <span class="string">'function'</span> &amp;&amp; <span class="built_in">Symbol</span>.for) &#123;</span><br><span class="line">  <span class="keyword">const</span> symbolFor = <span class="built_in">Symbol</span>.for;</span><br><span class="line">  REACT_ELEMENT_TYPE = symbolFor(<span class="string">'react.element'</span>);</span><br><span class="line">  REACT_PORTAL_TYPE = symbolFor(<span class="string">'react.portal'</span>);</span><br><span class="line">  REACT_FRAGMENT_TYPE = symbolFor(<span class="string">'react.fragment'</span>);</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="cloneElement"><a href="#cloneElement" class="headerlink" title="cloneElement"></a>cloneElement</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一个参数传入ReactElement，第二、三个参数和createElement一致</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">cloneElement</span>(<span class="params">element, config, children</span>) </span>&#123;</span><br><span class="line">  invariant(</span><br><span class="line">    !(element === <span class="literal">null</span> || element === <span class="literal">undefined</span>),</span><br><span class="line">    <span class="string">'React.cloneElement(...): The argument must be a React element, but you passed %s.'</span>,</span><br><span class="line">    element,</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> propName;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 复制传入的element props</span></span><br><span class="line">  <span class="keyword">const</span> props = <span class="built_in">Object</span>.assign(&#123;&#125;, element.props);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 提取内嵌的key和ref 不进行覆盖是原有的</span></span><br><span class="line">  <span class="keyword">let</span> key = element.key;</span><br><span class="line">  <span class="keyword">let</span> ref = element.ref;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> self = element._self;</span><br><span class="line">  <span class="comment">// Source is preserved since cloneElement is unlikely to be targeted by a</span></span><br><span class="line">  <span class="comment">// transpiler, and the original source is probably a better indicator of the</span></span><br><span class="line">  <span class="comment">// true owner.</span></span><br><span class="line">  <span class="keyword">const</span> source = element._source;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Owner will be preserved, unless ref is overridden</span></span><br><span class="line">  <span class="keyword">let</span> owner = element._owner;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// config和children的解析是一样的</span></span><br><span class="line">  <span class="keyword">if</span> (config != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (hasValidRef(config)) &#123;</span><br><span class="line">      <span class="comment">// Silently steal the ref from the parent.</span></span><br><span class="line">      ref = config.ref;</span><br><span class="line">      owner = ReactCurrentOwner.current;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (hasValidKey(config)) &#123;</span><br><span class="line">      key = <span class="string">''</span> + config.key;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Remaining properties override existing props</span></span><br><span class="line">    <span class="keyword">let</span> defaultProps;</span><br><span class="line">    <span class="keyword">if</span> (element.type &amp;&amp; element.type.defaultProps) &#123;</span><br><span class="line">      defaultProps = element.type.defaultProps;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (propName <span class="keyword">in</span> config) &#123;</span><br><span class="line">      <span class="keyword">if</span> (</span><br><span class="line">        hasOwnProperty.call(config, propName) &amp;&amp;</span><br><span class="line">        !RESERVED_PROPS.hasOwnProperty(propName)</span><br><span class="line">      ) &#123;</span><br><span class="line">        <span class="keyword">if</span> (config[propName] === <span class="literal">undefined</span> &amp;&amp; defaultProps !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">          <span class="comment">// Resolve default props</span></span><br><span class="line">          props[propName] = defaultProps[propName];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          props[propName] = config[propName];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Children can be more than one argument, and those are transferred onto</span></span><br><span class="line">  <span class="comment">// the newly allocated props object.</span></span><br><span class="line">  <span class="keyword">const</span> childrenLength = <span class="built_in">arguments</span>.length - <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span> (childrenLength === <span class="number">1</span>) &#123;</span><br><span class="line">    props.children = children;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (childrenLength &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> childArray = <span class="built_in">Array</span>(childrenLength);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; childrenLength; i++) &#123;</span><br><span class="line">      childArray[i] = <span class="built_in">arguments</span>[i + <span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    props.children = childArray;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ReactElement(element.type, key, ref, self, source, owner, props);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Component和PureComponent两个基类-ReactBaseClasses-js"><a href="#Component和PureComponent两个基类-ReactBaseClasses-js" class="headerlink" title="Component和PureComponent两个基类(ReactBaseClasses.js)"></a>Component和PureComponent两个基类(ReactBaseClasses.js)</h2><blockquote>
+<p>以element为样板克隆返回新的React元素，返回的props为新和旧的props进行浅层合并后的结果。新的子元素会替代旧的子元素，但是key和ref会保留。
+源码解析↓
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Component</span>(<span class="params">props, context, updater</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.props = props;</span><br><span class="line">  <span class="keyword">this</span>.context = context;</span><br><span class="line">  <span class="comment">// 使用string ref</span></span><br><span class="line">  <span class="keyword">this</span>.refs = emptyObject;</span><br><span class="line">  <span class="keyword">this</span>.updater = updater || ReactNoopUpdateQueue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Component.prototype.isReactComponent = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">Component.prototype.setState = <span class="function"><span class="keyword">function</span>(<span class="params">partialState, callback</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 校验第一个参数</span></span><br><span class="line">  <span class="comment">// partialState: 要更新的对象</span></span><br><span class="line">  <span class="comment">// 新的react版本推荐setState使用方法 =&gt; this.setState((preState) =&gt; (&#123;count:preState.count+1&#125;))</span></span><br><span class="line">  invariant(</span><br><span class="line">    <span class="keyword">typeof</span> partialState === <span class="string">'object'</span> ||</span><br><span class="line">      <span class="keyword">typeof</span> partialState === <span class="string">'function'</span> ||</span><br><span class="line">      partialState == <span class="literal">null</span>,</span><br><span class="line">    <span class="string">'setState(...): takes an object of state variables to update or a '</span> +</span><br><span class="line">      <span class="string">'function which returns an object of state variables.'</span>,</span><br><span class="line">  );</span><br><span class="line">  <span class="comment">// 更新队列 实现在react-dom里 整个Component的初始化入口</span></span><br><span class="line">  <span class="keyword">this</span>.updater.enqueueSetState(<span class="keyword">this</span>, partialState, callback, <span class="string">'setState'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 强制更新</span></span><br><span class="line">Component.prototype.forceUpdate = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 同样也在react-dom里实现</span></span><br><span class="line">  <span class="keyword">this</span>.updater.enqueueForceUpdate(<span class="keyword">this</span>, callback, <span class="string">'forceUpdate'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ComponentDummy</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">ComponentDummy.prototype = Component.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 和Component一致</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PureComponent</span>(<span class="params">props, context, updater</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.props = props;</span><br><span class="line">  <span class="keyword">this</span>.context = context;</span><br><span class="line">  <span class="keyword">this</span>.refs = emptyObject;</span><br><span class="line">  <span class="keyword">this</span>.updater = updater || ReactNoopUpdateQueue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line"><span class="keyword">const</span> pureComponentPrototype = (PureComponent.prototype = <span class="keyword">new</span> ComponentDummy());</span><br><span class="line">pureComponentPrototype.constructor = PureComponent;</span><br><span class="line"><span class="comment">// 复制拷贝 唯一的区别是标记上的区别 isPureReactComponent</span></span><br><span class="line"><span class="built_in">Object</span>.assign(pureComponentPrototype, Component.prototype);</span><br><span class="line">pureComponentPrototype.isPureReactComponent = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><ul>
+<li>平台思想(React和ReactDOM分包)
+抽象出概念，彻底剥离实现层，react只是处理了类型和参数的转换，不具体的实现任何业务。各个平台的实现放到ReactDom里处理。</li>
+</ul>
+<p>未完待续…</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div class="text-center line pages-end">
+				<span>本文结束<i class="fa fa-meh-o fa-fw"></i>感谢您的阅读</span>
+        </div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert@1.0.0/dist/sweetalert.css">
+  <p><span>本文标题:</span><a href="/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%80(React%E7%9B%B8%E5%85%B3API).html">react源码解析系列一(React相关API)</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
+  <p><span>发布时间:</span>2020年11月03日 - 19:11</p>
+  <p><span>最后更新:</span>2020年11月04日 - 21:11</p>
+  <p><span>原始链接:</span><a href="/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%80(React%E7%9B%B8%E5%85%B3API).html" title="react源码解析系列一(React相关API)">http://mydearest.cn/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%80(React%E7%9B%B8%E5%85%B3API).html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%80(React%E7%9B%B8%E5%85%B3API).html"  aria-label=" 复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",     
+          text: '复制成功',   
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
       
     </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈宇（cosyer） WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="陈宇（cosyer） Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"><i class="fa fa-tag fa-fw"></i> react</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/useful-website.html" rel="next" title="收集有用的网站">
+                <i class="fa fa-chevron-left"></i> 收集有用的网站
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -632,19 +745,11 @@ a:hover {
   </article>
 
 
-        
-      </section>
 
-
-  
-  
-  
-
-
-  
-  
-  
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -653,6 +758,12 @@ a:hover {
 
           
             
+  <div class="comments" id="comments">
+    
+      <div class="comments v" id="comments"></div>
+    
+  </div>
+
 
           
         </div>
@@ -674,8 +785,17 @@ a:hover {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -817,6 +937,22 @@ a:hover {
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React与ReactDom的区别"><span class="nav-number">1.</span> <span class="nav-text">React与ReactDom的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React16-6-0使用FlowType做类型检查"><span class="nav-number">2.</span> <span class="nav-text">React16.6.0使用FlowType做类型检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React暴露的Api"><span class="nav-number">3.</span> <span class="nav-text">React暴露的Api</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX转换成什么"><span class="nav-number">4.</span> <span class="nav-text">JSX转换成什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type指代这个ReactElement的类型"><span class="nav-number">4.1.</span> <span class="nav-text">type指代这个ReactElement的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config"><span class="nav-number">4.2.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#children"><span class="nav-number">4.3.</span> <span class="nav-text">children</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关源码以及注解⬇️"><span class="nav-number">4.4.</span> <span class="nav-text">相关源码以及注解⬇️</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReactElement"><span class="nav-number">4.5.</span> <span class="nav-text">ReactElement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof"><span class="nav-number">4.6.</span> <span class="nav-text">$$typeof</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cloneElement"><span class="nav-number">5.</span> <span class="nav-text">cloneElement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component和PureComponent两个基类-ReactBaseClasses-js"><span class="nav-number">6.</span> <span class="nav-text">Component和PureComponent两个基类(ReactBaseClasses.js)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计思想"><span class="nav-number">7.</span> <span class="nav-text">设计思想</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -927,9 +1063,9 @@ a:hover {
   
 
   
-    
-
   
+
+
 
   
 

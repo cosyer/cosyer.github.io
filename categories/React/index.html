@@ -433,6 +433,236 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-11-23T10:35:51+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">23</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">11月23</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%89(React%20Fiber).html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%89(React%20Fiber).html" itemprop="url">react源码解析系列三(React Fiber)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-11-23T10:20:28+08:00">
+                2020-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%89(React%20Fiber).html" class="leancloud_visitors" data-flag-title="react源码解析系列三(React Fiber)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  1,206 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  7 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Fiber"><a href="#Fiber" class="headerlink" title="Fiber"></a>Fiber</h2><blockquote>
+<p>每一个ReactElement对应一个Fiber对象</p>
+<p>记录节点的各种状态</p>
+<p>串联整个应用形成的结构</p>
+</blockquote>
+<p>例如：FiberRoot的current指向RootFiber 的 child —-&gt;App 的child —&gt; div 的child—-&gt;input 的sibling</p>
+<p>属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="comment">// 指向父节点（每个节点只会有一个父节点）</span></span><br><span class="line"></span><br><span class="line">child <span class="comment">// 子节点</span></span><br><span class="line"></span><br><span class="line">sibling <span class="comment">// 兄弟节点</span></span><br></pre></td></tr></table></figure>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><blockquote>
+<p>用于记录组件状态的改变</p>
+<p>存放于Fiber对象的UpdateQueue中：UpdateQue单项链表的结构</p>
+<p>多个Update可以同时存在：例如一个事件里面存在三个setState，创建三个update放到UpdateQueue中</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建或更新updatequeue</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">enqueueUpdate</span>&lt;<span class="title">State</span>&gt;(<span class="params">fiber: Fiber, update: Update&lt;State&gt;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Update queues are created lazily.</span></span><br><span class="line">  <span class="keyword">const</span> alternate = fiber.alternate;</span><br><span class="line">  <span class="keyword">let</span> queue1;</span><br><span class="line">  <span class="keyword">let</span> queue2;</span><br><span class="line">  <span class="keyword">if</span> (alternate === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// There's only one fiber.</span></span><br><span class="line">    queue1 = fiber.updateQueue;</span><br><span class="line">    queue2 = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (queue1 === <span class="literal">null</span>) &#123;</span><br><span class="line">      queue1 = fiber.updateQueue = createUpdateQueue(fiber.memoizedState);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// There are two owners.</span></span><br><span class="line">    queue1 = fiber.updateQueue;</span><br><span class="line">    queue2 = alternate.updateQueue;</span><br><span class="line">    <span class="keyword">if</span> (queue1 === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (queue2 === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// Neither fiber has an update queue. Create new ones.</span></span><br><span class="line">        queue1 = fiber.updateQueue = createUpdateQueue(fiber.memoizedState);</span><br><span class="line">        queue2 = alternate.updateQueue = createUpdateQueue(</span><br><span class="line">          alternate.memoizedState,</span><br><span class="line">        );</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// Only one fiber has an update queue. Clone to create a new one.</span></span><br><span class="line">        queue1 = fiber.updateQueue = cloneUpdateQueue(queue2);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (queue2 === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// Only one fiber has an update queue. Clone to create a new one.</span></span><br><span class="line">        queue2 = alternate.updateQueue = cloneUpdateQueue(queue1);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// Both owners have an update queue.</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (queue2 === <span class="literal">null</span> || queue1 === queue2) &#123;</span><br><span class="line">    <span class="comment">// There's only a single queue.</span></span><br><span class="line">    appendUpdateToQueue(queue1, update);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// There are two queues. We need to append the update to both queues,</span></span><br><span class="line">    <span class="comment">// while accounting for the persistent structure of the list — we don't</span></span><br><span class="line">    <span class="comment">// want the same update to be added multiple times.</span></span><br><span class="line">    <span class="keyword">if</span> (queue1.lastUpdate === <span class="literal">null</span> || queue2.lastUpdate === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="comment">// One of the queues is not empty. We must add the update to both queues.</span></span><br><span class="line">      appendUpdateToQueue(queue1, update);</span><br><span class="line">      appendUpdateToQueue(queue2, update);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Both queues are non-empty. The last update is the same in both lists,</span></span><br><span class="line">      <span class="comment">// because of structural sharing. So, only append to one of the lists.</span></span><br><span class="line">      appendUpdateToQueue(queue1, update);</span><br><span class="line">      <span class="comment">// But we still need to update the `lastUpdate` pointer of queue2.</span></span><br><span class="line">      queue2.lastUpdate = update;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (__DEV__) &#123;</span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      fiber.tag === ClassComponent &amp;&amp;</span><br><span class="line">      (currentlyProcessingQueue === queue1 ||</span><br><span class="line">        (queue2 !== <span class="literal">null</span> &amp;&amp; currentlyProcessingQueue === queue2)) &amp;&amp;</span><br><span class="line">      !didWarnUpdateInsideUpdate</span><br><span class="line">    ) &#123;</span><br><span class="line">      warningWithoutStack(</span><br><span class="line">        <span class="literal">false</span>,</span><br><span class="line">        <span class="string">'An update (setState, replaceState, or forceUpdate) was scheduled '</span> +</span><br><span class="line">          <span class="string">'from inside an update function. Update functions should be pure, '</span> +</span><br><span class="line">          <span class="string">'with zero side-effects. Consider using componentDidUpdate or a '</span> +</span><br><span class="line">          <span class="string">'callback.'</span>,</span><br><span class="line">      );</span><br><span class="line">      didWarnUpdateInsideUpdate = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="expirationTime"><a href="#expirationTime" class="headerlink" title="expirationTime"></a>expirationTime</h3><p>详解见：<a href="https://react.jokcy.me/book/update/expiration-time.html" target="_blank" rel="noopener">https://react.jokcy.me/book/update/expiration-time.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ReactFiberReconciler.js中</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">updateContainer</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  element: ReactNodeList,</span></span></span><br><span class="line"><span class="function"><span class="params">  container: OpaqueRoot,</span></span></span><br><span class="line"><span class="function"><span class="params">  parentComponent: ?React$Component&lt;any, any&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">  callback: ?Function,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> current = container.current; <span class="comment">// Fiber对象</span></span><br><span class="line">    <span class="comment">//!important</span></span><br><span class="line">  <span class="keyword">const</span> currentTime = requestCurrentTime();</span><br><span class="line">  <span class="keyword">const</span> expirationTime = computeExpirationForFiber(currentTime, current); </span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> updateContainerAtExpirationTime(</span><br><span class="line">    element,</span><br><span class="line">    container,</span><br><span class="line">    parentComponent,</span><br><span class="line">    expirationTime,</span><br><span class="line">    callback,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="requestCurrentTime"><a href="#requestCurrentTime" class="headerlink" title="requestCurrentTime"></a>requestCurrentTime</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 目前粗略的理解目前为止到js加载完成的时间差</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">requestCurrentTime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  已经进入到渲染阶段了</span></span><br><span class="line">  <span class="keyword">if</span> (isRendering) &#123;</span><br><span class="line">    <span class="comment">// We're already rendering. Return the most recently read time.</span></span><br><span class="line">    <span class="keyword">return</span> currentSchedulerTime;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Check if there's pending work.</span></span><br><span class="line">  findHighestPriorityRoot(); <span class="comment">// 从调度队列找到权限最高的root</span></span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    nextFlushedExpirationTime === NoWork ||</span><br><span class="line">    nextFlushedExpirationTime === Never</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="comment">// If there's no pending work, or if the pending work is offscreen, we can</span></span><br><span class="line">    <span class="comment">// read the current time without risk of tearing.</span></span><br><span class="line">    recomputeCurrentRendererTime(); <span class="comment">// 如下</span></span><br><span class="line">    currentSchedulerTime = currentRendererTime;</span><br><span class="line">    <span class="keyword">return</span> currentSchedulerTime;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// There's already pending work. We might be in the middle of a browser</span></span><br><span class="line">  <span class="comment">// event. If we were to read the current time, it could cause multiple updates</span></span><br><span class="line">  <span class="comment">// within the same event to receive different expiration times, leading to</span></span><br><span class="line">  <span class="comment">// tearing. Return the last read time. During the next idle callback, the</span></span><br><span class="line">  <span class="comment">// time will be updated.</span></span><br><span class="line">  <span class="keyword">return</span> currentSchedulerTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="recomputeCurrentRendererTime"><a href="#recomputeCurrentRendererTime" class="headerlink" title="recomputeCurrentRendererTime"></a>recomputeCurrentRendererTime</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">recomputeCurrentRendererTime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 从js加载完成到现在为止的时间间隔</span></span><br><span class="line">  <span class="keyword">const</span> currentTimeMs = now() - originalStartTimeMs; <span class="comment">// originalStartTimeMs： 初始的now（）</span></span><br><span class="line">  currentRendererTime = msToExpirationTime(currentTimeMs);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="msToExpirationTime"><a href="#msToExpirationTime" class="headerlink" title="msToExpirationTime"></a>msToExpirationTime</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> UNIT_SIZE = <span class="number">10</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">msToExpirationTime</span>(<span class="params">ms: number</span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Always add an offset so that we don't clash with the magic number for NoWork.</span></span><br><span class="line">  <span class="keyword">return</span> ((ms / UNIT_SIZE) | <span class="number">0</span>) + MAGIC_NUMBER_OFFSET;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="computeExpirationForFiber"><a href="#computeExpirationForFiber" class="headerlink" title="computeExpirationForFiber"></a>computeExpirationForFiber</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">computeExpirationForFiber</span>(<span class="params">currentTime: ExpirationTime, fiber: Fiber</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> expirationTime;</span><br><span class="line">  <span class="keyword">if</span> (expirationContext !== NoWork) &#123;</span><br><span class="line">    <span class="comment">// An explicit expiration context was set;</span></span><br><span class="line">    expirationTime = expirationContext;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isWorking) &#123;</span><br><span class="line">    <span class="keyword">if</span> (isCommitting) &#123;</span><br><span class="line">      <span class="comment">// Updates that occur during the commit phase should have sync priority</span></span><br><span class="line">      <span class="comment">// by default.</span></span><br><span class="line">      expirationTime = Sync;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Updates during the render phase should expire at the same time as</span></span><br><span class="line">      <span class="comment">// the work that is being rendered.</span></span><br><span class="line">      expirationTime = nextRenderExpirationTime;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// No explicit expiration context was set, and we're not currently</span></span><br><span class="line">    <span class="comment">// performing work. Calculate a new expiration time.</span></span><br><span class="line">    <span class="keyword">if</span> (fiber.mode &amp; ConcurrentMode) &#123;</span><br><span class="line">      <span class="keyword">if</span> (isBatchingInteractiveUpdates) &#123;</span><br><span class="line">        <span class="comment">// This is an interactive update</span></span><br><span class="line">        expirationTime = computeInteractiveExpiration(currentTime); <span class="comment">// 如下</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// This is an async update</span></span><br><span class="line">        expirationTime = computeAsyncExpiration(currentTime); <span class="comment">// 如下</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// If we're in the middle of rendering a tree, do not update at the same</span></span><br><span class="line">      <span class="comment">// expiration time that is already rendering.</span></span><br><span class="line">      <span class="keyword">if</span> (nextRoot !== <span class="literal">null</span> &amp;&amp; expirationTime === nextRenderExpirationTime) &#123;</span><br><span class="line">        expirationTime += <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// This is a sync update</span></span><br><span class="line">      expirationTime = Sync;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (isBatchingInteractiveUpdates) &#123;</span><br><span class="line">    <span class="comment">// This is an interactive update. Keep track of the lowest pending</span></span><br><span class="line">    <span class="comment">// interactive expiration time. This allows us to synchronously flush</span></span><br><span class="line">    <span class="comment">// all interactive updates when needed.</span></span><br><span class="line">    <span class="keyword">if</span> (expirationTime &gt; lowestPriorityPendingInteractiveExpirationTime) &#123;</span><br><span class="line">      lowestPriorityPendingInteractiveExpirationTime = expirationTime;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> expirationTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="computeInteractiveExpiration"><a href="#computeInteractiveExpiration" class="headerlink" title="computeInteractiveExpiration"></a>computeInteractiveExpiration</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> HIGH_PRIORITY_EXPIRATION = __DEV__ ? <span class="number">500</span> : <span class="number">150</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> HIGH_PRIORITY_BATCH_SIZE = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">computeInteractiveExpiration</span>(<span class="params">currentTime: ExpirationTime</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> computeExpirationBucket(</span><br><span class="line">    currentTime,</span><br><span class="line">    HIGH_PRIORITY_EXPIRATION,</span><br><span class="line">    HIGH_PRIORITY_BATCH_SIZE,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="computeAsyncExpiration"><a href="#computeAsyncExpiration" class="headerlink" title="computeAsyncExpiration"></a>computeAsyncExpiration</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> LOW_PRIORITY_EXPIRATION = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> LOW_PRIORITY_BATCH_SIZE = <span class="number">250</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">computeAsyncExpiration</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  currentTime: ExpirationTime,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> computeExpirationBucket(</span><br><span class="line">    currentTime,</span><br><span class="line">    LOW_PRIORITY_EXPIRATION,</span><br><span class="line">    LOW_PRIORITY_BATCH_SIZE,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="computeExpirationBucket"><a href="#computeExpirationBucket" class="headerlink" title="computeExpirationBucket"></a>computeExpirationBucket</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">computeExpirationBucket</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  currentTime,</span></span></span><br><span class="line"><span class="function"><span class="params">  expirationInMs,</span></span></span><br><span class="line"><span class="function"><span class="params">  bucketSizeMs,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    MAGIC_NUMBER_OFFSET +</span><br><span class="line">    ceiling(</span><br><span class="line">      currentTime - MAGIC_NUMBER_OFFSET + expirationInMs / UNIT_SIZE,</span><br><span class="line">      bucketSizeMs / UNIT_SIZE,</span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>计算为了将固定时间间断的，多次setState数据的更新当成一次更新，在这个时间间断内优先级是一样的</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-11-11T21:51:29+08:00">
     <div class="post-time-text">11月</div>
     <div class="post-time-count">11</div>
@@ -659,12 +889,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-11-09T20:44:53+08:00">
+  <div class="post-date" data-datetime="2020-11-23T10:22:03+08:00">
     <div class="post-time-text">11月</div>
-    <div class="post-time-count">09</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">11月09</div>
+      <div class="post-tiem">11月23</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -771,7 +1001,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  4,070 (字)
+                  4,092 (字)
                 </span>
               
 
@@ -1805,7 +2035,7 @@ a:hover {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">156</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1970,7 +2200,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 301.7k字</span>
+    <span class="post-count">Blog总字数: 303.6k字</span>
   </div>
 
   <div class="theme-info">

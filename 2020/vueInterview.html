@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="vue 双向绑定的原理采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调，实现视图刷新。 具体流程： Vue中先遍历data选项中所有的属性（发布者）用Object.defineProperty劫持这些属性将其转为getter&#x2F;setter。读取数据时候会触发get">
 <meta property="article:published_time" content="2020-04-22T16:10:18.000Z">
-<meta property="article:modified_time" content="2020-11-02T09:48:25.417Z">
+<meta property="article:modified_time" content="2020-11-23T02:18:22.234Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="vue">
@@ -414,12 +414,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-11-02T17:48:25+08:00">
+  <div class="post-date" data-datetime="2020-11-23T10:18:22+08:00">
     <div class="post-time-text">11月</div>
-    <div class="post-time-count">02</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">11月02</div>
+      <div class="post-tiem">11月23</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -1125,7 +1125,7 @@ this.$parent</li>
 </blockquote>
 <blockquote>
 <p><code>provide</code>和<code>inject</code>主要为高阶插件/组件库提供用例。并不推荐直接用于应用程序代码中。
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">provide() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        elForm: <span class="keyword">this</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inject: [<span class="string">'elForm'</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">provide:&#123;</span><br><span class="line">    name: <span class="string">'cosyer'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inject:&#123;</span><br><span class="line">    newName: &#123;</span><br><span class="line">        <span class="keyword">from</span>: <span class="string">'name'</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">provide() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        elForm: <span class="keyword">this</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inject: [<span class="string">'elForm'</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">provide: &#123;</span><br><span class="line">    name: <span class="string">'cosyer'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inject:&#123;</span><br><span class="line">    newName: &#123;</span><br><span class="line">        <span class="keyword">from</span>: <span class="string">'name'</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="assets和static的区别"><a href="#assets和static的区别" class="headerlink" title="assets和static的区别"></a>assets和static的区别</h3><ul>
 <li><p>assets中的文件在运行npm run build的时候会打包，简单来说就是会被压缩体积，代码格式化之类的。打包之后也会放到static中。</p>
@@ -1297,7 +1297,7 @@ Vue已经非常小了，在运行时（runtime）压缩后大约 20kb 。 但我
   <p><span>本文标题:</span><a href="/2020/vueInterview.html">vue面试题记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年04月23日 - 00:04</p>
-  <p><span>最后更新:</span>2020年11月02日 - 17:11</p>
+  <p><span>最后更新:</span>2020年11月23日 - 10:11</p>
   <p><span>原始链接:</span><a href="/2020/vueInterview.html" title="vue面试题记录">http://mydearest.cn/2020/vueInterview.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/vueInterview.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1467,7 +1467,7 @@ Vue已经非常小了，在运行时（runtime）压缩后大约 20kb 。 但我
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">156</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1648,7 +1648,7 @@ Vue已经非常小了，在运行时（runtime）压缩后大约 20kb 。 但我
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 301.7k字</span>
+    <span class="post-count">Blog总字数: 303.6k字</span>
   </div>
 
   <div class="theme-info">

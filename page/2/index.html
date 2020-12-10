@@ -428,6 +428,472 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2020-11-22T13:15:31+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">22</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">11月22</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/webpack.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/webpack.html" itemprop="url">webpack</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-08-18T14:37:40+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/webpack.html" class="leancloud_visitors" data-flag-title="webpack">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  4,266 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  18 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="谈谈你对webpack的看法"><a href="#谈谈你对webpack的看法" class="headerlink" title="谈谈你对webpack的看法"></a>谈谈你对webpack的看法</h2><p>webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源。</p>
+<blockquote>
+<p>webpack 最出色的功能之一就是，除了 JavaScript，还可以通过 loader 引入任何其他类型的文件。</p>
+</blockquote>
+<h2 id="webpack的基本功能和工作原理？"><a href="#webpack的基本功能和工作原理？" class="headerlink" title="webpack的基本功能和工作原理？"></a>webpack的基本功能和工作原理？</h2><ul>
+<li>代码转换：TypeScript 编译成 JavaScript、SCSS 编译成 CSS 等等</li>
+<li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片等</li>
+<li>代码分割：提取多个页面的公共代码、提取首屏不需要执行部分的代码让其异步加载</li>
+<li>模块合并：在采用模块化的项目有很多模块和文件，需要构建功能把模块分类合并成一个文件</li>
+<li>自动刷新：监听本地源代码的变化，自动构建，刷新浏览器</li>
+<li>代码校验：在代码被提交到仓库前需要检测代码是否符合规范，以及单元测试是否通过</li>
+<li><p>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</p>
+</li>
+<li><p>Entry（入口）：Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</p>
+</li>
+<li>Output（出口）：指示 webpack 如何去输出、以及在哪里输出</li>
+<li>Module（模块）：在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
+<li>Chunk（代码块）：一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
+<li>Loader（模块转换器）：用于把模块原内容按照需求转换成新内容。</li>
+<li>Plugin（扩展插件）：在 Webpack 构建流程中的特定时机会广播出对应的事件，插件可以监听这些事件，并改变输出结果</li>
+</ul>
+<h2 id="webpack构建过程"><a href="#webpack构建过程" class="headerlink" title="webpack构建过程"></a>webpack构建过程</h2><ul>
+<li>从entry里配置的module开始递归解析entry依赖的所有module</li>
+<li>每找到一个module，就会根据配置的loader去找对应的转换规则</li>
+<li>对module进行转换后，再解析出当前module依赖的module</li>
+<li>这些模块会以entry为单位分组，一个entry和其所有依赖的module被分到一个组Chunk</li>
+<li>最后webpack会把所有Chunk转换成文件输出</li>
+<li>在整个流程中webpack会在恰当的时机执行plugin里定义的逻辑</li>
+</ul>
+<ol>
+<li>初始化：解析webpack配置参数，生成 Compiler 实例</li>
+<li>注册插件：调用插件的apply方法，给插件传入compiler实例的引用，插件通过compiler调用Webpack提供的API，让插件可以监听后续的所有事件节点。</li>
+<li>入口：读取入口文件</li>
+<li>解析文件：使用loader将文件解析成抽象语法树 AST</li>
+<li>生成依赖图谱：找出每个文件的依赖项（遍历）</li>
+<li>输出：根据转换好的代码，生成 chunk</li>
+<li>生成最后打包的文件</li>
+</ol>
+<h2 id="webpack打包原理"><a href="#webpack打包原理" class="headerlink" title="webpack打包原理"></a>webpack打包原理</h2><h2 id="将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载"><a href="#将所有依赖打包成一个bundle-js，通过代码分割成单元片段按需加载" class="headerlink" title="将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载"></a>将所有依赖打包成一个bundle.js，通过代码分割成单元片段按需加载</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/webpack.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2020-11-22T12:32:00+08:00">
+    <div class="post-time-text">11月</div>
+    <div class="post-time-count">22</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">11月22</div>
+      <div class="post-year">2020</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Vue%E4%B8%ADaxios%E7%9A%84%E5%B0%81%E8%A3%85.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/Vue%E4%B8%ADaxios%E7%9A%84%E5%B0%81%E8%A3%85.html" itemprop="url">Vue中axios的封装</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-07-21T12:14:10+08:00">
+                2020-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/Vue%E4%B8%ADaxios%E7%9A%84%E5%B0%81%E8%A3%85.html" class="leancloud_visitors" data-flag-title="Vue中axios的封装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  2,696 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  11 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="聊聊-Vue-中-axios-的封装"><a href="#聊聊-Vue-中-axios-的封装" class="headerlink" title="聊聊 Vue 中 axios 的封装"></a>聊聊 Vue 中 axios 的封装</h2><p>axios 是 Vue 官方推荐的一个 HTTP 库，用 axios 官方简介来介绍它，就是：</p>
+<blockquote>
+<p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</p>
+</blockquote>
+<p>作为一个优秀的 HTTP 库，axios 打败了曾经由 Vue 官方团队维护的 vue-resource，获得了 Vue 作者尤小右的大力推荐，成为了 Vue 项目中 HTTP 库的最佳选择。</p>
+<p>虽然，axios 是个优秀的 HTTP 库，但是，直接在项目中使用并不是那么方便，所以，我们需要对其进行一定程度上的配置封装，减少重复代码，方便调用。下面，我们就来聊聊 Vue 中 axios 的封装。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/Vue%E4%B8%ADaxios%E7%9A%84%E5%B0%81%E8%A3%85.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-11-18T14:11:58+08:00">
     <div class="post-time-text">11月</div>
     <div class="post-time-count">18</div>
@@ -2196,429 +2662,6 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-10-15T18:37:21+08:00">
-    <div class="post-time-text">10月</div>
-    <div class="post-time-count">15</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">10月15</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/sort.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/sort.html" itemprop="url">常见排序的JS实现</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-25T21:37:09+08:00">
-                2018-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/sort.html" class="leancloud_visitors" data-flag-title="常见排序的JS实现">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  785 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  4 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="https-github-com-damonare-Sorts-这位大兄弟♂总结的很好，快去看看吧！"><a href="#https-github-com-damonare-Sorts-这位大兄弟♂总结的很好，快去看看吧！" class="headerlink" title="https://github.com/damonare/Sorts 这位大兄弟♂总结的很好，快去看看吧！"></a><a href="https://github.com/damonare/Sorts" target="_blank" rel="noopener">https://github.com/damonare/Sorts</a> 这位大兄弟♂总结的很好，快去看看吧！</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/sort.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-10-15T17:23:34+08:00">
-    <div class="post-time-text">10月</div>
-    <div class="post-time-count">15</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">10月15</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html" itemprop="url">linux安装mongodb及常见命令</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-07-20T14:20:40+08:00">
-                2019-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html" class="leancloud_visitors" data-flag-title="linux安装mongodb及常见命令">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  693 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  3 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://cdn.mydearest.cn/blog/images/mongodb.jpg" class="full-image" alt="MongoDB" title="MongoDB"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<h2 id="MongoDB-是一个基于分布式文件存储的数据库。由-C-语言编写。旨在为-WEB-应用提供可扩展的高性能数据存储解决方案。"><a href="#MongoDB-是一个基于分布式文件存储的数据库。由-C-语言编写。旨在为-WEB-应用提供可扩展的高性能数据存储解决方案。" class="headerlink" title="MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。"></a>MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2671,7 +2714,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">157</span>
+                <span class="site-state-item-count">158</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2693,7 +2736,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2836,7 +2879,7 @@ drwxr–r–   2 root    staff    68B Dec 17 13:51 com.microsoft.VSCode.ShipIt</
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 309.1k字</span>
+    <span class="post-count">Blog总字数: 309.7k字</span>
   </div>
 
   <div class="theme-info">

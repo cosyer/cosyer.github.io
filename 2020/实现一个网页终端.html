@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="先简单说一下原理吧，在网页上和服务器上建立一个ws连接，然后网页获取用户输入传给服务端，服务端解析用户输入，在服务端shell执行命令并将执行输出通过ws传给网页渲染到页面上。 以上原理说起来简单，但是完全自己实现是不太现实的。下面我把实现用到的库和插件以及使用方式简单说一下。">
 <meta property="article:published_time" content="2020-12-08T12:36:30.000Z">
-<meta property="article:modified_time" content="2020-12-08T12:43:23.969Z">
+<meta property="article:modified_time" content="2020-12-10T12:12:20.940Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-12-08T20:43:23+08:00">
+  <div class="post-date" data-datetime="2020-12-10T20:12:20+08:00">
     <div class="post-time-text">12月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">10</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月08</div>
+      <div class="post-tiem">12月10</div>
       <div class="post-year">2020</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  499 (字)
+                  977 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  2 (分钟)
+                  4 (分钟)
                 </span>
               
             </div>
@@ -577,6 +577,68 @@ a:hover {
 <li>在网页端通过xterm.js初始化一个网页终端UI</li>
 <li>将网页端的xterm.js实例与服务端的node-pty建立连接，这里需要用到xterm.js的一个插件xterm-addon-attach这个插件接受一个WebSocket实例作为参数与服务端建立连接</li>
 </ol>
+<h2 id="考试题"><a href="#考试题" class="headerlink" title="考试题"></a>考试题</h2><ol>
+<li><p>docker命令以下哪些为高危操作 A
+A docker rm容器id
+B docker inspect容器ID
+C docker mv容器ID
+D docker rm -f镜像ID</p>
+</li>
+<li><p>查看容器属性的方法 C
+A docker info
+B docker log
+C docker inspect
+D docker describe</p>
+</li>
+<li><p>有关docker正确的是 ABCD
+A docker info 可以查看到集群内容器的数量
+B docker ps容器ID (参数-a:显示所有容器，包括未运行的; -n: 列出最近创建的n个容器)
+C docker pause暂停容器中所有的进程
+D docker run创建一个新的容器并且启动它</p>
+</li>
+<li><p>构建Docker镜像应该遵循哪些原则? ABCD
+A 尽量选取满足需求但较小的基础系统镜像， 建议选择debian:wheezy镜像， 仅有43MB大小
+B 请理编译生成文件、 安装包的缓存等临时文件
+C 安装各个软件时候要指定准确的版本号， 并避免引入不需要的依赖
+D 从安全的角度考虑， 应用尽量使用系统的库和依赖</p>
+</li>
+<li><p>以下哪个是核心Kubernetes对象？D
+A Pods
+B Services
+C Volumes
+D 以上所有</p>
+</li>
+<li><p>1.8 版本的 Kubernetes 引入了什么？A
+A Taints and Tolerations
+B Cluster level Logging
+C Secrets
+D Federated Clusters</p>
+</li>
+<li><p>Kubernetes集群数据存储在以下哪个位置？C
+A KUBE-API服务器
+B Kubelet
+C ETCD
+D 以上都不是</p>
+</li>
+<li><p>Paas平台添加单体应用默认需要必填哪些表单项 D
+A 分支名称
+B 环境类型
+C 语言类型
+D 以上所有</p>
+</li>
+<li><p>Paas平台应用流状态有哪些 D
+A 代码质量检查
+B 构建镜像
+C 正式发布
+D 以上所有</p>
+</li>
+<li><p>Paas平台测试/发布单的提交人是指？A
+A 创建发起测试/发布单的人员
+B 操作审核测试/发布单的人员
+C 项目的负责人
+D 以上都不是</p>
+</li>
+</ol>
 
       
     </div>
@@ -608,7 +670,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2020/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%BB%88%E7%AB%AF.html">实现一个网页终端</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2020年12月08日 - 20:12</p>
-  <p><span>最后更新:</span>2020年12月08日 - 20:12</p>
+  <p><span>最后更新:</span>2020年12月10日 - 20:12</p>
   <p><span>原始链接:</span><a href="/2020/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%BB%88%E7%AB%AF.html" title="实现一个网页终端">http://mydearest.cn/2020/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%BB%88%E7%AB%AF.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2020/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%BB%88%E7%AB%AF.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -908,7 +970,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#xterm-js"><span class="nav-number">1.</span> <span class="nav-text">xterm.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-pty"><span class="nav-number">2.</span> <span class="nav-text">node-pty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sockjs"><span class="nav-number">3.</span> <span class="nav-text">sockjs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现流程"><span class="nav-number">4.</span> <span class="nav-text">实现流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#xterm-js"><span class="nav-number">1.</span> <span class="nav-text">xterm.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-pty"><span class="nav-number">2.</span> <span class="nav-text">node-pty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sockjs"><span class="nav-number">3.</span> <span class="nav-text">sockjs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现流程"><span class="nav-number">4.</span> <span class="nav-text">实现流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#考试题"><span class="nav-number">5.</span> <span class="nav-text">考试题</span></a></li></ol></div>
             
 
           </div>
@@ -953,7 +1015,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 309.7k字</span>
+    <span class="post-count">Blog总字数: 310.3k字</span>
   </div>
 
   <div class="theme-info">

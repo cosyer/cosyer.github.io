@@ -47,7 +47,7 @@ $(function () {
   // 调整 github logo 大小
   $('.github-corner svg').width(60).height(60);
 
-  POWERMODE.colorful = true; // ture 为启用礼花特效
+  POWERMODE.colorful = true; // true 为启用礼花特效
   POWERMODE.shake = false; // false 为禁用震动特效
   document.body.addEventListener('input', POWERMODE);
 

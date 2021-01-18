@@ -1,6 +1,6 @@
 $(function () {
 
-  //新增看娘
+  //新增看板娘
   var jsonPaths = ['/live2dw/assets/hijiki.model.json', '/live2dw/assets/tororo.model.json'];
   var jsonPath = jsonPaths[Math.round(Math.random())];
   var opacityDefault = 0;
@@ -149,7 +149,7 @@ const dateFormat = (date) => {
   //优化 用一次加载样式，避免多次重排、重绘
   $('.github-corner svg').css({"width":"60px","height":"60px"});
 
-  POWERMODE.colorful = true; // ture 为启用礼花特效
+  POWERMODE.colorful = true; // true 为启用礼花特效
   POWERMODE.shake = false; // false 为禁用震动特效
   document.body.addEventListener('input', POWERMODE);
 

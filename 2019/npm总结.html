@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="一. package.json 解读1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;#123;	&quot;name&quot;: &quot;hello world&quot;, &#x2F;&#x2F; 项目名称	&quot;version&quot;: &quot;0.0.1&quot;, &#x2F;&#x2F; 版本号：大版本.次要版本.小版本	&quot;author&quot;: &quot;张三&quot;,	&quot;de">
 <meta property="article:published_time" content="2019-09-17T16:17:31.000Z">
-<meta property="article:modified_time" content="2020-10-21T02:59:58.344Z">
+<meta property="article:modified_time" content="2021-02-08T05:52:23.700Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
@@ -413,13 +413,13 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2020-10-21T10:59:58+08:00">
-    <div class="post-time-text">10月</div>
-    <div class="post-time-count">21</div>
+  <div class="post-date" data-datetime="2021-02-08T13:52:23+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">08</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">10月21</div>
-      <div class="post-year">2020</div>
+      <div class="post-tiem">2月08</div>
+      <div class="post-year">2021</div>
 		</div>
   </div>
   
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,010 (字)
+                  3,299 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  13 (分钟)
+                  14 (分钟)
                 </span>
               
             </div>
@@ -656,6 +656,16 @@ a:hover {
 </li>
 </ol>
 <h3 id="mac更新node版本"><a href="#mac更新node版本" class="headerlink" title="mac更新node版本"></a>mac更新node版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本机版本</span></span><br><span class="line">ndoe -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除cache</span></span><br><span class="line">sudo npm cache clean -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装n工具管理node版本</span></span><br><span class="line">sudo npm install -g n</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装最新版本的node</span></span><br><span class="line">sudo n stable</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定版本或者0.10.26</span></span><br><span class="line">sudo n v0.10.26</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换版本</span></span><br><span class="line">sudo n 7.10.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除指定版本</span></span><br><span class="line">sudo n rm 7.10.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用指定的版本执行脚本</span></span><br><span class="line">sudo use 7.10.0 demo.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有已安装的版本</span></span><br><span class="line">sudo n</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新node到最新版本</span></span><br><span class="line">sudo npm install npm@latest -g</span><br></pre></td></tr></table></figure>
+<h3 id="yarn-link"><a href="#yarn-link" class="headerlink" title="yarn link"></a>yarn link</h3><p>两个或多个项目之间相互依赖时，可以使用yarn link将一个项目链接到另一个项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入B项目，创建链接对象</span></span><br><span class="line">yarn link</span><br><span class="line"><span class="comment"># 进入A项目，建立B项目的链接</span></span><br><span class="line">yarn link B</span><br><span class="line"><span class="comment"># 解除链接</span></span><br><span class="line">yarn unlink B</span><br></pre></td></tr></table></figure>
+<h3 id="yalc"><a href="#yalc" class="headerlink" title="yalc"></a>yalc</h3><p>yalc是一个比 <code>npm | yarn link</code> 更加先进的解决方法，能够避免相关依赖的问题。</p>
+<ul>
+<li>yalc在本地环境中创建了一个共享的本地开发包的本地存储库</li>
+<li>当在指定包目录中运行 <code>yalc publish</code> 时，会将本来发布到npm上的相关文件放到本地一个共享的全局存储中</li>
+<li>当在需要引用的项目中运行 <code>yarn add my-package</code>时，它会将包内容拉入根目录的.yalc文件夹中，并将文件<code>&quot;file:./yalc/my-package&quot;</code>注入package-json。如果使用<code>yalc link my-package</code>的话，会创建项目软链接，不会修改package.json</li>
+<li>yalc会在项目中创建一个特殊的yalc.lock文件，用于确保执行yalc例程时的一致性</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yarn global add yalc</span><br><span class="line">yalc publish</span><br><span class="line">yalc add my-package</span><br><span class="line">yalc install</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -687,7 +697,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/npm%E6%80%BB%E7%BB%93.html">npm总结</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年09月18日 - 00:09</p>
-  <p><span>最后更新:</span>2020年10月21日 - 10:10</p>
+  <p><span>最后更新:</span>2021年02月08日 - 13:02</p>
   <p><span>原始链接:</span><a href="/2019/npm%E6%80%BB%E7%BB%93.html" title="npm总结">http://mydearest.cn/2019/npm%E6%80%BB%E7%BB%93.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/npm%E6%80%BB%E7%BB%93.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -991,7 +1001,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-package-json-解读"><span class="nav-number">1.</span> <span class="nav-text">一. package.json 解读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-版本号规范"><span class="nav-number">2.</span> <span class="nav-text">二. 版本号规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-npm-install-与-npm-update"><span class="nav-number">3.</span> <span class="nav-text">三. npm install 与 npm update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-npm-i-与-npm-install"><span class="nav-number">4.</span> <span class="nav-text">四. npm i 与 npm install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-npm-devDependencies-与-dependencies"><span class="nav-number">5.</span> <span class="nav-text">五. npm devDependencies 与 dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-全局安装与本地安装"><span class="nav-number">6.</span> <span class="nav-text">六. 全局安装与本地安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-全局安装，-将包安装成全局可用的可执行命令"><span class="nav-number">6.1.</span> <span class="nav-text">1. 全局安装， 将包安装成全局可用的可执行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地安装"><span class="nav-number">6.2.</span> <span class="nav-text">2. 本地安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改全局安装默认路径"><span class="nav-number">6.3.</span> <span class="nav-text">3. 修改全局安装默认路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-npm-包命令"><span class="nav-number">7.</span> <span class="nav-text">七. npm 包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-简写形式"><span class="nav-number">8.</span> <span class="nav-text">八. 简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-process"><span class="nav-number">9.</span> <span class="nav-text">九. process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十-npm-发布包"><span class="nav-number">10.</span> <span class="nav-text">十. npm 发布包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number">11.</span> <span class="nav-text">常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac更新node版本"><span class="nav-number">12.</span> <span class="nav-text">mac更新node版本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-package-json-解读"><span class="nav-number">1.</span> <span class="nav-text">一. package.json 解读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-版本号规范"><span class="nav-number">2.</span> <span class="nav-text">二. 版本号规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-npm-install-与-npm-update"><span class="nav-number">3.</span> <span class="nav-text">三. npm install 与 npm update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-npm-i-与-npm-install"><span class="nav-number">4.</span> <span class="nav-text">四. npm i 与 npm install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-npm-devDependencies-与-dependencies"><span class="nav-number">5.</span> <span class="nav-text">五. npm devDependencies 与 dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-全局安装与本地安装"><span class="nav-number">6.</span> <span class="nav-text">六. 全局安装与本地安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-全局安装，-将包安装成全局可用的可执行命令"><span class="nav-number">6.1.</span> <span class="nav-text">1. 全局安装， 将包安装成全局可用的可执行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地安装"><span class="nav-number">6.2.</span> <span class="nav-text">2. 本地安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改全局安装默认路径"><span class="nav-number">6.3.</span> <span class="nav-text">3. 修改全局安装默认路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-npm-包命令"><span class="nav-number">7.</span> <span class="nav-text">七. npm 包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-简写形式"><span class="nav-number">8.</span> <span class="nav-text">八. 简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-process"><span class="nav-number">9.</span> <span class="nav-text">九. process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十-npm-发布包"><span class="nav-number">10.</span> <span class="nav-text">十. npm 发布包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number">11.</span> <span class="nav-text">常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac更新node版本"><span class="nav-number">12.</span> <span class="nav-text">mac更新node版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yarn-link"><span class="nav-number">13.</span> <span class="nav-text">yarn link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yalc"><span class="nav-number">14.</span> <span class="nav-text">yalc</span></a></li></ol></div>
             
 
           </div>
@@ -1036,7 +1046,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 310.8k字</span>
+    <span class="post-count">Blog总字数: 311.2k字</span>
   </div>
 
   <div class="theme-info">

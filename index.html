@@ -428,12 +428,226 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2021-01-18T19:03:00+08:00">
-    <div class="post-time-text">1月</div>
-    <div class="post-time-count">18</div>
+  <div class="post-date" data-datetime="2021-02-08T13:52:23+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">08</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">1月18</div>
+      <div class="post-tiem">2月08</div>
+      <div class="post-year">2021</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/npm%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/npm%E6%80%BB%E7%BB%93.html" itemprop="url">npm总结</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-09-18T00:17:31+08:00">
+                2019-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/npm%E6%80%BB%E7%BB%93.html" class="leancloud_visitors" data-flag-title="npm总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  3,299 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  14 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="一-package-json-解读"><a href="#一-package-json-解读" class="headerlink" title="一. package.json 解读"></a>一. package.json 解读</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"name"</span>: <span class="string">"hello world"</span>, <span class="comment">// 项目名称</span></span><br><span class="line">	<span class="string">"version"</span>: <span class="string">"0.0.1"</span>, <span class="comment">// 版本号：大版本.次要版本.小版本</span></span><br><span class="line">	<span class="string">"author"</span>: <span class="string">"张三"</span>,</span><br><span class="line">	<span class="string">"description"</span>: <span class="string">"第一个node.js程序"</span>,</span><br><span class="line">	<span class="string">"keywords"</span>:[<span class="string">"node.js"</span>,<span class="string">"javascript"</span>], <span class="comment">// 关键词，有助于 npm search 发现</span></span><br><span class="line">	<span class="string">"repository"</span>: &#123; <span class="comment">// 存储库，指定代码所在位置（如果git repo在GitHub上，那么该npm docs 命令将能够找到文件位置。）</span></span><br><span class="line">		<span class="string">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">		<span class="string">"url"</span>: <span class="string">"https://path/to/url"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"license"</span>:<span class="string">"MIT"</span>, <span class="comment">// 指定包许可证，详细可见[SPDX许可证ID的完整列表](https://spdx.org/licenses/)</span></span><br><span class="line">	<span class="string">"engines"</span>: &#123;<span class="string">"node"</span>: <span class="string">"0.10.x"</span>&#125;, <span class="comment">// 指定该模块运行的平台，可以指定 node 版本、npm 版本等</span></span><br><span class="line">	<span class="string">"bugs"</span>:&#123;<span class="string">"url"</span>:<span class="string">"http://path/to/bug"</span>,<span class="string">"email"</span>:<span class="string">"bug@example.com"</span>&#125;, <span class="comment">// 项目问题跟踪器的URL和应报告问题的电子邮件地址。</span></span><br><span class="line">	<span class="string">"contributors"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"李四"</span>,<span class="string">"email"</span>:<span class="string">"lisi@example.com"</span>&#125;],</span><br><span class="line">    <span class="string">"bin"</span>: &#123; <span class="comment">// 指定内部命令对应的可执行文件的位置，在 scripts 中就可以简写</span></span><br><span class="line">    	<span class="string">"webpack"</span>: <span class="string">"./bin/webpack.js"</span></span><br><span class="line">  	&#125;,</span><br><span class="line">    <span class="string">"main"</span>: <span class="string">"lib/webpack.js"</span>, <span class="comment">// 指定加载的模块入口文件，require('moduleName')就会加载这个文件。这个字段的默认值是模块根目录下面的index.js。</span></span><br><span class="line">    <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;, <span class="comment">// 用于添加命令行的环境变量（用户在运行 scripts 命令时，就默认在脚本文件中添加 process.env.npm_package_config_port，用户可以通过 npm config set foo:port 80 命令更改这个值）</span></span><br><span class="line">	<span class="string">"scripts"</span>: &#123; <span class="comment">// 指定运行脚本的 npm 命令行缩写</span></span><br><span class="line">		<span class="string">"start"</span>: <span class="string">"node index.js"</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"peerDependencies"</span>: &#123; <span class="comment">// 指定项目安装必须一起安装的模块及其版本号，（注意：从 npm 3.0 开始，peerDependencies不会再默认安装）</span></span><br><span class="line">    	<span class="string">"chai"</span>: <span class="string">"1.x"</span></span><br><span class="line">  	&#125;,</span><br><span class="line">	<span class="string">"dependencies"</span>: &#123; <span class="comment">// 指定项目运行所依赖的模块</span></span><br><span class="line">		<span class="string">"express"</span>: <span class="string">"latest"</span>,</span><br><span class="line">		<span class="string">"mongoose"</span>: <span class="string">"~3.8.3"</span>,</span><br><span class="line">		<span class="string">"handlebars-runtime"</span>: <span class="string">"~1.0.12"</span>,</span><br><span class="line">		<span class="string">"express3-handlebars"</span>: <span class="string">"~0.5.0"</span>,</span><br><span class="line">		<span class="string">"MD5"</span>: <span class="string">"~1.2.0"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"devDependencies"</span>: &#123; <span class="comment">// 指定项目开发所需要的模块</span></span><br><span class="line">		<span class="string">"bower"</span>: <span class="string">"~1.2.8"</span>,</span><br><span class="line">		<span class="string">"grunt"</span>: <span class="string">"~0.4.1"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-concat"</span>: <span class="string">"~0.3.0"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-jshint"</span>: <span class="string">"~0.7.2"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-uglify"</span>: <span class="string">"~0.2.7"</span>,</span><br><span class="line">		<span class="string">"grunt-contrib-clean"</span>: <span class="string">"~0.5.0"</span>,</span><br><span class="line">		<span class="string">"browserify"</span>: <span class="string">"2.36.1"</span>,</span><br><span class="line">		<span class="string">"grunt-browserify"</span>: <span class="string">"~1.3.0"</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"browser"</span>: &#123; <span class="comment">// 指定该模板供浏览器使用的版本</span></span><br><span class="line">  		<span class="string">"tipso"</span>: <span class="string">"./node_modules/tipso/src/tipso.js"</span></span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">"preferGlobal"</span>: <span class="literal">true</span>, <span class="comment">// 表示当用户不将该模块安装为全局模块时（即不用–global参数），要不要显示警告，表示该模块的本意就是安装为全局模块。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>package.json</code> 在 node 和 npm 环节都要使用，node 在调用 <code>require</code> 的时候去查找模块，会按照一个次序去查找，<code>package.json</code> 会是查找中的一个环节。npm 用的就比较多，其中的 <code>dependencies</code> 字段就是本模块的依赖的模块清单。每次<code>npm update</code>的时候，npm会自动的把依赖到的模块也下载下来。当<code>npm install</code> 本模块的时候，会把这里提到的模块都一起下载下来。通过package.json,就可以管理好模块的依赖关系。</p>
+<p>关于更多规范，请看官方<a href="https://docs.npmjs.com/files/package.json.html" target="_blank" rel="noopener">npm-package.json</a></p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/npm%E6%80%BB%E7%BB%93.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2021-02-07T16:10:07+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">07</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">2月07</div>
       <div class="post-year">2021</div>
 		</div>
   </div>
@@ -540,7 +754,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  302 (字)
+                  325 (字)
                 </span>
               
 
@@ -597,6 +811,446 @@ a:hover {
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/useful-website.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2021-01-28T09:40:11+08:00">
+    <div class="post-time-text">1月</div>
+    <div class="post-time-count">28</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">1月28</div>
+      <div class="post-year">2021</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/smallknowledge.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/smallknowledge.html" itemprop="url">你所不知道的前端冷门小知识(长期更新)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-11T21:55:52+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/smallknowledge.html" class="leancloud_visitors" data-flag-title="你所不知道的前端冷门小知识(长期更新)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  22,082 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  105 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://javascript-puzzlers.herokuapp.com/" target="_blank" rel="noopener">javascript-puzzlers</a></p>
+<h2 id="void"><a href="#void" class="headerlink" title="void"></a>void</h2><p>void其实是javascript中的一个函数，接受一个参数，返回值永远是undefined
+void expression</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="number">0</span>  </span><br><span class="line"><span class="keyword">void</span>() <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">void</span> (<span class="number">0</span>)  </span><br><span class="line"><span class="keyword">void</span> <span class="string">"hello"</span>  </span><br><span class="line"><span class="keyword">void</span> (<span class="keyword">new</span> <span class="built_in">Date</span>())  </span><br><span class="line"><span class="comment">// all will return undefined  </span></span><br><span class="line">context === <span class="keyword">void</span> <span class="number">666</span></span><br></pre></td></tr></table></figure>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/smallknowledge.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2021-01-22T15:17:38+08:00">
+    <div class="post-time-text">1月</div>
+    <div class="post-time-count">22</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">1月22</div>
+      <div class="post-year">2021</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/vueInterview.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/vueInterview.html" itemprop="url">vue面试题记录</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T00:10:18+08:00">
+                2020-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/vueInterview.html" class="leancloud_visitors" data-flag-title="vue面试题记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  12,059 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  49 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="vue-双向绑定的原理"><a href="#vue-双向绑定的原理" class="headerlink" title="vue 双向绑定的原理"></a>vue 双向绑定的原理</h3><p>采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调，实现视图刷新。</p>
+<p>具体流程：
+Vue中先遍历data选项中所有的属性（发布者）用Object.defineProperty劫持这些属性将其转为getter/setter。读取数据时候会触发getter。修改数据时会触发setter。</p>
+<p>然后给每个属性对应new Dep()，Dep是专门收集依赖、删除依赖、向依赖发送消息的。先让每个依赖设置在Dep.target上，在Dep中创建一个依赖数组，先判断Dep.target是否已经在依赖中存在，不存在的话添加到依赖数组中完成依赖收集，随后将Dep.target置为上一个依赖。</p>
+<p>组件在挂载过程中都会new一个Watcher实例。这个实例就是依赖（订阅者）。Watcher第二参数是一个函数，此函数作用是更新且渲染节点。在首次渲染过程，会自动调用Dep方法来收集依赖，收集完成后组件中每个数据都绑定上该依赖。当数据变化时就会在setter中通知对应的依赖进行更新。在更新过程中要先读取数据，就会触发Wacther的第二个函数参数。一触发就再次自动调用Dep方法收集依赖，同时在此函数中运行patch（diff运算)来更新对应的DOM节点，完成了双向绑定。</p>
+<ul>
+<li>每一个组件默认都会创建一个 Watcher，自定义的 watch 和 computed 方法也会创建 Watcher </li>
+</ul>
+<h3 id="Object-defineProperty-实现双向绑定的缺点"><a href="#Object-defineProperty-实现双向绑定的缺点" class="headerlink" title="Object.defineProperty()实现双向绑定的缺点"></a>Object.defineProperty()实现双向绑定的缺点</h3><ol>
+<li>只能监听某个属性，不能监听整个对象</li>
+<li>需要使用for in遍历对象属性绑定监听</li>
+<li>不能监听数组，需要重写数组方法进行特异性操作</li>
+<li>会污染原对象</li>
+</ol>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/vueInterview.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -818,446 +1472,6 @@ str | index</li>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/interview.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2021-01-16T17:47:38+08:00">
-    <div class="post-time-text">1月</div>
-    <div class="post-time-count">16</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">1月16</div>
-      <div class="post-year">2021</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/vueInterview.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/vueInterview.html" itemprop="url">vue面试题记录</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-23T00:10:18+08:00">
-                2020-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/vueInterview.html" class="leancloud_visitors" data-flag-title="vue面试题记录">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  12,054 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  49 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="vue-双向绑定的原理"><a href="#vue-双向绑定的原理" class="headerlink" title="vue 双向绑定的原理"></a>vue 双向绑定的原理</h3><p>采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调，实现视图刷新。</p>
-<p>具体流程：
-Vue中先遍历data选项中所有的属性（发布者）用Object.defineProperty劫持这些属性将其转为getter/setter。读取数据时候会触发getter。修改数据时会触发setter。</p>
-<p>然后给每个属性对应new Dep()，Dep是专门收集依赖、删除依赖、向依赖发送消息的。先让每个依赖设置在Dep.target上，在Dep中创建一个依赖数组，先判断Dep.target是否已经在依赖中存在，不存在的话添加到依赖数组中完成依赖收集，随后将Dep.target置为上一个依赖。</p>
-<p>组件在挂载过程中都会new一个Watcher实例。这个实例就是依赖（订阅者）。Watcher第二参数是一个函数，此函数作用是更新且渲染节点。在首次渲染过程，会自动调用Dep方法来收集依赖，收集完成后组件中每个数据都绑定上该依赖。当数据变化时就会在setter中通知对应的依赖进行更新。在更新过程中要先读取数据，就会触发Wacther的第二个函数参数。一触发就再次自动调用Dep方法收集依赖，同时在此函数中运行patch（diff运算)来更新对应的DOM节点，完成了双向绑定。</p>
-<ul>
-<li>每一个组件默认都会创建一个 Watcher，自定义的 watch 和 computed 方法也会创建 Watcher </li>
-</ul>
-<h3 id="Object-defineProperty-实现双向绑定的缺点"><a href="#Object-defineProperty-实现双向绑定的缺点" class="headerlink" title="Object.defineProperty()实现双向绑定的缺点"></a>Object.defineProperty()实现双向绑定的缺点</h3><ol>
-<li>只能监听某个属性，不能监听整个对象</li>
-<li>需要使用for in遍历对象属性绑定监听</li>
-<li>不能监听数组，需要重写数组方法进行特异性操作</li>
-<li>会污染原对象</li>
-</ol>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/vueInterview.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2021-01-08T10:01:20+08:00">
-    <div class="post-time-text">1月</div>
-    <div class="post-time-count">08</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">1月08</div>
-      <div class="post-year">2021</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
-                    <span itemprop="name">知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/smallknowledge.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/smallknowledge.html" itemprop="url">你所不知道的前端冷门小知识(长期更新)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2018-06-11T21:55:52+08:00">
-                2018-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/smallknowledge.html" class="leancloud_visitors" data-flag-title="你所不知道的前端冷门小知识(长期更新)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  22,055 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  105 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://javascript-puzzlers.herokuapp.com/" target="_blank" rel="noopener">javascript-puzzlers</a></p>
-<h2 id="void"><a href="#void" class="headerlink" title="void"></a>void</h2><p>void其实是javascript中的一个函数，接受一个参数，返回值永远是undefined
-void expression</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="number">0</span>  </span><br><span class="line"><span class="keyword">void</span>() <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">void</span> (<span class="number">0</span>)  </span><br><span class="line"><span class="keyword">void</span> <span class="string">"hello"</span>  </span><br><span class="line"><span class="keyword">void</span> (<span class="keyword">new</span> <span class="built_in">Date</span>())  </span><br><span class="line"><span class="comment">// all will return undefined  </span></span><br><span class="line">context === <span class="keyword">void</span> <span class="number">666</span></span><br></pre></td></tr></table></figure>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/smallknowledge.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2403,236 +2617,6 @@ id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-11-23T10:35:51+08:00">
-    <div class="post-time-text">11月</div>
-    <div class="post-time-count">23</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">11月23</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/React/" itemprop="url" rel="index">
-                    <span itemprop="name">React</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%89(React%20Fiber).html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%89(React%20Fiber).html" itemprop="url">react源码解析系列三(React Fiber)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-11-23T10:20:28+08:00">
-                2020-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E7%B3%BB%E5%88%97%E4%B8%89(React%20Fiber).html" class="leancloud_visitors" data-flag-title="react源码解析系列三(React Fiber)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,206 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  7 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Fiber"><a href="#Fiber" class="headerlink" title="Fiber"></a>Fiber</h2><blockquote>
-<p>每一个ReactElement对应一个Fiber对象</p>
-<p>记录节点的各种状态</p>
-<p>串联整个应用形成的结构</p>
-</blockquote>
-<p>例如：FiberRoot的current指向RootFiber 的 child —-&gt;App 的child —&gt; div 的child—-&gt;input 的sibling</p>
-<p>属性：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="comment">// 指向父节点（每个节点只会有一个父节点）</span></span><br><span class="line"></span><br><span class="line">child <span class="comment">// 子节点</span></span><br><span class="line"></span><br><span class="line">sibling <span class="comment">// 兄弟节点</span></span><br></pre></td></tr></table></figure>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><blockquote>
-<p>用于记录组件状态的改变</p>
-<p>存放于Fiber对象的UpdateQueue中：UpdateQue单项链表的结构</p>
-<p>多个Update可以同时存在：例如一个事件里面存在三个setState，创建三个update放到UpdateQueue中</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建或更新updatequeue</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">enqueueUpdate</span>&lt;<span class="title">State</span>&gt;(<span class="params">fiber: Fiber, update: Update&lt;State&gt;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Update queues are created lazily.</span></span><br><span class="line">  <span class="keyword">const</span> alternate = fiber.alternate;</span><br><span class="line">  <span class="keyword">let</span> queue1;</span><br><span class="line">  <span class="keyword">let</span> queue2;</span><br><span class="line">  <span class="keyword">if</span> (alternate === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// There's only one fiber.</span></span><br><span class="line">    queue1 = fiber.updateQueue;</span><br><span class="line">    queue2 = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (queue1 === <span class="literal">null</span>) &#123;</span><br><span class="line">      queue1 = fiber.updateQueue = createUpdateQueue(fiber.memoizedState);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// There are two owners.</span></span><br><span class="line">    queue1 = fiber.updateQueue;</span><br><span class="line">    queue2 = alternate.updateQueue;</span><br><span class="line">    <span class="keyword">if</span> (queue1 === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (queue2 === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// Neither fiber has an update queue. Create new ones.</span></span><br><span class="line">        queue1 = fiber.updateQueue = createUpdateQueue(fiber.memoizedState);</span><br><span class="line">        queue2 = alternate.updateQueue = createUpdateQueue(</span><br><span class="line">          alternate.memoizedState,</span><br><span class="line">        );</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// Only one fiber has an update queue. Clone to create a new one.</span></span><br><span class="line">        queue1 = fiber.updateQueue = cloneUpdateQueue(queue2);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (queue2 === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// Only one fiber has an update queue. Clone to create a new one.</span></span><br><span class="line">        queue2 = alternate.updateQueue = cloneUpdateQueue(queue1);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// Both owners have an update queue.</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (queue2 === <span class="literal">null</span> || queue1 === queue2) &#123;</span><br><span class="line">    <span class="comment">// There's only a single queue.</span></span><br><span class="line">    appendUpdateToQueue(queue1, update);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// There are two queues. We need to append the update to both queues,</span></span><br><span class="line">    <span class="comment">// while accounting for the persistent structure of the list — we don't</span></span><br><span class="line">    <span class="comment">// want the same update to be added multiple times.</span></span><br><span class="line">    <span class="keyword">if</span> (queue1.lastUpdate === <span class="literal">null</span> || queue2.lastUpdate === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="comment">// One of the queues is not empty. We must add the update to both queues.</span></span><br><span class="line">      appendUpdateToQueue(queue1, update);</span><br><span class="line">      appendUpdateToQueue(queue2, update);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Both queues are non-empty. The last update is the same in both lists,</span></span><br><span class="line">      <span class="comment">// because of structural sharing. So, only append to one of the lists.</span></span><br><span class="line">      appendUpdateToQueue(queue1, update);</span><br><span class="line">      <span class="comment">// But we still need to update the `lastUpdate` pointer of queue2.</span></span><br><span class="line">      queue2.lastUpdate = update;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (__DEV__) &#123;</span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      fiber.tag === ClassComponent &amp;&amp;</span><br><span class="line">      (currentlyProcessingQueue === queue1 ||</span><br><span class="line">        (queue2 !== <span class="literal">null</span> &amp;&amp; currentlyProcessingQueue === queue2)) &amp;&amp;</span><br><span class="line">      !didWarnUpdateInsideUpdate</span><br><span class="line">    ) &#123;</span><br><span class="line">      warningWithoutStack(</span><br><span class="line">        <span class="literal">false</span>,</span><br><span class="line">        <span class="string">'An update (setState, replaceState, or forceUpdate) was scheduled '</span> +</span><br><span class="line">          <span class="string">'from inside an update function. Update functions should be pure, '</span> +</span><br><span class="line">          <span class="string">'with zero side-effects. Consider using componentDidUpdate or a '</span> +</span><br><span class="line">          <span class="string">'callback.'</span>,</span><br><span class="line">      );</span><br><span class="line">      didWarnUpdateInsideUpdate = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="expirationTime"><a href="#expirationTime" class="headerlink" title="expirationTime"></a>expirationTime</h3><p>详解见：<a href="https://react.jokcy.me/book/update/expiration-time.html" target="_blank" rel="noopener">https://react.jokcy.me/book/update/expiration-time.html</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ReactFiberReconciler.js中</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">updateContainer</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  element: ReactNodeList,</span></span></span><br><span class="line"><span class="function"><span class="params">  container: OpaqueRoot,</span></span></span><br><span class="line"><span class="function"><span class="params">  parentComponent: ?React$Component&lt;any, any&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">  callback: ?Function,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> current = container.current; <span class="comment">// Fiber对象</span></span><br><span class="line">    <span class="comment">//!important</span></span><br><span class="line">  <span class="keyword">const</span> currentTime = requestCurrentTime();</span><br><span class="line">  <span class="keyword">const</span> expirationTime = computeExpirationForFiber(currentTime, current); </span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> updateContainerAtExpirationTime(</span><br><span class="line">    element,</span><br><span class="line">    container,</span><br><span class="line">    parentComponent,</span><br><span class="line">    expirationTime,</span><br><span class="line">    callback,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="requestCurrentTime"><a href="#requestCurrentTime" class="headerlink" title="requestCurrentTime"></a>requestCurrentTime</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 目前粗略的理解目前为止到js加载完成的时间差</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">requestCurrentTime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  已经进入到渲染阶段了</span></span><br><span class="line">  <span class="keyword">if</span> (isRendering) &#123;</span><br><span class="line">    <span class="comment">// We're already rendering. Return the most recently read time.</span></span><br><span class="line">    <span class="keyword">return</span> currentSchedulerTime;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Check if there's pending work.</span></span><br><span class="line">  findHighestPriorityRoot(); <span class="comment">// 从调度队列找到权限最高的root</span></span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    nextFlushedExpirationTime === NoWork ||</span><br><span class="line">    nextFlushedExpirationTime === Never</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="comment">// If there's no pending work, or if the pending work is offscreen, we can</span></span><br><span class="line">    <span class="comment">// read the current time without risk of tearing.</span></span><br><span class="line">    recomputeCurrentRendererTime(); <span class="comment">// 如下</span></span><br><span class="line">    currentSchedulerTime = currentRendererTime;</span><br><span class="line">    <span class="keyword">return</span> currentSchedulerTime;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// There's already pending work. We might be in the middle of a browser</span></span><br><span class="line">  <span class="comment">// event. If we were to read the current time, it could cause multiple updates</span></span><br><span class="line">  <span class="comment">// within the same event to receive different expiration times, leading to</span></span><br><span class="line">  <span class="comment">// tearing. Return the last read time. During the next idle callback, the</span></span><br><span class="line">  <span class="comment">// time will be updated.</span></span><br><span class="line">  <span class="keyword">return</span> currentSchedulerTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="recomputeCurrentRendererTime"><a href="#recomputeCurrentRendererTime" class="headerlink" title="recomputeCurrentRendererTime"></a>recomputeCurrentRendererTime</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">recomputeCurrentRendererTime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 从js加载完成到现在为止的时间间隔</span></span><br><span class="line">  <span class="keyword">const</span> currentTimeMs = now() - originalStartTimeMs; <span class="comment">// originalStartTimeMs： 初始的now（）</span></span><br><span class="line">  currentRendererTime = msToExpirationTime(currentTimeMs);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="msToExpirationTime"><a href="#msToExpirationTime" class="headerlink" title="msToExpirationTime"></a>msToExpirationTime</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> UNIT_SIZE = <span class="number">10</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">msToExpirationTime</span>(<span class="params">ms: number</span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Always add an offset so that we don't clash with the magic number for NoWork.</span></span><br><span class="line">  <span class="keyword">return</span> ((ms / UNIT_SIZE) | <span class="number">0</span>) + MAGIC_NUMBER_OFFSET;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="computeExpirationForFiber"><a href="#computeExpirationForFiber" class="headerlink" title="computeExpirationForFiber"></a>computeExpirationForFiber</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">computeExpirationForFiber</span>(<span class="params">currentTime: ExpirationTime, fiber: Fiber</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> expirationTime;</span><br><span class="line">  <span class="keyword">if</span> (expirationContext !== NoWork) &#123;</span><br><span class="line">    <span class="comment">// An explicit expiration context was set;</span></span><br><span class="line">    expirationTime = expirationContext;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isWorking) &#123;</span><br><span class="line">    <span class="keyword">if</span> (isCommitting) &#123;</span><br><span class="line">      <span class="comment">// Updates that occur during the commit phase should have sync priority</span></span><br><span class="line">      <span class="comment">// by default.</span></span><br><span class="line">      expirationTime = Sync;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Updates during the render phase should expire at the same time as</span></span><br><span class="line">      <span class="comment">// the work that is being rendered.</span></span><br><span class="line">      expirationTime = nextRenderExpirationTime;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// No explicit expiration context was set, and we're not currently</span></span><br><span class="line">    <span class="comment">// performing work. Calculate a new expiration time.</span></span><br><span class="line">    <span class="keyword">if</span> (fiber.mode &amp; ConcurrentMode) &#123;</span><br><span class="line">      <span class="keyword">if</span> (isBatchingInteractiveUpdates) &#123;</span><br><span class="line">        <span class="comment">// This is an interactive update</span></span><br><span class="line">        expirationTime = computeInteractiveExpiration(currentTime); <span class="comment">// 如下</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// This is an async update</span></span><br><span class="line">        expirationTime = computeAsyncExpiration(currentTime); <span class="comment">// 如下</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// If we're in the middle of rendering a tree, do not update at the same</span></span><br><span class="line">      <span class="comment">// expiration time that is already rendering.</span></span><br><span class="line">      <span class="keyword">if</span> (nextRoot !== <span class="literal">null</span> &amp;&amp; expirationTime === nextRenderExpirationTime) &#123;</span><br><span class="line">        expirationTime += <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// This is a sync update</span></span><br><span class="line">      expirationTime = Sync;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (isBatchingInteractiveUpdates) &#123;</span><br><span class="line">    <span class="comment">// This is an interactive update. Keep track of the lowest pending</span></span><br><span class="line">    <span class="comment">// interactive expiration time. This allows us to synchronously flush</span></span><br><span class="line">    <span class="comment">// all interactive updates when needed.</span></span><br><span class="line">    <span class="keyword">if</span> (expirationTime &gt; lowestPriorityPendingInteractiveExpirationTime) &#123;</span><br><span class="line">      lowestPriorityPendingInteractiveExpirationTime = expirationTime;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> expirationTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="computeInteractiveExpiration"><a href="#computeInteractiveExpiration" class="headerlink" title="computeInteractiveExpiration"></a>computeInteractiveExpiration</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> HIGH_PRIORITY_EXPIRATION = __DEV__ ? <span class="number">500</span> : <span class="number">150</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> HIGH_PRIORITY_BATCH_SIZE = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">computeInteractiveExpiration</span>(<span class="params">currentTime: ExpirationTime</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> computeExpirationBucket(</span><br><span class="line">    currentTime,</span><br><span class="line">    HIGH_PRIORITY_EXPIRATION,</span><br><span class="line">    HIGH_PRIORITY_BATCH_SIZE,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="computeAsyncExpiration"><a href="#computeAsyncExpiration" class="headerlink" title="computeAsyncExpiration"></a>computeAsyncExpiration</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> LOW_PRIORITY_EXPIRATION = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> LOW_PRIORITY_BATCH_SIZE = <span class="number">250</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">computeAsyncExpiration</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  currentTime: ExpirationTime,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> computeExpirationBucket(</span><br><span class="line">    currentTime,</span><br><span class="line">    LOW_PRIORITY_EXPIRATION,</span><br><span class="line">    LOW_PRIORITY_BATCH_SIZE,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="computeExpirationBucket"><a href="#computeExpirationBucket" class="headerlink" title="computeExpirationBucket"></a>computeExpirationBucket</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">computeExpirationBucket</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  currentTime,</span></span></span><br><span class="line"><span class="function"><span class="params">  expirationInMs,</span></span></span><br><span class="line"><span class="function"><span class="params">  bucketSizeMs,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">ExpirationTime</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    MAGIC_NUMBER_OFFSET +</span><br><span class="line">    ceiling(</span><br><span class="line">      currentTime - MAGIC_NUMBER_OFFSET + expirationInMs / UNIT_SIZE,</span><br><span class="line">      bucketSizeMs / UNIT_SIZE,</span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>计算为了将固定时间间断的，多次setState数据的更新当成一次更新，在这个时间间断内优先级是一样的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2850,7 +2834,7 @@ id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 310.8k字</span>
+    <span class="post-count">Blog总字数: 311.2k字</span>
   </div>
 
   <div class="theme-info">

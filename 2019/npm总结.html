@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="cosyer&#39;s Blog">
 <meta property="og:description" content="一. package.json 解读1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;#123;	&quot;name&quot;: &quot;hello world&quot;, &#x2F;&#x2F; 项目名称	&quot;version&quot;: &quot;0.0.1&quot;, &#x2F;&#x2F; 版本号：大版本.次要版本.小版本	&quot;author&quot;: &quot;张三&quot;,	&quot;de">
 <meta property="article:published_time" content="2019-09-17T16:17:31.000Z">
-<meta property="article:modified_time" content="2021-02-08T05:52:23.700Z">
+<meta property="article:modified_time" content="2021-02-18T08:55:24.775Z">
 <meta property="article:author" content="陈宇（cosyer）">
 <meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
@@ -413,12 +413,12 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2021-02-08T13:52:23+08:00">
+  <div class="post-date" data-datetime="2021-02-18T16:55:24+08:00">
     <div class="post-time-text">2月</div>
-    <div class="post-time-count">08</div>
+    <div class="post-time-count">18</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月08</div>
+      <div class="post-tiem">2月18</div>
       <div class="post-year">2021</div>
 		</div>
   </div>
@@ -523,7 +523,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,299 (字)
+                  3,741 (字)
                 </span>
               
 
@@ -539,7 +539,7 @@ a:hover {
                   <span class="post-meta-item-text">阅读时长：</span>
                 
                 <span title="阅读时长：">
-                  14 (分钟)
+                  16 (分钟)
                 </span>
               
             </div>
@@ -666,6 +666,27 @@ a:hover {
 <li>yalc会在项目中创建一个特殊的yalc.lock文件，用于确保执行yalc例程时的一致性</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yarn global add yalc</span><br><span class="line">yalc publish</span><br><span class="line">yalc add my-package</span><br><span class="line">yalc install</span><br></pre></td></tr></table></figure>
+<h3 id="nvm安装和使用"><a href="#nvm安装和使用" class="headerlink" title="nvm安装和使用"></a>nvm安装和使用</h3><ul>
+<li>安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>修改<code>.bash_profile</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">nvm install stable <span class="comment"># 安装最新稳定版 node，现在是 5.0.0</span></span><br><span class="line">nvm install 4.2.2 <span class="comment"># 安装 4.2.2 版本</span></span><br><span class="line">nvm install 0.12.7 <span class="comment"># 安装 0.12.7 版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 特别说明：以下模块安装仅供演示说明，并非必须安装模块</span></span><br><span class="line">nvm use 4 <span class="comment"># 切换至 4.2.2 版本</span></span><br><span class="line">npm install -g mz-fis <span class="comment"># 安装 mz-fis 模块至全局目录，安装完成的路径是 /Users/&lt;你的用户名&gt;/.nvm/versions/node/v0.12.7/lib/mz-fis</span></span><br><span class="line">nvm use 0 <span class="comment"># 切换至 0.12.7 版本</span></span><br><span class="line">npm install -g react-native-cli <span class="comment">#安装 react-native-cli 模块至全局目录，安装完成的路径是 /Users/&lt;你的用户名&gt;/.nvm/versions/node/v4.2.2/lib/react-native-cli</span></span><br><span class="line"></span><br><span class="line">nvm <span class="built_in">alias</span> default 0.12.7 <span class="comment">#设置默认 node 版本为 0.12.7</span></span><br><span class="line"></span><br><span class="line">nvm ls <span class="comment">#列出已安装实例</span></span><br><span class="line">nvm ls-remote <span class="comment">#列出远程服务器上所有的可用版本</span></span><br><span class="line">nvm ls available <span class="comment">#windows</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="npx-运行文件夹下的module-npm-从v5-2开始，增加了-npx-命令"><a href="#npx-运行文件夹下的module-npm-从v5-2开始，增加了-npx-命令" class="headerlink" title="npx 运行文件夹下的module(npm 从v5.2开始，增加了 npx 命令)"></a>npx 运行文件夹下的module(npm 从v5.2开始，增加了 npx 命令)</h3><p>npx 想要解决的主要问题，就是调用项目内部安装的模块。一般来说，调用 Mocha ，只能在项目脚本和 package.json 的scripts字段里面， 如果
+想在命令行下调用，必须像下面这样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 项目的根目录下执行</span></span><br><span class="line">node-modules/.bin/mocha --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用npx</span></span><br><span class="line">npx mocha --version</span><br></pre></td></tr></table></figure>
+<p><code>npx 的原理很简单，就是运行的时候，会到node_modules/.bin路径和环境变量$PATH里面，检查命令是否存在。</code></p>
 
       
     </div>
@@ -697,7 +718,7 @@ a:hover {
   <p><span>本文标题:</span><a href="/2019/npm%E6%80%BB%E7%BB%93.html">npm总结</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 陈宇（cosyer） 的个人博客">陈宇（cosyer）</a></p>
   <p><span>发布时间:</span>2019年09月18日 - 00:09</p>
-  <p><span>最后更新:</span>2021年02月08日 - 13:02</p>
+  <p><span>最后更新:</span>2021年02月18日 - 16:02</p>
   <p><span>原始链接:</span><a href="/2019/npm%E6%80%BB%E7%BB%93.html" title="npm总结">http://mydearest.cn/2019/npm%E6%80%BB%E7%BB%93.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mydearest.cn/2019/npm%E6%80%BB%E7%BB%93.html"  aria-label=" 复制成功！"></i></span>
   </p>
@@ -1001,7 +1022,7 @@ a:hover {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-package-json-解读"><span class="nav-number">1.</span> <span class="nav-text">一. package.json 解读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-版本号规范"><span class="nav-number">2.</span> <span class="nav-text">二. 版本号规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-npm-install-与-npm-update"><span class="nav-number">3.</span> <span class="nav-text">三. npm install 与 npm update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-npm-i-与-npm-install"><span class="nav-number">4.</span> <span class="nav-text">四. npm i 与 npm install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-npm-devDependencies-与-dependencies"><span class="nav-number">5.</span> <span class="nav-text">五. npm devDependencies 与 dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-全局安装与本地安装"><span class="nav-number">6.</span> <span class="nav-text">六. 全局安装与本地安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-全局安装，-将包安装成全局可用的可执行命令"><span class="nav-number">6.1.</span> <span class="nav-text">1. 全局安装， 将包安装成全局可用的可执行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地安装"><span class="nav-number">6.2.</span> <span class="nav-text">2. 本地安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改全局安装默认路径"><span class="nav-number">6.3.</span> <span class="nav-text">3. 修改全局安装默认路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-npm-包命令"><span class="nav-number">7.</span> <span class="nav-text">七. npm 包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-简写形式"><span class="nav-number">8.</span> <span class="nav-text">八. 简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-process"><span class="nav-number">9.</span> <span class="nav-text">九. process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十-npm-发布包"><span class="nav-number">10.</span> <span class="nav-text">十. npm 发布包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number">11.</span> <span class="nav-text">常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac更新node版本"><span class="nav-number">12.</span> <span class="nav-text">mac更新node版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yarn-link"><span class="nav-number">13.</span> <span class="nav-text">yarn link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yalc"><span class="nav-number">14.</span> <span class="nav-text">yalc</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-package-json-解读"><span class="nav-number">1.</span> <span class="nav-text">一. package.json 解读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-版本号规范"><span class="nav-number">2.</span> <span class="nav-text">二. 版本号规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-npm-install-与-npm-update"><span class="nav-number">3.</span> <span class="nav-text">三. npm install 与 npm update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-npm-i-与-npm-install"><span class="nav-number">4.</span> <span class="nav-text">四. npm i 与 npm install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-npm-devDependencies-与-dependencies"><span class="nav-number">5.</span> <span class="nav-text">五. npm devDependencies 与 dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-全局安装与本地安装"><span class="nav-number">6.</span> <span class="nav-text">六. 全局安装与本地安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-全局安装，-将包安装成全局可用的可执行命令"><span class="nav-number">6.1.</span> <span class="nav-text">1. 全局安装， 将包安装成全局可用的可执行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地安装"><span class="nav-number">6.2.</span> <span class="nav-text">2. 本地安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改全局安装默认路径"><span class="nav-number">6.3.</span> <span class="nav-text">3. 修改全局安装默认路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-npm-包命令"><span class="nav-number">7.</span> <span class="nav-text">七. npm 包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-简写形式"><span class="nav-number">8.</span> <span class="nav-text">八. 简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-process"><span class="nav-number">9.</span> <span class="nav-text">九. process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十-npm-发布包"><span class="nav-number">10.</span> <span class="nav-text">十. npm 发布包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number">11.</span> <span class="nav-text">常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac更新node版本"><span class="nav-number">12.</span> <span class="nav-text">mac更新node版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yarn-link"><span class="nav-number">13.</span> <span class="nav-text">yarn link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yalc"><span class="nav-number">14.</span> <span class="nav-text">yalc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm安装和使用"><span class="nav-number">15.</span> <span class="nav-text">nvm安装和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npx-运行文件夹下的module-npm-从v5-2开始，增加了-npx-命令"><span class="nav-number">16.</span> <span class="nav-text">npx 运行文件夹下的module(npm 从v5.2开始，增加了 npx 命令)</span></a></li></ol></div>
             
 
           </div>
@@ -1046,7 +1067,7 @@ a:hover {
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 311.2k字</span>
+    <span class="post-count">Blog总字数: 311.9k字</span>
   </div>
 
   <div class="theme-info">

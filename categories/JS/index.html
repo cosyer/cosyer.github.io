@@ -433,6 +433,217 @@ a:hover {
   
   
   
+  <div class="post-date" data-datetime="2021-02-23T16:26:46+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">23</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">2月23</div>
+      <div class="post-year">2021</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2021/reacti18next.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/reacti18next.html" itemprop="url">reacti18next实践</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2021-02-23T14:04:11+08:00">
+                2021-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/reacti18next.html" class="leancloud_visitors" data-flag-title="reacti18next实践">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  429 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  2 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-i18next i18next i18next-browser-languagedetector</span><br></pre></td></tr></table></figure>
+<h2 id="配置多语言JSON"><a href="#配置多语言JSON" class="headerlink" title="配置多语言JSON"></a>配置多语言JSON</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// en-us.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"common"</span>: &#123;</span><br><span class="line">    <span class="string">"cancel"</span>: <span class="string">"Cancel"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"join"</span>: <span class="string">"join"</span>,</span><br><span class="line">  <span class="string">"retry"</span>: <span class="string">"Retry after &#123;&#123;timer&#125;&#125;s"</span>,</span><br><span class="line">  <span class="string">"choosePerson"</span>: <span class="string">"Selected &lt;0&gt;&#123;&#123;num&#125;&#125;&lt;/0&gt; person"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// zh-cn.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"common"</span>: &#123;</span><br><span class="line">    <span class="string">"cancel"</span>: <span class="string">"取消"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"join"</span>: <span class="string">"加入"</span>,</span><br><span class="line">  <span class="string">"retry"</span>: <span class="string">"&#123;&#123;timer&#125;&#125;秒后重试"</span>,</span><br><span class="line">  <span class="string">"choosePerson"</span>: <span class="string">"选择人数&lt;0&gt;&#123;&#123;num&#125;&#125;&lt;/0&gt;, 没选择人数&lt;1&gt;&#123;&#123;num1&#125;&#125;&lt;/1&gt;"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量需要通过&#123;&#123;&#125;&#125;格式包裹，组件需要通过&lt;数字&gt;&lt;/数字&gt;格式包裹</span></span><br></pre></td></tr></table></figure>
+<h2 id="定义i18n-tsx"><a href="#定义i18n-tsx" class="headerlink" title="定义i18n.tsx"></a>定义i18n.tsx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import LanguageDetector from &#39;i18next-browser-languagedetector&#39;;</span><br><span class="line">import i18n from &quot;i18next&quot;;</span><br><span class="line">import enUsTrans from &quot;..&#x2F;public&#x2F;locales&#x2F;en-us.json&quot;;</span><br><span class="line">import zhCnTrans from &quot;..&#x2F;public&#x2F;locales&#x2F;zh-cn.json&quot;;</span><br><span class="line">import &#123;</span><br><span class="line">  initReactI18next</span><br><span class="line">&#125; from &#39;react-i18next&#39;;</span><br><span class="line"></span><br><span class="line">i18n.use(LanguageDetector) &#x2F;&#x2F;嗅探当前浏览器语言</span><br><span class="line">.use(initReactI18next) &#x2F;&#x2F;init i18next</span><br><span class="line">.init(&#123;</span><br><span class="line">  &#x2F;&#x2F;引入资源文件</span><br><span class="line">  resources: &#123;</span><br><span class="line">    en: &#123;</span><br><span class="line">      translation: enUsTrans,</span><br><span class="line">    &#125;,</span><br><span class="line">    zh: &#123;</span><br><span class="line">      translation: zhCnTrans,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x2F;&#x2F;选择默认语言，选择内容为上述配置中的key，即en&#x2F;zh</span><br><span class="line">  fallbackLng: &quot;en&quot;,</span><br><span class="line">  debug: false,</span><br><span class="line">  interpolation: &#123;</span><br><span class="line">    escapeValue: false, &#x2F;&#x2F; not needed for react as it escapes by default</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default i18n;</span><br></pre></td></tr></table></figure>
+<h2 id="主文件引用"><a href="#主文件引用" class="headerlink" title="主文件引用"></a>主文件引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;</span><br><span class="line">import App from &#39;next&#x2F;app&#39;</span><br><span class="line">import &#39;..&#x2F;config&#x2F;i18n&#39;</span><br><span class="line"></span><br><span class="line">class MyApp extends App &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; Component, pageProps &#125; &#x3D; this.props</span><br><span class="line">    return &lt;Component &#123;...pageProps&#125; &#x2F;&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default MyApp</span><br></pre></td></tr></table></figure>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;</span><br><span class="line">import &#123; NextPage &#125; from &#39;next&#39;</span><br><span class="line">import &#123; useTranslation, Trans, Translation &#125; from &#39;react-i18next&#39;</span><br><span class="line">&#x2F;&#x2F; import i18n from &quot;i18next&quot;;</span><br><span class="line"></span><br><span class="line">const Home: NextPage &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  let &#123; t , i18n &#125; &#x3D; useTranslation()</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div &gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">      &lt;button onClick&#x3D;&#123;()&#x3D;&gt;i18n.changeLanguage(i18n.language&#x3D;&#x3D;&#39;en&#39;?&#39;zh&#39;:&#39;en&#39;)&#125;&gt;&#123;i18n.language&#x3D;&#x3D;&#39;en&#39;?&#39;zh&#39;:&#39;en&#39;&#125;&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">      &#123;&#x2F;* 3种常用使用方式 *&#x2F;&#125;</span><br><span class="line">      &lt;h1&gt;&#123;t(&#39;home&#39;)&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">      &lt;h2&gt;&lt;Trans&gt;home&lt;&#x2F;Trans&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;Translation&gt;&#123;t &#x3D;&gt; &lt;h3&gt;&#123;t(&#39;home&#39;)&#125;&lt;&#x2F;h3&gt;&#125;&lt;&#x2F;Translation&gt;</span><br><span class="line"></span><br><span class="line">      &lt;h1&gt;</span><br><span class="line">        &#123;i18n.t(&quot;common.cancel&quot;)&#125;</span><br><span class="line">        &lt;div&gt;&#123;i18n.t(&quot;retry&quot;, &#123;retry: 3&#125;)&#125;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;Trans i18nKey&#x3D;&#123;&quot;choosePerson&quot;&#125; values&#x3D;&#123;&#123;num: 3, num1: 4&#125;&#125; components&#x3D;&#123;[&lt;div&gt;content&lt;&#x2F;div&gt;, &lt;span&gt;content&lt;&#x2F;span&gt;]&#125;&gt;&lt;&#x2F;Trans&gt;</span><br><span class="line">      &lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Home</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
   <div class="post-date" data-datetime="2020-12-02T14:04:58+08:00">
     <div class="post-time-text">12月</div>
     <div class="post-time-count">02</div>
@@ -2500,225 +2711,6 @@ id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-04-03T00:05:25+08:00">
-    <div class="post-time-text">4月</div>
-    <div class="post-time-count">03</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">4月03</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/%E5%AE%9E%E7%8E%B0compose.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/%E5%AE%9E%E7%8E%B0compose.html" itemprop="url">实现compose</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-04-02T23:54:34+08:00">
-                2020-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/%E5%AE%9E%E7%8E%B0compose.html" class="leancloud_visitors" data-flag-title="实现compose">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  1,321 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  6 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>实现compose函数的五种思路</p>
-<ul>
-<li>面向过程</li>
-<li>函数组合（reduce）</li>
-<li>函数交织（AOP编程）</li>
-<li>Promise（sequence）</li>
-<li>Generator（yield）</li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/%E5%AE%9E%E7%8E%B0compose.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2781,7 +2773,7 @@ id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">158</span>
+                <span class="site-state-item-count">159</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2946,7 +2938,7 @@ id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 311.9k字</span>
+    <span class="post-count">Blog总字数: 312.4k字</span>
   </div>
 
   <div class="theme-info">

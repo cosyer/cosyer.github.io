@@ -428,12 +428,223 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2021-02-18T16:55:24+08:00">
+  <div class="post-date" data-datetime="2021-02-23T16:26:46+08:00">
     <div class="post-time-text">2月</div>
-    <div class="post-time-count">18</div>
+    <div class="post-time-count">23</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月18</div>
+      <div class="post-tiem">2月23</div>
+      <div class="post-year">2021</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2021/reacti18next.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/reacti18next.html" itemprop="url">reacti18next实践</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2021-02-23T14:04:11+08:00">
+                2021-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/reacti18next.html" class="leancloud_visitors" data-flag-title="reacti18next实践">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  429 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  2 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-i18next i18next i18next-browser-languagedetector</span><br></pre></td></tr></table></figure>
+<h2 id="配置多语言JSON"><a href="#配置多语言JSON" class="headerlink" title="配置多语言JSON"></a>配置多语言JSON</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// en-us.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"common"</span>: &#123;</span><br><span class="line">    <span class="string">"cancel"</span>: <span class="string">"Cancel"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"join"</span>: <span class="string">"join"</span>,</span><br><span class="line">  <span class="string">"retry"</span>: <span class="string">"Retry after &#123;&#123;timer&#125;&#125;s"</span>,</span><br><span class="line">  <span class="string">"choosePerson"</span>: <span class="string">"Selected &lt;0&gt;&#123;&#123;num&#125;&#125;&lt;/0&gt; person"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// zh-cn.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"common"</span>: &#123;</span><br><span class="line">    <span class="string">"cancel"</span>: <span class="string">"取消"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"join"</span>: <span class="string">"加入"</span>,</span><br><span class="line">  <span class="string">"retry"</span>: <span class="string">"&#123;&#123;timer&#125;&#125;秒后重试"</span>,</span><br><span class="line">  <span class="string">"choosePerson"</span>: <span class="string">"选择人数&lt;0&gt;&#123;&#123;num&#125;&#125;&lt;/0&gt;, 没选择人数&lt;1&gt;&#123;&#123;num1&#125;&#125;&lt;/1&gt;"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量需要通过&#123;&#123;&#125;&#125;格式包裹，组件需要通过&lt;数字&gt;&lt;/数字&gt;格式包裹</span></span><br></pre></td></tr></table></figure>
+<h2 id="定义i18n-tsx"><a href="#定义i18n-tsx" class="headerlink" title="定义i18n.tsx"></a>定义i18n.tsx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import LanguageDetector from &#39;i18next-browser-languagedetector&#39;;</span><br><span class="line">import i18n from &quot;i18next&quot;;</span><br><span class="line">import enUsTrans from &quot;..&#x2F;public&#x2F;locales&#x2F;en-us.json&quot;;</span><br><span class="line">import zhCnTrans from &quot;..&#x2F;public&#x2F;locales&#x2F;zh-cn.json&quot;;</span><br><span class="line">import &#123;</span><br><span class="line">  initReactI18next</span><br><span class="line">&#125; from &#39;react-i18next&#39;;</span><br><span class="line"></span><br><span class="line">i18n.use(LanguageDetector) &#x2F;&#x2F;嗅探当前浏览器语言</span><br><span class="line">.use(initReactI18next) &#x2F;&#x2F;init i18next</span><br><span class="line">.init(&#123;</span><br><span class="line">  &#x2F;&#x2F;引入资源文件</span><br><span class="line">  resources: &#123;</span><br><span class="line">    en: &#123;</span><br><span class="line">      translation: enUsTrans,</span><br><span class="line">    &#125;,</span><br><span class="line">    zh: &#123;</span><br><span class="line">      translation: zhCnTrans,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x2F;&#x2F;选择默认语言，选择内容为上述配置中的key，即en&#x2F;zh</span><br><span class="line">  fallbackLng: &quot;en&quot;,</span><br><span class="line">  debug: false,</span><br><span class="line">  interpolation: &#123;</span><br><span class="line">    escapeValue: false, &#x2F;&#x2F; not needed for react as it escapes by default</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default i18n;</span><br></pre></td></tr></table></figure>
+<h2 id="主文件引用"><a href="#主文件引用" class="headerlink" title="主文件引用"></a>主文件引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;</span><br><span class="line">import App from &#39;next&#x2F;app&#39;</span><br><span class="line">import &#39;..&#x2F;config&#x2F;i18n&#39;</span><br><span class="line"></span><br><span class="line">class MyApp extends App &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; Component, pageProps &#125; &#x3D; this.props</span><br><span class="line">    return &lt;Component &#123;...pageProps&#125; &#x2F;&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default MyApp</span><br></pre></td></tr></table></figure>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;</span><br><span class="line">import &#123; NextPage &#125; from &#39;next&#39;</span><br><span class="line">import &#123; useTranslation, Trans, Translation &#125; from &#39;react-i18next&#39;</span><br><span class="line">&#x2F;&#x2F; import i18n from &quot;i18next&quot;;</span><br><span class="line"></span><br><span class="line">const Home: NextPage &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  let &#123; t , i18n &#125; &#x3D; useTranslation()</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div &gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">      &lt;button onClick&#x3D;&#123;()&#x3D;&gt;i18n.changeLanguage(i18n.language&#x3D;&#x3D;&#39;en&#39;?&#39;zh&#39;:&#39;en&#39;)&#125;&gt;&#123;i18n.language&#x3D;&#x3D;&#39;en&#39;?&#39;zh&#39;:&#39;en&#39;&#125;&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">      &#123;&#x2F;* 3种常用使用方式 *&#x2F;&#125;</span><br><span class="line">      &lt;h1&gt;&#123;t(&#39;home&#39;)&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">      &lt;h2&gt;&lt;Trans&gt;home&lt;&#x2F;Trans&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;Translation&gt;&#123;t &#x3D;&gt; &lt;h3&gt;&#123;t(&#39;home&#39;)&#125;&lt;&#x2F;h3&gt;&#125;&lt;&#x2F;Translation&gt;</span><br><span class="line"></span><br><span class="line">      &lt;h1&gt;</span><br><span class="line">        &#123;i18n.t(&quot;common.cancel&quot;)&#125;</span><br><span class="line">        &lt;div&gt;&#123;i18n.t(&quot;retry&quot;, &#123;retry: 3&#125;)&#125;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;Trans i18nKey&#x3D;&#123;&quot;choosePerson&quot;&#125; values&#x3D;&#123;&#123;num: 3, num1: 4&#125;&#125; components&#x3D;&#123;[&lt;div&gt;content&lt;&#x2F;div&gt;, &lt;span&gt;content&lt;&#x2F;span&gt;]&#125;&gt;&lt;&#x2F;Trans&gt;</span><br><span class="line">      &lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Home</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2021-02-20T10:03:13+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">20</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">2月20</div>
       <div class="post-year">2021</div>
 		</div>
   </div>
@@ -540,7 +751,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  3,741 (字)
+                  3,756 (字)
                 </span>
               
 
@@ -642,12 +853,450 @@ a:hover {
   
   
   
-  <div class="post-date" data-datetime="2021-02-18T16:53:13+08:00">
+  <div class="post-date" data-datetime="2021-02-19T22:44:18+08:00">
     <div class="post-time-text">2月</div>
-    <div class="post-time-count">18</div>
+    <div class="post-time-count">19</div>
     <div class="text-desc">
 			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月18</div>
+      <div class="post-tiem">2月19</div>
+      <div class="post-year">2021</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html" itemprop="url">linux安装mongodb及常见命令</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2019-07-20T14:20:40+08:00">
+                2019-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html" class="leancloud_visitors" data-flag-title="linux安装mongodb及常见命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  706 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  4 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="http://cdn.mydearest.cn/blog/images/mongodb.jpg" class="full-image" alt="MongoDB" title="MongoDB"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<h2 id="MongoDB-是一个基于分布式文件存储的数据库。由-C-语言编写。旨在为-WEB-应用提供可扩展的高性能数据存储解决方案。"><a href="#MongoDB-是一个基于分布式文件存储的数据库。由-C-语言编写。旨在为-WEB-应用提供可扩展的高性能数据存储解决方案。" class="headerlink" title="MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。"></a>MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/linux%E5%AE%89%E8%A3%85mongodb%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2021-02-19T17:00:00+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">19</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">2月19</div>
+      <div class="post-year">2021</div>
+		</div>
+  </div>
+  
+  
+  
+
+  <div class="post-badge">
+    
+            <span class="post-category" >
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+    
+  </div>
+
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/useful-website.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈宇（cosyer）">
+      <meta itemprop="description" content="不去做的话永远也做不到。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cosyer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/useful-website.html" itemprop="url">收集有用的网站</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-10-09T16:32:26+08:00">
+                2020-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/useful-website.html" class="leancloud_visitors" data-flag-title="收集有用的网站">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span> ℃
+             </span>
+          
+
+          
+
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-pencil-square-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计：">
+                  341 (字)
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长：</span>
+                
+                <span title="阅读时长：">
+                  2 (分钟)
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>This page will collect some useful websets.</p>
+<ul>
+<li><a href="https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7" target="_blank" rel="noopener">ss free account</a></li>
+<li><a href="https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7" target="_blank" rel="noopener">v2ray free account</a></li>
+<li><a href="https://github.com/abhisheknaiidu/awesome-github-profile-readme" target="_blank" rel="noopener">awesome-github-profile-readme</a></li>
+</ul>
+<h2 id="probot"><a href="#probot" class="headerlink" title="probot"></a>probot</h2><ul>
+<li><a href="https://probot.github.io/apps/" target="_blank" rel="noopener">probot</a><ul>
+<li><a href="https://probot.github.io/apps/auto-comment/" target="_blank" rel="noopener">Auto-comment</a></li>
+<li><a href="https://probot.github.io/apps/pull/" target="_blank" rel="noopener">pull</a></li>
+<li><a href="https://github.com/svanboxel/delete-merged-branch" target="_blank" rel="noopener">delete-merged-branch</a></li>
+<li><a href="https://probot.github.io/apps/stale/" target="_blank" rel="noopener">stale</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/useful-website.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-date" data-datetime="2021-02-19T10:06:48+08:00">
+    <div class="post-time-text">2月</div>
+    <div class="post-time-count">19</div>
+    <div class="text-desc">
+			<div class="date-text">更新于</div>
+      <div class="post-tiem">2月19</div>
       <div class="post-year">2021</div>
 		</div>
   </div>
@@ -754,7 +1403,7 @@ a:hover {
                   <span class="post-meta-item-text">字数统计：</span>
                 
                 <span title="字数统计：">
-                  22,313 (字)
+                  22,322 (字)
                 </span>
               
 
@@ -1233,232 +1882,6 @@ str | index</li>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/%E4%BA%BA%E4%B8%80%E7%94%9F%E5%BF%85%E9%A1%BB%E5%8E%BB%E7%9A%843%E4%B8%AA%E5%9C%B0%E6%96%B9.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2021-02-13T23:03:22+08:00">
-    <div class="post-time-text">2月</div>
-    <div class="post-time-count">13</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">2月13</div>
-      <div class="post-year">2021</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/useful-website.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/useful-website.html" itemprop="url">收集有用的网站</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-10-09T16:32:26+08:00">
-                2020-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/useful-website.html" class="leancloud_visitors" data-flag-title="收集有用的网站">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  330 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  2 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>This page will collect some useful websets.</p>
-<ul>
-<li><a href="https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7" target="_blank" rel="noopener">ss free account</a></li>
-<li><a href="https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7" target="_blank" rel="noopener">v2ray free account</a></li>
-<li><a href="https://github.com/abhisheknaiidu/awesome-github-profile-readme" target="_blank" rel="noopener">awesome-github-profile-readme</a></li>
-</ul>
-<h2 id="probot"><a href="#probot" class="headerlink" title="probot"></a>probot</h2><ul>
-<li><a href="https://probot.github.io/apps/" target="_blank" rel="noopener">probot</a><ul>
-<li><a href="https://probot.github.io/apps/auto-comment/" target="_blank" rel="noopener">Auto-comment</a></li>
-<li><a href="https://probot.github.io/apps/pull/" target="_blank" rel="noopener">pull</a></li>
-<li><a href="https://github.com/svanboxel/delete-merged-branch" target="_blank" rel="noopener">delete-merged-branch</a></li>
-<li><a href="https://probot.github.io/apps/stale/" target="_blank" rel="noopener">stale</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/useful-website.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2157,467 +2580,6 @@ Vue中先遍历data选项中所有的属性（发布者）用Object.defineProper
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-12-02T14:54:33+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html" itemprop="url">elasticsearch、redis部署</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-09-18T11:14:08+08:00">
-                2020-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html" class="leancloud_visitors" data-flag-title="elasticsearch、redis部署">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  885 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  5 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="skywalking"><a href="#skywalking" class="headerlink" title="skywalking"></a>skywalking</h1><h2 id="预安装JDK"><a href="#预安装JDK" class="headerlink" title="预安装JDK"></a>预安装JDK</h2><p><a href="https://www.cnblogs.com/cosyer/p/7827995.html" target="_blank" rel="noopener">Linux系统（Centos yum）下安装Java环境</a></p>
-<h2 id="elasticsearch"><a href="#elasticsearch" class="headerlink" title="elasticsearch"></a>elasticsearch</h2><h3 id="官网下载-https-www-elastic-co-cn-downloads-elasticsearch"><a href="#官网下载-https-www-elastic-co-cn-downloads-elasticsearch" class="headerlink" title="官网下载 https://www.elastic.co/cn/downloads/elasticsearch"></a>官网下载 <a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/elasticsearch</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf elasticsearch-6.1.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 config/elasticsearch.yml</span></span><br><span class="line">cluster.name: myskywalking</span><br><span class="line">path.data: /opt/data/es/data</span><br><span class="line">path.logs: /opt/data/es/logs</span><br><span class="line">bootstrap.memory_lock: <span class="literal">false</span></span><br><span class="line">network.host: 193.160.59.45</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单机运行</span></span><br><span class="line">./bin/elasticsearch -V</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台运行</span></span><br><span class="line">./bin/elasticsearch -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问</span></span><br><span class="line">http://127.0.0.1:9200</span><br></pre></td></tr></table></figure>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
-<li><p>需要非root用户启动</p>
-</li>
-<li><p>【报错】max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144] 内存过小
-解决:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.sudo vi /etc/sysctl.conf 文件最后添加一行</span></span><br><span class="line"><span class="comment">#    vm.max_map_count=262144</span></span><br><span class="line"><span class="comment"># 2.加载设置好的系统参数</span></span><br><span class="line"><span class="comment">#    sudo sysctl -p</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/elasticsearch%E3%80%81redis%E9%83%A8%E7%BD%B2.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-date" data-datetime="2020-12-02T14:04:58+08:00">
-    <div class="post-time-text">12月</div>
-    <div class="post-time-count">02</div>
-    <div class="text-desc">
-			<div class="date-text">更新于</div>
-      <div class="post-tiem">12月02</div>
-      <div class="post-year">2020</div>
-		</div>
-  </div>
-  
-  
-  
-
-  <div class="post-badge">
-    
-            <span class="post-category" >
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-    
-  </div>
-
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mydearest.cn/2020/Nest%E6%A6%82%E8%BF%B0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈宇（cosyer）">
-      <meta itemprop="description" content="不去做的话永远也做不到。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cosyer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/Nest%E6%A6%82%E8%BF%B0.html" itemprop="url">Nest概述</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2020-11-30T09:25:42+08:00">
-                2020-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/Nest%E6%A6%82%E8%BF%B0.html" class="leancloud_visitors" data-flag-title="Nest概述">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span> ℃
-             </span>
-          
-
-          
-
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-pencil-square-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计：</span>
-                
-                <span title="字数统计：">
-                  5,154 (字)
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长：</span>
-                
-                <span title="阅读时长：">
-                  24 (分钟)
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><p>一分钟安装<code>nodejs</code>，版本(<strong>&gt;=10.13.0</strong>)</p>
-<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g @nestjs/cli</span><br><span class="line"></span><br><span class="line">nest new project</span><br></pre></td></tr></table></figure>
-<h3 id="初始项目结构"><a href="#初始项目结构" class="headerlink" title="初始项目结构"></a>初始项目结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将创建 project 目录， 安装node模块和一些其他样板文件，并将创建一个 src 目录，目录中包含几个核心文件。</span></span><br><span class="line">src</span><br><span class="line">├── app.controller.ts <span class="comment"># 带有单个路由的基本控制器示例。</span></span><br><span class="line">├── app.module.ts <span class="comment"># 应用程序的根模块</span></span><br><span class="line">└── main.ts <span class="comment"># 应用程序入口文件。它使用 NestFactory 用来创建 Nest 应用实例。</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; NestFactory &#125; <span class="keyword">from</span> <span class="string">'@nestjs/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppModule &#125; <span class="keyword">from</span> <span class="string">'./app.module'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> app = <span class="keyword">await</span> NestFactory.create(AppModule);</span><br><span class="line">  <span class="keyword">await</span> app.listen(<span class="number">3000</span>);</span><br><span class="line">&#125;</span><br><span class="line">bootstrap();</span><br></pre></td></tr></table></figure>
-<h3 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h3><p>Nest 旨在成为一个与平台无关的框架。 通过平台，可以创建可重用的逻辑部件，开发人员可以利用这些部件来跨越多种不同类型的应用程序。 从技术
-上讲，Nest 可以在创建适配器后使用任何 Node HTTP 框架。 有两个支持开箱即用的 HTTP 平台：express 和 fastify。 您可以选择最适合您
-需求的产品。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">平台</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">express</td>
-<td style="text-align:left">Express 是一个众所周知的 node.js 简约 Web 框架。 这是一个经过实战考验，适用于生产的库，拥有大量社区资源。 默认情况下使</td>
-</tr>
-</tbody>
-</table>
-<p>用 <code>@nestjs/platform-express</code> 包。 许多用户都可以使用 Express ，并且无需采取任何操作即可启用它。|
-|fastify|Fastify 是一个高性能，低开销的框架，专注于提供最高的效率和速度。 在<a href="https://docs.nestjs.cn/7/techniques?
-id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它。|</p>
-<p>无论使用哪种平台，它都会暴露自己的 API。 它们分别是 NestExpressApplication 和 NestFastifyApplication。</p>
-<p>将类型传递给 NestFactory.create() 函数时，如下例所示，app 对象将具有专用于该特定平台的函数。 但是，请注意，除非您确实要访问底层平
-台API，否则无需指定类型。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">await</span> NestFactory.create&lt;NestExpressApplication&gt;(AppModule);</span><br></pre></td></tr></table></figure>
-<h3 id="运行应用程序"><a href="#运行应用程序" class="headerlink" title="运行应用程序"></a>运行应用程序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm run start</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://localhost:3000 Hello World</span></span><br></pre></td></tr></table></figure>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/Nest%E6%A6%82%E8%BF%B0.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2670,7 +2632,7 @@ id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">158</span>
+                <span class="site-state-item-count">159</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2835,7 +2797,7 @@ id=%e6%80%a7%e8%83%bd%ef%bc%88fastify%ef%bc%89">这里</a>阅读如何使用它�
 
   <div class="theme-info">
     <div class="powered-by"></div>
-    <span class="post-count">Blog总字数: 311.9k字</span>
+    <span class="post-count">Blog总字数: 312.4k字</span>
   </div>
 
   <div class="theme-info">
